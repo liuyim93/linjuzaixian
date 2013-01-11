@@ -22,7 +22,7 @@ namespace friday.core.domain
             Map(o=>o.Tel);
             Map(o=>o.SendTime);
             Map(o => o.OrderNumber);
-           References<SystemUser>(o => o.SystemUser);
+           References<Customer>(o => o.Customer);
            References<Shop>(o => o.Shop);
            HasMany<OrderFood>(o => o.OrderFoods).Inverse().LazyLoad().Cascade.All();
                        

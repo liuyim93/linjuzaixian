@@ -5,7 +5,7 @@ using Iesi.Collections.Generic;
 using friday.core.EnumType;
 namespace friday.core.domain
 {
-    public class SystemUser : Entity
+    public class SystemUser : Customer
     {
         /// <remarks>真实姓名</remarks>
         public virtual string Name
@@ -58,14 +58,6 @@ namespace friday.core.domain
 
         }
 
-        public virtual string Address
-        {
-            get;
-
-            set;
-
-        }
-
         public virtual string Description
         {
             get;
@@ -75,19 +67,6 @@ namespace friday.core.domain
         }
 
 
-        //SyetemUser 1:N Order
-        public virtual ISet<MyOrder> Orders
-        {
-            get;
-
-            set;
-        }
-        public virtual ISet<MyFavorite> Favorite
-        {
-            get;
-
-            set;
-        }
 
         public virtual ISet<FeedBack> FeedBack
         {
@@ -95,9 +74,8 @@ namespace friday.core.domain
 
             set;
         }
-        //1:1
 
-        public virtual ShoppingCart ShoppingCart
+        public virtual ISet<MyFavorite> Favorite
         {
             get;
 

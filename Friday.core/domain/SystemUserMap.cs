@@ -15,7 +15,6 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o => o.Address);
             Map(o => o.Description);
             Map(o => o.Email);
             Map(o => o.LoginName);
