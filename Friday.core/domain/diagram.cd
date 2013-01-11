@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="weat.core.domain.Activity" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQQAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\Activity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.BottomCart" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQAAAAAAAAAAAACAQAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\BottmCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.CartBox" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\CartBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.CartFood" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAgAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>domain\CartFood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.FeedBack" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQCCAABAAAA=</HashCode>
+      <FileName>domain\FeedBack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.Food" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAACAABAAAACAEAAAAEA=</HashCode>
+      <FileName>domain\Food.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.MyFavorite" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>domain\MyFavorite.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.MyOrder" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAQACKAAQAigAAAAAAAAAAAAACAAAACAACAAAAAAAA=</HashCode>
+      <FileName>domain\MyOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.OrderFood" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAQAAAgAAAAA=</HashCode>
+      <FileName>domain\OrderFood.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.School" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAIAAAAAAAEAAAAAQAAAAAAJAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\School.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.SchoolShop" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>domain\SchoolShop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.Shop" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQQEUAAAAAggIBEAAACABQCAAAkAIBCAgIQEEAAAIA=</HashCode>
+      <FileName>domain\Shop.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.ShopActivity" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ShopActivity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.ShopFoodType" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>domain\ShopFoodType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.ShoppingCart" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAQAAAAAEAAAAACAAAAAAAgAAAACAAAAAAAA=</HashCode>
+      <FileName>domain\ShoppingCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="weat.core.domain.SystemUser" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEEAAAAAACAggAAAAAAAAAQAAgAACAACAACAAACAAAA=</HashCode>
+      <FileName>domain\SystemUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="宋体" Size="9" />
+</ClassDiagram>
