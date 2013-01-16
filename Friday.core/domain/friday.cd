@@ -148,6 +148,17 @@
   </Class>
   <Class Name="friday.core.Merchant">
     <Position X="0.5" Y="9.25" Width="2" />
+    <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
+      <Path>
+        <Point X="2.031" Y="12.571" />
+        <Point X="2.031" Y="12.44" />
+        <Point X="3.685" Y="12.44" />
+        <Point X="3.685" Y="12.61" />
+        <Point X="4.231" Y="12.61" />
+        <Point X="4.231" Y="13.307" />
+        <Point X="4.5" Y="13.307" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
       <HashCode>QAAAAUAAAAQggIAAAAAAIAQQAAAAAIBCAgIAAEAAAAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
@@ -176,7 +187,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.MerchantCategory">
-    <Position X="4.75" Y="13" Width="1.5" />
+    <Position X="4.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAA=</HashCode>
       <FileName>MerchantCategory.cs</FileName>

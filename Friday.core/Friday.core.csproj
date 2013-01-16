@@ -144,7 +144,7 @@
     <Compile Include="domain\ShopActivity.cs" />
     <Compile Include="domain\ShopGoodsType.cs" />
     <Compile Include="domain\ShopGoodsTypeMap.cs" />
-    <Compile Include="domain\ShopMap.cs" />
+    <Compile Include="domain\RestaurantMap.cs" />
     <Compile Include="domain\ShoppingCart.cs" />
     <Compile Include="domain\ShoppingCartMap.cs" />
     <Compile Include="domain\SystemUser.cs" />
