@@ -45,7 +45,7 @@
   <Class Name="friday.core.domain.MyFavorite" Collapsed="true">
     <Position X="4" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIACAAAAAAAA=</HashCode>
       <FileName>domain\MyFavorite.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,16 +66,15 @@
   <Class Name="friday.core.domain.School">
     <Position X="6.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAAAAAAAEAAAAAQAAAAAAJAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\SchoolShop.cs</FileName>
-      <NewMemberFileName>domain\School.cs</NewMemberFileName>
+      <HashCode>AAAAAAAAIAQAAAAAAAAAAAQAAAAAAJAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\School.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.domain.SchoolM">
+  <Class Name="friday.core.domain.SchoolOfMerchant">
     <Position X="4.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAAAAAAAA=</HashCode>
-      <FileName>domain\SchoolShop.cs</FileName>
+      <FileName>domain\SchoolOfMerchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="School" />
@@ -83,9 +82,9 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.Shop">
-    <Position X="1.25" Y="9.5" Width="2" />
+    <Position X="0.5" Y="11.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>QAQQEUAAAAAggIBEAAACABQCAAAkAIBCAgIQEEAAAIA=</HashCode>
+      <HashCode>AAQQEAAAAAQgAAAEAAACABAAAAAkAAAAAgAQEAAAAIA=</HashCode>
       <FileName>domain\Shop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -145,10 +144,10 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.Merchant">
-    <Position X="1.75" Y="8" Width="1.5" />
+    <Position X="1.5" Y="7.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Merchant.cs</FileName>
+      <HashCode>QAAAAUAAAAAggIBAAAAAAAQAAAAAAIBCAAIAAEAAAAA=</HashCode>
+      <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

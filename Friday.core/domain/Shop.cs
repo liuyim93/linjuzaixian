@@ -7,37 +7,9 @@ using friday.core.EnumType;
 using System.Collections.Generic;
 namespace friday.core.domain
 {
-    public class Shop:Entity
+    public class Shop:Merchant
     {
-        public virtual String Name
-        {
-            get;
-
-            set;
-
-        }
-        public virtual String ShortName
-        {
-            get;
-
-            set;
-        }
-
-        public virtual String Owener
-        {
-            set;
-
-            get;
-
-        }
-
-        public virtual string Logo
-        {
-            get;
-
-            set;
-
-        }
+        
         public virtual int SendTime//配送时限
         {
             set;
@@ -53,28 +25,7 @@ namespace friday.core.domain
             get;
         }
 
-        public virtual string Description
-        {
-            get;
-
-            set;
-
-        }
-        public virtual string Bulletins
-        {
-            get;
-
-            set;
-
-        }
-
-        public virtual string Address
-        {
-            get;
-
-            set;
-
-        }
+       
         public virtual float Cost
         {
             get;
@@ -82,13 +33,7 @@ namespace friday.core.domain
             set;
         }
 
-        public virtual string Tel
-        {
-            get;
-
-            set;
-        }
-
+        
         public virtual string MorningBeginHour
         {
             get;
@@ -131,20 +76,8 @@ namespace friday.core.domain
             set;
 
             get;
-        }
-        public virtual string ShopHours
-        {
-            set;
-
-            get;
-        }
-
-        public virtual string Activity
-        {
-            get;
-
-            set;
-        }
+        }     
+        
         //2012-12-28 basilwang populate ActivityList here
         public virtual List<ShopActivity> ShopActivityList
         {
@@ -184,37 +117,6 @@ namespace friday.core.domain
                 return activityList;
 
             }
-        }
-
-        public virtual string Distance
-        {
-            get;
-
-            set;
-
-        }
-
-        public virtual double Rate //提成比率
-        {
-            set;
-
-            get;
-        }
-
-
-        public virtual ShopStatusEnum ShopStatus
-        {
-            get;
-
-            set;
-
-        }
-
-        public virtual ShopTypeEnum ShopType
-        {
-            get;
-
-            set;
         }
         //Shop 1:N Food
         public virtual Iesi.Collections.Generic.ISet<Food> Foods 
