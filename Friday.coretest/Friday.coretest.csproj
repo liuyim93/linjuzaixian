@@ -145,10 +145,6 @@
       <Project>{94A7D4D5-4032-4738-BD5E-C3FEAC319C5A}</Project>
       <Name>Friday.core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\weat.core\weat.core.csproj">
-      <Project>{31F1C78B-21B4-4D18-8587-BA26BB31F13A}</Project>
-      <Name>weat.core</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="hibernate.cfg.xml">
