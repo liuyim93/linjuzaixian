@@ -6,7 +6,7 @@ using friday.core.EnumType;
 
 namespace friday.core.domain
 {
-    public class SystemUser :s
+    public class SystemUser :Customer
     {
         /// <remarks>真实姓名</remarks>
         public virtual string Name

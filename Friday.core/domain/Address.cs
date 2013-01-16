@@ -85,7 +85,7 @@ namespace friday.core
             }
         }
 
-        public s Customer
+        public Customer Customer
         {
             get
             {

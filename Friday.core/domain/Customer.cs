@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class s:Entity
+    public class Customer:Entity
     {
         //SyetemUser 1:N Order
         public virtual Iesi.Collections.Generic.ISet<MyOrder> Orders
