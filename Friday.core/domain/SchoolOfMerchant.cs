@@ -8,7 +8,7 @@ using friday.core.EnumType;
 
 namespace friday.core.domain
 {
-    public class SchoolShop:Entity
+    public class SchoolOfMerchant:Entity
     {
 
         public virtual School School
@@ -19,7 +19,7 @@ namespace friday.core.domain
             set;
         }
 
-        public virtual Shop Shop
+        public virtual Merchant Merchant
         {
             set;
 

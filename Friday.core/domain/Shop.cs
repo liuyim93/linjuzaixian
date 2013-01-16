@@ -232,7 +232,7 @@ namespace friday.core.domain
         }
 
         //School M:N Shop
-        public virtual Iesi.Collections.Generic.ISet<SchoolShop> Schools
+        public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants
         {
 
             set;

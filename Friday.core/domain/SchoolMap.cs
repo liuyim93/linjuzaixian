@@ -20,7 +20,7 @@ namespace friday.core.domain
             Map(o => o.ShortName).Index("SchoolShortName").Unique();
             Map(o=>o.CityName);
             Map(o => o.Image);
-            HasMany<SchoolShop>(o => o.Shops).Inverse().Cascade.All();
+            HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().Cascade.All();
         }
     }
 }

@@ -39,7 +39,7 @@ namespace friday.core.domain
 
         }
 
-        public virtual Iesi.Collections.Generic.ISet<SchoolShop> Shops
+        public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants
         {
 
             set;

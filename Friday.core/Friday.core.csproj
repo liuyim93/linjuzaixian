@@ -138,8 +138,8 @@
     <Compile Include="domain\Profit.cs" />
     <Compile Include="domain\School.cs" />
     <Compile Include="domain\SchoolMap.cs" />
-    <Compile Include="domain\SchoolShop.cs" />
-    <Compile Include="domain\SchoolShopMap.cs" />
+    <Compile Include="domain\SchoolOfMerchant.cs" />
+    <Compile Include="domain\SchoolOfMerchantMap.cs" />
     <Compile Include="domain\Shop.cs" />
     <Compile Include="domain\ShopActivity.cs" />
     <Compile Include="domain\ShopFoodType.cs" />
@@ -154,6 +154,7 @@
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
+    <Compile Include="Merchant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\Repository.cs" />

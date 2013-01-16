@@ -67,22 +67,23 @@
     <Position X="6.5" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAAAAAAAEAAAAAQAAAAAAJAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\School.cs</FileName>
+      <FileName>domain\SchoolShop.cs</FileName>
+      <NewMemberFileName>domain\School.cs</NewMemberFileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.domain.SchoolShop">
-    <Position X="4.25" Y="8.5" Width="1.5" />
+  <Class Name="friday.core.domain.SchoolM">
+    <Position X="4.25" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAQAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAAAAAAAA=</HashCode>
       <FileName>domain\SchoolShop.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="School" />
-      <Property Name="Shop" />
+      <Property Name="Merchant" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.Shop">
-    <Position X="1" Y="7.5" Width="2" />
+    <Position X="1.25" Y="9.5" Width="2" />
     <TypeIdentifier>
       <HashCode>QAQQEUAAAAAggIBEAAACABQCAAAkAIBCAgIQEEAAAIA=</HashCode>
       <FileName>domain\Shop.cs</FileName>
@@ -142,6 +143,13 @@
     <ShowAsAssociation>
       <Property Name="Customer" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.Merchant">
+    <Position X="1.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Merchant.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>
