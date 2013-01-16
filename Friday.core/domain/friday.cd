@@ -36,9 +36,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.Food">
-    <Position X="3.75" Y="19.5" Width="1.5" />
+    <Position X="4.75" Y="20" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAABAAAAQAAACAABAAAACAEAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAACAEAAAAAA=</HashCode>
       <FileName>domain\Food.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -153,8 +153,8 @@
     <Position X="6.5" Y="14.25" Width="2" />
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
-        <Point X="7.683" Y="14.25" />
-        <Point X="7.683" Y="13.149" />
+        <Point X="7.656" Y="14.25" />
+        <Point X="7.656" Y="13.149" />
         <Point X="7.318" Y="13.149" Type="JumpStart" />
         <Point X="7.151" Y="13.149" Type="JumpEnd" />
         <Point X="7.052" Y="13.149" Type="JumpStart" />
@@ -167,7 +167,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAAAQggIAAAAAAIAQQAAAAAIBCAgIAAEAAAAA=</HashCode>
+      <HashCode>QAAAAUAAAAQggIAAAAAAIAQQAAAAAIBCAgIAAECAAAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -178,12 +178,13 @@
       <Property Name="ShopGoodsTypes" />
       <Property Name="GlobalGoodsTypes" />
       <Property Name="MyOrders" />
+      <Property Name="Commodities" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.Restaurant">
     <Position X="2.25" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQQEAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
+      <HashCode>AAQQAAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
       <FileName>domain\Restaurant.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -202,11 +203,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Commodity">
-    <Position X="5.75" Y="18" Width="1.5" />
+    <Position X="6.5" Y="18" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAgBAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Commodity.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Merchant" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>

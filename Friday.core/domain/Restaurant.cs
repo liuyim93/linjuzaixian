@@ -117,12 +117,6 @@ namespace friday.core
 
             }
         }
-        //Shop 1:N Food
-        public virtual Iesi.Collections.Generic.ISet<Food> Foods
-        {
-            get;
 
-            set;
-        }
     }
 }

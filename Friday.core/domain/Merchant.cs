@@ -120,6 +120,7 @@ namespace friday.core
 
             set;
         }
+        ///TODO add UnionGoodsTypes only get 
         //School M:N Shop
         public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants
         {
@@ -130,6 +131,13 @@ namespace friday.core
         }
 
         public virtual Iesi.Collections.Generic.ISet<MyOrder> MyOrders
+        {
+            get;
+
+            set;
+        }
+        //Shop 1:N Food
+        public virtual Iesi.Collections.Generic.ISet<Commodity> Commodities
         {
             get;
 
