@@ -115,6 +115,13 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
+      <DependentUpon>nSystemUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\users\nSystemUserList.aspx.designer.cs">
+      <DependentUpon>nSystemUserList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -635,6 +642,7 @@
     <Content Include="weblogin\uploadify\scripts\jquery.uploadify.v2.1.0.js" />
     <Content Include="weblogin\uploadify\scripts\swfobject.js" />
     <Content Include="weblogin\uploadify\scripts\uploadify.swf" />
+    <Content Include="weblogin\users\nSystemUserList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
