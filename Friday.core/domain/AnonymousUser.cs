@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class AnonymousUser : Customer
+    public class AnonymousUser : s
     {
     }
 }

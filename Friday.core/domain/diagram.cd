@@ -125,13 +125,19 @@
       <HashCode>AAFAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Customer.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Addresses" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.Address">
-    <Position X="1.25" Y="6" Width="1.5" />
+    <Position X="1.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAIAAACAACAAgAAAAAAIAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <HashCode>EAMAAACAACAAgAAAAAAIAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>domain\Address.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Customer" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>

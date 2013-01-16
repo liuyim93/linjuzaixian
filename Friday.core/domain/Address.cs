@@ -84,5 +84,16 @@ namespace friday.core
             {
             }
         }
+
+        public s Customer
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+            }
+        }
     }
 }
