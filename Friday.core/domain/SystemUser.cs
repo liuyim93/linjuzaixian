@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text;
 using Iesi.Collections.Generic;
 using friday.core.EnumType;
+
 namespace friday.core.domain
 {
     public class SystemUser : Customer
