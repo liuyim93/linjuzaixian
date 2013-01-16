@@ -82,7 +82,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.Shop">
-    <Position X="0.5" Y="12" Width="2" />
+    <Position X="0.5" Y="14" Width="2" />
     <TypeIdentifier>
       <HashCode>AAQQEAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
       <FileName>domain\Shop.cs</FileName>
@@ -96,7 +96,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.ShopGoodsType">
-    <Position X="4.25" Y="10" Width="1.5" />
+    <Position X="4.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ShopGoodsType.cs</FileName>
@@ -147,21 +147,39 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.Merchant">
-    <Position X="1" Y="7.5" Width="2" />
+    <Position X="0.5" Y="9.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>QAAAAUAAAAQggIBAAAAAAAQQAAAAAIBCAgIAAEAAAAA=</HashCode>
+      <HashCode>QAAAAUAAAAQggIAAAAAAIAQQAAAAAIBCAgIAAEAAAAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MerchantCategory" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="SchoolOfMerchants" />
       <Property Name="ShopGoodsTypes" />
+      <Property Name="GlobalGoodsTypes" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.Restaurant">
-    <Position X="3" Y="12" Width="1.5" />
+    <Position X="3" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Restaurant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.GlobalGoodsType">
+    <Position X="4.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>GlobalGoodsType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.MerchantCategory">
+    <Position X="4.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAA=</HashCode>
+      <FileName>MerchantCategory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

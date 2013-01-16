@@ -102,7 +102,7 @@ namespace friday.core
 
         }
 
-        public virtual ShopTypeEnum ShopType
+        public virtual MerchantCategory MerchantCategory
         {
             get;
 
@@ -114,7 +114,12 @@ namespace friday.core
 
             set;
         }
+        public virtual Iesi.Collections.Generic.ISet<GlobalGoodsType> GlobalGoodsTypes
+        {
+            get;
 
+            set;
+        }
         //School M:N Shop
         public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants
         {

@@ -7,10 +7,9 @@ namespace friday.core.EnumType
 {
     public enum ShopTypeEnum
     {
-        中餐=0,
-        西餐=1,
-        清真=2,
-        饮品=3,
-        日韩=4
+        餐馆=0,
+        租房=1,
+        百货=2,
+
     }
 }

@@ -155,6 +155,9 @@
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
     <Compile Include="domain\Merchant.cs" />
+    <Compile Include="GlobalGoodsType.cs" />
+    <Compile Include="MerchantCategory.cs" />
+    <Compile Include="MerchantTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\Repository.cs" />

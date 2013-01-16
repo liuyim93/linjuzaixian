@@ -20,7 +20,7 @@ namespace friday.core.domain
             Map(o => o.Description);
             Map(o => o.Bulletins);
             Map(o => o.Distance);
-            Map(o => o.ShopType);
+            Map(o => o.MerchantCategory);
             Map(o => o.Logo);
             Map(o => o.SendTime);
             //2013-01-07 basilwang add index for search speed  
