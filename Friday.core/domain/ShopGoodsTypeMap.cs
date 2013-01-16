@@ -6,16 +6,16 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class ShopFoodTypeMap:ClassMap<ShopFoodType>
+    public class ShopGoodsTypeMap:ClassMap<ShopGoodsType>
     {
-        public ShopFoodTypeMap()
+        public ShopGoodsTypeMap()
         {
             Table("ShopFoodType");
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o=>o.FoodType);
+            Map(o=>o.GoodsType);
             References<Shop>(o => o.Shop);//Shop 1 :N Food
 
         }

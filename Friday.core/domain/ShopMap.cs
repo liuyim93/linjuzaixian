@@ -41,7 +41,7 @@ namespace friday.core.domain
             Map(o=>o.Cost);
             Map(o => o.ShopStatus);
             HasMany<Food>(o => o.Foods).Inverse().LazyLoad().Cascade.All();
-            HasMany<ShopFoodType>(o => o.ShopFoodTypes).Inverse().LazyLoad().Cascade.All();
+            HasMany<ShopGoodsType>(o => o.ShopGoodsTypes).Inverse().LazyLoad().Cascade.All();
             HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().LazyLoad().Cascade.All();
             HasMany<MyOrder>(o => o.MyOrders).Inverse().LazyLoad().Cascade.All();
 

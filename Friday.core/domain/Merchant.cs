@@ -108,6 +108,28 @@ namespace friday.core
 
             set;
         }
+        public virtual Iesi.Collections.Generic.ISet<ShopGoodsType> ShopGoodsTypes
+        {
+            get;
+
+            set;
+        }
+
+        //School M:N Shop
+        public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants
+        {
+
+            set;
+
+            get;
+        }
+
+        public virtual Iesi.Collections.Generic.ISet<MyOrder> MyOrders
+        {
+            get;
+
+            set;
+        }
 
     }
 }

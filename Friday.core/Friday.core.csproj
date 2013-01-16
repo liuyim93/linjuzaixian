@@ -142,8 +142,8 @@
     <Compile Include="domain\SchoolOfMerchantMap.cs" />
     <Compile Include="domain\Shop.cs" />
     <Compile Include="domain\ShopActivity.cs" />
-    <Compile Include="domain\ShopFoodType.cs" />
-    <Compile Include="domain\ShopFoodTypeMap.cs" />
+    <Compile Include="domain\ShopGoodsType.cs" />
+    <Compile Include="domain\ShopGoodsTypeMap.cs" />
     <Compile Include="domain\ShopMap.cs" />
     <Compile Include="domain\ShoppingCart.cs" />
     <Compile Include="domain\ShoppingCartMap.cs" />
@@ -159,6 +159,7 @@
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
+    <Compile Include="domain\Restaurant.cs" />
     <Compile Include="utils\CookieUtil.cs" />
   </ItemGroup>
   <ItemGroup>

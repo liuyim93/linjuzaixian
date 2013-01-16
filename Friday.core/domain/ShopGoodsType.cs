@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core.domain
 {
-    public class ShopFoodType:Entity
+    public class ShopGoodsType:Entity
     {
         public virtual Shop Shop
         {
@@ -13,7 +13,7 @@ namespace friday.core.domain
 
             set;
         }
-        public virtual String FoodType
+        public virtual String GoodsType
         {
             get;
 

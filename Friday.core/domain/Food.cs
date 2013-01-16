@@ -21,7 +21,7 @@ namespace friday.core.domain
             set;
 
         } 
-        public virtual ShopFoodType FoodType
+        public virtual ShopGoodsType GoodsType
         {
             get;
 

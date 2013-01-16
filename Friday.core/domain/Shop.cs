@@ -126,28 +126,7 @@ namespace friday.core.domain
             set; 
         }
 
-        public virtual Iesi.Collections.Generic.ISet<ShopFoodType> ShopFoodTypes
-        {
-            get;
-
-            set;
-        }
-
-        //School M:N Shop
-        public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants
-        {
-
-            set;
-
-            get;
-        }
-
-        public virtual Iesi.Collections.Generic.ISet<MyOrder> MyOrders
-        {
-            get;
-
-            set;
-        }
+        
 
         
     }
