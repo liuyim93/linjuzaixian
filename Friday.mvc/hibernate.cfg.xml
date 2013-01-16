@@ -34,7 +34,7 @@
       <property name="hbm2ddl.keywords">none</property>
       <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
       <property name="proxyfactory.factory_class">NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle</property>
-      <mapping assembly="weat.core"/>
+      <mapping assembly="friday.core"/>
 
     </session-factory>
   </hibernate-configuration>
