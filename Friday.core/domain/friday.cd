@@ -98,9 +98,12 @@
   <Class Name="friday.core.domain.ShopGoodsType">
     <Position X="4.25" Y="10" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ShopGoodsType.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Merchant" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.ShoppingCart" Collapsed="true">
     <Position X="4" Y="3.5" Width="1.5" />

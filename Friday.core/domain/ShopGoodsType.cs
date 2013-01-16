@@ -7,7 +7,7 @@ namespace friday.core.domain
 {
     public class ShopGoodsType:Entity
     {
-        public virtual Shop Shop
+        public virtual Merchant Merchant
         {
             get;
 
