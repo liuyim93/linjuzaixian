@@ -22,11 +22,7 @@ namespace friday.core.domain
             Map(o => o.Password);
             Map(o => o.Tel);
             Map(o => o.UserType);;
-            References<ShoppingCart>(o => o.ShoppingCart);
-            //IList<Order>
-            HasMany<MyOrder>(o => o.Orders).Inverse().Cascade.All();
-            HasMany<FeedBack>(o => o.FeedBack).Inverse().Cascade.All();
-            HasMany<MyFavorite>(o => o.Favorite).Inverse().Cascade.All();
+
 
         }
     }
