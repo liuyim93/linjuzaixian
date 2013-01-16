@@ -6,11 +6,11 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class ShopGoodsTypeMap:ClassMap<ShopGoodsType>
+    public class MerchantGoodsTypeMap : ClassMap<MerchantGoodsType>
     {
-        public ShopGoodsTypeMap()
+        public MerchantGoodsTypeMap()
         {
-            Table("ShopGoodsType");
+            Table("MerchantGoodsType");
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);

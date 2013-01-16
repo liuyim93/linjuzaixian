@@ -108,13 +108,7 @@ namespace friday.core
 
             set;
         }
-        public virtual Iesi.Collections.Generic.ISet<ShopGoodsType> ShopGoodsTypes
-        {
-            get;
-
-            set;
-        }
-        public virtual Iesi.Collections.Generic.ISet<GlobalGoodsType> GlobalGoodsTypes
+        public virtual Iesi.Collections.Generic.ISet<MerchantGoodsType> MerchantGoodsTypes
         {
             get;
 

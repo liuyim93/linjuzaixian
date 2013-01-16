@@ -9,12 +9,7 @@ namespace friday.core.domain
     public class Food : friday.core.Commodity
     {
         
-        public virtual ShopGoodsType GoodsType
-        {
-            get;
-
-            set;
-        }
+     
         public virtual int  MonthAmount
         {
             get;

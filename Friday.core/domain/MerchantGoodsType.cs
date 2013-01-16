@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core.domain
 {
-    public class ShopGoodsType:Entity
+    public class MerchantGoodsType:Entity
     {
         public virtual Merchant Merchant
         {

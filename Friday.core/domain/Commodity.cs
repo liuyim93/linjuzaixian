@@ -28,6 +28,12 @@ namespace friday.core
             set;
 
         }
+        public virtual MerchantGoodsType MerchantGoodsType
+        {
+            get;
+
+            set;
+        }
         //Shop 1:N Food
         public virtual Merchant Merchant
         {
