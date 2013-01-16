@@ -8,8 +8,8 @@
     <ProjectGuid>{94A7D4D5-4032-4738-BD5E-C3FEAC319C5A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>friday.core</RootNamespace>
-    <AssemblyName>friday.core</AssemblyName>
+    <RootNamespace>Friday.core</RootNamespace>
+    <AssemblyName>Friday.core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -92,10 +92,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="domain\Address.cs" />
-    <Compile Include="domain\Customer.cs" />
-    <Compile Include="domain\AnonymousUser.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="components\BindingHelper.cs" />
     <Compile Include="components\ContainerFactory.cs" />
     <Compile Include="components\CurrentUser.cs" />
@@ -163,6 +159,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="domain\diagram.cd" />
+    <None Include="domain\friday.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

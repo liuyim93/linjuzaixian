@@ -1,0 +1,134 @@
+﻿a:link, a:visited
+{
+    text-decoration: none;
+    color: #333;
+}
+.top
+{
+    background:#fff ;           
+}
+.top .title
+{
+    padding:2px;
+    padding-left:10px;
+    color:#fff;
+    height:22px;
+    background: url("images/top_bg_1.gif") repeat-x;
+}
+.top .toolbar
+{
+    height:29px;
+    background: url("images/top_bg_2.gif") repeat-x;
+}
+.top .toolbar .leftc
+{
+    height:29px;
+    width:183px;
+    background: url("images/top_bg_4.gif") repeat-x;
+}
+.top .toolbar .rightc
+{
+    height:23px;
+    position:absolute;
+    top:26px;
+    right:10px;
+    width:auto;
+    vertical-align:middle;
+    padding:3px;
+}
+
+.rightc a
+{    
+    margin-right:5px;
+}
+a.back span, a.forward span, a.reflash span, a.signout span
+{
+    margin-top:1px;
+    padding: 2px 2px 2px 18px;
+    color: #fff;
+    cursor: pointer;
+}
+a.back span
+{
+     background: url("images/back.gif") no-repeat left 50%;
+}
+a.forward span
+{
+     background: url("images/forward.gif") no-repeat left 50%;
+}
+a.reflash span
+{
+     background: url("images/reflash.gif") no-repeat left 50%;
+}
+a.signout span
+{
+     background: url("images/signout.gif") no-repeat left 50%;
+}
+.left
+{
+    float: left;
+    width: 180px;
+    margin-right: -182px;   
+    background-color:#e8f1f8;
+    overflow: auto;
+}
+.t1
+{
+   border-left:solid 1px #555;
+   border-right:solid 1px #555;
+   border-top:none;
+   border-bottom:none;
+   background-color:#555;
+   height:1px;
+   font-size:1px;
+   margin:0 2px 0 2px;
+}
+.t2
+{
+   border-left:solid 1px #555;
+   border-right:solid 1px #555;
+   border-top:none;
+   border-bottom:none;
+   height:1px;
+   font-size:1px;
+    margin:0 1px 0 1px;
+}
+
+.center
+{
+    width: auto;
+    margin-left: 183px;
+    margin-right: 2px;
+    overflow:visible;    
+    background-color: #fff;
+}
+#center
+{
+    overflow:hidden;
+    border: solid 1px #555;   
+    border-bottom:none;
+    border-top:none;      
+}
+.MainContainer
+{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background-color: #E8F1F8;
+}
+body
+{
+    margin: 0;
+    background-color: #E8F1F8;
+    font-size: 12px;
+    font-family: "微软雅黑" , "宋体" ,Consolas,Verdana;
+    padding: 0;
+    height: 100%;
+}
+a img
+{
+    border: none;
+}   

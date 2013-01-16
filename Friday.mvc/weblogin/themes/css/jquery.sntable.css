@@ -1,0 +1,16 @@
+﻿   .sntable td
+    {
+    	padding-left:5px;
+    	height:24px;
+    	line-height:normal;
+    }
+    .sntable th
+    {
+    	padding-left:5px;
+    	height:30px;
+    	line-height:normal;
+    }
+    .sntable
+    {
+    	border:solid 1px #a0a0a0;
+    }
