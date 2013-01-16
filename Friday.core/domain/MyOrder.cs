@@ -66,7 +66,7 @@ namespace friday.core.domain
 
             get;
         }
-        public virtual Shop Shop
+        public virtual Merchant Merchant
         {
             set;
 
