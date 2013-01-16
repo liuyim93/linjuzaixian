@@ -52,7 +52,7 @@
   <Class Name="friday.core.domain.MyOrder">
     <Position X="7.75" Y="3.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EAAQACKAAQAigAAAAAAAAAAAAACAAAACAACAAAAAAAA=</HashCode>
+      <HashCode>EAEQACKAAQAigAAAAAAAAAAAAACAAAACAAAAAAAAAAA=</HashCode>
       <FileName>domain\MyOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -108,28 +108,28 @@
   <Class Name="friday.core.domain.SystemUser">
     <Position X="3.5" Y="7" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAACAggAAAAAAAAAQAAAAACAACAACAAACAAAA=</HashCode>
+      <HashCode>AEAAAAAAACAggAAAAAAAAAQAAAAACAACAAAAAAAAAAA=</HashCode>
       <FileName>domain\SystemUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.AnonymousUser" Collapsed="true">
-    <Position X="6.5" Y="7.75" Width="1.5" />
+    <Position X="5.75" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\AnonymousUser.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Customer">
-    <Position X="5" Y="5" Width="1.5" />
+    <Position X="4.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAFAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Customer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Address">
-    <Position X="1.25" Y="6.75" Width="1.5" />
+    <Position X="1.25" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAIAAACAACAAgAAAAAAIAAAAAAAAAAAAAAEAAAAAAAA=</HashCode>
       <FileName>domain\Address.cs</FileName>
     </TypeIdentifier>
   </Class>
