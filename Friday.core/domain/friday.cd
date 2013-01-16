@@ -35,8 +35,8 @@
       <FileName>domain\FeedBack.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.domain.Food" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
+  <Class Name="friday.core.domain.Food">
+    <Position X="3.75" Y="19.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAABAAAAQAAACAABAAAACAEAAAAAA=</HashCode>
       <FileName>domain\Food.cs</FileName>
@@ -60,7 +60,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.OrderFood" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+    <Position X="8.75" Y="19.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAQAAAgAAAAA=</HashCode>
       <FileName>domain\OrderFood.cs</FileName>
@@ -153,17 +153,17 @@
     <Position X="6.5" Y="14.25" Width="2" />
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
-        <Point X="7.699" Y="14.25" />
-        <Point X="7.699" Y="13.084" />
-        <Point X="7.318" Y="13.084" Type="JumpStart" />
-        <Point X="7.151" Y="13.084" Type="JumpEnd" />
-        <Point X="7.052" Y="13.084" Type="JumpStart" />
-        <Point X="6.885" Y="13.084" Type="JumpEnd" />
-        <Point X="6.786" Y="13.084" Type="JumpStart" />
-        <Point X="6.62" Y="13.084" Type="JumpEnd" />
-        <Point X="6.24" Y="13.084" Type="JumpStart" />
-        <Point X="6.073" Y="13.084" Type="JumpEnd" />
-        <Point X="6" Y="13.084" />
+        <Point X="7.683" Y="14.25" />
+        <Point X="7.683" Y="13.149" />
+        <Point X="7.318" Y="13.149" Type="JumpStart" />
+        <Point X="7.151" Y="13.149" Type="JumpEnd" />
+        <Point X="7.052" Y="13.149" Type="JumpStart" />
+        <Point X="6.885" Y="13.149" Type="JumpEnd" />
+        <Point X="6.786" Y="13.149" Type="JumpStart" />
+        <Point X="6.62" Y="13.149" Type="JumpEnd" />
+        <Point X="6.24" Y="13.149" Type="JumpStart" />
+        <Point X="6.073" Y="13.149" Type="JumpEnd" />
+        <Point X="6" Y="13.149" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
@@ -191,14 +191,21 @@
     <Position X="4.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAABAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>GlobalGoodsType.cs</FileName>
+      <FileName>domain\GlobalGoodsType.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.MerchantCategory">
     <Position X="4.5" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAA=</HashCode>
-      <FileName>MerchantCategory.cs</FileName>
+      <FileName>domain\MerchantCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.Commodity">
+    <Position X="5.75" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\Commodity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />
