@@ -92,6 +92,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domain\ValuingOfCommodity.cs" />
     <Compile Include="domain\Commodity.cs" />
     <Compile Include="components\BindingHelper.cs" />
     <Compile Include="components\ContainerFactory.cs" />
@@ -159,15 +160,17 @@
     <Compile Include="domain\GlobalGoodsType.cs" />
     <Compile Include="domain\MerchantCategory.cs" />
     <Compile Include="domain\MerchantTypeEnum.cs" />
-    <Compile Include="House.cs" />
+    <Compile Include="domain\House.cs" />
+    <Compile Include="domain\ValuingOfMerchant.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rent.cs" />
+    <Compile Include="domain\Rent.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="domain\Restaurant.cs" />
     <Compile Include="utils\CookieUtil.cs" />
-    <Compile Include="Valuing.cs" />
+    <Compile Include="domain\Valuing.cs" />
+    <Compile Include="domain\ValuingOfUser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
