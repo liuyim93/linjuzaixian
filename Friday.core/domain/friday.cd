@@ -193,7 +193,15 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfCommodity">
-    <Position X="0.5" Y="22.75" Width="1.25" />
+    <Position X="0.5" Y="22.75" Width="1.75" />
+    <InheritanceLine Type="friday.core.Valuing" FixedToPoint="true">
+      <Path>
+        <Point X="3.75" Y="21.298" />
+        <Point X="3.75" Y="22.375" />
+        <Point X="1.125" Y="22.375" />
+        <Point X="1.125" Y="22.75" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfCommodity.cs</FileName>
@@ -214,9 +222,9 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfMerchant">
-    <Position X="2" Y="22.75" Width="1.25" />
+    <Position X="2.5" Y="22.75" Width="1.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfMerchant.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -230,7 +238,7 @@
   <Class Name="friday.core.Valuing">
     <Position X="3" Y="20" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAACAAAAAAAAAAAICAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAABAAAAACAAAAAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>domain\Valuing.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -238,7 +246,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.ValuingOfUser">
-    <Position X="3.5" Y="22.75" Width="1.5" />
+    <Position X="4.25" Y="22.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfUser.cs</FileName>

@@ -19,17 +19,7 @@ namespace friday.core
             }
         }
 
-        public SystemUser SystemUser
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
+        
         public bool IsShownAnonymous
         {
             get
