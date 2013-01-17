@@ -6,9 +6,9 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class Valuing:Entity
+    public class ValuingItem:Entity
     {
-        public int AverageScore
+        public string ValuingItemName
         {
             get
             {
@@ -19,7 +19,7 @@ namespace friday.core
             }
         }
 
-        public SystemUser SystemUser
+        public float Score
         {
             get
             {
@@ -30,18 +30,7 @@ namespace friday.core
             }
         }
 
-        public bool IsShownAnonymous
-        {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
-        }
-
-        public Iesi.Collections.Generic.ISet<ValuingItem> ValuingItems
+        public Valuing Valuing
         {
             get
             {

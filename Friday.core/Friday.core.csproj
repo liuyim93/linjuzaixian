@@ -171,6 +171,7 @@
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="domain\Valuing.cs" />
     <Compile Include="domain\ValuingOfUser.cs" />
+    <Compile Include="ValuingItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
