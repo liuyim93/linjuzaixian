@@ -25,5 +25,11 @@ namespace friday.core.domain
 
             get;
         }
+        //Shop 1:N Food
+        public virtual Restaurant Restaurant
+        {
+            get;
+            set;
+        }
     }
 }

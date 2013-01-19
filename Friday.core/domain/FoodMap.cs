@@ -20,7 +20,7 @@ namespace friday.core.domain
             Map(o => o.Price);
             Map(o => o.Image);
             References<MerchantGoodsType>(o => o.MerchantGoodsType);
-            References<Merchant>(o => o.Merchant);//Shop 1 :N Food
+            References<Restaurant>(o => o.Restaurant);//Shop 1 :N Food
             HasMany<MyFavorite>(o => o.Favorite).Inverse().Cascade.All();
         }
     }

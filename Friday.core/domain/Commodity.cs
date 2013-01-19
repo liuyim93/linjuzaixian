@@ -34,11 +34,6 @@ namespace friday.core
 
             set;
         }
-        //Shop 1:N Food
-        public virtual Merchant Merchant
-        {
-            get;
-            set;
-        }
+      
     }
 }

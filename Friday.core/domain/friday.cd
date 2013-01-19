@@ -38,7 +38,7 @@
   <Class Name="friday.core.domain.Food">
     <Position X="5.75" Y="20" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAA=</HashCode>
       <FileName>domain\Food.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -159,7 +159,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAAAQggIAAAAAAIAQAAAAAAIBCAgIAAECACAA=</HashCode>
+      <HashCode>QAAAAUAAAAQggIAAAAAAIAQAAAAAAIBCAgIAAEAACAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -168,13 +168,12 @@
     <ShowAsCollectionAssociation>
       <Property Name="SchoolOfMerchants" />
       <Property Name="MyOrders" />
-      <Property Name="Commodities" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.Restaurant">
     <Position X="1.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQQAAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
+      <HashCode>AAQQEAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
       <FileName>domain\Restaurant.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -194,14 +193,6 @@
   </Class>
   <Class Name="friday.core.ValuingOfCommodity">
     <Position X="0.5" Y="22.75" Width="1.75" />
-    <InheritanceLine Type="friday.core.Valuing" FixedToPoint="true">
-      <Path>
-        <Point X="3.75" Y="21.298" />
-        <Point X="3.75" Y="22.375" />
-        <Point X="1.125" Y="22.375" />
-        <Point X="1.125" Y="22.75" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfCommodity.cs</FileName>
@@ -231,7 +222,7 @@
   <Class Name="friday.core.Commodity" Collapsed="true">
     <Position X="7.25" Y="18.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAgBAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAABAAAAAAAAAACAA=</HashCode>
       <FileName>domain\Commodity.cs</FileName>
     </TypeIdentifier>
   </Class>
