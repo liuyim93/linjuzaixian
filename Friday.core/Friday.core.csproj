@@ -161,7 +161,7 @@
     <Compile Include="domain\MerchantCategory.cs" />
     <Compile Include="domain\MerchantTypeEnum.cs" />
     <Compile Include="domain\House.cs" />
-    <Compile Include="domain\ValuingOfMerchant.cs" />
+    <Compile Include="domain\ValuingOfShop.cs" />
     <Compile Include="domain\SnapShotCommodity.cs" />
     <Compile Include="MyFoodOrder.cs" />
     <Compile Include="MyHouseOrder.cs" />
@@ -176,6 +176,8 @@
     <Compile Include="domain\Valuing.cs" />
     <Compile Include="domain\ValuingOfUser.cs" />
     <Compile Include="domain\ValuingItem.cs" />
+    <Compile Include="ValuingOfRent.cs" />
+    <Compile Include="ValuingOfRestaurant.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="domain\friday.cd" />

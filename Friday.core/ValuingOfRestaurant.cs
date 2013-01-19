@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class ValuingOfMerchant: Valuing
+    public class ValuingOfRestaurant:Valuing
     {
         public SystemUser FromSystemUser
         {
@@ -18,7 +18,7 @@ namespace friday.core
             {
             }
         }
-        public Merchant ToMerchant
+        public Restaurant ToRestaurant
         {
             get
             {
@@ -28,6 +28,5 @@ namespace friday.core
             {
             }
         }
-
     }
 }
