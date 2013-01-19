@@ -132,8 +132,8 @@
     <Compile Include="domain\MyFavoriteMap.cs" />
     <Compile Include="domain\MyOrder.cs" />
     <Compile Include="domain\MyOrderMap.cs" />
-    <Compile Include="domain\OrderFood.cs" />
-    <Compile Include="domain\OrderFoodMap.cs" />
+    <Compile Include="domain\OrderOfFood.cs" />
+    <Compile Include="domain\OrderOfFoodMap.cs" />
     <Compile Include="domain\OrderMessage.cs" />
     <Compile Include="domain\OutBox.cs" />
     <Compile Include="domain\OutBoxMap.cs" />
@@ -163,6 +163,9 @@
     <Compile Include="domain\House.cs" />
     <Compile Include="domain\ValuingOfMerchant.cs" />
     <Compile Include="domain\SnapShotCommodity.cs" />
+    <Compile Include="MyFoodOrder.cs" />
+    <Compile Include="MyHouseOrder.cs" />
+    <Compile Include="OrderOfHouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domain\Rent.cs" />
     <Compile Include="repositories\IRepository.cs" />

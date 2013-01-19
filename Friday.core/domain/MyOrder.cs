@@ -85,13 +85,9 @@ namespace friday.core.domain
             get;
         }
         
-        //Order 1:N OrederFood
-        public virtual Iesi.Collections.Generic.ISet<OrderFood> OrderFoods
-        {
-            set;
 
-            get;
-        }
+
+      
      
     }
 }

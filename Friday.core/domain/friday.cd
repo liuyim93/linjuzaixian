@@ -50,20 +50,20 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.MyOrder">
-    <Position X="10.5" Y="16.75" Width="2.5" />
+    <Position X="11.75" Y="15.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EAEQACKAAQAigAAAAAAAAAAAAAAAgAACAAAAAAAAAAA=</HashCode>
+      <HashCode>EAEQAAKAAQAigAAAAAAAAAAAAAAAgAACAAAAAAAAAAA=</HashCode>
       <FileName>domain\MyOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Merchant" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="friday.core.domain.OrderFood">
-    <Position X="13.25" Y="17.25" Width="1.5" />
+  <Class Name="friday.core.domain.OrderOfFood">
+    <Position X="18.25" Y="16" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAQAAAgAAAAA=</HashCode>
-      <FileName>domain\OrderFood.cs</FileName>
+      <HashCode>AAAAAAAAAQAAABAAAAAAAACAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>domain\OrderOfFood.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.School">
@@ -206,7 +206,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.House">
-    <Position X="8.75" Y="20" Width="1.5" />
+    <Position X="8" Y="20.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\House.cs</FileName>
@@ -254,10 +254,37 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.SnapShotCommodity">
-    <Position X="11.5" Y="20" Width="2" />
+    <Position X="13" Y="21.5" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\SnapShotCommodity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.MyFoodOrder">
+    <Position X="15.75" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>MyFoodOrder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="OrderOfFoods" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="friday.core.MyHouseOrder">
+    <Position X="15.75" Y="17" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MyHouseOrder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="OrderOfHouses" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="friday.core.OrderOfHouse">
+    <Position X="18.25" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAgAACAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>OrderOfHouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

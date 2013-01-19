@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using friday.core.EnumType;
-namespace friday.core.domain
+
+namespace friday.core
 {
-    public class OrderFood:Entity
+    public class OrderOfHouse
     {
-        public virtual Food Food
+        public virtual House House
         {
             set;
 
             get;
-        } 
-        public virtual MyOrder MyOrder
+        }
+        public virtual MyHouseOrder MyHouseOrder
         {
             set;
 

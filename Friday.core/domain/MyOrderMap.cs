@@ -5,11 +5,10 @@ using System.Text;
 using FluentNHibernate.Mapping;
 namespace friday.core.domain
 {
-    public class MyOrderMap : ClassMap<MyOrder>
+    public class MyFoodOrderMap : ClassMap<MyFoodOrder>
     {
-        public MyOrderMap()
+        public MyFoodOrderMap()
         {
-            Table("MyOrder");
             Id(o=>o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
@@ -24,7 +23,7 @@ namespace friday.core.domain
             Map(o => o.OrderNumber);
            References<Customer>(o => o.Customer);
            References<Merchant>(o => o.Merchant);
-           HasMany<OrderFood>(o => o.OrderFoods).Inverse().LazyLoad().Cascade.All();
+           HasMany<OrderOfFood>(o => o.OrderOfFoods).Inverse().LazyLoad().Cascade.All();
                        
                         
         }
