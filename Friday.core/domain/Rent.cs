@@ -7,5 +7,14 @@ namespace friday.core
 {
     public class Rent:Merchant
     {
+
+        //Shop 1:N Food
+        public virtual Iesi.Collections.Generic.ISet<House> Houses
+        {
+            get;
+
+            set;
+        }
+
     }
 }

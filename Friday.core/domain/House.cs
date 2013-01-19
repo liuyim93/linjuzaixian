@@ -7,5 +7,11 @@ namespace friday.core
 {
     public class House:Commodity
     {
+        //Shop 1:N Food
+        public virtual Rent Rent
+        {
+            get;
+            set;
+        }
     }
 }
