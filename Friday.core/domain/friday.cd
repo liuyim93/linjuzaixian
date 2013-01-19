@@ -159,7 +159,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAAAQggIAAAAAAIAQAAAAAAIBCAgIAAEAACAA=</HashCode>
+      <HashCode>QAAAAUAAAAQggIAAAAAAIAQAAAAAAIBCAAIAAEAACAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -167,13 +167,12 @@
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="SchoolOfMerchants" />
-      <Property Name="MyOrders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.Restaurant">
     <Position X="1.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQQEAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
+      <HashCode>AAQQEAAAAAAgABAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
       <FileName>domain\Restaurant.cs</FileName>
     </TypeIdentifier>
   </Class>

@@ -16,5 +16,12 @@ namespace friday.core
             set;
         }
 
+        public virtual Iesi.Collections.Generic.ISet<MyHouseOrder> MyHouseOrders
+        {
+            get;
+
+            set;
+        }
+
     }
 }

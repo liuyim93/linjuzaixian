@@ -43,7 +43,7 @@ namespace friday.core.domain
             HasMany<Food>(o => o.Foods).Inverse().LazyLoad().Cascade.All();
             HasMany<MerchantGoodsType>(o => o.MerchantGoodsTypes).Inverse().LazyLoad().Cascade.All();
             HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().LazyLoad().Cascade.All();
-            HasMany<MyOrder>(o => o.MyOrders).Inverse().LazyLoad().Cascade.All();
+            HasMany<MyFoodOrder>(o => o.MyFoodOrders).Inverse().LazyLoad().Cascade.All();
 
         }
     }

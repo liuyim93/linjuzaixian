@@ -124,12 +124,7 @@ namespace friday.core
             get;
         }
 
-        public virtual Iesi.Collections.Generic.ISet<MyOrder> MyOrders
-        {
-            get;
-
-            set;
-        }
+       
        
 
     }
