@@ -69,11 +69,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="UnityConfiguration">
+      <HintPath>..\packages\UnityConfiguration.1.4.1\lib\net35\UnityConfiguration.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\ContainerFactory.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="components\FooRegistry.cs" />
     <Compile Include="domain\ValuingOfCommodity.cs" />
     <Compile Include="domain\Commodity.cs" />
     <Compile Include="components\BindingHelper.cs" />
