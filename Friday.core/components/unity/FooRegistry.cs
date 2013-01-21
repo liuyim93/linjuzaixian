@@ -39,7 +39,7 @@ namespace friday.core.components
            
          });
          
-         this.Configure<ISystemUserRepository>().AsSingleton();
+         //this.Configure<ISystemUserRepository>().AsSingleton();
          
          // Manually register a service
          //Register<IFooService, FooService>().WithName("Foo").AsSingleton();
