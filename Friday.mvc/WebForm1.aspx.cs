@@ -27,6 +27,8 @@ namespace Friday.mvc
 
             };
             repo.SaveOrUpdate(u);
+
+
         }
     }
 }
