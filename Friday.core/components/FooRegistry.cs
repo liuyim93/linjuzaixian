@@ -25,7 +25,9 @@ namespace friday.core.components
            //scan.With<SetAllPropertiesConvention>().OfType<ILogger>();
            //scan.With<AddAllConvention>().Using<ContainerControlledLifetimeManager>();
            scan.ExcludeType<WebCache>();
-           
+           scan.ExcludeType<TestSessionStorage>();
+           scan.ExcludeType<ThreadSessionStorage>();
+           scan.ExcludeType<HttpSessionStorage>();
            
            
            

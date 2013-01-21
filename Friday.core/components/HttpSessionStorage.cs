@@ -10,6 +10,10 @@ namespace friday.core.components
 {
     public class HttpSessionStorage:ISessionStorage
     {
+        public HttpSessionStorage()
+        {
+
+        }
         public ISession Get()
         {
             return (ISession)HttpContext.Current.Items["NhbSession"];

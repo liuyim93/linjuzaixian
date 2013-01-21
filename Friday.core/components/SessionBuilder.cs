@@ -57,11 +57,13 @@ namespace friday.core.components
         }
         public static ISession CreateSession()
         {
-            //2011-3-19 李丽 用来区别web还是job多线程
-            if (HttpContext.Current == null)
-                sessionStorage = new TestSessionStorage();
-            else
-                sessionStorage = new HttpSessionStorage();
+            ////2011-3-19 李丽 用来区别web还是job多线程
+            //if (HttpContext.Current == null)
+            //    sessionStorage = new TestSessionStorage();
+            //else
+            //    sessionStorage = new HttpSessionStorage();
+            //2013-01-21 basilwang use Unityhelper
+            sessionStorage=UnityHelper.UnityToT<ISessionStorage>();
             ISession s = sessionStorage.Get();
             if (s == null)
             {

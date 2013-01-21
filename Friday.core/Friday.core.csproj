@@ -74,11 +74,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\AutoSessionStorage.cs" />
     <Compile Include="components\ContainerFactory.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="components\FirstInterfaceSingletonConvention.cs" />
     <Compile Include="components\FooRegistry.cs" />
+    <Compile Include="components\HttpContextLifetimeManager.cs" />
     <Compile Include="components\UnityHelper.cs" />
     <Compile Include="components\BindingHelper.cs" />
     <Compile Include="components\CurrentUser.cs" />

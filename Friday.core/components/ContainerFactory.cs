@@ -28,6 +28,24 @@ namespace friday.core.components
                     {
                         IUnityContainer Container = new UnityContainer();
                         Container.RegisterType<ICache, WebCache>(new ContainerControlledLifetimeManager());
+                        ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
+                        if (HttpContext.Current != null)
+                        {
+                            infraFileMap.ExeConfigFilename = HttpContext.Current.Server.MapPath("~/unity.di.infrastructure.config");
+                            Container.RegisterType<ISessionStorage, HttpSessionStorage>(new HttpContextLifetimeManager());
+                        }
+                        else
+                        {
+                            infraFileMap.ExeConfigFilename = AppDomain.CurrentDomain.BaseDirectory + "unity.di.infrastructure.config";
+                            Container.RegisterType<ISessionStorage, ThreadSessionStorage>(new PerThreadLifetimeManager());
+                        }
+
+                        UnityConfigurationSection infraConfig = (UnityConfigurationSection)ConfigurationManager
+                            .OpenMappedExeConfiguration(infraFileMap, ConfigurationUserLevel.None)
+                            .GetSection("unity");
+                        infraConfig.Configure(Container);
+                                               
+                        
                         Container.Configure(x =>
                         {
                             x.AddRegistry<FooRegistry>();
@@ -37,18 +55,7 @@ namespace friday.core.components
                         //UnityRegistry x = new UnityRegistry();
                         //x.AddRegistry<FooRegistry>();
                         //x.Configure(Container);
-                        ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
-                        if (HttpContext.Current != null)
-                            infraFileMap.ExeConfigFilename = HttpContext.Current.Server.MapPath("~/unity.di.infrastructure.config");
-                        else
-                            infraFileMap.ExeConfigFilename = AppDomain.CurrentDomain.BaseDirectory + "unity.di.infrastructure.config";
-
-                        UnityConfigurationSection infraConfig = (UnityConfigurationSection)ConfigurationManager
-                            .OpenMappedExeConfiguration(infraFileMap, ConfigurationUserLevel.None)
-                            .GetSection("unity");
-                        infraConfig.Configure(Container);
-
-                       
+                        
                         container = Container;
                     }
                 }
