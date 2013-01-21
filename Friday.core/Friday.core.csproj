@@ -114,11 +114,14 @@
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
+    <Compile Include="services\IUserService.cs" />
+    <Compile Include="services\UserService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
