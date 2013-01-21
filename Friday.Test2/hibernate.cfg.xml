@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+    <section name="hibernate-configuration"
+                 type="NHibernate.Cfg.ConfigurationSectionHandler, NHibernate" />
+  </configSections>
+  <hibernate-configuration  xmlns="urn:nhibernate-configuration-2.2" >
+    <session-factory>
+      <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
+      <property name="connection.connection_string">
+        Data Source=.\sqlexpress;Initial Catalog=friday;User ID=sa;Password=sdie?!3406
+        <!--Data Source=.;Initial Catalog=IForIndustry;User ID=sa;Password=1496595196-->
+
+      </property>
+      <!--property name="connection.driver_class">NHibernate.Driver.OracleClientDriver</property>
+
+
+        Data Source=.\sql2005;Initial Catalog=Moss;User ID=sa;Password=cxzdsa43</property>
+      <property name="connection.driver_class">NHibernate.Driver.OracleClientDriver</property>
+
+
+        Data Source=.\sql2005;Initial Catalog=Moss;User ID=sa;Password=sdie?!3406</property>
+       <property name="connection.driver_class">NHibernate.Driver.OracleClientDriver</property>
+
+      <property name="connection.connection_string">
+        Data Source=orcl;User ID=scott;Password=tiger
+      </property>
+      -->
+      <property name="show_sql">false</property>
+      <property name="dialect">NHibernate.Dialect.MsSql2005Dialect</property>
+      <!--><property name="dialect">NHibernate.Dialect.Oracle10gDialect</property>-->
+      <property name="use_outer_join">true</property>
+      <property name="command_timeout">10</property>
+      <property name="hbm2ddl.keywords">none</property>
+      <property name="query.substitutions">true 1, false 0, yes 'Y', no 'N'</property>
+      <property name="proxyfactory.factory_class">NHibernate.ByteCode.Castle.ProxyFactoryFactory, NHibernate.ByteCode.Castle</property>
+      <mapping assembly="friday.core"/>
+
+    </session-factory>
+  </hibernate-configuration>
+</configuration>
