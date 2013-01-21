@@ -31,6 +31,7 @@ namespace friday.core.components
                         Container.Configure(x =>
                         {
                             x.AddRegistry<FooRegistry>();
+                           
   
                         });
                         //UnityRegistry x = new UnityRegistry();

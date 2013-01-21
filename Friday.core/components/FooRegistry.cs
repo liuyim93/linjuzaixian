@@ -20,9 +20,8 @@ namespace friday.core.components
            scan.AssemblyContaining<FooRegistry>();
            scan.ForRegistries();
            scan.WithNamingConvention();
-           //scan.With<AddAllConvention>().Using<ContainerControlledLifetimeManager>();
-           scan.WithFirstInterfaceConvention();
-
+           //scan.With<AddAllConvention>().TypesImplementing<IAutoUnity>().Using<ContainerControlledLifetimeManager>();
+           scan.With<FirstInterfaceSingletonConvention>();
            //scan.With<SetAllPropertiesConvention>().OfType<ILogger>();
            //scan.With<AddAllConvention>().Using<ContainerControlledLifetimeManager>();
            scan.ExcludeType<WebCache>();
@@ -31,6 +30,8 @@ namespace friday.core.components
            
            
          });
+         
+         this.Configure<ISystemUserRepository>().AsSingleton();
          
          // Manually register a service
          //Register<IFooService, FooService>().WithName("Foo").AsSingleton();
