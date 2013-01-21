@@ -28,7 +28,11 @@ namespace friday.core.components
                     {
                         IUnityContainer Container = new UnityContainer();
                         Container.RegisterType<ICache, WebCache>(new ContainerControlledLifetimeManager());
-
+                        container.Configure(x =>
+                        {
+                            x.AddRegistry<FooRegistry>();
+ 
+                        });
                         //UnityRegistry x = new UnityRegistry();
                         //x.AddRegistry<FooRegistry>();
                         //x.Configure(Container);
