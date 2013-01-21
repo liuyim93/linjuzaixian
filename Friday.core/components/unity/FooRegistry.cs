@@ -6,6 +6,7 @@ using UnityConfiguration;
 using Microsoft.Practices.Unity;
 using friday.core.repositories;
 using friday.core.domain;
+using friday.core.utils;
 namespace friday.core.components
 {
     public class FooRegistry : UnityRegistry
@@ -31,6 +32,8 @@ namespace friday.core.components
            scan.ExcludeType<ThreadSessionStorage>();
            scan.ExcludeType<HttpSessionStorage>();
            scan.ExcludeType<AutoSessionStorage>();
+           scan.ExcludeType<Logger>();
+           scan.ExcludeType<MockLogger>();
            
            
            

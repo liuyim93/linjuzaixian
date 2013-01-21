@@ -10,6 +10,7 @@ using System.Web;
 using System.Web.Caching;
 using System.IO;
 using UnityConfiguration;
+using friday.core.utils;
 
 namespace friday.core.components
 {
@@ -28,6 +29,7 @@ namespace friday.core.components
                     {
                         IUnityContainer Container = new UnityContainer();
                         Container.RegisterType<ICache, WebCache>(new ContainerControlledLifetimeManager());
+                        Container.RegisterType<ILogger, Logger>(new ContainerControlledLifetimeManager());
                         ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
                         if (HttpContext.Current != null)
                         {
