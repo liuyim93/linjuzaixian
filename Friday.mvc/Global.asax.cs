@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
+using friday.core.components;
+using friday.mvc;
 
 namespace Friday.mvc
 {
@@ -19,6 +21,8 @@ namespace Friday.mvc
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Bootstrapper.Run(ContainerFactory.GetContainer());
         }
     }
 }
