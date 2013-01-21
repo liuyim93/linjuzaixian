@@ -36,7 +36,7 @@ namespace friday.core.components
                         }
                         else
                         {
-                            infraFileMap.ExeConfigFilename = AppDomain.CurrentDomain.BaseDirectory + "unity.di.infrastructure.config";
+                            infraFileMap.ExeConfigFilename = AppDomain.CurrentDomain.BaseDirectory + "\\unity.di.infrastructure.config";
                             Container.RegisterType<ISessionStorage, AutoSessionStorage>(new PerThreadLifetimeManager());
                         }
 

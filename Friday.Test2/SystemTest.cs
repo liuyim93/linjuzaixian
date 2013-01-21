@@ -9,6 +9,7 @@ using MbUnit.Framework;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.repositories;
+using friday.core;
 
 
 namespace friday.coretest
@@ -72,23 +73,24 @@ namespace friday.coretest
             //删除数据库架构
             //new SchemaExport(cfg).Drop(false, true);
         }
-       
-        // [Test]
-        //public void SystemUserTest()
-        //{
 
-        //     var factory = SessionBuilder.SessionFactory;
-        //     using (var session = factory.OpenSession())
-        //     {
-        //         SystemCompany c = new SystemCompany();
-        //         //IRepository<SystemCompany> r=new Repository<SystemCompany>();
-        //         c.CompanyName = "sdie";
+        [Test]
+        public void add_a_system_user()
+        {
+            ISystemUserRepository repo = UnityHelper.UnityToT<ISystemUserRepository>();
+            SystemUser u = new SystemUser()
+            {
+                Name = "basil",
+                Password = "123456",
+                Tel = "1342343214",
+                Email = "ocam@163.com",
+                Description = "a lot of things"
 
-        //         session.Save(c);
-        //         session.Flush();
 
-        //     }
-        //}
+
+            };
+            repo.SaveOrUpdate(u);
+        }
          
         //[Test]
         // public void SystemUserTest1()
