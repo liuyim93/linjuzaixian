@@ -25,9 +25,12 @@ namespace friday.core.components
            //scan.With<SetAllPropertiesConvention>().OfType<ILogger>();
            //scan.With<AddAllConvention>().Using<ContainerControlledLifetimeManager>();
            scan.ExcludeType<WebCache>();
+           //2013-01-21 basilwang must exclude all subclass of the ISessionStorage, otherwise the subclass of ISessionStorge which will not be 
+           //Exclued will become singeton and  replace the http context lifetime SessionStorage registerd before 
            scan.ExcludeType<TestSessionStorage>();
            scan.ExcludeType<ThreadSessionStorage>();
            scan.ExcludeType<HttpSessionStorage>();
+           scan.ExcludeType<AutoSessionStorage>();
            
            
            

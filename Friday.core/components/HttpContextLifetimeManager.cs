@@ -9,6 +9,10 @@ namespace friday.core.components
 {
     public class HttpContextLifetimeManager : LifetimeManager, IDisposable
     {
+        public HttpContextLifetimeManager()
+        {
+
+        }
         const string ItemName = "HttpContextLifetimeManager";
 
 
