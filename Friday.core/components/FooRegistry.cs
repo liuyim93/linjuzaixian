@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using UnityConfiguration;
 using Microsoft.Practices.Unity;
-
+using friday.core.repositories;
+using friday.core.domain;
 namespace friday.core.components
 {
     public class FooRegistry : UnityRegistry
@@ -17,14 +18,17 @@ namespace friday.core.components
          Scan(scan =>
          {
            scan.AssemblyContaining<FooRegistry>();
-           scan.With<FirstInterfaceConvention>();
-           //scan.With<AddAllConvention>().TypesImplementing<IHaveManyImplementations>();
+           scan.With<AddAllConvention>().TypesImplementing<IAutoUnity>().Using<ContainerControlledLifetimeManager>();
+           scan.WithFirstInterfaceConvention();
+
            //scan.With<SetAllPropertiesConvention>().OfType<ILogger>();
+           //scan.With<AddAllConvention>().Using<ContainerControlledLifetimeManager>();
            scan.ExcludeType<WebCache>();
            
            
+           
+           
          });
-         this.Configure<IUnityContainer>().AsSingleton();
          // Manually register a service
          //Register<IFooService, FooService>().WithName("Foo").AsSingleton();
  

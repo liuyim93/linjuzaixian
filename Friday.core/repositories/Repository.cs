@@ -15,6 +15,10 @@ namespace friday.core.repositories
 {
     public class Repository<T> : IRepository<T> where T : Entity
     {
+        public Repository()
+        {
+
+        }
         protected virtual ISession Session
         {
             get { return SessionBuilder.CreateSession(); }

@@ -8,7 +8,7 @@ using friday.core.domain;
 
 namespace friday.core.repositories
 {
-    public interface IRepository<T> where T : Entity
+    public interface IRepository<T> : IAutoUnity where T : Entity
     {
         T Load(string id);
         T Get(string id);
@@ -20,5 +20,9 @@ namespace friday.core.repositories
         void PhysicsDelete(string id);
         IList<T> GetPageList(int start, int limit, out long total);
         IList<T> GetPageListByProperty(int start, int limit, out long total, int year, int month, object company, object project);
+    }
+    public interface IAutoUnity
+    {
+
     }
 }
