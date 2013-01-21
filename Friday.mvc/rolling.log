@@ -1,0 +1,30 @@
+----------------------------------------
+Logging Errors & Warnings Error: 6352 : Timestamp: 2013/1/21 14:57:39
+Message: There is no explicit mapping for the categories 'test'. The log entry was: 
+Timestamp: 2013/1/21 14:57:39
+Message: test
+Category: test
+Priority: -1
+EventId: 1
+Severity: Information
+Title:
+Machine: THINK
+App Domain: /LM/W3SVC/6/ROOT-3-130032538569916950
+ProcessId: 11900
+Process Name: C:\Program Files (x86)\IIS Express\iisexpress.exe
+Thread Name: 
+Win32 ThreadId:14548
+Extended Properties: 
+Category: 
+Priority: -1
+EventId: 6352
+Severity: Error
+Title:
+Machine: THINK
+App Domain: /LM/W3SVC/6/ROOT-3-130032538569916950
+ProcessId: 11900
+Process Name: C:\Program Files (x86)\IIS Express\iisexpress.exe
+Thread Name: 
+Win32 ThreadId:14548
+Extended Properties: 
+----------------------------------------

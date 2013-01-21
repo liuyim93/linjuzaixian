@@ -16,10 +16,10 @@ namespace friday.core.utils
             writer = EnterpriseLibraryContainer.Current.GetInstance<LogWriter>();
         }
 
-        public Logger(LogWriter logWriter)
-        {
-            writer = logWriter;
-        }
+        //public Logger(LogWriter logWriter)
+        //{
+        //    writer = logWriter;
+        //}
 
         public void Write(LogEntry logEntry)
         {
