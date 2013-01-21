@@ -27,9 +27,10 @@ namespace friday.core.components
                     if (container == null)
                     {
                         IUnityContainer Container = new UnityContainer();
-                        Container.RegisterType<ICache, WebCache>();
+                        Container.RegisterType<ICache, WebCache>(new ContainerControlledLifetimeManager());
                         UnityRegistry x = new UnityRegistry();
                         x.AddRegistry<FooRegistry>();
+
                         //ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
                         //if(HttpContext.Current!=null)
                         //infraFileMap.ExeConfigFilename = HttpContext.Current.Server.MapPath("~/unity.di.infrastructure.config");

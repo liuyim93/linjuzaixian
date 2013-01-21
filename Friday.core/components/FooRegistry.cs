@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityConfiguration;
+using Microsoft.Practices.Unity;
 
 namespace friday.core.components
 {
@@ -19,15 +20,16 @@ namespace friday.core.components
            scan.With<FirstInterfaceConvention>();
            //scan.With<AddAllConvention>().TypesImplementing<IHaveManyImplementations>();
            //scan.With<SetAllPropertiesConvention>().OfType<ILogger>();
-           //scan.ExcludeType<FooService>();
+           scan.ExcludeType<WebCache>();
+           
+           
          });
- 
+         this.Configure<IUnityContainer>().AsSingleton();
          // Manually register a service
          //Register<IFooService, FooService>().WithName("Foo").AsSingleton();
  
          // Make services a singleton
          //MakeSingleton<ISingletonService>();
- 
          // You can automatically configure the container to call
          // a method on any service when they are created
          //AfterBuildingUp<IStartable>().Call((c, s) => s.Start();
