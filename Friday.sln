@@ -7,30 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday.core", "Friday.core\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{DEEB1032-D2E9-4365-9095-49D316C85579}"
 	ProjectSection(SolutionItems) = preProject
-		lib\Antlr3.Runtime.dll = lib\Antlr3.Runtime.dll
-		lib\Castle.Core.dll = lib\Castle.Core.dll
-		lib\Castle.DynamicProxy2.dll = lib\Castle.DynamicProxy2.dll
-		lib\FluentNHibernate.dll = lib\FluentNHibernate.dll
 		lib\HibernatingRhinos.NHibernate.Profiler.Appender.dll = lib\HibernatingRhinos.NHibernate.Profiler.Appender.dll
-		lib\Iesi.Collections.dll = lib\Iesi.Collections.dll
 		lib\log4net.dll = lib\log4net.dll
 		lib\MbUnit.Framework.dll = lib\MbUnit.Framework.dll
-		lib\Microsoft.Practices.ObjectBuilder2.dll = lib\Microsoft.Practices.ObjectBuilder2.dll
-		lib\Microsoft.Practices.Unity.Configuration.dll = lib\Microsoft.Practices.Unity.Configuration.dll
-		lib\Microsoft.Practices.Unity.dll = lib\Microsoft.Practices.Unity.dll
-		lib\Microsoft.Practices.Unity.Interception.Configuration.dll = lib\Microsoft.Practices.Unity.Interception.Configuration.dll
-		lib\Microsoft.Practices.Unity.Interception.dll = lib\Microsoft.Practices.Unity.Interception.dll
 		lib\Newtonsoft.Json.dll = lib\Newtonsoft.Json.dll
 		lib\Newtonsoft.Json.pdb = lib\Newtonsoft.Json.pdb
-		lib\NHibernate.ByteCode.Castle.dll = lib\NHibernate.ByteCode.Castle.dll
-		lib\NHibernate.ByteCode.LinFu.dll = lib\NHibernate.ByteCode.LinFu.dll
-		lib\NHibernate.dll = lib\NHibernate.dll
-		lib\NHibernate.pdb = lib\NHibernate.pdb
-		lib\nunit.framework.dll = lib\nunit.framework.dll
-		lib\SmallSharpTools.Packer.dll = lib\SmallSharpTools.Packer.dll
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday.coretest", "Friday.coretest\Friday.coretest.csproj", "{8867D65B-7843-41ED-8FB6-2FC796D4C21D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,10 +28,6 @@ Global
 		{94A7D4D5-4032-4738-BD5E-C3FEAC319C5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94A7D4D5-4032-4738-BD5E-C3FEAC319C5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94A7D4D5-4032-4738-BD5E-C3FEAC319C5A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8867D65B-7843-41ED-8FB6-2FC796D4C21D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8867D65B-7843-41ED-8FB6-2FC796D4C21D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8867D65B-7843-41ED-8FB6-2FC796D4C21D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8867D65B-7843-41ED-8FB6-2FC796D4C21D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

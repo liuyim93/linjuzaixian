@@ -78,6 +78,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="components\FooRegistry.cs" />
+    <Compile Include="components\UnityHelper.cs" />
     <Compile Include="domain\ValuingOfCommodity.cs" />
     <Compile Include="domain\Commodity.cs" />
     <Compile Include="components\BindingHelper.cs" />
