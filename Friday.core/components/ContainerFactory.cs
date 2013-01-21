@@ -32,12 +32,12 @@ namespace friday.core.components
                         if (HttpContext.Current != null)
                         {
                             infraFileMap.ExeConfigFilename = HttpContext.Current.Server.MapPath("~/unity.di.infrastructure.config");
-                            Container.RegisterType<ISessionStorage, HttpSessionStorage>(new HttpContextLifetimeManager());
+                            Container.RegisterType<ISessionStorage, AutoSessionStorage>(new HttpContextLifetimeManager());
                         }
                         else
                         {
                             infraFileMap.ExeConfigFilename = AppDomain.CurrentDomain.BaseDirectory + "unity.di.infrastructure.config";
-                            Container.RegisterType<ISessionStorage, ThreadSessionStorage>(new PerThreadLifetimeManager());
+                            Container.RegisterType<ISessionStorage, AutoSessionStorage>(new PerThreadLifetimeManager());
                         }
 
                         UnityConfigurationSection infraConfig = (UnityConfigurationSection)ConfigurationManager
