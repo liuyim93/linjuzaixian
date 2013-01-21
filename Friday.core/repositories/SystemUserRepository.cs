@@ -15,7 +15,10 @@ namespace friday.core.repositories
 {
     public class SystemUserRepository : Repository<SystemUser>,ISystemUserRepository
     {
+        public SystemUserRepository()
+        {
 
+        }
 
     }
      

@@ -18,7 +18,9 @@ namespace friday.core.components
          Scan(scan =>
          {
            scan.AssemblyContaining<FooRegistry>();
-           scan.With<AddAllConvention>().TypesImplementing<IAutoUnity>().Using<ContainerControlledLifetimeManager>();
+           scan.ForRegistries();
+           scan.WithNamingConvention();
+           //scan.With<AddAllConvention>().Using<ContainerControlledLifetimeManager>();
            scan.WithFirstInterfaceConvention();
 
            //scan.With<SetAllPropertiesConvention>().OfType<ILogger>();

@@ -14,7 +14,7 @@ namespace Friday.mvc
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRepository<SystemUser> repo = UnityHelper.UnityToT<Repository<SystemUser>>();
+            ISystemUserRepository repo = UnityHelper.UnityToT<ISystemUserRepository>();
             SystemUser u = new SystemUser()
             {
                 Name = "basil",
