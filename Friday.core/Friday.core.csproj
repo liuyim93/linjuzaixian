@@ -74,14 +74,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="components\AutoSessionStorage.cs" />
-    <Compile Include="components\ContainerFactory.cs">
+    <Compile Include="components\unity\AutoSessionStorage.cs" />
+    <Compile Include="components\unity\ContainerFactory.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="components\FirstInterfaceSingletonConvention.cs" />
-    <Compile Include="components\FooRegistry.cs" />
-    <Compile Include="components\HttpContextLifetimeManager.cs" />
-    <Compile Include="components\UnityHelper.cs" />
+    <Compile Include="components\unity\FirstInterfaceSingletonConvention.cs" />
+    <Compile Include="components\unity\FooRegistry.cs" />
+    <Compile Include="components\unity\HttpContextLifetimeManager.cs" />
+    <Compile Include="components\unity\UnityHelper.cs" />
     <Compile Include="components\BindingHelper.cs" />
     <Compile Include="components\CurrentUser.cs" />
     <Compile Include="components\DataFilter.cs" />
