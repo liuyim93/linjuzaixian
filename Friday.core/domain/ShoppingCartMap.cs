@@ -16,10 +16,10 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.Version);
             Map(o => o.Price);
-            Map(o => o.ShopID);
-            Map(o => o.ShopName);
+            //Map(o => o.ShopID);
+            //Map(o => o.ShopName);
             Map(o => o.SendPrice);
-            HasMany<CartFood>(o => o.CartFoods).Inverse().Cascade.All();
+            //HasMany<CartFood>(o => o.CartFoods).Inverse().Cascade.All();
         }
     }
 }

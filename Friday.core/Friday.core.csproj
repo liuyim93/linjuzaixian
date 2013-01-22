@@ -90,6 +90,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CartCommodity.cs" />
+    <Compile Include="CartOfHouse.cs" />
     <Compile Include="Commodity.cs" />
     <Compile Include="CommodityStatistic.cs" />
     <Compile Include="components\unity\AutoSessionStorage.cs" />
@@ -125,8 +127,8 @@
     <Compile Include="domain\BaseObject.cs" />
     <Compile Include="domain\BottmCart.cs" />
     <Compile Include="domain\CartBox.cs" />
-    <Compile Include="domain\CartFood.cs" />
-    <Compile Include="domain\CartFoodMap.cs" />
+    <Compile Include="domain\CartOfFood.cs" />
+    <Compile Include="domain\CartOfFoodMap.cs" />
     <Compile Include="domain\AbstractCommodity.cs" />
     <Compile Include="domain\Customer.cs" />
     <Compile Include="domain\Entity.cs" />
@@ -175,20 +177,24 @@
     <Compile Include="domain\ValuingOfRestaurant.cs" />
     <Compile Include="domain\ValuingOfShop.cs" />
     <Compile Include="domain\ValuingOfUserFromRent.cs" />
+    <Compile Include="Emtity.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
     <Compile Include="FoodStatistic.cs" />
+    <Compile Include="HouseCart.cs" />
     <Compile Include="HouseStatistic.cs" />
     <Compile Include="MyShopOrder.cs" />
     <Compile Include="OrderOfCommodity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentCart.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
+    <Compile Include="RestaurantCart.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="Statistic.cs" />

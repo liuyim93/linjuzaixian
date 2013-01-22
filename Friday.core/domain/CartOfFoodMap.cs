@@ -6,19 +6,18 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class CartFoodMap:ClassMap<CartFood>
+    public class CartOfFoodMap:ClassMap<CartOfFood>
     {
 
-        public CartFoodMap()
+        public CartOfFoodMap()
         {
-            Table("CartFood");
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
             Map(o => o.Price);
             Map(o => o.Amount);
-            References<ShoppingCart>(o => o.ShoppingCart);
+            References<RestaurantCart>(o => o.RestaurantCart);
             References<Food>(o => o.Food);
         }
 

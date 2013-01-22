@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using friday.core.EnumType;
-using Iesi.Collections.Generic;
-namespace friday.core.domain
+using friday.core.domain;
+
+namespace friday.core
 {
-    public class ShoppingCart:Entity
+    public class RestaurantCart:Entity
     {
         public virtual Customer Customer
         {
@@ -16,7 +17,7 @@ namespace friday.core.domain
 
 
         //Order 1:N OrederFood
-        public virtual ISet<CartOfCommodity> CartOfCommodities
+        public virtual ISet<CartOfFood> CartOfFoods
         {
             set;
 
@@ -29,22 +30,20 @@ namespace friday.core.domain
             set;
         }
 
-        public virtual Shop Shop
+        public virtual Restaurant Restaurant
         {
             get;
 
             set;
         }
 
-      
+   
         public virtual double SendPrice
         {
             set;
 
             get;
         }
-
-
 
     }
 }

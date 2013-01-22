@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using friday.core.domain;
 
-namespace friday.core.domain
+namespace friday.core
 {
-    public class CartFood:Entity
+    public class CartOfCommodity:Entity
     {
         public virtual ShoppingCart ShoppingCart
         {
@@ -13,7 +14,7 @@ namespace friday.core.domain
             get;
         }
 
-        public virtual Food Food
+        public virtual Commodity Commodity
         {
             set;
 
@@ -32,6 +33,5 @@ namespace friday.core.domain
 
             get;
         }
-
     }
 }
