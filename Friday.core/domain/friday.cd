@@ -190,13 +190,6 @@
       <FileName>domain\MerchantCategory.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.ValuingOfCommodity">
-    <Position X="0.5" Y="22.75" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\ValuingOfCommodity.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="friday.core.Rent">
     <Position X="3.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
@@ -212,7 +205,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfShop">
-    <Position X="2.75" Y="22.75" Width="1.5" />
+    <Position X="0.5" Y="22.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfShop.cs</FileName>
@@ -235,11 +228,11 @@
       <Property Name="ValuingItems" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="friday.core.ValuingOfUser">
-    <Position X="8.25" Y="22.75" Width="1.5" />
+  <Class Name="friday.core.ValuingOfUserFromRent">
+    <Position X="5.75" Y="22.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\ValuingOfUser.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ValuingOfUserFromRent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingItem">
@@ -263,7 +256,7 @@
     <Position X="15.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>MyFoodOrder.cs</FileName>
+      <FileName>domain\MyFoodOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="OrderOfFoods" />
@@ -273,7 +266,7 @@
     <Position X="15.75" Y="17" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MyHouseOrder.cs</FileName>
+      <FileName>domain\MyHouseOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="OrderOfHouses" />
@@ -283,24 +276,35 @@
     <Position X="18.25" Y="18.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAgAACAAAAAAAAAAAIAAAAAAAA=</HashCode>
-      <FileName>OrderOfHouse.cs</FileName>
+      <FileName>domain\OrderOfHouse.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfRestaurant">
-    <Position X="4.5" Y="22.75" Width="1.5" />
-    <Compartments>
-      <Compartment Name="Properties" Collapsed="true" />
-    </Compartments>
+    <Position X="2.25" Y="22.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
-      <FileName>ValuingOfRestaurant.cs</FileName>
+      <FileName>domain\ValuingOfRestaurant.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfRent">
-    <Position X="6.25" Y="22.75" Width="1.5" />
+    <Position X="4" Y="22.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
-      <FileName>ValuingOfRent.cs</FileName>
+      <FileName>domain\ValuingOfRent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.ValuingOfUserFromRestaurant">
+    <Position X="7.5" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAACAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ValuingOfUserFromRestaurant.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.ValuingOfUserFromShop">
+    <Position X="9.25" Y="22.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ValuingOfUserFromShop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

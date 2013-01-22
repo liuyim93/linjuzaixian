@@ -172,7 +172,7 @@
     <Compile Include="domain\ValuingOfRent.cs" />
     <Compile Include="domain\ValuingOfRestaurant.cs" />
     <Compile Include="domain\ValuingOfShop.cs" />
-    <Compile Include="domain\ValuingOfUser.cs" />
+    <Compile Include="domain\ValuingOfUserFromRent.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
@@ -189,6 +189,8 @@
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
     <Compile Include="utils\MockLogger.cs" />
+    <Compile Include="domain\ValuingOfUserFromRestaurant.cs" />
+    <Compile Include="domain\ValuingOfUserFromShop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="domain\friday.cd" />
