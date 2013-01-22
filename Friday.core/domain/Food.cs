@@ -8,15 +8,23 @@ namespace friday.core.domain
 {
     public class Food : friday.core.AbstractCommodity
     {
-        
-     
-        public virtual int  MonthAmount
+
+
+        public decimal Amount
         {
             get;
-
             set;
         }
-      
+        public int ValuingCount
+        {
+            get;
+            set;
+        }
+        public float AverageValuing
+        {
+            get;
+            set;
+        }
 
 
         public virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite

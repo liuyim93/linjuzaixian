@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commodity.cs" />
+    <Compile Include="CommodityStatistic.cs" />
     <Compile Include="components\unity\AutoSessionStorage.cs" />
     <Compile Include="components\unity\ContainerFactory.cs">
       <SubType>Code</SubType>
@@ -179,6 +180,8 @@
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
+    <Compile Include="FoodStatistic.cs" />
+    <Compile Include="HouseStatistic.cs" />
     <Compile Include="MyShopOrder.cs" />
     <Compile Include="OrderOfCommodity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -188,6 +191,7 @@
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
+    <Compile Include="Statistic.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

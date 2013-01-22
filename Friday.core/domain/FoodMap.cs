@@ -16,7 +16,7 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o => o.MonthAmount);
+            Map(o => o.Amount);
             Map(o => o.Price);
             Map(o => o.Image);
             References<MerchantGoodsType>(o => o.MerchantGoodsType);
