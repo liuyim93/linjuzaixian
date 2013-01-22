@@ -221,7 +221,7 @@
   <Class Name="friday.core.AbstractCommodity">
     <Position X="9.25" Y="16.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAEAAAQAAAAAABAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAEAAAQAAAAAABAAAAACAgAACAA=</HashCode>
       <FileName>domain\AbstractCommodity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -339,7 +339,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.FoodStatistic">
-    <Position X="9.5" Y="22.5" Width="1.5" />
+    <Position X="9.5" Y="23" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>domain\FoodStatistic.cs</FileName>

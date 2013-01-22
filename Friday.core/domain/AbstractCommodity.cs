@@ -21,6 +21,21 @@ namespace friday.core
 
             set;
         }
+        public virtual double OldPrice
+        {
+            get;
+
+            set;
+
+        }
+        //2013-01-22 basilwang 存货数量
+        public virtual double InventoryCount
+        {
+            get;
+
+            set;
+
+        }
         public virtual double Price
         {
             get;
