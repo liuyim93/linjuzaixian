@@ -28,6 +28,14 @@ namespace friday.core
             set;
 
         }
+        //2013-01-22 basilwang 上架/下架
+        public virtual bool IsEnabled
+        {
+            get;
+
+            set;
+
+        }
         public virtual MerchantGoodsType MerchantGoodsType
         {
             get;

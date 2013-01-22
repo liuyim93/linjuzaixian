@@ -218,10 +218,10 @@
       <FileName>domain\ValuingOfShop.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.AbstractCommodity" Collapsed="true">
-    <Position X="9.5" Y="17.25" Width="1.5" />
+  <Class Name="friday.core.AbstractCommodity">
+    <Position X="9.25" Y="16.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAQAAAAAABAAAAAAAAAACAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAAAAAEAAAQAAAAAABAAAAAAAAAACAA=</HashCode>
       <FileName>domain\AbstractCommodity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -334,7 +334,7 @@
   <Class Name="friday.core.OrderOfCommodity">
     <Position X="18.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAACAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAQAAAAAAAAAAAACAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>OrderOfCommodity.cs</FileName>
     </TypeIdentifier>
   </Class>

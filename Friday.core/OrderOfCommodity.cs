@@ -8,7 +8,7 @@ namespace friday.core
 {
     public class OrderOfCommodity:Entity
     {
-        public virtual Shop Shop
+        public virtual Commodity Commodity
         {
             set;
 
