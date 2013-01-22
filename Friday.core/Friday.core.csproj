@@ -90,10 +90,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CartCommodity.cs" />
-    <Compile Include="CartOfHouse.cs" />
-    <Compile Include="Commodity.cs" />
-    <Compile Include="CommodityStatistic.cs" />
+    <Compile Include="domain\CartCommodity.cs" />
+    <Compile Include="domain\CartOfHouse.cs" />
+    <Compile Include="domain\Commodity.cs" />
+    <Compile Include="domain\CommodityStatistic.cs" />
     <Compile Include="components\unity\AutoSessionStorage.cs" />
     <Compile Include="components\unity\ContainerFactory.cs">
       <SubType>Code</SubType>
@@ -177,27 +177,27 @@
     <Compile Include="domain\ValuingOfRestaurant.cs" />
     <Compile Include="domain\ValuingOfShop.cs" />
     <Compile Include="domain\ValuingOfUserFromRent.cs" />
-    <Compile Include="Emtity.cs" />
+    <Compile Include="domain\Emtity.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
-    <Compile Include="FoodStatistic.cs" />
-    <Compile Include="HouseCart.cs" />
-    <Compile Include="HouseStatistic.cs" />
-    <Compile Include="MyShopOrder.cs" />
-    <Compile Include="OrderOfCommodity.cs" />
+    <Compile Include="domain\FoodStatistic.cs" />
+    <Compile Include="domain\HouseCart.cs" />
+    <Compile Include="domain\HouseStatistic.cs" />
+    <Compile Include="domain\MyShopOrder.cs" />
+    <Compile Include="domain\OrderOfCommodity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RentCart.cs" />
+    <Compile Include="domain\RentCart.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
-    <Compile Include="RestaurantCart.cs" />
+    <Compile Include="domain\RestaurantCart.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
-    <Compile Include="Statistic.cs" />
+    <Compile Include="domain\Statistic.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

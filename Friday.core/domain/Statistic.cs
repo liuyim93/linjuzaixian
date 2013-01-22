@@ -18,6 +18,12 @@ namespace friday.core
             get;
             set;
         }
+        //2013-01-22 basilwang -1代表月汇总 （trick)
+        public int Day
+        {
+            get;
+            set;
+        }
         public decimal Amount
         {
             get;

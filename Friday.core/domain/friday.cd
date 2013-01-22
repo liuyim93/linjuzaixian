@@ -318,14 +318,14 @@
     <Position X="7.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Commodity.cs</FileName>
+      <FileName>domain\Commodity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.MyShopOrder">
     <Position X="15.75" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MyShopOrder.cs</FileName>
+      <FileName>domain\MyShopOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="OrderOfCommodities" />
@@ -335,42 +335,42 @@
     <Position X="18.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAQAAAAAAAAAAAACAAAAAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>OrderOfCommodity.cs</FileName>
+      <FileName>domain\OrderOfCommodity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.FoodStatistic">
     <Position X="9.5" Y="22.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
-      <FileName>FoodStatistic.cs</FileName>
+      <FileName>domain\FoodStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Statistic">
     <Position X="9.5" Y="20.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAABAAAAAAAAAAQAAKAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Statistic.cs</FileName>
+      <HashCode>AAAAAAAAJAAAAAAAAAAQAAKAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>domain\Statistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.HouseStatistic">
     <Position X="12" Y="20.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
-      <FileName>HouseStatistic.cs</FileName>
+      <FileName>domain\HouseStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.CommodityStatistic">
     <Position X="7.25" Y="21" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CommodityStatistic.cs</FileName>
+      <FileName>domain\CommodityStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.RestaurantCart">
     <Position X="11" Y="11.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAEAAAgAAQAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RestaurantCart.cs</FileName>
+      <FileName>domain\RestaurantCart.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="CartOfFoods" />
@@ -380,7 +380,7 @@
     <Position X="13.75" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAQAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CartCommodity.cs</FileName>
+      <FileName>domain\CartCommodity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="ShoppingCart" />
@@ -390,7 +390,7 @@
     <Position X="14" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAAIAAAAAABA=</HashCode>
-      <FileName>CartOfHouse.cs</FileName>
+      <FileName>domain\CartOfHouse.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="RentCart" />
@@ -400,7 +400,7 @@
     <Position X="11" Y="13.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAQAAAAQEAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RentCart.cs</FileName>
+      <FileName>domain\RentCart.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="CartOfHouses" />
