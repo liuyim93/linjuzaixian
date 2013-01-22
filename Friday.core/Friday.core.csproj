@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commodity.cs" />
     <Compile Include="components\unity\AutoSessionStorage.cs" />
     <Compile Include="components\unity\ContainerFactory.cs">
       <SubType>Code</SubType>
@@ -125,7 +126,7 @@
     <Compile Include="domain\CartBox.cs" />
     <Compile Include="domain\CartFood.cs" />
     <Compile Include="domain\CartFoodMap.cs" />
-    <Compile Include="domain\Commodity.cs" />
+    <Compile Include="domain\AbstractCommodity.cs" />
     <Compile Include="domain\Customer.cs" />
     <Compile Include="domain\Entity.cs" />
     <Compile Include="domain\FeedBack.cs" />

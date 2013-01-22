@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core
 {
-    public class House:Commodity
+    public class House:AbstractCommodity
     {
         //Shop 1:N Food
         public virtual Rent Rent

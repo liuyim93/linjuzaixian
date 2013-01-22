@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class Commodity:Entity
+    public abstract class AbstractCommodity:Entity
     {
         public virtual string Image
         {

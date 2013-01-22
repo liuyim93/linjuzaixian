@@ -6,7 +6,7 @@ using friday.core.EnumType;
 using Iesi.Collections.Generic;
 namespace friday.core.domain
 {
-    public class Food : friday.core.Commodity
+    public class Food : friday.core.AbstractCommodity
     {
         
      
