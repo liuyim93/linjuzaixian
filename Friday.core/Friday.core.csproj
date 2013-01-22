@@ -177,9 +177,9 @@
     <Compile Include="domain\ValuingOfRestaurant.cs" />
     <Compile Include="domain\ValuingOfShop.cs" />
     <Compile Include="domain\ValuingOfUserFromRent.cs" />
-    <Compile Include="domain\Emtity.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
+    <Compile Include="EnumType\MerchantTypeEnum.cs" />
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />

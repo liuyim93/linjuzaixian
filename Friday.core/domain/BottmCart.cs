@@ -8,28 +8,28 @@ namespace friday.core.domain
     public class BottomCart
     {
 
-        public int Amount
+        public virtual int Amount
         {
             get;
 
             set;
         }
 
-        public string FoodName
+        public virtual string FoodName
         {
             get;
 
             set;
         }
 
-        public double Price
+        public virtual double Price
         {
             get;
 
             set;
         }
 
-        public double TotalPrice
+        public virtual double TotalPrice
         {
 
             set;
@@ -39,7 +39,7 @@ namespace friday.core.domain
 
 
 
-        public string FoodID
+        public virtual string FoodID
         {
             get;
 

@@ -11,7 +11,7 @@ namespace friday.core.domain
     {
         public OutBoxMap()
         {
-            Table("OutBox");
+            
             Id(o => o.ID).GeneratedBy.Native();
             Map(o => o.Msg);
             Map(o => o.Mbno);

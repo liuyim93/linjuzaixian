@@ -11,7 +11,7 @@ namespace friday.core.domain
     {
         public SchoolOfMerchantMap()
         {
-            Table("SchoolOfMerchant");
+           
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);

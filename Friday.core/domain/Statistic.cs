@@ -8,33 +8,33 @@ namespace friday.core
 {
     public class Statistic:Entity
     {
-        public int Year
+        public virtual int Year
         {
             get;
             set;
         }
-        public int Month
+        public virtual int Month
         {
             get;
             set;
         }
         //2013-01-22 basilwang -1代表月汇总 （trick)
-        public int Day
+        public virtual int Day
         {
             get;
             set;
         }
-        public decimal Amount
+        public virtual decimal Amount
         {
             get;
             set;
         }
-        public int ValuingCount
+        public virtual int ValuingCount
         {
             get;
             set;
         }
-        public float AverageValuing
+        public virtual float AverageValuing
         {
             get;
             set;

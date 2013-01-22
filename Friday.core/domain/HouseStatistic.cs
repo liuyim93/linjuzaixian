@@ -7,7 +7,7 @@ namespace friday.core
 {
     public class HouseStatistic:Statistic
     {
-        public House House
+        public virtual House House
         {
             get;
             set;

@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         public SystemUserMap()
         {
-            Table("SystemUser");
+            
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);

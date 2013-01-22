@@ -8,25 +8,17 @@ namespace friday.core
 {
     public class ValuingOfUserFromShop:Valuing
     {
-        public Shop FromShop
+        public virtual Shop FromShop
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
-        public SystemUser ToSystemUser
+        public virtual SystemUser ToSystemUser
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
     }
 }

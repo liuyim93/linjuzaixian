@@ -8,7 +8,7 @@ namespace friday.core
 {
     public class Commodity:AbstractCommodity
     {
-        public Shop Shop
+        public virtual Shop Shop
         {
             get;
             set;

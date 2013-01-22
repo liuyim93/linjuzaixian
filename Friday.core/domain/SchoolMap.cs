@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         public SchoolMap()
         {
-            Table("School");
+        
             Id(o=>o.Id);
             Map(o => o.CreateTime);
             Map(o => o.Name);

@@ -8,7 +8,7 @@ namespace friday.core
 {
     public class FoodStatistic:Statistic
     {
-        public Food Food
+        public virtual Food Food
         {
             get;
             set;

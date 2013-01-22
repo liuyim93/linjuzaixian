@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core
 {
-    public class Cart
+    public   class Cart
     {
     }
 }

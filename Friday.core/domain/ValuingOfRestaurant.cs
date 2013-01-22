@@ -8,25 +8,17 @@ namespace friday.core
 {
     public class ValuingOfRestaurant:Valuing
     {
-        public SystemUser FromSystemUser
+        public virtual SystemUser FromSystemUser
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
-        public Restaurant ToRestaurant
+        public virtual Restaurant ToRestaurant
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
     }
 }

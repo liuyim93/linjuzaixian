@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         public FeedBackMap()
         {
-            Table("FeedBack");
+         
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);

@@ -7,7 +7,7 @@ namespace friday.core
 {
     public class CommodityStatistic:Statistic
     {
-        public Commodity Commodity
+        public virtual Commodity Commodity
         {
             get;
             set;

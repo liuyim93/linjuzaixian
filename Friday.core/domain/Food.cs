@@ -10,24 +10,24 @@ namespace friday.core.domain
     {
 
 
-        public decimal Amount
+        public virtual decimal Amount
         {
             get;
             set;
         }
-        public int ValuingCount
+        public virtual int ValuingCount
         {
             get;
             set;
         }
-        public float AverageValuing
+        public virtual float AverageValuing
         {
             get;
             set;
         }
 
 
-        public virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
+        public  virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
         {
             set;
 

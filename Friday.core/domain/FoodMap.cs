@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         public FoodMap()
         {
-            Table("Food");
+           
             Id(o => o.Id);
             Map(o => o.Name);
             Map(o => o.CreateTime);

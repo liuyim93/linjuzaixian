@@ -8,37 +8,25 @@ namespace friday.core
 {
     public class ValuingItem:Entity
     {
-        public string ValuingItemName
+        public virtual string ValuingItemName
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public float Score
+        public virtual float Score
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public Valuing Valuing
+        public virtual Valuing Valuing
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
     }
 }

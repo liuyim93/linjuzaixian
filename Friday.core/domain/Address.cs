@@ -8,92 +8,60 @@ namespace friday.core
 {
     public class Address:Entity
     {
-        public string AddressName
+        public virtual string AddressName
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public string Tel
+        public virtual string Tel
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public string BackupTel
+        public virtual string BackupTel
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public string Linkman
+        public virtual string Linkman
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public string Email
+        public virtual string Email
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public string Weixin
+        public virtual string Weixin
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public string QQ
+        public virtual string QQ
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public Customer Customer
+        public virtual Customer Customer
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
     }
 }

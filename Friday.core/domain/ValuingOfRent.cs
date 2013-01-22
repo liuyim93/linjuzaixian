@@ -8,25 +8,17 @@ namespace friday.core
 {
     public class ValuingOfRent:Valuing
     {
-        public SystemUser FromSystemUser
+        public virtual SystemUser FromSystemUser
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
-        public Rent ToRent
+        public virtual Rent ToRent
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
     }
 }

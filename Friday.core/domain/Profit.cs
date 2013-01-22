@@ -8,7 +8,7 @@ namespace friday.core.domain
 
     public class Profit:Entity
     {
-        public Shop Shop
+        public virtual Shop Shop
         {
             set;
 
@@ -16,21 +16,21 @@ namespace friday.core.domain
         }
 
 
-        public double AllProfit
+        public virtual double AllProfit
         {
             set;
 
             get;
         }
 
-        public double IntervalProfit
+        public virtual double IntervalProfit
         {
             set;
 
             get;
         }
 
-        public double Saleroom
+        public virtual double Saleroom
         {
             set;
 

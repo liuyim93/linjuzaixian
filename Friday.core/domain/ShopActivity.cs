@@ -6,14 +6,14 @@ namespace friday.core.domain
 {
     public class ShopActivity
     {
-        public string Class
+        public virtual string Class
         {
             get;
 
             set;
         }
 
-        public string Title
+        public virtual string Title
         {
             get;
 

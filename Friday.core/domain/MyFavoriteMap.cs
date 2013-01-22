@@ -10,7 +10,6 @@ namespace friday.core.domain
     {
         public MyFavoriteMap()
         {
-            Table("MyFavorite");
             Id(o=>o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);

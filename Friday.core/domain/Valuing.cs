@@ -8,38 +8,26 @@ namespace friday.core
 {
     public class Valuing:Entity
     {
-        public int AverageScore
+        public virtual int AverageScore
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        
-        public bool IsShownAnonymous
+
+        public virtual bool IsShownAnonymous
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
 
-        public Iesi.Collections.Generic.ISet<ValuingItem> ValuingItems
+        public virtual Iesi.Collections.Generic.ISet<ValuingItem> ValuingItems
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+
+            set;
         }
     }
 }
