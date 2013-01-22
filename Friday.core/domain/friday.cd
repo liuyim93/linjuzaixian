@@ -316,18 +316,13 @@
   </Class>
   <Class Name="friday.core.MyShopOrder">
     <Position X="15.75" Y="14.5" Width="1.5" />
-    <InheritanceLine Type="friday.core.domain.MyOrder" FixedFromPoint="true">
-      <Path>
-        <Point X="14.25" Y="15.875" />
-        <Point X="14.625" Y="15.875" />
-        <Point X="14.625" Y="14.965" />
-        <Point X="15.75" Y="14.965" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MyShopOrder.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="OrderOfCommodities" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.OrderOfCommodity">
     <Position X="18.5" Y="14.5" Width="1.5" />
