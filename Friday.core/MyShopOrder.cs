@@ -6,12 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class Commodity:AbstractCommodity
+    public class MyShopOrder : MyOrder
     {
-        public Shop Shop
-        {
-            get;
-            set;
-        }
     }
 }

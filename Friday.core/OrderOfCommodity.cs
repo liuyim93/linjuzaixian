@@ -6,15 +6,15 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class OrderOfHouse:Entity
+    public class OrderOfCommodity:Entity
     {
-        public virtual House House
+        public virtual Shop Shop
         {
             set;
 
             get;
         }
-        public virtual MyHouseOrder MyHouseOrder
+        public virtual MyShopOrder MyShopOrder
         {
             set;
 

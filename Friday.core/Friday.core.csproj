@@ -179,6 +179,8 @@
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
+    <Compile Include="MyShopOrder.cs" />
+    <Compile Include="OrderOfCommodity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
