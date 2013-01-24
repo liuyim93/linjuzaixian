@@ -22,7 +22,6 @@ namespace friday.core.domain
             Map(o=>o.SendTime);
             Map(o => o.OrderNumber);
            References<Customer>(o => o.Customer);
-           References<Merchant>(o => o.Merchant);
            HasMany<OrderOfFood>(o => o.OrderOfFoods).Inverse().LazyLoad().Cascade.All();
                        
                         

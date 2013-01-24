@@ -66,12 +66,6 @@ namespace friday.core.domain
 
             get;
         }
-        public virtual Merchant Merchant
-        {
-            set;
-
-            get;
-        }
         
         public virtual MyOrderStatusEnum OrderStatus
         {

@@ -15,5 +15,12 @@ namespace friday.core
 
             get;
         }
+
+        public virtual Restaurant Restaurant
+        {
+            set;
+
+            get;
+        }
     }
 }

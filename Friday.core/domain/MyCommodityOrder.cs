@@ -6,10 +6,16 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class MyShopOrder : MyOrder
+    public class MyCommodityOrder : MyOrder
     {
         //Order 1:N OrederFood
         public virtual Iesi.Collections.Generic.ISet<OrderOfCommodity> OrderOfCommodities
+        {
+            set;
+
+            get;
+        }
+        public virtual Shop Shop
         {
             set;
 

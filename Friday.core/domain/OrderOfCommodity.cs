@@ -14,7 +14,7 @@ namespace friday.core
 
             get;
         }
-        public virtual MyShopOrder MyShopOrder
+        public virtual MyCommodityOrder MyCommodityOrder
         {
             set;
 

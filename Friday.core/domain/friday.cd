@@ -56,12 +56,9 @@
   <Class Name="friday.core.domain.MyOrder">
     <Position X="11.75" Y="15.5" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>EAEQAAKAAQAigAAAAAAAAAAAAAAAgAACAAAAAAAAAAA=</HashCode>
+      <HashCode>EAEQAAKAAQAigAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>domain\MyOrder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="Merchant" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.OrderOfFood">
     <Position X="18.5" Y="16.5" Width="1.5" />
@@ -262,7 +259,7 @@
   <Class Name="friday.core.MyFoodOrder">
     <Position X="15.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>domain\MyFoodOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -272,7 +269,7 @@
   <Class Name="friday.core.MyHouseOrder">
     <Position X="15.75" Y="17" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\MyHouseOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -321,11 +318,11 @@
       <FileName>domain\Commodity.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.MyShopOrder">
+  <Class Name="friday.core.MyCommodityOrder">
     <Position X="15.75" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\MyShopOrder.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\MyCommodityOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
       <Property Name="OrderOfCommodities" />
@@ -435,7 +432,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Admin">
-    <Position X="7.75" Y="4" Width="1.5" />
+    <Position X="8.25" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAACAggAAAAAAAAAQAAAAAgAACAAAAAAAAAgA=</HashCode>
       <FileName>Admin.cs</FileName>
