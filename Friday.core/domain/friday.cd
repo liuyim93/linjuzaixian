@@ -407,7 +407,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.MerchantStatistic">
-    <Position X="8.75" Y="24.25" Width="1.5" />
+    <Position X="9.5" Y="24.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAJAAAAAAAAAAQAAKAAAAAAAAEAAAAAAAAAAA=</HashCode>
       <FileName>MerchantStatistic.cs</FileName>
@@ -432,6 +432,13 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>RentSatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.Admin">
+    <Position X="7.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAACAggAAAAAAAAAQAAAAAgAACAAAAAAAAAgA=</HashCode>
+      <FileName>Admin.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

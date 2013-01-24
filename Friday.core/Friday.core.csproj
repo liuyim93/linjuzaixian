@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.cs" />
     <Compile Include="domain\CartCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
