@@ -406,5 +406,33 @@
       <Property Name="CartOfHouses" />
     </ShowAsCollectionAssociation>
   </Class>
+  <Class Name="friday.core.MerchantStatistic">
+    <Position X="8.75" Y="24.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJAAAAAAAAAAQAAKAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>MerchantStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.ShopStatistic">
+    <Position X="6.5" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShopStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.RestaurantStatistic">
+    <Position X="8.25" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RestaurantStatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.RentSatistic">
+    <Position X="10" Y="26.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RentSatistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>
