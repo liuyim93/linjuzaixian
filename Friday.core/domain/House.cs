@@ -7,7 +7,17 @@ namespace friday.core
 {
     public class House:AbstractCommodity
     {
-        public virtual DateTime ValidateTime
+        public virtual DateTime TimeOfRentFrom
+        {
+            get;
+            set;
+        }
+        public virtual DateTime TimeOfRentTO
+        {
+            get;
+            set;
+        }
+        public virtual int DaySpanOfRent
         {
             get;
             set;
