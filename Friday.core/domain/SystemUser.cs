@@ -66,6 +66,12 @@ namespace friday.core.domain
             set;
 
         }
+        public virtual LoginUser LoginUser
+        {
+            get;
+            set;
+        }
+
 
 
 

@@ -46,7 +46,7 @@ namespace friday.core
             }
         }
 
-        public virtual Admin Admin
+        public virtual Merchant Merchant
         {
             get
             {

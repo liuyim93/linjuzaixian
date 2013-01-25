@@ -119,10 +119,10 @@
       <Property Name="CartOfCommodities" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="friday.core.domain.SystemUser" Collapsed="true">
-    <Position X="4.5" Y="6.25" Width="1.5" />
+  <Class Name="friday.core.domain.SystemUser">
+    <Position X="4.5" Y="6" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAACAggAAAAAAAAAQAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAACAggAAAAAAAAAQAAAAACAAAAAAAAAAAAAE=</HashCode>
       <FileName>domain\SystemUser.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -157,13 +157,13 @@
     <Position X="6.5" Y="14.25" Width="2" />
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
-        <Point X="6.5" Y="17.096" />
-        <Point X="4.531" Y="17.096" />
+        <Point X="6.5" Y="17.24" />
+        <Point X="4.531" Y="17.24" />
         <Point X="4.531" Y="14.048" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAAAQggIAAAAAAIAQAAAAAAIBCAAIAAEAACAA=</HashCode>
+      <HashCode>QAAAAUAAACQggIAAAAAAIAQAAAAAAIBCAAIAAEAACAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -431,13 +431,6 @@
       <FileName>RentSatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.Admin">
-    <Position X="10" Y="5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAACAggAAAAAAAAAQAAAAAgAAAAAAAAAAAAgA=</HashCode>
-      <FileName>Admin.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="friday.core.Message">
     <Position X="17.25" Y="23.75" Width="1.5" />
     <TypeIdentifier>
@@ -451,12 +444,12 @@
   <Class Name="friday.core.LoginUser">
     <Position X="7" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAQAACAAAAAACAACAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAACAAAgAACAACAAAAAAAA=</HashCode>
       <FileName>LoginUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Admin" />
       <Property Name="SystemUser" />
+      <Property Name="Merchant" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.MessageContent">

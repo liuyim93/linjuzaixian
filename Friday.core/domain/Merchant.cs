@@ -9,6 +9,30 @@ namespace friday.core
 {
     public class Merchant:Entity
     {
+        ///// <remarks>真实姓名</remarks>
+        //public virtual string HostName
+        //{
+        //    get;
+
+        //    set;
+
+        //}
+
+        public virtual string Email
+        {
+            get;
+
+            set;
+
+        }
+
+        public virtual string Description
+        {
+            get;
+
+            set;
+
+        }
         public virtual String Name
         {
             get;
@@ -32,13 +56,6 @@ namespace friday.core
         }
 
         public virtual string Logo
-        {
-            get;
-
-            set;
-
-        }
-        public virtual string Description
         {
             get;
 
