@@ -17,9 +17,9 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.Description);
             Map(o => o.Email);
-            Map(o => o.LoginName);
+            //Map(o => o.LoginName);
             Map(o => o.Name);
-            Map(o => o.Password);
+            //Map(o => o.Password);
             Map(o => o.Tel);
             Map(o => o.UserType);;
 

@@ -189,8 +189,11 @@
     <Compile Include="domain\HouseStatistic.cs" />
     <Compile Include="domain\MyCommodityOrder.cs" />
     <Compile Include="domain\OrderOfCommodity.cs" />
+    <Compile Include="LoginUser.cs" />
     <Compile Include="MerchantStatistic.cs" />
     <Compile Include="Message.cs" />
+    <Compile Include="MessageContent.cs" />
+    <Compile Include="Notice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domain\RentCart.cs" />
     <Compile Include="RentSatistic.cs" />

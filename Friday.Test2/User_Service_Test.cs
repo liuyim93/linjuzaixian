@@ -27,7 +27,7 @@ namespace Friday.Test2
             SystemUser u = new SystemUser()
             {
                 Name = "basilfromservice",
-                Password = "123456",
+                //Password = "123456",
                 Tel = "1342343214",
                 Email = "ocam@163.com",
                 Description = "a lot of things"

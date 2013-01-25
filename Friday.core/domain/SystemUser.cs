@@ -17,21 +17,21 @@ namespace friday.core.domain
 
         }
 
-        public virtual string LoginName
-        {
-            get;
+        //public virtual string LoginName
+        //{
+        //    get;
 
-            set;
+        //    set;
 
-        }
+        //}
 
-        public virtual string Password
-        {
-            get;
+        //public virtual string Password
+        //{
+        //    get;
 
-            set;
+        //    set;
 
-        }
+        //}
 
         ///<remarks>用户类型，0为个人用户，1为企业用户</remarks>
         public virtual int UserType

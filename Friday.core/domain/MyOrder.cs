@@ -72,7 +72,7 @@ namespace friday.core.domain
             set;
             get;
         }
-        //Order N:1 SystemUser
+        //Order N:1 FromLoginUser
         public virtual Customer Customer
         {
             set;

@@ -9,7 +9,7 @@ namespace friday.core
     public class Message:Entity
     {
 
-        public virtual SystemUser SystemUser
+        public virtual LoginUser FromLoginUser
         {
             get
             {
@@ -20,7 +20,7 @@ namespace friday.core
             }
         }
 
-        public virtual Merchant Merchant
+        public virtual LoginUser ToLoginUser
         {
             get
             {
@@ -31,7 +31,7 @@ namespace friday.core
             }
         }
 
-        public virtual int Direction
+        public virtual String ThreadIndex
         {
             get
             {
@@ -42,7 +42,9 @@ namespace friday.core
             }
         }
 
-        public String ThreadIndex
+     
+
+        public virtual string TrackIndex
         {
             get
             {
@@ -53,7 +55,7 @@ namespace friday.core
             }
         }
 
-        public string Content
+        public virtual bool IsNew
         {
             get
             {
@@ -64,7 +66,7 @@ namespace friday.core
             }
         }
 
-        public string TrackIndex
+        public virtual MessageContent MessageContent
         {
             get
             {

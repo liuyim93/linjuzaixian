@@ -17,21 +17,7 @@ namespace friday.core
 
         }
 
-        public virtual string LoginName
-        {
-            get;
-
-            set;
-
-        }
-
-        public virtual string Password
-        {
-            get;
-
-            set;
-
-        }
+      
 
         //2013-01-24 basilwang administrator shopadmin restaurantadmin rentadmin 
         public virtual int AdminType
