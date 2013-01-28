@@ -90,6 +90,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="domain\AddressMap.cs" />
+    <Compile Include="domain\AnonymouseUserMap.cs" />
     <Compile Include="domain\CartCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="domain\CartOfFoodMap.cs" />
     <Compile Include="domain\AbstractCommodity.cs" />
     <Compile Include="domain\Customer.cs" />
+    <Compile Include="domain\CustomerMap.cs" />
     <Compile Include="domain\Entity.cs" />
     <Compile Include="domain\FeedBack.cs" />
     <Compile Include="domain\FeedBackMap.cs" />
@@ -180,6 +183,7 @@
     <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />
     <Compile Include="domain\MerchantMap.cs" />
+    <Compile Include="domain\RestaurantCartMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />

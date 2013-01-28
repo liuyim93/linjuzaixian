@@ -18,7 +18,6 @@ namespace friday.core.domain
             Map(o => o.Version);
             References<School>(o => o.School).Not.Nullable();
             References<Merchant>(o => o.Merchant).Fetch.Join().Not.Nullable();
-
         }
     }
 }
