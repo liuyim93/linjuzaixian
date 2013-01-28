@@ -21,7 +21,9 @@ namespace friday.core.domain
             Map(o => o.Name);
             //Map(o => o.Password);
             Map(o => o.Tel);
-            Map(o => o.UserType);;
+            Map(o => o.UserType);
+
+            HasOne<LoginUser>(o => o.LoginUser).PropertyRef("SystemUser");
 
 
         }
