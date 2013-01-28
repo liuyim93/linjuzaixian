@@ -19,6 +19,7 @@ namespace friday.core.domain
             Map(o => o.Price);
             Map(o => o.SendPrice);
             References<Customer>(o => o.Customer);
+            References<Restaurant>(o => o.Restaurant);
             HasMany<CartOfFood>(o => o.CartOfFoods).Inverse().Cascade.All();
 
 
