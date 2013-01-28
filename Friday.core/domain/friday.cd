@@ -1,24 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="friday.core.domain.Activity" Collapsed="true">
-    <Position X="2.75" Y="1.25" Width="1.5" />
+    <Position X="2.5" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAgAAAAAAAAAAQQAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Activity.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="friday.core.domain.BottomCart" Collapsed="true">
-    <Position X="5" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAACAAAAAQAAAAAAAAAAAACAQAAAQAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\BottmCart.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="friday.core.domain.CartBox" Collapsed="true">
-    <Position X="5" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAABAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\CartBox.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.CartOfFood">
@@ -90,13 +76,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Shop.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="friday.core.domain.ShopActivity" Collapsed="true">
-    <Position X="1.5" Y="3" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAEAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\ShopActivity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.MerchantGoodsType">
