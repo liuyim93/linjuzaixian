@@ -153,7 +153,7 @@
     <Compile Include="domain\MyFoodOrder.cs" />
     <Compile Include="domain\MyHouseOrder.cs" />
     <Compile Include="domain\MyOrder.cs" />
-    <Compile Include="domain\MyOrderMap.cs" />
+    <Compile Include="domain\MyFoodOrderMap.cs" />
     <Compile Include="domain\OrderMessage.cs" />
     <Compile Include="domain\OrderOfFood.cs" />
     <Compile Include="domain\OrderOfFoodMap.cs" />

@@ -40,7 +40,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.MyOrder">
-    <Position X="11.75" Y="15.5" Width="2.5" />
+    <Position X="12.5" Y="15.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EAEQAAKAAQAigAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>domain\MyOrder.cs</FileName>
@@ -204,7 +204,7 @@
   <Class Name="friday.core.Valuing">
     <Position X="4.5" Y="20.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAAACAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAABAAAAACAAAAAAAAACAIAAAAAAAAA=</HashCode>
       <FileName>domain\Valuing.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -413,7 +413,7 @@
   <Class Name="friday.core.Message">
     <Position X="17.25" Y="23.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABABAAAAAAAAAIAAAAAAAAAAAEgEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAABABAEAAAAAAAIAAAAAAAAAAAEgEAAAAAAAAA=</HashCode>
       <FileName>domain\Message.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
