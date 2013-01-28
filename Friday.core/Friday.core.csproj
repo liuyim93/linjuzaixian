@@ -146,6 +146,8 @@
     <Compile Include="domain\MerchantGoodsType.cs" />
     <Compile Include="domain\MerchantGoodsTypeMap.cs" />
     <Compile Include="domain\MerchantTypeEnum.cs" />
+    <Compile Include="domain\MessageContentMap.cs" />
+    <Compile Include="domain\MessageMap.cs" />
     <Compile Include="domain\MyFavorite.cs" />
     <Compile Include="domain\MyFavoriteMap.cs" />
     <Compile Include="domain\MyFoodOrder.cs" />

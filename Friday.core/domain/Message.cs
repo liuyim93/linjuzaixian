@@ -76,5 +76,10 @@ namespace friday.core
             {
             }
         }
+        public virtual int MessageType
+        {
+            get;
+            set;
+        }
     }
 }
