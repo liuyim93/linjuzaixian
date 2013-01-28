@@ -177,6 +177,8 @@
     <Compile Include="domain\SystemUserMap.cs" />
     <Compile Include="domain\Valuing.cs" />
     <Compile Include="domain\ValuingItem.cs" />
+    <Compile Include="domain\ValuingItemMap.cs" />
+    <Compile Include="domain\ValuingMap.cs" />
     <Compile Include="domain\ValuingOfCommodity.cs" />
     <Compile Include="domain\ValuingOfRent.cs" />
     <Compile Include="domain\ValuingOfRestaurant.cs" />

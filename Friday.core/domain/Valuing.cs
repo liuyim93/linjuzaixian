@@ -29,5 +29,11 @@ namespace friday.core
 
             set;
         }
+
+        public virtual string ValuingContent
+        {
+            get;
+            set;
+        }
     }
 }
