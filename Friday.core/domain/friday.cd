@@ -136,10 +136,10 @@
     <Position X="7.5" Y="8.75" Width="2" />
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
-        <Point X="7.5" Y="9.215" />
-        <Point X="6.115" Y="9.215" Type="JumpStart" />
-        <Point X="5.948" Y="9.215" Type="JumpEnd" />
-        <Point X="3.844" Y="9.215" />
+        <Point X="7.5" Y="9.237" />
+        <Point X="6.115" Y="9.237" Type="JumpStart" />
+        <Point X="5.948" Y="9.237" Type="JumpEnd" />
+        <Point X="3.844" Y="9.237" />
         <Point X="3.844" Y="12.75" />
       </Path>
     </AssociationLine>

@@ -179,6 +179,7 @@
     <Compile Include="domain\ValuingOfUserFromRent.cs" />
     <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />
+    <Compile Include="domain\MerchantMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />

@@ -141,6 +141,12 @@ namespace friday.core
             get;
         }
 
+        public virtual Iesi.Collections.Generic.ISet<LoginUserOfMerchant> LoginUserOfMerchants
+        {
+            get;
+            set;
+        }
+
        
        
 
