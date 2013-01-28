@@ -7,7 +7,7 @@ namespace friday.core.domain
 {
     public class MyFavorite:Entity
     {
-        public virtual SchoolOfMerchant SchoolOfMerchant
+        public virtual Merchant Merchant
         {
             set;
 

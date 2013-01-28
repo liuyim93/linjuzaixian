@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using friday.core.services;
 
-namespace Friday.mvc.Controllers
+namespace friday.mvc.Controllers
 {
     public class TestController : Controller
     {

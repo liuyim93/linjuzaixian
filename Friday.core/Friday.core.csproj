@@ -90,7 +90,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
     <Compile Include="domain\CartCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
@@ -178,6 +177,7 @@
     <Compile Include="domain\ValuingOfRestaurant.cs" />
     <Compile Include="domain\ValuingOfShop.cs" />
     <Compile Include="domain\ValuingOfUserFromRent.cs" />
+    <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
@@ -189,24 +189,24 @@
     <Compile Include="domain\HouseStatistic.cs" />
     <Compile Include="domain\MyCommodityOrder.cs" />
     <Compile Include="domain\OrderOfCommodity.cs" />
-    <Compile Include="LoginUser.cs" />
-    <Compile Include="MerchantStatistic.cs" />
-    <Compile Include="Message.cs" />
-    <Compile Include="MessageContent.cs" />
-    <Compile Include="Notice.cs" />
+    <Compile Include="domain\LoginUser.cs" />
+    <Compile Include="domain\MerchantStatistic.cs" />
+    <Compile Include="domain\Message.cs" />
+    <Compile Include="domain\MessageContent.cs" />
+    <Compile Include="domain\Notice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domain\RentCart.cs" />
-    <Compile Include="RentSatistic.cs" />
+    <Compile Include="domain\RentSatistic.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="domain\RestaurantCart.cs" />
-    <Compile Include="RestaurantStatistic.cs" />
+    <Compile Include="domain\RestaurantStatistic.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
-    <Compile Include="ShopStatistic.cs" />
+    <Compile Include="domain\ShopStatistic.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

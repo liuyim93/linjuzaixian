@@ -32,10 +32,10 @@
       <FileName>domain\Food.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.domain.MyFavorite" Collapsed="true">
-    <Position X="5.25" Y="2.25" Width="1.5" />
+  <Class Name="friday.core.domain.MyFavorite">
+    <Position X="1.5" Y="8.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAA=</HashCode>
       <FileName>domain\MyFavorite.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -99,7 +99,7 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.domain.SystemUser">
-    <Position X="4.5" Y="6" Width="1.5" />
+    <Position X="4.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAggAAAAAAAAAQAAAAACAAAAAAAAAAAAAE=</HashCode>
       <FileName>domain\SystemUser.cs</FileName>
@@ -386,45 +386,45 @@
     <Position X="9.5" Y="24.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAJAAAAAAAAAAQAAKAAAAAAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>MerchantStatistic.cs</FileName>
+      <FileName>domain\MerchantStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ShopStatistic">
     <Position X="6.5" Y="26.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ShopStatistic.cs</FileName>
+      <FileName>domain\ShopStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.RestaurantStatistic">
     <Position X="8.25" Y="26.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RestaurantStatistic.cs</FileName>
+      <FileName>domain\RestaurantStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.RentSatistic">
     <Position X="10" Y="26.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>RentSatistic.cs</FileName>
+      <FileName>domain\RentSatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Message">
     <Position X="17.25" Y="23.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAABABAAAAAAAAAIAAAAAAAAAAAEgEAAAAAAAAA=</HashCode>
-      <FileName>Message.cs</FileName>
+      <FileName>domain\Message.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="MessageContent" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.LoginUser">
-    <Position X="7" Y="4.5" Width="1.5" />
+    <Position X="7.75" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAACAAAgAACAACAAAAAAAA=</HashCode>
-      <FileName>LoginUser.cs</FileName>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAACAAAiAACAACAAAAAAAA=</HashCode>
+      <FileName>domain\LoginUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="SystemUser" />
@@ -435,7 +435,7 @@
     <Position X="19.75" Y="24.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>MessageContent.cs</FileName>
+      <FileName>domain\MessageContent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

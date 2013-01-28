@@ -15,7 +15,7 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.Version);;
             References<SystemUser>(o => o.SystemUser);
-            References<SchoolOfMerchant>(o => o.SchoolOfMerchant);
+            References<Merchant>(o => o.Merchant);
         }
     }
 }
