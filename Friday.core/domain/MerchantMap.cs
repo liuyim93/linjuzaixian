@@ -21,6 +21,7 @@ namespace friday.core.domain
             /* test not keynullable*/
             HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants);
             HasMany<MerchantGoodsType>(o => o.MerchantGoodsTypes).Inverse().Cascade.All();
+            HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse();
 
         }
     }
