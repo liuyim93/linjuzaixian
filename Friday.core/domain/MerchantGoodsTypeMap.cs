@@ -16,7 +16,7 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.Version);
             Map(o=>o.GoodsType);
-            References<Merchant>(o => o.Merchant);//Shop 1 :N Food
+            References<Merchant>(o => o.Merchant).Not.Nullable();
 
         }
     }

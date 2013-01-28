@@ -54,14 +54,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.School">
-    <Position X="11.25" Y="7.25" Width="1.5" />
+    <Position X="11.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAIAQAAAAAAAAAAAQAAAAAAJAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\School.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.SchoolOfMerchant">
-    <Position X="4.75" Y="8" Width="1.5" />
+    <Position X="6.75" Y="7.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAAAAAAAA=</HashCode>
       <FileName>domain\SchoolOfMerchant.cs</FileName>
@@ -137,8 +137,6 @@
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
         <Point X="7.5" Y="9.237" />
-        <Point X="6.115" Y="9.237" Type="JumpStart" />
-        <Point X="5.948" Y="9.237" Type="JumpEnd" />
         <Point X="3.844" Y="9.237" />
         <Point X="3.844" Y="12.75" />
       </Path>

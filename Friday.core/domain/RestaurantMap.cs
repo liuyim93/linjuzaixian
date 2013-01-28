@@ -6,16 +6,12 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class RestaurantMap : ClassMap<Restaurant>
+    public class RestaurantMap : SubclassMap<Restaurant>
     {
         public RestaurantMap()
         {
             
-            Id(o => o.Id);
-            Map(o => o.Name);
-            Map(o => o.CreateTime);
-            Map(o => o.IsDelete);
-            Map(o => o.Version);
+          
             Map(o => o.Address);
             Map(o => o.Description);
             Map(o => o.Bulletins);
@@ -40,10 +36,9 @@ namespace friday.core.domain
             Map(o=>o.Tel);
             Map(o=>o.Cost);
             Map(o => o.ShopStatus);
-            HasMany<Food>(o => o.Foods).Inverse().LazyLoad().Cascade.All();
-            HasMany<MerchantGoodsType>(o => o.MerchantGoodsTypes).Inverse().LazyLoad().Cascade.All();
+            HasMany<Food>(o => o.Foods).Inverse().Cascade.All();
             HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().LazyLoad().Cascade.All();
-            HasMany<MyFoodOrder>(o => o.MyFoodOrders).Inverse().LazyLoad().Cascade.All();
+            //HasMany<MyFoodOrder>(o => o.MyFoodOrders).Inverse().LazyLoad().Cascade.All();
 
         }
     }
