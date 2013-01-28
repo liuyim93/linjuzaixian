@@ -434,12 +434,11 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEAAAQAAAAAAAAAAAAAAAAAACAAAiAACAACAAAAAAAA=</HashCode>
+      <HashCode>AEAAAQAAAAAAAAAAAAAAAAAACAAACAACAACAAAAAAAA=</HashCode>
       <FileName>domain\LoginUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="SystemUser" />
-      <Property Name="Merchant" />
     </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="LoginUserOfMerchants" />

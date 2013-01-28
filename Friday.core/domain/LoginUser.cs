@@ -36,11 +36,6 @@ namespace friday.core
             set;
         }
 
-        public virtual Merchant Merchant
-        {
-            get;
-            set;
-        }
 
         /// <summary>
         /// admin,shopowner,shopxiaoer,rentowner,rentxiaoer,restaurantowner,restaurantxiaoer,restaurantdelivery,shopdelivery
