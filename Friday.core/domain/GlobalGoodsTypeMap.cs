@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class MerchantGoodsTypeMap : ClassMap<MerchantGoodsType>
+    public class GlobalGoodsTypeMap : ClassMap<GlobalGoodsType>
     {
-        public MerchantGoodsTypeMap()
+        public GlobalGoodsTypeMap()
         {
           
             Id(o => o.Id);
@@ -18,7 +18,8 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
 
             Map(o=>o.GoodsType);
-            References<Merchant>(o => o.Merchant).Not.Nullable();
+            Map(o => o.MerchantType).CustomType<MerchantTypeEnum>();
+           
 
         }
     }

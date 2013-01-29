@@ -13,7 +13,7 @@ namespace friday.core.domain
 
             set;
         }
-        public virtual String GoodsType
+        public virtual string GoodsType
         {
             get;
 

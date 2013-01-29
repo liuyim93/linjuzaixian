@@ -9,7 +9,7 @@ namespace friday.core
 {
     public class GlobalGoodsType:Entity
     {
-        public virtual String GoodsType
+        public virtual string GoodsType
         {
             get;
 

@@ -199,6 +199,8 @@
     <Compile Include="domain\HouseMap.cs" />
     <Compile Include="domain\ShopMap.cs" />
     <Compile Include="domain\RentMap.cs" />
+    <Compile Include="domain\MerchantCategoryMap.cs" />
+    <Compile Include="domain\GlobalGoodsTypeMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
