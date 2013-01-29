@@ -32,8 +32,8 @@ namespace friday.core.domain
             Map(o => o.Distance);
             Map(o => o.Rate);
             Map(o => o.ShopStatus).CustomType<ShopStatusEnum>();
-            
-            //HasOne<MerchantCategory>(o => o.MerchantCategory);
+
+            References<MerchantCategory>(o => o.MerchantCategory);
             /* test not keynullable*/
             HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants);
             HasMany<MerchantGoodsType>(o => o.MerchantGoodsTypes).Inverse().Cascade.All();

@@ -17,6 +17,7 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.EntityIndex);
             References<SystemUser>(o => o.SystemUser);
+            HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants).Inverse().Cascade.All().Not.KeyNullable();
             //References<Merchant>(o => o.Merchant);//Shop 1 :N Food
             
         }

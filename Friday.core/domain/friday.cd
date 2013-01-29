@@ -28,7 +28,7 @@
   <Class Name="friday.core.domain.Food">
     <Position X="9.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAQAAKAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAAAAAAAQAAKAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Food.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -74,7 +74,7 @@
   <Class Name="friday.core.domain.Shop">
     <Position X="0.5" Y="14.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAA=</HashCode>
       <FileName>domain\Shop.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -114,6 +114,9 @@
   </Class>
   <Class Name="friday.core.Customer">
     <Position X="3.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
     <TypeIdentifier>
       <HashCode>AAFAAAAAAAAAAAAAAAAAAAAAAgAABAAAAAAAAAAAABA=</HashCode>
       <FileName>domain\Customer.cs</FileName>
@@ -155,7 +158,7 @@
   <Class Name="friday.core.Restaurant">
     <Position X="1.75" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQQEAAAAAAgABAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
+      <HashCode>AAQQEAAAAAAgAAAEAAACABAAAAAgAAAAAAAQEAAAAIA=</HashCode>
       <FileName>domain\Restaurant.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -176,7 +179,7 @@
   <Class Name="friday.core.Rent">
     <Position X="3.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
       <FileName>domain\Rent.cs</FileName>
     </TypeIdentifier>
   </Class>

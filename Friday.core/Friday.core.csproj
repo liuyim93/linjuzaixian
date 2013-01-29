@@ -224,6 +224,7 @@
     <Compile Include="domain\MessageContent.cs" />
     <Compile Include="domain\Notice.cs" />
     <Compile Include="domain\LoginUserOfMerchant.cs" />
+    <Compile Include="EnumType\UserTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domain\RentCart.cs" />
     <Compile Include="domain\RentSatistic.cs" />
