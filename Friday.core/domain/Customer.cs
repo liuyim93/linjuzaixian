@@ -22,7 +22,18 @@ namespace friday.core
 
             set;
         }
+        public virtual RestaurantCart RestaurantCart
+        {
+            get;
 
+            set;
+        }
+        public virtual RentCart RentCart
+        {
+            get;
+
+            set;
+        }
         public virtual Iesi.Collections.Generic.ISet<Address> Addresses
         {
             get;

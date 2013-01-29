@@ -15,6 +15,10 @@ namespace friday.core.domain
             Map(o => o.Version);
             HasMany<Address>(o => o.Addresses).Inverse().Cascade.All();
             HasMany<ShoppingCart>(o => o.ShoppingCart).Inverse().Cascade.All().Not.KeyNullable();
+            HasMany<RestaurantCart>(o => o.RestaurantCart).Inverse().Cascade.All().Not.KeyNullable();
+            HasMany<RentCart>(o => o.RentCart).Inverse().Cascade.All().Not.KeyNullable();
+
+
         }
     }
 }

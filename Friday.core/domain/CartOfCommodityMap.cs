@@ -6,25 +6,20 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public  class ShoppingCartMap:ClassMap<ShoppingCart>
+    public class CartOfCommodityMap:ClassMap<CartOfCommodity>
     {
-        public ShoppingCartMap()
+
+        public CartOfCommodityMap()
         {
-           
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
             Map(o => o.Price);
-            Map(o => o.SendPrice);
-            HasMany<CartOfCommodity>(o => o.CartOfCommodities).Inverse().Cascade.All();
-            References<Customer>(o => o.Customer);
-            References<Shop>(o => o.Shop);
-        
-
-
-
-
+            Map(o => o.Amount);
+            References<ShoppingCart>(o => o.ShoppingCart);
+            References<Commodity>(o => o.Commodity);
         }
+
     }
 }

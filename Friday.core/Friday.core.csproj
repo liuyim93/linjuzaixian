@@ -92,7 +92,7 @@
   <ItemGroup>
     <Compile Include="domain\AddressMap.cs" />
     <Compile Include="domain\AnonymouseUserMap.cs" />
-    <Compile Include="domain\CartCommodity.cs" />
+    <Compile Include="domain\CartOfCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
     <Compile Include="domain\CommodityStatistic.cs" />
@@ -188,6 +188,10 @@
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />
     <Compile Include="domain\MerchantMap.cs" />
     <Compile Include="domain\RestaurantCartMap.cs" />
+    <Compile Include="domain\CartOfCommodityMap.cs" />
+    <Compile Include="domain\CommodityMap.cs" />
+    <Compile Include="domain\CartOfHouseMap.cs" />
+    <Compile Include="domain\RentCartMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
