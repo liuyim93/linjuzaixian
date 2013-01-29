@@ -10,13 +10,9 @@ namespace friday.core
     {
         public virtual string Content
         {
-            get
-            {
-                throw new System.NotImplementedException();
-            }
-            set
-            {
-            }
+            get;
+            set;
+            
         }
     }
 }

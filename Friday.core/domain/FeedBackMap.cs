@@ -15,6 +15,7 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
+            Map(o=>o.EntityIndex);
             Map(o=>o.Contents);
             Map(o => o.Type);
             References<SystemUser>(o => o.SystemUser);//Shop 1 :N Food

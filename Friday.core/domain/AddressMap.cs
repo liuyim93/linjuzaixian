@@ -13,11 +13,13 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
+            Map(o => o.EntityIndex);
+
             Map(o => o.AddressName).Not.Nullable();
             Map(o => o.Tel).Not.Nullable();
             Map(o=>o.BackupTel);
             Map(o=>o.Email);
-            Map(o => o.EntityIndex);
+             
             Map(o=>o.Linkman);
             Map(o=>o.QQ);
             Map(o=>o.Weixin);

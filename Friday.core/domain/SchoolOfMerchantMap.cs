@@ -16,6 +16,8 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
+            Map(o => o.EntityIndex);
+
             References<School>(o => o.School).Not.Nullable();
             References<Merchant>(o => o.Merchant).Fetch.Join().Not.Nullable();
         }

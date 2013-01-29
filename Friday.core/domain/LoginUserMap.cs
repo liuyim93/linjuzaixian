@@ -18,7 +18,7 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
             References<SystemUser>(o => o.SystemUser);
             //References<Merchant>(o => o.Merchant);//Shop 1 :N Food
-
+            
         }
     }
 }

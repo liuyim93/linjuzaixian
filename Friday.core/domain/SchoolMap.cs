@@ -16,6 +16,7 @@ namespace friday.core.domain
             Map(o => o.Name);
             Map(o => o.IsDelete);
             Map(o => o.Version);
+            Map(o => o.EntityIndex);
             //2013-01-07 basilwang add index for search speed
             Map(o => o.ShortName).Index("SchoolShortName").Unique();
             Map(o=>o.CityName);
