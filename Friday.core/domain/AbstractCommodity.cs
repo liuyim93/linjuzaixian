@@ -15,7 +15,7 @@ namespace friday.core
             set;
 
         }
-        public virtual String Name
+        public virtual string Name
         {
             get;
 
@@ -57,6 +57,7 @@ namespace friday.core
 
             set;
         }
-      
+         
+          
     }
 }

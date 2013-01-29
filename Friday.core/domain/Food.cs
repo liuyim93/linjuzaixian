@@ -27,12 +27,12 @@ namespace friday.core.domain
         }
 
 
-        public  virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
-        {
-            set;
+        //public  virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
+        //{
+        //    set;
 
-            get;
-        }
+        //    get;
+        //}
         //Shop 1:N Food
         public virtual Restaurant Restaurant
         {

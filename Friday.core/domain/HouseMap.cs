@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class FoodMap : ClassMap<Food>
+    public class HouseMap : ClassMap<House>
     {
-        public FoodMap()
+        public HouseMap()
         {
 
             Id(o => o.Id);
@@ -23,15 +23,15 @@ namespace friday.core.domain
             Map(o => o.InventoryCount);
             Map(o => o.IsEnabled);
             Map(o => o.Image);
-            Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>(); 
+            Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>();
 
-            Map(o => o.Amount);
-            Map(o => o.ValuingCount);
-            Map(o => o.AverageValuing);
+            Map(o => o.TimeOfRentFrom);
+            Map(o => o.TimeOfRentTO);
+            Map(o => o.DaySpanOfRent);
              
 
             //References<MerchantGoodsType>(o => o.MerchantGoodsType);
-            References<Restaurant>(o => o.Restaurant);//Shop 1 :N Food
+            References<Rent>(o => o.Rent);//Shop 1 :N Food
             //HasMany<MyFavorite>(o => o.Favorite).Inverse().Cascade.All();
         }
     }
