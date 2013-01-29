@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 using friday.core.EnumType;
 namespace friday.core.domain
 {
-    public class MyFoodOrderMap : ClassMap<MyFoodOrder>
+    public class MyHouseOrderMap : ClassMap<MyHouseOrder>
     {
-        public MyFoodOrderMap()
+        public MyHouseOrderMap()
         {
             Id(o=>o.Id);
             Map(o => o.CreateTime);
@@ -28,8 +28,8 @@ namespace friday.core.domain
            
 
             References<Customer>(o => o.Customer).Not.Nullable();
-            References<Restaurant>(o => o.Restaurant).Not.Nullable();
-            HasMany<OrderOfFood>(o => o.OrderOfFoods).Inverse().Cascade.All();
+            References<Rent>(o => o.Rent).Not.Nullable();
+            HasMany<OrderOfHouse>(o => o.OrderOfHouses).Inverse().Cascade.All();
                        
                         
         }
