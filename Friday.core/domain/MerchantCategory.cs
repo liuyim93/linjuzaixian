@@ -9,7 +9,7 @@ namespace friday.core
     public class MerchantCategory:Entity
     {
         //中餐 西餐 清真
-        public virtual String MerchantCategoryName
+        public virtual string MerchantCategoryName
         {
             get;
 

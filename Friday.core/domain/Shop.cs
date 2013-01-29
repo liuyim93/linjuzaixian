@@ -9,9 +9,13 @@ namespace friday.core.domain
 {
     public class Shop:Merchant
     {
-        
-        
 
+
+        public virtual Commodity Commodities
+        {
+            get;
+            set;
+        }
         
 
         

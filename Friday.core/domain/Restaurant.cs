@@ -125,12 +125,12 @@ namespace friday.core
             set;
         }
 
-        public virtual Iesi.Collections.Generic.ISet<MyFoodOrder> MyFoodOrders
-        {
-            get;
+        //public virtual Iesi.Collections.Generic.ISet<MyFoodOrder> MyFoodOrders
+        //{
+        //    get;
 
-            set;
-        }
+        //    set;
+        //}
 
     }
 }

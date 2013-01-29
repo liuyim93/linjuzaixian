@@ -33,21 +33,21 @@ namespace friday.core
             set;
 
         }
-        public virtual String Name
+        public virtual string Name
         {
             get;
 
             set;
 
         }
-        public virtual String ShortName
+        public virtual string ShortName
         {
             get;
 
             set;
         }
 
-        public virtual String Owener
+        public virtual string Owener
         {
             set;
 
