@@ -24,9 +24,9 @@ namespace friday.core.domain
             Map(o => o.IsEnabled);
             Map(o => o.Image);
             Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>();
-            
-          
-            References<Shop>(o => o.Shop); 
+
+
+            References<Shop>(o => o.Shop).Not.Nullable(); 
            
         }
     }

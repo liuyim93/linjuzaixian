@@ -28,10 +28,10 @@ namespace friday.core.domain
             Map(o => o.Amount);
             Map(o => o.ValuingCount);
             Map(o => o.AverageValuing);
-             
 
-            
-            References<Shop>(o => o.Shop); 
+
+
+            References<Shop>(o => o.Shop).Not.Nullable(); 
           
         }
     }

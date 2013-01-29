@@ -28,9 +28,9 @@ namespace friday.core.domain
             Map(o => o.Amount);
             Map(o => o.ValuingCount);
             Map(o => o.AverageValuing);
-             
-             
-            References<Restaurant>(o => o.Restaurant); 
+
+
+            References<Restaurant>(o => o.Restaurant).Not.Nullable(); 
         }
     }
 }

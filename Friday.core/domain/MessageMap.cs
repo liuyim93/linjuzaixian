@@ -21,7 +21,7 @@ namespace friday.core.domain
             Map(o => o.TrackIndex);
             References<LoginUser>(o => o.FromLoginUser).Not.Nullable();
             References<LoginUser>(o => o.ToLoginUser).Not.Nullable();
-            References<MessageContent>(o=>o.MessageContent);
+            References<MessageContent>(o => o.MessageContent).Not.Nullable();
         }
     }
 }

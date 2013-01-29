@@ -91,7 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="domain\AddressMap.cs" />
-    <Compile Include="domain\AnonymouseUserMap.cs" />
+    <Compile Include="domain\AnonymousUserMap.cs" />
     <Compile Include="domain\CartOfCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
@@ -145,7 +145,6 @@
     <Compile Include="domain\MerchantCategory.cs" />
     <Compile Include="domain\MerchantGoodsType.cs" />
     <Compile Include="domain\MerchantGoodsTypeMap.cs" />
-    <Compile Include="domain\MerchantTypeEnum.cs" />
     <Compile Include="domain\MessageContentMap.cs" />
     <Compile Include="domain\MessageMap.cs" />
     <Compile Include="domain\MyFavorite.cs" />
@@ -222,7 +221,6 @@
     <Compile Include="domain\MerchantStatistic.cs" />
     <Compile Include="domain\Message.cs" />
     <Compile Include="domain\MessageContent.cs" />
-    <Compile Include="domain\Notice.cs" />
     <Compile Include="domain\LoginUserOfMerchant.cs" />
     <Compile Include="EnumType\UserTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

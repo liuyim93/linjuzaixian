@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
+using friday.core.EnumType;
 
 namespace friday.core.domain
 {

@@ -17,8 +17,8 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.Price);
             Map(o => o.Amount);
-            References<RestaurantCart>(o => o.RestaurantCart);
-            References<Food>(o => o.Food);
+            References<RestaurantCart>(o => o.RestaurantCart).Not.Nullable();
+            References<Food>(o => o.Food).Not.Nullable();
         }
 
     }

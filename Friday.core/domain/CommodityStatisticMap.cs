@@ -31,7 +31,7 @@ namespace friday.core.domain
              
 
             //References<MerchantGoodsType>(o => o.MerchantGoodsType);
-            References<Commodity>(o => o.Commodity);//Shop 1 :N Food
+            References<Commodity>(o => o.Commodity).Not.Nullable(); ;//Shop 1 :N Food
             //HasMany<MyFavorite>(o => o.Favorite).Inverse().Cascade.All();
         }
     }

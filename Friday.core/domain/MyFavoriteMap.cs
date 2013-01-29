@@ -14,7 +14,7 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);;
-            References<SystemUser>(o => o.SystemUser);
+            References<SystemUser>(o => o.SystemUser).Not.Nullable();
             References<Merchant>(o => o.Merchant);
         }
     }
