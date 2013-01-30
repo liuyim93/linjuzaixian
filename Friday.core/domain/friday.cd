@@ -414,16 +414,6 @@
   </Class>
   <Class Name="friday.core.ValuingOfMyCommodityOrder">
     <Position X="0.5" Y="23" Width="2" />
-    <InheritanceLine Type="friday.core.Valuing" ManuallyRouted="true">
-      <Path>
-        <Point X="5.25" Y="22.096" />
-        <Point X="5.25" Y="22.353" />
-        <Point X="2.333" Y="22.353" />
-        <Point X="2.333" Y="22.875" />
-        <Point X="1.5" Y="22.875" />
-        <Point X="1.5" Y="23" />
-      </Path>
-    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfMyCommodityOrder.cs</FileName>
@@ -437,7 +427,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfMyHouseOrder">
-    <Position X="6" Y="23" Width="1.5" />
+    <Position X="6" Y="23" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfMyHouseOrder.cs</FileName>
