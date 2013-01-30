@@ -10,8 +10,8 @@ namespace friday.core
     {
         public virtual ShoppingCart ShoppingCart
         {
-            set;
             get;
+            set;
         }
 
         public virtual Commodity Commodity

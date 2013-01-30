@@ -14,11 +14,13 @@ namespace friday.core
 
         }
 
+        public virtual SystemUser SystemUser
         {
             set;
 
             get;
         }
+
 
         //Order 1:N OrederFood
         public virtual Iesi.Collections.Generic.ISet<CartOfHouse> CartOfHouses

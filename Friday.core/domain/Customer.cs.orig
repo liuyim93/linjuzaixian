@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using friday.core.domain;
+
+namespace friday.core
+{
+    public class Customer:Entity
+    {
+<<<<<<< HEAD
+        
+=======
+        public Customer()
+        {
+            ShoppingCarts = new Iesi.Collections.Generic.HashedSet<ShoppingCart>();
+            RestaurantCarts = new Iesi.Collections.Generic.HashedSet<RestaurantCart>();
+            RentCarts = new Iesi.Collections.Generic.HashedSet<RentCart>();
+            Addresses = new Iesi.Collections.Generic.HashedSet<Address>();
+        }
+
+        public virtual Iesi.Collections.Generic.ISet<ShoppingCart> ShoppingCarts
+        {
+            get;
+
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<RestaurantCart> RestaurantCarts
+        {
+            get;
+
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<RentCart> RentCarts
+        {
+            get;
+
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<Address> Addresses
+        {
+            get;
+
+            set;
+        }
+>>>>>>> modify map
+
+    }
+}

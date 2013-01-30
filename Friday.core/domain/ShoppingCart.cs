@@ -12,7 +12,7 @@ namespace friday.core.domain
             CartOfCommodities = new Iesi.Collections.Generic.HashedSet<CartOfCommodity>();
 
         }
-
+        public virtual SystemUser SystemUser
         {
             set;
 

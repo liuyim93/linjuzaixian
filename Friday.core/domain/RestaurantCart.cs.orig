@@ -8,18 +8,22 @@ namespace friday.core
 {
     public class RestaurantCart:Entity
     {
+<<<<<<< HEAD
+        public virtual SystemUser SystemUser
+=======
         public RestaurantCart()
         {
             CartOfFoods = new Iesi.Collections.Generic.HashedSet<CartOfFood>();
 
         }
-        public virtual SystemUser SystemUser
+
+        public virtual Customer Customer
+>>>>>>> modify map
         {
             set;
 
             get;
         }
-
 
 
         //Order 1:N OrederFood

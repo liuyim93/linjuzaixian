@@ -8,7 +8,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.CartOfFood">
-    <Position X="13.75" Y="11.5" Width="1.5" />
+    <Position X="19.25" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAAAABAAAAAAAAgAAAAA=</HashCode>
       <FileName>domain\CartOfFood.cs</FileName>
@@ -87,16 +87,6 @@
     <ShowAsAssociation>
       <Property Name="Merchant" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="friday.core.domain.ShoppingCart">
-    <Position X="11" Y="9.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAEAAAQAAAAAACAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>domain\ShoppingCart.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="CartOfCommodities" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.domain.SystemUser">
     <Position X="4" Y="4" Width="1.5" />
@@ -273,28 +263,8 @@
       <FileName>domain\CommodityStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.RestaurantCart">
-    <Position X="11" Y="11.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>IAAAAAgAAQAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>domain\RestaurantCart.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="CartOfFoods" />
-    </ShowAsCollectionAssociation>
-  </Class>
-  <Class Name="friday.core.CartOfCommodity">
-    <Position X="13.75" Y="9.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAACAQAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\CartOfCommodity.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ShoppingCart" />
-    </ShowAsAssociation>
-  </Class>
   <Class Name="friday.core.CartOfHouse">
-    <Position X="14" Y="13.5" Width="1.5" />
+    <Position X="19.25" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAQAAAAAAAAAAAACAAAAAAAAAAAIAAAAAABA=</HashCode>
       <FileName>domain\CartOfHouse.cs</FileName>
@@ -302,16 +272,6 @@
     <ShowAsAssociation>
       <Property Name="RentCart" />
     </ShowAsAssociation>
-  </Class>
-  <Class Name="friday.core.RentCart">
-    <Position X="11" Y="13.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAQEAAAAAAAAACAAAAAAAACAAAAAAAA=</HashCode>
-      <FileName>domain\RentCart.cs</FileName>
-    </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Property Name="CartOfHouses" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.MerchantStatistic">
     <Position X="9.5" Y="24.25" Width="1.5" />
@@ -446,6 +406,46 @@
     <ShowAsAssociation>
       <Property Name="ValuingOfMyFoodOrder" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.RestaurantCart">
+    <Position X="15.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAgAAQAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>domain\RestaurantCart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="CartOfFoods" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="friday.core.RentCart">
+    <Position X="15.25" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAQEAAAAAAAAACAAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>domain\RentCart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="CartOfHouses" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="friday.core.CartOfCommodity">
+    <Position X="19" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAQAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\CartOfCommodity.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ShoppingCart" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.domain.ShoppingCart">
+    <Position X="15.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAEAAAQAAAAAACAAAAAAACAAAAAAAA=</HashCode>
+      <FileName>domain\ShoppingCart.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="CartOfCommodities" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>
