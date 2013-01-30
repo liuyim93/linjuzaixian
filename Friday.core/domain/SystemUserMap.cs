@@ -6,11 +6,16 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class SystemUserMap : SubclassMap<SystemUser>
+    public class SystemUserMap : ClassMap<SystemUser>
     {
         public SystemUserMap()
         {
+            Id(o => o.Id);
+            Map(o => o.CreateTime);
+            Map(o => o.IsDelete);
+            Map(o => o.Version);
             
+            Map(o => o.EntityIndex);
             Map(o => o.Description);
             Map(o => o.Email);
             //Map(o => o.LoginName);

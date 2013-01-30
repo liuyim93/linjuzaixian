@@ -23,7 +23,7 @@ namespace friday.core.domain
             Map(o => o.InventoryCount);
             Map(o => o.IsEnabled);
             Map(o => o.Image);
-            Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>();
+            //Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>();
 
             Map(o => o.TimeOfRentFrom);
             Map(o => o.TimeOfRentTO);

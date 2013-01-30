@@ -17,7 +17,7 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
             Map(o=>o.Description);
             Map(o=>o.Price);
-            Map(o=>o.OrderStatus);
+            
             Map(o => o.Address);
             Map(o=>o.Linkman);
             Map(o=>o.Tel);

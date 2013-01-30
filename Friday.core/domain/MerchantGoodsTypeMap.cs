@@ -17,7 +17,7 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.EntityIndex);
 
-            Map(o=>o.GoodsType);
+            Map(o=> o.GoodsType);
             References<Merchant>(o => o.Merchant).Not.Nullable();
 
         }
