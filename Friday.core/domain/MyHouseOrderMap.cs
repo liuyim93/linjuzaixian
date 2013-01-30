@@ -24,10 +24,10 @@ namespace friday.core.domain
             Map(o=>o.SendTime);
             Map(o => o.OrderNumber);
             Map(o => o.BackupTel);
-            Map(o => o.OrderStatus).CustomType<MyOrderStatusEnum>(); 
-           
+            Map(o => o.OrderStatus).CustomType<MyOrderStatusEnum>();
 
-            References<Customer>(o => o.Customer).Not.Nullable();
+
+            References<SystemUser>(o => o.SystemUser).Not.Nullable();
             References<Rent>(o => o.Rent).Not.Nullable();
             HasMany<OrderOfHouse>(o => o.OrderOfHouses).Inverse().Cascade.All();
 

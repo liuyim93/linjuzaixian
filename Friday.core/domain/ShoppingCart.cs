@@ -7,7 +7,7 @@ namespace friday.core.domain
 {
     public class ShoppingCart:Entity
     {
-        public virtual Customer Customer
+        public virtual SystemUser SystemUser
         {
             set;
 

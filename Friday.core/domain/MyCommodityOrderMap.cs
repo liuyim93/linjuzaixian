@@ -27,7 +27,7 @@ namespace friday.core.domain
             Map(o => o.OrderStatus).CustomType<MyOrderStatusEnum>();
 
 
-            References<Customer>(o => o.Customer).Not.Nullable();
+            References<SystemUser>(o => o.SystemUser).Not.Nullable();
             References<Shop>(o => o.Shop).Not.Nullable();
             HasMany<OrderOfCommodity>(o => o.OrderOfCommodities).Inverse().Cascade.All();
 

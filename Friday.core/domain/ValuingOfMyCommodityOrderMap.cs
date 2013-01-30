@@ -10,8 +10,8 @@ namespace friday.core.domain
         public ValuingOfMyCommodityOrderMap()
         {
 
-
-            References <MyCommodityOrder> (o => o.MyCommodityOrder).Not.Nullable();
+            HasMany<ValuingItemOfMyCommodityOrder>(o => o.ValuingItemOfMyCommodityOrders).Inverse().Cascade.All();
+            References <MyCommodityOrder> (o => o.MyCommodityOrder);
            
         }
     }

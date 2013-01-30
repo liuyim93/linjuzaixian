@@ -91,7 +91,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="domain\AddressMap.cs" />
-    <Compile Include="domain\AnonymousUserMap.cs" />
     <Compile Include="domain\CartOfCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
@@ -125,15 +124,12 @@
     <Compile Include="domain\ActivityMap.cs" />
     <Compile Include="domain\Address.cs" />
     <Compile Include="domain\AjaxResult.cs" />
-    <Compile Include="domain\AnonymousUser.cs" />
     <Compile Include="domain\BaseObject.cs" />
     <Compile Include="domain\BottmCart.cs" />
     <Compile Include="domain\CartBox.cs" />
     <Compile Include="domain\CartOfFood.cs" />
     <Compile Include="domain\CartOfFoodMap.cs" />
     <Compile Include="domain\AbstractCommodity.cs" />
-    <Compile Include="domain\Customer.cs" />
-    <Compile Include="domain\CustomerMap.cs" />
     <Compile Include="domain\Entity.cs" />
     <Compile Include="domain\FeedBack.cs" />
     <Compile Include="domain\FeedBackMap.cs" />
@@ -175,14 +171,7 @@
     <Compile Include="domain\SystemUser.cs" />
     <Compile Include="domain\SystemUserMap.cs" />
     <Compile Include="domain\Valuing.cs" />
-    <Compile Include="domain\ValuingItem.cs" />
-    <Compile Include="domain\ValuingItemMap.cs" />
     <Compile Include="domain\ValuingMap.cs" />
-    <Compile Include="domain\ValuingOfCommodity.cs" />
-    <Compile Include="domain\ValuingOfRent.cs" />
-    <Compile Include="domain\ValuingOfRestaurant.cs" />
-    <Compile Include="domain\ValuingOfShop.cs" />
-    <Compile Include="domain\ValuingOfUserFromRent.cs" />
     <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />
     <Compile Include="domain\MerchantMap.cs" />
@@ -209,6 +198,11 @@
     <Compile Include="domain\ValuingOfMyCommodityOrderMap.cs" />
     <Compile Include="domain\ValuingOfMyFoodOrderMap.cs" />
     <Compile Include="domain\ValuingOfMyHouseOrderMap.cs" />
+    <Compile Include="domain\ValuingItemOfMyFoodOrder.cs" />
+    <Compile Include="domain\ValuingItemOfMyHouseOrder.cs" />
+    <Compile Include="domain\ValuingItemOfMyCommodityOrderMap.cs" />
+    <Compile Include="domain\ValuingItemOfMyFoodOrderMap.cs" />
+    <Compile Include="domain\ValuingItemOfMyHouseOrderMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
@@ -243,11 +237,10 @@
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
     <Compile Include="utils\MockLogger.cs" />
-    <Compile Include="domain\ValuingOfUserFromRestaurant.cs" />
-    <Compile Include="domain\ValuingOfUserFromShop.cs" />
     <Compile Include="domain\ValuingOfMyCommodityOrder.cs" />
     <Compile Include="domain\ValuingOfMyFoodOrder.cs" />
     <Compile Include="domain\ValuingOfMyHouseOrder.cs" />
+    <Compile Include="domain\ValuingItemOfMyCommodityOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="domain\friday.cd" />

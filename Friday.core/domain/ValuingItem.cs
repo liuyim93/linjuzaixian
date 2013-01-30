@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class ValuingItem:Entity
+    public abstract class ValuingItem:Entity
     {
         public virtual string ValuingItemName
         {
@@ -22,11 +22,6 @@ namespace friday.core
             set;
         }
 
-        public virtual Valuing Valuing
-        {
-            get;
-
-            set;
-        }
+      
     }
 }

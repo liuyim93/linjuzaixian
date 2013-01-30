@@ -8,7 +8,7 @@ namespace friday.core
 {
     public class RentCart:Entity
     {
-        public virtual Customer Customer
+        public virtual SystemUser SystemUser
         {
             set;
 

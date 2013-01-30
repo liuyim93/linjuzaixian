@@ -6,8 +6,41 @@ using friday.core.EnumType;
 
 namespace friday.core.domain
 {
-    public class SystemUser :Customer
+    public class SystemUser:Entity
     {
+
+        //SyetemUser 1:N Order
+        public virtual Iesi.Collections.Generic.ISet<MyOrder> Orders
+        {
+            get;
+
+            set;
+        }
+
+        public virtual ShoppingCart ShoppingCart
+        {
+            get;
+
+            set;
+        }
+        public virtual RestaurantCart RestaurantCart
+        {
+            get;
+
+            set;
+        }
+        public virtual RentCart RentCart
+        {
+            get;
+
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<Address> Addresses
+        {
+            get;
+
+            set;
+        }
         /// <remarks>真实姓名</remarks>
         public virtual string Name
         {
@@ -33,8 +66,8 @@ namespace friday.core.domain
 
         //}
 
-        ///<remarks>用户类型，0为个人用户，1为企业用户</remarks>
-        public virtual int UserType
+        ///<remarks>是否匿名用户</remarks>
+        public virtual int IsAnonymous
         {
             get;
 
@@ -71,7 +104,6 @@ namespace friday.core.domain
             get;
             set;
         }
-
 
 
 

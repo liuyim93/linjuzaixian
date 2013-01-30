@@ -5,17 +5,17 @@ using System.Text;
 
 namespace friday.core
 {
-    public class ValuingOfMyFoodOrder:Valuing
+    public class ValuingItemOfMyCommodityOrder:Valuing
     {
-        public virtual MyFoodOrder MyFoodOrder
-        {
-            get;
-            set;
-        }
-        public virtual Iesi.Collections.Generic.ISet<ValuingItemOfMyFoodOrder> ValuingItemOfMyFoodOrders
+        public virtual ValuingOfMyCommodityOrder ValuingOfMyCommodityOrder
         {
             get;
 
+            set;
+        }
+        public virtual OrderOfCommodity OrderOfCommodity
+        {
+            get;
             set;
         }
     }

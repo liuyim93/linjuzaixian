@@ -23,7 +23,7 @@ namespace friday.core.domain
             Map(o=>o.Linkman);
             Map(o=>o.QQ);
             Map(o=>o.Weixin);
-            References<Customer>(o => o.Customer).Not.Nullable();
+            References<SystemUser>(o => o.SystemUser).Not.Nullable();
         }
     }
 }

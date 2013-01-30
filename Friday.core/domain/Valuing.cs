@@ -23,12 +23,7 @@ namespace friday.core
             set;
         }
 
-        public virtual Iesi.Collections.Generic.ISet<ValuingItem> ValuingItems
-        {
-            get;
-
-            set;
-        }
+     
 
         public virtual string ValuingContent
         {

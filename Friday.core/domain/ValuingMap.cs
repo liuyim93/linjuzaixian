@@ -19,7 +19,7 @@ namespace friday.core.domain
             Map(o => o.ValuingContent);
             References<LoginUser>(o => o.FromLoginUser).Not.Nullable();
             References<LoginUser>(o => o.ToLoginUser).Not.Nullable();
-            HasMany<ValuingItem>(o=>o.ValuingItems).Inverse().Cascade.All();
+            //HasMany<ValuingItem>(o=>o.ValuingItems).Inverse().Cascade.All();
         }
     }
 }

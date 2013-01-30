@@ -57,7 +57,7 @@ namespace friday.core
             set;
         }
 
-        public virtual Customer Customer
+        public virtual SystemUser SystemUser
         {
             get;
 
