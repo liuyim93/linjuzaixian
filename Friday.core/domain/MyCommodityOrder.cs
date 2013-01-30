@@ -21,5 +21,12 @@ namespace friday.core
 
             get;
         }
+
+        public virtual Iesi.Collections.Generic.ISet<ValuingOfMyCommodityOrder> ValuingOfMyCommodityOrders
+        {
+            get;
+            set;
+        }
+
     }
 }

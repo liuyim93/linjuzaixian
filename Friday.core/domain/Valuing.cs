@@ -35,5 +35,15 @@ namespace friday.core
             get;
             set;
         }
+        public virtual LoginUser FromLoginUser
+        {
+            get;
+            set;
+        }
+        public virtual LoginUser ToLoginUser
+        {
+            get;
+            set;
+        }
     }
 }
