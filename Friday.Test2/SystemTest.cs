@@ -42,7 +42,7 @@ namespace friday.coretest
                 .ExportTo("C:\\Path")).BuildConfiguration();
             cfg.Configure();
             SchemaExport schema = new SchemaExport(cfg);
-
+            
             schema.Drop(true, false);
             //相当于：Execute(script, export, true, true)
             schema.SetOutputFile("log.txt");

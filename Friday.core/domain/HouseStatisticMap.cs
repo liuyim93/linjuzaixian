@@ -20,7 +20,7 @@ namespace friday.core.domain
             Map(o => o.Year);
             Map(o => o.Month);
             Map(o => o.Day);
-            Map(o => o.Amount);
+         
             Map(o => o.ValuingCount);
             Map(o => o.AverageValuing);
              
