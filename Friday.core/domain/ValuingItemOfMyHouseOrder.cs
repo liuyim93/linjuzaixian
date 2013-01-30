@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class ValuingItemOfMyHouseOrder:Valuing
+    public class ValuingItemOfMyHouseOrder : ValuingItem
     {
         public virtual ValuingOfMyHouseOrder ValuingOfMyHouseOrder
         {

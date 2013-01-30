@@ -178,7 +178,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.SnapShotCommodity">
-    <Position X="12.25" Y="25.5" Width="2" />
+    <Position X="13.25" Y="26.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\SnapShotCommodity.cs</FileName>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core
 {
-    public class ValuingItemOfMyCommodityOrder:Valuing
+    public class ValuingItemOfMyCommodityOrder:ValuingItem
     {
         public virtual ValuingOfMyCommodityOrder ValuingOfMyCommodityOrder
         {

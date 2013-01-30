@@ -13,10 +13,10 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o => o.AverageScore);
+            Map(o => o.ValuingItemName);
             Map(o => o.EntityIndex);
-            Map(o => o.IsShownAnonymous);
-            Map(o => o.ValuingContent);
+            Map(o => o.Score);
+             
             References<OrderOfFood>(o => o.OrderOfFood);
             References<ValuingOfMyFoodOrder>(o => o.ValuingOfMyFoodOrder).Not.Nullable();
             //HasMany<ValuingItem>(o=>o.ValuingItems).Inverse().Cascade.All();

@@ -171,6 +171,7 @@
     <Compile Include="domain\SystemUser.cs" />
     <Compile Include="domain\SystemUserMap.cs" />
     <Compile Include="domain\Valuing.cs" />
+    <Compile Include="domain\ValuingItem.cs" />
     <Compile Include="domain\ValuingMap.cs" />
     <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />
