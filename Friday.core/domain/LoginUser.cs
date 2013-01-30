@@ -9,6 +9,12 @@ namespace friday.core
 {
     public class LoginUser:Entity
     {
+        public LoginUser()
+        {
+            LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
+
+        }
+
         public virtual string LoginName
         {
             get;

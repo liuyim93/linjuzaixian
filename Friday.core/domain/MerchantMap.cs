@@ -35,9 +35,9 @@ namespace friday.core.domain
 
             References<MerchantCategory>(o => o.MerchantCategory);
             /* test not keynullable*/
-            HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants);
+            HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants).Inverse().Cascade.All();
             HasMany<MerchantGoodsType>(o => o.MerchantGoodsTypes).Inverse().Cascade.All();
-            HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse();
+            HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().Cascade.All();
 
         }
     }

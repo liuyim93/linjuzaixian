@@ -19,8 +19,7 @@ namespace friday.core.domain
             Map(o=>o.Contents);
             Map(o => o.Type);
             References<SystemUser>(o => o.SystemUser).Not.Nullable(); ;//Shop 1 :N Food
-            References<FeedBack>(o => o.ParentFeedBack).Not.Nullable(); ;//Shop 1 :N Food
-            HasMany<FeedBack>(o => o.ChildFeedBack).Inverse().Cascade.All().Not.KeyNullable();;
+
         }
     }
 }

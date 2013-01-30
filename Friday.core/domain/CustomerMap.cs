@@ -15,10 +15,10 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o=>o.EntityIndex);
 
-            HasMany<Address>(o => o.Addresses).Inverse().Cascade.All().Not.KeyNullable(); ;
-            HasMany<ShoppingCart>(o => o.ShoppingCart).Inverse().Cascade.All();//.Not.KeyNullable();
-            HasMany<RestaurantCart>(o => o.RestaurantCart).Inverse().Cascade.All();//.Not.KeyNullable();
-            HasMany<RentCart>(o => o.RentCart).Inverse().Cascade.All();//.Not.KeyNullable();
+            HasMany<Address>(o => o.Addresses).Inverse().Cascade.All();
+            HasMany<ShoppingCart>(o => o.ShoppingCarts).Inverse().Cascade.All();//.Not.KeyNullable();
+            HasMany<RestaurantCart>(o => o.RestaurantCarts).Inverse().Cascade.All();//.Not.KeyNullable();
+            HasMany<RentCart>(o => o.RentCarts).Inverse().Cascade.All();//.Not.KeyNullable();
 
 
         }

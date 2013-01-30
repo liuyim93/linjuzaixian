@@ -9,9 +9,13 @@ namespace friday.core.domain
 {
     public class Shop:Merchant
     {
+        public Shop()
+        {
+            Commodities = new Iesi.Collections.Generic.HashedSet<Commodity>();
 
+        }
 
-        public virtual Commodity Commodities
+        public virtual Iesi.Collections.Generic.ISet<Commodity> Commodities
         {
             get;
             set;

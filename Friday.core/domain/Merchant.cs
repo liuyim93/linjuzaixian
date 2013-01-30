@@ -9,14 +9,12 @@ namespace friday.core
 {
     public class Merchant:Entity
     {
-        ///// <remarks>真实姓名</remarks>
-        //public virtual string HostName
-        //{
-        //    get;
-
-        //    set;
-
-        //}
+        public Merchant()
+        {
+            MerchantGoodsTypes = new Iesi.Collections.Generic.HashedSet<MerchantGoodsType>();
+            SchoolOfMerchants = new Iesi.Collections.Generic.HashedSet<SchoolOfMerchant>();
+            LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
+        }
 
         public virtual string Email
         {

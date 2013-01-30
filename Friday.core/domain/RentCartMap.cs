@@ -19,7 +19,7 @@ namespace friday.core.domain
             Map(o => o.Price);
             Map(o => o.SendPrice);
             References<SystemUser>(o => o.SystemUser).Not.Nullable();
-            References<Rent>(o => o.Rent).Not.Nullable();
+            References<Rent>(o => o.Rent);
             HasMany<CartOfHouse>(o => o.CartOfHouses).Inverse().Cascade.All();
 
 

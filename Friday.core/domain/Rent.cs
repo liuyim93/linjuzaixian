@@ -7,6 +7,11 @@ namespace friday.core
 {
     public class Rent:Merchant
     {
+        public Rent()
+        {
+            Houses = new Iesi.Collections.Generic.HashedSet<House>();
+
+        }
 
         //Shop 1:N Food
         public virtual Iesi.Collections.Generic.ISet<House> Houses

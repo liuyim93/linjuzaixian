@@ -7,7 +7,12 @@ namespace friday.core.domain
 {
     public class ShoppingCart:Entity
     {
-        public virtual SystemUser SystemUser
+        public ShoppingCart()
+        {
+            CartOfCommodities = new Iesi.Collections.Generic.HashedSet<CartOfCommodity>();
+
+        }
+
         {
             set;
 

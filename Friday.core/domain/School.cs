@@ -8,6 +8,11 @@ namespace friday.core.domain
 {
     public class School:Entity
     {
+        public School()
+        {
+            SchoolOfMerchants = new Iesi.Collections.Generic.HashedSet<SchoolOfMerchant>();
+
+        }
 
         public virtual string Name
         {

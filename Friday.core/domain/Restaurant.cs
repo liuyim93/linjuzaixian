@@ -8,6 +8,12 @@ namespace friday.core
 {
     public class Restaurant:Merchant
     {
+        public Restaurant()
+        {
+            Foods = new Iesi.Collections.Generic.HashedSet<Food>();
+
+        }
+
 
         public virtual int SendTime//配送时限
         {

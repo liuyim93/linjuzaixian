@@ -3,10 +3,17 @@ using System.Linq;
 using System.Text;
 using friday.core.EnumType;
 using Iesi.Collections.Generic;
+
 namespace friday.core.domain
 {
     public class FeedBack:Entity
     {
+        public FeedBack()
+        {
+            ChildFeedBack = new Iesi.Collections.Generic.HashedSet<FeedBack>();
+
+        }
+
         public virtual SystemUser SystemUser
         {
             set;

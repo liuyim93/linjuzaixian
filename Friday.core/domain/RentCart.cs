@@ -8,7 +8,12 @@ namespace friday.core
 {
     public class RentCart:Entity
     {
-        public virtual SystemUser SystemUser
+        public RentCart()
+        {
+            CartOfHouses = new Iesi.Collections.Generic.HashedSet<CartOfHouse>();
+
+        }
+
         {
             set;
 
@@ -16,7 +21,7 @@ namespace friday.core
         }
 
         //Order 1:N OrederFood
-        public virtual ISet<CartOfHouse> CartOfHouses
+        public virtual Iesi.Collections.Generic.ISet<CartOfHouse> CartOfHouses
         {
             set;
 

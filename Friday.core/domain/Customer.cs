@@ -8,7 +8,9 @@ namespace friday.core
 {
     public class Customer:Entity
     {
+            Addresses = new Iesi.Collections.Generic.HashedSet<Address>();
         
+        public virtual Iesi.Collections.Generic.ISet<RentCart> RentCarts
 
     }
 }

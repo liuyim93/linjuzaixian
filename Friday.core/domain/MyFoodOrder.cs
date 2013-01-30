@@ -8,6 +8,12 @@ namespace friday.core
 {
     public class MyFoodOrder:MyOrder
     {
+        public MyFoodOrder()
+        {
+            OrderOfFoods = new Iesi.Collections.Generic.HashedSet<OrderOfFood>();
+
+        }
+
         //Order 1:N OrederFood
         public virtual Iesi.Collections.Generic.ISet<OrderOfFood> OrderOfFoods
         {
