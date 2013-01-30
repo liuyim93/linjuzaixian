@@ -5,7 +5,7 @@ using System.Text;
 using NHibernate.Cfg;
 using FluentNHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
-using MbUnit.Framework;
+using NUnit.Framework;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.repositories;

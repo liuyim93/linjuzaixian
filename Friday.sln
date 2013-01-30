@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{DEEB1032-D2E
 		lib\MbUnit.Framework.dll = lib\MbUnit.Framework.dll
 		lib\Newtonsoft.Json.dll = lib\Newtonsoft.Json.dll
 		lib\Newtonsoft.Json.pdb = lib\Newtonsoft.Json.pdb
+		lib\nunit.framework.dll = lib\nunit.framework.dll
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday.Test2", "Friday.Test2\Friday.Test2.csproj", "{6FA9CAE9-B815-46BE-A095-2B5E603C411E}"

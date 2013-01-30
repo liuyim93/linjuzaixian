@@ -3,7 +3,7 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MbUnit.Framework;
+using NUnit.Framework;
 using friday.core;
 using friday.core.domain;
 using friday.core.services;
