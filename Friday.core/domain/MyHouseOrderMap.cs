@@ -30,8 +30,8 @@ namespace friday.core.domain
             References<Customer>(o => o.Customer).Not.Nullable();
             References<Rent>(o => o.Rent).Not.Nullable();
             HasMany<OrderOfHouse>(o => o.OrderOfHouses).Inverse().Cascade.All();
-                       
-                        
+
+            HasMany<ValuingOfMyHouseOrder>(o => o.ValuingOfMyHouseOrders).Inverse();             
         }
         
     }

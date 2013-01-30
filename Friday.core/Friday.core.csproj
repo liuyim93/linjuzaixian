@@ -206,6 +206,9 @@
     <Compile Include="domain\ShopStatisticMap.cs" />
     <Compile Include="domain\RestaurantStatisticMap.cs" />
     <Compile Include="domain\RentSatisticMap.cs" />
+    <Compile Include="domain\ValuingOfMyCommodityOrderMap.cs" />
+    <Compile Include="domain\ValuingOfMyFoodOrderMap.cs" />
+    <Compile Include="domain\ValuingOfMyHouseOrderMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
@@ -242,6 +245,9 @@
     <Compile Include="utils\MockLogger.cs" />
     <Compile Include="domain\ValuingOfUserFromRestaurant.cs" />
     <Compile Include="domain\ValuingOfUserFromShop.cs" />
+    <Compile Include="domain\ValuingOfMyCommodityOrder.cs" />
+    <Compile Include="domain\ValuingOfMyFoodOrder.cs" />
+    <Compile Include="domain\ValuingOfMyHouseOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="domain\friday.cd" />

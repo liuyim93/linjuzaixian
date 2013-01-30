@@ -426,21 +426,21 @@
     </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ValuingOfMyCommodityOrder.cs</FileName>
+      <FileName>domain\ValuingOfMyCommodityOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfMyFoodOrder">
     <Position X="3.5" Y="23" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ValuingOfMyFoodOrder.cs</FileName>
+      <FileName>domain\ValuingOfMyFoodOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.ValuingOfMyHouseOrder">
     <Position X="6" Y="23" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ValuingOfMyHouseOrder.cs</FileName>
+      <FileName>domain\ValuingOfMyHouseOrder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

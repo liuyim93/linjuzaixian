@@ -30,7 +30,8 @@ namespace friday.core.domain
             References<Customer>(o => o.Customer).Not.Nullable();
             References<Restaurant>(o => o.Restaurant).Not.Nullable();
             HasMany<OrderOfFood>(o => o.OrderOfFoods).Inverse().Cascade.All();
-                       
+
+            HasMany<ValuingOfMyFoodOrder>(o => o.ValuingOfMyFoodOrders).Inverse();      
                         
         }
         
