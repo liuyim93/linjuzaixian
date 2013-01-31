@@ -49,7 +49,7 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="edit" href="EditMyOrder.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
+            <li><a class="edit" href="Shop/nShopUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
                 <span>修改</span></a></li>
             <li><a class="delete" href="MyOrderList.aspx?flag=alldelete&uid={id}"
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>

@@ -150,6 +150,20 @@
     <Compile Include="weblogin\ShopList.aspx.designer.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\shop\nShopDetail.aspx.cs">
+      <DependentUpon>nShopDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shop\nShopDetail.aspx.designer.cs">
+      <DependentUpon>nShopDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\shop\nShopUpdate.aspx.cs">
+      <DependentUpon>nShopUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shop\nShopUpdate.aspx.designer.cs">
+      <DependentUpon>nShopUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\shop\pShopList.aspx.cs">
       <DependentUpon>pShopList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -258,6 +272,8 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ShopList.aspx" />
+    <Content Include="weblogin\shop\nShopDetail.aspx" />
+    <Content Include="weblogin\shop\nShopUpdate.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />
