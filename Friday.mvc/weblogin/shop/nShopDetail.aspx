@@ -1,16 +1,46 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nShopDetail.aspx.cs" Inherits="Friday.mvc.weblogin.shop.nShopDetail" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+<div class="page">
+    <div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
+             <span>订单详情</span>
+           </a></li>
+           
+        </ul>
     </div>
-    </form>
-</body>
-</html>
+        <div class="pageFormContent" style="">
+         
+            <h1>
+                商铺基本信息</h1>
+            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+                <p>
+                <label>
+                    联系人：</label>
+                <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
+            </p>
+             <p>
+                <label>
+                    email：</label>
+                <input type="text" id="Email" size="30" class="required email" runat="server" />
+            </p>
+             <p>
+                <label>
+                    地址：</label>
+                <input type="text" id="Address" size="30" class=" textInput gray" runat="server" />
+            </p>
+              <p>
+                <label>
+                    距离：</label>
+                <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
+            </p>
+               <p>
+                <label>
+                    折扣：</label>
+                <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
+            </p>
+           
+        </div>
+    </div>
+</div>

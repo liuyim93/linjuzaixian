@@ -5,7 +5,9 @@
     <div id="jbsxBox2" class="unitBox" style="">
 
 	</div>
+      <div id="jbsxBox" class="unitBox" style="">
 
+	</div>
 	
 </div>
 <script type="text/javascript">
