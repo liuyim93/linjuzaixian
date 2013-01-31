@@ -157,11 +157,11 @@
     <Compile Include="weblogin\shop\nShopDetail.aspx.designer.cs">
       <DependentUpon>nShopDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\shop\nShopUpdate.aspx.cs">
+    <Compile Include="weblogin\nShopUpdate.aspx.cs">
       <DependentUpon>nShopUpdate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\shop\nShopUpdate.aspx.designer.cs">
+    <Compile Include="weblogin\nShopUpdate.aspx.designer.cs">
       <DependentUpon>nShopUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\shop\pShopList.aspx.cs">
@@ -273,7 +273,7 @@
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ShopList.aspx" />
     <Content Include="weblogin\shop\nShopDetail.aspx" />
-    <Content Include="weblogin\shop\nShopUpdate.aspx" />
+    <Content Include="weblogin\nShopUpdate.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />

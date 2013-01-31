@@ -10,8 +10,8 @@
            
         </ul>
     </div>
-        <form id="form" method="post"  class="pageForm required-validate"
-        onsubmit="return navTabCallback(this,navTabAjaxDone)" runat="server">
+        <form id="form" method="post"  class="pageForm required-validate" 
+        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server">
         <div class="pageFormContent" style="">
          
             <h1>
@@ -25,7 +25,7 @@
              <p>
                 <label>
                     email：</label>
-                <input type="text" id="Email" size="30" class="required phone" runat="server" />
+                <input type="text" id="Email" size="30" class="required email" runat="server" />
             </p>
              <p>
                 <label>
