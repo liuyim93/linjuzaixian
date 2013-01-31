@@ -143,6 +143,20 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ShopList.aspx.cs">
+      <DependentUpon>ShopList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ShopList.aspx.designer.cs">
+      <DependentUpon>ShopList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\shop\pShopList.aspx.cs">
+      <DependentUpon>pShopList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shop\pShopList.aspx.designer.cs">
+      <DependentUpon>pShopList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -243,6 +257,8 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\ShopList.aspx" />
+    <Content Include="weblogin\shop\pShopList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />
     <Content Include="weblogin\themes\azure\images\alert\alertpanel.png" />
