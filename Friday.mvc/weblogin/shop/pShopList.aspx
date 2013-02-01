@@ -58,6 +58,7 @@
             <li class="line">line</li>
         </ul>
     </div>
+    <div id="shopList">
     <table class="table" layouth="400">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
@@ -94,7 +95,7 @@
         </asp:repeater>
         </tbody>
     </table>
-        
+    </div>    
         
     <div class="panelBar">
         <div class="pages">
@@ -113,3 +114,24 @@
     </div>
 
 </div>
+
+<script type="text/javascript">
+
+    $(function () {
+        var page_prefix = '<%=Request.Params["prefix"] %>';
+        var $self = $.self(page_prefix);
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
+        $self.one("panelloaded", function (e) {
+            $self.find("#shopList table:eq(1) tr").click(function (e) {
+                if (!$(e.target).is("a")) {
+                    $(this).find("td a").trigger("click");
+                }
+
+            });
+
+        });
+
+
+    });
+</script>
