@@ -41,5 +41,59 @@ namespace Friday.Test2
             }
 
         }
+
+        [Test]
+        public void Test_Rent()
+        {
+            IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
+            IList<Rent> iRents = new List<Rent>();
+
+            Rent s1 = new Rent()
+            {
+                Distance = "10",
+                Address = "erhuan10",
+                Email = "ocam10@163.com",
+                EntityIndex = 10,
+                Name = "ele10",
+                Owener = "basil10",
+                Rate = 10
+
+            };
+            iRents.Add(s1);
+            Rent s2 = new Rent()
+            {
+                Distance = "20",
+                Address = "erhuan20",
+                Email = "ocam20@163.com",
+                EntityIndex = 20,
+                Name = "ele20",
+                Owener = "basil20",
+                Rate = 20
+            };
+            iRents.Add(s2);
+            Rent s3 = new Rent()
+            {
+                Distance = "30",
+                Address = "erhuan30",
+                Email = "ocam30@163.com",
+                EntityIndex = 30,
+                Name = "ele30",
+                Owener = "basil30",
+                Rate = 30
+
+            };
+            iRents.Add(s3);
+            foreach (Rent a in iRents)
+            {
+                iRentRepository.SaveOrUpdate(a);
+            }
+
+        }
+
+
+
+
+
+
     }
 }

@@ -154,6 +154,7 @@
                         <li><a href="javascript:void(0)">系统管理</a>
                             <ul>
                                 <li><a href="ShopList.aspx" target="navTab" rel="">商铺管理</a></li>
+                                <li><a href="RentList.aspx" target="navTab" rel="">租房管理</a></li>
                                 <li><a href="SchoolList.aspx" target="navTab" rel="">test2</a></li>
                                 <li><a href="SystemUserList.aspx" target="navTab" rel="">用户管理</a></li>
                                 <li><a href="FoodList.aspx" target="navTab" rel="">test3</a></li>
