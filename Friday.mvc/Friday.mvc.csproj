@@ -157,6 +157,20 @@
     <Compile Include="weblogin\rent\pRentList.aspx.designer.cs">
       <DependentUpon>pRentList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\restaurant\pRestaurantDetail.aspx.cs">
+      <DependentUpon>pRestaurantDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurant\pRestaurantDetail.aspx.designer.cs">
+      <DependentUpon>pRestaurantDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurant\pRestaurantList.aspx.cs">
+      <DependentUpon>pRestaurantList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurant\pRestaurantList.aspx.designer.cs">
+      <DependentUpon>pRestaurantList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ShopList.aspx.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -205,6 +219,20 @@
     </Compile>
     <Compile Include="weblogin\nRentUpdate.aspx.designer.cs">
       <DependentUpon>nRentUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\RestaurantList.aspx.cs">
+      <DependentUpon>RestaurantList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\RestaurantList.aspx.designer.cs">
+      <DependentUpon>RestaurantList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\nRestaurantUpdate.aspx.cs">
+      <DependentUpon>nRestaurantUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nRestaurantUpdate.aspx.designer.cs">
+      <DependentUpon>nRestaurantUpdate.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +329,8 @@
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />
     <Content Include="weblogin\rent\pRentList.aspx" />
+    <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
+    <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
     <Content Include="weblogin\ShopList.aspx" />
     <Content Include="weblogin\shop\nShopDetail.aspx" />
     <Content Include="weblogin\nShopUpdate.aspx" />
@@ -1009,6 +1039,8 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
     <Content Include="weblogin\RentList.aspx" />
     <Content Include="weblogin\nRentUpdate.aspx" />
+    <Content Include="weblogin\RestaurantList.aspx" />
+    <Content Include="weblogin\nRestaurantUpdate.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

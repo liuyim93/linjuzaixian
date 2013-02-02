@@ -10,7 +10,7 @@ using friday.core;
 namespace Friday.Test2
 {
     [TestFixture]
-    public class Test_Shop
+    public class Test_Merchant
     {
         [Test]
         public void Test()
@@ -91,7 +91,53 @@ namespace Friday.Test2
         }
 
 
+        [Test]
+        public void Test_Restaurant()
+        {
+            IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
+            IList<Restaurant> iRestaurants = new List<Restaurant>();
 
+            Restaurant s1 = new Restaurant()
+            {
+                Distance = "餐厅10",
+                Address = "餐厅erhuan10",
+                Email = "餐厅ocam10@163.com",
+                EntityIndex = 10,
+                Name = "餐厅ele10",
+                Owener = "餐厅basil10",
+                Rate = 10
+
+            };
+            iRestaurants.Add(s1);
+            Restaurant s2 = new Restaurant()
+            {
+                Distance = "餐厅20",
+                Address = "餐厅erhuan20",
+                Email = "餐厅ocam20@163.com",
+                EntityIndex = 20,
+                Name = "餐厅ele20",
+                Owener = "餐厅basil20",
+                Rate = 20
+            };
+            iRestaurants.Add(s2);
+            Restaurant s3 = new Restaurant()
+            {
+                Distance = "餐厅30",
+                Address = "餐厅erhuan30",
+                Email = "餐厅ocam30@163.com",
+                EntityIndex = 30,
+                Name = "餐厅ele30",
+                Owener = "餐厅basil30",
+                Rate = 30
+
+            };
+            iRestaurants.Add(s3);
+            foreach (Restaurant a in iRestaurants)
+            {
+                iRestaurantRepository.SaveOrUpdate(a);
+            }
+
+        }
 
 
 
