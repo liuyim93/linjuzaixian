@@ -18,7 +18,7 @@
              <p>
                 <label>
                     商铺类型：</label>
-                    <select id="MerchantType1" name="MerchantType" runat="server" >
+                    <select id="MerchantType" name="MerchantType" runat="server" >
                     <option value="餐馆" selected="selected">餐馆</option>
                     <option value="租房">租房</option>
                     <option value="百货">百货</option>

@@ -28,7 +28,7 @@ namespace Friday.mvc.weblogin
             else
             {
                 BindingHelper.ObjectToControl(globalGoodsType, this);
-                this.MerchantType1.Value = friday.core.components.EnumDescription.GetFieldText(globalGoodsType.MerchantType);
+                //this.MerchantType1.Value = friday.core.components.EnumDescription.GetFieldText(globalGoodsType.MerchantType);
             }
         }
 
