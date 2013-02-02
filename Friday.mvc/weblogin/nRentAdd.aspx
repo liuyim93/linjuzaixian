@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nRentAdd.aspx.cs" Inherits="Friday.mvc.weblogin.rent.nRentAdd" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nRentAdd.aspx.cs" Inherits="Friday.mvc.weblogin.rent.nRentAdd"   validateRequest="false"  %>
 
 <div class="page" style="">
     <div class="pageContent">
@@ -11,7 +11,7 @@
         </ul>
     </div>
         <form id="form" method="post"  class="pageForm required-validate" 
-        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server">
+        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server" >
         <div class="pageFormContent" style=" height:500px">
          
             <h1>
@@ -62,7 +62,7 @@
              <p>
                 <label>
                     地址：</label>
-                <input type="text" id="Address" size="30" class=" textInput gray" runat="server" />
+                <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
            <p>
                 <label>
@@ -78,15 +78,20 @@
            <div>
             <p >
                  <label >商铺公告：</label>
-					<textarea   name="Bulletins" id="Bulletins" rows="10" cols="42" tools="mini" runat="server"></textarea>
+					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
            </p>
            </div>
-                   
-         <div style="  clear:left; width:80%; margin-top:180px" >
+           <div>
+            <p >
+                 <label >商铺活动：</label>
+					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
+           </p>
+           </div>        
+         <div style="  clear:left; width:80%; margin-top:400px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
-				     	<textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
+				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
 				</div>
                 </p>
                   
@@ -118,3 +123,11 @@
         </form>
     </div>
 </div>
+
+<script   type="text/javascript">
+
+    $('#Description').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+//    $('#Activity').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+//    $('#Bulletins').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+
+</script>

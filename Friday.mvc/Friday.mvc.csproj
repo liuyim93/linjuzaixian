@@ -241,6 +241,13 @@
     <Compile Include="weblogin\nRentAdd.aspx.designer.cs">
       <DependentUpon>nRentAdd.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\nRestaurantAdd.aspx.cs">
+      <DependentUpon>nRestaurantAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nRestaurantAdd.aspx.designer.cs">
+      <DependentUpon>nRestaurantAdd.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1049,6 +1056,7 @@
     <Content Include="weblogin\RestaurantList.aspx" />
     <Content Include="weblogin\nRestaurantUpdate.aspx" />
     <Content Include="weblogin\nRentAdd.aspx" />
+    <Content Include="weblogin\nRestaurantAdd.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

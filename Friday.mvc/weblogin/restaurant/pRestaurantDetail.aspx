@@ -11,7 +11,7 @@
            
         </ul>
     </div>
-        <div class="pageFormContent" style="">
+        <div class="pageFormContent" style=" height:250px;">
          
             <h1>
                 餐馆基本信息</h1>
@@ -76,24 +76,50 @@
              <p>
                 <label>
                     地址：</label>
-                <input type="text" id="Address" size="30" class=" textInput gray" runat="server" />
+                <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
-
-            <p style="float:left; ">
-                 <label style="float:left; ">商铺公告：</label>
-					<textarea style="float:left; " name="Bulletins" id="Bulletins" rows="10" cols="42" tools="mini" runat="server"></textarea>
-           </p>
-          <p></p>    <p></p>    <p></p>    <p></p>    <p></p>    <p></p>
+           <p>
+                <label>
+                    商铺当前状态：</label>
+                <select id="ShopStatus" style="width:85px" runat="server">
+					<option value="">请选择</option>
+				
+					<option value="1">营业时间</option>
+                    <option value="2">正在休息</option>
+				</select> 
+            </p>
+          <p></p><p></p>
+           <div>
             <p >
+                 <label >商铺公告：</label>
+					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
+           </p>
+           </div>
+           <div>
+            <p >
+                 <label >商铺活动：</label>
+					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
+           </p>
+           </div>        
+         <div style="  clear:left; width:80%; margin-top:400px; margin-bottom:60px;" >
+             <p>
                  <label>详细内容：</label>
-                <div style="float:left; clear:left; width:80%;">
-				     	<textarea id="Description" name="Description" rows="20" cols="120" style="width: 87%" runat="server"></textarea>
+             <div style="   width:100%; ">
+				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
 				</div>
-                 </p>
-
+                </p>
+                  
+       </div>
            
         
            
         </div>
     </div>
 </div>
+<script   type="text/javascript">
+
+    $('#Description').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+    //    $('#Activity').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+    //    $('#Bulletins').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+
+</script>

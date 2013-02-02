@@ -50,7 +50,7 @@ namespace friday.core.components
             }
             if (conversionType.IsEnum)
             {
-                value=Convert.ToInt32( value.ToString());//20130202
+                value=Convert.ToInt32( value.ToString());//20130202 pangfuxing add HtmlSelect Store and Update Enum
                 return Enum.ToObject(conversionType, value);
             }
             else

@@ -11,8 +11,9 @@
 	
 </div>
 <script type="text/javascript">
-
+ 
     $(function () {
+
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
