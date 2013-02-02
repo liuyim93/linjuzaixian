@@ -28,7 +28,6 @@ namespace Friday.mvc.weblogin
             else
             {
                 BindingHelper.ObjectToControl(globalGoodsType, this);
-                //this.MerchantType1.Value = friday.core.components.EnumDescription.GetFieldText(globalGoodsType.MerchantType);
             }
         }
 
@@ -36,7 +35,6 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(globalGoodsType);
-            globalGoodsType.MerchantType = (MerchantTypeEnum)Enum.Parse(typeof(MerchantTypeEnum), this.MerchantType1.Value);
             iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
 
             AjaxResult result = new AjaxResult();

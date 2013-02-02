@@ -48,6 +48,7 @@ namespace friday.core.components
                 else if (conversionType == typeof(DateTime))
                     return DateTime.Now;
             }
+
             if (conversionType.IsEnum)
             {
                 return Enum.Parse(conversionType, value.ToString());

@@ -103,7 +103,7 @@ namespace friday.core.components
                 //object objValue = ReflectionHelper.GetValueFromControl(container, p.InputerName);
                 //if (objValue == System.DBNull.Value)
                 //    continue;
-                ReflectionHelper.SetValue(obj, p, nv[p.Name]);
+                ReflectionHelper.SetValue(obj, p, nv[p.Name]);  //对象、对象属性类型信息、对应该成员控件的值
 
             }
             

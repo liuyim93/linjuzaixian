@@ -20,7 +20,6 @@ namespace Friday.mvc.weblogin.globalGoodsType
             globalGoodsType = iGlobalGoodsTypeRepository.Load(uid);
 
             BindingHelper.ObjectToControl(globalGoodsType, this);
-            //MerchantType.Value = friday.core.components.EnumDescription.GetFieldText(globalGoodsType.MerchantType);
         }
     }
 }
