@@ -9,6 +9,6 @@ namespace friday.core.EnumType
     {
         接受预定=0,
         营业时间=1,
-        餐厅休息=2
+        正在休息=2
     }
 }

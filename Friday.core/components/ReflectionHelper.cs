@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.ComponentModel;
 using System.Reflection;
 using System.Web.UI.HtmlControls;
+using friday.core.EnumType;
 
 
 namespace friday.core.components
@@ -48,7 +49,10 @@ namespace friday.core.components
                     return DateTime.Now;
             }
             if (conversionType.IsEnum)
+            {
+                value=Convert.ToInt32( value.ToString());//20130202
                 return Enum.ToObject(conversionType, value);
+            }
             else
                 return Convert.ChangeType(value, conversionType);
         }
@@ -117,6 +121,7 @@ namespace friday.core.components
         public static void SetValueToControl(System.Web.UI.Control container, string ControlName, object value)
         {
             Control control = container.FindControl(ControlName);
+        
             if (control != null)
             {
                 //2012-07-22 basilwang for htmlinputfile can't set value
@@ -124,6 +129,30 @@ namespace friday.core.components
                 {
                     return;
                 }
+
+                //2013-02-02 pangfuxing for htmlselect can show Enum's value
+                if (control is HtmlSelect)
+                {
+
+                    HtmlSelect selectControl = (HtmlSelect)control;
+                  
+                    string propertyValue = "";
+                    if (value != null)
+                    {
+                        //selectControl.ClearSelection();
+                        propertyValue = value.ToString();
+                    }
+                    //根据Value="正在休息"，确定出Select中的Option的value应该付值为2，
+                    int optionvalue = (int)value;
+                    ListItem listItem = selectControl.Items.FindByValue(optionvalue.ToString());
+
+                    if (listItem != null)
+                    {
+                        listItem.Selected = true;
+                    }
+
+                }
+
                 if (control is ListControl)
                 {
                     ListControl listControl = (ListControl)control;
@@ -166,6 +195,7 @@ namespace friday.core.components
                     {
                         propertyInfo = controlType.GetProperty("Text");
                     }
+                 
                     if (propertyInfo != null)
                     {
 

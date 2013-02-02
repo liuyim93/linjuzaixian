@@ -51,22 +51,7 @@
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
             </p>
-             <p>
-                <label>
-                    Tel：</label>
-                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
-            </p>
-
-             <p>
-                <label>
-                    email：</label>
-                <input type="text" id="Email" size="30" class="required email" runat="server" />
-            </p>
-             <p>
-                <label>
-                    地址：</label>
-                <input type="text" id="Address" size="30" class=" textInput gray" runat="server" />
-            </p>
+             
               <p>
                 <label>
                     距离：</label>
@@ -77,11 +62,28 @@
                     折扣：</label>
                 <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
             </p>
+            <p>
+                <label>
+                    Tel：</label>
+                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
+            </p>
+
+             <p>
+                <label>
+                    Email：</label>
+                <input type="text" id="Email" size="30" class="required email" runat="server" />
+            </p>
+             <p>
+                <label>
+                    地址：</label>
+                <input type="text" id="Address" size="30" class=" textInput gray" runat="server" />
+            </p>
+
             <p style="float:left; ">
-                 <label style="float:left; ">店铺公告：</label>
+                 <label style="float:left; ">商铺公告：</label>
 					<textarea style="float:left; " name="Bulletins" id="Bulletins" rows="10" cols="42" tools="mini" runat="server"></textarea>
            </p>
-          <p></p>
+          <p></p>    <p></p>    <p></p>    <p></p>    <p></p>    <p></p>
             <p >
                  <label>详细内容：</label>
                 <div style="float:left; clear:left; width:80%;">

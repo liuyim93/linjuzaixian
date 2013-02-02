@@ -22,6 +22,24 @@ namespace Friday.mvc.weblogin.rent {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
         
         /// <summary>
+        /// Name 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        
+        /// <summary>
+        /// ShortName 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ShortName;
+        
+        /// <summary>
         /// Owener 控件。
         /// </summary>
         /// <remarks>
@@ -29,6 +47,42 @@ namespace Friday.mvc.weblogin.rent {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Owener;
+        
+        /// <summary>
+        /// ShopHours 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ShopHours;
+        
+        /// <summary>
+        /// Distance 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Distance;
+        
+        /// <summary>
+        /// Rate 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Rate;
+        
+        /// <summary>
+        /// Tel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Tel;
         
         /// <summary>
         /// Email 控件。
@@ -49,21 +103,30 @@ namespace Friday.mvc.weblogin.rent {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Address;
         
         /// <summary>
-        /// Distance 控件。
+        /// ShopStatus 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Distance;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ShopStatus;
         
         /// <summary>
-        /// Rate 控件。
+        /// Bulletins 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Rate;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Bulletins;
+        
+        /// <summary>
+        /// Description 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
     }
 }

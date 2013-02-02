@@ -128,6 +128,11 @@ namespace friday.core.components
                 //    continue;
                 //if (p.PropertyType.Namespace != "System" && p.PropertyType.IsEnum == false)
                 //    continue;
+                //if（p.MemberType.ToString()=="ShopStatus"）
+                //{
+                
+                //}
+
                 ReflectionHelper.SetValueToControl(container, p.Name, p.GetValue(obj, null));
             }
         }
