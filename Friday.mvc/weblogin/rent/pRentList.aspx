@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRentList.aspx.cs" Inherits="Friday.mvc.weblogin.rent.pRentList" %>
 
 
-
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="1" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
@@ -59,7 +58,7 @@
             <li class="line">line</li>
         </ul>
     </div>
-    <div id="shopList">
+    <div id="rentList">
     <table class="table" layouth="400">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>

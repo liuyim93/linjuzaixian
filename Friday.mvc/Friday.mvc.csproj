@@ -199,6 +199,13 @@
     <Compile Include="weblogin\RentList.aspx.designer.cs">
       <DependentUpon>RentList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\nRentUpdate.aspx.cs">
+      <DependentUpon>nRentUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nRentUpdate.aspx.designer.cs">
+      <DependentUpon>nRentUpdate.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1001,6 +1008,7 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wordimg.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
     <Content Include="weblogin\RentList.aspx" />
+    <Content Include="weblogin\nRentUpdate.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
