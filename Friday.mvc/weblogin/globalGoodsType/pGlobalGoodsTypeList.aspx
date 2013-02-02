@@ -48,7 +48,7 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="edit" href="nShopUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
+            <li><a class="edit" href="nGlobalGoodsTypeUpdate.aspx?uid={id}" title="修改商品类型" rel="" target="navTab">
                 <span>修改</span></a></li>
             <li><a class="delete" href="MyOrderList.aspx?flag=alldelete&uid={id}"
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
@@ -88,7 +88,7 @@
     <div class="panelBar">
         <div class="pages">
             <span>显示</span>
-            <select id="numPerPage" runat="server" onchange="navTabPageBreak({numPerPage:this.value},'jbsxBox2')">
+            <select id="numPerPage" runat="server" onchange="navTabPageBreak({numPerPage:this.value},'globalGoodsTypeBox2')">
                 <option value="10" selected="selected">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>

@@ -199,6 +199,13 @@
         <Compile Include="weblogin\ListSchool.aspx.designer.cs">
             <DependentUpon>ListSchool.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.cs">
+      <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.designer.cs">
+      <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
+    </Compile>
         <Compile Include="weblogin\nActivityAdd.aspx.cs">
             <DependentUpon>nActivityAdd.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -454,6 +461,7 @@
         <Content Include="weblogin\js\speedup.js" />
         <Content Include="weblogin\js\util.js" />
         <Content Include="weblogin\ListSchool.aspx" />
+    <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
         <Content Include="weblogin\nActivityAdd.aspx" />
         <Content Include="weblogin\rent\pRentDetail.aspx" />
         <Content Include="weblogin\rent\pRentList.aspx" />
