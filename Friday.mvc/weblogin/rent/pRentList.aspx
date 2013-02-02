@@ -51,7 +51,7 @@
         <ul class="toolBar">
             <li><a class="edit" href="nRentUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
                 <span>修改</span></a></li>
-            <li><a class="delete" href="MyOrderList.aspx?flag=alldelete&uid={id}"
+            <li><a class="delete" href="index.aspx?flag=alldelete&uid={id}"
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
             <l<li><a class="add" href="OrderFoodList.aspx?myOrder_id={id}" title="订单详情" target="dialog" rel="">
                 <span>订单详情</span></a></li> 
