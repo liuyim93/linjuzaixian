@@ -2,11 +2,11 @@
 
 <div class="pageContent">
     <!--2013-01-16 basilwang we can't choose prefix as url parameter, if you post the copy value also via ajax post  which will double the value  -->
-    <a href='globalGoodsType/pGlobalGoodsTypeList.aspx' prefix='<%=Request.Params["prefix"] %>'  rel-v3="jbsxBox2" target="ajax" style="display:none">load</a>
-    <div id="jbsxBox2" class="unitBox" style="">
+    <a href='globalGoodsType/pGlobalGoodsTypeList.aspx' prefix='<%=Request.Params["prefix"] %>'  rel-v3="globalGoodsTypeBox2" target="ajax" style="display:none">load</a>
+    <div id="globalGoodsTypeBox2" class="unitBox" style="">
 
 	</div>
-      <div id="jbsxBox" class="unitBox" style="">
+      <div id="globalGoodsTypeBox" class="unitBox" style="">
 
 	</div>
 	

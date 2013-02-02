@@ -9,7 +9,7 @@
 
 
 <div class="pageHeader">
-	<form rel="pagerForm" onsubmit="return divSearch(this,'jbsxBox2');" action="globalGoodsType/pGlobalGoodsTypeList.aspx" method="post">
+	<form rel="pagerForm" onsubmit="return divSearch(this,'globalGoodsTypeBox2');" action="globalGoodsType/pGlobalGoodsTypeList.aspx" method="post">
 	<div class="searchBar">
 		<table class="searchContent">
 			<tr>
@@ -52,12 +52,10 @@
                 <span>修改</span></a></li>
             <li><a class="delete" href="MyOrderList.aspx?flag=alldelete&uid={id}"
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
-            <l<li><a class="add" href="OrderFoodList.aspx?myOrder_id={id}" title="订单详情" target="dialog" rel="">
-                <span>订单详情</span></a></li> 
             <li class="line">line</li>
         </ul>
     </div>
-    <div id="globalGoodsTypeList">
+    <div id="globalGoodsType">
     <table class="table" layouth="400">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
@@ -65,7 +63,7 @@
                 <tr>
                     <th width="10%" align="center">序 号</th>
                         <th width="10%" align="center">商品类型</th>
-                    <th width="10%" align="center">店铺类型</th>
+                    <th width="10%" align="center">商铺类型</th>
 
                 </tr>
                 </thead>
@@ -75,7 +73,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="shop/nShopDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" rel-v3="jbsxBox"><%#Eval("GoodsType")%>
+                        <td><a href="globalGoodsType/nGlobalGoodsTypeDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" rel-v3="globalGoodsTypeBox"><%#Eval("GoodsType")%>
                             </a>
                         </td>
                         <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "MerchantType"))%></td>                 
@@ -98,7 +96,7 @@
             </select>
             <span>条，共<%=total %>条</span>
         </div>
-        <div class="pagination" targettype="navTab" rel="jbsxBox2" totalcount="<%=total %>" numperpage="<%=numPerPage.Value %>"
+        <div class="pagination" targettype="navTab" rel="globalGoodsTypeBox2" totalcount="<%=total %>" numperpage="<%=numPerPage.Value %>"
             currentpage="<%=pageNum %>">
         </div>
     </div>
@@ -113,7 +111,7 @@
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         $self.one("panelloaded", function (e) {
-            $self.find("#globalGoodsTypeList table:eq(1) tr").click(function (e) {
+            $self.find("#globalGoodsType table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
                 }

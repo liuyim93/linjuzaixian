@@ -154,6 +154,13 @@
         <Compile Include="weblogin\activity\pActivityList.aspx.cs">
             <DependentUpon>pActivityList.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx.cs">
+      <DependentUpon>nGlobalGoodsTypeDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx.designer.cs">
+      <DependentUpon>nGlobalGoodsTypeDetail.aspx</DependentUpon>
+    </Compile>
         <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx.cs">
             <DependentUpon>pGlobalGoodsTypeList.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -383,6 +390,7 @@
         <Content Include="weblogin\food\pFoodList.aspx" />
         <Content Include="weblogin\house\pHouseList.aspx" />
         <Content Include="weblogin\GlobalGoodsTypeList.aspx" />
+    <Content Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx" />
         <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx" />
         <Content Include="weblogin\index.aspx" />
         <Content Include="weblogin\js\additional-methods.js" />
