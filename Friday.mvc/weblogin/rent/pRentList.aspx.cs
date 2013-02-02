@@ -25,9 +25,9 @@ namespace Friday.mvc.weblogin.rent
         IRepository<Rent> iRepositoryRent = UnityHelper.UnityToT<IRepository<Rent>>();  
         
         protected void Page_Load(object sender, EventArgs e)
-        {                     
-           
-           //2012-9-3  传入systemUser_id将查询只属于此用户的订单，否则显示所有订单
+        {
+          
+         
            if (Request.Params["flag"] != "alldelete")
            {
                if (Request.Params["flag"] != "alldelete")
@@ -49,6 +49,7 @@ namespace Friday.mvc.weblogin.rent
 
            else
            {
+             
                DeleteRent();
 
            }
@@ -63,10 +64,13 @@ namespace Friday.mvc.weblogin.rent
         private void DeleteRent()
         {
 
-            iRepositoryRent.Delete(Request.Params["uid"]);
+            string  rentid=Request.Params["uid"];
+            
+            iRepositoryRent.Delete(rentid);
+            
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "操作成功";
+            result.message = "删除成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

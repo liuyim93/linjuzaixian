@@ -52,7 +52,7 @@
                 <span>添加</span></a></li> 
             <li><a class="edit" href="nRestaurantUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
                 <span>修改</span></a></li>
-            <li><a class="delete" href="index.aspx?flag=alldelete&uid={id}"
+            <li><a class="delete" href="restaurant/pRestaurantList.aspx?flag=alldelete&uid={id}"
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
          
             <li class="line">line</li>

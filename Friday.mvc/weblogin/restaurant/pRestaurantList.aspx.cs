@@ -26,8 +26,7 @@ namespace Friday.mvc.weblogin.restaurant
         
         protected void Page_Load(object sender, EventArgs e)
         {                     
-           
-           //2012-9-3  传入systemUser_id将查询只属于此用户的订单，否则显示所有订单
+            
            if (Request.Params["flag"] != "alldelete")
            {
                if (Request.Params["flag"] != "alldelete")

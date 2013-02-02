@@ -53,8 +53,8 @@
                 <span>添加</span></a></li> 
             <li><a class="edit" href="nRentUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
                 <span>修改</span></a></li>
-            <li><a class="delete" href="pRentList.aspx?flag=alldelete&uid={id}"
-                target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
+            <li><a class="delete" href="rent/pRentList.aspx?flag=alldelete&uid={id}"  target="navTabTodo" title="确定要删除吗?">
+                <span>删除</span></a></li>
         
             <li class="line">line</li>
         </ul>
