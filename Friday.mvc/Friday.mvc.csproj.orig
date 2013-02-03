@@ -248,7 +248,6 @@
     <Compile Include="weblogin\nMerchantCategoryAdd.aspx.designer.cs">
       <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
         <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
             <DependentUpon>pRentDetail.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -256,6 +255,14 @@
         <Compile Include="weblogin\rent\pRentDetail.aspx.designer.cs">
             <DependentUpon>pRentDetail.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.cs">
+      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.designer.cs">
+      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
         <Compile Include="weblogin\rent\pRentList.aspx.cs">
             <DependentUpon>pRentList.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -434,13 +441,6 @@
         <Content Include="weblogin\house\pHouseList.aspx" />
         <Content Include="weblogin\GlobalGoodsTypeList.aspx" />
 =======
-    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.cs">
-      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.designer.cs">
-      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\ShopList.aspx.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -469,12 +469,26 @@
     <Compile Include="weblogin\shop\pShopList.aspx.designer.cs">
       <DependentUpon>pShopList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\systemUser\pSystemUserList.aspx.cs">
+      <DependentUpon>pSystemUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pSystemUserList.aspx.designer.cs">
+      <DependentUpon>pSystemUserList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.designer.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\SystemUserList.aspx.cs">
+      <DependentUpon>SystemUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\SystemUserList.aspx.designer.cs">
+      <DependentUpon>SystemUserList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -509,7 +523,7 @@
     <Content Include="weblogin\chart\test\piechart.html" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\GlobalGoodsTypeList.aspx" />
->>>>>>> Add nMerchantCategoryUpdate
+>>>>>>> Add pSustemUserList & SystemUserList
     <Content Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx" />
         <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx" />
         <Content Include="weblogin\index.aspx" />
@@ -581,8 +595,9 @@
     <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
         <Content Include="weblogin\nActivityAdd.aspx" />
     <Content Include="weblogin\nMerchantCategoryAdd.aspx" />
-<<<<<<< HEAD
         <Content Include="weblogin\rent\pRentDetail.aspx" />
+    <Content Include="weblogin\nMerchantCategoryUpdate.aspx" />
+<<<<<<< HEAD
         <Content Include="weblogin\rent\pRentList.aspx" />
         <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
         <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
@@ -1382,11 +1397,11 @@
     </ProjectExtensions>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 =======
-    <Content Include="weblogin\nMerchantCategoryUpdate.aspx" />
     <Content Include="weblogin\ShopList.aspx" />
     <Content Include="weblogin\shop\nShopDetail.aspx" />
     <Content Include="weblogin\nShopUpdate.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
+    <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />
     <Content Include="weblogin\themes\azure\images\alert\alertpanel.png" />
@@ -2089,6 +2104,7 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wmp.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wordimg.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
+    <Content Include="weblogin\SystemUserList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2163,7 +2179,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
->>>>>>> Add nMerchantCategoryUpdate
+>>>>>>> Add pSustemUserList & SystemUserList
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

@@ -8,6 +8,6 @@ namespace friday.core.repositories
 {
     public interface ISystemUserRepository : IRepository<SystemUser>
     {
-
+        IList<SystemUser> GetSystemUsersByPageList(int start, int limit, out long total);
     }
 }

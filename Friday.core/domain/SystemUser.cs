@@ -87,7 +87,7 @@ namespace friday.core.domain
         //}
 
         ///<remarks>是否匿名用户</remarks>
-        public virtual int IsAnonymous
+        public virtual bool IsAnonymous
         {
             get;
 

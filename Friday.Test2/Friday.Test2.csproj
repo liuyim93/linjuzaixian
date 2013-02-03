@@ -74,6 +74,7 @@
     <Compile Include="Test_Activity.cs" />
     <Compile Include="Test_MerchantCategory.cs" />
     <Compile Include="PopulateFakeShopDataTest.cs" />
+    <Compile Include="Test_SystemUser.cs" />
     <Compile Include="PopulateFakeRentDataTest.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -325,6 +325,13 @@
         <Compile Include="weblogin\shop\pShopList.aspx.designer.cs">
             <DependentUpon>pShopList.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\systemUser\pSystemUserList.aspx.cs">
+      <DependentUpon>pSystemUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pSystemUserList.aspx.designer.cs">
+      <DependentUpon>pSystemUserList.aspx</DependentUpon>
+    </Compile>
         <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
             <DependentUpon>nSystemUserList.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -339,6 +346,13 @@
         <Compile Include="weblogin\rent\pEditRent.aspx.designer.cs">
             <DependentUpon>pEditRent.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\SystemUserList.aspx.cs">
+      <DependentUpon>SystemUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\SystemUserList.aspx.designer.cs">
+      <DependentUpon>SystemUserList.aspx</DependentUpon>
+    </Compile>
         <Compile Include="weblogin\restaurant\pEditRestaurant.aspx.cs">
             <DependentUpon>pEditRestaurant.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -521,6 +535,7 @@
         <Content Include="weblogin\shop\nShopDetail.aspx" />
         <Content Include="weblogin\nShopUpdate.aspx" />
         <Content Include="weblogin\shop\pShopList.aspx" />
+    <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
         <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
         <Content Include="weblogin\themes\azure\images\account_info_bg.png" />
         <Content Include="weblogin\themes\azure\images\alert\alertpanel.png" />
@@ -1224,6 +1239,7 @@
         <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wordimg.gif" />
         <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
         <Content Include="weblogin\rent\pEditRent.aspx" />
+    <Content Include="weblogin\SystemUserList.aspx" />
         <Content Include="weblogin\restaurant\pEditRestaurant.aspx" />
         <Content Include="weblogin\rent\pAddRent.aspx" />
         <Content Include="weblogin\restaurant\pAddRestaurant.aspx" />
