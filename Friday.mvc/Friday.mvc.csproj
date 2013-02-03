@@ -276,6 +276,20 @@
         <Compile Include="weblogin\restaurant\pRestaurantDetail.aspx.designer.cs">
             <DependentUpon>pRestaurantDetail.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\nSystemUserAdd.aspx.cs">
+      <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nSystemUserAdd.aspx.designer.cs">
+      <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\nSystemUserUpdate.aspx.cs">
+      <DependentUpon>nSystemUserUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nSystemUserUpdate.aspx.designer.cs">
+      <DependentUpon>nSystemUserUpdate.aspx</DependentUpon>
+    </Compile>
         <Compile Include="weblogin\restaurant\pRestaurantList.aspx.cs">
             <DependentUpon>pRestaurantList.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +549,8 @@
     <Content Include="weblogin\nMerchantCategoryUpdate.aspx" />
         <Content Include="weblogin\rent\pRentList.aspx" />
         <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
+    <Content Include="weblogin\nSystemUserAdd.aspx" />
+    <Content Include="weblogin\nSystemUserUpdate.aspx" />
         <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
         <Content Include="weblogin\school\nSchoolDetail.aspx" />
         <Content Include="weblogin\school\pSchoolList.aspx" />

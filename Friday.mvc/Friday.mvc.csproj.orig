@@ -327,6 +327,20 @@
             <DependentUpon>pShopList.aspx</DependentUpon>
         </Compile>
 =======
+    <Compile Include="weblogin\nSystemUserAdd.aspx.cs">
+      <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nSystemUserAdd.aspx.designer.cs">
+      <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\nSystemUserUpdate.aspx.cs">
+      <DependentUpon>nSystemUserUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nSystemUserUpdate.aspx.designer.cs">
+      <DependentUpon>nSystemUserUpdate.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ShopList.aspx.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,6 +369,7 @@
     <Compile Include="weblogin\shop\pShopList.aspx.designer.cs">
       <DependentUpon>pShopList.aspx</DependentUpon>
     </Compile>
+>>>>>>> Add nSystemUserUpdate  &  nSystemUserAdd
     <Compile Include="weblogin\systemUser\nSystemUserDetail.aspx.cs">
       <DependentUpon>nSystemUserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -362,7 +377,6 @@
     <Compile Include="weblogin\systemUser\nSystemUserDetail.aspx.designer.cs">
       <DependentUpon>nSystemUserDetail.aspx</DependentUpon>
     </Compile>
->>>>>>> Add nSystemUserDetail
     <Compile Include="weblogin\systemUser\pSystemUserList.aspx.cs">
       <DependentUpon>pSystemUserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -575,12 +589,14 @@
         <Content Include="weblogin\nShopUpdate.aspx" />
         <Content Include="weblogin\shop\pShopList.aspx" />
 =======
+    <Content Include="weblogin\nSystemUserAdd.aspx" />
+    <Content Include="weblogin\nSystemUserUpdate.aspx" />
     <Content Include="weblogin\ShopList.aspx" />
     <Content Include="weblogin\shop\nShopDetail.aspx" />
     <Content Include="weblogin\nShopUpdate.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
+>>>>>>> Add nSystemUserUpdate  &  nSystemUserAdd
     <Content Include="weblogin\systemUser\nSystemUserDetail.aspx" />
->>>>>>> Add nSystemUserDetail
     <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
         <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
         <Content Include="weblogin\themes\azure\images\account_info_bg.png" />

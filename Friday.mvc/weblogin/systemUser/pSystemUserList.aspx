@@ -50,7 +50,7 @@
         <ul class="toolBar">
             <li><a class="add" href="nSystemUserAdd.aspx" title="添加商铺经营类型" rel="" target="navTab">
                 <span>添加</span></a></li>
-            <li><a class="edit" href="nSystemUser.aspx?uid={id}" title="修改商铺经营类型" rel="" target="navTab">
+            <li><a class="edit" href="nSystemUserUpdate.aspx?uid={id}" title="修改商铺经营类型" rel="" target="navTab">
                 <span>修改</span></a></li>
             <li><a class="delete" href="systemUser/pSystemUserList.aspx?flag=alldelete&uid={id}" rel=""
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
