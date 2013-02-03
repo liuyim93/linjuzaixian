@@ -48,9 +48,11 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
+            <li><a class="add" href="nGlobalGoodsTypeAdd.aspx" title="添加商品类型" rel="" target="navTab">
+                <span>添加</span></a></li>
             <li><a class="edit" href="nGlobalGoodsTypeUpdate.aspx?uid={id}" title="修改商品类型" rel="" target="navTab">
                 <span>修改</span></a></li>
-            <li><a class="delete" href="MyOrderList.aspx?flag=alldelete&uid={id}"
+            <li><a class="delete" href="globalGoodsType/pGlobalGoodsTypeList.aspx?flag=alldelete&uid={id}" rel=""
                 target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
             <li class="line">line</li>
         </ul>
