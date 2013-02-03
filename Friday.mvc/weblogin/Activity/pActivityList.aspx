@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pActivityList.aspx.cs" Inherits="Friday.mvc.weblogin.rent.pRentList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pActivityList.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pActivityList" %>
 
 
 <form id="pagerForm" action="#rel#">
@@ -10,7 +10,7 @@
 
 
 <div class="pageHeader">
-	<form rel="pagerForm" onsubmit="return divSearch(this,'jbsxBox2');" action="Rent/pRentList.aspx" method="post">
+	<form rel="pagerForm" onsubmit="return divSearch(this,'jbsxBox2');" action="Activity/pActivityList.aspx" method="post">
 	<div class="searchBar">
 		<table class="searchContent">
 			<tr>
@@ -49,30 +49,31 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="nRentAdd.aspx" title="添加商铺" target="navTab" rel="">
+            <li><a class="add" href="nActivityAdd.aspx" title="添加商铺" target="navTab" rel="">
                 <span>添加</span></a></li> 
-            <li><a class="edit" href="nRentUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
+            <li><a class="edit" href="nActivityUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
                 <span>修改</span></a></li>
-            <li><a class="delete" href="rent/pRentList.aspx?flag=alldelete&uid={id}"  target="navTabTodo" title="确定要删除吗?" >
+            <li><a class="delete" href="activity/pActivityList.aspx?flag=alldelete&uid={id}"  target="ajaxTodo" title="确定要删除吗?" >
                 <span>删除</span></a></li>
         
             <li class="line">line</li>
         </ul>
     </div>
-    <div id="rentList">
+    <div id="activityList">
     <table class="table" layouth="400">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                        <th width="10%" align="center">商铺编号</th>
-                    <th width="10%" align="center">联系人姓名</th>
-                    <th width="10%" align="center">email</th>
-                        <th width="15%" align="center">配送地址</th>
-                        <th width="10%" align="center">距离</th>
-                        <th width="10%" align="center">折扣</th>
-                        <th width="10%" align="center">创建时间</th>
+                    <th width="10%" align="center">活动编号</th>
+                    <th width="10%" align="center">发布时间</th>
+                    <th width="20%" align="center">活动名称</th>
+                    <th width="20%" align="center">活动重要性</th>
+                    <th width="30%" align="center">活动内容</th>
+                <%--    <th width="10%" align="center">距离</th>
+                        <th width="10%" align="center">折扣</th>--%>
+                       
                 </tr>
                 </thead>
                 <tbody> 
@@ -81,15 +82,16 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="rent/pRentDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" rel-v3="jbsxBox"><%#Eval("Id")%>
+                        <td><a href="activity/pActivityDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" rel-v3="jbsxBox"><%#Eval("Id")%>
                             </a>
                         </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Owener")%></td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Email")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Address")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>                      
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Matters")%></td> 
+                       <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>     
+                <%--        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  --%>
+                           
 				</tr>
 			      
             </ItemTemplate>
@@ -124,7 +126,7 @@
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         $self.one("panelloaded", function (e) {
-            $self.find("#rentList table:eq(1) tr").click(function (e) {
+            $self.find("#activityList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
                 }

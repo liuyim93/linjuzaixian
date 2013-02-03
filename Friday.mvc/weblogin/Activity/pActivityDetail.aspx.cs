@@ -7,19 +7,20 @@ using System.Web.UI.WebControls;
 using friday.core;
 using friday.core.repositories;
 using friday.core.components;
+using friday.core.domain;
 
-namespace Friday.mvc.weblogin.rent
+namespace Friday.mvc.weblogin.activity
 {
-    public partial class pRentDetail : System.Web.UI.Page
+    public partial class pActivityDetail : System.Web.UI.Page
     {
-        IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
-        private Rent Rent;
+        IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
+        private Activity activity;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            Rent = iRentRepository.Load(uid);
+            activity = iActivityRepository.Load(uid);
 
-            BindingHelper.ObjectToControl(Rent, this);
+            BindingHelper.ObjectToControl(activity, this);
 
         }
     }

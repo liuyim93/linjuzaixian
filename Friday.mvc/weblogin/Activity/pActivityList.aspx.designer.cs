@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.rent {
+namespace Friday.mvc.weblogin.activity {
     
     
-    public partial class pRentList {
+    public partial class pActivityList {
         
         /// <summary>
         /// repeater 控件。

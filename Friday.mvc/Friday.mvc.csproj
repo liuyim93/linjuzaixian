@@ -136,6 +136,20 @@
     <Compile Include="WebForm2.aspx.designer.cs">
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\activity\pActivityDetail.aspx.cs">
+      <DependentUpon>pActivityDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\activity\pActivityDetail.aspx.designer.cs">
+      <DependentUpon>pActivityDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\activity\pActivityList.aspx.cs">
+      <DependentUpon>pActivityList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\activity\pActivityList.aspx.designer.cs">
+      <DependentUpon>pActivityList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +311,27 @@
     <Compile Include="weblogin\nSchoolUpdate.aspx.designer.cs">
       <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\nActivityAdd.aspx.cs">
+      <DependentUpon>nActivityAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nActivityAdd.aspx.designer.cs">
+      <DependentUpon>nActivityAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\nActivityUpdate.aspx.cs">
+      <DependentUpon>nActivityUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nActivityUpdate.aspx.designer.cs">
+      <DependentUpon>nActivityUpdate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ActivityList.aspx.cs">
+      <DependentUpon>ActivityList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ActivityList.aspx.designer.cs">
+      <DependentUpon>ActivityList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -317,6 +352,8 @@
     <Content Include="Views\Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
+    <Content Include="weblogin\activity\pActivityDetail.aspx" />
+    <Content Include="weblogin\activity\pActivityList.aspx" />
     <Content Include="weblogin\chart\g.bar.js" />
     <Content Include="weblogin\chart\g.dot.js" />
     <Content Include="weblogin\chart\g.line.js" />
@@ -1113,6 +1150,9 @@
     <Content Include="weblogin\SchoolList.aspx" />
     <Content Include="weblogin\nSchoolAdd.aspx" />
     <Content Include="weblogin\nSchoolUpdate.aspx" />
+    <Content Include="weblogin\nActivityAdd.aspx" />
+    <Content Include="weblogin\nActivityUpdate.aspx" />
+    <Content Include="weblogin\ActivityList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,9 +9,9 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
 
-namespace Friday.mvc.weblogin.rent
+namespace Friday.mvc.weblogin.activity
 {
-    public partial class pRentList : System.Web.UI.Page
+    public partial class pActivityList : System.Web.UI.Page
     {
         protected long total;
         protected int pageNum;
@@ -22,7 +22,7 @@ namespace Friday.mvc.weblogin.rent
         public string startDate;
         public string endDate;        
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IRepository<Rent> iRepositoryRent = UnityHelper.UnityToT<IRepository<Rent>>();  
+        IRepository<Activity> iRepositoryActivity = UnityHelper.UnityToT<IRepository<Activity>>();  
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,10 +36,10 @@ namespace Friday.mvc.weblogin.rent
                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
                    int start = (pageNum - 1) * numPerPageValue;
                    int limit = numPerPageValue;
-                   IList<Rent> rentList = iRepositoryRent.GetPageList(start, limit, out total);
+                   IList<Activity> activityList = iRepositoryActivity.GetPageList(start, limit, out total);
 
 
-                   repeater.DataSource = rentList;
+                   repeater.DataSource = activityList;
                    repeater.DataBind();
 
                    numPerPage.Value = numPerPageValue.ToString();
@@ -49,24 +49,24 @@ namespace Friday.mvc.weblogin.rent
 
            else
            {
-             
-               DeleteRent();
+
+               DeleteActivity();
 
            }
          
       
-        }  
+        }
 
-      
 
-        
 
-        private void DeleteRent()
+
+
+        private void DeleteActivity()
         {
 
-            string  rentid=Request.Params["uid"];
-            
-            iRepositoryRent.Delete(rentid);
+            string activityid = Request.Params["uid"];
+
+            iRepositoryActivity.Delete(activityid);
             
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

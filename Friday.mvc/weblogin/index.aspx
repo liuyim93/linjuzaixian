@@ -153,6 +153,7 @@
                     <ul class="tree treeFolder">
                         <li><a href="javascript:void(0)">系统管理</a>
                             <ul>
+                               <li><a href="ActivityList.aspx" target="navTab" rel="">Activity管理</a></li>
                                 <li><a href="ShopList.aspx" target="navTab" rel="">商铺管理</a></li>
                                 <li><a href="RentList.aspx" target="navTab" rel="">租房管理</a></li>
                                 <li><a href="RestaurantList.aspx" target="navTab" rel="">餐馆管理</a></li>

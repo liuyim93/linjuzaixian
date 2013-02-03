@@ -1,22 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pActivityDetail.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pActivityDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nActivityUpdate.aspx.cs" Inherits="Friday.mvc.weblogin.activity.nActivityUpdate" %>
 
-
-<div class="page">
+<div class="page" style="">
     <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>活动详情</span>
+             <span>修改活动信息</span>
            </a></li>
            
         </ul>
     </div>
-        <div class="pageFormContent" style=" height:250px;">
+        <form id="form" method="post"  class="pageForm required-validate" 
+        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server">
+        <div class="pageFormContent" style=" height:500px">
          
             <h1>
                 基本信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
-            <p>
+           <p>
                 <label>
                     活动名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -42,7 +43,31 @@
                 </p>
                   
        </div>
+    
         </div>
+                <div class="formBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">
+                                    保存</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li></li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="reset" id="Clean">
+                                    重置</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+        </form>
     </div>
 </div>
 <script   type="text/javascript">

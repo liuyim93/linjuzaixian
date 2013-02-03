@@ -72,6 +72,7 @@
     <Compile Include="Test_Merchant.cs" />
     <Compile Include="Test_SchoolOfMerchant.cs" />
     <Compile Include="User_Service_Test.cs" />
+    <Compile Include="Test_Activity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
