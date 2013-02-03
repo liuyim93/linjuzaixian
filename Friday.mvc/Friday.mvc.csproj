@@ -241,6 +241,13 @@
         <Compile Include="weblogin\nActivityAdd.aspx.designer.cs">
             <DependentUpon>nActivityAdd.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.cs">
+      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.designer.cs">
+      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+    </Compile>
         <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
             <DependentUpon>pRentDetail.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -495,6 +502,7 @@
     <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
         <Content Include="weblogin\nActivityAdd.aspx" />
+    <Content Include="weblogin\nMerchantCategoryAdd.aspx" />
         <Content Include="weblogin\rent\pRentDetail.aspx" />
         <Content Include="weblogin\rent\pRentList.aspx" />
         <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
