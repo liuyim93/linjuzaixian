@@ -250,43 +250,6 @@ function initUI(_box, _prefix) {
         });
     });
 
-    //2013-02-03  pangfuxing  add delete navTabTodo
-    // navTabTodo
-    $("a[target=navTabTodo]", $p).each(function () {
-        $(this).click(function (event) {
-            var $this = $(this);
-            var url = unescape($this.attr("href")).replaceTmById($p);
-            //lvhaha 注释
-            //DWZ.debug(url);
-            if (!url.isFinishedTm()) {
-                alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
-                return false;
-            }
-            var title = $this.attr("title");
-            if (title) {
-                alertMsg.confirm(title, {
-                    okCall: function () {
-                        navTabTodo(url, $this.attr("callback"));
-                    }
-                });
-            } else {
-                navTabTodo(url, $this.attr("callback"));
-            }
-            event.preventDefault();
-        });
-    });
-    function navTabTodo(url, callback) {
-        var $callback = callback || navTabAjaxDone;
-        if (!$.isFunction($callback)) $callback = eval('(' + callback + ')');
-        $.ajax({
-            type: 'POST',
-            url: url,
-            dataType: "json",
-            cache: false,
-            success: $callback,
-            error: DWZ.ajaxError
-        });
-    }
     //dialogs
     $("a[target=dialog]", $p).each(function () {
         $(this).click(function (event) {
