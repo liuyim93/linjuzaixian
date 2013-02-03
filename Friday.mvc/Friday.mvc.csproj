@@ -171,6 +171,20 @@
     <Compile Include="weblogin\restaurant\pRestaurantList.aspx.designer.cs">
       <DependentUpon>pRestaurantList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\school\nSchoolDetail.aspx.cs">
+      <DependentUpon>nSchoolDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\school\nSchoolDetail.aspx.designer.cs">
+      <DependentUpon>nSchoolDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\school\pSchoolList.aspx.cs">
+      <DependentUpon>pSchoolList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\school\pSchoolList.aspx.designer.cs">
+      <DependentUpon>pSchoolList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ShopList.aspx.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -254,6 +268,27 @@
     </Compile>
     <Compile Include="weblogin\nShopAdd.aspx.designer.cs">
       <DependentUpon>nShopAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\SchoolList.aspx.cs">
+      <DependentUpon>SchoolList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\SchoolList.aspx.designer.cs">
+      <DependentUpon>SchoolList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\nSchoolAdd.aspx.cs">
+      <DependentUpon>nSchoolAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nSchoolAdd.aspx.designer.cs">
+      <DependentUpon>nSchoolAdd.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\nSchoolUpdate.aspx.cs">
+      <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nSchoolUpdate.aspx.designer.cs">
+      <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -352,6 +387,8 @@
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
+    <Content Include="weblogin\school\nSchoolDetail.aspx" />
+    <Content Include="weblogin\school\pSchoolList.aspx" />
     <Content Include="weblogin\ShopList.aspx" />
     <Content Include="weblogin\shop\nShopDetail.aspx" />
     <Content Include="weblogin\nShopUpdate.aspx" />
@@ -1065,6 +1102,9 @@
     <Content Include="weblogin\nRentAdd.aspx" />
     <Content Include="weblogin\nRestaurantAdd.aspx" />
     <Content Include="weblogin\nShopAdd.aspx" />
+    <Content Include="weblogin\SchoolList.aspx" />
+    <Content Include="weblogin\nSchoolAdd.aspx" />
+    <Content Include="weblogin\nSchoolUpdate.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
