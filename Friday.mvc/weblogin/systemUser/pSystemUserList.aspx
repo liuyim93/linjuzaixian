@@ -68,7 +68,7 @@
                         <th width="10%" align="center">真实姓名</th>
                         <th width="10%" align="center">联系电话</th>
                         <th width="10%" align="center">电子邮箱</th>
-                        <th width="10%" align="center">个人简介</th>
+                        <th width="10%" align="center">个性签名</th>
 
                 </tr>
                 </thead>
