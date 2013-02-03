@@ -158,6 +158,7 @@
                                 <li><a href="rent/pRentList.aspx" target="navTab" rel="">租房管理</a></li>
                                 <li><a href="GlobalGoodsTypeList.aspx" target="navTab" rel="">商品类型管理</a></li>
                                 <li><a href="restaurant/pRestaurantList.aspx" target="navTab" rel="">餐馆管理</a></li>
+                                <li><a href="MerchantCategoryList.aspx" target="navTab" rel="">商铺经营类型</a></li>
                                 <li><a href="SchoolList.aspx" target="navTab" rel="">学校管理</a></li>
                                 <li><a href="SystemUserList.aspx" target="navTab" rel="">用户管理</a></li>
                                 <li><a href="FoodList.aspx" target="navTab" rel="">test3</a></li>

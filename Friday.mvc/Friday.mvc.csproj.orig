@@ -215,6 +215,21 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\MerchantCategoryList.aspx.cs">
+      <DependentUpon>MerchantCategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\MerchantCategoryList.aspx.designer.cs">
+      <DependentUpon>MerchantCategoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantCategory\pMerchantCategoryList.aspx.cs">
+      <DependentUpon>pMerchantCategoryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantCategory\pMerchantCategoryList.aspx.designer.cs">
+      <DependentUpon>pMerchantCategoryList.aspx</DependentUpon>
+    </Compile>
+>>>>>>> Add MerchantCategoryList & pMerchantCategoryList
     <Compile Include="weblogin\nGlobalGoodsTypeAdd.aspx.cs">
       <DependentUpon>nGlobalGoodsTypeAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -222,7 +237,6 @@
     <Compile Include="weblogin\nGlobalGoodsTypeAdd.aspx.designer.cs">
       <DependentUpon>nGlobalGoodsTypeAdd.aspx</DependentUpon>
     </Compile>
->>>>>>> Add nGlobalGoodsTypeAdd
     <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.cs">
       <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -549,8 +563,10 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\MerchantCategoryList.aspx" />
+    <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
+>>>>>>> Add MerchantCategoryList & pMerchantCategoryList
     <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
->>>>>>> Add nGlobalGoodsTypeAdd
     <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
         <Content Include="weblogin\nActivityAdd.aspx" />
         <Content Include="weblogin\rent\pRentDetail.aspx" />

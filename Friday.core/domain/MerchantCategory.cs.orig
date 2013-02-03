@@ -9,7 +9,8 @@ namespace friday.core
 {
     public class MerchantCategory:Entity
     {
-        //对于Restaurant有中餐 西餐 清真……；对于Shop有服装、电子产品、化妆品……；对于Rent
+<<<<<<< HEAD
+     
          public MerchantCategory()
         {
             // TODO: Complete member initialization
@@ -20,6 +21,9 @@ namespace friday.core
             this.Id = id;
         }
         //中餐 西餐 清真
+=======
+        //对于Restaurant有中餐 西餐 清真……；对于Shop有服装、电子产品、化妆品……；对于Rent
+>>>>>>> Add MerchantCategoryList & pMerchantCategoryList
         public virtual string MerchantCategoryName
         {
             get;
