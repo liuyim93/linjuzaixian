@@ -54,7 +54,7 @@
             <li><a class="edit" href="nShopUpdate.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
                 <span>修改</span></a></li>
             <li><a class="delete" href="shop/pShopList.aspx?flag=alldelete&uid={id}"
-                target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
+                target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
            
             <li class="line">line</li>
         </ul>
