@@ -143,6 +143,13 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSchool.aspx.cs">
+      <DependentUpon>ListSchool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSchool.aspx.designer.cs">
+      <DependentUpon>ListSchool.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
       <DependentUpon>pRentDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,6 +390,7 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />

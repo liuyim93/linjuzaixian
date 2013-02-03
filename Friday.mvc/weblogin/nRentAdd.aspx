@@ -68,13 +68,22 @@
                 <label>
                     商铺当前状态：</label>
                 <select id="ShopStatus" style="width:85px" runat="server">
-					<option value="">请选择</option>
-				
+					<option value="">请选择</option>				
 					<option value="1">营业时间</option>
                     <option value="2">正在休息</option>
 				</select> 
             </p>
-          <p></p><p></p>
+              <p>
+                        <label>
+                            服务的学校：</label>
+                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
+                            readonly="true" />
+                        <a class="add" target="dialog" href="ListSchool.aspx" rel="dlg_pagebelongcity">
+                            选择</a>
+                        <input type="hidden" id="SchoolOfMerchantID1" size="30" class="required textInput gray"
+                            runat="server" />
+                    </p>
+          <p></p>
            <div>
             <p >
                  <label >商铺公告：</label>

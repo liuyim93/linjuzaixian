@@ -32,7 +32,7 @@
                     所在城市：</label>
                 <input type="text" id="CityName" size="30" class="required textInput gray" runat="server" />
             </p>
-            
+           
          
     
         </div>
