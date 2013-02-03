@@ -28,10 +28,10 @@
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
              <p style="float: left; display:block ;">
-            <a href="NewsPictureUpload.aspx?type=AddDataResource" rel="UpNewsPicture" target="dialog">
+            <a href="PictureUpload.aspx" rel="" target="dialog">
                 <label style="color: Red;">
                  点击上传图片：</label></a>
-                 <input type="text" id="NewsPicPath" class="textInput gray" runat="server" readonly="readonly"  style="width:200px;"/>
+                 <input type="text" id="Image" class="textInput gray" runat="server" readonly="readonly"  style="width:200px;"/>
                 </p>             
   
          <div style="  clear:left; width:80%; margin-top:0px" >

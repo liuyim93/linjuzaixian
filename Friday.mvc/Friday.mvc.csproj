@@ -164,6 +164,13 @@
     <Compile Include="weblogin\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\PictureUpload.aspx.cs">
+      <DependentUpon>PictureUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\PictureUpload.aspx.designer.cs">
+      <DependentUpon>PictureUpload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
       <DependentUpon>pRentDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -428,6 +435,7 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListSchool.aspx" />
+    <Content Include="weblogin\PictureUpload.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
@@ -1159,6 +1167,7 @@
     <Folder Include="Models\" />
     <Folder Include="Views\Home\" />
     <Folder Include="weblogin\themes\img\Expert\" />
+    <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

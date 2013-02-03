@@ -7,63 +7,45 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.activity {
+namespace Friday.mvc.weblogin {
     
     
-    public partial class nActivityAdd {
+    public partial class PictureUpload {
         
         /// <summary>
-        /// form 控件。
+        /// Form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
-        /// MyOrderId 控件。
+        /// ID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
+        protected global::System.Web.UI.WebControls.TextBox ID;
         
         /// <summary>
-        /// Name 控件。
+        /// file1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile file1;
         
         /// <summary>
-        /// Matters 控件。
+        /// type1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Matters;
-        
-        /// <summary>
-        /// Image 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Image;
-        
-        /// <summary>
-        /// Description 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden type1;
     }
 }

@@ -26,10 +26,9 @@
                     重要性：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
-             <p style="float: left; display:block ;">
-            <a href="NewsPictureUpload.aspx?type=AddDataResource" rel="UpNewsPicture" target="dialog">
+             <p style="float: left; display:block ;">         
                 <label style="color: Red;">
-                 点击上传图片：</label></a>
+                 图片：</label>
                  <input type="text" id="Image" class="textInput gray" runat="server" readonly="readonly"  style="width:200px;"/>
                 </p>             
   
