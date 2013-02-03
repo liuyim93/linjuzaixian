@@ -234,7 +234,6 @@
     <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.designer.cs">
       <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
         <Compile Include="weblogin\nActivityAdd.aspx.cs">
             <DependentUpon>nActivityAdd.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -242,6 +241,14 @@
         <Compile Include="weblogin\nActivityAdd.aspx.designer.cs">
             <DependentUpon>nActivityAdd.aspx</DependentUpon>
         </Compile>
+    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.cs">
+      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.designer.cs">
+      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
         <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
             <DependentUpon>pRentDetail.aspx</DependentUpon>
             <SubType>ASPXCodeBehind</SubType>
@@ -427,12 +434,12 @@
         <Content Include="weblogin\house\pHouseList.aspx" />
         <Content Include="weblogin\GlobalGoodsTypeList.aspx" />
 =======
-    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.cs">
-      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.cs">
+      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.designer.cs">
-      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.designer.cs">
+      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ShopList.aspx.cs">
       <DependentUpon>ShopList.aspx</DependentUpon>
@@ -502,7 +509,7 @@
     <Content Include="weblogin\chart\test\piechart.html" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\GlobalGoodsTypeList.aspx" />
->>>>>>> Add  nMerchantCategoryAdd
+>>>>>>> Add nMerchantCategoryUpdate
     <Content Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx" />
         <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx" />
         <Content Include="weblogin\index.aspx" />
@@ -572,8 +579,9 @@
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
-<<<<<<< HEAD
         <Content Include="weblogin\nActivityAdd.aspx" />
+    <Content Include="weblogin\nMerchantCategoryAdd.aspx" />
+<<<<<<< HEAD
         <Content Include="weblogin\rent\pRentDetail.aspx" />
         <Content Include="weblogin\rent\pRentList.aspx" />
         <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
@@ -1374,7 +1382,7 @@
     </ProjectExtensions>
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
 =======
-    <Content Include="weblogin\nMerchantCategoryAdd.aspx" />
+    <Content Include="weblogin\nMerchantCategoryUpdate.aspx" />
     <Content Include="weblogin\ShopList.aspx" />
     <Content Include="weblogin\shop\nShopDetail.aspx" />
     <Content Include="weblogin\nShopUpdate.aspx" />
@@ -2155,7 +2163,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
->>>>>>> Add  nMerchantCategoryAdd
+>>>>>>> Add nMerchantCategoryUpdate
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
