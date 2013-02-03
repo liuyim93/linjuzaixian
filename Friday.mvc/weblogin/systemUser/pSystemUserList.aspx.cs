@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin.systemUser
         protected int numPerPageValue;
 
         ISystemUserRepository iRepositorySystemUser = UnityHelper.UnityToT<ISystemUserRepository>();
+        IRepository<LoginUser> iRepositoryLoginUser = UnityHelper.UnityToT<IRepository<LoginUser>>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,7 +46,10 @@ namespace Friday.mvc.weblogin.systemUser
 
         private void DeleteSystemUser()
         {
+            string LoginUserID = iRepositorySystemUser.Get(Request.Params["uid"]).LoginUser.Id;
             iRepositorySystemUser.Delete(Request.Params["uid"]);
+            iRepositoryLoginUser.Delete(LoginUserID);
+
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

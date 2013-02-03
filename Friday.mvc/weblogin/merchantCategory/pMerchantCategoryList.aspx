@@ -53,7 +53,7 @@
             <li><a class="edit" href="nMerchantCategoryUpdate.aspx?uid={id}" title="修改商铺经营类型" rel="" target="navTab">
                 <span>修改</span></a></li>
             <li><a class="delete" href="merchantCategory/pMerchantCategoryList.aspx?flag=alldelete&uid={id}" rel=""
-                target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
+                target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
             <li class="line">line</li>
         </ul>
     </div>

@@ -59,7 +59,7 @@ namespace friday.core.repositories
         {
             return Session.CreateCriteria<T>()
                 .Add(Expression.Eq("IsDelete", false))
-                // .AddOrder(Order.Asc("CreateTime"))
+                 .AddOrder(Order.Asc("CreateTime"))
                 .List<T>();
         }
         public virtual void DeleteAll( IList<T> list)

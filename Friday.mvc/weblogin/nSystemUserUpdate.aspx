@@ -23,7 +23,7 @@
              <p>
                 <label>
                     联系电话：</label>
-                <input type="text" id="Tel" size="30" class="required  textInput gray tel" runat="server" />
+                <input type="text" id="Tel" size="30" class="required  textInput gray phone" runat="server" />
             </p>
              <p>
                 <label>
