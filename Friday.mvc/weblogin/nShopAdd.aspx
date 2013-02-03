@@ -1,22 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRentDetail.aspx.cs" Inherits="Friday.mvc.weblogin.rent.pRentDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nShopAdd.aspx.cs" Inherits="Friday.mvc.weblogin.shop.nShopAdd"   validateRequest="false"  %>
 
-
-<div class="page">
+<div class="page" style="">
     <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>租房详情</span>
+             <span>添加商店中介</span>
            </a></li>
            
         </ul>
     </div>
-        <div class="pageFormContent" style=" height:250px;">
+        <form id="form" method="post"  class="pageForm required-validate" 
+        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server" >
+        <div class="pageFormContent" style=" height:500px">
          
             <h1>
-                租房基本信息</h1>
+                添加商铺</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
-         <p>
+          <p>
                 <label>
                     商铺名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -52,7 +53,7 @@
                     Tel：</label>
                 <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
             </p>
-          
+
             <p>
                 <label>
                     Email：</label>
@@ -63,19 +64,18 @@
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
-              <p>
+           <p>
                 <label>
-                  
-                    商铺当前状态：</label>  
-                    
+                    商铺当前状态：</label>
                 <select id="ShopStatus" style="width:85px" runat="server">
-					<option value="">请选择</option>				
-					<option value="1"   >营业时间</option>
+					<option value="">请选择</option>
+				
+					<option value="1">营业时间</option>
                     <option value="2">正在休息</option>
 				</select> 
             </p>
           <p></p><p></p>
-          <div>
+           <div>
             <p >
                  <label >商铺公告：</label>
 					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
@@ -87,7 +87,7 @@
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
            </div>        
-         <div style="  clear:left; width:80%; margin-top:280px;margin-bottom:60px;" >
+         <div style="  clear:left; width:80%; margin-top:280px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
@@ -96,13 +96,38 @@
                 </p>
                   
        </div>
+    
         </div>
+                <div class="formBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="submit">
+                                    保存</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li></li>
+                    <li>
+                        <div class="buttonActive">
+                            <div class="buttonContent">
+                                <button type="reset" id="Clean">
+                                    重置</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li></li>
+                </ul>
+            </div>
+        </form>
     </div>
 </div>
+
 <script   type="text/javascript">
 
     $('#Description').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-    //    $('#Activity').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-    //    $('#Bulletins').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+//    $('#Activity').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+//    $('#Bulletins').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 </script>

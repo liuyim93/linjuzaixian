@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.shop {
     
     
-    public partial class nShopUpdate {
+    public partial class nShopAdd {
         
         /// <summary>
         /// form 控件。

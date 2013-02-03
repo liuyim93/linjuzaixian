@@ -101,7 +101,7 @@
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
            </div>        
-         <div style="  clear:left; width:80%; margin-top:400px; margin-bottom:60px;" >
+         <div style=" clear:left; width:80%; margin-top:280px;margin-bottom:60px;" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
