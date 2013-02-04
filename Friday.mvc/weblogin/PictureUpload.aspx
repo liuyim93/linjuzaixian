@@ -2,12 +2,12 @@
 <div class="page">
     <div class="pageContent">
           
-        <form id="Form1" method="post" runat="server" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this,NewsPictureUpload_Callback);">
+        <form id="Form1" method="post" runat="server" enctype="multipart/form-data" class="pageForm required-validate" onsubmit="return iframeCallback(this,PictureUpload_Callback);">
         <asp:textbox id="ID" runat="server" style="display: none;" ></asp:textbox>
         <div class="pageFormContent" layouth="56">
             <p>
                 <label>
-                    附件上传：</label>
+                    图片上传：</label>
                 <input name="file1" id="file1" type="file" class="required textInput gray" runat="server"/>
                 <input type="hidden" id="type1" runat="server" />
             </p>
@@ -47,7 +47,7 @@
 //         gpage.init();
 //     });
 
-     function NewsPictureUpload_Callback(json) {
+     function PictureUpload_Callback(json) {
 
          alert(json.path);
 
