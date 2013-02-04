@@ -58,11 +58,16 @@
         var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
-        $self.one("panelloaded", function (e) {
-             
+        $self.one("panelloaded", function () {
+            var $panel = $.referer(page_prefix);
+            $(this).delegate("#btnSave", "click", function () {
+                var arg1 = "arg1_value";
+                var arg2 = "arg2_value";
+                $panel.trigger("callback", [arg1, arg2]);
+                debugger
+                $.pdialog.closeCurrent();
+            });
         });
-
-
     });
 //$(document).ready(function() {
 

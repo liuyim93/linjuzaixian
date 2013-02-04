@@ -143,9 +143,16 @@
         $self.one("panelloaded", function (e) {
             $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
+            //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+            //ensure this function will be called delay until initUI called
+            $self.one("callback", function (event, arg1, arg2) {
+                alert("callback is ok!! arg1 is " + arg1 + " and arg2 is " + arg2);
+            });
 
         });
 
 
     });
+
+    
 </script>

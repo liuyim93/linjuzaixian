@@ -43,7 +43,7 @@ namespace Friday.mvc.weblogin.rent
             Response.Write(jsonResult.FormatResult());
             Response.End();
 
-        
+
 
         }
 
