@@ -147,6 +147,7 @@
             //ensure this function will be called delay until initUI called
             $self.one("callback", function (event, arg1, arg2) {
                 alert("callback is ok!! arg1 is " + arg1 + " and arg2 is " + arg2);
+                $self.find("#SchoolOfMerchant").val(arg1);
             });
 
         });
