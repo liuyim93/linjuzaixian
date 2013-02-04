@@ -14,7 +14,8 @@ namespace Friday.mvc.weblogin.rent
     public partial class nRentAdd : System.Web.UI.Page
     {
         IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
-    
+        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
+        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
         protected void Page_Load(object sender, EventArgs e)
         {
           
@@ -32,6 +33,22 @@ namespace Friday.mvc.weblogin.rent
 
             BindingHelper.RequestToObject(rnt);
             iRentRepository.SaveOrUpdate(rnt);
+
+            friday.core.domain.SchoolOfMerchant schofmt=new friday.core.domain.SchoolOfMerchant();
+
+            string schid;
+
+            schid = this.SchoolOfMerchantID.Value;
+          
+            schofmt.Merchant=rnt;
+
+            schofmt.School = iSchoolRepository.Get(schid);
+            
+            iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+
+          
+
+
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

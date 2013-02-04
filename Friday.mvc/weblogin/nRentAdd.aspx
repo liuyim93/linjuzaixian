@@ -80,7 +80,7 @@
                             readonly="true" />
                         <a class="add" target="dialog" href="ListSchool.aspx" rel="">
                             选择</a>
-                        <input type="hidden" id="SchoolOfMerchantID1" size="30" class="required textInput gray"
+                        <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
                             runat="server" />
                     </p>
           <p></p>
@@ -147,8 +147,11 @@
             $self.bind("callback", function (event, arg1, arg2) {
                 //2013-02-04 basilwnag muse unbind first
                 $self.unbind("callback");
-                alert("callback is ok!! arg1 is " + arg1 + " and arg2 is " + arg2);
+               // alert("callback is ok!! arg1 is " + arg1 + " and arg2 is " + arg2);
+
                 $self.find("#SchoolOfMerchant").val(arg1[0].value);
+                $self.find("#SchoolOfMerchantID").val(arg1[0].idvalue);
+
             });
 
         });
