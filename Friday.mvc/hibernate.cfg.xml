@@ -8,7 +8,7 @@
     <session-factory>
       <property name="connection.driver_class">NHibernate.Driver.SqlClientDriver</property>
       <property name="connection.connection_string">
-        Data Source=.\sql2005;Initial Catalog=friday0130;User ID=sa;Password=sdie?!3406
+        Data Source=.;Initial Catalog=friday0130;User ID=sa;Password=sdie?!3406
         <!--Data Source=.;Initial Catalog=IForIndustry;User ID=sa;Password=1496595196-->
 
       </property>

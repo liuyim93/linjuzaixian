@@ -63,8 +63,18 @@
             $(this).delegate("#btnSave", "click", function () {
                 var arg1 = "arg1_value";
                 var arg2 = "arg2_value";
+                var os = $self.find("input[type=checkbox]:checked");
+                arg1 = [];
+                $.each(os, function (i, o) {
+                    //debugger
+                    var $o = $(o);
+                    //alert($o.attr("idvalue"));
+                    arg1[i] = { idvalue: $o.attr("idvalue"), value: $o.val()};
+                });
+
+                //debugger
                 $panel.trigger("callback", [arg1, arg2]);
-                debugger
+                //debugger
                 $.pdialog.closeCurrent();
                 return false;
             });
@@ -101,7 +111,7 @@
 //        }
 //    }
 
-//}
+////}
 
 //function SelectAll(CheckAll) {
 
