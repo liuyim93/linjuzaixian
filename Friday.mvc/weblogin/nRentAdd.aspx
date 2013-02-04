@@ -155,22 +155,25 @@
                 //when  rent  select many shool
                 //debugger
                 var argsch = "argargschool";
+                var schname="name";
+                var schid="id";
+
                 argsch = [];
                 //var i = 0;
-                $.each(arg1, function (i,o) {
-                    //debugger
+                $.each(arg1, function (i, o) {
+                    debugger
                     var $o = $(o);
                     //alert($o.attr("idvalue"));
-                    var schname = $o[i].value;
-                    var schid = $o[i].idvalue;
-                    $self.find("#SchoolOfMerchant").val(schname);
-                    $self.find("#SchoolOfMerchantID").val(schid);
+
+                    schname = schname+","+$o[i].value;
+                    schid =schid+","+$o[i].idvalue;
+                   
                     //arg1[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
-
-
-
+                    
                 });
 
+                $self.find("#SchoolOfMerchant").val(schname);
+                $self.find("#SchoolOfMerchantID").val(schid);
 
 
             });
