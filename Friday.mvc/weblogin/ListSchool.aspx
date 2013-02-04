@@ -66,6 +66,7 @@
                 $panel.trigger("callback", [arg1, arg2]);
                 debugger
                 $.pdialog.closeCurrent();
+                return false;
             });
         });
     });
