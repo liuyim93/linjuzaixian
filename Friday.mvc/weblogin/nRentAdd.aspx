@@ -78,7 +78,7 @@
                             服务的学校：</label>
                         <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
                             readonly="true" />
-                        <a class="add" target="dialog" href="ListSchool.aspx" rel="dlg_pagebelongcity">
+                        <a class="add" target="dialog" href="ListSchool.aspx" rel="">
                             选择</a>
                         <input type="hidden" id="SchoolOfMerchantID1" size="30" class="required textInput gray"
                             runat="server" />

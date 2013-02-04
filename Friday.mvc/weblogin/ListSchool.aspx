@@ -53,49 +53,59 @@
     </div>
 </div>
 <script   type="text/javascript">
+    $(function () {
+        var page_prefix = '<%=Request.Params["prefix"] %>';
+        var $self = $.self(page_prefix);
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
+        $self.one("panelloaded", function (e) {
+             
+        });
 
-$(document).ready(function() {
-
-    gpage.config({ "IsDialog": true });
-    gpage.init();
-
-    gpage.jObj("btnSave", null, "dlg_pagebelongcity").bind('click', function() {
-
-        SetValue();
-        $.pdialog.closeCurrent();
-        //navTab.reloadFlagWithFormArray("Company");
 
     });
-});
+//$(document).ready(function() {
 
-function SetValue() {
-    var result = [];
+//    gpage.config({ "IsDialog": true });
+//    gpage.init();
 
-    var cArray = document.getElementsByTagName("input");
-    var i;
-    for (i = 0; i < cArray.length; i++) {
-        if (cArray[i].type == 'checkbox' && cArray[i].checked && cArray[i].value != "undefined" && cArray[i].name == "chbSelectCity") {
-            // result.push(cArray[i].value);
-            gpage.jObj("BelongCity1", null, null).val(cArray[i].value);
-            // gpage.jObj("DomainTypeID1", null, null).val(cArray[i].idvalue);;//ff下无法获取cArray[i].idvalue值 刘政敏 2012-07-31
-            sid = cArray[i].attributes["idvalue"].nodeValue;
-            gpage.jObj("BelongCityID1", null, null).val(sid);
+//    gpage.jObj("btnSave", null, "dlg_pagebelongcity").bind('click', function() {
+
+//        SetValue();
+//        $.pdialog.closeCurrent();
+//        //navTab.reloadFlagWithFormArray("Company");
+
+//    });
+//});
+
+//function SetValue() {
+//    var result = [];
+
+//    var cArray = document.getElementsByTagName("input");
+//    var i;
+//    for (i = 0; i < cArray.length; i++) {
+//        if (cArray[i].type == 'checkbox' && cArray[i].checked && cArray[i].value != "undefined" && cArray[i].name == "chbSelectCity") {
+//            // result.push(cArray[i].value);
+//            gpage.jObj("BelongCity1", null, null).val(cArray[i].value);
+//            // gpage.jObj("DomainTypeID1", null, null).val(cArray[i].idvalue);;//ff下无法获取cArray[i].idvalue值 刘政敏 2012-07-31
+//            sid = cArray[i].attributes["idvalue"].nodeValue;
+//            gpage.jObj("BelongCityID1", null, null).val(sid);
 
 
-        }
-    }
+//        }
+//    }
 
-}
+//}
 
-function SelectAll(CheckAll) {
+//function SelectAll(CheckAll) {
 
-    var itmes = document.getElementsByTagName("input");
-    for (var i = 0; i < itmes.length; i++) {
+//    var itmes = document.getElementsByTagName("input");
+//    for (var i = 0; i < itmes.length; i++) {
 
-        if (itmes[i].type == "checkbox") {
-            itmes[i].checked = CheckAll.checked;
-        }
-    }
-}
- 
+//        if (itmes[i].type == "checkbox") {
+//            itmes[i].checked = CheckAll.checked;
+//        }
+//    }
+//}
+// 
  </script>
