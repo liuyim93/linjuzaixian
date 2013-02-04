@@ -96,7 +96,7 @@
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
            </div>        
-         <div style="  clear:left; width:80%; margin-top:400px" >
+         <div style="  clear:left; width:80%; margin-top:280px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
@@ -135,8 +135,17 @@
 
 <script   type="text/javascript">
 
-    $('#Description').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-//    $('#Activity').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-//    $('#Bulletins').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+    $(function () {
+        var page_prefix = '<%=Request.Params["prefix"] %>';
+        var $self = $.self(page_prefix);
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
+        $self.one("panelloaded", function (e) {
+            $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
+
+        });
+
+
+    });
 </script>

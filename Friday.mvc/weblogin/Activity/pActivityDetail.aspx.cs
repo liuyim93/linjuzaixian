@@ -21,6 +21,7 @@ namespace Friday.mvc.weblogin.activity
             activity = iActivityRepository.Load(uid);
 
             BindingHelper.ObjectToControl(activity, this);
+            ImagePreview.Src = activity.Image;
 
         }
     }

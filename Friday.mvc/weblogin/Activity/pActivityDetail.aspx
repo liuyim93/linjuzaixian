@@ -26,12 +26,9 @@
                     重要性：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
-             <p style="float: left; display:block ;">         
-                <label style="color: Red;">
-                 图片：</label>
-                 <input type="text" id="Image" class="textInput gray" runat="server" readonly="readonly"  style="width:200px;"/>
-                </p>             
-  
+             <p style="margin-left:20px;height:40px">
+                <img id="ImagePreview" runat="server" />
+            </p>
          <div style="  clear:left; width:80%; margin-top:0px" >
              <p>
                  <label>详细内容：</label>

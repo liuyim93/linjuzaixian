@@ -164,12 +164,9 @@
     <Compile Include="weblogin\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\PictureUpload.aspx.cs">
-      <DependentUpon>PictureUpload.aspx</DependentUpon>
+    <Compile Include="weblogin\nActivityAdd.aspx.cs">
+      <DependentUpon>nActivityAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\PictureUpload.aspx.designer.cs">
-      <DependentUpon>PictureUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
       <DependentUpon>pRentDetail.aspx</DependentUpon>
@@ -318,13 +315,6 @@
     <Compile Include="weblogin\nSchoolUpdate.aspx.designer.cs">
       <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nActivityAdd.aspx.cs">
-      <DependentUpon>nActivityAdd.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\nActivityAdd.aspx.designer.cs">
-      <DependentUpon>nActivityAdd.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\nActivityUpdate.aspx.cs">
       <DependentUpon>nActivityUpdate.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -435,7 +425,7 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListSchool.aspx" />
-    <Content Include="weblogin\PictureUpload.aspx" />
+    <Content Include="weblogin\nActivityAdd.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
@@ -1158,13 +1148,13 @@
     <Content Include="weblogin\SchoolList.aspx" />
     <Content Include="weblogin\nSchoolAdd.aspx" />
     <Content Include="weblogin\nSchoolUpdate.aspx" />
-    <Content Include="weblogin\nActivityAdd.aspx" />
     <Content Include="weblogin\nActivityUpdate.aspx" />
     <Content Include="weblogin\ActivityList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="uploadimage\" />
     <Folder Include="Views\Home\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
