@@ -28,6 +28,7 @@ namespace Friday.mvc.weblogin.activity
             {
 
                 BindingHelper.ObjectToControl(activity, this);
+                this.ImagePreview.Src = activity.Image;
 
             }
         }

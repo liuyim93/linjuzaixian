@@ -168,6 +168,9 @@
       <DependentUpon>nActivityAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="weblogin\nActivityAdd.aspx.designer.cs">
+      <DependentUpon>nActivityAdd.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
       <DependentUpon>pRentDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

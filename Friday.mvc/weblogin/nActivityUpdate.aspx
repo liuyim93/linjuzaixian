@@ -27,14 +27,23 @@
                     重要性：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
-             <p style="float: left; display:block ;">
-               <a href="PictureUpload.aspx" rel="" target="dialog">
-                <label style="color: Red;">
-                 点击上传图片：</label></a>
-                 <input type="text" id="Image" class="textInput gray" runat="server" readonly="readonly"  style="width:200px;"/>
-                </p>             
+               <p>
+              <p>
+                <label>
+                    附件上传：</label>
+          
+                <input id="Image" type="file" class="required textInput gray" runat="server" />
+                   </p><p>
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+            </p>
+            </p>
+             <p style="margin-left:20px;height:100px">
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>     
   
-         <div style="  clear:left; width:80%; margin-top:0px" >
+         <div style="  clear:left; width:80%; margin-top:100px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
