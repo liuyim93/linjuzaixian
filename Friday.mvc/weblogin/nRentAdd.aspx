@@ -147,10 +147,31 @@
             $self.bind("callback", function (event, arg1, arg2) {
                 //2013-02-04 basilwnag muse unbind first
                 $self.unbind("callback");
-               // alert("callback is ok!! arg1 is " + arg1 + " and arg2 is " + arg2);
+                // alert("callback is ok!! arg1 is " + arg1 + " and arg2 is " + arg2);
+                //when  rent  select  one school 
+                // $self.find("#SchoolOfMerchant").val(arg1[0].value);
+                // $self.find("#SchoolOfMerchantID").val(arg1[0].idvalue);
 
-                $self.find("#SchoolOfMerchant").val(arg1[0].value);
-                $self.find("#SchoolOfMerchantID").val(arg1[0].idvalue);
+                //when  rent  select many shool
+                //debugger
+                var argsch = "argargschool";
+                argsch = [];
+                //var i = 0;
+                $.each(arg1, function (i,o) {
+                    //debugger
+                    var $o = $(o);
+                    //alert($o.attr("idvalue"));
+                    var schname = $o[i].value;
+                    var schid = $o[i].idvalue;
+                    $self.find("#SchoolOfMerchant").val(schname);
+                    $self.find("#SchoolOfMerchantID").val(schid);
+                    //arg1[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
+
+
+
+                });
+
+
 
             });
 
