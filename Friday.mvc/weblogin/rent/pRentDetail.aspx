@@ -63,6 +63,13 @@
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
+             <p>
+                        <label>
+                            服务的学校：</label>
+                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
+                            readonly="true" />
+                      
+              </p>
               <p>
                 <label>
                   

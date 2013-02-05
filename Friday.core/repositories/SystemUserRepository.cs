@@ -20,6 +20,7 @@ namespace friday.core.repositories
 
         }
 
+        
     }
      
 }

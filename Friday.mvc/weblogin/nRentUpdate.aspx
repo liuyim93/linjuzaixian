@@ -74,7 +74,17 @@
                     <option value="2">正在休息</option>
 				</select> 
             </p>
-          <p></p><p></p>
+                 <p>
+                        <label>
+                            服务的学校：</label>
+                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
+                            readonly="true" />
+                        <a class="add" target="dialog" href="ListSchool.aspx" rel="">
+                            选择</a>
+                        <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
+                            runat="server" />
+                    </p>
+          <p></p> 
            <div>
             <p >
                  <label >商铺公告：</label>
@@ -125,17 +135,45 @@
 </div>
 <script   type="text/javascript">
 
+ 
+
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
-        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
-        //ensure this function will be called delay until initUI called
+    
         $self.one("panelloaded", function (e) {
             $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+        
+            $self.bind("callback", function (event, arg1, arg2) {
+                //2013-02-04 basilwnag muse unbind first
+                $self.unbind("callback");
+                var schname = "";
+                var schid = "";
+                $.each(arg1, function (i, o) {
+                    var $o = $(o);
+                    if (i == 0) 
+                    {
+                        schname = $o.attr("value");
+                        schid = $o.attr("idvalue");
+                    }
+                    else
+                     {
+                        schname = schname + "," + $o.attr("value");
+                        schid = schid + "," + $o.attr("idvalue");
+                    }
+                });
 
+                $self.find("#SchoolOfMerchant").val(schname);
+                $self.find("#SchoolOfMerchantID").val(schid);
+
+
+            });
 
         });
 
 
     });
+
+    
+ 
 </script>

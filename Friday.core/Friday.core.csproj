@@ -230,6 +230,8 @@
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="domain\RestaurantCart.cs" />
     <Compile Include="domain\RestaurantStatistic.cs" />
+    <Compile Include="repositories\SchoolOfMerchantRepository.cs" />
+    <Compile Include="repositories\ISchoolOfMerchantRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
