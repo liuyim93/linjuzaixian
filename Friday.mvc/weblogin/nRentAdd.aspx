@@ -152,42 +152,20 @@
                 // $self.find("#SchoolOfMerchant").val(arg1[0].value);
                 // $self.find("#SchoolOfMerchantID").val(arg1[0].idvalue);
 
-                //when  rent  select many shool
-                // debugger
-                // var argsch = "argargschool";
-             
-
-                //                argsch = [];
-
-                //                argsch[0] = { idvalue: arg1[0].toString("idvalue") ,arg1[0].valueOf("value") };
-
-                //                argsch[1] = { idvalue: arg1[1].valueOf("idvalue"), value: arg1[1].valueOf("value") };
-
-                //                schname = argsch[0].value + "," + argsch[1].value;
-                //                schid = argsch[0].idvalue + "," + argsch[1].idvalue
                 var schname = "";
-                var schid ="";
-
-                //var i = 0;
+                var schid = "";
                 $.each(arg1, function (i, o) {
-                    //   debugger
                     var $o = $(o);
-                    //alert($o.attr("value"));
-
-                    if (i == 0)
+                    if (i == 0) 
+                    {
+                        schname = $o.attr("value");
+                        schid = $o.attr("idvalue");
+                    }
+                    else
                      {
-                          schname = $o.attr("value");
-                          schid = $o.attr("idvalue");
-                     }
-                     else 
-                     {
-                         schname = schname + "," + $o.attr("value");
-                         schid = schid + "," + $o.attr("idvalue");
-                     }
-                    
-
-                    // argsch[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
-
+                        schname = schname + "," + $o.attr("value");
+                        schid = schid + "," + $o.attr("idvalue");
+                    }
                 });
 
                 $self.find("#SchoolOfMerchant").val(schname);
