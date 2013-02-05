@@ -135,15 +135,19 @@
 </div>
 <script   type="text/javascript">
 
- 
+
 
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
-    
+
         $self.one("panelloaded", function (e) {
             $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-        
+            //调用ListSchools时，传递过去当前SchoolOfMerchant即可
+            var scmname=$self.find("#SchoolOfMerchant").attr("value");
+            //alert(scmname);
+
+            //回调后执行
             $self.bind("callback", function (event, arg1, arg2) {
                 //2013-02-04 basilwnag muse unbind first
                 $self.unbind("callback");
@@ -151,13 +155,11 @@
                 var schid = "";
                 $.each(arg1, function (i, o) {
                     var $o = $(o);
-                    if (i == 0) 
-                    {
+                    if (i == 0) {
                         schname = $o.attr("value");
                         schid = $o.attr("idvalue");
                     }
-                    else
-                     {
+                    else {
                         schname = schname + "," + $o.attr("value");
                         schid = schid + "," + $o.attr("idvalue");
                     }

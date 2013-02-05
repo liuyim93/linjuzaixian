@@ -46,27 +46,19 @@ namespace Friday.mvc.weblogin.rent
 
                }
            }
-
            else
-           {
-             
+           {             
                DeleteRent();
-
-           }
-         
+           }        
       
-        }  
-
-      
-
-        
+        }     
 
         private void DeleteRent()
         {
 
             string  rentid=Request.Params["uid"];
             
-            iRepositoryRent.PhysicsDelete(rentid);
+            iRepositoryRent.Delete(rentid);
             
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

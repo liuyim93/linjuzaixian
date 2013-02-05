@@ -12,7 +12,7 @@
                  <HeaderTemplate>
                  <thead>
                      <tr>
-                      <th width="40"><input id="Checkbox2" value="undefined" type="checkbox" onclick="SelectAll(this)" /></th> 
+                      <th width="40"><input id="CheckboxAll"  value="All" type="checkbox"  /></th> 
                        <th width="40">序号</th>
 					    <th width="80">学校名称</th> 
                       </tr>
@@ -21,7 +21,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                     <tr target="userid" rel="<%#Eval("Id")%>">
-                     <td> <input id="chbListID" type="checkbox" name="chbSelectCity" idvalue="<%#DataBinder.Eval(Container.DataItem, "Id")%>" 
+                     <td> <input id="chbListID" type="checkbox" name="SelectSchool" idvalue="<%#DataBinder.Eval(Container.DataItem, "Id")%>" 
                      value="<%#DataBinder.Eval(Container.DataItem, "Name")%>" /></td> 
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
@@ -60,16 +60,24 @@
         //ensure this function will be called delay until initUI called
         $self.one("panelloaded", function () {
             var $panel = $.referer(page_prefix);
+
+            //2013-02-05 pangfuxing SelectAll
+            $("#CheckboxAll").click(function () { 
+                $("input[name='SelectSchool']").attr("checked", true);
+            });
+
+
             $(this).delegate("#btnSave", "click", function () {
                 var arg1 = "arg1_value";
                 var arg2 = "arg2_value";
-                var os = $self.find("input[type=checkbox]:checked");
+                //2013-02-05  pangfuxing  change type=checkbox  to  name=SelectSchool  to  get rid of  the influence  from  ("#CheckboxAll").value
+                var os = $self.find("input[name=SelectSchool]:checked");  
                 arg1 = [];
                 $.each(os, function (i, o) {
                     //debugger
                     var $o = $(o);
                     //alert($o.attr("idvalue"));
-                    arg1[i] = { idvalue: $o.attr("idvalue"), value: $o.val()};
+                    arg1[i] = { idvalue: $o.attr("idvalue"), value: $o.val() };
                 });
 
                 //debugger
@@ -79,6 +87,12 @@
                 return false;
             });
         });
+
+
+
+
+
+
     });
 //$(document).ready(function() {
 
