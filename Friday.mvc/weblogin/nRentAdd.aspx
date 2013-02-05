@@ -153,33 +153,42 @@
                 // $self.find("#SchoolOfMerchantID").val(arg1[0].idvalue);
 
                 //when  rent  select many shool
-                debugger
-                var argsch = "argargschool";
-                var schname = "name";
-                var schid = "id";
+                // debugger
+                // var argsch = "argargschool";
+             
 
-                argsch = [];
+                //                argsch = [];
 
-                argsch[0] = { idvalue: arg1[0].valueOf("idvalue"), value: arg1[0].valueOf("value") };
+                //                argsch[0] = { idvalue: arg1[0].toString("idvalue") ,arg1[0].valueOf("value") };
 
-                argsch[1] = { idvalue: arg1[1].valueOf("idvalue"), value: arg1[1].valueOf("value") };
+                //                argsch[1] = { idvalue: arg1[1].valueOf("idvalue"), value: arg1[1].valueOf("value") };
 
-                schname = argsch[0].value + "," + argsch[1].value;
-                schid = argsch[0].idvalue + "," + argsch[1].idvalue
+                //                schname = argsch[0].value + "," + argsch[1].value;
+                //                schid = argsch[0].idvalue + "," + argsch[1].idvalue
+                var schname = "";
+                var schid ="";
 
+                //var i = 0;
+                $.each(arg1, function (i, o) {
+                    //   debugger
+                    var $o = $(o);
+                    //alert($o.attr("value"));
 
-//                //var i = 0;
-//                $.each(arg1, function (i, o) {
-//                    debugger
-//                    var $o = $(o);
-//                    //alert($o.attr("idvalue"));
+                    if (i == 0)
+                     {
+                          schname = $o.attr("value");
+                          schid = $o.attr("idvalue");
+                     }
+                     else 
+                     {
+                         schname = schname + "," + $o.attr("value");
+                         schid = schid + "," + $o.attr("idvalue");
+                     }
+                    
 
-//                    schname = schname + "," + $o[i].value;
-//                    schid = schid + "," + $o[i].idvalue;
+                    // argsch[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
 
-//                    //arg1[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
-
-//                });
+                });
 
                 $self.find("#SchoolOfMerchant").val(schname);
                 $self.find("#SchoolOfMerchantID").val(schid);

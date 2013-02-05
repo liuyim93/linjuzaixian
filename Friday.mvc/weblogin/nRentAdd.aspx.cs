@@ -39,7 +39,9 @@ namespace Friday.mvc.weblogin.rent
             string schid;
 
             schid = this.SchoolOfMerchantID.Value;
-          
+     
+
+
             schofmt.Merchant=rnt;
 
             schofmt.School = iSchoolRepository.Get(schid);
