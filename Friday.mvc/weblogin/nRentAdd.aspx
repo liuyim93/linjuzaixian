@@ -153,24 +153,33 @@
                 // $self.find("#SchoolOfMerchantID").val(arg1[0].idvalue);
 
                 //when  rent  select many shool
-                //debugger
+                debugger
                 var argsch = "argargschool";
-                var schname="name";
-                var schid="id";
+                var schname = "name";
+                var schid = "id";
 
                 argsch = [];
-                //var i = 0;
-                $.each(arg1, function (i, o) {
-                    debugger
-                    var $o = $(o);
-                    //alert($o.attr("idvalue"));
 
-                    schname = schname+","+$o[i].value;
-                    schid =schid+","+$o[i].idvalue;
-                   
-                    //arg1[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
-                    
-                });
+                argsch[0] = { idvalue: arg1[0].valueOf("idvalue"), value: arg1[0].valueOf("value") };
+
+                argsch[1] = { idvalue: arg1[1].valueOf("idvalue"), value: arg1[1].valueOf("value") };
+
+                schname = argsch[0].value + "," + argsch[1].value;
+                schid = argsch[0].idvalue + "," + argsch[1].idvalue
+
+
+//                //var i = 0;
+//                $.each(arg1, function (i, o) {
+//                    debugger
+//                    var $o = $(o);
+//                    //alert($o.attr("idvalue"));
+
+//                    schname = schname + "," + $o[i].value;
+//                    schid = schid + "," + $o[i].idvalue;
+
+//                    //arg1[i] = { idvalue: $arg1.attr("idvalue"), value: $arg1.val() };
+
+//                });
 
                 $self.find("#SchoolOfMerchant").val(schname);
                 $self.find("#SchoolOfMerchantID").val(schid);
