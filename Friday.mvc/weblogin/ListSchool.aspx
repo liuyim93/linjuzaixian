@@ -12,8 +12,8 @@
                  <HeaderTemplate>
                  <thead>
                      <tr>
-                      <th width="40"><input id="CheckboxAll"  value="All" type="checkbox"   /></th> 
-                       <th width="40">序号</th>
+                      <th width="40"><input id="CheckboxAll"  type="checkbox"    /></th> 
+                       <th width="40">序号</th> 
 					    <th width="80">学校名称</th> 
                       </tr>
                  </thead>
@@ -62,20 +62,27 @@
             var $panel = $.referer(page_prefix);
 
             //2013-02-05 pangfuxing SelectAll
-            var checkboxAll=$self.find("#CheckboxAll").click(function () {
-                //  $("input[name='SelectSchool']").attr("checked", true);
-               debugger
-               var flag = checkboxAll.attr("checked"); //判断全选按钮的状态
-               $self.find("input[name='SelectSchool']").attr("checked", flag);
-//                $("input[name='SelectSchool']").each(function () {//查找每一个Id以Item结尾的checkbox
-//                $(this).attr("checked", flag);//选中或者取消选中
+            var $checkboxAll = $self.find("#CheckboxAll");
+            $checkboxAll.toggle(function () {
+                debugger
+                $(this).attr("checked", true);
+                $self.find("#CheckboxAll").attr("checked", true);
+                //debugger
+                //var flag = checkboxAll.attr("checked"); //判断全选按钮的状态
+                $self.find("input[name='SelectSchool']").attr("checked", true);
+                //                $("input[name='SelectSchool']").each(function () {//查找每一个Id以Item结尾的checkbox
+                //                $(this).attr("checked", flag);//选中或者取消选中
+            },
+            function () {
+                $checkboxAll.attr("checked",false);
+                $self.find("input[name='SelectSchool']").attr("checked", false);
             });
-           
+
             $self.delegate("#btnSave", "click", function () {
                 var arg1 = "arg1_value";
                 var arg2 = "arg2_value";
                 //2013-02-05  pangfuxing  change type=checkbox  to  name=SelectSchool  to  get rid of  the influence  from  ("#CheckboxAll").value
-                var os = $self.find("input[name=SelectSchool]:checked");  
+                var os = $self.find("input[name=SelectSchool]:checked");
                 arg1 = [];
                 $.each(os, function (i, o) {
                     //debugger
