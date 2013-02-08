@@ -113,6 +113,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\FormRewriterControlAdapter.cs" />
+    <Compile Include="App_Start\RewriteFormHtmlTextWriter.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -304,11 +306,11 @@
     <Compile Include="weblogin\SchoolList.aspx.designer.cs">
       <DependentUpon>SchoolList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nSchoolAdd.aspx.cs">
+    <Compile Include="weblogin\school\nSchoolAdd.aspx.cs">
       <DependentUpon>nSchoolAdd.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nSchoolAdd.aspx.designer.cs">
+    <Compile Include="weblogin\school\nSchoolAdd.aspx.designer.cs">
       <DependentUpon>nSchoolAdd.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\nSchoolUpdate.aspx.cs">
@@ -1149,7 +1151,7 @@
     <Content Include="weblogin\nRestaurantAdd.aspx" />
     <Content Include="weblogin\nShopAdd.aspx" />
     <Content Include="weblogin\SchoolList.aspx" />
-    <Content Include="weblogin\nSchoolAdd.aspx" />
+    <Content Include="weblogin\school\nSchoolAdd.aspx" />
     <Content Include="weblogin\nSchoolUpdate.aspx" />
     <Content Include="weblogin\nActivityUpdate.aspx" />
     <Content Include="weblogin\ActivityList.aspx" />
@@ -1168,6 +1170,7 @@
   <ItemGroup>
     <Content Include="unity.di.infrastructure.config" />
     <Content Include="Views\Test\Index.cshtml" />
+    <Content Include="App_Browsers\Form.browser" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

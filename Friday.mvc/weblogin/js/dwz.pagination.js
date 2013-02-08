@@ -88,8 +88,9 @@
 				var actionUrl = $pagerForm.attr("action").replaceAll("#rel#", $searchForm.attr("action"));
 				$pagerForm.attr("action", actionUrl);
 				$searchForm.find(":input").each(function(){
-					var $input = $(this), name = $input.attr("name");
-					if (name && (!$input.is(":checkbox,:radio") || $input.is(":checked"))){
+				    var $input = $(this), name = $input.attr("name");
+                    //2013-02-08 basilwang we need exclude __viewstate in case of get length limit
+					if (name && !/__viewstate/i.test(name) && (!$input.is(":checkbox,:radio") || $input.is(":checked"))){
 						if ($pagerForm.find(":input[name='"+name+"']").length == 0) {
 							var inputFrag = frag.replaceAll("#name#", name).replaceAll("#value#", $input.val());
 							$pagerForm.append(inputFrag);
