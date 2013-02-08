@@ -266,9 +266,17 @@ function dwzPageBreak(options){
 	if (op.rel) {
 		var $box = $parent.find("#" + op.rel);
 		var form = _getPagerForm($box, op.data);
+		var array = $.grep($(form).serializeArray(), function (o, i) {
+		    if (o.name == "prefix")
+		        return false;
+		    else
+		        return true;
+		}
+        );
+
 		if (form) {
 			$box.ajaxUrl({
-				type:"POST", url:$(form).attr("action"), data: $(form).serializeArray(), callback:function(){
+				type:"POST", url:$(form).attr("action"), data: array, callback:function(){
 					$box.find("[layoutH]").layoutH();
 				}
 			});
