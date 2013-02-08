@@ -262,21 +262,16 @@ function _getPagerForm($parent, args) {
 function dwzPageBreak(options){
 	var op = $.extend({ targetType:"navTab", rel:"", data:{pageNum:"", numPerPage:"", orderField:"", orderDirection:""}, callback:null}, options);
 	var $parent = op.targetType == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
-
+	//2013-02-08 basilwang it's more safe to remove prefix on url
+	var remove_pattern = /prefix=[^&;]*/;
 	if (op.rel) {
 		var $box = $parent.find("#" + op.rel);
 		var form = _getPagerForm($box, op.data);
-		var array = $.grep($(form).serializeArray(), function (o, i) {
-		    if (o.name == "prefix")
-		        return false;
-		    else
-		        return true;
-		}
-        );
-
+		//2013-02-08 basilwang it's more safe to remove prefix on url
+		//use this format .replace(/prefix=[^&;]*/,'')
 		if (form) {
 			$box.ajaxUrl({
-				type:"POST", url:$(form).attr("action"), data: array, callback:function(){
+			    type: "POST", url: $(form).attr("action").replace(remove_pattern, ''), data: $(form).serializeArray(), callback: function () {
 					$box.find("[layoutH]").layoutH();
 				}
 			});
@@ -284,11 +279,14 @@ function dwzPageBreak(options){
 	} else {
 		var form = _getPagerForm($parent, op.data);
 		var params = $(form).serializeArray();
-		
+
+		//2013-02-08 basilwang it's more safe to remove prefix on url
+		//use this format .replace(/prefix=[^&;]*/,'')
+		var action = $(form).attr("action").replace(remove_pattern, '');
 		if (op.targetType == "dialog") {
-			if (form) $.pdialog.reload($(form).attr("action"), {data: params, callback: op.callback});
+			if (form) $.pdialog.reload(action, {data: params, callback: op.callback});
 		} else {
-			if (form) navTab.reload($(form).attr("action"), {data: params, callback: op.callback});
+			if (form) navTab.reload(action, {data: params, callback: op.callback});
 		}
 	}
 }

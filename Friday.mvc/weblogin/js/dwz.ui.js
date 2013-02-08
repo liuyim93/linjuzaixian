@@ -306,7 +306,7 @@ function initUI(_box, _prefix) {
             if (rel) {
                 var $rel = $("#" + rel,$panel);
                 //2013-01-16 basilwang add getPrefix for open same dialog/navtab for different items
-                //2013-01-16 basilwang we can't choose prefix as url parameter, if you post the copy value also via ajax post  which will double the value
+                //2013-01-16 basilwang we can't choose ajax get method with prefix parameter url , if you post the copy value also via ajax post  which will double the value
                 //it's very dangerous to use getPrefix ,so we remove it.
                 var data = { prefix: prefix };
                 $rel.loadUrl($this.attr("href"), data, function () {

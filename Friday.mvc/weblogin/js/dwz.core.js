@@ -387,6 +387,7 @@ var DWZ = {
          //2013-01-16 basilwang add getPrefix
          //2013-01-16 basilwang we can't choose prefix as url parameter, if you post the copy value also via ajax post  which will double the value
          //it's very dangerous to use getPrefix ,so we remove it.
+         //2013-02-08 basilwang we use to remove 
 //        getPrefix:function(){
 //            var prefix = /.*prefix=([^.&?]*)/ig.exec(this);
 //            prefix = prefix ? prefix[1] : "";
