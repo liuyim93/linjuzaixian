@@ -101,7 +101,7 @@
     <div class="panelBar">
         <div class="pages">
             <span>显示</span>
-            <select id="numPerPage" runat="server" onchange="navTabPageBreak({numPerPage:this.value},'jbsxBox2')">
+            <select id="numPerPage" runat="server" onchange="dwzPageBreak({numPerPage:this.value},'jbsxBox2')">
                 <option value="10" selected="selected">10</option>
                 <option value="15">15</option>
                 <option value="20">20</option>

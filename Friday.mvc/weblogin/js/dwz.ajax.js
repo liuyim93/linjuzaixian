@@ -221,7 +221,10 @@ function divSearch(form, rel){
 	    var $box = $("#" + rel);
 	    //2013-01-15 basilwang add prefix to array 
 	    var array = $form.serializeArray();
-	    array.push({ name: "prefix", value: navTab.getCurrentPanelPrefix() });
+        //2013-02-08 basilwang add prefix only one time
+	    if (!/prefix/i.test(form.action)) {
+	        array.push({ name: "prefix", value: navTab.getCurrentPanelPrefix() });
+	    }
 		$box.ajaxUrl({
 			type:"POST", url:$form.attr("action"), data: array, callback:function(){
 				$box.find("[layoutH]").layoutH();
