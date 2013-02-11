@@ -170,7 +170,7 @@ namespace friday.core.repositories
                  .AddOrder(NHibernate.Criterion.Order.Desc("CreateTime"))
                  .SetFirstResult(start)
                  .SetMaxResults(limit);
-            total = Session.CreateCriteria<T>().Add(Expression.Eq("IsDelete", false)).List<T>().Count;
+            total = Session.CreateCriteria<T>().Add(Expression.Eq("IsDelete", false)).SetProjection(Projections.RowCountInt64()).UniqueResult<long>();
 
             return query.List<T>();
 
