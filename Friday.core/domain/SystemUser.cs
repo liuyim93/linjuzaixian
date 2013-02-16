@@ -8,6 +8,16 @@ namespace friday.core.domain
 {
     public class SystemUser:Entity
     {
+        public SystemUser()
+        {
+            // TODO: Complete member initialization
+        }
+
+        public SystemUser(string id): this()
+        {
+            this.Id = id;
+        }
+
 
         //SyetemUser 1:N Order
         public virtual Iesi.Collections.Generic.ISet<MyOrder> Orders

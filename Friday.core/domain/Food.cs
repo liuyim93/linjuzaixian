@@ -9,6 +9,16 @@ namespace friday.core.domain
     public class Food : friday.core.AbstractCommodity
     {
 
+        public Food()
+        {
+            // TODO: Complete member initialization
+        }
+
+        public Food(string id):this()
+        {
+            this.Id = id;
+        }
+
 
         public virtual decimal Amount
         {

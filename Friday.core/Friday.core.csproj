@@ -232,6 +232,16 @@
     <Compile Include="domain\RestaurantStatistic.cs" />
     <Compile Include="repositories\SchoolOfMerchantRepository.cs" />
     <Compile Include="repositories\ISchoolOfMerchantRepository.cs" />
+    <Compile Include="repositories\LoginUserRepository.cs" />
+    <Compile Include="repositories\ILoginUserRepository.cs" />
+    <Compile Include="repositories\RestaurantRepository.cs" />
+    <Compile Include="repositories\IRestaurantRepository.cs" />
+    <Compile Include="repositories\SchoolRepository.cs" />
+    <Compile Include="repositories\ISchoolRepository.cs" />
+    <Compile Include="repositories\MyFoodOrderRepository.cs" />
+    <Compile Include="repositories\IMyFoodOrderRepository.cs" />
+    <Compile Include="repositories\MyFavoriteRepository.cs" />
+    <Compile Include="repositories\IMyFavoriteRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />

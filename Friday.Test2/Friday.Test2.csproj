@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopulateFakeDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs" />
     <Compile Include="Test_Merchant.cs" />

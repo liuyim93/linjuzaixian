@@ -15,6 +15,12 @@ namespace friday.core
 
         }
 
+        public LoginUser(string id): this()
+        {
+            this.Id = id;
+            LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
+        }
+
         public virtual string LoginName
         {
             get;
@@ -47,7 +53,7 @@ namespace friday.core
         /// <summary>
         /// admin,shopowner,shopxiaoer,rentowner,rentxiaoer,restaurantowner,restaurantxiaoer,restaurantdelivery,shopdelivery
         /// </summary>
-        public virtual UserType UserType
+        public virtual UserTypeEnum UserType
         {
             get;
             set;

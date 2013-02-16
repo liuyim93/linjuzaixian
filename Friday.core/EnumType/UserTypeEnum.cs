@@ -6,7 +6,7 @@ using System.Text;
 namespace friday.core.EnumType
 {
 
-    public enum UserType
+    public enum UserTypeEnum
     {
         管理员=0,
           顾客=1,
@@ -16,6 +16,8 @@ namespace friday.core.EnumType
         送货员=5,
     商铺店小二=6,
     餐馆店小二=7,
-    租房店小二=8
+    租房店小二=8,
+      会员用户=9
+
     }
 }
