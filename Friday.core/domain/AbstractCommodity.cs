@@ -51,6 +51,34 @@ namespace friday.core
             set;
 
         }
+
+        //2013-02-16 pangfuxing add IsDiscount/IsLimited/DiscountInventoryCount/DiscountPrice
+        public virtual bool IsDiscount
+        {
+            get;
+            set;
+        }
+
+        public virtual bool IsLimited
+        {
+            get;
+            set;
+        }
+
+        public virtual double DiscountInventoryCount
+        {
+            get;
+            set;
+        }
+
+        public virtual double DiscountPrice
+        {
+            get;
+            set;
+        }
+
+       
+
         public virtual MerchantGoodsType MerchantGoodsType
         {
             get;

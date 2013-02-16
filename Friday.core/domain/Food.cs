@@ -35,7 +35,7 @@ namespace friday.core.domain
             get;
             set;
         }
-
+      
 
         //public  virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
         //{

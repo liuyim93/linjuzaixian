@@ -8,6 +8,10 @@ namespace friday.core.repositories
 {
     public interface IRestaurantRepository : IRepository<Restaurant>
     {
-         
+
+         Restaurant SearchByShortName(string name);
+
+
+
     }
 }

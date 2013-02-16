@@ -224,7 +224,7 @@ namespace Friday.Test2
                    Name = "鸡腿饭" + i.ToString(),
                    Price = 10,
                    Image = "image/1212/img",
-                   IsDiscount = false,
+                   //IsDiscount = false,
                    InventoryCount = 100,
                    MerchantGoodsType = restaurantFoodTye_1,
                    Restaurant = restaurant,
