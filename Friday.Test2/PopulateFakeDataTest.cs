@@ -79,7 +79,9 @@ namespace Friday.Test2
            {
                SystemUser = systemUser_1
            };
-           systemUser_1.RestaurantCart.Add(restaurantCart);
+           //systemUser_1.RestaurantCart.Add(restaurantCart);
+           //2012-02-16 pangfuxing 1-1
+           systemUser_1.RestaurantCart = restaurantCart;
            systemUser_1.Addresses.Add(address);
 
            //new SystemUserRepository().SaveOrUpdate(systemUser_1);
@@ -125,13 +127,20 @@ namespace Friday.Test2
                Rate = 0.8,
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.接受预定,
-               RestaurantType = RestaurantTypeEnum.中餐,
+               //RestaurantType = RestaurantTypeEnum.中餐,     ??
            };
 
-           RestaurantFoodType restaurantFoodTye_1 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "汉堡" };
-           RestaurantFoodType restaurantFoodTye_2 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "小吃" };
-           restaurant.RestaurantFoodTypes.Add(restaurantFoodTye_1);
-           restaurant.RestaurantFoodTypes.Add(restaurantFoodTye_2);
+           //RestaurantFoodType restaurantFoodTye_1 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "汉堡" };
+           //RestaurantFoodType restaurantFoodTye_2 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "小吃" };
+           //restaurant.RestaurantFoodTypes.Add(restaurantFoodTye_1);
+           //restaurant.RestaurantFoodTypes.Add(restaurantFoodTye_2);
+
+           //2012-02-16 pangfuxing  RestaurantFoodType->MerchantGoodsType
+           MerchantGoodsType restaurantFoodTye_1 = new MerchantGoodsType() {  Merchant = restaurant, GoodsType = "汉堡" };
+           MerchantGoodsType restaurantFoodTye_2 = new MerchantGoodsType() {  Merchant = restaurant, GoodsType = "小吃" };
+           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_1);
+           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_2);
+
            new RestaurantRepository().SaveOrUpdate(restaurant);
 
            for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
@@ -144,7 +153,7 @@ namespace Friday.Test2
                    Image = "image/1212/img",
                    IsDiscount = false,
                    InventoryCount = 100,
-                   FoodType = restaurantFoodTye_1,
+                   MerchantGoodsType = restaurantFoodTye_1,
                    Restaurant = restaurant,
 
                };
@@ -163,7 +172,7 @@ namespace Friday.Test2
                    IsDiscount = true,
                    InventoryCount = 200,
                    DiscountInventoryCount = 100,
-                   FoodType = restaurantFoodTye_2,
+                   MerchantGoodsType = restaurantFoodTye_2,
                    DiscountPrice = 10,
                    Restaurant = restaurant,
                    IsLimited = true,
@@ -197,13 +206,14 @@ namespace Friday.Test2
                Rate = 0.8,
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.接受预定,
-               RestaurantType = RestaurantTypeEnum.中餐,
+               //RestaurantType = RestaurantTypeEnum.中餐,
            };
 
-           restaurantFoodTye_1 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "米饭" };
-           restaurantFoodTye_2 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "面食" };
-           restaurant.RestaurantFoodTypes.Add(restaurantFoodTye_1);
-           restaurant.RestaurantFoodTypes.Add(restaurantFoodTye_2);
+           restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant,  GoodsType = "米饭" };
+           restaurantFoodTye_2 = new MerchantGoodsType() {  Merchant = restaurant,  GoodsType = "面食" };
+           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_1);
+           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_2);
+
            new RestaurantRepository().SaveOrUpdate(restaurant);
 
            for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
@@ -216,7 +226,7 @@ namespace Friday.Test2
                    Image = "image/1212/img",
                    IsDiscount = false,
                    InventoryCount = 100,
-                   FoodType = restaurantFoodTye_1,
+                   MerchantGoodsType = restaurantFoodTye_1,
                    Restaurant = restaurant,
 
                };
@@ -235,7 +245,7 @@ namespace Friday.Test2
                    IsDiscount = true,
                    InventoryCount = 200,
                    DiscountInventoryCount = 100,
-                   FoodType = restaurantFoodTye_2,
+                   MerchantGoodsType = restaurantFoodTye_2,
                    DiscountPrice = 10,
                    Restaurant = restaurant,
                    IsLimited = true,
