@@ -25,7 +25,9 @@ namespace Friday.Test2
        private readonly int MY_FAVAORITE_SHOP_COUNT = 5;
        private readonly int SHOP_COUNT = 10;  //we double SHOP_COUNT  eg  10*2
        private readonly int FOOD_COUNT_OF_SHOP = 10;
-       private readonly int ORDER_COUNT = 500; 
+       private readonly int ORDER_COUNT = 500;
+       string[] mCategory = { "中餐", "西餐", "清真", "烟酒", "副食品", "超市", "军用品", "个人出租", "房屋中介" };
+
        [SetUp]
         public void init()
         {
@@ -34,17 +36,14 @@ namespace Friday.Test2
                 add_SystemUser_Address_LoginUser();
             }
 
-            //2013-02-17 pangfuxing  add MerchantCategory  for RestaurantType
-            string merchantcategoryid = Guid.NewGuid().ToString();
-            MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
-            {
-                MerchantCategoryName = "中餐",
-                MerchantType = MerchantTypeEnum.餐馆
-            };
-            new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
-
+            add_MerchantCategory();
+                    
             for (int i = 0; i < SHOP_COUNT; i++)
             {
+                int mCRnd = new Random().Next(mCategory.Length);
+                string mCategoryName = mCategory[mCRnd];
+                MerchantCategory merchantCategory;
+                merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
                 add_Restaurant_Food_RestaurantFoodType(i, merchantCategory);
             }
             add_School_Restaurant();
@@ -52,6 +51,22 @@ namespace Friday.Test2
             add_Random_Xiaoer_to_Restaurant();
             add_Random_MyOrder();
         }
+       //2013-02-17  pangfuxing  add MerchantCategory
+       private void add_MerchantCategory() 
+       {
+           for (int i = 0; i < mCategory.Length; i++)
+           {
+               string merchantcategoryid = Guid.NewGuid().ToString();
+               MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
+               {
+                   MerchantCategoryName = mCategory[i],
+                   //MerchantType = MerchantTypeEnum.餐馆
+               };
+               new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
+           }
+                 
+       }
+
        private void add_SystemUser_Address_LoginUser()
        {
            string systemuserid = Guid.NewGuid().ToString();
@@ -137,7 +152,7 @@ namespace Friday.Test2
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.接受预定,
                MerchantCategory = merchantCategory
-               //RestaurantType = RestaurantTypeEnum.中餐,     ??
+              
            };
 
            //RestaurantFoodType restaurantFoodTye_1 = new RestaurantFoodType() { Restaurant = restaurant, FoodType = "汉堡" };
@@ -217,7 +232,7 @@ namespace Friday.Test2
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.接受预定,
                MerchantCategory = merchantCategory
-               //RestaurantType = RestaurantTypeEnum.中餐,
+              
               
            };
 

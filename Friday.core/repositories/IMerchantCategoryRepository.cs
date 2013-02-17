@@ -8,6 +8,6 @@ namespace friday.core.repositories
 {
     public interface IMerchantCategoryRepository : IRepository<MerchantCategory>
     {
-         
+       MerchantCategory SearchByMerchantCategoryName(string name); 
     }
 }
