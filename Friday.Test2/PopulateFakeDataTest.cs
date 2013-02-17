@@ -33,9 +33,19 @@ namespace Friday.Test2
             {
                 add_SystemUser_Address_LoginUser();
             }
+
+            //2013-02-17 pangfuxing  add MerchantCategory  for RestaurantType
+            string merchantcategoryid = Guid.NewGuid().ToString();
+            MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
+            {
+                MerchantCategoryName = "中餐",
+                MerchantType = MerchantTypeEnum.餐馆
+            };
+            new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
+
             for (int i = 0; i < SHOP_COUNT; i++)
             {
-                add_Restaurant_Food_RestaurantFoodType(i);
+                add_Restaurant_Food_RestaurantFoodType(i, merchantCategory);
             }
             add_School_Restaurant();
             add_Restaurant_to_MyFavorite();
@@ -99,17 +109,8 @@ namespace Friday.Test2
            loginUserList.Add(loginUser);
 
        }
-       private void add_Restaurant_Food_RestaurantFoodType(int index)
-       {
-           //2013-02-17 pangfuxing  add MerchantCategory  for RestaurantType
-           string merchantcategoryid = Guid.NewGuid().ToString();
-           MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
-           {
-             MerchantCategoryName="中餐",
-             MerchantType=MerchantTypeEnum.餐馆
-           };           
-           new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
-
+       private void add_Restaurant_Food_RestaurantFoodType(int index, MerchantCategory merchantCategory)
+       {      
 
            string foodid1;
            string foodid2;
