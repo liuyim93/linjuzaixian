@@ -25,7 +25,7 @@ namespace friday.core.domain
             Map(o => o.IsAnonymous);
 
             HasOne<LoginUser>(o => o.LoginUser).PropertyRef("SystemUser");
-
+            HasMany<Address>(o => o.Addresses).Cascade.All().Inverse();
 
         }
     }

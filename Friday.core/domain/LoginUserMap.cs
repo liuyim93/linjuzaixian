@@ -16,10 +16,12 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.Version);
             Map(o => o.EntityIndex);
-            References<SystemUser>(o => o.SystemUser); 
+       
             HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants).Inverse().Cascade.All();
             //References<Merchant>(o => o.Merchant);//Shop 1 :N Food
-            
+
+            //2013-02-10 basilwang we can't use unique, cause this column may be null,  will be multiple null
+            References<SystemUser>(o => o.SystemUser).Column("SystemUserID").Nullable().Cascade.All(); //.Unique()对“SystemUserID”进行了唯一性限定 
         }
     }
 }
