@@ -103,6 +103,16 @@ namespace Friday.Test2
        }
        private void add_Restaurant_Food_RestaurantFoodType(int index)
        {
+           //2013-02-17 pangfuxing  add MerchantCategory  for RestaurantType
+           string merchantcategoryid = Guid.NewGuid().ToString();
+           MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
+           {
+             MerchantCategoryName="中餐",
+             MerchantType=MerchantTypeEnum.餐馆
+           };           
+           new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
+
+
            string foodid1;
            string foodid2;
            //2013-2-4 lampard 
@@ -127,6 +137,7 @@ namespace Friday.Test2
                Rate = 0.8,
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.接受预定,
+               MerchantCategory = merchantCategory
                //RestaurantType = RestaurantTypeEnum.中餐,     ??
            };
 
@@ -206,7 +217,9 @@ namespace Friday.Test2
                Rate = 0.8,
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.接受预定,
+               MerchantCategory = merchantCategory
                //RestaurantType = RestaurantTypeEnum.中餐,
+              
            };
 
            restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant,  GoodsType = "米饭" };
@@ -224,7 +237,7 @@ namespace Friday.Test2
                    Name = "鸡腿饭" + i.ToString(),
                    Price = 10,
                    Image = "image/1212/img",
-                   //IsDiscount = false,
+                   IsDiscount = false,
                    InventoryCount = 100,
                    MerchantGoodsType = restaurantFoodTye_1,
                    Restaurant = restaurant,

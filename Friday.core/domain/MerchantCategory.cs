@@ -9,6 +9,16 @@ namespace friday.core
 {
     public class MerchantCategory:Entity
     {
+     
+         public MerchantCategory()
+        {
+            // TODO: Complete member initialization
+        }
+
+         public MerchantCategory(string id): this()
+        {
+            this.Id = id;
+        }
         //中餐 西餐 清真
         public virtual string MerchantCategoryName
         {

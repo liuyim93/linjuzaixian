@@ -242,6 +242,8 @@
     <Compile Include="repositories\IMyFoodOrderRepository.cs" />
     <Compile Include="repositories\MyFavoriteRepository.cs" />
     <Compile Include="repositories\IMyFavoriteRepository.cs" />
+    <Compile Include="repositories\IMerchantCategoryRepository.cs" />
+    <Compile Include="repositories\MerchantCategoryRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
