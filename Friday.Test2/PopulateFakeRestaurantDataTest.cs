@@ -14,7 +14,7 @@ namespace Friday.Test2
 {
 
    [TestFixture]
-    public class PopulateFakeDataTest
+    public class PopulateFakeRestaurantDataTest
     {
        private List<SystemUser> systemUserList = new List<SystemUser>();
        private List<LoginUser> loginUserList = new List<LoginUser>();
@@ -22,11 +22,11 @@ namespace Friday.Test2
        private List<Food> foodOfRestaurant1List = new List<Food>();
        private List<Food> foodOfRestaurant2List = new List<Food>();
        private readonly int SYSTEM_USER_COUNT = 500;
-       private readonly int MY_FAVAORITE_SHOP_COUNT = 5;
-       private readonly int SHOP_COUNT = 10;  //we double SHOP_COUNT  eg  10*2
-       private readonly int FOOD_COUNT_OF_SHOP = 10;
+       private readonly int MY_FAVAORITE_RESTAURANT_COUNT = 5;
+       private readonly int RESTAURANT_COUNT = 10;  //we double RESTAURANT_COUNT  eg  10*2
+       private readonly int FOOD_COUNT_OF_RESTAURANT = 10;
        private readonly int ORDER_COUNT = 500;
-       string[] mCategory = { "中餐", "西餐", "清真", "烟酒", "副食品", "超市", "军用品", "个人出租", "房屋中介" };
+       string[] mCategory = { "中餐", "西餐", "清真"};
 
        [SetUp]
         public void init()
@@ -38,7 +38,7 @@ namespace Friday.Test2
 
             add_MerchantCategory();
                     
-            for (int i = 0; i < SHOP_COUNT; i++)
+            for (int i = 0; i < RESTAURANT_COUNT; i++)
             {
                 int mCRnd = new Random().Next(3);//mCategory.Length
                 string mCategoryName = mCategory[mCRnd];
@@ -60,7 +60,7 @@ namespace Friday.Test2
                MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
                {
                    MerchantCategoryName = mCategory[i],
-                   //MerchantType = MerchantTypeEnum.餐馆
+                   MerchantType = MerchantTypeEnum.餐馆
                };
                new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
            }
@@ -168,7 +168,7 @@ namespace Friday.Test2
 
            new RestaurantRepository().SaveOrUpdate(restaurant);
 
-           for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
+           for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
            {
                foodid1 = Guid.NewGuid().ToString();
                Food food_1 = new Food(foodid1)
@@ -186,7 +186,7 @@ namespace Friday.Test2
                foodOfRestaurant1List.Add(food_1);
            }
 
-           for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
+           for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
            {
                foodid2 = Guid.NewGuid().ToString();
                Food food_2 = new Food(foodid2)
@@ -243,7 +243,7 @@ namespace Friday.Test2
 
            new RestaurantRepository().SaveOrUpdate(restaurant);
 
-           for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
+           for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
            {
                foodid1 = Guid.NewGuid().ToString();
                Food food_1 = new Food(foodid1)
@@ -261,7 +261,7 @@ namespace Friday.Test2
                foodOfRestaurant2List.Add(food_1);
            }
 
-           for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
+           for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
            {
                foodid2 = Guid.NewGuid().ToString();
                Food food_2 = new Food(foodid2)
@@ -295,7 +295,7 @@ namespace Friday.Test2
                Name = "山东财经大学燕山校区",
                Image = "image/121.jpg",
            };
-           for (int i = 0; i < SHOP_COUNT; i++)
+           for (int i = 0; i < RESTAURANT_COUNT; i++)
            {
                Restaurant restaurant = new RestaurantRepository().SearchByShortName("leermei"+i.ToString());
                if (restaurant != null)
@@ -310,7 +310,7 @@ namespace Friday.Test2
 
                }
            }
-           for (int i = 0; i < SHOP_COUNT; i++)
+           for (int i = 0; i < RESTAURANT_COUNT; i++)
            {
                Restaurant restaurant = new RestaurantRepository().SearchByShortName("baofantang" + i.ToString());
                if (restaurant != null)
@@ -335,7 +335,7 @@ namespace Friday.Test2
            {
                int index = new Random().Next(systemUserListClone.Count());
                SystemUser systemUser = systemUserListClone.ElementAt(index);           
-               int restaurantCountRnd = new Random().Next(MY_FAVAORITE_SHOP_COUNT) + 1;
+               int restaurantCountRnd = new Random().Next(MY_FAVAORITE_RESTAURANT_COUNT) + 1;
                List<Restaurant> restaurantListClone = new List<Restaurant>(restaurantList);
                for (int j = 1; j <= restaurantCountRnd; j++)
                {
@@ -360,7 +360,7 @@ namespace Friday.Test2
        private void add_Random_Xiaoer_to_Restaurant()
        {
            Restaurant restaurant;
-           for (int i = 0; i < SHOP_COUNT; i++)
+           for (int i = 0; i < RESTAURANT_COUNT; i++)
            {
                restaurant = new RestaurantRepository().SearchByShortName("leermei"+i.ToString());
                int xiaoerCountRnd = new Random().Next(3) + 1;
@@ -369,7 +369,7 @@ namespace Friday.Test2
                    add_LoginUser_Restaurant(restaurant, j);
                }
            }
-           for (int i = 0; i < SHOP_COUNT; i++)
+           for (int i = 0; i < RESTAURANT_COUNT; i++)
            {
                restaurant = new RestaurantRepository().SearchByShortName("baofantang" + i.ToString());
                int xiaoerCountRnd = new Random().Next(3) + 1;
@@ -431,7 +431,7 @@ namespace Friday.Test2
                SendTime = "11:20",
                Description = "不要辣椒"
            };
-           int foodCountRnd = new Random().Next(FOOD_COUNT_OF_SHOP) + 1;
+           int foodCountRnd = new Random().Next(FOOD_COUNT_OF_RESTAURANT) + 1;
            var foodListClone=new List<Food>(restaurant.Foods);
            for (int i = 0; i < foodCountRnd; i++)
            {

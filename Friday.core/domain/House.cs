@@ -7,6 +7,15 @@ namespace friday.core
 {
     public class House:AbstractCommodity
     {
+         public House()
+        {
+            // TODO: Complete member initialization
+        }
+
+         public House(string id): this()
+        {
+            this.Id = id;
+        }
         public virtual DateTime TimeOfRentFrom
         {
             get;

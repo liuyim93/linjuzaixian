@@ -244,6 +244,14 @@
     <Compile Include="repositories\IMyFavoriteRepository.cs" />
     <Compile Include="repositories\IMerchantCategoryRepository.cs" />
     <Compile Include="repositories\MerchantCategoryRepository.cs" />
+    <Compile Include="repositories\ShopRepository.cs" />
+    <Compile Include="repositories\IShopRepository.cs" />
+    <Compile Include="repositories\MyCommodityOrderRepository.cs" />
+    <Compile Include="repositories\IMyCommodityOrderRepository.cs" />
+    <Compile Include="repositories\RentRepository.cs" />
+    <Compile Include="repositories\IRentRepository.cs" />
+    <Compile Include="repositories\MyHouseOrderRepository.cs" />
+    <Compile Include="repositories\IMyHouseOrderRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
