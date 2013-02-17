@@ -18,10 +18,10 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
             Map(o => o.Price);
             Map(o => o.SendPrice);
-            References<SystemUser>(o => o.SystemUser).Not.Nullable();
+         
             References<Restaurant>(o => o.Restaurant); 
             HasMany<CartOfFood>(o => o.CartOfFoods).Inverse().Cascade.All();
-
+            References<SystemUser>(o => o.SystemUser).Column("SystemUserID").Nullable().Cascade.All(); 
 
         }
     }
