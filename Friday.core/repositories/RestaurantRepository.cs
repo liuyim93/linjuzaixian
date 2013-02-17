@@ -18,8 +18,8 @@ namespace friday.core.repositories
 
         public Restaurant SearchByShortName(string  name) 
         {
-            var q = Session.CreateQuery(@"select s  from   Restaurant as  rt   where  rt.Name=:rname ")
-                      .SetString("rname", name).UniqueResult<Restaurant>(); ;
+            var q = Session.CreateQuery(@"select rt  from   Restaurant as  rt   where  rt.ShortName=:rshortname ")
+                      .SetString("rshortname", name).UniqueResult<Restaurant>(); ;
            
             return q;
         }

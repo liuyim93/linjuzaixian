@@ -11,11 +11,15 @@ namespace friday.core.domain
         public SystemUser()
         {
             // TODO: Complete member initialization
+            Orders = new Iesi.Collections.Generic.HashedSet<MyOrder>();
+            Addresses = new Iesi.Collections.Generic.HashedSet<Address>();
         }
 
         public SystemUser(string id): this()
         {
             this.Id = id;
+            Orders = new Iesi.Collections.Generic.HashedSet<MyOrder>();
+            Addresses = new Iesi.Collections.Generic.HashedSet<Address>();
         }
 
 

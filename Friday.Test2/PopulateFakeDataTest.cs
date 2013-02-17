@@ -95,6 +95,7 @@ namespace Friday.Test2
                UserType = UserTypeEnum.会员用户
            };
            systemUser_1.LoginUser = loginUser;
+           new SystemUserRepository().SaveOrUpdate(systemUser_1);
            new LoginUserRepository().SaveOrUpdate(loginUser);
 
            systemUserList.Add(systemUser_1);
