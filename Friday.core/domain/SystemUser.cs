@@ -120,7 +120,12 @@ namespace friday.core.domain
         }
 
 
+        public virtual Iesi.Collections.Generic.ISet<MyFavorite> MyFavorites
+        {
+            get;
 
+            set;
+        }
     
     }
 }
