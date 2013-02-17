@@ -19,8 +19,8 @@ namespace friday.core.domain
             Map(o => o.SendPrice);
             HasMany<CartOfCommodity>(o => o.CartOfCommodities).Inverse().Cascade.All();
             References<SystemUser>(o => o.SystemUser).Not.Nullable();
-            References<Shop>(o => o.Shop); 
-        
+            References<Shop>(o => o.Shop);
+             
 
 
 

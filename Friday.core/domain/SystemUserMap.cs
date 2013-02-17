@@ -27,9 +27,9 @@ namespace friday.core.domain
             HasOne<LoginUser>(o => o.LoginUser).PropertyRef("SystemUser");
             HasMany<Address>(o => o.Addresses).Cascade.All().Inverse();
             HasMany<MyFavorite>(o => o.MyFavorites).Inverse();
-            HasOne<RestaurantCart>(o => o.RestaurantCart).Cascade.SaveUpdate().PropertyRef("SystemUser") ;//no user-->keynotnullable
-
-
+            HasMany<RestaurantCart>(o => o.RestaurantCarts).Inverse().Cascade.SaveUpdate();//no user-->keynotnullable
+            HasMany<RentCart>(o => o.RentCarts).Inverse().Cascade.SaveUpdate();
+            HasMany<ShoppingCart>(o => o.ShoppingCarts).Inverse().Cascade.SaveUpdate();
 
         }
     }

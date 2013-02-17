@@ -21,7 +21,7 @@ namespace friday.core.domain
          
             References<Restaurant>(o => o.Restaurant); 
             HasMany<CartOfFood>(o => o.CartOfFoods).Inverse().Cascade.All();
-            References<SystemUser>(o => o.SystemUser).Column("SystemUserID").Nullable().Cascade.All(); 
+            References<SystemUser>(o => o.SystemUser).Not.Nullable();
 
         }
     }

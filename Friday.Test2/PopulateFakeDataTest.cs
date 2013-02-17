@@ -79,9 +79,7 @@ namespace Friday.Test2
            {
                SystemUser = systemUser_1
            };
-           //systemUser_1.RestaurantCart.Add(restaurantCart);
-           //2012-02-16 pangfuxing 1-1
-           systemUser_1.RestaurantCart = restaurantCart;
+           systemUser_1.RestaurantCarts.Add(restaurantCart);
            systemUser_1.Addresses.Add(address);
 
            //new SystemUserRepository().SaveOrUpdate(systemUser_1);
