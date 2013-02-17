@@ -40,7 +40,7 @@ namespace Friday.Test2
                     
             for (int i = 0; i < SHOP_COUNT; i++)
             {
-                int mCRnd = new Random().Next(mCategory.Length);
+                int mCRnd = new Random().Next(3);//mCategory.Length
                 string mCategoryName = mCategory[mCRnd];
                 MerchantCategory merchantCategory;
                 merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
