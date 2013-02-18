@@ -15,12 +15,12 @@
             <tr>
                 <td>
                     <label>商铺名称:</label>
-                    <input  type="text" name="RestaurantName" class="textInput" 
+                    <input  type="text" name="Name" class="textInput" 
                         value="" />
                 </td>
                 <td>
                     <label>联系人姓名:</label>
-                    <input type="text" name="OwnerName" class="textInput"
+                    <input type="text" name="Owener" class="textInput"
                         value="" />
                 </td>
                 <td>
@@ -37,7 +37,7 @@
              <tr>
                 <td>
                     <label>商铺当前状态:</label>
-                    <input  type="text" name="RestaurantStatus" class="textInput" 
+                    <input  type="text" name="ShopStatus" class="textInput" 
                         value="" />
                 </td>
                 <td>

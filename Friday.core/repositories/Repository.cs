@@ -224,7 +224,11 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
                         continue;
                     }
-
+                    if (df.type.Equals("ShortName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
                     if (df.type.Equals("Address"))
                     {
                         query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));

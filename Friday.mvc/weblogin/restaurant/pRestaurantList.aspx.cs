@@ -22,7 +22,7 @@ namespace Friday.mvc.weblogin.restaurant
         public string startDate;
         public string endDate;        
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IRepository<Restaurant> iRepositoryRestaurant = UnityHelper.UnityToT<IRepository<Restaurant>>();  
+        IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();  
         
         protected void Page_Load(object sender, EventArgs e)
         {                     
@@ -35,7 +35,62 @@ namespace Friday.mvc.weblogin.restaurant
                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
                    int start = (pageNum - 1) * numPerPageValue;
                    int limit = numPerPageValue;
-                   IList<Restaurant> restaurantList = iRepositoryRestaurant.GetPageList(start, limit, out total);
+
+                   List<DataFilter> filterList = new List<DataFilter>();
+                   if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "Name",
+                           value = Request.Form["Name"]
+
+                       });
+                   if(!string.IsNullOrEmpty(Request.Form["Owener"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "Owener",
+                           value = Request.Form["Owener"]
+
+                       });
+                   if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "ShortName",
+                           value = Request.Form["ShortName"]
+
+                       });
+                   if (!string.IsNullOrEmpty(Request.Form["Address"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "Address",
+                           value = Request.Form["Address"]
+
+                       });
+                   if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "ShopStatus",
+                           value = Request.Form["ShopStatus"]
+
+                       });
+                   if (!string.IsNullOrEmpty(Request.Form["Tel"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "Tel",
+                           value = Request.Form["Tel"]
+
+                       });
+                   var filter = new DataFilter();
+                   if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                   {
+                       filter.type = "CreateTime";
+                       filter.value = Request.Form["StartDate"];
+                       if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                       {
+                           filter.valueForCompare = Request.Form["EndDate"];
+                       }
+                   }
+                   
+                   IList<Restaurant> restaurantList = iRepositoryRestaurant.Search(filterList,start, limit, out total);
 
 
                    repeater.DataSource = restaurantList;
