@@ -35,7 +35,11 @@ namespace friday.core.domain
             get;
             set;
         }
-      
+        public virtual int MonthAmount
+        {
+            get;
+            set;
+        }
 
         //public  virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
         //{

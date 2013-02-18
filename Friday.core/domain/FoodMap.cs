@@ -29,9 +29,10 @@ namespace friday.core.domain
             Map(o => o.IsLimited);
             //Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>(); 
 
-            Map(o => o.Amount);
-            Map(o => o.ValuingCount);
-            Map(o => o.AverageValuing);
+            Map(o => o.Amount).Default("0").Not.Nullable(); ;
+            Map(o => o.ValuingCount).Default("0").Not.Nullable(); ;
+            Map(o => o.AverageValuing).Default("0").Not.Nullable(); ;
+            Map(o => o.MonthAmount).Default("0").Not.Nullable();
              
 
             //References<MerchantGoodsType>(o => o.MerchantGoodsType);
