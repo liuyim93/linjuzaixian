@@ -19,8 +19,14 @@ namespace Friday.mvc.weblogin.restaurant
         public string systemUserId;
 
 
-        public string startDate;
-        public string endDate;        
+        protected string startDate;
+        protected string endDate;
+        protected string name;
+        protected string owener;
+        protected string shortName;
+        protected string address;
+        protected string shopStatus;
+        protected string tel;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
         IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();  
         
@@ -41,52 +47,52 @@ namespace Friday.mvc.weblogin.restaurant
                        filterList.Add(new DataFilter()
                        {
                            type = "Name",
-                           value = Request.Form["Name"]
+                           value = name=Request.Form["Name"]
 
                        });
                    if(!string.IsNullOrEmpty(Request.Form["Owener"]))
                        filterList.Add(new DataFilter()
                        {
                            type = "Owener",
-                           value = Request.Form["Owener"]
+                           value = owener=Request.Form["Owener"]
 
                        });
                    if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
                        filterList.Add(new DataFilter()
                        {
                            type = "ShortName",
-                           value = Request.Form["ShortName"]
+                           value = shortName=Request.Form["ShortName"]
 
                        });
                    if (!string.IsNullOrEmpty(Request.Form["Address"]))
                        filterList.Add(new DataFilter()
                        {
                            type = "Address",
-                           value = Request.Form["Address"]
+                           value = address=Request.Form["Address"]
 
                        });
                    if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
                        filterList.Add(new DataFilter()
                        {
                            type = "ShopStatus",
-                           value = Request.Form["ShopStatus"]
+                           value = shopStatus=Request.Form["ShopStatus"]
 
                        });
                    if (!string.IsNullOrEmpty(Request.Form["Tel"]))
                        filterList.Add(new DataFilter()
                        {
                            type = "Tel",
-                           value = Request.Form["Tel"]
+                           value = tel=Request.Form["Tel"]
 
                        });
                    var filter = new DataFilter();
                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                    {
                        filter.type = "CreateTime";
-                       filter.value = Request.Form["StartDate"];
+                       filter.value = startDate=Request.Form["StartDate"];
                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
                        {
-                           filter.valueForCompare = Request.Form["EndDate"];
+                           filter.valueForCompare =endDate= Request.Form["EndDate"];
                        }
                        filterList.Add(filter);
                    }

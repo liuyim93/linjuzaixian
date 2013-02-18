@@ -15,44 +15,44 @@
             <tr>
                 <td>
                     <label>商铺名称:</label>
-                    <input  type="text" name="Name" class="textInput" 
+                    <input  type="text" name="Name" class="textInput" value="<%=name %>"
                         value="" />
                 </td>
                 <td>
                     <label>联系人姓名:</label>
-                    <input type="text" name="Owener" class="textInput"
+                    <input type="text" name="Owener" class="textInput" value="<%=owener %>"
                         value="" />
                 </td>
                 <td>
                     <label>简称:</label>
-                    <input  type="text" name="ShortName" class="textInput" 
+                    <input  type="text" name="ShortName" class="textInput"  value="<%=shortName %>"
                         value="" />
                 </td>
                 <td>
                     <label>地址:</label>
-                    <input type="text" name="Address" class="textInput" 
+                    <input type="text" name="Address" class="textInput" value="<%=address %>"
                         value="" />
                 </td>
             </tr>
              <tr>
                 <td>
                     <label>商铺当前状态:</label>
-                    <input  type="text" name="ShopStatus" class="textInput" 
+                    <input  type="text" name="ShopStatus" class="textInput" value="<%=shopStatus %>"
                         value="" />
                 </td>
                 <td>
                     <label>电话:</label>
-                    <input type="text" name="Tel" class="textInput" 
+                    <input type="text" name="Tel" class="textInput"  value="<%=tel %>"
                         value="" />
                 </td>
                 <td>
                     <label>起始日期:</label>
-                    <input  type="text" name="StartDate" class="date textInput readonly" readonly="true"
+                    <input  type="text" name="StartDate" class="date textInput readonly" readonly="true" value="<%=startDate %>"
                         value="" />
                 </td>
                 <td>
                     <label>截止日期:</label>
-                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true"
+                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true" value="<%=endDate %>"
                         value="" />
                 </td>
             </tr>
