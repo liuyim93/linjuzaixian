@@ -25,7 +25,7 @@ namespace friday.core.repositories
         }
         protected virtual ICriteria Query
         {
-            get { return Session.CreateCriteria(typeof(Shop)); }
+            get { return Session.CreateCriteria(typeof(Restaurant)); }
         }
         //对外获取方法
         public IList<Restaurant> Search(List<DataFilter> termList)

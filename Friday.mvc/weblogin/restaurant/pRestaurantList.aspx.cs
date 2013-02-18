@@ -88,6 +88,7 @@ namespace Friday.mvc.weblogin.restaurant
                        {
                            filter.valueForCompare = Request.Form["EndDate"];
                        }
+                       filterList.Add(filter);
                    }
                    
                    IList<Restaurant> restaurantList = iRepositoryRestaurant.Search(filterList,start, limit, out total);
