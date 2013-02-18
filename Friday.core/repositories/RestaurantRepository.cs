@@ -23,7 +23,33 @@ namespace friday.core.repositories
            
             return q;
         }
+        protected virtual ICriteria Query
+        {
+            get { return Session.CreateCriteria(typeof(Shop)); }
+        }
+        //对外获取方法
+        public IList<Restaurant> Search(List<DataFilter> termList)
+        {
+            return SearchByRestaurant(Query, termList, true).List<Restaurant>();
+        }
+        public IList<Restaurant> Search(List<DataFilter> termList, int start, int limit, out long total)
+        {
+            ICriteria query = SearchByRestaurant(Query, termList, true);
+            //2013-02-11 basilwang must use projection.rowcount and clear order ( sql does't support only count(*) and order by)
+            ICriteria countCriteria = CriteriaTransformer.Clone(query)
+            .SetProjection(NHibernate.Criterion.Projections.RowCountInt64());
 
+            countCriteria.ClearOrders();
+            total = countCriteria.UniqueResult<long>();
+            return query.SetFirstResult(start)
+                 .SetMaxResults(limit)
+                 .List<Restaurant>();
+        }
+
+        //public Restaurant SearchByShortName(string shortName)
+        //{
+        //    return Query.Add(Restrictions.Eq("ShortName", shortName)).Add(Restrictions.Eq("IsDelete", false)).List<Restaurant>().FirstOrDefault();
+        //}
 
 
     }
