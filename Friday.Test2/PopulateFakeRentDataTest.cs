@@ -170,6 +170,9 @@ namespace Friday.Test2
                    InventoryCount = 100,
                    MerchantGoodsType = rentHouseTye_1,
                    Rent = rent,
+                   TimeOfRentFrom=Convert.ToDateTime("2007-8-1"),
+                   TimeOfRentTO = Convert.ToDateTime("2008-8-1"),   
+                   DaySpanOfRent=12
 
                };
                rent.Houses.Add(house_1);
@@ -191,6 +194,9 @@ namespace Friday.Test2
                    DiscountPrice = 10,
                    Rent = rent,
                    IsLimited = true,
+                   TimeOfRentFrom = Convert.ToDateTime("2007-10-1"),
+                   TimeOfRentTO = Convert.ToDateTime("2008-4-1"),
+                   DaySpanOfRent = 6
 
                };
                rent.Houses.Add(house_2);
@@ -240,6 +246,9 @@ namespace Friday.Test2
                    InventoryCount = 100,
                    MerchantGoodsType = rentHouseTye_1,
                    Rent = rent,
+                   TimeOfRentFrom = Convert.ToDateTime("2007-1-1"),
+                   TimeOfRentTO = Convert.ToDateTime("2008-1-1"),
+                   DaySpanOfRent = 12
 
                };
                rent.Houses.Add(house_1);
@@ -261,6 +270,9 @@ namespace Friday.Test2
                    DiscountPrice = 10,
                    Rent = rent,
                    IsLimited = true,
+                   TimeOfRentFrom = Convert.ToDateTime("2007-5-1"),
+                   TimeOfRentTO = Convert.ToDateTime("2008-10-1"),
+                   DaySpanOfRent = 5
 
                };
                rent.Houses.Add(house_2);
