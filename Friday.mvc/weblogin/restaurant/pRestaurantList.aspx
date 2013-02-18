@@ -58,7 +58,7 @@
     </ul>
 </div>
 <div id="restaurantList">
-    <table class="table" layouth="400">
+    <table class="table" layouth="540">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
@@ -83,7 +83,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="restaurant/pRestaurantDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel-v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="restaurant/pRestaurantDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
@@ -131,6 +131,7 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
+            debugger
             o.find("#restaurantList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
