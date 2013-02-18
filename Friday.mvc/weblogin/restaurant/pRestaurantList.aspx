@@ -35,11 +35,15 @@
                 </td>
             </tr>
              <tr>
-                <td>
-                    <label>商铺当前状态:</label>
-                    <input  type="text" name="ShopStatus" class="textInput" value="<%=shopStatus %>"
-                        value="" />
-                </td>
+                 <td>
+                     <label>
+                         商铺当前状态:</label>
+                     <select name="ShopStatus" id="ShopStatus" runat="server">
+                         <option value="">请选择</option>
+                         <option value="营业时间">营业时间</option>
+                         <option value="正在休息">正在休息</option>
+                     </select>
+                 </td>
                 <td>
                     <label>电话:</label>
                     <input type="text" name="Tel" class="textInput"  value="<%=tel %>"
@@ -90,7 +94,7 @@
     </ul>
 </div>
 <div id="restaurantList">
-    <table class="table" layouth="540">
+    <table class="table" layouth="440">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
