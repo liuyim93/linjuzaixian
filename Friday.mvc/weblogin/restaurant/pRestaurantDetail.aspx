@@ -1,18 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRestaurantDetail.aspx.cs" Inherits="Friday.mvc.weblogin.restaurant.pRestaurantDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRestaurantDetail.aspx.cs"
+    Inherits="Friday.mvc.weblogin.restaurant.pRestaurantDetail" %>
 
-
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+        </div>
+    </div>
+    <div class="tabsContent" style="height: 250px;">
+    </div>
+    <div class="tabsFooter">
+        <div class="tabsFooterContent">
+        </div>
+    </div>
+</div>
 <div class="page">
     <div class="pageContent">
-    <div class="panelBar">
-        <ul class="toolBar">
-            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>餐馆详情</span>
-           </a></li>
-           
-        </ul>
-    </div>
-        <div class="pageFormContent" style=" height:250px;">
-         
+        <div class="panelBar">
+            <ul class="toolBar">
+                <li><a class="add" href="OrderFoodList.aspx" target="dialog" rel=""><span>餐馆详情</span>
+                </a></li>
+            </ul>
+        </div>
+        <div class="pageFormContent" style="height: 250px;">
             <h1>
                 餐馆基本信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
@@ -34,30 +43,37 @@
             <p>
                 <label>
                     早餐配送时间：</label>
-                <input type="text" id="MorningBeginHour" size="10" class="required textInput gray" runat="server"   /> <label style=" width:10px">—</label><input type="text" id="MorningEndHour" size="10" class="required textInput gray" runat="server" />
+                <input type="text" id="MorningBeginHour" size="10" class="required textInput gray"
+                    runat="server" />
+                <label style="width: 10px">
+                    —</label><input type="text" id="MorningEndHour" size="10" class="required textInput gray"
+                        runat="server" />
             </p>
-             <p>
+            <p>
                 <label>
                     午餐配送时间：</label>
-               <input type="text" id="AfternoonBeginHour" size="10" class="required textInput gray" runat="server" /><label style=" width:10px">—</label><input type="text" id="AfternoonEndHour" size="10" class="required textInput gray" runat="server" />
+                <input type="text" id="AfternoonBeginHour" size="10" class="required textInput gray"
+                    runat="server" /><label style="width: 10px">—</label><input type="text" id="AfternoonEndHour"
+                        size="10" class="required textInput gray" runat="server" />
             </p>
-             <p>
+            <p>
                 <label>
                     晚餐配送时间：</label>
-               <input type="text" id="NightStartHour" size="10" class="required textInput gray" runat="server" /><label style=" width:10px">—</label><input type="text" id="NightEndHour" size="10" class="required textInput gray" runat="server" />
-              </p>
-             <p>
+                <input type="text" id="NightStartHour" size="10" class="required textInput gray"
+                    runat="server" /><label style="width: 10px">—</label><input type="text" id="NightEndHour"
+                        size="10" class="required textInput gray" runat="server" />
+            </p>
+            <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
             </p>
-             
-              <p>
+            <p>
                 <label>
                     距离：</label>
                 <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
             </p>
-               <p>
+            <p>
                 <label>
                     折扣：</label>
                 <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
@@ -67,56 +83,58 @@
                     Tel：</label>
                 <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
             </p>
-
-             <p>
+            <p>
                 <label>
                     Email：</label>
                 <input type="text" id="Email" size="30" class="required email" runat="server" />
             </p>
-             <p>
+            <p>
                 <label>
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
-           <p>
+            <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" style="width:85px" runat="server">
-					<option value="">请选择</option>
-				
-					<option value="1">营业时间</option>
+                <select id="ShopStatus" style="width: 85px" runat="server">
+                    <option value="">请选择</option>
+                    <option value="1">营业时间</option>
                     <option value="2">正在休息</option>
-				</select> 
+                </select>
             </p>
-          <p></p><p></p>
-           <div>
-            <p >
-                 <label >商铺公告：</label>
-					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
-           </p>
-           </div>
-           <div>
-            <p >
-                 <label >商铺活动：</label>
-					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
-           </p>
-           </div>        
-         <div style=" clear:left; width:80%; margin-top:280px;margin-bottom:60px;" >
-             <p>
-                 <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
+            <p>
+            </p>
+            <p>
+            </p>
+            <div>
+                <p>
+                    <label>
+                        商铺公告：</label>
+                    <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="15"
+                        cols="42" runat="server"></textarea>
                 </p>
-                  
-       </div>
-           
-        
-           
+            </div>
+            <div>
+                <p>
+                    <label>
+                        商铺活动：</label>
+                    <textarea class="editor" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
+                </p>
+            </div>
+            <div style="clear: left; width: 80%; margin-top: 280px; margin-bottom: 60px;">
+                <p>
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+                </p>
+            </div>
         </div>
     </div>
 </div>
-<script   type="text/javascript">
+<script type="text/javascript">
 
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
