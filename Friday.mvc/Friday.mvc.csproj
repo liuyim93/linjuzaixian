@@ -271,12 +271,12 @@
     <Compile Include="weblogin\nRentUpdate.aspx.designer.cs">
       <DependentUpon>nRentUpdate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\restaurant\pRestaurantUpdate.aspx.cs">
-      <DependentUpon>pRestaurantUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\restaurant\pEditRestaurant.aspx.cs">
+      <DependentUpon>pEditRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\restaurant\pRestaurantUpdate.aspx.designer.cs">
-      <DependentUpon>pRestaurantUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\restaurant\pEditRestaurant.aspx.designer.cs">
+      <DependentUpon>pEditRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\nRentAdd.aspx.cs">
       <DependentUpon>nRentAdd.aspx</DependentUpon>
@@ -285,12 +285,12 @@
     <Compile Include="weblogin\nRentAdd.aspx.designer.cs">
       <DependentUpon>nRentAdd.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\restaurant\pRestaurantAdd.aspx.cs">
-      <DependentUpon>pRestaurantAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\restaurant\pAddRestaurant.aspx.cs">
+      <DependentUpon>pAddRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\restaurant\pRestaurantAdd.aspx.designer.cs">
-      <DependentUpon>pRestaurantAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\restaurant\pAddRestaurant.aspx.designer.cs">
+      <DependentUpon>pAddRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\nShopAdd.aspx.cs">
       <DependentUpon>nShopAdd.aspx</DependentUpon>
@@ -1146,9 +1146,9 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
     <Content Include="weblogin\RentList.aspx" />
     <Content Include="weblogin\nRentUpdate.aspx" />
-    <Content Include="weblogin\restaurant\pRestaurantUpdate.aspx" />
+    <Content Include="weblogin\restaurant\pEditRestaurant.aspx" />
     <Content Include="weblogin\nRentAdd.aspx" />
-    <Content Include="weblogin\restaurant\pRestaurantAdd.aspx" />
+    <Content Include="weblogin\restaurant\pAddRestaurant.aspx" />
     <Content Include="weblogin\nShopAdd.aspx" />
     <Content Include="weblogin\SchoolList.aspx" />
     <Content Include="weblogin\school\nSchoolAdd.aspx" />

@@ -11,27 +11,33 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.restaurant
 {
-    public partial class pRestaurantAdd : System.Web.UI.Page
+    public partial class pEditRestaurant : System.Web.UI.Page
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-    
+        private Restaurant Restaurant;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            string uid = Request.Params["uid"].ToString();
+            Restaurant = iRestaurantRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
                 SaveRestaurant();
             }
-            
+            else
+            {
+
+                BindingHelper.ObjectToControl(Restaurant, this);
+
+            }
         }
 
         private void SaveRestaurant()
         {
-            Restaurant rnt = new Restaurant();
 
-            BindingHelper.RequestToObject(rnt);
-            iRestaurantRepository.SaveOrUpdate(rnt);
+            BindingHelper.RequestToObject(Restaurant);
+
+            iRestaurantRepository.SaveOrUpdate(Restaurant);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
