@@ -19,7 +19,12 @@ namespace friday.core.components
         {
             configuration = Fluently.Configure(
                 new NHibernate.Cfg.Configuration().Configure())
-                .Mappings(m => m.FluentMappings.AddFromAssembly(typeof(SessionBuilder).Assembly)).BuildConfiguration();
+                .Mappings(m => m.FluentMappings.AddFromAssembly(typeof(SessionBuilder).Assembly))
+                .ExposeConfiguration(x =>
+                                   {
+                                       x.SetInterceptor(new SqlStatementInterceptor());
+                                   })
+                .BuildConfiguration();
         }
         public static Configuration Configuration
         {

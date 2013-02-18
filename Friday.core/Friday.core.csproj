@@ -90,6 +90,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\SqlStatementInterceptor.cs" />
     <Compile Include="domain\AddressMap.cs" />
     <Compile Include="domain\CartOfCommodity.cs" />
     <Compile Include="domain\CartOfHouse.cs" />
