@@ -14,13 +14,45 @@
         <table class="searchContent">
             <tr>
                 <td>
-                    起始日期:
-                    <input id="Text3" type="text" name="StartDate" class="date textInput readonly" readonly="true"
+                    <label>商铺名称:</label>
+                    <input  type="text" name="RestaurantName" class="textInput" 
                         value="" />
                 </td>
                 <td>
-                    截止日期:
-                    <input id="Text4" type="text" name="EndDate" class="date textInput readonly" readonly="true"
+                    <label>联系人姓名:</label>
+                    <input type="text" name="OwnerName" class="textInput"
+                        value="" />
+                </td>
+                <td>
+                    <label>简称:</label>
+                    <input  type="text" name="ShortName" class="textInput" 
+                        value="" />
+                </td>
+                <td>
+                    <label>地址:</label>
+                    <input type="text" name="Address" class="textInput" 
+                        value="" />
+                </td>
+            </tr>
+             <tr>
+                <td>
+                    <label>商铺当前状态:</label>
+                    <input  type="text" name="RestaurantStatus" class="textInput" 
+                        value="" />
+                </td>
+                <td>
+                    <label>电话:</label>
+                    <input type="text" name="Tel" class="textInput" 
+                        value="" />
+                </td>
+                <td>
+                    <label>起始日期:</label>
+                    <input  type="text" name="StartDate" class="date textInput readonly" readonly="true"
+                        value="" />
+                </td>
+                <td>
+                    <label>截止日期:</label>
+                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true"
                         value="" />
                 </td>
             </tr>
