@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
+using friday.core.EnumType;
 
 namespace friday.core.domain
 {
@@ -35,7 +36,6 @@ namespace friday.core.domain
             Map(o => o.ShopHours);
             Map(o=>o.Tel);
             Map(o=>o.Cost);
-            Map(o => o.ShopStatus);
             HasMany<Food>(o => o.Foods).Inverse().Cascade.All();
            
             //HasMany<MyFoodOrder>(o => o.MyFoodOrders).Inverse().LazyLoad().Cascade.All();

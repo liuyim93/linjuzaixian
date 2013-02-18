@@ -96,8 +96,8 @@
                     商铺当前状态：</label>
                 <select id="ShopStatus" style="width: 85px" runat="server">
                     <option value="">请选择</option>
-                    <option value="1">营业时间</option>
-                    <option value="2">正在休息</option>
+                    <option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
                 </select>
             </p>
          </div>
