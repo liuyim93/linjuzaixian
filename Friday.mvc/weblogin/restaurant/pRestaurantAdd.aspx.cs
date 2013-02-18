@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.restaurant
 {
-    public partial class nRestaurantAdd : System.Web.UI.Page
+    public partial class pRestaurantAdd : System.Web.UI.Page
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
     
