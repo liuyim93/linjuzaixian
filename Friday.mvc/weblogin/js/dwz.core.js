@@ -180,9 +180,9 @@ var DWZ = {
 			var $this = $(this);
 
 			$this.trigger(DWZ.eventType.pageClear);
-			
+			//2013-02-11 basilwang replace get with post 
 			$.ajax({
-				type: op.type || 'GET',
+				type: op.type || 'POST',
 				url: op.url,
 				data: op.data,
 				cache: false,
@@ -209,9 +209,19 @@ var DWZ = {
                            if(filters.length!=0)
                              prefix=filters[0].value;
 						}
-                        $this.html(response).initUI(prefix);
+                        //2013-02-13 basilwang deal with rel-hook
+                        var rel_hook=op.data.rel_v3;
+                        if(typeof rel_hook=="undefined")
+                        {
+                           var filters=$.grep(op.data, function(e){ return e.name == "rel_v3"; });
+                           if(filters.length!=0)
+                             rel_hook=filters[0].value;
+						}
+                        $this.html(response).initUI(prefix,rel_hook);
                         //2013-01-15 basilwang trigger panelloaded
-                        $this.trigger("panelloaded");
+                        //$this.trigger("panelloaded");
+                        //2013-02-10 basilwang use document
+                        $(document).trigger("panelloaded",[$this]);
 						if ($.isFunction(op.callback)) op.callback(response);
 					}
 				},
@@ -227,9 +237,10 @@ var DWZ = {
 			$(this).ajaxUrl({url:url, data:data, callback:callback});
 		},
         //2013-01-12 basilwang add parameter url
-		initUI: function(url){
+        //2013-02-13 basilwang change url to prefix and then add another parameter rel-hook 
+		initUI: function(prefix,rel_hook){
 			return this.each(function(){
-				if($.isFunction(initUI)) initUI(this,url);
+				if($.isFunction(initUI)) initUI(this,prefix,rel_hook);
 			});
 		},
 		/**
@@ -387,7 +398,6 @@ var DWZ = {
          //2013-01-16 basilwang add getPrefix
          //2013-01-16 basilwang we can't choose prefix as url parameter, if you post the copy value also via ajax post  which will double the value
          //it's very dangerous to use getPrefix ,so we remove it.
-         //2013-02-08 basilwang we use to remove 
 //        getPrefix:function(){
 //            var prefix = /.*prefix=([^.&?]*)/ig.exec(this);
 //            prefix = prefix ? prefix[1] : "";

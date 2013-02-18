@@ -275,24 +275,49 @@ var navTab = {
         var url = $tab.attr("url");
         if (flag && url) {
             $tab.data("reloadFlag", null);
+            //2013-02-13 basilwang find correct panel 
+            //var $panel = this.getPanel($tab.attr("tabid"));
+            var panelid = $tab.data("panelId");
             var $panel = this.getPanel($tab.attr("tabid"));
-
+            if (panelid) {
+                $panel = $panel.find("#" + panelid);
+            }
             if ($tab.hasClass("external")) {
                 navTab.openExternal(url, $panel);
             } else {
                 //获取pagerForm参数
                 var $pagerForm = $("#pagerForm", $panel);
-                var args = $pagerForm.size() > 0 ? $pagerForm.serializeArray() : {}
+                //2013-02-13 may exists multiple pagerForm, we use the first one, so panel(slave) must under master page
+                //should refactor algorithm 
+                //var args = $pagerForm.size() > 0 ? $pagerForm.serializeArray() : {}
+                var args = $pagerForm.size() == 1 ? $pagerForm.serializeArray() : {}
+                var args = $pagerForm.size() > 1 ? $($pagerForm.get(0)).serializeArray() : args;
+                //2013-02-13 basilwang we use correct url
+                url = $pagerForm.attr("action");
 
                 $panel.loadUrl(url, args, function () { navTab._loadUrlCallback($panel); });
             }
         }
     },
-    reloadFlag: function (tabid) {
+    //2013-02-13 basilwang add parameter panelid
+    reloadFlag: function (tabid, panelid) {
         var $tab = this._getTab(tabid);
         if ($tab) {
+            if (panelid)
+                $tab.data("panelId", panelid);
+            else
+                $tab.data("panelId", null);
             if (this._indexTabId(tabid) == this._currentIndex) this._reload($tab, true);
-            else $tab.data("reloadFlag", 1);
+            //2013-02-13 basilwang also add panelid
+            //else $tab.data("reloadFlag", 1);
+            else {
+                $tab.data("reloadFlag", 1);
+                //2013-02-17 basilwang move panelid up, consider this situation that panel refresh navtab.
+//                if (panelid)
+//                    $tab.data("panelId", panelid);
+//                else
+//                    $tab.data("panelId", null);
+            }
         }
     },
     reload: function (url, options) {
@@ -362,8 +387,9 @@ var navTab = {
                     navTab.openExternal(url, $panel);
                 } else {
                     $tab.removeClass("external");
+                    //2013-02-11 basilwang replace get with post 
                     $panel.ajaxUrl({
-                        type: "GET", url: url, data: op.data, callback: function () {
+                        type: "POST", url: url, data: op.data, callback: function () {
                             navTab._loadUrlCallback($panel);
                         }
                     });
@@ -385,8 +411,9 @@ var navTab = {
                 navTab.openExternal(url, $panel);
             } else {
                 $tab.removeClass("external");
+                //2013-02-11 basilwang replace get with post 
                 $panel.ajaxUrl({
-                    type: "GET", url: url, data: op.data, callback: function () {
+                    type: "POST", url: url, data: op.data, callback: function () {
                         navTab._loadUrlCallback($panel);
                     }
                 });

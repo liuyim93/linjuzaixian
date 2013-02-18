@@ -53,25 +53,33 @@ function initLayout() {
     $("#sidebar, #sidebar_s .collapse, #splitBar, #splitBarProxy").height(iContentH - 5);
     $("#taskbar").css({ top: iContentH + $("#header").height() + 5, width: $(window).width() });
 }
-
-function initUI(_box, _prefix) {
+//2013-02-13 basilwang add rel_hook
+function initUI(_box, _prefix,_rel_hook) {
     //2013-01-12 basilwang add _url  cause we don't want to keep down compaliaty
     var argsLength = arguments.length;
     var $p;
     var prefix;
+    //2013-02-13 basilwang add rel_hook
+    var rel_hook;
     var needIdentifiers = false;
     if (argsLength === 0) {
         $p = $(document);
         needIdentifiers = false;
     }
-    else if (argsLength === 1 && typeof _box == "string") {
-        $p = $(document);
-        //use _box store url , here we load set it to _url
-        _prefix = _box;
-        needIdentifiers = false;
-    }
-    else {
+    //2013-02-13 basilwang seems we don't need this situation
+//    else if (argsLength === 1 && typeof _box == "string") {
+//        $p = $(document);
+//        //use _box store url , here we load set it to _url
+//        _prefix = _box;
+//        needIdentifiers = false;
+//    }
+    else if (argsLength === 2) {
         $p = $(_box);
+        needIdentifiers = true;
+    }
+    else if (argsLength === 3) {
+        $p = $(_box);
+        rel_hook = _rel_hook;
         needIdentifiers = true;
     }
     prefix = _prefix;
@@ -80,7 +88,7 @@ function initUI(_box, _prefix) {
 
     //2013-01-12 basilwang we need genIdentifiers befor pagerForm
     if ($.fn.genGlobalRels) {
-        $p.genGlobalRels(prefix);
+        $p.genGlobalRels(prefix,rel_hook);
     }
 
     //$p= $(_box || document);
@@ -236,6 +244,8 @@ function initUI(_box, _prefix) {
             var external = eval($this.attr("external") || "false");
             var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
 
+            //2013-02-13 basilwang get rel_hook
+            var rel_hook = $this.attr("rel_hook") || "";
             //2013-01-15 basilwang add getDiscriminer for open same dialog/navtab for different items
             tabid = tabid + url.getDiscriminer();
             DWZ.debug(url);
@@ -245,7 +255,9 @@ function initUI(_box, _prefix) {
             }
             //2013-01-14 basilwang add prefix(tabid or dialogid) to data 
             //navTab.openTab(tabid, url,{title:title, fresh:fresh, external:external});
-            navTab.openTab(tabid, url, { title: title, fresh: fresh, external: external, data: { prefix: tabid} });
+            //2013-02-13 basilwang add rel_hook
+            //navTab.openTab(tabid, url, { title: title, fresh: fresh, external: external, data: { prefix: tabid} });
+            navTab.openTab(tabid, url, { title: title, fresh: fresh, external: external, data: { prefix: tabid,"rel_hook":rel_hook} });
             event.preventDefault();
         });
     });
@@ -273,10 +285,16 @@ function initUI(_box, _prefix) {
 
 
             var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
+
+            //2013-02-17 basilwang get rel_hook
+            var rel_hook = $this.attr("rel_hook") || "";
+
             //2013-01-15 basilwang add getDiscriminer for open same dialog/navtab for different items
             rel = rel + url.getDiscriminer();
             //2013-01-14 basilwang add prefix(tabid or dialogid) to data 
-            options.data = { prefix: rel };
+            //2013-02-17 basilwang add rel_hook
+            //options.data = { prefix: rel };
+            options.data = { prefix: rel,"rel_hook":rel_hook };
 
             DWZ.debug(url);
             if (!url.isFinishedTm()) {
@@ -291,7 +309,7 @@ function initUI(_box, _prefix) {
     $("a[target=ajax]", $p).each(function () {
         $(this).click(function (event) {
             var $this = $(this);
-            var rel = $this.attr("rel-v3");
+            var rel = $this.attr("rel_v3");
             var prefix = $this.attr("prefix");
             //2013-01-16 basilwang get target_type "n" or "d"
             var target_type = /__(.){1}.*/ig.exec(prefix);
@@ -308,7 +326,9 @@ function initUI(_box, _prefix) {
                 //2013-01-16 basilwang add getPrefix for open same dialog/navtab for different items
                 //2013-01-16 basilwang we can't choose ajax get method with prefix parameter url , if you post the copy value also via ajax post  which will double the value
                 //it's very dangerous to use getPrefix ,so we remove it.
-                var data = { prefix: prefix };
+                //2013-02-13 basilwang inject rel_v3
+                //var data = { prefix: prefix };
+                var data = { prefix: prefix, "rel_v3": rel };
                 $rel.loadUrl($this.attr("href"), data, function () {
                     $rel.find("[layoutH]").layoutH();
                 });
@@ -320,14 +340,32 @@ function initUI(_box, _prefix) {
 
     $("div.pagination", $p).each(function () {
         var $this = $(this);
+        //2013-02-17 basilwang get the real target_type, don't care about div search because of the same logic
+//        $this.pagination({
+//            targetType: $this.attr("targetType"),
+//            rel: $this.attr("rel"),
+//            totalCount: $this.attr("totalCount"),
+//            numPerPage: $this.attr("numPerPage"),
+//            pageNumShown: $this.attr("pageNumShown"),
+//            currentPage: $this.attr("currentPage")
+//        });
+        var target_type_based_prefix = $.get_target_type(prefix);
+        var target_type;
+        if (/navtab/i.test(target_type_based_prefix)) {
+            target_type = "navTab";
+        }
+        else if (/dialog/i.test(target_type_based_prefix)) {
+            target_type = "dialog";
+        }
         $this.pagination({
-            targetType: $this.attr("targetType"),
+            targetType: target_type,
             rel: $this.attr("rel"),
             totalCount: $this.attr("totalCount"),
             numPerPage: $this.attr("numPerPage"),
             pageNumShown: $this.attr("pageNumShown"),
             currentPage: $this.attr("currentPage")
         });
+
     });
 
     if ($.fn.sortDrag) $("div.sortDrag", $p).sortDrag();

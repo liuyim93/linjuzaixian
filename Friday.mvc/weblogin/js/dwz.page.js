@@ -1,26 +1,28 @@
 ﻿/// <reference path="jquery-1.7.2-vsdoc.js" />
 (function ($) {
 
-    $.fn.genIdentifiers = function (prefix) {
-        var $this = $(this);
-        var $objs;
+    //    $.fn.genIdentifiers = function (prefix) {
+    //        var $this = $(this);
+    //        var $objs;
 
-        $objs = $('*[id]', $this);
+    //        $objs = $('*[id]', $this);
 
-        //var pageid = _get_entry_url(url);
-        $objs.each(function (i, obj) {
-            obj.id = prefix + obj.id;
-        });
+    //        //var pageid = _get_entry_url(url);
+    //        $objs.each(function (i, obj) {
+    //            obj.id = prefix + obj.id;
+    //        });
 
-    }
-
-    $.fn.genGlobalRels = function (prefix) {
+    //    }
+    //2013-02-13 basilwang add parameter rel_hook
+    $.fn.genGlobalRels = function (prefix, rel_hook) {
 
 
         var $this = $(this);
         var $objs;
 
         prefix = prefix || "";
+        //2013-02-13 basilwang add rel_hook
+        rel_hook = rel_hook || "";
         //2013-01-16 basilwang don't handle div[rel]
         $objs = $('a[rel]', $this);
 
@@ -30,17 +32,15 @@
             var old_rel;
             //2013-01-16 basilwang add target_type before the rel to discriminer            
             var target_type;
-            if (/navtab/i.test($obj.attr("target")))
-            {
-              target_type="n";
+            if (/navtab/i.test($obj.attr("target"))) {
+                target_type = "n";
             }
-          else if(/dialog/i.test($obj.attr("target")))
-            {
-              target_type="d";
+            else if (/dialog/i.test($obj.attr("target"))) {
+                target_type = "d";
             }
             if ($obj.attr("href")) {
                 //2013-01-16 basilwang add target_type before the rel to discriminer
-                var stripe_url_name = _get_entry_url(target_type,$obj.attr("href"));
+                var stripe_url_name = _get_entry_url(target_type, $obj.attr("href"));
                 old_rel = stripe_url_name;
             }
             //2013-01-16 basilwang we don't think we have this situation now
@@ -48,6 +48,9 @@
                 old_rel = "__" + $obj.attr("id");
             }
             $obj.attr("rel", prefix + old_rel);
+            if (rel_hook) {
+                $obj.attr("rel_hook", rel_hook);
+            }
         });
 
     }
@@ -85,8 +88,18 @@
         return _find_panel_by_rel(url);
     }
     $.goto = $.goto_by_relative_rel;
+
+    //2013-02-17 basilwang judge is navtab or not
+    $.get_target_type = function (self_url_segment) {
+        var segment = _get_last_sliced_url_segment(self_url_segment);
+        var target_type= "navTab";
+        if (/__d/i.test(segment)) {
+            target_type = "dialog";
+        }
+        return target_type;
+    }
     //2013-01-12 basilwang add prefix to pagerForm
-    function _get_entry_url(target_type,prefix) {
+    function _get_entry_url(target_type, prefix) {
         var a = /(.*\/){0,}([^.]+).*/ig.exec(prefix);
         //alert(a);
         return a ? "__" + target_type + a[2] : "";
@@ -95,6 +108,11 @@
         var a = /(__.*){0,}__.*/ig.exec(url);
         //alert(a);
         return a ? a[1] : "";
+    }
+    function _get_last_sliced_url_segment(url) {
+        var a = /(__.*){0,}(__.*)/ig.exec(url);
+        //alert(a);
+        return a ? a[2] : "";
     }
     function _find_panel_by_rel(url) {
         //2013-01-14 basilwang don't use panel_type now . maybe need in the future

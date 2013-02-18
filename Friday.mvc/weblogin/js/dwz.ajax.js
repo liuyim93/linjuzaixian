@@ -117,9 +117,15 @@ function navTabAjaxDone(json){
 	if (json.statusCode == DWZ.statusCode.ok){
 	    if (json.navTabId) { //把指定navTab页面标记为需要“重新载入”。注意navTabId不能是当前navTab页面的
 	        //2013-01-15 basilwang reload referer
-            if (json.navTabId == "referer") {
-	            var referer_url = $.referer_url(navTab.getCurrentPanelPrefix());
-                navTab.reloadFlag(referer_url);
+	        if (json.navTabId == "referer") {
+                //2013-02-17 basilwang we don't need consider the stituation that navtab refresh dialog here. 
+                var referer_url = $.referer_url(navTab.getCurrentPanelPrefix());
+                //2013-02-13 basilwang send panelId to reloadFlag
+                //I think there are two situations when navTab._reload get called after setting reloadFlag several times.
+                // 1 panelId exists, which means we need refresh a panel of referer
+                // 2 panelId doesn't exists(must set null if panelId doesn't exist when set reloadFalg)  just refresh referer as usual
+                navTab.reloadFlag(referer_url, json.panelId);
+
 	        }
 	        else {
 	            navTab.reloadFlag(json.navTabId);
@@ -161,8 +167,14 @@ function dialogAjaxDone(json){
 	    if (json.navTabId) {
 	        //2013-01-15 basilwang reload referer . still need test!!!
 	        if (json.navTabId == "referer") {
-	            var referer_url = $.referer_url(navTab.getCurrentPanelPrefix());
-	            navTab.reloadFlag(referer_url);
+	            //2013-02-17 basilwang we don't need consider the situation that dialog refresh dialog here.
+	            var referer_url = $.referer_url($.pdialog.getCurrentDialogPrefix());
+	            //2013-02-17 basilwang send panelId to reloadFlag
+	            //navTab.reloadFlag(referer_url);
+	            //I think there are two situations when navTab._reload get called after setting reloadFlag several times.
+	            // 1 panelId exists, which means we need refresh a panel of referer
+	            // 2 panelId doesn't exists(must set null if panelId doesn't exist when set reloadFalg)  just refresh referer as usual
+	            navTab.reloadFlag(referer_url, json.panelId);
 	        }
 	        else {
 	            navTab.reload(json.forwardUrl, { navTabId: json.navTabId });
@@ -188,6 +200,10 @@ function navTabSearch(form, navTabId){
 	if (form[DWZ.pageInfo.pageNum]) form[DWZ.pageInfo.pageNum].value = 1;
     //2013-01-15 basilwang add prefix to array 
 	var array = $form.serializeArray();
+    //2013-02-11 basilwang  try to remove prefix from array whatever it exists or not
+	array=$.map(array,function (elem, i) {
+	    return elem.name == "prefix" ? null : elem;
+	});
 	array.push({ name: "prefix", value: navTab.getCurrentPanelPrefix() });
 	navTab.reload($form.attr('action'), {data: array, navTabId:navTabId});
 	return false;
@@ -201,6 +217,10 @@ function dialogSearch(form){
 	if (form[DWZ.pageInfo.pageNum]) form[DWZ.pageInfo.pageNum].value = 1;
 	//2013-01-15 basilwang add prefix to array 
 	var array = $form.serializeArray();
+	//2013-02-11 basilwang  try to remove prefix from array whatever it exists or not
+	array = $.map(array, function (elem, i) {
+	    return elem.name == "prefix" ? null : elem;
+	});
 	array.push({ name: "prefix", value: $.pdialog.getCurrentDialogPrefix() });
 	$.pdialog.reload($form.attr('action'), {data: array});
 	return false;
@@ -213,17 +233,34 @@ function dwzSearch(form, targetType){
 /**
  * 处理div上的局部查询, 会重新载入指定div
  * @param {Object} form
+ * 2013-02-17 basilwang add parameter parent_target_type
  */
-function divSearch(form, rel){
+function divSearch(form, rel,parent_target_type){
 	var $form = $(form);
 	if (form[DWZ.pageInfo.pageNum]) form[DWZ.pageInfo.pageNum].value = 1;
 	if (rel) {
-	    var $box = $("#" + rel);
+        //2013-02-13 basilwang TODO need do this later , now it's global scope, VERY IMPROTANT!!!! 
+	    //2013-02-13 basilwang use getCurrentPanel  Already Solved
+	    //var $box = $("#" + rel);
+        //2013-02-17 basilwang judge by parent_target_type
+	    var $p = /navtab/i.test(parent_target_type) ? navTab.getCurrentPanel() : $.pdialog.getCurrent();
+	    var prefix = /navtab/i.test(parent_target_type) ? navTab.getCurrentPanelPrefix() : $.pdialog.getCurrentDialogPrefix();
+	    //var $box = navTab.getCurrentPanel().find("#" + rel);
+	    var $box = $p.find("#" + rel);
 	    //2013-01-15 basilwang add prefix to array 
 	    var array = $form.serializeArray();
-        //2013-02-08 basilwang add prefix only one time
+	    //2013-02-11 basilwang  try to remove prefix from array whatever it exists or not
+	    //2013-02-13 basilwang  try to remove rel_v3 from array whatever it exists or not
+	    array = $.map(array, function (elem, i) {
+	        return elem.name == "prefix" || elem.name=="rel_v3" ? null : elem;
+	    });
+	    //2013-02-08 basilwang add prefix only one time
 	    if (!/prefix/i.test(form.action)) {
-	        array.push({ name: "prefix", value: navTab.getCurrentPanelPrefix() });
+            //2013-02-17 basilwang use prefix based on parent_target_type
+	        //array.push({ name: "prefix", value: navTab.getCurrentPanelPrefix() });
+	        array.push({ name: "prefix", value: prefix });
+	        //2013-02-13 basilwang add rel_v3 
+	        array.push({ name: "rel_v3", value: rel });
 	    }
 		$box.ajaxUrl({
 			type:"POST", url:$form.attr("action"), data: array, callback:function(){
@@ -279,7 +316,6 @@ function dwzPageBreak(options){
 	} else {
 		var form = _getPagerForm($parent, op.data);
 		var params = $(form).serializeArray();
-
 		//2013-02-08 basilwang it's more safe to remove prefix on url
 		//use this format .replace(/prefix=[^&;]*/,'')
 		var action = $(form).attr("action").replace(remove_pattern, '');
