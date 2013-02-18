@@ -4,27 +4,19 @@
 <div class="tabs">
     <div class="tabsHeader">
         <div class="tabsHeaderContent">
+          <ul>
+                <li class="selected"><a href="#"><span>基本信息</span></a></li>
+                <li><a href="#"><span>配送时间</span></a></li>
+                <li><a href="#"><span>促销打折</span></a></li>
+                <li><a href="#"><span>公告和Logo</span></a></li>
+                <li><a href='Food/pFoodList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
+                target="ajax"><span>菜品</span></a></li>
+           </ul>
         </div>
     </div>
     <div class="tabsContent" style="height: 250px;">
-    </div>
-    <div class="tabsFooter">
-        <div class="tabsFooterContent">
-        </div>
-    </div>
-</div>
-<div class="page">
-    <div class="pageContent">
-        <div class="panelBar">
-            <ul class="toolBar">
-                <li><a class="add" href="OrderFoodList.aspx" target="dialog" rel=""><span>餐馆详情</span>
-                </a></li>
-            </ul>
-        </div>
-        <div class="pageFormContent" style="height: 250px;">
-            <h1>
-                餐馆基本信息</h1>
-            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+         <div>
+             <input type="hidden" id="MyOrderId" size="30" runat="server" />
             <p>
                 <label>
                     餐馆名称：</label>
@@ -40,7 +32,10 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
+         </div>
+
+         <div>
+             <p>
                 <label>
                     早餐配送时间：</label>
                 <input type="text" id="MorningBeginHour" size="10" class="required textInput gray"
@@ -68,7 +63,10 @@
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
+         </div>
+
+         <div>
+          <p>
                 <label>
                     距离：</label>
                 <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
@@ -102,11 +100,10 @@
                     <option value="2">正在休息</option>
                 </select>
             </p>
-            <p>
-            </p>
-            <p>
-            </p>
-            <div>
+         </div>
+
+         <div>
+                     <div>
                 <p>
                     <label>
                         商铺公告：</label>
@@ -131,6 +128,13 @@
                     </div>
                 </p>
             </div>
+         </div>
+
+        <div id="jbsxBox1" >
+        </div>
+    </div>
+    <div class="tabsFooter">
+        <div class="tabsFooterContent">
         </div>
     </div>
 </div>
@@ -141,8 +145,8 @@
         var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
-        $self.one("panelloaded", function (e) {
-            $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+        $(document).one("panelloaded", function (e,o) {
+            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 
         });
