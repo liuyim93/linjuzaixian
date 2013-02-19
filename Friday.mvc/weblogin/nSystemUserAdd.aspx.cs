@@ -36,7 +36,7 @@ namespace Friday.mvc.weblogin
             loginUser = new LoginUser();
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = false;
-            loginUser.UserType = friday.core.EnumType.UserType.顾客;
+            loginUser.UserType = friday.core.EnumType.UserTypeEnum.顾客;
             loginUser.SystemUser = systemUser;
             iLoginUserRepository.SaveOrUpdate(loginUser);
 

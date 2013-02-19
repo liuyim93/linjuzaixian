@@ -21,7 +21,7 @@ namespace friday.core.domain
             Map(o => o.LoginName);
             Map(o => o.Password);
             Map(o => o.IsAdmin);
-            Map(o => o.UserType).CustomType<UserType>();
+            Map(o => o.UserType).CustomType<UserTypeEnum>();
 
             HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants).Inverse().Cascade.All();
             //References<Merchant>(o => o.Merchant);//Shop 1 :N Food

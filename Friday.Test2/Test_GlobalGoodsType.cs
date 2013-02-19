@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Gallio.Framework;
 using NUnit.Framework;
 using friday.core.domain;
 using friday.core.repositories;
