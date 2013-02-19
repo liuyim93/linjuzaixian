@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.rent {
     
     
-    public partial class nRentUpdate {
+    public partial class pAddRent {
         
         /// <summary>
         /// form 控件。

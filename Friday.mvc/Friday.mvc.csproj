@@ -257,19 +257,19 @@
     <Compile Include="weblogin\users\nSystemUserList.aspx.designer.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\RentList.aspx.cs">
+    <Compile Include="weblogin\rent\RentList.aspx.cs">
       <DependentUpon>RentList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\RentList.aspx.designer.cs">
+    <Compile Include="weblogin\rent\RentList.aspx.designer.cs">
       <DependentUpon>RentList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nRentUpdate.aspx.cs">
-      <DependentUpon>nRentUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\rent\pEditRent.aspx.cs">
+      <DependentUpon>pEditRent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nRentUpdate.aspx.designer.cs">
-      <DependentUpon>nRentUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\rent\pEditRent.aspx.designer.cs">
+      <DependentUpon>pEditRent.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\restaurant\pEditRestaurant.aspx.cs">
       <DependentUpon>pEditRestaurant.aspx</DependentUpon>
@@ -278,12 +278,12 @@
     <Compile Include="weblogin\restaurant\pEditRestaurant.aspx.designer.cs">
       <DependentUpon>pEditRestaurant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nRentAdd.aspx.cs">
-      <DependentUpon>nRentAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\rent\pAddRent.aspx.cs">
+      <DependentUpon>pAddRent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nRentAdd.aspx.designer.cs">
-      <DependentUpon>nRentAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\rent\pAddRent.aspx.designer.cs">
+      <DependentUpon>pAddRent.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\restaurant\pAddRestaurant.aspx.cs">
       <DependentUpon>pAddRestaurant.aspx</DependentUpon>
@@ -1144,10 +1144,10 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wmp.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wordimg.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
-    <Content Include="weblogin\RentList.aspx" />
-    <Content Include="weblogin\nRentUpdate.aspx" />
+    <Content Include="weblogin\rent\RentList.aspx" />
+    <Content Include="weblogin\rent\pEditRent.aspx" />
     <Content Include="weblogin\restaurant\pEditRestaurant.aspx" />
-    <Content Include="weblogin\nRentAdd.aspx" />
+    <Content Include="weblogin\rent\pAddRent.aspx" />
     <Content Include="weblogin\restaurant\pAddRestaurant.aspx" />
     <Content Include="weblogin\nShopAdd.aspx" />
     <Content Include="weblogin\SchoolList.aspx" />

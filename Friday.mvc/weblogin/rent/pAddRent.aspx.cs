@@ -11,57 +11,38 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.rent
 {
-    public partial class nRentUpdate : System.Web.UI.Page
+    public partial class pAddRent : System.Web.UI.Page
     {
         IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-
-        private Rent rent;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            rent = iRentRepository.Load(uid);
+          
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
-                SaveRent(uid);
+                SaveRent();
             }
-            else
-            {
-
-                BindingHelper.ObjectToControl(rent, this);
-
-                ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-
-                string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
-                this.SchoolOfMerchant.Value = schofmntname;
-
-            }
+            
         }
 
-        private void SaveRent(string  uid)
+        private void SaveRent()
         {
-
-            BindingHelper.RequestToObject(rent);
-            iRentRepository.SaveOrUpdate(rent);
-           
-            //2013-02-05  庞夫星
-            //修改的时候，由于rent对应的多个school变动，所以保存之前先对SchoolOfMerchant 的关联删除掉，再重新添加
-            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-            repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
-
-
-            string schid;
+            Rent rnt = new Rent();
+            BindingHelper.RequestToObject(rnt);
+            iRentRepository.SaveOrUpdate(rnt);
+            
+            string schid;            
             schid = this.SchoolOfMerchantID.Value;
             string[] sArray = schid.Split(',');
             foreach (string shcidsz in sArray)
             {
                 friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
-                schofmt.Merchant = rent;
+                schofmt.Merchant = rnt;
                 schofmt.School = iSchoolRepository.Get(shcidsz);
-                iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
-            }   
+                iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);            
+            }            
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -73,7 +54,7 @@ namespace Friday.mvc.weblogin.rent
             Response.Write(jsonResult.FormatResult());
             Response.End();
 
-        
+
 
         }
 

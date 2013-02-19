@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nRentAdd.aspx.cs" Inherits="Friday.mvc.weblogin.rent.nRentAdd"   validateRequest="false"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddRent.aspx.cs" Inherits="Friday.mvc.weblogin.rent.pAddRent"   validateRequest="false"  %>
 
 <div class="page" style="">
     <div class="pageContent">
