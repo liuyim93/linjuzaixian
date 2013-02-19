@@ -264,13 +264,6 @@
     <Compile Include="weblogin\users\nSystemUserList.aspx.designer.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\rent\RentList.aspx.cs">
-      <DependentUpon>RentList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rent\RentList.aspx.designer.cs">
-      <DependentUpon>RentList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\rent\pEditRent.aspx.cs">
       <DependentUpon>pEditRent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1152,7 +1145,6 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wmp.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wordimg.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
-    <Content Include="weblogin\rent\RentList.aspx" />
     <Content Include="weblogin\rent\pEditRent.aspx" />
     <Content Include="weblogin\restaurant\pEditRestaurant.aspx" />
     <Content Include="weblogin\rent\pAddRent.aspx" />
