@@ -14,24 +14,38 @@ namespace Friday.mvc.weblogin.shop
     public partial class pAddShop : System.Web.UI.Page
     {
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
-    
+        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
+        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+   
+
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+    
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
                 SaveShop();
             }
-            
+         
         }
 
         private void SaveShop()
-        {
-            Shop rnt = new Shop();
+        {    
+            Shop  shop=new Shop();
 
-            BindingHelper.RequestToObject(rnt);
-            iShopRepository.SaveOrUpdate(rnt);
+            BindingHelper.RequestToObject(shop);
+            iShopRepository.SaveOrUpdate(shop);
+
+            string schid;
+            schid = this.SchoolOfMerchantID.Value;
+            string[] sArray = schid.Split(',');
+            foreach (string shcidsz in sArray)
+            {
+                friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+                schofmt.Merchant = shop;
+                schofmt.School = iSchoolRepository.Get(shcidsz);
+                iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+            }            
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -43,7 +57,7 @@ namespace Friday.mvc.weblogin.shop
             Response.Write(jsonResult.FormatResult());
             Response.End();
 
-        
+
 
         }
 

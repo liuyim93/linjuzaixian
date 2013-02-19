@@ -26,6 +26,7 @@ namespace Friday.Test2
        private readonly int SHOP_COUNT = 10;  //we double SHOP_COUNT  eg  10*2
        private readonly int FOOD_COUNT_OF_SHOP = 10;
        private readonly int ORDER_COUNT = 500;
+       private readonly int SHCOOL_COUNT = 10;
        string[] mCategory = {"烟酒", "副食品", "超市", "军用品"};
 
        [SetUp]
@@ -273,45 +274,59 @@ namespace Friday.Test2
        }
        private void add_School_Shop()
        {
-           School school = new School()
+           string[] schname = {"山东大学","山东财经大学","山东科技大学","山东理工大学","中国海洋大学","中国石油大学","青岛大学" };
+           string[] schstname = { "sdu","sdufe","sdus","sdui","cou","upc","qdu"};
+           string[] schcity = { "济南", "济南", "济南", "淄博", "青岛", "青岛", "青岛" };
+          
+           for (int s = 0; s < SHCOOL_COUNT; s++)
            {
-               CityName = "济南",
-               ShortName = "sdufe.yanshan",
-               Name = "山东财经大学燕山校区",
-               Image = "image/121.jpg",
-           };
-           for (int i = 0; i < SHOP_COUNT; i++)
-           {
-               Shop shop = new ShopRepository().SearchByShortName("yinzuo"+i.ToString());
-               if (shop != null)
+               int isch = new Random().Next(schname.Length);
+               string ischName = schname[isch];
+               string ischCity = schcity[isch];
+               string ischstname = schstname[isch];
+               School school = new School()
                {
-                   SchoolOfMerchant schoolShop = new SchoolOfMerchant()
-                   {
-                       Merchant = shop,
-                       School = school
-                   };
+                   CityName = ischCity,
+                   ShortName = ischstname,
+                   Name = ischName,
+                   Image = "image/121.jpg",
+               };
 
-                   school.SchoolOfMerchants.Add(schoolShop);
-
-               }
-           }
-           for (int i = 0; i < SHOP_COUNT; i++)
-           {
-               Shop shop = new ShopRepository().SearchByShortName("darunfa" + i.ToString());
-               if (shop != null)
+               for (int i = 0; i < SHOP_COUNT; i++)
                {
-                   SchoolOfMerchant schoolShop = new SchoolOfMerchant()
+                   Shop shop = new ShopRepository().SearchByShortName("yinzuo" + i.ToString());
+                   if (shop != null)
                    {
-                        
-                        Merchant = shop,
-                       School = school
-                   };
+                       SchoolOfMerchant schoolShop = new SchoolOfMerchant()
+                       {
+                           Merchant = shop,
+                           School = school
+                       };
 
-                   school.SchoolOfMerchants.Add(schoolShop);
+                       school.SchoolOfMerchants.Add(schoolShop);
 
+                   }
                }
+               for (int i = 0; i < SHOP_COUNT; i++)
+               {
+                   Shop shop = new ShopRepository().SearchByShortName("darunfa" + i.ToString());
+                   if (shop != null)
+                   {
+                       SchoolOfMerchant schoolShop = new SchoolOfMerchant()
+                       {
+
+                           Merchant = shop,
+                           School = school
+                       };
+
+                       school.SchoolOfMerchants.Add(schoolShop);
+
+                   }
+               }
+               new SchoolRepository().SaveOrUpdate(school);
            }
-           new SchoolRepository().SaveOrUpdate(school);
+
+               
        }
        private void add_Shop_to_MyFavorite()
        {
