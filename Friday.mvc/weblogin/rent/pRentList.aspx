@@ -116,7 +116,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="rent/pRentDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>' target="ajax" rel-v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="rent/pRentDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>' target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>

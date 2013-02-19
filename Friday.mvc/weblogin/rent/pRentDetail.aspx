@@ -1,21 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRentDetail.aspx.cs" Inherits="Friday.mvc.weblogin.rent.pRentDetail" %>
 
 
-<div class="page">
-    <div class="pageContent">
-    <div class="panelBar">
-        <ul class="toolBar">
-            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>租房详情</span>
-           </a></li>
-           
-        </ul>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+          <ul>
+                <li class="selected"><a href="#"><span>基本信息</span></a></li>
+                <li><a href="#"><span>营业时间</span></a></li>
+                <li><a href="#"><span>详细信息</span></a></li>
+                <li><a href="#"><span>公告和Logo</span></a></li>
+                <li><a href='Food/pFoodList.aspx?uid=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
+                target="ajax"><span>房屋</span></a></li>
+           </ul>
+        </div>
     </div>
-        <div class="pageFormContent" style=" height:250px;">
-         
-            <h1>
-                租房基本信息</h1>
-            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+    <div class="tabsContent" style="height: 250px;">
+         <div>
          <p>
                 <label>
                     商铺名称：</label>
@@ -31,6 +31,9 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
+         </div>
+
+         <div>
             <p>
                 <label>
                     营业时间：</label>
@@ -42,6 +45,9 @@
                     距离：</label>
                 <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
             </p>
+         </div>
+
+         <div>
             <p>
                 <label>
                     折扣：</label>
@@ -63,25 +69,19 @@
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
-             <p>
-                        <label>
-                            服务的学校：</label>
-                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
-                            readonly="true" />
-                      
-              </p>
-              <p>
+            <p>
                 <label>
-                  
-                    商铺当前状态：</label>  
-                    
-                <select id="ShopStatus" style="width:85px" runat="server">
-					<option value="">请选择</option>				
-					<option value="1"   >营业时间</option>
-                    <option value="2">正在休息</option>
-				</select> 
+                    商铺当前状态：</label>
+                <select id="ShopStatus" style="width: 85px" runat="server">
+                    <option value="">请选择</option>
+                    <option value="接受预定">接受预定</option>
+                    <option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
+                </select>
             </p>
-          <p></p><p></p>
+         </div>
+
+         <div>
           <div>
             <p >
                  <label >商铺公告：</label>
@@ -103,18 +103,25 @@
                 </p>
                   
        </div>
+         </div>
+
+        <div id="jbsxBox1" >
+        </div>
+    </div>
+    <div class="tabsFooter">
+        <div class="tabsFooterContent">
         </div>
     </div>
 </div>
-<script   type="text/javascript">
+<script type="text/javascript">
 
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
-        $self.one("panelloaded", function (e) {
-            $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+        $(document).one("panelloaded", function (e, o) {
+            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 
         });
