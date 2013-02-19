@@ -2,14 +2,6 @@
 
 <div class="page" style="">
     <div class="pageContent">
-    <div class="panelBar">
-        <ul class="toolBar">
-            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>添加房屋中介</span>
-           </a></li>
-           
-        </ul>
-    </div>
         <form id="form" method="post"  class="pageForm required-validate" 
         onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server" >
         <div class="pageFormContent" style=" height:500px">
@@ -67,13 +59,14 @@
            <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" style="width:85px" runat="server">
+                <select id="ShopStatus" runat="server">
 					<option value="">请选择</option>				
-					<option value="1">营业时间</option>
-                    <option value="2">正在休息</option>
+                    <option value="接受预定">接受预定</option>
+                    <option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
 				</select> 
-            </p>
-              <p>
+            </p><p></p>
+<%--              <p>
                         <label>
                             服务的学校：</label>
                         <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
@@ -82,7 +75,7 @@
                             选择</a>
                         <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
                             runat="server" />
-                    </p>
+                    </p>--%>
           <p></p>
            <div>
             <p >
@@ -96,7 +89,7 @@
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
            </div>        
-         <div style="  clear:left; width:80%; margin-top:280px" >
+         <div style="  clear:left; width:80%; margin-top:400px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">

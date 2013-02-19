@@ -33,16 +33,16 @@ namespace Friday.mvc.weblogin.rent
             BindingHelper.RequestToObject(rnt);
             iRentRepository.SaveOrUpdate(rnt);
             
-            string schid;            
-            schid = this.SchoolOfMerchantID.Value;
-            string[] sArray = schid.Split(',');
-            foreach (string shcidsz in sArray)
-            {
-                friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
-                schofmt.Merchant = rnt;
-                schofmt.School = iSchoolRepository.Get(shcidsz);
-                iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);            
-            }            
+            //string schid;            
+            //schid = this.SchoolOfMerchantID.Value;
+            //string[] sArray = schid.Split(',');
+            //foreach (string shcidsz in sArray)
+            //{
+            //    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+            //    schofmt.Merchant = rnt;
+            //    schofmt.School = iSchoolRepository.Get(shcidsz);
+            //    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);            
+            //}            
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
