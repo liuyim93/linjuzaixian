@@ -19,6 +19,7 @@ namespace Friday.Test2
        private List<SystemUser> systemUserList = new List<SystemUser>();
        private List<LoginUser> loginUserList = new List<LoginUser>();
        private List<Shop> shopList = new List<Shop>();
+       private List<School> schoolList = new List<School>();
        private List<Commodity> commodityOfShop1List = new List<Commodity>();
        private List<Commodity> commodityOfShop2List = new List<Commodity>();
        private readonly int SYSTEM_USER_COUNT = 500;
@@ -274,25 +275,34 @@ namespace Friday.Test2
        }
        private void add_School_Shop()
        {
-           string[] schname = {"山东大学","山东财经大学","山东科技大学","山东理工大学","中国海洋大学","中国石油大学","青岛大学" };
-           string[] schstname = { "sdu","sdufe","sdus","sdui","cou","upc","qdu"};
-           string[] schcity = { "济南", "济南", "济南", "淄博", "青岛", "青岛", "青岛" };
-          
+           string[] schname = { "山东大学", "山东财经大学", "山东科技大学", "山东理工大学", "中国海洋大学", "中国石油大学", "青岛大学","烟台大学","山东工商学院","德州学院" };
+           string[] schstname = { "sdu", "sdufe", "sdus", "sdui", "cou", "upc", "qdu","ytdu","gsu","dzu" };
+           string[] schcity = { "济南", "济南", "济南", "淄博", "青岛", "青岛", "青岛","烟台","烟台","德州" };
+
            for (int s = 0; s < SHCOOL_COUNT; s++)
            {
-               int isch = new Random().Next(schname.Length);
-               string ischName = schname[isch];
-               string ischCity = schcity[isch];
-               string ischstname = schstname[isch];
+               //int isch = new Random().Next(schname.Length);
+               //string ischName = schname[isch];
+               //string ischCity = schcity[isch];
+               //string ischstname = schstname[isch];
                School school = new School()
                {
-                   CityName = ischCity,
-                   ShortName = ischstname,
-                   Name = ischName,
+                   CityName = schcity[s],
+                   ShortName = schstname[s],
+                   Name = schname[s],
                    Image = "image/121.jpg",
                };
+               schoolList.Add(school);
+           }
+           List<School> schoolListClone = new List<School>(schoolList);
 
-               for (int i = 0; i < SHOP_COUNT; i++)
+           for (int j = 0; j < 2 * SHOP_COUNT; j += 2)
+           {
+
+               int iisch = new Random().Next(schoolListClone.Count);
+               School school = schoolListClone[iisch];
+
+               for (int i = j; i < j + 2; i++)
                {
                    Shop shop = new ShopRepository().SearchByShortName("yinzuo" + i.ToString());
                    if (shop != null)
@@ -307,7 +317,7 @@ namespace Friday.Test2
 
                    }
                }
-               for (int i = 0; i < SHOP_COUNT; i++)
+               for (int i = j; i < j + 2; i++)
                {
                    Shop shop = new ShopRepository().SearchByShortName("darunfa" + i.ToString());
                    if (shop != null)
@@ -324,9 +334,11 @@ namespace Friday.Test2
                    }
                }
                new SchoolRepository().SaveOrUpdate(school);
+               schoolListClone.Remove(school);
            }
 
-               
+
+
        }
        private void add_Shop_to_MyFavorite()
        {
