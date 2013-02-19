@@ -440,6 +440,105 @@ namespace friday.core.repositories
             }
             return query;
         }
+
+        protected ICriteria SearchByRent(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("Rent", "rent");
+                notself = "rent.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Owener"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Owener", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Type"))
+                    {
+                        try
+                        {
+                            ShopTypeEnum Type = (ShopTypeEnum)Enum.Parse(typeof(ShopTypeEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "ShopType", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+                    if (df.type.Equals("Tel"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("ShortName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("Address"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("ShopStatus"))
+                    {
+                        ShopStatusEnum ShopStatus = (ShopStatusEnum)Enum.Parse(typeof(ShopStatusEnum), df.value, true);
+                        query.Add(Restrictions.Eq(notself + "ShopStatus", ShopStatus));
+                        continue;
+                    }
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
         {
             DateTime value = DateTime.Parse(df.value);

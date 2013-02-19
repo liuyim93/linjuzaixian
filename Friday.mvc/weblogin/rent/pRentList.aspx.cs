@@ -19,56 +19,63 @@ namespace Friday.mvc.weblogin.rent
         public string systemUserId;
 
 
-        public string startDate;
-        public string endDate;        
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IRepository<Rent> iRepositoryRent = UnityHelper.UnityToT<IRepository<Rent>>();  
-        
+        protected string startDate;
+        protected string endDate;
+        protected string name;
+        protected string owener;
+        protected string shortName;
+        protected string address;
+        protected string shopStatus;
+        protected string tel;
+        IRentRepository iRepositoryRent = UnityHelper.UnityToT<IRentRepository>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-         
-           if (Request.Params["flag"] != "alldelete")
-           {
-               if (Request.Params["flag"] != "alldelete")
-               {
-                   numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-                   pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-                   int start = (pageNum - 1) * numPerPageValue;
-                   int limit = numPerPageValue;
-                   IList<Rent> rentList = iRepositoryRent.GetPageList(start, limit, out total);
+
+            if (Request.Params["flag"] != "alldelete")
+            {
+                if (Request.Params["flag"] != "alldelete")
+                {
+                    numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
+                    int start = (pageNum - 1) * numPerPageValue;
+                    int limit = numPerPageValue;
+
+                    IList<Rent> rentList = iRepositoryRent.GetPageList(start, limit, out total);
 
 
-                   repeater.DataSource = rentList;
-                   repeater.DataBind();
+                    repeater.DataSource = rentList;
+                    repeater.DataBind();
 
-                   numPerPage.Value = numPerPageValue.ToString();
+                    numPerPage.Value = numPerPageValue.ToString();
 
-               }
-           }
-           else
-           {             
-               DeleteRent();
-           }        
-      
-        }     
+                }
+            }
+
+            else
+            {
+                DeleteRent();
+
+            }
+
+
+        }
+
+
 
         private void DeleteRent()
         {
 
-            string  rentid=Request.Params["uid"];
-            
-            iRepositoryRent.Delete(rentid);
-            
+            iRepositoryRent.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "删除成功";
+            result.message = "操作成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
         }
-    
+
 
     }
 }
