@@ -1,11 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nShopAdd.aspx.cs" Inherits="Friday.mvc.weblogin.shop.nShopAdd"   validateRequest="false"  %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"   validateRequest="false"  %>
 <div class="page" style="">
     <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>添加商店中介</span>
+             <span>添加商铺</span>
            </a></li>
            
         </ul>
@@ -70,8 +69,8 @@
                 <select id="ShopStatus" style="width:85px" runat="server">
 					<option value="">请选择</option>
 				
-					<option value="1">营业时间</option>
-                    <option value="2">正在休息</option>
+					<option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
 				</select> 
             </p>
           <p></p><p></p>
@@ -87,7 +86,7 @@
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
            </div>        
-         <div style="  clear:left; width:80%; margin-top:280px" >
+         <div style="  clear:left; width:80%; margin-top:400px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">

@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.shop
 {
-    public partial class nShopAdd : System.Web.UI.Page
+    public partial class pAddShop : System.Web.UI.Page
     {
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
     

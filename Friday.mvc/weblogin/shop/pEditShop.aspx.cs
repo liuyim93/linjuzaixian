@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.shop
 {
-    public partial class nShopUpdate : System.Web.UI.Page
+    public partial class pEditShop : System.Web.UI.Page
     {
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
         private Shop shop;
@@ -36,7 +36,7 @@ namespace Friday.mvc.weblogin.shop
         {
 
             BindingHelper.RequestToObject(shop);
-            
+
             iShopRepository.SaveOrUpdate(shop);
 
             AjaxResult result = new AjaxResult();
@@ -49,7 +49,7 @@ namespace Friday.mvc.weblogin.shop
             Response.Write(jsonResult.FormatResult());
             Response.End();
 
-        
+
 
         }
 

@@ -173,6 +173,13 @@
     <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx.designer.cs">
       <DependentUpon>pGlobalGoodsTypeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\commodity\pCommodityList.aspx.cs">
+      <DependentUpon>pCommodityList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\commodity\pCommodityList.aspx.designer.cs">
+      <DependentUpon>pCommodityList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\food\pFoodList.aspx.cs">
       <DependentUpon>pFoodList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -313,26 +320,19 @@
     <Compile Include="weblogin\school\pSchoolList.aspx.designer.cs">
       <DependentUpon>pSchoolList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\ShopList.aspx.cs">
-      <DependentUpon>ShopList.aspx</DependentUpon>
+    <Compile Include="weblogin\shop\pShopDetail.aspx.cs">
+      <DependentUpon>pShopDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\ShopList.aspx.designer.cs">
-      <DependentUpon>ShopList.aspx</DependentUpon>
+    <Compile Include="weblogin\shop\pShopDetail.aspx.designer.cs">
+      <DependentUpon>pShopDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\shop\nShopDetail.aspx.cs">
-      <DependentUpon>nShopDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\shop\pEditShop.aspx.cs">
+      <DependentUpon>pEditShop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\shop\nShopDetail.aspx.designer.cs">
-      <DependentUpon>nShopDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\nShopUpdate.aspx.cs">
-      <DependentUpon>nShopUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\nShopUpdate.aspx.designer.cs">
-      <DependentUpon>nShopUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\shop\pEditShop.aspx.designer.cs">
+      <DependentUpon>pEditShop.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\shop\pShopList.aspx.cs">
       <DependentUpon>pShopList.aspx</DependentUpon>
@@ -397,12 +397,12 @@
     <Compile Include="weblogin\restaurant\pAddRestaurant.aspx.designer.cs">
       <DependentUpon>pAddRestaurant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nShopAdd.aspx.cs">
-      <DependentUpon>nShopAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\shop\pAddShop.aspx.cs">
+      <DependentUpon>pAddShop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nShopAdd.aspx.designer.cs">
-      <DependentUpon>nShopAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\shop\pAddShop.aspx.designer.cs">
+      <DependentUpon>pAddShop.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\SchoolList.aspx.cs">
       <DependentUpon>SchoolList.aspx</DependentUpon>
@@ -472,6 +472,7 @@
     <Content Include="weblogin\chart\test\hbarchart.html" />
     <Content Include="weblogin\chart\test\linechart.html" />
     <Content Include="weblogin\chart\test\piechart.html" />
+    <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\food\pFoodList.aspx" />
     <Content Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx" />
@@ -556,9 +557,8 @@
     <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
     <Content Include="weblogin\school\nSchoolDetail.aspx" />
     <Content Include="weblogin\school\pSchoolList.aspx" />
-    <Content Include="weblogin\ShopList.aspx" />
-    <Content Include="weblogin\shop\nShopDetail.aspx" />
-    <Content Include="weblogin\nShopUpdate.aspx" />
+    <Content Include="weblogin\shop\pShopDetail.aspx" />
+    <Content Include="weblogin\shop\pEditShop.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
     <Content Include="weblogin\SystemUserList.aspx" />
     <Content Include="weblogin\systemUser\nSystemUserDetail.aspx" />
@@ -1269,7 +1269,7 @@
     <Content Include="weblogin\restaurant\pEditRestaurant.aspx" />
     <Content Include="weblogin\rent\pAddRent.aspx" />
     <Content Include="weblogin\restaurant\pAddRestaurant.aspx" />
-    <Content Include="weblogin\nShopAdd.aspx" />
+    <Content Include="weblogin\shop\pAddShop.aspx" />
     <Content Include="weblogin\SchoolList.aspx" />
     <Content Include="weblogin\school\nSchoolAdd.aspx" />
     <Content Include="weblogin\nSchoolUpdate.aspx" />

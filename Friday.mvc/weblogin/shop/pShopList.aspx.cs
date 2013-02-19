@@ -19,41 +19,101 @@ namespace Friday.mvc.weblogin.shop
         public string systemUserId;
 
 
-        public string startDate;
-        public string endDate;
-
-        IRepository<Shop> iRepositoryShop = UnityHelper.UnityToT<IRepository<Shop>>();
+        protected string startDate;
+        protected string endDate;
+        protected string name;
+        protected string owener;
+        protected string shortName;
+        protected string address;
+        protected string shopStatus;
+        protected string tel;
+        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
+        IShopRepository iRepositoryShop = UnityHelper.UnityToT<IShopRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-          if (Request.Params["flag"] != "alldelete")
-           {
-               if (Request.Params["flag"] != "alldelete")
-               {
-            numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-            int start = (pageNum - 1) * numPerPageValue;
-            int limit = numPerPageValue;
+            if (Request.Params["flag"] != "alldelete")
+            {
+                if (Request.Params["flag"] != "alldelete")
+                {
+                    numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
+                    int start = (pageNum - 1) * numPerPageValue;
+                    int limit = numPerPageValue;
 
-            IList<Shop> shopList = iRepositoryShop.GetPageList(start, limit, out total);
+                    List<DataFilter> filterList = new List<DataFilter>();
+                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Name",
+                            value = name = Request.Form["Name"]
 
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["Owener"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Owener",
+                            value = owener = Request.Form["Owener"]
 
-            repeater.DataSource = shopList;
-            repeater.DataBind();
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "ShortName",
+                            value = shortName = Request.Form["ShortName"]
 
-            numPerPage.Value = numPerPageValue.ToString();
-               }
-           }
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["Address"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Address",
+                            value = address = Request.Form["Address"]
 
-          else
-          {
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "ShopStatus",
+                            value = shopStatus = Request.Form["ShopStatus"]
 
-              DeleteShop();
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["Tel"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Tel",
+                            value = tel = Request.Form["Tel"]
 
-          }
+                        });
+                    var filter = new DataFilter();
+                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                    {
+                        filter.type = "CreateTime";
+                        filter.value = startDate = Request.Form["StartDate"];
+                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                        {
+                            filter.valueForCompare = endDate = Request.Form["EndDate"];
+                        }
+                        filterList.Add(filter);
+                    }
 
-         }
+                    IList<Shop> shopList = iRepositoryShop.Search(filterList, start, limit, out total);
+                   
+                    repeater.DataSource = shopList;
+                    repeater.DataBind();
+
+                    numPerPage.Value = numPerPageValue.ToString();
+                }
+            }
+
+            else
+            {
+
+                DeleteShop();
+
+            }
+
+        }
 
 
 

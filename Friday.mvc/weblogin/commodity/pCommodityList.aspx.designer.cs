@@ -7,45 +7,45 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin {
+namespace Friday.mvc.weblogin.commodity {
     
     
-    public partial class PictureUpload {
+    public partial class pCommodityList {
         
         /// <summary>
-        /// Form1 控件。
+        /// form 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// ID 控件。
+        /// Type 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox ID;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Type;
         
         /// <summary>
-        /// file1 控件。
+        /// repeater 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile file1;
+        protected global::System.Web.UI.WebControls.Repeater repeater;
         
         /// <summary>
-        /// type1 控件。
+        /// numPerPage 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden type1;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect numPerPage;
     }
 }
