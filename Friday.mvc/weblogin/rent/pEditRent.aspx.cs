@@ -32,10 +32,10 @@ namespace Friday.mvc.weblogin.rent
 
                 BindingHelper.ObjectToControl(rent, this);
 
-                ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+                //ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
 
-                string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
-                this.SchoolOfMerchant.Value = schofmntname;
+                //string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+                //this.SchoolOfMerchant.Value = schofmntname;
 
             }
         }
@@ -52,16 +52,16 @@ namespace Friday.mvc.weblogin.rent
             repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
 
 
-            string schid;
-            schid = this.SchoolOfMerchantID.Value;
-            string[] sArray = schid.Split(',');
-            foreach (string shcidsz in sArray)
-            {
-                friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
-                schofmt.Merchant = rent;
-                schofmt.School = iSchoolRepository.Get(shcidsz);
-                iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
-            }   
+            //string schid;
+            //schid = this.SchoolOfMerchantID.Value;
+            //string[] sArray = schid.Split(',');
+            //foreach (string shcidsz in sArray)
+            //{
+            //    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+            //    schofmt.Merchant = rent;
+            //    schofmt.School = iSchoolRepository.Get(shcidsz);
+            //    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+            //}   
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
