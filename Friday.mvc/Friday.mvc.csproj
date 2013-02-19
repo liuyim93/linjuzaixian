@@ -159,6 +159,13 @@
     <Compile Include="weblogin\food\pFoodList.aspx.designer.cs">
       <DependentUpon>pFoodList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\house\pHouseList.aspx.cs">
+      <DependentUpon>pHouseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\house\pHouseList.aspx.designer.cs">
+      <DependentUpon>pHouseList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +376,7 @@
     <Content Include="weblogin\chart\test\piechart.html" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\food\pFoodList.aspx" />
+    <Content Include="weblogin\house\pHouseList.aspx" />
     <Content Include="weblogin\index.aspx" />
     <Content Include="weblogin\js\additional-methods.js" />
     <Content Include="weblogin\js\dwz.accordion.js" />
