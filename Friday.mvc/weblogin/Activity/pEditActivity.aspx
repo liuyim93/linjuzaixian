@@ -24,10 +24,10 @@
             </p>
             <p>
                 <label>
-                    重要性：</label>
+                    活动事项：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
-               <p>
+            <p>
               <p>
                 <label>
                     附件上传：</label>
@@ -39,10 +39,9 @@
             </span>  
             </p>
             </p>
-             <p style="margin-left:20px;height:100px">
+             <p style="margin-left:20px;height:40px">
                 <img id="ImagePreview" runat="server"  style=" width:120px; height:100px" />
-            </p>     
-  
+            </p>
          <div style="  clear:left; width:80%; margin-top:100px" >
              <p>
                  <label>详细内容：</label>

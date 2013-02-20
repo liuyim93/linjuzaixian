@@ -24,7 +24,7 @@
             </p>
             <p>
                 <label>
-                    重要性：</label>
+                    活动事项：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
           <p>

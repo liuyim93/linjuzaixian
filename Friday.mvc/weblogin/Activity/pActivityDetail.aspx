@@ -29,7 +29,7 @@
          <div>
           <p>
                 <label>
-                    事件：</label>
+                    活动事项：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
            <p style="margin-left:20px;height:40px">
