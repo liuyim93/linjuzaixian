@@ -54,7 +54,7 @@
                         pk: $this.attr("lookupPk") || "id"
                     });
                     //2013-02-20 basilwang add prefix
-                    var _prefix = $this.attr("prefix");
+                    var _prefix = $this.attr("rel");
                     options.data = { prefix: _prefix };
                     
                     var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
