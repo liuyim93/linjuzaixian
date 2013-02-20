@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.systemUser
 {
-    public partial class nSystemUserDetail : System.Web.UI.Page
+    public partial class pSystemUserDetail : System.Web.UI.Page
     {
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
         private SystemUser systemUser;

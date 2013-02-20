@@ -7,10 +7,19 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.systemUser {
+namespace Friday.mvc.weblogin {
     
     
-    public partial class nSystemUserDetail {
+    public partial class pEditSystemUser {
+        
+        /// <summary>
+        /// form 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
         /// LoginName 控件。

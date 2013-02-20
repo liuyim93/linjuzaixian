@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin {
     
     
-    public partial class nSystemUserAdd {
+    public partial class pAddSystemUser {
         
         /// <summary>
         /// form 控件。

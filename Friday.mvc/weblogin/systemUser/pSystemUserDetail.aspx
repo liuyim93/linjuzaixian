@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nSystemUserDetail.aspx.cs" Inherits="Friday.mvc.weblogin.systemUser.nSystemUserDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSystemUserDetail.aspx.cs" Inherits="Friday.mvc.weblogin.systemUser.pSystemUserDetail" %>
 
 <div class="page">
     <div class="pageContent">
