@@ -42,7 +42,7 @@
              <p style="margin-left:20px;height:40px">
                 <img id="ImagePreview" runat="server"  style=" width:120px; height:100px" />
             </p>
-         <div style="  clear:left; width:80%; margin-top:100px" >
+         <div style="  clear:left; width:80%; margin-top:160px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">

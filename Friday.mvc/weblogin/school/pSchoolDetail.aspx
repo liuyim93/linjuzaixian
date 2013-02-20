@@ -5,7 +5,7 @@
         <div class="tabsHeaderContent">
           <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
-                <li><a href="#"><span>详细信息</span></a></li>
+               <%-- <li><a href="#"><span>详细信息</span></a></li>--%>
                
       
       
@@ -30,20 +30,6 @@
                     所在城市：</label>
                 <input type="text" id="CityName" size="30" class="required textInput gray" runat="server" />
             </p>
-         </div>
-
-
-         <div>
-            <div style="clear: left; width: 80%; margin-top: 0px; margin-bottom: 60px;">
-                <p>
-                    <label>
-                        详细内容：</label>
-                    <div style="width: 100%;">
-                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
-                            runat="server"></textarea>
-                    </div>
-                </p>
-            </div>
          </div>
 
     </div>

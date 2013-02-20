@@ -411,26 +411,12 @@
     <Compile Include="weblogin\shop\pAddShop.aspx.designer.cs">
       <DependentUpon>pAddShop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\SchoolList.aspx.cs">
-      <DependentUpon>SchoolList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\SchoolList.aspx.designer.cs">
-      <DependentUpon>SchoolList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\school\pAddSchool.aspx.cs">
       <DependentUpon>pAddSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\school\pAddSchool.aspx.designer.cs">
       <DependentUpon>pAddSchool.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\nSchoolUpdate.aspx.cs">
-      <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\nSchoolUpdate.aspx.designer.cs">
-      <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\activity\pEditActivity.aspx.cs">
       <DependentUpon>pEditActivity.aspx</DependentUpon>
@@ -1278,9 +1264,7 @@
     <Content Include="weblogin\rent\pAddRent.aspx" />
     <Content Include="weblogin\restaurant\pAddRestaurant.aspx" />
     <Content Include="weblogin\shop\pAddShop.aspx" />
-    <Content Include="weblogin\SchoolList.aspx" />
     <Content Include="weblogin\school\pAddSchool.aspx" />
-    <Content Include="weblogin\nSchoolUpdate.aspx" />
     <Content Include="weblogin\activity\pEditActivity.aspx" />
     <Content Include="weblogin\MultiListSchool.aspx" />
   </ItemGroup>
