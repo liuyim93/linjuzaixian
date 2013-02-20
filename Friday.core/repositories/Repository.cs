@@ -635,7 +635,74 @@ namespace friday.core.repositories
             }
             return query;
         }
-        
+
+        protected ICriteria SearchBySchool(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("School", "school");
+                notself = "school.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }                  
+                    if (df.type.Equals("ShortName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("CityName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "CityName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                   
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
 
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
         {

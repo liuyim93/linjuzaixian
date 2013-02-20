@@ -19,41 +19,79 @@ namespace Friday.mvc.weblogin.school
         public string systemUserId;
 
 
-        public string startDate;
-        public string endDate;
-
-        IRepository<School> iRepositorySchool = UnityHelper.UnityToT<IRepository<School>>();
+        protected string startDate;
+        protected string endDate;
+        protected string name;
+        protected string cityName;
+        protected string shortName;
+        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
+        ISchoolRepository iRepositorySchool = UnityHelper.UnityToT<ISchoolRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-          if (Request.Params["flag"] != "alldelete")
-           {
-               if (Request.Params["flag"] != "alldelete")
-               {
-            numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-            int start = (pageNum - 1) * numPerPageValue;
-            int limit = numPerPageValue;
+            if (Request.Params["flag"] != "alldelete")
+            {
+                if (Request.Params["flag"] != "alldelete")
+                {
+                    numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
+                    int start = (pageNum - 1) * numPerPageValue;
+                    int limit = numPerPageValue;
 
-            IList<School> schoolList = iRepositorySchool.GetPageList(start, limit, out total);
+                    List<DataFilter> filterList = new List<DataFilter>();
+                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Name",
+                            value = name = Request.Form["Name"]
 
+                        });
 
-            repeater.DataSource = schoolList;
-            repeater.DataBind();
+                    if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "ShortName",
+                            value = shortName = Request.Form["ShortName"]
 
-            numPerPage.Value = numPerPageValue.ToString();
-               }
-           }
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["CityName"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "CityName",
+                            value = cityName = Request.Form["CityName"]
 
-          else
-          {
+                        });
+         
+                    var filter = new DataFilter();
+                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                    {
+                        filter.type = "CreateTime";
+                        filter.value = startDate = Request.Form["StartDate"];
+                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                        {
+                            filter.valueForCompare = endDate = Request.Form["EndDate"];
+                        }
+                        filterList.Add(filter);
+                    }
 
-              DeleteSchool();
+                    IList<School> schoolList = iRepositorySchool.Search(filterList, start, limit, out total);
 
-          }
+                    repeater.DataSource = schoolList;
+                    repeater.DataBind();
 
-         }
+                    numPerPage.Value = numPerPageValue.ToString();
+                }
+            }
+
+            else
+            {
+
+                DeleteSchool();
+
+            }
+
+        }
 
 
 
@@ -61,9 +99,9 @@ namespace Friday.mvc.weblogin.school
         private void DeleteSchool()
         {
 
-            string schoolid = Request.Params["uid"];
+            
 
-            iRepositorySchool.Delete(schoolid);
+            iRepositorySchool.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -73,6 +111,7 @@ namespace Friday.mvc.weblogin.school
             Response.Write(jsonResult.FormatResult());
             Response.End();
         }
+
 
     }
 }
