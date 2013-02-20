@@ -175,6 +175,77 @@ namespace friday.core.repositories
             return query.List<T>();
 
         }
+
+        protected ICriteria SearchByMerchantCategory(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("MerchantCategory", "merchantCategory");
+                notself = "merchantCategory.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantCategoryName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "MerchantCategoryName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantType"))
+                    {
+                        try
+                        {
+                            MerchantTypeEnum Type = (MerchantTypeEnum)Enum.Parse(typeof(MerchantTypeEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "MerchantType", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
         protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             string notself = null;

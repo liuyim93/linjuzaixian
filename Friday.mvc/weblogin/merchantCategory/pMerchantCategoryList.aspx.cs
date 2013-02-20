@@ -16,6 +16,8 @@ namespace Friday.mvc.weblogin.merchantCategory
         protected long total;
         protected int pageNum;
         protected int numPerPageValue;
+        
+        protected string merchantCategoryName;
 
         IMerchantCategoryRepository iRepositoryMerchantCategory = UnityHelper.UnityToT<IMerchantCategoryRepository>();
 
@@ -33,8 +35,31 @@ namespace Friday.mvc.weblogin.merchantCategory
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
 
-                IList<MerchantCategory> merchantCategoryList = iRepositoryMerchantCategory.GetPageList(start, limit, out total);
+                List<DataFilter> filterList = new List<DataFilter>();
 
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "IsDelete"
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["MerchantCategoryName"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "MerchantCategoryName",
+                        value = merchantCategoryName = Request.Form["MerchantCategoryName"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["MerchantType"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "MerchantType",
+                        value = Request.Form["MerchantType"]
+
+                    });
+
+
+                IList<MerchantCategory> merchantCategoryList = iRepositoryMerchantCategory.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = merchantCategoryList;
                 repeater.DataBind();

@@ -25,7 +25,6 @@ namespace Friday.mvc.weblogin.rent
         protected string owener;
         protected string shortName;
         protected string address;
-        protected string shopStatus;
         protected string tel;
         IRentRepository iRepositoryRent = UnityHelper.UnityToT<IRentRepository>();
 
@@ -42,6 +41,12 @@ namespace Friday.mvc.weblogin.rent
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
+
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "IsDelete"
+                    });
+
                     if (!string.IsNullOrEmpty(Request.Form["Name"]))
                         filterList.Add(new DataFilter()
                         {
@@ -74,7 +79,7 @@ namespace Friday.mvc.weblogin.rent
                         filterList.Add(new DataFilter()
                         {
                             type = "ShopStatus",
-                            value = shopStatus = Request.Form["ShopStatus"]
+                            value = Request.Form["ShopStatus"]
 
                         });
                     if (!string.IsNullOrEmpty(Request.Form["Tel"]))

@@ -11,53 +11,22 @@
     <div class="searchBar">
         <form id="form" rel="pagerForm" method="post" runat="server">
         <table class="searchContent">
-            <tr>
-                <td>
-                    <label>商铺名称:</label>
-                    <input  type="text" name="Name" class="textInput" 
-                        value="" />
-                </td>
-                <td>
-                    <label>联系人姓名:</label>
-                    <input type="text" name="Owener" class="textInput" 
-                        value="" />
-                </td>
-                <td>
-                    <label>简称:</label>
-                    <input  type="text" name="ShortName" class="textInput" 
-                        value="" />
-                </td>
-                <td>
-                    <label>地址:</label>
-                    <input type="text" name="Address" class="textInput" 
-                        value="" />
-                </td>
-            </tr>
              <tr>
+                <td>
+                    <label>经营类型:</label>
+                    <input type="text" name="MerchantCategoryName" class="textInput" value="<%=merchantCategoryName %>"  />
+                </td>
                  <td>
                      <label>
-                         商铺当前状态:</label>
-                     <select name="ShopStatus" id="ShopStatus" runat="server">
-                         <option value="">请选择</option>
-                         <option value="营业时间">营业时间</option>
-                         <option value="正在休息">正在休息</option>
+                         商铺类型:</label>
+                     <select name="MerchantType" id="MerchantType" runat="server">
+                    <option value="">请选择</option>
+                    <option value="餐馆">餐馆</option>
+                    <option value="租房">租房</option>
+                    <option value="百货">百货</option>
                      </select>
                  </td>
-                <td>
-                    <label>电话:</label>
-                    <input type="text" name="Tel" class="textInput"  
-                        value="" />
-                </td>
-                <td>
-                    <label>起始日期:</label>
-                    <input  type="text" name="StartDate" class="date textInput readonly" readonly="true" 
-                        value="" />
-                </td>
-                <td>
-                    <label>截止日期:</label>
-                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true" 
-                        value="" />
-                </td>
+
             </tr>
         </table>
         <div class="subBar">
