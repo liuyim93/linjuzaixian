@@ -25,10 +25,9 @@
             <p>
                         <label>
                             服务的学校：</label>
-                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
+                        <input type="text" id="orgName" size="30" class="required textInput gray" runat="server"
                             readonly="true" />
-                        <a class="add" target="dialog" href="ListSchool.aspx" rel="">
-                            选择</a>
+                        <a class="btnLook" href="ListSchool.aspx" lookupGroup="">选择学校</a>	
                         <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
                             runat="server" />
            </p>

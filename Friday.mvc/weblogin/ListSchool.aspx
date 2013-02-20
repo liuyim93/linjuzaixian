@@ -14,7 +14,7 @@
                      <tr>
                       <th width="40"><input type="checkbox" class="checkboxCtrl" group="c1" />全选</th> 
                        <th width="40">序号</th> 
-					    <th width="80">学校名称</th> 
+					    <th width="200">学校名称</th> 
                       </tr>
                  </thead>
                  <tbody> 
@@ -25,12 +25,9 @@
                      value="<%#DataBinder.Eval(Container.DataItem, "Name")%>" /></td> 
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
-				    </tr>			      
-                  	<tr target="userid" rel="<%#Eval("Id")%>">
-				<td><input type="checkbox" name="orgId" value="{id:'<%#DataBinder.Eval(Container.DataItem, "Id")%>', orgName:'<%#DataBinder.Eval(Container.DataItem, "Name")%>', orgNum:'1001'}"/></td>
-				<td><%#Container.ItemIndex+1%></td>
-			 
-				<td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
+                     <td>
+					<a class="btnSelect" href=javascript:$.bringBack({id:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',SchoolOfMerchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'}) title="查找带回">选择</a>
+				</td>				
 			</tr>
                 </ItemTemplate>
          </asp:repeater>
@@ -60,48 +57,47 @@
 <script   type="text/javascript">
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
-        var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         $(document).one("panelloaded", function (e, o) {
-            var $panel = $.referer(page_prefix);
+//            var $panel = $.referer(page_prefix);
 
-            //2013-02-05 pangfuxing SelectAll
-            var $checkboxAll = o.find("#CheckboxAll");
-            $checkboxAll.toggle(function () {
-                //debugger
-                $(this).attr("checked", true);
-                o.find("#CheckboxAll").attr("checked", true);
-                //debugger
-                //var flag = checkboxAll.attr("checked"); //判断全选按钮的状态
-                o.find("input[name='SelectSchool']").attr("checked", true);
-                //                $("input[name='SelectSchool']").each(function () {//查找每一个Id以Item结尾的checkbox
-                //                $(this).attr("checked", flag);//选中或者取消选中
-            },
-            function () {
-                $checkboxAll.attr("checked",false);
-                $o.find("input[name='SelectSchool']").attr("checked", false);
-            });
+//            //2013-02-05 pangfuxing SelectAll
+//            var $checkboxAll = o.find("#CheckboxAll");
+//            $checkboxAll.toggle(function () {
+//                //debugger
+//                $(this).attr("checked", true);
+//                o.find("#CheckboxAll").attr("checked", true);
+//                //debugger
+//                //var flag = checkboxAll.attr("checked"); //判断全选按钮的状态
+//                o.find("input[name='SelectSchool']").attr("checked", true);
+//                //                $("input[name='SelectSchool']").each(function () {//查找每一个Id以Item结尾的checkbox
+//                //                $(this).attr("checked", flag);//选中或者取消选中
+//            },
+//            function () {
+//                $checkboxAll.attr("checked", false);
+//                $o.find("input[name='SelectSchool']").attr("checked", false);
+//            });
 
-            o.find("#btnSave", "click", function () {
-                var arg1 = "arg1_value";
-                var arg2 = "arg2_value";
-                //2013-02-05  pangfuxing  change type=checkbox  to  name=SelectSchool  to  get rid of  the influence  from  ("#CheckboxAll").value
-                var os = $self.find("input[name=SelectSchool]:checked");
-                arg1 = [];
-                $.each(os, function (i, o) {
-                    //debugger
-                    var $o = $(o);
-                    //alert($o.attr("idvalue"));
-                    arg1[i] = { idvalue: $o.attr("idvalue"), value: $o.val() };
-                });
+//            o.find("#btnSave", "click", function () {
+//                var arg1 = "arg1_value";
+//                var arg2 = "arg2_value";
+//                //2013-02-05  pangfuxing  change type=checkbox  to  name=SelectSchool  to  get rid of  the influence  from  ("#CheckboxAll").value
+//                var os = $self.find("input[name=SelectSchool]:checked");
+//                arg1 = [];
+//                $.each(os, function (i, o) {
+//                    //debugger
+//                    var $o = $(o);
+//                    //alert($o.attr("idvalue"));
+//                    arg1[i] = { idvalue: $o.attr("idvalue"), value: $o.val() };
+//                });
 
-                //debugger
-                $panel.trigger("callback", [arg1, arg2]);
-                //debugger
-                $.pdialog.closeCurrent();
-                return false;
-            });
+//                //debugger
+//                $panel.trigger("callback", [arg1, arg2]);
+//                //debugger
+//                $.pdialog.closeCurrent();
+//                return false;
+//            });
         });
 
 
