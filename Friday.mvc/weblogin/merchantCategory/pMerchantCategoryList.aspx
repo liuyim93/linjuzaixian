@@ -99,7 +99,6 @@
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                    <th width="10%" align="center">商铺经营类型编号</th>
                         <th width="10%" align="center">经营类型</th>
                     <th width="10%" align="center">商铺类型</th>
 
@@ -111,10 +110,9 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="merchantCategory/pMerchantCategoryDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>' target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="merchantCategory/pMerchantCategoryDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>' target="ajax" rel_v3="jbsxBox3"><%#Eval("MerchantCategoryName")%>
                             </a>
                         </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "MerchantCategoryName")%></td>
                         <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "MerchantType"))%></td>                    
 				</tr>
 			      
@@ -135,7 +133,7 @@
         <span>条，共<%=total %>条</span>
     </div>
     <div class="pagination"  totalcount="<%=total %>"
-        numperpage="<%=numPerPage.Value %>" curMerchantCategorypage="<%=pageNum %>">
+        numperpage="<%=numPerPage.Value %>" currentpage="<%=pageNum %>">
     </div>
 </div>
 

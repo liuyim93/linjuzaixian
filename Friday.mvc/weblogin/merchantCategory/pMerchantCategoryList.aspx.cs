@@ -49,8 +49,6 @@ namespace Friday.mvc.weblogin.merchantCategory
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
-            result.navTabId = "referer";
-            result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
