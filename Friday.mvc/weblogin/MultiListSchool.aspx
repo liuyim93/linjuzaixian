@@ -42,7 +42,11 @@
                     </div>
                 </li>
                 <li>
-                   <div class="button"><div class="buttonContent"><button type="button" multLookup="orgId" warn="请选择部门">选择带回</button></div></div>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button type="button" multlookup="ids" warn="请选择部门">
+                                选择带回</button></div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -55,7 +59,7 @@
                  <HeaderTemplate>
                  <thead>
                      <tr>
-                      <th width="60"><input type="checkbox" class="checkboxCtrl" group="orgId" />全选</th> 
+                      <th width="60"><input type="checkbox" class="checkboxCtrl" group="ids" />全选</th> 
                        <th width="40">序号</th> 
 					    <th width="250">学校名称</th> 
                       </tr>
@@ -64,7 +68,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                     <tr target="userid" rel="<%#Eval("Id")%>">
-                     <td><input type="checkbox" name="orgId" value={IDSet:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',NameSet:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'} /></td>
+                     <td><input type="checkbox" name="ids" value={IDSet:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',NameSet:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'} /></td>
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>			
 			</tr>
@@ -115,16 +119,21 @@
             alert(o.find("[name=IDSet]").val());
             var id_set = o.find("[name=IDSet]").val().split(',');
             alert(id_set.length);
-            o.find("[name=orgId]").each(function () {
-                var _args = DWZ.jsonEval($(this).val());
-                for (var key in _args) {
-                    debugger
-                    if ($.inArray(_args[key], id_set) > -1)
-                        $(this).attr("checked", true);
-                    //                    var value = args[key] ? args[key] + "," : "";
-                    //                    args[key] = value + _args[key];
-                }
-            });
+            o.find("[name=ids]")
+              .change(function () {
+//                  if ($(this).is(":checked")) {
+//                      $(this).siblings("input[type=checkbox]").removeAttr("checked");
+//                  }
+//                  else {
+
+//                  }
+              })
+              .each(function () {
+                  var _args = DWZ.jsonEval($(this).val());
+                  if ($.inArray(_args["IDSet"], id_set) > -1)
+                     $(this).attr("checked", true);
+             
+              });
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 
