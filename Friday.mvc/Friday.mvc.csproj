@@ -208,19 +208,19 @@
     <Compile Include="weblogin\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\MerchantCategoryList.aspx.cs">
+    <Compile Include="weblogin\merchantCategory\MerchantCategoryList.aspx.cs">
       <DependentUpon>MerchantCategoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\MerchantCategoryList.aspx.designer.cs">
+    <Compile Include="weblogin\merchantCategory\MerchantCategoryList.aspx.designer.cs">
       <DependentUpon>MerchantCategoryList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\merchantCategory\nMerchantCategoryDetail.aspx.cs">
-      <DependentUpon>nMerchantCategoryDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx.cs">
+      <DependentUpon>pMerchantCategoryDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\merchantCategory\nMerchantCategoryDetail.aspx.designer.cs">
-      <DependentUpon>nMerchantCategoryDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx.designer.cs">
+      <DependentUpon>pMerchantCategoryDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\merchantCategory\pMerchantCategoryList.aspx.cs">
       <DependentUpon>pMerchantCategoryList.aspx</DependentUpon>
@@ -250,19 +250,19 @@
     <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.designer.cs">
       <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.cs">
-      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantCategory\pAddMerchantCategory.aspx.cs">
+      <DependentUpon>pAddMerchantCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nMerchantCategoryAdd.aspx.designer.cs">
-      <DependentUpon>nMerchantCategoryAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantCategory\pAddMerchantCategory.aspx.designer.cs">
+      <DependentUpon>pAddMerchantCategory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.cs">
-      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantCategory\pEditMerchantCategory.aspx.cs">
+      <DependentUpon>pEditMerchantCategory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nMerchantCategoryUpdate.aspx.designer.cs">
-      <DependentUpon>nMerchantCategoryUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantCategory\pEditMerchantCategory.aspx.designer.cs">
+      <DependentUpon>pEditMerchantCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\nSystemUserAdd.aspx.cs">
       <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
@@ -534,14 +534,14 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListSchool.aspx" />
-    <Content Include="weblogin\MerchantCategoryList.aspx" />
-    <Content Include="weblogin\merchantCategory\nMerchantCategoryDetail.aspx" />
+    <Content Include="weblogin\merchantCategory\MerchantCategoryList.aspx" />
+    <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
     <Content Include="weblogin\activity\pAddActivity.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
-    <Content Include="weblogin\nMerchantCategoryAdd.aspx" />
-    <Content Include="weblogin\nMerchantCategoryUpdate.aspx" />
+    <Content Include="weblogin\merchantCategory\pAddMerchantCategory.aspx" />
+    <Content Include="weblogin\merchantCategory\pEditMerchantCategory.aspx" />
     <Content Include="weblogin\nSystemUserAdd.aspx" />
     <Content Include="weblogin\nSystemUserUpdate.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />

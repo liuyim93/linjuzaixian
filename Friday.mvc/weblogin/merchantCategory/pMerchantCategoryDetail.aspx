@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nMerchantCategoryDetail.aspx.cs" Inherits="Friday.mvc.weblogin.merchantCategory.nMerchantCategoryDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pMerchantCategoryDetail.aspx.cs" Inherits="Friday.mvc.weblogin.merchantCategory.pMerchantCategoryDetail" %>
 
 <div class="page">
     <div class="pageContent">

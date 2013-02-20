@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin {
     
     
-    public partial class nMerchantCategoryUpdate {
+    public partial class pAddMerchantCategory {
         
         /// <summary>
         /// form 控件。
