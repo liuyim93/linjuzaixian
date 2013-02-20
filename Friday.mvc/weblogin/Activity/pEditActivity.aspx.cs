@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using System.IO;
 
 namespace Friday.mvc.weblogin.activity
 {
@@ -35,9 +36,44 @@ namespace Friday.mvc.weblogin.activity
 
         private void SaveActivity()
         {
-
             BindingHelper.RequestToObject(activity);
 
+            string fileoldName = "";
+            string fileExtension;
+            string filesnewName = "";
+            Random R = new Random();//创建产生随机数
+            HttpFileCollection files = HttpContext.Current.Request.Files;
+            try
+            {
+                for (int iFile = 0; iFile < files.Count; iFile++)
+                {
+                    HttpPostedFile postedFile = files[iFile];
+                    fileoldName = System.IO.Path.GetFileName(postedFile.FileName);
+                    if (!string.IsNullOrEmpty(fileoldName))
+                    {
+                        fileExtension = System.IO.Path.GetExtension(fileoldName).ToLower();
+
+                        int val = 10 + R.Next(999);//产生随机数为99以内任意
+                        int val1 = 10 + R.Next(999);//产生随机数为999以内任意
+                        filesnewName = DateTime.Now.ToString("yyyyMMddHHmmss") + val.ToString() + val1.ToString() + fileExtension;
+                        if (!string.IsNullOrEmpty(filesnewName))
+                        {
+                            File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+                        }
+                        postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+                    }
+                }
+            }
+            catch (System.Exception Ex)
+            {
+            }
+            if (!string.IsNullOrEmpty(filesnewName))
+            {
+
+                activity.Image = "/uploadimage/" + filesnewName;
+                this.ImagePreview.Src = activity.Image;
+            }
+            
             iActivityRepository.SaveOrUpdate(activity);
 
             AjaxResult result = new AjaxResult();
