@@ -79,7 +79,7 @@
             <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" style="width: 85px" runat="server">
+                <select id="ShopStatus" runat="server">
                     <option value="">请选择</option>
                     <option value="接受预定">接受预定</option>
                     <option value="营业时间">营业时间</option>
