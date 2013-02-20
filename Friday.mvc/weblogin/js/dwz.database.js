@@ -84,8 +84,18 @@
                     //                        }
                     //                    });
                     var args = {};
-                    args.IDSet = $unitBox.find("[name='IDSet']").val();
-                    args.NameSet = $unitBox.find("[name='NameSet']").val();
+                    var id_set = $unitBox.find("[name='IDSet']").val().split(',');
+                    id_set = $.grep(id_set, function (elem, index) {
+                        if (elem === "{IDSet}") return false;
+                        return true;
+                    });
+                    args.IDSet = id_set.join(',');
+                    var name_set = $unitBox.find("[name='NameSet']").val().split(',');
+                    name_set = $.grep(name_set, function (elem, index) {
+                        if (elem === "{NameSet}") return false;
+                        return true;
+                    });
+                    args.NameSet = name_set.join(',');
 
                     if ($.isEmptyObject(args)) {
                         alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));

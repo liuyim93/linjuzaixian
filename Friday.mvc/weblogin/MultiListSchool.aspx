@@ -116,12 +116,12 @@
                     dialogPageBreak({ numPerPage: this.value });
                 });
             }
-            alert(o.find("[name=IDSet]").val());
+            //alert(o.find("[name=IDSet]").val());
             var $idset = o.find("[name=IDSet]");
             var $nameset = o.find("[name=NameSet]");
             var id_set = o.find("[name=IDSet]").val().split(',');
             var name_set = o.find("[name=NameSet]").val().split(',');
-            alert(id_set.length);
+            //alert(id_set.length);
             o.find("[name=ids]")
               .change(function () {
                   var _args = DWZ.jsonEval($(this).val());
