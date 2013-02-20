@@ -18,7 +18,9 @@ namespace Friday.mvc.weblogin.globalGoodsType
         protected int pageNum;
         protected int numPerPageValue;
 
-        IRepository<GlobalGoodsType> iRepositoryGlobalGoodsType = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+        protected string goodsType;
+
+        IGlobalGoodsTypeRepository iRepositoryGlobalGoodsType = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,9 +35,30 @@ namespace Friday.mvc.weblogin.globalGoodsType
                 pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
+                List<DataFilter> filterList = new List<DataFilter>();
 
-                IList<GlobalGoodsType> globalGoodsTypeList = iRepositoryGlobalGoodsType.GetPageList(start, limit, out total);
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsDelete"
+                });
 
+                if (!string.IsNullOrEmpty(Request.Form["GoodsType"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "GoodsType",
+                        value = goodsType = Request.Form["GoodsType"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["MerchantType"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "MerchantType",
+                        value = Request.Form["MerchantType"]
+
+                    });
+
+                IList<GlobalGoodsType> globalGoodsTypeList = iRepositoryGlobalGoodsType.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = globalGoodsTypeList;
                 repeater.DataBind();

@@ -14,7 +14,7 @@
              <tr>
                 <td>
                     <label>商品类型:</label>
-                    <input type="text" name="GoodsType" class="textInput"  />
+                    <input type="text" name="GoodsType" class="textInput" value="<%=goodsType %>" />
                 </td>
                  <td>
                      <label>

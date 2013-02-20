@@ -31,7 +31,7 @@ namespace friday.core.repositories
         //对外获取方法
         public IList<MerchantCategory> Search(List<DataFilter> termList)
         {
-            return SearchByRent(Query, termList, true).List<MerchantCategory>();
+            return SearchByMerchantCategory(Query, termList, true).List<MerchantCategory>();
         }
         public IList<MerchantCategory> Search(List<DataFilter> termList, int start, int limit, out long total)
         {

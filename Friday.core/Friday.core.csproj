@@ -227,6 +227,8 @@
     <Compile Include="domain\RentSatistic.cs" />
     <Compile Include="repositories\ActivityRepository.cs" />
     <Compile Include="repositories\IActivityRepository.cs" />
+    <Compile Include="repositories\GlobalGoodsTypeRepository.cs" />
+    <Compile Include="repositories\IGlobalGoodsTypeRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
