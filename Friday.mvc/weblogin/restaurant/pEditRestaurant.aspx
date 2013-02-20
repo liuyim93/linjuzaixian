@@ -22,38 +22,11 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-        </div>
-    </div>
-     <div class="panel collapse" defh="95">
-        <h1>
-            配送时间</h1>
-        <div>
-         <p>
-                <label>
-                    早餐配送时间：</label>
-                <input type="text" id="MorningBeginHour" size="10" class="required textInput gray" runat="server"   /> <label style=" width:10px">—</label><input type="text" id="MorningEndHour" size="10" class="required textInput gray" runat="server" />
-            </p>
-             <p>
-                <label>
-                    午餐配送时间：</label>
-               <input type="text" id="AfternoonBeginHour" size="10" class="required textInput gray" runat="server" /><label style=" width:10px">—</label><input type="text" id="AfternoonEndHour" size="10" class="required textInput gray" runat="server" />
-            </p>
-             <p>
-                <label>
-                    晚餐配送时间：</label>
-               <input type="text" id="NightStartHour" size="10" class="required textInput gray" runat="server" /><label style=" width:10px">—</label><input type="text" id="NightEndHour" size="10" class="required textInput gray" runat="server" />
-              </p>
-             <p>
+                <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
             </p>
-        </div>
-    </div>
-     <div class="panel close collapse" defh="70">
-        <h1>
-            促销打折</h1>
-        <div>
         <p>
                 <label>
                     Tel：</label>
@@ -75,21 +48,60 @@
                     距离：</label>
                 <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
             </p>
-               <p>
-                <label>
-                    折扣：</label>
-                <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
-            </p>
-           <p>
+              <p>
                 <label>
                     商铺当前状态：</label>
                 <select id="ShopStatus" style="width:85px" runat="server">
 					<option value="">请选择</option>
 				
-					<option value="1">营业时间</option>
-                    <option value="2">正在休息</option>
+					<option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
 				</select> 
             </p>
+        </div>
+    </div>
+     <div class="panel collapse" defh="55">
+        <h1>
+            配送时间</h1>
+        <div>       
+         <p>
+                <label>
+                    早餐配送时间：</label>
+                <input type="text" id="MorningBeginHour" size="10" class="required textInput gray" runat="server"   /> <label style=" width:10px">—</label><input type="text" id="MorningEndHour" size="10" class="required textInput gray" runat="server" />
+            </p>
+             <p>
+                <label>
+                    午餐配送时间：</label>
+               <input type="text" id="AfternoonBeginHour" size="10" class="required textInput gray" runat="server" /><label style=" width:10px">—</label><input type="text" id="AfternoonEndHour" size="10" class="required textInput gray" runat="server" />
+            </p>
+             <p>
+                <label>
+                    晚餐配送时间：</label>
+               <input type="text" id="NightStartHour" size="10" class="required textInput gray" runat="server" /><label style=" width:10px">—</label><input type="text" id="NightEndHour" size="10" class="required textInput gray" runat="server" />
+              </p>
+          
+        </div>
+    </div>
+     <div class="panel close collapse" defh="115">
+        <h1>
+            促销打折</h1>
+        <div>
+         
+            <p >
+                 <label >商铺活动：</label>
+					<textarea   class="editor" tools="simple"  style="width:317px; height 200px;"    name="Activity" id="Activity"    runat="server"></textarea>
+           </p>
+        
+
+               <p>
+                <label>
+                    折扣：</label>
+                <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
+            </p>
+            <p></p>
+            <p></p>
+            <p></p>
+         
         </div>
     </div>
      <div class="panel close collapse" defh="400">
@@ -99,19 +111,34 @@
         <div>
             <p >
                  <label >商铺公告：</label>
-					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
+					<textarea class="editor" tools="simple"  style="width:317px; height 200px;"   name="Bulletins" id="Bulletins"  runat="server"></textarea>
            </p>
            </div>
+         
            <div>
-            <p >
-                 <label >商铺活动：</label>
-					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
-           </p>
-           </div>        
-         <div style="  clear:left; width:80%; margin-top:410px" >
+           <p>
+            
+                <label>
+                    Logo上传：</label>
+          
+                <input id="Image" type="file" class="required textInput gray" runat="server" />
+              
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+           
+            </p>
+          
+             <p >
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>
+          
+           </div> 
+                  
+         <div style="  clear:left; width:80%; margin-top:240px" >
              <p>
                  <label>详细内容：</label>
-             <div style="   width:100%; ">
+             <div style="width:100%; ">
 				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
 				</div>
                 </p>

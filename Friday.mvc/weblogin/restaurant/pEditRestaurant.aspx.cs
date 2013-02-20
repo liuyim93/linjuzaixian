@@ -8,17 +8,18 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using System.IO;
 
 namespace Friday.mvc.weblogin.restaurant
 {
     public partial class pEditRestaurant : System.Web.UI.Page
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-        private Restaurant Restaurant;
+        private Restaurant restaurant;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            Restaurant = iRestaurantRepository.Load(uid);
+            restaurant = iRestaurantRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -27,17 +28,54 @@ namespace Friday.mvc.weblogin.restaurant
             else
             {
 
-                BindingHelper.ObjectToControl(Restaurant, this);
-
+                BindingHelper.ObjectToControl(restaurant, this);
+                this.ImagePreview.Src = restaurant.Logo;
+                
             }
         }
 
         private void SaveRestaurant()
         {
 
-            BindingHelper.RequestToObject(Restaurant);
+            BindingHelper.RequestToObject(restaurant);
 
-            iRestaurantRepository.SaveOrUpdate(Restaurant);
+            string fileoldName = "";
+            string fileExtension;
+            string filesnewName = "";
+            Random R = new Random();//创建产生随机数
+            HttpFileCollection files = HttpContext.Current.Request.Files;
+            try
+            {
+                for (int iFile = 0; iFile < files.Count; iFile++)
+                {
+                    HttpPostedFile postedFile = files[iFile];
+                    fileoldName = System.IO.Path.GetFileName(postedFile.FileName);
+                    if (!string.IsNullOrEmpty(fileoldName))
+                    {
+                        fileExtension = System.IO.Path.GetExtension(fileoldName).ToLower();
+
+                        int val = 10 + R.Next(999);//产生随机数为99以内任意
+                        int val1 = 10 + R.Next(999);//产生随机数为999以内任意
+                        filesnewName = DateTime.Now.ToString("yyyyMMddHHmmss") + val.ToString() + val1.ToString() + fileExtension;
+                        if (!string.IsNullOrEmpty(filesnewName))
+                        {
+                            File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+                        }
+                        postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+                    }
+                }
+            }
+            catch (System.Exception Ex)
+            {
+            }
+            if (!string.IsNullOrEmpty(filesnewName))
+            {
+
+                restaurant.Logo = "/uploadimage/" + filesnewName;
+                this.ImagePreview.Src = restaurant.Logo;
+            }
+
+            iRestaurantRepository.SaveOrUpdate(restaurant);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

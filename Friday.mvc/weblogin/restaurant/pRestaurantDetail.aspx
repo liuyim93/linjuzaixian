@@ -9,6 +9,7 @@
                 <li><a href="#"><span>配送时间</span></a></li>
                 <li><a href="#"><span>促销打折</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
+                 <li><a href="#"><span>详细信息</span></a></li>
                 <li><a href='Food/pFoodList.aspx?uid=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>菜品</span></a></li>
            </ul>
@@ -17,7 +18,7 @@
     <div class="tabsContent" style="height: 250px;">
          <div>
              <input type="hidden" id="MyOrderId" size="30" runat="server" />
-            <p>
+          <p>
                 <label>
                     餐馆名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -31,6 +32,42 @@
                 <label>
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
+            </p>
+                <p>
+                <label>
+                    营业时间：</label>
+                <input type="text" id="Text1" size="30" class="required textInput gray" runat="server" />
+            </p>
+        <p>
+                <label>
+                    Tel：</label>
+                <input type="text" id="Text2" size="30" class="required textInput gray" runat="server" />
+            </p>
+
+             <p>
+                <label>
+                    Email：</label>
+                <input type="text" id="Text3" size="30" class="required email" runat="server" />
+            </p>
+             <p>
+                <label>
+                    地址：</label>
+                <input type="text" id="Text4" size="30" class="required Address" runat="server" />
+            </p>
+              <p>
+                <label>
+                    距离：</label>
+                <input type="text" id="Text5" size="30" class="required textInput gray" runat="server" />
+            </p>
+              <p>
+                <label>
+                    商铺当前状态：</label>
+                <select id="Select1" style="width:85px" runat="server">
+					<option value="">请选择</option>
+				
+					<option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
+				</select> 
             </p>
          </div>
 
@@ -58,77 +95,62 @@
                     runat="server" /><label style="width: 10px">—</label><input type="text" id="NightEndHour"
                         size="10" class="required textInput gray" runat="server" />
             </p>
-            <p>
-                <label>
-                    营业时间：</label>
-                <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
-            </p>
+           
          </div>
 
          <div>
-          <p>
-                <label>
-                    距离：</label>
-                <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
+             <p >
+                 <label >商铺活动：</label>
+					<textarea   class="editor" tools="simple"  style="width:317px; height 200px;"    name="Activity" id="Textarea1"    runat="server"></textarea>
+           </p>
+        
+
+               <p>
                 <label>
                     折扣：</label>
                 <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
-                <label>
-                    Tel：</label>
-                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
-                <label>
-                    Email：</label>
-                <input type="text" id="Email" size="30" class="required email" runat="server" />
-            </p>
-            <p>
-                <label>
-                    地址：</label>
-                <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
-                <label>
-                    商铺当前状态：</label>
-                <select id="ShopStatus" style="width: 85px" runat="server">
-                    <option value="">请选择</option>
-                    <option value="营业时间">营业时间</option>
-                    <option value="正在休息">正在休息</option>
-                </select>
-            </p>
+            <p></p>
+            <p></p>
+            <p></p>
          </div>
 
-         <div>
-                     <div>
-                <p>
-                    <label>
-                        商铺公告：</label>
-                    <textarea class="editor" tools="simple"  style="width:317px; height 200px;"  name="Bulletins" id="Bulletins" rows="15"
-                        cols="42" runat="server"></textarea>
+        <div>
+                    
+                <p >
+                 <label >商铺公告：</label>
+					<textarea class="editor" tools="simple"  style="width:317px; height 200px;"   name="Bulletins" id="Bulletins"  runat="server"></textarea>
+           </p>
+         
+          
+           <p>
+            
+                <label>
+                    Logo：</label>
+          
+           <%--     <input id="Image" type="file" class="required textInput gray" runat="server" />
+              
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+           
+            </p>
+          
+             <p >--%>
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>
+       </div>
+       <div>
+             <p>
+                 <label>详细内容：</label>
+             
+				 	<textarea id="Description"    name="Description" style="width:1000px; height:500px;" runat="server"></textarea>
+		 
                 </p>
-            </div>
-            <div>
-                <p>
-                    <label>
-                        商铺活动：</label>
-                    <textarea class="editor" tools="simple"   style="width:317px; height 200px;" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
-                </p>
-            </div>
-            <div style="clear: left; width: 80%; margin-top: 350px; margin-bottom: 60px;">
-                <p>
-                    <label>
-                        详细内容：</label>
-                    <div style="width: 100%;">
-                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
-                            runat="server"></textarea>
-                    </div>
-                </p>
-            </div>
-         </div>
+          </div>
+                  
+       
+         
 
         <div id="jbsxBox1" >
         </div>

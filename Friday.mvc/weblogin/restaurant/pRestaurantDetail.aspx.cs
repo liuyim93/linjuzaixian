@@ -13,14 +13,14 @@ namespace Friday.mvc.weblogin.restaurant
     public partial class pRestaurantDetail : System.Web.UI.Page
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-        private Restaurant Restaurant;
+        private Restaurant restaurant;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            Restaurant = iRestaurantRepository.Load(uid);
+            restaurant = iRestaurantRepository.Load(uid);
 
-            BindingHelper.ObjectToControl(Restaurant, this);
-
+            BindingHelper.ObjectToControl(restaurant, this);
+            this.ImagePreview.Src = restaurant.Logo;
         }
     }
 }

@@ -58,6 +58,60 @@ namespace Friday.mvc.weblogin.restaurant {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Owener;
         
         /// <summary>
+        /// ShopHours 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ShopHours;
+        
+        /// <summary>
+        /// Tel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Tel;
+        
+        /// <summary>
+        /// Email 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Email;
+        
+        /// <summary>
+        /// Address 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Address;
+        
+        /// <summary>
+        /// Distance 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Distance;
+        
+        /// <summary>
+        /// ShopStatus 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ShopStatus;
+        
+        /// <summary>
         /// MorningBeginHour 控件。
         /// </summary>
         /// <remarks>
@@ -112,49 +166,13 @@ namespace Friday.mvc.weblogin.restaurant {
         protected global::System.Web.UI.HtmlControls.HtmlInputText NightEndHour;
         
         /// <summary>
-        /// ShopHours 控件。
+        /// Activity 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ShopHours;
-        
-        /// <summary>
-        /// Tel 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Tel;
-        
-        /// <summary>
-        /// Email 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Email;
-        
-        /// <summary>
-        /// Address 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Address;
-        
-        /// <summary>
-        /// Distance 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Distance;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Activity;
         
         /// <summary>
         /// Rate 控件。
@@ -166,15 +184,6 @@ namespace Friday.mvc.weblogin.restaurant {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Rate;
         
         /// <summary>
-        /// ShopStatus 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ShopStatus;
-        
-        /// <summary>
         /// Bulletins 控件。
         /// </summary>
         /// <remarks>
@@ -184,13 +193,22 @@ namespace Friday.mvc.weblogin.restaurant {
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Bulletins;
         
         /// <summary>
-        /// Activity 控件。
+        /// Image 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Activity;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile Image;
+        
+        /// <summary>
+        /// ImagePreview 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePreview;
         
         /// <summary>
         /// Description 控件。
