@@ -13,13 +13,13 @@ namespace Friday.mvc.weblogin.school {
     public partial class pSchoolDetail {
         
         /// <summary>
-        /// MyOrderId 控件。
+        /// Hidden1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden1;
         
         /// <summary>
         /// Name 控件。
@@ -47,5 +47,14 @@ namespace Friday.mvc.weblogin.school {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText CityName;
+        
+        /// <summary>
+        /// Description 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
     }
 }

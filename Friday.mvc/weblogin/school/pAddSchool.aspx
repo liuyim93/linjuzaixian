@@ -32,7 +32,15 @@
                     所在城市：</label>
                 <input type="text" id="CityName" size="30" class="required textInput gray" runat="server" />
             </p>
-           
+               <div style="  clear:left; width:80%; margin-top:0px" >
+             <p>
+                 <label>详细内容：</label>
+             <div style="   width:100%; ">
+				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
+				</div>
+                </p>
+                  
+       </div>
          
     
         </div>
@@ -66,14 +74,11 @@
 
     $(function () {
         var prefix = '<%=Request.Params["prefix"] %>';
-        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
-        //ensure this function will be called delay until initUI called
-        //2013-02-10 basilwang use document
+
         $(document).one("panelloaded", function (e, o) {
-            //o.find("a[rel_v3]").trigger("click");
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
             
-            //2013-02-10 basilwang set o to null to avoid memory leak
+
             o = null;
 
         });

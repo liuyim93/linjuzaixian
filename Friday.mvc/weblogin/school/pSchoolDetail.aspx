@@ -1,21 +1,21 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSchoolDetail.aspx.cs" Inherits="Friday.mvc.weblogin.school.pSchoolDetail" %>
 
-<div class="page">
-    <div class="pageContent">
-    <div class="panelBar">
-        <ul class="toolBar">
-            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>学校详细信息</span>
-           </a></li>
-           
-        </ul>
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+          <ul>
+                <li class="selected"><a href="#"><span>基本信息</span></a></li>
+                <li><a href="#"><span>详细信息</span></a></li>
+               
+      
+      
+           </ul>
+        </div>
     </div>
-        <div class="pageFormContent" style=" height:250px;">
-         
-            <h1>
-                学校信息</h1>
-            <input type="hidden" id="MyOrderId" size="30" runat="server" />
-                 <p>
+    <div class="tabsContent" style="height: 250px;">
+         <div>
+             <input type="hidden" id="Hidden1" size="30" runat="server" />
+          <p>
                 <label>
                     学校名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -30,11 +30,30 @@
                     所在城市：</label>
                 <input type="text" id="CityName" size="30" class="required textInput gray" runat="server" />
             </p>
-            
+         </div>
+
+
+         <div>
+            <div style="clear: left; width: 80%; margin-top: 0px; margin-bottom: 60px;">
+                <p>
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+                </p>
+            </div>
+         </div>
+
+    </div>
+    <div class="tabsFooter">
+        <div class="tabsFooterContent">
         </div>
     </div>
 </div>
-<script   type="text/javascript">
+<script type="text/javascript">
+
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
@@ -45,7 +64,6 @@
 
 
         });
-
 
 
     });
