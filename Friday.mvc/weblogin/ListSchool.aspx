@@ -12,21 +12,19 @@
                  <HeaderTemplate>
                  <thead>
                      <tr>
-                      <th width="40"><input type="checkbox" class="checkboxCtrl" group="c1" />全选</th> 
                        <th width="40">序号</th> 
 					    <th width="200">学校名称</th> 
+                        <th width="30">选择</th> 
                       </tr>
                  </thead>
                  <tbody> 
                  </HeaderTemplate>
                  <ItemTemplate> 
                     <tr target="userid" rel="<%#Eval("Id")%>">
-                     <td> <input id="chbListID" type="checkbox" name="SelectSchool" idvalue="<%#DataBinder.Eval(Container.DataItem, "Id")%>" 
-                     value="<%#DataBinder.Eval(Container.DataItem, "Name")%>" /></td> 
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
                      <td>
-					<a class="btnSelect" href=javascript:$.bringBack({id:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',SchoolOfMerchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'}) title="查找带回">选择</a>
+					<a class="btnSelect" href=javascript:$.bringBack({SchoolOfMerchantID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',SchoolOfMerchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'}) title="查找带回">选择</a>
 				</td>				
 			</tr>
                 </ItemTemplate>

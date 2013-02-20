@@ -1,13 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"   validateRequest="false"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"
+    ValidateRequest="false" %>
 
-<div class="pageFormContent" layoutH="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+<div class="pageFormContent" layouth="20">
+    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"
+    runat="server">
     <div class="panel collapse" defh="95">
         <h1>
             商铺基本信息</h1>
         <div>
-        <input type="hidden" id="MyOrderId" size="30" runat="server" />
-               <p>
+            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+            <p>
                 <label>
                     商铺名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -23,99 +25,103 @@
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
-                        <label>
-                            服务的学校：</label>
-                        <input type="text" id="orgName" size="30" class="required textInput gray" runat="server"
-                            readonly="true" />
-                        <a class="btnLook" href="ListSchool.aspx" lookupGroup="">选择学校</a>	
-                        <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
-                            runat="server" />
-           </p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="ListSchool.aspx" lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    此处仅为演示，应该隐藏学校ID</label>
+                <input type="text" id="SchoolOfMerchantID" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+            </p>
         </div>
     </div>
-     <div class="panel collapse" defh="95">
+    <div class="panel collapse" defh="95">
         <h1>
             配送时间</h1>
         <div>
-       
-             <p>
+            <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
             </p>
         </div>
     </div>
-     <div class="panel close collapse" defh="70">
+    <div class="panel close collapse" defh="70">
         <h1>
             促销打折</h1>
         <div>
-        <p>
+            <p>
                 <label>
                     Tel：</label>
                 <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
             </p>
-
-             <p>
+            <p>
                 <label>
                     Email：</label>
                 <input type="text" id="Email" size="30" class="required email" runat="server" />
             </p>
-             <p>
+            <p>
                 <label>
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required Address" runat="server" />
             </p>
-              <p>
+            <p>
                 <label>
                     距离：</label>
                 <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
             </p>
-               <p>
+            <p>
                 <label>
                     折扣：</label>
                 <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
             </p>
-         
-           <p>
+            <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" style="width:85px" runat="server">
-					<option value="">请选择</option>
-				
-					<option value="营业时间">营业时间</option>
+                <select id="ShopStatus" style="width: 85px" runat="server">
+                    <option value="">请选择</option>
+                    <option value="营业时间">营业时间</option>
                     <option value="正在休息">正在休息</option>
-				</select> 
+                </select>
             </p>
         </div>
     </div>
-     <div class="panel close collapse" defh="400">
+    <div class="panel close collapse" defh="400">
         <h1>
             公告和Logo</h1>
         <div>
-        <div>
-            <p >
-                 <label >商铺公告：</label>
-					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
-           </p>
-           </div>
-           <div>
-            <p >
-                 <label >商铺活动：</label>
-					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
-           </p>
-           </div>        
-         <div style="  clear:left; width:80%; margin-top:410px" >
-             <p>
-                 <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
+            <div>
+                <p>
+                    <label>
+                        商铺公告：</label>
+                    <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="15"
+                        cols="42" runat="server"></textarea>
                 </p>
-                  
-       </div>
+            </div>
+            <div>
+                <p>
+                    <label>
+                        商铺活动：</label>
+                    <textarea class="editor" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
+                </p>
+            </div>
+            <div style="clear: left; width: 80%; margin-top: 410px">
+                <p>
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+                </p>
+            </div>
         </div>
     </div>
-     <div class="formBar">
+    <div class="formBar">
         <ul>
             <li>
                 <div class="buttonActive">
@@ -138,8 +144,10 @@
         </ul>
     </div>
     </form>
-    <div class="divider"></div>
-      <a href="commodity/pCommodityList.aspx" prefix='<%=Request.Params["prefix"] %>' target="ajax" rel_v3="jbsxBox1" style="display:none">load</a>
+    <div class="divider">
+    </div>
+    <a href="commodity/pCommodityList.aspx" prefix='<%=Request.Params["prefix"] %>' target="ajax"
+        rel_v3="jbsxBox1" style="display: none">load</a>
     <div id="jbsxBox1">
     </div>
 </div>
