@@ -306,12 +306,12 @@
     <Compile Include="weblogin\restaurant\pRestaurantList.aspx.designer.cs">
       <DependentUpon>pRestaurantList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\school\nSchoolDetail.aspx.cs">
-      <DependentUpon>nSchoolDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\school\pSchoolDetail.aspx.cs">
+      <DependentUpon>pSchoolDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\school\nSchoolDetail.aspx.designer.cs">
-      <DependentUpon>nSchoolDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\school\pSchoolDetail.aspx.designer.cs">
+      <DependentUpon>pSchoolDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\school\pSchoolList.aspx.cs">
       <DependentUpon>pSchoolList.aspx</DependentUpon>
@@ -555,7 +555,7 @@
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
-    <Content Include="weblogin\school\nSchoolDetail.aspx" />
+    <Content Include="weblogin\school\pSchoolDetail.aspx" />
     <Content Include="weblogin\school\pSchoolList.aspx" />
     <Content Include="weblogin\shop\pShopDetail.aspx" />
     <Content Include="weblogin\shop\pEditShop.aspx" />

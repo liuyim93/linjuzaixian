@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.school {
     
     
-    public partial class nSchoolDetail {
+    public partial class pSchoolDetail {
         
         /// <summary>
         /// MyOrderId 控件。

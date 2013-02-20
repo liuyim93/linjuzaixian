@@ -12,7 +12,7 @@
                  <HeaderTemplate>
                  <thead>
                      <tr>
-                      <th width="40"><input id="CheckboxAll"  type="checkbox"    /></th> 
+                      <th width="40"><input type="checkbox" class="checkboxCtrl" group="c1" />全选</th> 
                        <th width="40">序号</th> 
 					    <th width="80">学校名称</th> 
                       </tr>
@@ -25,8 +25,13 @@
                      value="<%#DataBinder.Eval(Container.DataItem, "Name")%>" /></td> 
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
-				    </tr>
-			      
+				    </tr>			      
+                  	<tr target="userid" rel="<%#Eval("Id")%>">
+				<td><input type="checkbox" name="orgId" value="{id:'<%#DataBinder.Eval(Container.DataItem, "Id")%>', orgName:'<%#DataBinder.Eval(Container.DataItem, "Name")%>', orgNum:'1001'}"/></td>
+				<td><%#Container.ItemIndex+1%></td>
+			 
+				<td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
+			</tr>
                 </ItemTemplate>
          </asp:repeater>
             </tbody>
@@ -58,27 +63,27 @@
         var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
-        $self.one("panelloaded", function () {
+        $(document).one("panelloaded", function (e, o) {
             var $panel = $.referer(page_prefix);
 
             //2013-02-05 pangfuxing SelectAll
-            var $checkboxAll = $self.find("#CheckboxAll");
+            var $checkboxAll = o.find("#CheckboxAll");
             $checkboxAll.toggle(function () {
-                debugger
+                //debugger
                 $(this).attr("checked", true);
-                $self.find("#CheckboxAll").attr("checked", true);
+                o.find("#CheckboxAll").attr("checked", true);
                 //debugger
                 //var flag = checkboxAll.attr("checked"); //判断全选按钮的状态
-                $self.find("input[name='SelectSchool']").attr("checked", true);
+                o.find("input[name='SelectSchool']").attr("checked", true);
                 //                $("input[name='SelectSchool']").each(function () {//查找每一个Id以Item结尾的checkbox
                 //                $(this).attr("checked", flag);//选中或者取消选中
             },
             function () {
                 $checkboxAll.attr("checked",false);
-                $self.find("input[name='SelectSchool']").attr("checked", false);
+                $o.find("input[name='SelectSchool']").attr("checked", false);
             });
 
-            $self.delegate("#btnSave", "click", function () {
+            o.find("#btnSave", "click", function () {
                 var arg1 = "arg1_value";
                 var arg2 = "arg2_value";
                 //2013-02-05  pangfuxing  change type=checkbox  to  name=SelectSchool  to  get rid of  the influence  from  ("#CheckboxAll").value

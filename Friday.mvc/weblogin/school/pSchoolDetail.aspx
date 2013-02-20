@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nSchoolDetail.aspx.cs" Inherits="Friday.mvc.weblogin.school.nSchoolDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSchoolDetail.aspx.cs" Inherits="Friday.mvc.weblogin.school.pSchoolDetail" %>
 
 <div class="page">
     <div class="pageContent">
@@ -35,17 +35,17 @@
     </div>
 </div>
 <script   type="text/javascript">
-
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
-        $self.one("panelloaded", function (e) {
-            $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+        $(document).one("panelloaded", function (e, o) {
+            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 
         });
+
 
 
     });
