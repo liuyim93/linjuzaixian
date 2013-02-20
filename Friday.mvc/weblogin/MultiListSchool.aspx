@@ -112,12 +112,23 @@
                     dialogPageBreak({ numPerPage: this.value });
                 });
             }
-
+            alert(o.find("[name=IDSet]").val());
+            var id_set = o.find("[name=IDSet]").val().split(',');
+            alert(id_set.length);
+            o.find("[name=orgId]").each(function () {
+                var _args = DWZ.jsonEval($(this).val());
+                for (var key in _args) {
+                    debugger
+                    if ($.inArray(_args[key], id_set) > -1)
+                        $(this).attr("checked", true);
+                    //                    var value = args[key] ? args[key] + "," : "";
+                    //                    args[key] = value + _args[key];
+                }
+            });
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
-            
+
         });
 
     });
-   
- </script>
+</script>
