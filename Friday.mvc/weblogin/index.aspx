@@ -160,7 +160,7 @@
                                 <li><a href="restaurant/pRestaurantList.aspx" target="navTab" rel="">餐馆管理</a></li>
                                 <li><a href="merchantCategory/pMerchantCategoryList.aspx" target="navTab" rel="">商铺经营类型</a></li>
                                 <li><a href="school/pSchoolList.aspx" target="navTab" rel="">学校管理</a></li>
-                                <li><a href="SystemUserList.aspx" target="navTab" rel="">顾客用户管理</a></li>
+                                <li><a href="systemUser/pSystemUserList.aspx" target="navTab" rel="">顾客用户管理</a></li>
                                
                                 <li><a href="FoodList.aspx" target="navTab" rel="">test3</a></li>
                                 <li><a href="MyOrderList.aspx" target="navTab" rel="">test4</a></li>
