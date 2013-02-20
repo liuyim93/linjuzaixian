@@ -117,22 +117,35 @@
                 });
             }
             alert(o.find("[name=IDSet]").val());
+            var $idset=o.find("[name=IDSet]");
+            var $nameset=o.find("[name=NameSet]");
             var id_set = o.find("[name=IDSet]").val().split(',');
+            var name_set = o.find("[name=NameSet]").val().split(',');
             alert(id_set.length);
             o.find("[name=ids]")
               .change(function () {
-//                  if ($(this).is(":checked")) {
-//                      $(this).siblings("input[type=checkbox]").removeAttr("checked");
-//                  }
-//                  else {
+                  var _args = DWZ.jsonEval($(this).val());
+                  if ($(this).is(":checked")) {
+                      if (id_set.length == 0) {
+                          $idset.val(_args["IDSet"]);
+                          $nameset.val(_args["NameSet"]);
+                      }
+                      else {
+                          if ($.inArray(_args["IDSet"], id_set) === -1) {
+                              $idset.val($idset.val() + "," + _args["IDSet"]);
+                              $nameset.val($nameset.val() + "," + _args["NameSet"]);
+                          }
+                      }
+                  }
+                  else {
 
-//                  }
+                  }
               })
               .each(function () {
                   var _args = DWZ.jsonEval($(this).val());
                   if ($.inArray(_args["IDSet"], id_set) > -1)
-                     $(this).attr("checked", true);
-             
+                      $(this).attr("checked", true);
+
               });
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
