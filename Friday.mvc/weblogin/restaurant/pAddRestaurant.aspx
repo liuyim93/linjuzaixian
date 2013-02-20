@@ -78,16 +78,16 @@
            <div>
             <p >
                  <label >商铺公告：</label>
-					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
+					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins"  style="width:317px; height 200px;" runat="server"></textarea>
            </p>
            </div>
            <div>
             <p >
                  <label >商铺活动：</label>
-					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
+					<textarea   class="editor"  tools="simple"    name="Activity" id="Activity" style="width:317px; height 200px;"  runat="server"></textarea>
            </p>
            </div>        
-         <div style="  clear:left; width:80%; margin-top:400px" >
+         <div style="  clear:left; width:80%; margin-top:355px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">

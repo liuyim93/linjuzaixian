@@ -107,7 +107,7 @@
                 <p>
                     <label>
                         商铺公告：</label>
-                    <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="15"
+                    <textarea class="editor" tools="simple"  style="width:317px; height 200px;"  name="Bulletins" id="Bulletins" rows="15"
                         cols="42" runat="server"></textarea>
                 </p>
             </div>
@@ -115,10 +115,10 @@
                 <p>
                     <label>
                         商铺活动：</label>
-                    <textarea class="editor" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
+                    <textarea class="editor" tools="simple"   style="width:317px; height 200px;" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
                 </p>
             </div>
-            <div style="clear: left; width: 80%; margin-top: 280px; margin-bottom: 60px;">
+            <div style="clear: left; width: 80%; margin-top: 350px; margin-bottom: 60px;">
                 <p>
                     <label>
                         详细内容：</label>
