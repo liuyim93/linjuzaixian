@@ -334,13 +334,6 @@
     <Compile Include="weblogin\shop\pShopList.aspx.designer.cs">
       <DependentUpon>pShopList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\systemUser\SystemUserList.aspx.cs">
-      <DependentUpon>SystemUserList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\systemUser\SystemUserList.aspx.designer.cs">
-      <DependentUpon>SystemUserList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\systemUser\pSystemUserDetail.aspx.cs">
       <DependentUpon>pSystemUserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -538,7 +531,6 @@
     <Content Include="weblogin\shop\pShopDetail.aspx" />
     <Content Include="weblogin\shop\pEditShop.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
-    <Content Include="weblogin\systemUser\SystemUserList.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserDetail.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
