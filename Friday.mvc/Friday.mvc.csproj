@@ -208,13 +208,6 @@
     <Compile Include="weblogin\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\merchantCategory\MerchantCategoryList.aspx.cs">
-      <DependentUpon>MerchantCategoryList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\merchantCategory\MerchantCategoryList.aspx.designer.cs">
-      <DependentUpon>MerchantCategoryList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx.cs">
       <DependentUpon>pMerchantCategoryDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -534,7 +527,6 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListSchool.aspx" />
-    <Content Include="weblogin\merchantCategory\MerchantCategoryList.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
     <Content Include="weblogin\activity\pAddActivity.aspx" />
