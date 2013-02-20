@@ -4,7 +4,7 @@
 <div class="pageFormContent" layouth="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"
     runat="server">
-    <div class="panel collapse" defh="95">
+    <div class="panel collapse" defh="155">
         <h1>
             商铺基本信息</h1>
         <div>
@@ -24,6 +24,7 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
+            <p></p>
             <p>
                 <label>
                     服务的学校：</label>
@@ -33,8 +34,21 @@
             </p>
             <p>
                 <label>
-                    此处仅为演示，应该隐藏学校ID</label>
+                    仅演示，应隐藏ID</label>
                 <input type="text" id="SchoolOfMerchantID" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+            </p>
+            <p>
+                <label>
+                    服务的学校(多选）：</label>
+                <input type="text" id="MultiSchoolOfMerchant" size="35" class="required textInput gray"
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="ListSchool.aspx" lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="MultiSchoolOfMerchantID" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
             </p>
         </div>
