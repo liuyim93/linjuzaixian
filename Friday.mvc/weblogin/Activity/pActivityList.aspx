@@ -28,20 +28,7 @@
             
             </tr>
              <tr>
-                 <td>
-                     <label>
-                         商铺当前状态:</label>
-                     <select name="ShopStatus" id="ShopStatus" runat="server">
-                         <option value="">请选择</option>
-                         <option value="营业时间">营业时间</option>
-                         <option value="正在休息">正在休息</option>
-                     </select>
-                 </td>
-                <td>
-                    <label>电话:</label>
-                    <input type="text" name="Tel" class="textInput"  value="<%=tel %>"
-                        value="" />
-                </td>
+             
                 <td>
                     <label>起始日期:</label>
                     <input  type="text" name="StartDate" class="date textInput readonly" readonly="true" value="<%=startDate %>"
@@ -78,33 +65,33 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="shop/pAddShop.aspx" title="添加商铺" target="navTab" rel=""><span>
-            添加商铺</span></a></li>
-        <li><a class="edit" href="shop/pEditShop.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
-            <span>修改商铺</span></a></li>
-        <li><a class="delete" href="shop/pShopList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除商铺</span></a></li>
+        <li><a class="add" href="activity/pActivityShop.aspx" title="添加活动" target="navTab" rel=""><span>
+            添加活动</span></a></li>
+        <li><a class="edit" href="activity/pActivityShop.aspx?uid={id}" title="修改活动" rel="" target="navTab">
+            <span>修改活动</span></a></li>
+        <li><a class="delete" href="activity/pActivityList.aspx?flag=alldelete&uid={id}"
+            target="ajaxTodo" title="确定要删除吗?"><span>删除活动</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
-<div id="shopList">
+<div id="activityList">
     <table class="table" layouth="440">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                        <th width="10%" align="center">商铺编号</th>
-                         <th width="10%" align="center">商铺名称</th>
+                        <th width="10%" align="center">活动编号</th>
+                         <th width="10%" align="center">活动名称</th>
                               
 
-                    <th width="10%" align="center">联系人姓名</th>
-                           <th width="10%" align="center">营业时间</th>     
+               <th width="10%" align="center">活动事项</th>
+          <%--                      <th width="10%" align="center">营业时间</th>     
                     <th width="10%" align="center">email</th>
                         <th width="10%" align="center">配送地址</th>
                         <th width="10%" align="center">距离</th>
                         <th width="10%" align="center">折扣</th>
-                        <th width="10%" align="center">创建时间</th>
+                        <th width="10%" align="center">创建时间</th>--%>
                 </tr>
                 </thead>
                 <tbody> 
@@ -113,20 +100,19 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="shop/pShopDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="activity/pActivityDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
-                    
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>                  
                        
 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Owener")%></td>
-                            <td align="center"><%#DataBinder.Eval(Container.DataItem, "ShopHours")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Matters")%></td>
+                       <%--     <td align="center"><%#DataBinder.Eval(Container.DataItem, "ShopHours")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Email")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Address")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>                      
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>   --%>                   
 				</tr>
 			      
             </ItemTemplate>
@@ -164,7 +150,7 @@
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             debugger
-            o.find("#shopList table:eq(1) tr").click(function (e) {
+            o.find("#activityList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
                 }
