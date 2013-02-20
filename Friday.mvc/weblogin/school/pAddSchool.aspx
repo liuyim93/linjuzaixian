@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nSchoolAdd.aspx.cs" Inherits="Friday.mvc.weblogin.school.nSchoolAdd"   validateRequest="false"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddSchool.aspx.cs" Inherits="Friday.mvc.weblogin.school.pAddSchool"   validateRequest="false"  %>
 
 <div class="page" style="">
     <div class="pageContent">
@@ -65,13 +65,16 @@
 <script   type="text/javascript">
 
     $(function () {
-        var page_prefix = '<%=Request.Params["prefix"] %>';
-        var $self = $.self(page_prefix);
+        var prefix = '<%=Request.Params["prefix"] %>';
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
-        $self.one("panelloaded", function (e) {
-            $self.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-
+        //2013-02-10 basilwang use document
+        $(document).one("panelloaded", function (e, o) {
+            //o.find("a[rel_v3]").trigger("click");
+            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            
+            //2013-02-10 basilwang set o to null to avoid memory leak
+            o = null;
 
         });
 

@@ -57,11 +57,11 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="shop/pAddShop.aspx" title="添加学校" target="navTab" rel=""><span>
+        <li><a class="add" href="school/pAddSchool.aspx" title="添加学校" target="navTab" rel=""><span>
             添加学校</span></a></li>
-        <li><a class="edit" href="shop/pEditShop.aspx?uid={id}" title="修改学校" rel="" target="navTab">
+        <li><a class="edit" href="school/pEditSchool.aspx?uid={id}" title="修改学校" rel="" target="navTab">
             <span>修改学校</span></a></li>
-        <li><a class="delete" href="shop/pShopList.aspx?flag=alldelete&uid={id}"
+        <li><a class="delete" href="school/pSchoolList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除学校</span></a></li>
         <li class="line">line</li>
     </ul>

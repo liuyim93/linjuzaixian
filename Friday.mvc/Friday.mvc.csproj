@@ -306,6 +306,13 @@
     <Compile Include="weblogin\restaurant\pRestaurantList.aspx.designer.cs">
       <DependentUpon>pRestaurantList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\school\pEditSchool.aspx.cs">
+      <DependentUpon>pEditSchool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\school\pEditSchool.aspx.designer.cs">
+      <DependentUpon>pEditSchool.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\school\pSchoolDetail.aspx.cs">
       <DependentUpon>pSchoolDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -411,12 +418,12 @@
     <Compile Include="weblogin\SchoolList.aspx.designer.cs">
       <DependentUpon>SchoolList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\school\nSchoolAdd.aspx.cs">
-      <DependentUpon>nSchoolAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\school\pAddSchool.aspx.cs">
+      <DependentUpon>pAddSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\school\nSchoolAdd.aspx.designer.cs">
-      <DependentUpon>nSchoolAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\school\pAddSchool.aspx.designer.cs">
+      <DependentUpon>pAddSchool.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\nSchoolUpdate.aspx.cs">
       <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
@@ -555,6 +562,7 @@
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantList.aspx" />
+    <Content Include="weblogin\school\pEditSchool.aspx" />
     <Content Include="weblogin\school\pSchoolDetail.aspx" />
     <Content Include="weblogin\school\pSchoolList.aspx" />
     <Content Include="weblogin\shop\pShopDetail.aspx" />
@@ -1271,7 +1279,7 @@
     <Content Include="weblogin\restaurant\pAddRestaurant.aspx" />
     <Content Include="weblogin\shop\pAddShop.aspx" />
     <Content Include="weblogin\SchoolList.aspx" />
-    <Content Include="weblogin\school\nSchoolAdd.aspx" />
+    <Content Include="weblogin\school\pAddSchool.aspx" />
     <Content Include="weblogin\nSchoolUpdate.aspx" />
     <Content Include="weblogin\activity\pEditActivity.aspx" />
     <Content Include="weblogin\MultiListSchool.aspx" />

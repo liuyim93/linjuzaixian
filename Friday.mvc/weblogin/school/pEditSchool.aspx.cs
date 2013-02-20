@@ -11,27 +11,33 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.school
 {
-    public partial class nSchoolAdd : System.Web.UI.Page
+    public partial class pEditSchool : System.Web.UI.Page
     {
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-    
+        private School school;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            string uid = Request.Params["uid"].ToString();
+            school = iSchoolRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
                 SaveSchool();
             }
-            
+            else
+            {
+
+                BindingHelper.ObjectToControl(school, this);
+
+            }
         }
 
         private void SaveSchool()
         {
-            School sch = new School();
 
-            BindingHelper.RequestToObject(sch);
-            iSchoolRepository.SaveOrUpdate(sch);
+            BindingHelper.RequestToObject(school);
+
+            iSchoolRepository.SaveOrUpdate(school);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -43,7 +49,7 @@ namespace Friday.mvc.weblogin.school
             Response.Write(jsonResult.FormatResult());
             Response.End();
 
-        
+
 
         }
 

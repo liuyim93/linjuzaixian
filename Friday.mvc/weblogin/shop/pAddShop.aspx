@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"
-    ValidateRequest="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"   validateRequest="false"  %>
 
 <div class="pageFormContent" layouth="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"
@@ -176,19 +175,7 @@
             //o.find("a[rel_v3]").trigger("click");
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
-            var target_type = $.get_target_type(prefix);
-            if (/navtab/i.test(target_type)) {
-                o.find("#form").bind("submit", function (e) {
-                    return iframeCallback(this, navTabAjaxDone)
-
-                });
-            }
-            else {
-                o.find("#form").bind("submit", function (e) {
-                    return iframeCallback(this, dialogAjaxDone)
-
-                });
-            }
+        
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 
