@@ -62,8 +62,9 @@
                         alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
                         return false;
                     }
-
-                    $.pdialog.open(url, "_blank", $this.attr("title") || $this.text(), options);
+                    //2013-02-20 basilwang can't use _blank, we use _prefix now
+                    //$.pdialog.open(url, "_blank", $this.attr("title") || $this.text(), options);
+                    $.pdialog.open(url, _prefix, $this.attr("title") || $this.text(), options);
                     return false;
                 });
             });
