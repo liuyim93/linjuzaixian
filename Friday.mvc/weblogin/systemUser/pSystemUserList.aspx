@@ -82,7 +82,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="systemUser/nSystemUserDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" rel_v3="systemUserBox"><%#Eval("LoginUser.LoginName")%>
+                        <td><a href="systemUser/pSystemUserDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" rel_v3="jbsxBox3"><%#Eval("LoginUser.LoginName")%>
                             </a>
                         </td>
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>                         
