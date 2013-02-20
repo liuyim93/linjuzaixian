@@ -59,10 +59,10 @@
 
                     var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
                     //2013-02-20 basilwang we don't judge isFinishedTm here , may exist {xxx}
-//                    if (!url.isFinishedTm()) {
-//                        alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
-//                        return false;
-//                    }
+                    //                    if (!url.isFinishedTm()) {
+                    //                        alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
+                    //                        return false;
+                    //                    }
                     //2013-02-20 basilwang can't use _blank, we use _prefix now
                     //$.pdialog.open(url, "_blank", $this.attr("title") || $this.text(), options);
                     $.pdialog.open(url, _prefix, $this.attr("title") || $this.text(), options);
@@ -75,13 +75,17 @@
                 var $this = $(this), args = {};
                 $this.click(function (event) {
                     var $unitBox = $this.parents(".unitBox:first");
-                    $unitBox.find("[name='" + $this.attr("multLookup") + "']").filter(":checked").each(function () {
-                        var _args = DWZ.jsonEval($(this).val());
-                        for (var key in _args) {
-                            var value = args[key] ? args[key] + "," : "";
-                            args[key] = value + _args[key];
-                        }
-                    });
+                    //2013-02-20 basilwang I feel so sad to remove this, use my own logic!!!!
+                    //                    $unitBox.find("[name='" + $this.attr("multLookup") + "']").filter(":checked").each(function () {
+                    //                        var _args = DWZ.jsonEval($(this).val());
+                    //                        for (var key in _args) {
+                    //                            var value = args[key] ? args[key] + "," : "";
+                    //                            args[key] = value + _args[key];
+                    //                        }
+                    //                    });
+                    var args = {};
+                    args.IDSet = $unitBox.find("[name='IDSet']").val();
+                    args.NameSet = $unitBox.find("[name='NameSet']").val();
 
                     if ($.isEmptyObject(args)) {
                         alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
