@@ -17,7 +17,7 @@ namespace Friday.mvc.weblogin.merchantCategory
         protected int pageNum;
         protected int numPerPageValue;
 
-        IRepository<MerchantCategory> iRepositoryMerchantCategory = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
+        IMerchantCategoryRepository iRepositoryMerchantCategory = UnityHelper.UnityToT<IMerchantCategoryRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
