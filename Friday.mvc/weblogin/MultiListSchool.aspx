@@ -62,7 +62,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                     <tr target="userid" rel="<%#Eval("Id")%>">
-                     <td><input type="checkbox" name="orgId" value={SchoolOfMerchantID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',SchoolOfMerchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'}/>
+                     <td><input type="checkbox" name="orgId" value={MultiSchoolOfMerchantID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',MultiSchoolOfMerchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'} /></td>
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>			
 			</tr>
@@ -88,10 +88,31 @@
 </div>
 <script type="text/javascript">
     $(function () {
-        var page_prefix = '<%=Request.Params["prefix"] %>';
+        var prefix = '<%=Request.Params["prefix"] %>';
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         $(document).one("panelloaded", function (e, o) {
+
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return navTabSearch(this);
+                });
+                o.find("#numPerPage").bind("change", function (e) {
+                    navTabPageBreak({ numPerPage: this.value });
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return dialogSearch(this);
+                });
+                o.find("#numPerPage").bind("change", function (e) {
+                    dialogPageBreak({ numPerPage: this.value });
+                });
+            }
+
+            //2013-02-10 basilwang set o to null to avoid memory leak
+            o = null;
             //            var $panel = $.referer(page_prefix);
 
             //            //2013-02-05 pangfuxing SelectAll
