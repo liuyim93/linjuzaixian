@@ -115,94 +115,9 @@
 
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
-            //            var $panel = $.referer(page_prefix);
-
-            //            //2013-02-05 pangfuxing SelectAll
-            //            var $checkboxAll = o.find("#CheckboxAll");
-            //            $checkboxAll.toggle(function () {
-            //                //debugger
-            //                $(this).attr("checked", true);
-            //                o.find("#CheckboxAll").attr("checked", true);
-            //                //debugger
-            //                //var flag = checkboxAll.attr("checked"); //判断全选按钮的状态
-            //                o.find("input[name='SelectSchool']").attr("checked", true);
-            //                //                $("input[name='SelectSchool']").each(function () {//查找每一个Id以Item结尾的checkbox
-            //                //                $(this).attr("checked", flag);//选中或者取消选中
-            //            },
-            //            function () {
-            //                $checkboxAll.attr("checked", false);
-            //                $o.find("input[name='SelectSchool']").attr("checked", false);
-            //            });
-
-            //            o.find("#btnSave", "click", function () {
-            //                var arg1 = "arg1_value";
-            //                var arg2 = "arg2_value";
-            //                //2013-02-05  pangfuxing  change type=checkbox  to  name=SelectSchool  to  get rid of  the influence  from  ("#CheckboxAll").value
-            //                var os = $self.find("input[name=SelectSchool]:checked");
-            //                arg1 = [];
-            //                $.each(os, function (i, o) {
-            //                    //debugger
-            //                    var $o = $(o);
-            //                    //alert($o.attr("idvalue"));
-            //                    arg1[i] = { idvalue: $o.attr("idvalue"), value: $o.val() };
-            //                });
-
-            //                //debugger
-            //                $panel.trigger("callback", [arg1, arg2]);
-            //                //debugger
-            //                $.pdialog.closeCurrent();
-            //                return false;
-            //            });
+            
         });
 
-
-
-
-
-
     });
-    //$(document).ready(function() {
-
-    //    gpage.config({ "IsDialog": true });
-    //    gpage.init();
-
-    //    gpage.jObj("btnSave", null, "dlg_pagebelongcity").bind('click', function() {
-
-    //        SetValue();
-    //        $.pdialog.closeCurrent();
-    //        //navTab.reloadFlagWithFormArray("Company");
-
-    //    });
-    //});
-
-    //function SetValue() {
-    //    var result = [];
-
-    //    var cArray = document.getElementsByTagName("input");
-    //    var i;
-    //    for (i = 0; i < cArray.length; i++) {
-    //        if (cArray[i].type == 'checkbox' && cArray[i].checked && cArray[i].value != "undefined" && cArray[i].name == "chbSelectCity") {
-    //            // result.push(cArray[i].value);
-    //            gpage.jObj("BelongCity1", null, null).val(cArray[i].value);
-    //            // gpage.jObj("DomainTypeID1", null, null).val(cArray[i].idvalue);;//ff下无法获取cArray[i].idvalue值 刘政敏 2012-07-31
-    //            sid = cArray[i].attributes["idvalue"].nodeValue;
-    //            gpage.jObj("BelongCityID1", null, null).val(sid);
-
-
-    //        }
-    //    }
-
-    ////}
-
-    //function SelectAll(CheckAll) {
-
-    //    var itmes = document.getElementsByTagName("input");
-    //    for (var i = 0; i < itmes.length; i++) {
-
-    //        if (itmes[i].type == "checkbox") {
-    //            itmes[i].checked = CheckAll.checked;
-    //        }
-    //    }
-    //}
-    // 
+   
  </script>
