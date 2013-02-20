@@ -41,14 +41,14 @@
             <p>
                 <label>
                     服务的学校(多选）：</label>
-                <input type="text" id="MultiSchoolOfMerchant" size="35" class="required textInput gray"
+                <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                <a class="btnLook" href="MultiListSchool.aspx?id={MultiSchoolOfMerchantID}&name={MultiSchoolOfMerchant}"  rel=""  lookupgroup="">选择学校</a>
+                <a class="btnLook" href="MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
             </p>
             <p>
                 <label>
                     仅演示，应隐藏ID</label>
-                <input type="text" id="MultiSchoolOfMerchantID" size="35" class="required textInput gray"
+                <input type="text" id="IDSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
             </p>
         </div>

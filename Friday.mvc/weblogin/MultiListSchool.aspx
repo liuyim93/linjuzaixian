@@ -5,6 +5,8 @@
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
+<input type="hidden" name="NameSet" value="<%=Request.Params["NameSet"]%>" />
+<input type="hidden" name="IDSet" value="<%=Request.Params["IDSet"]%>" />
 </form>
 <div class="panel collapse" defh="75">
     <h1>
@@ -62,7 +64,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                     <tr target="userid" rel="<%#Eval("Id")%>">
-                     <td><input type="checkbox" name="orgId" value={MultiSchoolOfMerchantID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',MultiSchoolOfMerchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'} /></td>
+                     <td><input type="checkbox" name="orgId" value={IDSet:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',NameSet:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'} /></td>
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>			
 			</tr>
