@@ -251,6 +251,7 @@ function divSearch(form, rel,parent_target_type){
 	    var array = $form.serializeArray();
 	    //2013-02-11 basilwang  try to remove prefix from array whatever it exists or not
 	    //2013-02-13 basilwang  try to remove rel_v3 from array whatever it exists or not
+        //2013-02-20 basilwang  I think maybe we can judge if not exist prefix or rel_v3 then add
 	    array = $.map(array, function (elem, i) {
 	        return elem.name == "prefix" || elem.name=="rel_v3" ? null : elem;
 	    });
@@ -301,6 +302,8 @@ function dwzPageBreak(options){
 	var $parent = op.targetType == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
 	//2013-02-08 basilwang it's more safe to remove prefix on url
 	var remove_pattern = /prefix=[^&;]*/;
+	var remove_id_set_pattern = /idset=[^&;]*/i;
+	var remove_name_set_pattern = /nameset=[^&;]*/i;
 	if (op.rel) {
 		var $box = $parent.find("#" + op.rel);
 		var form = _getPagerForm($box, op.data);
@@ -308,7 +311,11 @@ function dwzPageBreak(options){
 		//use this format .replace(/prefix=[^&;]*/,'')
 		if (form) {
 			$box.ajaxUrl({
-			    type: "POST", url: $(form).attr("action").replace(remove_pattern, ''), data: $(form).serializeArray(), callback: function () {
+			    type: "POST",
+			    url: $(form).attr("action")
+                           .replace(remove_pattern, '')
+                           .replace(remove_id_set_pattern, '')
+                           .replace(remove_name_set_pattern,''), data: $(form).serializeArray(), callback: function () {
 					$box.find("[layoutH]").layoutH();
 				}
 			});
@@ -318,7 +325,10 @@ function dwzPageBreak(options){
 		var params = $(form).serializeArray();
 		//2013-02-08 basilwang it's more safe to remove prefix on url
 		//use this format .replace(/prefix=[^&;]*/,'')
-		var action = $(form).attr("action").replace(remove_pattern, '');
+		var action = $(form).attr("action")
+                            .replace(remove_pattern, '')
+                            .replace(remove_id_set_pattern, '')
+                            .replace(remove_name_set_pattern, '');
 		if (op.targetType == "dialog") {
 			if (form) $.pdialog.reload(action, {data: params, callback: op.callback});
 		} else {
