@@ -15,7 +15,7 @@
            </ul>
         </div>
     </div>
-    <div class="tabsContent" style="height: 250px;">
+    <div class="tabsContent" style=" height:200px;">
          <div>
              <input type="hidden" id="MyOrderId" size="30" runat="server" />
           <p>
@@ -62,7 +62,7 @@
               <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="Select1" style="width:85px" runat="server">
+                <select id="ShopStatus" style="width:85px" runat="server">
 					<option value="">请选择</option>
 				
 					<option value="营业时间">营业时间</option>
