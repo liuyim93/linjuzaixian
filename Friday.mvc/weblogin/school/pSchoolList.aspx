@@ -17,19 +17,18 @@
            <tr>
                 <td>
                     <label>学校名称:</label>
-                    <input  type="text" name="Name" class="textInput" value="<%=name %>"
-                        value="" />
+                    <input  type="text" name="Name" class="textInput" value="<%=name %>"   />
                 </td>
              
                 <td>
                     <label>简称:</label>
                     <input  type="text" name="ShortName" class="textInput"  value="<%=shortName %>"
-                        value="" />
+                    />
                 </td>
                 <td>
                     <label>地址:</label>
                     <input type="text" name="CityName" class="textInput" value="<%=cityName %>"
-                        value="" />
+                        />
                 </td>
             </tr>
         </table>
