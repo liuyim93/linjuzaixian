@@ -35,7 +35,8 @@
             if (/navtab/i.test($obj.attr("target"))) {
                 target_type = "n";
             }
-            else if (/dialog/i.test($obj.attr("target"))) {
+            //2013-02-20 basilwang add btnLook judgetment otherwise get __undefined
+            else if (/dialog/i.test($obj.attr("target")) || $obj.hasClass("btnLook") ) {
                 target_type = "d";
             }
             if ($obj.attr("href")) {

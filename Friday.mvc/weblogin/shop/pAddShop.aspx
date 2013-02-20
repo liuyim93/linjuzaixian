@@ -30,7 +30,7 @@
                     服务的学校：</label>
                 <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
                     runat="server" readonly="true" />
-                <a class="btnLook" href="ListSchool.aspx" prefix='<%=Request.Params["prefix"] %>' lookupgroup="">选择学校</a>
+                <a class="btnLook" href="ListSchool.aspx" rel="" prefix='<%=Request.Params["prefix"] %>' lookupgroup="">选择学校</a>
             </p>
             <p>
                 <label>
@@ -43,7 +43,7 @@
                     服务的学校(多选）：</label>
                 <input type="text" id="MultiSchoolOfMerchant" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                <a class="btnLook" href="MultiListSchool.aspx" prefix='<%=Request.Params["prefix"] %>' lookupgroup="">选择学校</a>
+                <a class="btnLook" href="MultiListSchool.aspx" rel="" prefix='<%=Request.Params["prefix"] %>' lookupgroup="">选择学校</a>
             </p>
             <p>
                 <label>
