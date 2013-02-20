@@ -142,26 +142,26 @@
       <DependentUpon>pActivityDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\GlobalGoodsTypeList.aspx.cs">
+    <Compile Include="weblogin\globalGoodsType\GlobalGoodsTypeList.aspx.cs">
       <DependentUpon>GlobalGoodsTypeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\activity\pActivityDetail.aspx.designer.cs">
       <DependentUpon>pActivityDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\GlobalGoodsTypeList.aspx.designer.cs">
+    <Compile Include="weblogin\globalGoodsType\GlobalGoodsTypeList.aspx.designer.cs">
       <DependentUpon>GlobalGoodsTypeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\activity\pActivityList.aspx.cs">
       <DependentUpon>pActivityList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx.cs">
-      <DependentUpon>nGlobalGoodsTypeDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx.cs">
+      <DependentUpon>pGlobalGoodsTypeDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx.designer.cs">
-      <DependentUpon>nGlobalGoodsTypeDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx.designer.cs">
+      <DependentUpon>pGlobalGoodsTypeDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx.cs">
       <DependentUpon>pGlobalGoodsTypeList.aspx</DependentUpon>
@@ -229,19 +229,19 @@
     <Compile Include="weblogin\activity\pAddActivity.aspx.designer.cs">
       <DependentUpon>pAddActivity.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nGlobalGoodsTypeAdd.aspx.cs">
-      <DependentUpon>nGlobalGoodsTypeAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\globalGoodsType\pAddGlobalGoodsType.aspx.cs">
+      <DependentUpon>pAddGlobalGoodsType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nGlobalGoodsTypeAdd.aspx.designer.cs">
-      <DependentUpon>nGlobalGoodsTypeAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\globalGoodsType\pAddGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>pAddGlobalGoodsType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.cs">
-      <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\globalGoodsType\pEditGlobalGoodsType.aspx.cs">
+      <DependentUpon>pEditGlobalGoodsType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nGlobalGoodsTypeUpdate.aspx.designer.cs">
-      <DependentUpon>nGlobalGoodsTypeUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\globalGoodsType\pEditGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>pEditGlobalGoodsType.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\merchantCategory\pAddMerchantCategory.aspx.cs">
       <DependentUpon>pAddMerchantCategory.aspx</DependentUpon>
@@ -461,9 +461,9 @@
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\food\pFoodList.aspx" />
-    <Content Include="weblogin\globalGoodsType\nGlobalGoodsTypeDetail.aspx" />
+    <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
     <Content Include="weblogin\house\pHouseList.aspx" />
-    <Content Include="weblogin\GlobalGoodsTypeList.aspx" />
+    <Content Include="weblogin\globalGoodsType\GlobalGoodsTypeList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx" />
     <Content Include="weblogin\index.aspx" />
     <Content Include="weblogin\js\additional-methods.js" />
@@ -530,8 +530,8 @@
     <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
     <Content Include="weblogin\activity\pAddActivity.aspx" />
-    <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
-    <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
+    <Content Include="weblogin\globalGoodsType\pAddGlobalGoodsType.aspx" />
+    <Content Include="weblogin\globalGoodsType\pEditGlobalGoodsType.aspx" />
     <Content Include="weblogin\merchantCategory\pAddMerchantCategory.aspx" />
     <Content Include="weblogin\merchantCategory\pEditMerchantCategory.aspx" />
     <Content Include="weblogin\nSystemUserAdd.aspx" />

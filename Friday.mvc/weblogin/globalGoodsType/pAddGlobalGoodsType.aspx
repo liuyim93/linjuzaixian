@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nGlobalGoodsTypeUpdate.aspx.cs" Inherits="Friday.mvc.weblogin.nGlobalGoodsTypeUpdate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddGlobalGoodsType.aspx.cs" Inherits="Friday.mvc.weblogin.pAddGlobalGoodsType" %>
 
 <div class="page">
     <div class="pageContent">

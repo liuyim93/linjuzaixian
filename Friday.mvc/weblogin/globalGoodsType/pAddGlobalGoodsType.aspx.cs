@@ -11,7 +11,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class nGlobalGoodsTypeAdd : System.Web.UI.Page
+    public partial class pAddGlobalGoodsType : System.Web.UI.Page
     {
         IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
         private GlobalGoodsType globalGoodsType;

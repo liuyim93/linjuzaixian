@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin {
     
     
-    public partial class nGlobalGoodsTypeAdd {
+    public partial class pEditGlobalGoodsType {
         
         /// <summary>
         /// form 控件。
