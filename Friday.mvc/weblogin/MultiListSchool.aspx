@@ -136,12 +136,19 @@
 
                   }
                   else {
-
-                      if ($.inArray(_args["IDSet"], id_set) > -1) {
-//                          id_set[id_set.length] = _args["IDSet"];
-//                          name_set[name_set.length] = _args["NameSet"];
-//                          $idset.val(id_set.join(','));
-//                          $nameset.val(name_set.join(','));
+                      debugger
+                      var i_to_be_removed = $.inArray(_args["IDSet"], id_set);
+                      if (i_to_be_removed > -1) {
+                          var function_to_be_compared= function (elem, index) {
+                              if (index === i_to_be_removed) {
+                                  return false;
+                              }
+                              return true;
+                          };
+                          id_set = $.grep(id_set, function_to_be_compared);
+                          $idset.val(id_set.join(','));
+                          name_set = $.grep(name_set, function_to_be_compared);
+                          $nameset.val(name_set.join(','));
                       }
 
                   }
