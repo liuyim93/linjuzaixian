@@ -35,75 +35,73 @@ namespace Friday.mvc.weblogin.shop
 
             if (Request.Params["flag"] != "alldelete")
             {
-                if (Request.Params["flag"] != "alldelete")
-                {
-                    numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-                    int start = (pageNum - 1) * numPerPageValue;
-                    int limit = numPerPageValue;
+                numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+                pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
+                int start = (pageNum - 1) * numPerPageValue;
+                int limit = numPerPageValue;
 
-                    List<DataFilter> filterList = new List<DataFilter>();
-                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "Name",
-                            value = name = Request.Form["Name"]
-
-                        });
-                    if (!string.IsNullOrEmpty(Request.Form["Owener"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "Owener",
-                            value = owener = Request.Form["Owener"]
-
-                        });
-                    if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "ShortName",
-                            value = shortName = Request.Form["ShortName"]
-
-                        });
-                    if (!string.IsNullOrEmpty(Request.Form["Address"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "Address",
-                            value = address = Request.Form["Address"]
-
-                        });
-                    if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "ShopStatus",
-                            value = shopStatus = Request.Form["ShopStatus"]
-
-                        });
-                    if (!string.IsNullOrEmpty(Request.Form["Tel"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "Tel",
-                            value = tel = Request.Form["Tel"]
-
-                        });
-                    var filter = new DataFilter();
-                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                List<DataFilter> filterList = new List<DataFilter>();
+                if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                    filterList.Add(new DataFilter()
                     {
-                        filter.type = "CreateTime";
-                        filter.value = startDate = Request.Form["StartDate"];
-                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
-                        {
-                            filter.valueForCompare = endDate = Request.Form["EndDate"];
-                        }
-                        filterList.Add(filter);
+                        type = "Name",
+                        value = name = Request.Form["Name"]
+
+                    });
+                if (!string.IsNullOrEmpty(Request.Form["Owener"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Owener",
+                        value = owener = Request.Form["Owener"]
+
+                    });
+                if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "ShortName",
+                        value = shortName = Request.Form["ShortName"]
+
+                    });
+                if (!string.IsNullOrEmpty(Request.Form["Address"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Address",
+                        value = address = Request.Form["Address"]
+
+                    });
+                if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "ShopStatus",
+                        value = shopStatus = Request.Form["ShopStatus"]
+
+                    });
+                if (!string.IsNullOrEmpty(Request.Form["Tel"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Tel",
+                        value = tel = Request.Form["Tel"]
+
+                    });
+                var filter = new DataFilter();
+                if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                {
+                    filter.type = "CreateTime";
+                    filter.value = startDate = Request.Form["StartDate"];
+                    if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                    {
+                        filter.valueForCompare = endDate = Request.Form["EndDate"];
                     }
-
-                    IList<Shop> shopList = iRepositoryShop.Search(filterList, start, limit, out total);
-                   
-                    repeater.DataSource = shopList;
-                    repeater.DataBind();
-
-                    numPerPage.Value = numPerPageValue.ToString();
+                    filterList.Add(filter);
                 }
+
+                IList<Shop> shopList = iRepositoryShop.Search(filterList, start, limit, out total);
+
+                repeater.DataSource = shopList;
+                repeater.DataBind();
+
+                numPerPage.Value = numPerPageValue.ToString();
+
             }
 
             else

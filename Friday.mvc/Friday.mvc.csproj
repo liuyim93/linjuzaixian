@@ -439,6 +439,13 @@
     <Compile Include="weblogin\ActivityList.aspx.designer.cs">
       <DependentUpon>ActivityList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\MultiListSchool.aspx.cs">
+      <DependentUpon>MultiListSchool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\MultiListSchool.aspx.designer.cs">
+      <DependentUpon>MultiListSchool.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1275,6 +1282,7 @@
     <Content Include="weblogin\nSchoolUpdate.aspx" />
     <Content Include="weblogin\nActivityUpdate.aspx" />
     <Content Include="weblogin\ActivityList.aspx" />
+    <Content Include="weblogin\MultiListSchool.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
