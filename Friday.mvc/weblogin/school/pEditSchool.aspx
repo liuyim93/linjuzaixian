@@ -1,10 +1,20 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditSchool.aspx.cs" Inherits="Friday.mvc.weblogin.school.pEditSchool" %>
 
-<div class="pageFormContent" layoutH="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+<div class="page" style="">
+    <div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
+             <span>修改学校</span>
+           </a></li>
+           
+        </ul>
+    </div>
+        <form id="form" method="post"  class="pageForm required-validate" 
+        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server" >
     <div class="panel collapse" defh="95">
         <h1>
-            学校基本信息</h1>
+            学校信息</h1>
         <div>
         <input type="hidden" id="MyOrderId" size="30" runat="server" />
       
@@ -58,14 +68,11 @@
 
     $(function () {
         var prefix = '<%=Request.Params["prefix"] %>';
-        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
-        //ensure this function will be called delay until initUI called
-        //2013-02-10 basilwang use document
+ 
         $(document).one("panelloaded", function (e, o) {
-            //o.find("a[rel_v3]").trigger("click");
+
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
-            //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 
         });

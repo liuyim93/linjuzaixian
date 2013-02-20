@@ -1,14 +1,23 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddSchool.aspx.cs" Inherits="Friday.mvc.weblogin.school.pAddSchool"   validateRequest="false"  %>
 
-<div class="pageFormContent" layoutH="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
-    <div class="panel collapse" defh="95">
-        <h1>
-            学校基本信息</h1>
-        <div>
-        <input type="hidden" id="MyOrderId" size="30" runat="server" />
-      
-         <p>
+<div class="page" style="">
+    <div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
+             <span>添加学校</span>
+           </a></li>
+           
+        </ul>
+    </div>
+        <form id="form" method="post"  class="pageForm required-validate" 
+        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server" >
+        <div class="pageFormContent" style=" height:500px">
+         
+            <h1>
+                学校信息</h1>
+            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+          <p>
                 <label>
                     学校名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -27,7 +36,6 @@
          
     
         </div>
-    </div>
                 <div class="formBar">
                 <ul>
                     <li>
@@ -52,14 +60,16 @@
             </div>
         </form>
     </div>
- 
+</div>
 
 <script   type="text/javascript">
+
     $(function () {
         var prefix = '<%=Request.Params["prefix"] %>';
 
         $(document).one("panelloaded", function (e, o) {
-           
+            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            
 
             o = null;
 
@@ -67,5 +77,4 @@
 
 
     });
-
 </script>
