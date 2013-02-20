@@ -17,6 +17,10 @@ namespace Friday.mvc.weblogin.systemUser
         protected int pageNum;
         protected int numPerPageValue;
 
+        protected string loginName;
+        protected string name;
+        protected string tel;
+        protected string email;
         ISystemUserRepository iRepositorySystemUser = UnityHelper.UnityToT<ISystemUserRepository>();
         IRepository<LoginUser> iRepositoryLoginUser = UnityHelper.UnityToT<IRepository<LoginUser>>();
 
@@ -34,8 +38,58 @@ namespace Friday.mvc.weblogin.systemUser
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
 
-                IList<SystemUser> systemUserList = iRepositorySystemUser.GetSystemUsersByPageList(start, limit, out total);
+                List<DataFilter> filterList = new List<DataFilter>();
+                List<DataFilter> LoginUserFilter = new List<DataFilter>();
 
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsDelete"
+                });
+
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsAnonymous"
+                });
+
+                if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                LoginUserFilter.Add(new DataFilter()
+                {
+                    type = "LoginName",
+                    value = loginName = Request.Form["LoginName"]
+
+                });
+
+                filterList.Add(new DataFilter()
+                {
+                    type = "LoginUser",
+                    field = LoginUserFilter
+                });
+
+                if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Name",
+                        value = name = Request.Form["Name"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["Tel"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Tel",
+                        value = tel = Request.Form["Tel"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["Email"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Email",
+                        value = email = Request.Form["Email"]
+
+                    });
+
+                IList<SystemUser> systemUserList = iRepositorySystemUser.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = systemUserList;
                 repeater.DataBind();

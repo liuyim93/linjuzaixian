@@ -13,20 +13,21 @@
         <table class="searchContent">
              <tr>
                 <td>
-                    <label>商品类型:</label>
-                    <input type="text" name="GoodsType" class="textInput"  />
+                    <label>登录名:</label>
+                    <input type="text" name="LoginName" class="textInput" value="<%=loginName %>"  />
                 </td>
-                 <td>
-                     <label>
-                         商铺类型:</label>
-                     <select name="MerchantType" id="MerchantType" runat="server">
-                    <option value="">请选择</option>
-                    <option value="餐馆">餐馆</option>
-                    <option value="租房">租房</option>
-                    <option value="百货">百货</option>
-                     </select>
-                 </td>
-
+                <td>
+                    <label>真实姓名:</label>
+                    <input type="text" name="Name" class="textInput" value="<%=name %>" />
+                </td>
+                <td>
+                    <label>联系电话:</label>
+                    <input type="text" name="Tel" class="textInput" value="<%=tel %>" />
+                </td>
+                <td>
+                    <label>电子邮箱:</label>
+                    <input type="text" name="Email" class="textInput" value="<%=email %>" />
+                </td>
             </tr>
         </table>
         <div class="subBar">

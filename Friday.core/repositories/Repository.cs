@@ -175,6 +175,147 @@ namespace friday.core.repositories
             return query.List<T>();
 
         }
+        protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("LoginUser", "loginUser");
+                notself = "loginUser.";
+            }
+
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("LoginName"))
+                    {
+                        query.Add(Expression.Like(notself + "LoginName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+        protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("SystemUser", "systemUser");
+                notself = "systemUser.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("IsAnonymous"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsAnonymous", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("LoginUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUser(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Tel"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Email"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Email", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
 
         protected ICriteria SearchByMerchantCategory(ICriteria query, List<DataFilter> termList, bool isSelf)
         {

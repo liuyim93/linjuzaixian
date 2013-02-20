@@ -8,6 +8,6 @@ namespace friday.core.repositories
 {
     public interface ILoginUserRepository : IRepository<LoginUser>
     {
-         
+        LoginUser GetLoginUserByLoginName(string LoginName);
     }
 }
