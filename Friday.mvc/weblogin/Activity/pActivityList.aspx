@@ -22,7 +22,7 @@
                 </td>
                 <td>
                     <label>活动事项:</label>
-                    <input type="text" name="Matters" class="textInput" value="<%=owener %>"
+                    <input type="text" name="Matters" class="textInput" value="<%=matters %>"
                         value="" />
                 </td>
             
@@ -65,9 +65,9 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="activity/pActivityShop.aspx" title="添加活动" target="navTab" rel=""><span>
+        <li><a class="add" href="activity/pAddActivity.aspx" title="添加活动" target="navTab" rel=""><span>
             添加活动</span></a></li>
-        <li><a class="edit" href="activity/pActivityShop.aspx?uid={id}" title="修改活动" rel="" target="navTab">
+        <li><a class="edit" href="activity/pEditActivity.aspx?uid={id}" title="修改活动" rel="" target="navTab">
             <span>修改活动</span></a></li>
         <li><a class="delete" href="activity/pActivityList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除活动</span></a></li>
@@ -149,7 +149,7 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
+            //debugger
             o.find("#activityList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");

@@ -703,7 +703,47 @@ namespace friday.core.repositories
             }
             return query;
         }
+        protected ICriteria SearchByActivity(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("Activity", "activity");
+                notself = "activity.";
+            }
+            if (termList.Count != 0)
+            {
 
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("Matters"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Matters", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                   
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
         {
             DateTime value = DateTime.Parse(df.value);

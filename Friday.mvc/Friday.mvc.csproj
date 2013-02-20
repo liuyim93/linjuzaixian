@@ -229,12 +229,12 @@
     <Compile Include="weblogin\merchantCategory\pMerchantCategoryList.aspx.designer.cs">
       <DependentUpon>pMerchantCategoryList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nActivityAdd.aspx.cs">
-      <DependentUpon>nActivityAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\activity\pAddActivity.aspx.cs">
+      <DependentUpon>pAddActivity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nActivityAdd.aspx.designer.cs">
-      <DependentUpon>nActivityAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\activity\pAddActivity.aspx.designer.cs">
+      <DependentUpon>pAddActivity.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\nGlobalGoodsTypeAdd.aspx.cs">
       <DependentUpon>nGlobalGoodsTypeAdd.aspx</DependentUpon>
@@ -425,19 +425,12 @@
     <Compile Include="weblogin\nSchoolUpdate.aspx.designer.cs">
       <DependentUpon>nSchoolUpdate.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nActivityUpdate.aspx.cs">
-      <DependentUpon>nActivityUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\activity\pEditActivity.aspx.cs">
+      <DependentUpon>pEditActivity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nActivityUpdate.aspx.designer.cs">
-      <DependentUpon>nActivityUpdate.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\ActivityList.aspx.cs">
-      <DependentUpon>ActivityList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ActivityList.aspx.designer.cs">
-      <DependentUpon>ActivityList.aspx</DependentUpon>
+    <Compile Include="weblogin\activity\pEditActivity.aspx.designer.cs">
+      <DependentUpon>pEditActivity.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\MultiListSchool.aspx.cs">
       <DependentUpon>MultiListSchool.aspx</DependentUpon>
@@ -551,7 +544,7 @@
     <Content Include="weblogin\MerchantCategoryList.aspx" />
     <Content Include="weblogin\merchantCategory\nMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
-    <Content Include="weblogin\nActivityAdd.aspx" />
+    <Content Include="weblogin\activity\pAddActivity.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
     <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
     <Content Include="weblogin\nMerchantCategoryAdd.aspx" />
@@ -1280,8 +1273,7 @@
     <Content Include="weblogin\SchoolList.aspx" />
     <Content Include="weblogin\school\nSchoolAdd.aspx" />
     <Content Include="weblogin\nSchoolUpdate.aspx" />
-    <Content Include="weblogin\nActivityUpdate.aspx" />
-    <Content Include="weblogin\ActivityList.aspx" />
+    <Content Include="weblogin\activity\pEditActivity.aspx" />
     <Content Include="weblogin\MultiListSchool.aspx" />
   </ItemGroup>
   <ItemGroup>

@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.activity
 {
-    public partial class nActivityUpdate : System.Web.UI.Page
+    public partial class pEditActivity : System.Web.UI.Page
     {
         IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
         private Activity activity;

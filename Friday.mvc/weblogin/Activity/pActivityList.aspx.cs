@@ -19,44 +19,71 @@ namespace Friday.mvc.weblogin.activity
         public string systemUserId;
 
 
-        public string startDate;
-        public string endDate;        
+        protected string startDate;
+        protected string endDate;
+        protected string name;
+        protected string matters;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IRepository<Activity> iRepositoryActivity = UnityHelper.UnityToT<IRepository<Activity>>();  
-        
+        IActivityRepository iRepositoryActivity = UnityHelper.UnityToT<IActivityRepository>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-         
-           if (Request.Params["flag"] != "alldelete")
-           {
-               if (Request.Params["flag"] != "alldelete")
-               {
-                   numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-                   pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-                   int start = (pageNum - 1) * numPerPageValue;
-                   int limit = numPerPageValue;
-                   IList<Activity> activityList = iRepositoryActivity.GetPageList(start, limit, out total);
 
+            if (Request.Params["flag"] != "alldelete")
+            {
+                if (Request.Params["flag"] != "alldelete")
+                {
+                    numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
+                    int start = (pageNum - 1) * numPerPageValue;
+                    int limit = numPerPageValue;
 
-                   repeater.DataSource = activityList;
-                   repeater.DataBind();
+                    List<DataFilter> filterList = new List<DataFilter>();
+                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Name",
+                            value = name = Request.Form["Name"]
 
-                   numPerPage.Value = numPerPageValue.ToString();
+                        });
 
-               }
-           }
+                    if (!string.IsNullOrEmpty(Request.Form["Matters"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Matters",
+                            value = matters = Request.Form["Matters"]
 
-           else
-           {
+                        });
+                    
+                    var filter = new DataFilter();
+                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                    {
+                        filter.type = "CreateTime";
+                        filter.value = startDate = Request.Form["StartDate"];
+                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                        {
+                            filter.valueForCompare = endDate = Request.Form["EndDate"];
+                        }
+                        filterList.Add(filter);
+                    }
 
-               DeleteActivity();
+                    IList<Activity> activityList = iRepositoryActivity.Search(filterList, start, limit, out total);
 
-           }
-         
-      
+                    repeater.DataSource = activityList;
+                    repeater.DataBind();
+
+                    numPerPage.Value = numPerPageValue.ToString();
+                }
+            }
+
+            else
+            {
+
+                DeleteActivity();
+
+            }
+
         }
-
 
 
 
@@ -64,10 +91,9 @@ namespace Friday.mvc.weblogin.activity
         private void DeleteActivity()
         {
 
-            string activityid = Request.Params["uid"];
 
-            iRepositoryActivity.Delete(activityid);
-            
+            iRepositoryActivity.Delete(Request.Params["uid"]);
+
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "删除成功";
@@ -76,7 +102,6 @@ namespace Friday.mvc.weblogin.activity
             Response.Write(jsonResult.FormatResult());
             Response.End();
         }
-    
 
     }
 }

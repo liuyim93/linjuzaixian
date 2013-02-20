@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.activity {
     
     
-    public partial class nActivityUpdate {
+    public partial class pEditActivity {
         
         /// <summary>
         /// form 控件。

@@ -1,23 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="nActivityUpdate.aspx.cs" Inherits="Friday.mvc.weblogin.activity.nActivityUpdate" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddActivity.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pAddActivity"   validateRequest="false"  %>
 
 <div class="page" style="">
     <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>修改活动信息</span>
+             <span>添加活动</span>
            </a></li>
            
         </ul>
     </div>
         <form id="form" method="post"  class="pageForm required-validate" 
-        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server">
+        onsubmit="return iframeCallback(this,navTabAjaxDone)" enctype="multipart/form-data" runat="server" >
         <div class="pageFormContent" style=" height:500px">
          
             <h1>
-                基本信息</h1>
+                活动信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
-           <p>
+          <p>
                 <label>
                     活动名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -27,7 +27,7 @@
                     重要性：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
-               <p>
+          <p>
               <p>
                 <label>
                     附件上传：</label>
@@ -39,11 +39,12 @@
             </span>  
             </p>
             </p>
-             <p style="margin-left:20px;height:100px">
+             <p style="margin-left:20px;height:40px">
                 <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
-            </p>     
+            </p>
+          
   
-         <div style="  clear:left; width:80%; margin-top:100px" >
+         <div style="  clear:left; width:80%; margin-top:160px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
@@ -79,8 +80,8 @@
         </form>
     </div>
 </div>
-<script   type="text/javascript">
 
+<script   type="text/javascript">
     $(function () {
         var page_prefix = '<%=Request.Params["prefix"] %>';
         var $self = $.self(page_prefix);
@@ -94,4 +95,7 @@
 
 
     });
+    //    $('#Activity').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+//    $('#Bulletins').xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+
 </script>
