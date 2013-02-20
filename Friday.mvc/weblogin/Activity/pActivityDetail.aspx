@@ -8,7 +8,7 @@
           <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
                 <li><a href="#"><span>相关事件</span></a></li>
-                <li><a href="#"><span>促销打折</span></a></li>
+                <li><a href="#"><span>详细内容</span></a></li>
       
       
            </ul>

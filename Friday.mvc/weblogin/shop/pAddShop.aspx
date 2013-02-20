@@ -115,14 +115,14 @@
                         cols="42" runat="server"></textarea>
                 </p>
             </div>
-            <div>
+           <div style="margin-left:600px;">
                 <p>
                     <label>
                         商铺活动：</label>
                     <textarea class="editor" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
                 </p>
             </div>
-            <div style="clear: left; width: 80%; margin-top: 410px">
+         <div style="  clear:left; width:80%; margin-top:200px" >
                 <p>
                     <label>
                         详细内容：</label>
