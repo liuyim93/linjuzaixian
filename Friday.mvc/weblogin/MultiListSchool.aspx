@@ -117,8 +117,8 @@
                 });
             }
             alert(o.find("[name=IDSet]").val());
-            var $idset=o.find("[name=IDSet]");
-            var $nameset=o.find("[name=NameSet]");
+            var $idset = o.find("[name=IDSet]");
+            var $nameset = o.find("[name=NameSet]");
             var id_set = o.find("[name=IDSet]").val().split(',');
             var name_set = o.find("[name=NameSet]").val().split(',');
             alert(id_set.length);
@@ -126,18 +126,23 @@
               .change(function () {
                   var _args = DWZ.jsonEval($(this).val());
                   if ($(this).is(":checked")) {
-                      if (id_set.length == 0) {
-                          $idset.val(_args["IDSet"]);
-                          $nameset.val(_args["NameSet"]);
+
+                      if ($.inArray(_args["IDSet"], id_set) === -1) {
+                          id_set[id_set.length] = _args["IDSet"];
+                          name_set[name_set.length] = _args["NameSet"];
+                          $idset.val(id_set.join(','));
+                          $nameset.val(name_set.join(','));
                       }
-                      else {
-                          if ($.inArray(_args["IDSet"], id_set) === -1) {
-                              $idset.val($idset.val() + "," + _args["IDSet"]);
-                              $nameset.val($nameset.val() + "," + _args["NameSet"]);
-                          }
-                      }
+
                   }
                   else {
+
+                      if ($.inArray(_args["IDSet"], id_set) > -1) {
+//                          id_set[id_set.length] = _args["IDSet"];
+//                          name_set[name_set.length] = _args["NameSet"];
+//                          $idset.val(id_set.join(','));
+//                          $nameset.val(name_set.join(','));
+                      }
 
                   }
               })
