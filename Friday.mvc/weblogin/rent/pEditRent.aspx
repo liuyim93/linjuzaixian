@@ -6,7 +6,6 @@
         <h1>
             商铺基本信息</h1>
         <div>
-        <input type="hidden" id="MyOrderId" size="30" runat="server" />
          <p>
                 <label>
                     商铺名称：</label>
@@ -63,7 +62,7 @@
             <p>
                 <label>
                     Tel：</label>
-                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Tel" size="30" class="required textInput gray phone" runat="server" />
             </p>
           
             <p>

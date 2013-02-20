@@ -43,7 +43,7 @@
             <p>
                 <label>
                     Tel：</label>
-                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Tel" size="30" class="required textInput gray phone" runat="server" />
             </p>
 
             <p>
