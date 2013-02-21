@@ -58,6 +58,32 @@
                     <option value="正在休息">正在休息</option>
 				</select> 
             </p>
+              <p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="SchoolOfMerchantID"  size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+            </p>
+            <p>
+                <label>
+                    服务的学校(多选）：</label>
+                <input type="text" id="NameSet" size="35" class="required textInput gray"
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="IDSet" size="35" class="required textInput gray"
+                    runat="server" readonly="true" />
+            </p>
         </div>
     </div>
      <div class="panel collapse" defh="55">

@@ -15,6 +15,8 @@ namespace Friday.mvc.weblogin.restaurant
     public partial class pEditRestaurant : System.Web.UI.Page
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
+        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
+        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
         private Restaurant restaurant;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,19 +24,40 @@ namespace Friday.mvc.weblogin.restaurant
             restaurant = iRestaurantRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
-                SaveRestaurant();
+                string schid = "";
+                if (this.IDSet.Value != null && this.IDSet.Value != "")
+                {
+                    schid = this.IDSet.Value;
+                }
+                if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
+                {
+                    schid = this.SchoolOfMerchantID.Value;
+                }
+                SaveRestaurant(uid, schid);
+                
             }
             else
             {
 
                 BindingHelper.ObjectToControl(restaurant, this);
                 this.ImagePreview.Src = restaurant.Logo;
+                ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+
+                string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+                string[] arrname = schofmntname.Split('，');
+                if (arrname.Length > 1)
+                {
+                    this.NameSet.Value = schofmntname;
+                }
+                else
+                {
+                    this.SchoolOfMerchant.Value = schofmntname;
+                }
                 
             }
         }
 
-        private void SaveRestaurant()
+        private void SaveRestaurant(string uid, string schid)
         {
 
             BindingHelper.RequestToObject(restaurant);
@@ -76,6 +99,26 @@ namespace Friday.mvc.weblogin.restaurant
             }
 
             iRestaurantRepository.SaveOrUpdate(restaurant);
+
+
+            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+            repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
+
+
+            if (schid != "")
+            {
+
+                string[] sArray = schid.Split(',');
+                foreach (string shcidsz in sArray)
+                {
+                    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+                    schofmt.Merchant = restaurant;
+                    schofmt.School = iSchoolRepository.Get(shcidsz);
+                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                }
+            }
+
+
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
