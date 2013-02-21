@@ -156,6 +156,13 @@
     <Compile Include="weblogin\address\pAddressList.aspx.designer.cs">
       <DependentUpon>pAddressList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\address\pEditAddress.aspx.cs">
+      <DependentUpon>pEditAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\address\pEditAddress.aspx.designer.cs">
+      <DependentUpon>pEditAddress.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\food\pEditFood.aspx.cs">
       <DependentUpon>pEditFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -448,6 +455,7 @@
     <Content Include="weblogin\activity\pActivityDetail.aspx" />
     <Content Include="weblogin\activity\pActivityList.aspx" />
     <Content Include="weblogin\address\pAddressList.aspx" />
+    <Content Include="weblogin\address\pEditAddress.aspx" />
     <Content Include="weblogin\chart\g.bar.js" />
     <Content Include="weblogin\chart\g.dot.js" />
     <Content Include="weblogin\chart\g.line.js" />

@@ -10,7 +10,7 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="Address/pAddAddress.aspx?shop_id={id}" title="增加配送地址" target="navTab"
+        <li><a class="add" href="Address/pAddAddress.aspx?uid={id}" title="增加配送地址" target="navTab"
             rel="" width="600" height="400"><span>增加配送地址</span></a></li>
         <li><a class="edit" href="Address/pEditAddress.aspx?uid={addressid}" title="修改配送地址" rel="" target="dialog"
             height="480"><span>修改配送地址</span></a></li>

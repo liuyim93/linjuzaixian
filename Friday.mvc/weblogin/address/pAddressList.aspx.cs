@@ -53,7 +53,6 @@ namespace Friday.mvc.weblogin.address
             IList<Address> addressList = null;
             List<DataFilter> dfl = new List<DataFilter>();
 
-
             if (!string.IsNullOrEmpty(SystemUserID))
             {
                 dfl.Add(new DataFilter() { type = "SystemUser", value = SystemUserID });
