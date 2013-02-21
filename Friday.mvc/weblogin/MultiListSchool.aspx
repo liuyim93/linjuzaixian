@@ -119,14 +119,15 @@
             //alert(o.find("[name=IDSet]").val());
             var $idset = o.find("[name=IDSet]");
             var $nameset = o.find("[name=NameSet]");
-            var id_set = o.find("[name=IDSet]").val().split(',');
-            var name_set = o.find("[name=NameSet]").val().split(',');
+            //2013-02-21 basilwang in case of splitting space as a element of this array 
+            var id_set = ($idset.val() === "") ? [] : $idset.val().split(',');
+            var name_set = ($nameset.val() === "") ? [] : $nameset.val().split(',');
             //alert(id_set.length);
             o.find("[name=ids]")
               .change(function () {
                   var _args = DWZ.jsonEval($(this).val());
                   if ($(this).is(":checked")) {
-
+                      debugger
                       if ($.inArray(_args["IDSet"], id_set) === -1) {
                           id_set[id_set.length] = _args["IDSet"];
                           name_set[name_set.length] = _args["NameSet"];
