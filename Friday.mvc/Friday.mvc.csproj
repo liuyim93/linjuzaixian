@@ -229,6 +229,13 @@
     <Compile Include="weblogin\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\loginUser\pEditLoginUser.aspx.cs">
+      <DependentUpon>pEditLoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pEditLoginUser.aspx.designer.cs">
+      <DependentUpon>pEditLoginUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\loginUser\pLoginUserList.aspx.cs">
       <DependentUpon>pLoginUserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -551,6 +558,7 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListSchool.aspx" />
+    <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserList.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />

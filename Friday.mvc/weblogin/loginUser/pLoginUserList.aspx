@@ -94,7 +94,7 @@
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
                         <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
-                        <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin")=="true")?"是":"否"%></td>                         
+                        <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>                         
                         <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>               
 				</tr>
 			      
