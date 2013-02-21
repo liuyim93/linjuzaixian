@@ -25,7 +25,7 @@ namespace Friday.mvc.weblogin
         public string endprice;
         //public string owenType;
         public string goodsType;
- 
+        public string mid;
 
         private IFoodRepository iFoodRepository = UnityHelper.UnityToT<IFoodRepository>();
         IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
@@ -33,7 +33,7 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+              
 
                 if (Request.Params["flag"] != "alldelete")
                 {
@@ -98,10 +98,14 @@ namespace Friday.mvc.weblogin
             }
 
             //owenType = Request.Form["owenType"];
+           
             goodsType = Request.Form["mGoodsType"];
-            if (!string.IsNullOrEmpty(mGoodsType.Value))
+            if (!string.IsNullOrEmpty(goodsType))
             {
-                dfl.Add(new DataFilter() { type = "GoodsType", value = mGoodsType.Value });
+                MerchantGoodsType mectGType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(goodsType, restaurantId);
+                string mectGTypeID = mectGType.Id;
+                dfl.Add(new DataFilter() { type = "MerchantGoodsType_id", value = mectGTypeID.ToString() });
+               // dfl.Add(new DataFilter() { type = "GoodsType", value = goodsType });
             }
             //else
             //{

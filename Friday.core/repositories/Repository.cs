@@ -863,12 +863,27 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
                         continue;
                     }
+                    //if (df.type.Equals("FoodType"))
+                    //{
+                    //    if (isSelf)
+                    //    {
+                    //        query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
+                    //    }
+                    //    continue;
+                    //}
+
                     if (df.type.Equals("GoodsType"))
                     {
                         if (isSelf)
                         {
-                            query.CreateAlias("GoodsType", "goodsType").Add(Restrictions.Eq("MerchantGoodsType.GoodsType", df.value));//不支持嵌套
+                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.GoodsType", df.value));//不支持嵌套
                         }
+                        continue;
+                    }
+                    
+                    if (df.type.Equals("MerchantGoodsType_id"))
+                    {
+                        query.Add(Expression.Eq(notself + "MerchantGoodsType_id", df.value));
                         continue;
                     }
 
