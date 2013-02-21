@@ -32,6 +32,11 @@ namespace friday.core.domain
             Map(o => o.TimeOfRentFrom);
             Map(o => o.TimeOfRentTO);
             Map(o => o.DaySpanOfRent);
+
+            Map(o => o.Amount).Default("0").Not.Nullable(); ;
+            Map(o => o.ValuingCount).Default("0").Not.Nullable(); ;
+            Map(o => o.AverageValuing).Default("0").Not.Nullable(); ;
+            Map(o => o.MonthAmount).Default("0").Not.Nullable();
              
 
             //References<MerchantGoodsType>(o => o.MerchantGoodsType);

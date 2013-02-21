@@ -20,26 +20,7 @@ namespace friday.core.domain
         }
 
 
-        public virtual decimal Amount
-        {
-            get;
-            set;
-        }
-        public virtual int ValuingCount
-        {
-            get;
-            set;
-        }
-        public virtual float AverageValuing
-        {
-            get;
-            set;
-        }
-        public virtual int MonthAmount
-        {
-            get;
-            set;
-        }
+     
 
         //public  virtual Iesi.Collections.Generic.ISet<MyFavorite> Favorite
         //{

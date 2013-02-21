@@ -85,7 +85,27 @@ namespace friday.core
 
             set;
         }
-         
+
+        public virtual decimal Amount
+        {
+            get;
+            set;
+        }
+        public virtual int ValuingCount
+        {
+            get;
+            set;
+        }
+        public virtual float AverageValuing
+        {
+            get;
+            set;
+        }
+        public virtual int MonthAmount
+        {
+            get;
+            set;
+        }
           
     }
 }
