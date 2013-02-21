@@ -18,11 +18,8 @@ namespace Friday.mvc.weblogin.loginUser
         protected int numPerPageValue;
 
         protected string loginName;
-        protected string name;
-        protected string tel;
-        protected string email;
 
-        IRepository<LoginUser> iRepositoryLoginUser = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserRepository iRepositoryLoginUser = UnityHelper.UnityToT<ILoginUserRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,8 +35,44 @@ namespace Friday.mvc.weblogin.loginUser
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
 
+                List<DataFilter> filterList = new List<DataFilter>();
 
-                IList<LoginUser> loginUserList = iRepositoryLoginUser.GetPageList(start, limit, out total);
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsDelete"
+                });
+
+                if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "LoginName",
+                        value = loginName = Request.Form["LoginName"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["IsAdmin"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "IsAdmin",
+                        value = Request.Form["IsAdmin"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["UserType"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "UserType",
+                        value = Request.Form["UserType"]
+
+                    });
+
+                List<DataFilter> dflForOrder = new List<DataFilter>();
+                string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
+                string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
+                dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
+                filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
+
+                IList<LoginUser> loginUserList = iRepositoryLoginUser.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = loginUserList;
                 repeater.DataBind();

@@ -14,20 +14,24 @@
              <tr>
                 <td>
                     <label>登录名:</label>
-                    <input type="text" name="LoginName" class="textInput" />
+                    <input type="text" name="LoginName" class="textInput" value="<%=loginName%>"/>
                 </td>
                 <td>
                     <label>管理员:</label>
-                    <input type="text" name="IsAdmin" class="textInput" />
+                    <select name="IsAdmin" id="IsAdmin" runat="server">
+                    <option value="">请选择</option>
+                    <option value="是">是</option>
+                    <option value="否">否</option>
+                    </select>
                 </td>
                  <td>
                      <label>
                          用户类型:</label>
-                    <select name="UserType" id="UserType">
+                    <select name="UserType" id="UserType" runat="server">
                     <option value="">请选择</option>
                     <option value="管理员">管理员</option>
                     <option value="顾客">顾客</option>
-                    <option value="商店">商店</option>、
+                    <option value="商店">商店</option>
                     <option value="餐馆">餐馆</option>
                     <option value="租房">租房</option>
                     <option value="送货员">送货员</option>
@@ -89,10 +93,8 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="loginUser/pLoginUserDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox3"><%#Eval("LoginName")%>
-                            </a>
-                        </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsAdmin")%></td>                         
+                        <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
+                        <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin")=="true")?"是":"否"%></td>                         
                         <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>               
 				</tr>
 			      
@@ -128,13 +130,13 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
-            o.find("#LoginUserList table:eq(1) tr").click(function (e) {
-                if (!$(e.target).is("a")) {
-                    $(this).find("td a").trigger("click");
-                }
+//            debugger
+//            o.find("#LoginUserList table:eq(1) tr").click(function (e) {
+//                if (!$(e.target).is("a")) {
+//                    $(this).find("td a").trigger("click");
+//                }
 
-            });
+//            });
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
                 o.find("#form").bind("submit", function (e) {
