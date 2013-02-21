@@ -51,7 +51,7 @@
             </p>
         </div>
     </div>
-<%--    <div class="panel collapse" defh="95">
+   <div class="panel collapse" defh="95">
         <h1>
             配送时间</h1>
         <div>
@@ -132,7 +132,7 @@
                 </p>
             </div>
         </div>
-    </div>--%>
+    </div> 
     <div class="formBar">
         <ul>
             <li>
