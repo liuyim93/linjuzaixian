@@ -19,7 +19,7 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
 
-        public string shopId;
+        public string restaurantId;
         public string name;
         public string startprice;
         public string endprice;
@@ -29,19 +29,25 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["flag"] != "alldelete")
-            {
-                SearchFood();
-            }
-            else
-            {
-                DeleteFood();
-            }
+            
+                if (Request.Params["flag"] != "alldelete")
+                {
+                    SearchFood();
+                }
+                else
+                {
+                    DeleteFood();
+                }
+           
         }
+       
+
+
         private void DeleteFood()
         {
+            string foodid = Request.Params["food_id"];
 
-            iFoodRepository.Delete(Request.Params["uid"]);
+            iFoodRepository.Delete(foodid);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -55,13 +61,13 @@ namespace Friday.mvc.weblogin
 
             //在这里初始化ShopId
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            if (Request.Form["shopId"] != null)
+            if (Request.Form["restaurant_id"] != null)
             {
-                shopId = Request.Form["shopId"];
+                restaurantId = Request.Form["restaurant_id"];
             }
             else
             {
-                shopId = Request.Params["shop_id"];
+                restaurantId = Request.Params["restaurant_id"];
             }
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
@@ -100,9 +106,9 @@ namespace Friday.mvc.weblogin
             }
 
 
-            if (!string.IsNullOrEmpty(shopId))
+            if (!string.IsNullOrEmpty(restaurantId))
             {
-                dfl.Add(new DataFilter() { type = "Shop", value = shopId });
+                dfl.Add(new DataFilter() { type = "Restaurant", value = restaurantId });
             }
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
