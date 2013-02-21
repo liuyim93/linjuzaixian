@@ -8,6 +8,11 @@
 <input type="hidden" name="NameSet" value="<%=Request.Params["NameSet"]%>" />
 <input type="hidden" name="IDSet" value="<%=Request.Params["IDSet"]%>" />
 </form>
+<div class="panel " defh="30">
+    <h1>当前已选择</h1>
+    <div id="chooseResult">
+    </div>
+</div>
 <div class="panel collapse" defh="75">
     <h1>
         查询条件</h1>
@@ -102,6 +107,8 @@
             var $pagerForm = o.find("#pagerForm");
             var $idset = $pagerForm.find("[name=IDSet]");
             var $nameset = $pagerForm.find("[name=NameSet]");
+            var $chooseResult = o.find("#chooseResult");
+            $chooseResult.text($nameset.val());
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
                 $form.bind("submit", function (e) {
@@ -131,7 +138,7 @@
               .change(function () {
                   var _args = DWZ.jsonEval($(this).val());
                   if ($(this).is(":checked")) {
-                      debugger
+                      //debugger
                       if ($.inArray(_args["IDSet"], id_set) === -1) {
                           id_set[id_set.length] = _args["IDSet"];
                           name_set[name_set.length] = _args["NameSet"];
@@ -141,7 +148,7 @@
 
                   }
                   else {
-                      debugger
+                      //debugger
                       var i_to_be_removed = $.inArray(_args["IDSet"], id_set);
                       if (i_to_be_removed > -1) {
                           var function_to_be_compared = function (elem, index) {
@@ -157,6 +164,8 @@
                       }
 
                   }
+                  debugger
+                  $chooseResult.text($nameset.val());
               })
               .each(function () {
                   var _args = DWZ.jsonEval($(this).val());
