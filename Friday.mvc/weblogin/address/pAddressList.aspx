@@ -5,6 +5,8 @@
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="rel_v3" value='<%=Request.Params["rel_v3"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
+<input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
+<input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
 </form>
 
 <div class="panelBar">
@@ -27,10 +29,10 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" name="AddressName" class="asc" align="center">配送地址</th>
+                            <th width="20%" orderField="AddressName" class="asc" align="center">配送地址</th>
                             <th width="10%" align="center">联系电话</th>
                             <th width="15%" align="center">备用电话</th>
-                            <th width="10%" name="AddressName" align="center">联系人</th>
+                            <th width="10%" orderField="Linkman" class="asc" align="center">联系人</th>
                             <th width="20%" align="center">Email</th>
                             <th width="20%" align="center">微信</th>
                             <th width="20%" align="center">QQ</th>
