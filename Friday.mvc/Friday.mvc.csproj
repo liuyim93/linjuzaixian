@@ -149,6 +149,13 @@
       <DependentUpon>pActivityList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="weblogin\food\pEditFood.aspx.cs">
+      <DependentUpon>pEditFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\food\pEditFood.aspx.designer.cs">
+      <DependentUpon>pEditFood.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx.cs">
       <DependentUpon>pGlobalGoodsTypeDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -446,6 +453,7 @@
     <Content Include="weblogin\chart\test\piechart.html" />
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
+    <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
     <Content Include="weblogin\house\pHouseList.aspx" />

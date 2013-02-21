@@ -18,7 +18,9 @@ namespace friday.core.domain
         //吕兴举增加 为iframe用
         private string title;
         //王华杰 2011-04-11 工作流刷新父页
-        private string referer;
+        //private string referer;
+        //2013-02-13 basilwang add panelId
+        private string panelid;
         public string errorCloseType
         {
             get { return this.errorclosetype; }
@@ -55,11 +57,18 @@ namespace friday.core.domain
             get { return this.title; }
             set { this.title = value; }
         }
-        //王华杰 2011-04-11 工作流刷新父页
-        public string Referer
+        //2013-02-13 basilwang we don't need this anymore
+        ////王华杰 2011-04-11 工作流刷新父页
+        //public string Referer
+        //{
+        //    get { return this.referer; }
+        //    set { this.referer = value; }
+        //}
+        //2013-02-13 basilwang add panelId
+        public string panelId
         {
-            get { return this.referer; }
-            set { this.referer = value; }
+            get { return this.panelid; }
+            set { this.panelid = value; }
         }
     }
 }
