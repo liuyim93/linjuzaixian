@@ -45,7 +45,14 @@ namespace Friday.mvc.weblogin.address
         }
         private void SearchAddress()
         {
-            SystemUserID = Request.Params["systemUser_id"];
+            if (Request.Form["systemUser_id"] != null)
+            {
+                SystemUserID = Request.Form["systemUser_id"];
+            }
+            else
+            {
+                SystemUserID = Request.Params["systemUser_id"];
+            }
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;

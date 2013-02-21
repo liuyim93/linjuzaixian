@@ -27,10 +27,10 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" class="asc" align="center">配送地址</th>
-                            <th width="10%" class="desc" align="center">联系电话</th>
-                            <th width="15%" class="desc" align="center">备用电话</th>
-                            <th width="10%" align="center">联系人</th>
+                            <th width="20%" name="AddressName" class="asc" align="center">配送地址</th>
+                            <th width="10%" align="center">联系电话</th>
+                            <th width="15%" align="center">备用电话</th>
+                            <th width="10%" name="AddressName" align="center">联系人</th>
                             <th width="20%" align="center">Email</th>
                             <th width="20%" align="center">微信</th>
                             <th width="20%" align="center">QQ</th>
