@@ -73,26 +73,26 @@
     </div>
 </div>
 <div class="panelBar">
-    <ul class="toolBar">
-        <li><a class="add" href="Food/AddFood.aspx?shop_id={id}" title="增加商品" target="navTab"
+     <ul class="toolBar">
+        <li><a class="add" href="commodity/pAddCommodity.aspx?merchant_id={id}" title="增加商品" target="dialog"
             rel="" width="600" height="400"><span>增加商品</span></a></li>
-        <li><a class="edit" href="Food/EditFood.aspx?uid={foodid}" title="修改商品" rel="" target="dialog"
+        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}&merchant_id={id}" title="修改商品" rel="" target="dialog"
             height="480"><span>修改商品</span></a></li>
-        <li><a class="delete" href="Food/pFoodList.aspx?flag=alldelete&uid={id}" target="navTabTodo"
+        <li><a class="delete" href="commodity/pCommodityList.aspx?flag=alldelete&commodity_id={commodityid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除商品</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
-<div id="foodList">
+<div id="commodityList">
     <table class="table">
         <asp:repeater id="repeater" runat="server">
               <HeaderTemplate>
                       <thead>
                         <tr>
-                            <th width="10%" align="center">序 号</th>
-                            <th width="20%" align="center">商 品 名</th>
-                            <th width="10%" align="center">单 价</th>
-                        <%--    <th width="15%" align="center">销 售 额</th>--%>
+                           <th width="10%" align="center">序 号</th>
+                            <th width="20%" orderField="Name" class="asc" align="center">菜 品 名</th>
+                            <th width="10%" orderField="Price" class="desc" align="center">单 价</th>
+                            <th width="15%" orderField="MonthAmount" class="desc" align="center">月 售 额</th>
                             <th width="20%" align="center">创建时间</th>
                             <th width="20%" align="center">删除标记</th>
                         </tr>
@@ -105,7 +105,7 @@
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
-                       <%--   <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td>--%>
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "MonthAmount")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Createtime")%></td>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>
                          
