@@ -16,9 +16,17 @@ namespace Friday.mvc.weblogin
     {
         private IRepository<Food> repository = UnityHelper.UnityToT<IRepository<Food>>();
         private Food f;
+
+        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
+        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        MerchantCategory mCategory = new MerchantCategory();
+        string mid;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
+            mid = Request.Params["merchant_id"].ToString();
+
             f = repository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -29,10 +37,15 @@ namespace Friday.mvc.weblogin
             {
 
                 BindingHelper.ObjectToControl(f, this);
-                //LogoPreview.Src = f.Image;
-                //string foodType = f.FoodType.ToString();
-                //Type.Value = foodType;
-                //otherType.Value = f.FoodType.FoodType;
+                this.ImagePreview.Src = f.Image;            
+                Restaurant rst = restRepository.Get(mid);
+                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                foreach (var i in goodsTypes)
+                {
+                    this.GoodsType.Items.Add(i.GoodsType);
+                }
+                MerchantGoodsType  merchantGoodsType= mGoodsTypeRepository.Get(f.MerchantGoodsType.Id);
+                this.GoodsType.Value = merchantGoodsType.GoodsType;
 
             }
         }
@@ -47,46 +60,13 @@ namespace Friday.mvc.weblogin
             {
                 f.Image = "/uploadimage/foodImage/" + filesnewName;
             }
-            //string foodType;
-            //ShopFoodTypeRepository shopFoodTypeR = new ShopFoodTypeRepository();
-            //if (string.IsNullOrEmpty(Type.Value))
-            //{
-            //    foodType = Request.Form["otherType"];
-            //}
-            //else
-            //{
-            //    foodType = Type.Value;
-            //}
-            //Shop shop = f.Shop;
-
-            //List<DataFilter> dfl = new List<DataFilter>();
-            //dfl.Add(new DataFilter() { type = "FoodType", value = foodType });
-            //dfl.Add(new DataFilter() { type = "Shop", value = shop.Id });
-
-            //IList<ShopFoodType> shopFoodTypes = shopFoodTypeR.Search(dfl);
-            //if (shopFoodTypes.Count == 0)
-            //{
-            //    ShopFoodType newshopFoodType = new ShopFoodType();
-            //    newshopFoodType.FoodType = foodType;
-            //    //双向代理
-            //    newshopFoodType.Shop = shop;
-            //    shop.ShopFoodTypes.Add(newshopFoodType);
-            //    //刷新数据库以免出错
-            //    shopFoodTypeR.SaveOrUpdate(newshopFoodType);
-
-            //    f.FoodType = newshopFoodType;
 
 
 
-            //}
-            //else
-            //{
-            //    foreach (ShopFoodType type in shopFoodTypes)
-            //    {
-            //        f.FoodType = type;
-            //    }
-            //}
-
+            Restaurant restaurant = restRepository.Get(mid);
+            f.Restaurant = restaurant;
+            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
+            
 
             repository.SaveOrUpdate(f);
 

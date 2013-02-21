@@ -7,8 +7,7 @@
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
 <input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
 <input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
-<input type="hidden" name="restaurant_id" value="<%=Request.Params["restaurant_id"] %>" />
-<%--<input type="hidden" name="food_id" value="<%=Request.Params["food_id"] %>" />--%>
+<%--<input type="hidden" name="restaurant_id" value="<%=Request.Params["restaurant_id"] %>" />--%>
 </form>
 <div class="panel close collapse" defh="75">
     <h1>
@@ -80,7 +79,7 @@
     <ul class="toolBar">
         <li><a class="add" href="Food/pAddFood.aspx?merchant_id={id}" title="增加菜品" target="navTab"
             rel="" width="600" height="400"><span>增加菜品</span></a></li>
-        <li><a class="edit" href="Food/pEditFood.aspx?uid={foodid}" title="修改菜品" rel="" target="dialog"
+        <li><a class="edit" href="Food/pEditFood.aspx?uid={foodid}&merchant_id={id}" title="修改菜品" rel="" target="navTab"
             height="480"><span>修改菜品</span></a></li>
         <li><a class="delete" href="Food/pFoodList.aspx?flag=alldelete&food_id={foodid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除菜品</span></a></li>

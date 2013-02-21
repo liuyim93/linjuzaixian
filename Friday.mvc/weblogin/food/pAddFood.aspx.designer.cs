@@ -40,24 +40,6 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
         
         /// <summary>
-        /// GoodsType 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect GoodsType;
-        
-        /// <summary>
-        /// otherType 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText otherType;
-        
-        /// <summary>
         /// Price 控件。
         /// </summary>
         /// <remarks>
@@ -65,6 +47,78 @@ namespace Friday.mvc.weblogin {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Price;
+        
+        /// <summary>
+        /// OldPrice 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText OldPrice;
+        
+        /// <summary>
+        /// InventoryCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText InventoryCount;
+        
+        /// <summary>
+        /// IsLimited 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect IsLimited;
+        
+        /// <summary>
+        /// IsEnabled 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect IsEnabled;
+        
+        /// <summary>
+        /// IsDiscount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect IsDiscount;
+        
+        /// <summary>
+        /// DiscountInventoryCount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText DiscountInventoryCount;
+        
+        /// <summary>
+        /// DiscountPrice 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText DiscountPrice;
+        
+        /// <summary>
+        /// GoodsType 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect GoodsType;
         
         /// <summary>
         /// MonthAmount 控件。
@@ -76,13 +130,22 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlInputText MonthAmount;
         
         /// <summary>
+        /// Amount 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Amount;
+        
+        /// <summary>
         /// IsDelete 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText IsDelete;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect IsDelete;
         
         /// <summary>
         /// Logo 控件。
@@ -94,12 +157,12 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlInputFile Logo;
         
         /// <summary>
-        /// LogoPreview 控件。
+        /// ImagePreview 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage LogoPreview;
+        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePreview;
     }
 }

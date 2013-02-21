@@ -86,45 +86,7 @@ namespace Friday.mvc.weblogin
             {
                 f.Image = "/uploadimage/foodImage/" + filesnewName;
             }
-            string foodType;
-            //ShopFoodTypeRepository shopFoodTypeR = new ShopFoodTypeRepository();
-            //if (string.IsNullOrEmpty(Type.Value))
-            //{
-            //    foodType = Request.Form["otherType"];
-            //}
-            //else
-            //{
-            //    foodType = Type.Value;
-            //}
-            //Shop shop = f.Shop;
-
-            //List<DataFilter> dfl = new List<DataFilter>();
-            //dfl.Add(new DataFilter() { type = "FoodType", value = foodType });
-            //dfl.Add(new DataFilter() { type = "Shop", value = shop.Id });
-
-            //IList<ShopFoodType> shopFoodTypes = shopFoodTypeR.Search(dfl);
-            //if (shopFoodTypes.Count == 0)
-            //{
-            //    ShopFoodType newshopFoodType = new ShopFoodType();
-            //    newshopFoodType.FoodType = foodType;
-            //    //双向代理
-            //    newshopFoodType.Shop = shop;
-            //    shop.ShopFoodTypes.Add(newshopFoodType);
-            //    //刷新数据库以免出错
-            //    shopFoodTypeR.SaveOrUpdate(newshopFoodType);
-
-            //    f.FoodType = newshopFoodType;
-
-
-
-            //}
-            //else
-            //{
-            //    foreach (ShopFoodType type in shopFoodTypes)
-            //    {
-            //        f.FoodType = type;
-            //    }
-            //}
+          
 
             Restaurant restaurant = restRepository.Get(mid);
             f.Restaurant = restaurant;

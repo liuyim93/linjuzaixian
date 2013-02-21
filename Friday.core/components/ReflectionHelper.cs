@@ -130,29 +130,6 @@ namespace friday.core.components
                     return;
                 }
 
-                //2013-02-02 pangfuxing for htmlselect can show Enum's value
-                if (control is HtmlSelect)
-                {
-
-                    HtmlSelect selectControl = (HtmlSelect)control;
-                  
-                    string propertyValue = "";
-                    if (value != null)
-                    {
-                        //selectControl.ClearSelection();
-                        propertyValue = value.ToString();
-                    }
-                    //根据Value="正在休息"，确定出Select中的Option的value应该付值为2，
-                    int optionvalue = (int)value;
-                    ListItem listItem = selectControl.Items.FindByValue(optionvalue.ToString());
-
-                    if (listItem != null)
-                    {
-                        listItem.Selected = true;
-                    }
-
-                }
-
                 if (control is ListControl)
                 {
                     ListControl listControl = (ListControl)control;
