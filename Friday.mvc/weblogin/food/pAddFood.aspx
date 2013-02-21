@@ -20,7 +20,7 @@
             <label>
                     菜品类型：</label>
            <select name="GoodsType" id="GoodsType" runat="server">
-            <option value=""></option>
+            <option value="1"  title="werew"></option>
             
           
             </select>

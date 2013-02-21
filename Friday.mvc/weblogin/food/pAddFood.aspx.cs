@@ -14,7 +14,12 @@ namespace Friday.mvc.weblogin
 {
     public partial class pAddFood : System.Web.UI.Page
     {
-    
+
+        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
+        
+        MerchantCategory mCategory = new MerchantCategory();
+        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -25,16 +30,15 @@ namespace Friday.mvc.weblogin
             }
             else 
             {
-                IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
                 string shtname = "leermei9";
                 Restaurant restaurant = restRepository.SearchByShortName(shtname);
-                MerchantCategory mCategory = new MerchantCategory();
-                 IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
              
                  IList<MerchantGoodsType> goodsTypes =mGoodsTypeRepository.GetGoodsTypeByMerchantID(restaurant.Id);
                  foreach (var i in goodsTypes) 
                  {
-                     this.GoodsType.Items.Add(i.GoodsType);
+                     //this.GoodsType.Items.Add(i.GoodsType);
+                     this.GoodsType.Value = i.Id;
+                     this.GoodsType.Name = "1231";
                  }
 
               
@@ -129,6 +133,7 @@ namespace Friday.mvc.weblogin
             Restaurant restaurant = restRepository.SearchByShortName(shtname);
             f.Restaurant = restaurant;
 
+            f.MerchantGoodsType = mGoodsTypeRepository.Get(this.GoodsType.Value);
             
             repository.SaveOrUpdate(f);
 
