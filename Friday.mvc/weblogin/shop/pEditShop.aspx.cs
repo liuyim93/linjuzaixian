@@ -14,6 +14,8 @@ namespace Friday.mvc.weblogin.shop
     public partial class pEditShop : System.Web.UI.Page
     {
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
+        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
+        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
         private Shop shop;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,8 +23,16 @@ namespace Friday.mvc.weblogin.shop
             shop = iShopRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
-                SaveShop();
+                string schid = "";
+                if (this.IDSet.Value != null && this.IDSet.Value != "")
+                {
+                    schid = this.IDSet.Value;
+                }
+                if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
+                {
+                    schid = this.SchoolOfMerchantID.Value;
+                }
+                SaveShop(uid, schid);
             }
             else
             {
@@ -34,8 +44,8 @@ namespace Friday.mvc.weblogin.shop
                 string[] arrname = schofmntname.Split('，');
                 if (arrname.Length>1)
                 {             
-                this.NameSet.Value = schofmntname;
-                       }
+                    this.NameSet.Value = schofmntname;
+                }
                 else
                 {
                     this.SchoolOfMerchant.Value = schofmntname;
@@ -44,13 +54,28 @@ namespace Friday.mvc.weblogin.shop
             }
         }
 
-        private void SaveShop()
+        private void SaveShop(string uid, string schid)
         {
 
             BindingHelper.RequestToObject(shop);
-
             iShopRepository.SaveOrUpdate(shop);
 
+            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+            repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
+
+
+            if (schid != "")
+            {
+
+                string[] sArray = schid.Split(',');
+                foreach (string shcidsz in sArray)
+                {
+                    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+                    schofmt.Merchant = shop;
+                    schofmt.School = iSchoolRepository.Get(shcidsz);
+                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                }
+            }
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
