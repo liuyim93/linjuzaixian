@@ -5,6 +5,8 @@
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="rel_v3" value='<%=Request.Params["rel_v3"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
+<input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
+<input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
 </form>
 <div class="panel close collapse" defh="75">
     <h1>
@@ -90,9 +92,9 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" align="center">菜 品 名</th>
-                            <th width="10%" align="center">单 价</th>
-                            <th width="15%" align="center">月 售 额</th>
+                            <th width="20%" orderField="Name" class="asc" align="center">菜 品 名</th>
+                            <th width="10%" orderField="Price" class="desc" align="center">单 价</th>
+                            <th width="15%" orderField="MonthAmount" class="desc" align="center">月 售 额</th>
                             <th width="20%" align="center">创建时间</th>
                             <th width="20%" align="center">删除标记</th>
                         </tr>
