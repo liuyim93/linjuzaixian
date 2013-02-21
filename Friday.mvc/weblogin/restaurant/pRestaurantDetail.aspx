@@ -6,6 +6,7 @@
         <div class="tabsHeaderContent">
           <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
+                <li><a href="#"><span>服务的学校</span></a></li>
                 <li><a href="#"><span>配送时间</span></a></li>
                 <li><a href="#"><span>促销打折</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
@@ -70,7 +71,35 @@
 				</select> 
             </p>
          </div>
+         <div>
+            <p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="SchoolOfMerchant" size="30"  
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="SchoolOfMerchantID"  size="30" 
+                    runat="server" readonly="true" />
+            </p> 
+            <p>
+                <label>
+                    服务的学校(多选）：</label>
+                <input type="text" id="NameSet" size="35"  
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="IDSet" size="35"  
+                    runat="server" readonly="true" />
+            </p>
 
+         </div>
          <div>
              <p>
                 <label>

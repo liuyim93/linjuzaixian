@@ -15,7 +15,7 @@
         <div class="pageFormContent" style=" height:500px">
          
             <h1>
-                添加商铺</h1>
+                添加餐馆</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
           <p>
                 <label>
@@ -69,27 +69,27 @@
             <p>
                 <label>
                     服务的学校：</label>
-                <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
+                <input type="text" id="SchoolOfMerchant" size="30"  
                     runat="server" readonly="true" />
                 <a class="btnLook" href="ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
             </p>
             <p>
                 <label>
                     仅演示，应隐藏ID</label>
-                <input type="text" id="SchoolOfMerchantID"  size="30" class="required textInput gray"
+                <input type="text" id="SchoolOfMerchantID"  size="30" 
                     runat="server" readonly="true" />
-            </p>
+            </p> 
             <p>
                 <label>
                     服务的学校(多选）：</label>
-                <input type="text" id="NameSet" size="35" class="required textInput gray"
+                <input type="text" id="NameSet" size="35"  
                     runat="server" readonly="true" />
                 <a class="btnLook" href="MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
             </p>
             <p>
                 <label>
                     仅演示，应隐藏ID</label>
-                <input type="text" id="IDSet" size="35" class="required textInput gray"
+                <input type="text" id="IDSet" size="35"  
                     runat="server" readonly="true" />
             </p>
 

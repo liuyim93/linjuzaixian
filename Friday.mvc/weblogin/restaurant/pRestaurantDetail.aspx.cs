@@ -21,6 +21,22 @@ namespace Friday.mvc.weblogin.restaurant
 
             BindingHelper.ObjectToControl(restaurant, this);
             this.ImagePreview.Src = restaurant.Logo;
+
+            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+            string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+            string[] arrname = schofmntname.Split('，');
+            if (arrname.Length > 1)
+            {
+                this.NameSet.Value = schofmntname;
+            }
+            else
+            {
+                this.SchoolOfMerchant.Value = schofmntname;
+            }
+
+
+
+
         }
     }
 }
