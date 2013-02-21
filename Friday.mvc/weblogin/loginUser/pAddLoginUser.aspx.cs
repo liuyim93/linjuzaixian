@@ -11,36 +11,29 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.loginUser
 {
-    public partial class pEditLoginUser : System.Web.UI.Page
+    public partial class pAddLoginUser : System.Web.UI.Page
     {
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         private LoginUser loginUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            loginUser = iLoginUserRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
                 SaveLoginUser();
             }
-            else
-            {
-                BindingHelper.ObjectToControl(loginUser, this);
-                IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
-            }
         }
 
         private void SaveLoginUser()
         {
-
+            loginUser = new LoginUser();
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
             iLoginUserRepository.SaveOrUpdate(loginUser);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "添加成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();

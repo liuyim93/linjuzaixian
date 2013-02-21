@@ -70,6 +70,8 @@
             添加用户</span></a></li>
         <li><a class="edit" href="loginUser/pEditLoginUser.aspx?uid={id}" title="修改用户" rel="" target="navTab">
             <span>修改用户</span></a></li>
+        <li><a class="delete" href="loginUser/pEditLoginUser.aspx?uid={id}" title="密码重置" rel="" target="navTab">
+        <span>密码重置</span></a></li>
         <li><a class="delete" href="loginUser/pLoginUserList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
         <li class="line">line</li>
