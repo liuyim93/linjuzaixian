@@ -25,21 +25,16 @@
                     <td>
                         <label>
                             类型:</label>
-                        <select name="foodtype" id="Type" runat="server">
-                            <option value="" selected="selected">不限</option>
-                            <option value="主食">主食</option>
-                            <option value="小食">小食</option>
-                            <option value="饮品">饮品</option>
-                            <option value="配餐">配餐</option>
-                            <option value="套餐">套餐</option>
-                            <option value="餐具">餐具</option>
+                        <select name="mGoodsType" id="mGoodsType" runat="server">
+                            <option value="" >不限</option>
+                       
                         </select>
                     </td>
-                    <td>
+                    <%--<td>
                         <label>
                             自定义类型:</label>
                         <input id="owenType" name="owenType" type="text" name="Name" value="<%=owenType%>" />
-                    </td>
+                    </td>--%>
                 </tr>
                 <tr>
                     <td>

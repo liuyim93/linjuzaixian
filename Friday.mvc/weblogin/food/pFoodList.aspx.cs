@@ -23,13 +23,18 @@ namespace Friday.mvc.weblogin
         public string name;
         public string startprice;
         public string endprice;
-        public string owenType;
+        //public string owenType;
+        public string goodsType;
+ 
 
         private IFoodRepository iFoodRepository = UnityHelper.UnityToT<IFoodRepository>();
+        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
+        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+           
+
                 if (Request.Params["flag"] != "alldelete")
                 {
                     SearchFood();
@@ -92,18 +97,19 @@ namespace Friday.mvc.weblogin
                 dfl.Add(new DataFilter() { type = "Name", value = name });
             }
 
-            owenType = Request.Form["owenType"];
-            if (!string.IsNullOrEmpty(Type.Value))
+            //owenType = Request.Form["owenType"];
+            goodsType = Request.Form["mGoodsType"];
+            if (!string.IsNullOrEmpty(mGoodsType.Value))
             {
-                dfl.Add(new DataFilter() { type = "FoodType", value = Type.Value });
+                dfl.Add(new DataFilter() { type = "GoodsType", value = mGoodsType.Value });
             }
-            else
-            {
-                if (!string.IsNullOrEmpty(owenType))
-                {
-                    dfl.Add(new DataFilter() { type = "FoodType", value = owenType });
-                }
-            }
+            //else
+            //{
+            //    if (!string.IsNullOrEmpty(owenType))
+            //    {
+            //        dfl.Add(new DataFilter() { type = "FoodType", value = owenType });
+            //    }
+            //}
 
 
             if (!string.IsNullOrEmpty(restaurantId))
@@ -122,6 +128,18 @@ namespace Friday.mvc.weblogin
             foodList = iFoodRepository.Search(dfl, start, limit, out total);
             repeater.DataSource = foodList;
             repeater.DataBind();
+
+            if (Request.Params["__EVENTVALIDATION"] == null)
+          {
+            Restaurant rst = restRepository.Get(restaurantId);
+            IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+            foreach (var i in goodsTypes)
+            {
+                this.mGoodsType.Items.Add(i.GoodsType);
+            }
+         
+            }
+
 
 
             numPerPage.Value = numPerPageValue.ToString();
