@@ -57,6 +57,11 @@ namespace Friday.mvc.weblogin.globalGoodsType
                         value = Request.Form["MerchantType"]
 
                     });
+                List<DataFilter> dflForOrder = new List<DataFilter>();
+                string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
+                string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
+                dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
+                filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
                 IList<GlobalGoodsType> globalGoodsTypeList = iRepositoryGlobalGoodsType.Search(filterList, start, limit, out total);
 

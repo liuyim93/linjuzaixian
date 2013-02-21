@@ -14,7 +14,7 @@ namespace Friday.mvc.weblogin
     public partial class pAddSystemUser : System.Web.UI.Page
     {
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
         private LoginUser loginUser;
         private SystemUser systemUser;
         protected void Page_Load(object sender, EventArgs e)
@@ -28,29 +28,42 @@ namespace Friday.mvc.weblogin
 
         private void SaveSystemUser()
         {
-            systemUser = new SystemUser();
-            BindingHelper.RequestToObject(systemUser);
-            systemUser.IsAnonymous = false;
-            iSystemUserRepository.SaveOrUpdate(systemUser);
-
-            loginUser = new LoginUser();
-            BindingHelper.RequestToObject(loginUser);
-            loginUser.IsAdmin = false;
-            loginUser.UserType = friday.core.EnumType.UserTypeEnum.顾客;
-            loginUser.SystemUser = systemUser;
-            iLoginUserRepository.SaveOrUpdate(loginUser);
-
-
+            loginUser = iLoginUserRepository.GetLoginUserByLoginName(Request.Params["LoginName"]);
             AjaxResult result = new AjaxResult();
-            result.statusCode = "200";
-            result.message = "添加成功";
-            result.navTabId = "referer";
-            result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = result;
-            Response.Write(jsonResult.FormatResult());
-            Response.End();
 
+            if (loginUser != null)
+            {
+                result.statusCode = "300";
+                result.message = "您填写的登录名已被使用！";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+                return;
+            }
+            else
+            {
+                systemUser = new SystemUser();
+                BindingHelper.RequestToObject(systemUser);
+                systemUser.IsAnonymous = false;
+                iSystemUserRepository.SaveOrUpdate(systemUser);
+
+                loginUser = new LoginUser();
+                BindingHelper.RequestToObject(loginUser);
+                loginUser.IsAdmin = false;
+                loginUser.UserType = friday.core.EnumType.UserTypeEnum.顾客;
+                loginUser.SystemUser = systemUser;
+                iLoginUserRepository.SaveOrUpdate(loginUser);
+
+
+                result.statusCode = "200";
+                result.message = "添加成功";
+                result.navTabId = "referer";
+                result.callbackType = "closeCurrent";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
 
 
         }

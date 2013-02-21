@@ -57,7 +57,11 @@ namespace Friday.mvc.weblogin.merchantCategory
                         value = Request.Form["MerchantType"]
 
                     });
-
+                List<DataFilter> dflForOrder = new List<DataFilter>();
+                string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
+                string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
+                dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
+                filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
                 IList<MerchantCategory> merchantCategoryList = iRepositoryMerchantCategory.Search(filterList, start, limit, out total);
 
