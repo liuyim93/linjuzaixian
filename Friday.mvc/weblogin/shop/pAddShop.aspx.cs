@@ -23,8 +23,15 @@ namespace Friday.mvc.weblogin.shop
     
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                string schid;
-                schid = this.IDSet.Value;
+                string schid="";
+                if (this.IDSet.Value != null && this.IDSet.Value !="")
+                {
+                    schid = this.IDSet.Value;
+                }
+                if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
+                {
+                    schid = this.SchoolOfMerchantID.Value;
+                }
 
                 SaveShop(schid);
             }
@@ -38,9 +45,9 @@ namespace Friday.mvc.weblogin.shop
             BindingHelper.RequestToObject(shop);
             iShopRepository.SaveOrUpdate(shop);
 
-    
-            string[] sArray = schid.Split(',');
-           
+            if (schid != "")
+            { 
+            string[] sArray = schid.Split(',');    
             
             foreach (string shcidsz in sArray)
             {
@@ -48,8 +55,8 @@ namespace Friday.mvc.weblogin.shop
                 schofmt.Merchant = shop;
                 schofmt.School = iSchoolRepository.Get(shcidsz);
                 iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
-            }            
-
+            }
+            }
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

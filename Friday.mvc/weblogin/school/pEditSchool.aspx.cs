@@ -28,7 +28,7 @@ namespace Friday.mvc.weblogin.school
             {
 
                 BindingHelper.ObjectToControl(school, this);
-
+               
             }
         }
 
