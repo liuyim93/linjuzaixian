@@ -15,7 +15,7 @@
         <table class="searchContent">
            <tr>
                 <td>
-                    <label>商铺名称:</label>
+                    <label>商店名称:</label>
                     <input  type="text" name="Name" class="textInput" value="<%=name %>"
                        />
                 </td>
@@ -86,12 +86,12 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="shop/pAddShop.aspx" title="添加商铺" target="navTab" rel=""><span>
-            添加商铺</span></a></li>
-        <li><a class="edit" href="shop/pEditShop.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
-            <span>修改商铺</span></a></li>
+        <li><a class="add" href="shop/pAddShop.aspx" title="添加商店" target="navTab" rel=""><span>
+            添加商店</span></a></li>
+        <li><a class="edit" href="shop/pEditShop.aspx?uid={id}" title="修改商店" rel="" target="navTab">
+            <span>修改商店</span></a></li>
         <li><a class="delete" href="shop/pShopList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除商铺</span></a></li>
+            target="ajaxTodo" title="确定要删除吗?"><span>删除商店</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>

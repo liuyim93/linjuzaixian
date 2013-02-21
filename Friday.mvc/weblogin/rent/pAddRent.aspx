@@ -7,11 +7,11 @@
         <div class="pageFormContent" style=" height:500px">
          
             <h1>
-                添加商铺</h1>
+                添加租房</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
           <p>
                 <label>
-                    商铺名称：</label>
+                    租房名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>

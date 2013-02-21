@@ -4,11 +4,11 @@
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
     <div class="panel collapse" defh="95">
         <h1>
-            商铺基本信息</h1>
+            租房基本信息</h1>
         <div>
          <p>
                 <label>
-                    商铺名称：</label>
+                    租房名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>

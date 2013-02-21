@@ -84,12 +84,12 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="rent/pAddRent.aspx" title="添加商铺" target="navTab" rel=""><span>
-            添加商铺</span></a></li>
-        <li><a class="edit" href="rent/pEditRent.aspx?uid={id}" title="修改商铺" rel="" target="navTab">
-            <span>修改商铺</span></a></li>
+        <li><a class="add" href="rent/pAddRent.aspx" title="添加租房" target="navTab" rel=""><span>
+            添加租房</span></a></li>
+        <li><a class="edit" href="rent/pEditRent.aspx?uid={id}" title="修改租房" rel="" target="navTab">
+            <span>修改租房</span></a></li>
         <li><a class="delete" href="rent/pRentList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除商铺</span></a></li>
+            target="ajaxTodo" title="确定要删除吗?"><span>删除租房</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>

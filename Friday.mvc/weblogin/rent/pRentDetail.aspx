@@ -18,7 +18,7 @@
          <div>
          <p>
                 <label>
-                    商铺名称：</label>
+                    租房名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>

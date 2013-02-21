@@ -20,7 +20,7 @@
              <input type="hidden" id="MyOrderId" size="30" runat="server" />
             <p>
                 <label>
-                    商铺名称：</label>
+                    商店名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
