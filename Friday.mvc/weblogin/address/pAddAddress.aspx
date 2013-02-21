@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditAddress.aspx.cs" Inherits="Friday.mvc.weblogin.address.pEditAddress" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddAddress.aspx.cs" Inherits="Friday.mvc.weblogin.address.pAddAddress" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">

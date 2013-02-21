@@ -4,22 +4,23 @@
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="rel_v3" value='<%=Request.Params["rel_v3"] %>' />
-<input type="hidden" name="systemUser_id" value="<%=Request.Params["systemUser_id"]%>" />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
 </form>
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="Address/pAddAddress.aspx?uid={id}" title="增加配送地址" target="navTab"
+        <li><a class="add" href="Address/pAddAddress.aspx?systemUser_id=<%=Request.Params["systemUser_id"]%>" title="增加配送地址" target="dialog"
             rel="" width="600" height="400"><span>增加配送地址</span></a></li>
         <li><a class="edit" href="Address/pEditAddress.aspx?uid={addressid}" title="修改配送地址" rel="" target="dialog"
             height="480"><span>修改配送地址</span></a></li>
-        <li><a class="delete" href="Address/pAddressList.aspx?flag=alldelete&uid={id}" target="navTabTodo"
+        <li><a class="delete" href="Address/pAddressList.aspx?flag=alldelete&uid={addressid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除配送地址</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
 <div id="addressList">
+<form id="form" rel="pagerForm" method="post" runat="server">
+</form>
     <table class="table" rel='<%=Request.Params["rel_v3"] %>'>
         <asp:repeater id="repeater" runat="server">
               <HeaderTemplate>

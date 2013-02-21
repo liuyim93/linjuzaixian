@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.address {
     
     
-    public partial class pEditAddress {
+    public partial class pAddAddress {
         
         /// <summary>
         /// form 控件。
