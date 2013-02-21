@@ -8,7 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 
-namespace Friday.mvc.weblogin.merchantCategory
+namespace Friday.mvc.weblogin
 {
     public partial class pMerchantCategoryDetail : System.Web.UI.Page
     {

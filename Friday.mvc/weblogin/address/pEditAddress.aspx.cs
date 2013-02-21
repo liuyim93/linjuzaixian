@@ -9,7 +9,7 @@ using friday.core.components;
 using friday.core.repositories;
 using friday.core;
 
-namespace Friday.mvc.weblogin.address
+namespace Friday.mvc.weblogin
 {
     public partial class pEditAddress : System.Web.UI.Page
     {

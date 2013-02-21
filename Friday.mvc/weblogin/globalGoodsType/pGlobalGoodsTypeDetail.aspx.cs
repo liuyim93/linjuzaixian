@@ -8,7 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 
-namespace Friday.mvc.weblogin.globalGoodsType
+namespace Friday.mvc.weblogin
 {
     public partial class pGlobalGoodsTypeDetail : System.Web.UI.Page
     {

@@ -9,7 +9,7 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 
-namespace Friday.mvc.weblogin.merchantCategory
+namespace Friday.mvc.weblogin
 {
     public partial class pMerchantCategoryList : System.Web.UI.Page
     {

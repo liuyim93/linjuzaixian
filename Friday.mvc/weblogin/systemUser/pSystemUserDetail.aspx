@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSystemUserDetail.aspx.cs" Inherits="Friday.mvc.weblogin.systemUser.pSystemUserDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSystemUserDetail.aspx.cs" Inherits="Friday.mvc.weblogin.pSystemUserDetail" %>
 
 <div class="tabs">
     <div class="tabsHeader">

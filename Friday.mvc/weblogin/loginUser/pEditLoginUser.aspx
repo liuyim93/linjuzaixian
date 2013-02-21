@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditLoginUser.aspx.cs" Inherits="Friday.mvc.weblogin.loginUser.pEditLoginUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditLoginUser.aspx.cs" Inherits="Friday.mvc.weblogin.pEditLoginUser" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.loginUser {
+namespace Friday.mvc.weblogin {
     
     
     public partial class pAddLoginUser {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pResetPassword.aspx.cs" Inherits="Friday.mvc.weblogin.loginUser.pResetPassword" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pResetPassword.aspx.cs" Inherits="Friday.mvc.weblogin.pResetPassword" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
@@ -14,7 +14,7 @@
                 <p>
                 <label>
                     密码确认：</label>
-                <input type="password" id="PasswordAgain" size="30" class="required textInput gray"  runat="server" />
+                <input type="password" id="PasswordAgain" size="30" class="required textInput gray" equalto="#Password"  runat="server" />
                 </p>
 
         </div>

@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.merchantCategory {
+namespace Friday.mvc.weblogin {
     
     
     public partial class pMerchantCategoryList {
