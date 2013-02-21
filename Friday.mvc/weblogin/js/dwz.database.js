@@ -84,6 +84,7 @@
                     //                        }
                     //                    });
                     var args = {};
+                    //2013-02-21 we have remove {IDSet} and {NameSet} in the common page, may comment this in the future
                     var id_set = $unitBox.find("[name='IDSet']").val().split(',');
                     id_set = $.grep(id_set, function (elem, index) {
                         if (elem === "{IDSet}") return false;

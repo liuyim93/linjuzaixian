@@ -108,6 +108,15 @@
             var $idset = $pagerForm.find("[name=IDSet]");
             var $nameset = $pagerForm.find("[name=NameSet]");
             var $chooseResult = o.find("#chooseResult");
+            var replace_nameset_pattern = /{nameset}(,)*/i;
+            var replace_idset_pattern = /{idset}(,)*/i;
+            //alert(o.find("[name=IDSet]").val());
+            //2013-02-21 basilwang in case of splitting space as a element of this array 
+            $idset.val($idset.val().replace(replace_idset_pattern, ""));
+            $nameset.val($nameset.val().replace(replace_nameset_pattern, ""));
+            var id_set = ($idset.val() === "") ? [] : $idset.val().split(',');
+            var name_set = ($nameset.val() === "") ? [] : $nameset.val().split(',');
+            //alert(id_set.length);
             $chooseResult.text($nameset.val());
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
@@ -129,11 +138,7 @@
                     dialogPageBreak({ numPerPage: this.value });
                 });
             }
-            //alert(o.find("[name=IDSet]").val());
-            //2013-02-21 basilwang in case of splitting space as a element of this array 
-            var id_set = ($idset.val() === "") ? [] : $idset.val().split(',');
-            var name_set = ($nameset.val() === "") ? [] : $nameset.val().split(',');
-            //alert(id_set.length);
+
             o.find("[name=ids]")
               .change(function () {
                   var _args = DWZ.jsonEval($(this).val());
