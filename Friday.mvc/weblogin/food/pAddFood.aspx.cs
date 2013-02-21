@@ -15,13 +15,14 @@ namespace Friday.mvc.weblogin
     public partial class pAddFood : System.Web.UI.Page
     {
 
-        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
-        
-        MerchantCategory mCategory = new MerchantCategory();
+        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();        
         IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        MerchantCategory mCategory = new MerchantCategory();
+        string mid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+             mid = Request.Params["merchant_id"].ToString();
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -30,10 +31,9 @@ namespace Friday.mvc.weblogin
             }
             else 
             {
-                string shtname = "leermei9";
-                Restaurant restaurant = restRepository.SearchByShortName(shtname);
-             
-                 IList<MerchantGoodsType> goodsTypes =mGoodsTypeRepository.GetGoodsTypeByMerchantID(restaurant.Id);
+
+                Restaurant rst = restRepository.Get(mid);
+                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
                  foreach (var i in goodsTypes) 
                  {
                      this.GoodsType.Items.Add(i.GoodsType);                
@@ -126,11 +126,8 @@ namespace Friday.mvc.weblogin
             //    }
             //}
 
-            IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
-            string shtname = "leermei9";
-            Restaurant restaurant = restRepository.SearchByShortName(shtname);
+            Restaurant restaurant = restRepository.Get(mid);
             f.Restaurant = restaurant;
-
             f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
             
             repository.SaveOrUpdate(f);
