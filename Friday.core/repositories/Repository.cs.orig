@@ -175,6 +175,537 @@ namespace friday.core.repositories
             return query.List<T>();
 
         }
+        protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByLoginUser(query, termList);
+        }
+        protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByLoginUser(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList,ref int deepIndex,ref string parentSearch)
+        {
+            string notself = null;
+            string oldParentSearch = parentSearch;
+
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "loginUser.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "LoginUser";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".LoginUser";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "loginUser");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("LoginName"))
+                    {
+                        query.Add(Expression.Like(notself + "LoginName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("IsAdmin"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsAdmin", (df.value=="是")?true:false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("UserType"))
+                    {
+                        try
+                        {
+                            UserTypeEnum Type = (UserTypeEnum)Enum.Parse(typeof(UserTypeEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "UserType", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+        protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchBySystemUser(query, termList);
+        }
+        protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchBySystemUser(query, termList, ref deepIndex,ref parentSearch);
+        }
+        protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, ref int deepIndex,ref string parentSearch)
+        {
+            string notself = null;
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "systemUser.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "SystemUser";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".SystemUser";
+                    
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "systemUser");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("IsAnonymous"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsAnonymous", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("LoginUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUser(query, df.field, ref deepIndex,ref parentSearch);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Tel"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Email"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Email", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+
+        protected ICriteria SearchByOrderOfFood(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("OrderOfFood", "orderOfFood");
+                notself = "orderOfFood.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MyFoodOrder"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "MyFoodOrder", iMyFoodOrderRepository.Get(df.value)));
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByMyFoodOrder(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+        protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByMyFoodOrder(query, termList);
+        }
+        protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByMyFoodOrder(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "myFoodOrder.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "MyFoodOrder";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".MyFoodOrder";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "myFoodOrder");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("OrderNumber"))
+                    {
+                        query.Add(Expression.Like(notself + "OrderNumber", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("OrderStatus"))
+                    {
+                        try
+                        {
+                            MyOrderStatusEnum Type = (MyOrderStatusEnum)Enum.Parse(typeof(MyOrderStatusEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "OrderStatus", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+
+                    if (df.type.Equals("SystemUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySystemUser(query, df.field,ref deepIndex,ref parentSearch);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Restaurant"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRestaurant(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+
+        protected ICriteria SearchByMerchantCategory(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("MerchantCategory", "merchantCategory");
+                notself = "merchantCategory.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantCategoryName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "MerchantCategoryName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantType"))
+                    {
+                        try
+                        {
+                            MerchantTypeEnum Type = (MerchantTypeEnum)Enum.Parse(typeof(MerchantTypeEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "MerchantType", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
+        protected ICriteria SearchByGlobalGoodsType(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("GlobalGoodsType", "globalGoodsType");
+                notself = "globalGoodsType.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("GoodsType"))
+                    {
+                        query.Add(Restrictions.Like(notself + "GoodsType", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantType"))
+                    {
+                        try
+                        {
+                            MerchantTypeEnum Type = (MerchantTypeEnum)Enum.Parse(typeof(MerchantTypeEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "MerchantType", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
         protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             string notself = null;
@@ -332,12 +863,27 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
                         continue;
                     }
-                    if (df.type.Equals("FoodType"))
+                    //if (df.type.Equals("FoodType"))
+                    //{
+                    //    if (isSelf)
+                    //    {
+                    //        query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
+                    //    }
+                    //    continue;
+                    //}
+
+                    if (df.type.Equals("GoodsType"))
                     {
                         if (isSelf)
                         {
-                            query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
+                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.GoodsType", df.value));//不支持嵌套
                         }
+                        continue;
+                    }
+                    
+                    if (df.type.Equals("MerchantGoodsType_id"))
+                    {
+                        query.Add(Expression.Eq(notself + "MerchantGoodsType_id", df.value));
                         continue;
                     }
 
@@ -441,6 +987,302 @@ namespace friday.core.repositories
             return query;
         }
 
+<<<<<<< HEAD
+        protected ICriteria SearchByAddress(ICriteria query, List<DataFilter> termList, bool isSelf, List<SystemUser> systemUserList)
+        {
+            ISystemUserRepository iSystemUserRepository = UnityHelper.UnityToT<ISystemUserRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("Address", "address");
+                notself = "address.";
+            }
+
+            if (systemUserList != null && systemUserList.Count != 0)
+            {
+                query.Add(Restrictions.In(notself + "SystemUser", systemUserList));
+=======
+        protected ICriteria SearchByCommodity(ICriteria query, List<DataFilter> termList, bool isSelf, List<Shop> shopList)
+        {
+            IShopRepository iShopRepository = UnityHelper.UnityToT<IShopRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("Food", "food");
+                notself = "food.";
+            }
+
+            if (shopList != null && shopList.Count != 0)
+            {
+                query.Add(Restrictions.In(notself + "Shop", shopList));
+>>>>>>> Update  pCommodityList
+            }
+            if (termList != null && termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+<<<<<<< HEAD
+                    if (df.type.Equals("SystemUser"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "SystemUser", iSystemUserRepository.Get(df.value)));
+=======
+                    if (df.type.Equals("Shop"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "Shop", iShopRepository.Get(df.value)));
+>>>>>>> Update  pCommodityList
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+<<<<<<< HEAD
+                            SearchBySystemUser(query, df.field, false);
+=======
+                            SearchByRestaurant(query, df.field, false);
+>>>>>>> Update  pCommodityList
+                        }
+                        continue;
+                    }
+
+<<<<<<< HEAD
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                    }
+
+=======
+>>>>>>> Update  pCommodityList
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                //2013-02-17 basilwang we need set comparison to lower
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.ToLower().Equals("desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(notself + indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(notself + indf.type));
+                                }
+                            }
+                        }
+                        continue;
+                    }
+
+<<<<<<< HEAD
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
+        protected ICriteria SearchByMyFavorite(ICriteria query, List<DataFilter> termList, bool isSelf, List<SystemUser> systemUserList)
+        {
+            ISystemUserRepository iSystemUserRepository = UnityHelper.UnityToT<ISystemUserRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("MyFavorit", "myFavorit");
+                notself = "myFavorit.";
+            }
+
+            if (systemUserList != null && systemUserList.Count != 0)
+            {
+                query.Add(Restrictions.In(notself + "SystemUser", systemUserList));
+            }
+            if (termList != null && termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("SystemUser"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "SystemUser", iSystemUserRepository.Get(df.value)));
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySystemUser(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                //2013-02-17 basilwang we need set comparison to lower
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.ToLower().Equals("desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(notself + indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(notself + indf.type));
+                                }
+                            }
+                        }
+=======
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    //if (df.type.Equals("FoodType"))
+                    //{
+                    //    if (isSelf)
+                    //    {
+                    //        query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
+                    //    }
+                    //    continue;
+                    //}
+
+                    if (df.type.Equals("GoodsType"))
+                    {
+                        if (isSelf)
+                        {
+                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.GoodsType", df.value));//不支持嵌套
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantGoodsType_id"))
+                    {
+                        query.Add(Expression.Eq(notself + "MerchantGoodsType_id", df.value));
+                        continue;
+                    }
+
+                    if (df.type.Equals("IsDiscount"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "IsDiscount", Boolean.Parse(df.value)));
+                        continue;
+                    }
+                    if (df.type.Equals("IsEnabled"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "IsEnabled", Boolean.Parse(df.value)));
+                        continue;
+                    }
+                    if (df.type.Equals("IsLimited"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "IsLimited", Boolean.Parse(df.value)));
+                        continue;
+                    }
+
+
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                    }
+                    if (df.type.Equals("Image"))
+                    {
+                        if (df.comparison.Equals("NotNull"))
+                        {
+                            query.Add(Restrictions.IsNotNull(notself + "Image"));
+                            continue;
+                        }
+                        if (df.comparison.Equals("IsNull"))
+                        {
+                            query.Add(Restrictions.IsNull(notself + "Image"));
+                            continue;
+                        }
+                    }
+
+                    if (df.type.Equals("Price"))
+                    {
+                        Double value = Double.Parse(df.value);
+                        if (string.IsNullOrEmpty(df.valueForCompare))
+                        {
+                            switch (df.comparison)
+                            {
+                                case "lt":
+                                    query.Add(Restrictions.Lt(notself + "Price", value));
+                                    break;
+                                case "gt":
+                                    query.Add(Restrictions.Gt(notself + "Price", value));
+                                    break;
+                                default:
+                                    query.Add(Restrictions.Eq(notself + "Price", value));
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            Double valueForCompare = Double.Parse(df.valueForCompare);
+                            query.Add(Restrictions.Between(notself + "Price", value, valueForCompare));
+                        }
+                        continue;
+                    }
+                    if (df.type.Equals("MonthAmount"))
+                    {
+                        Int32 value = Int32.Parse(df.value);
+                        if (string.IsNullOrEmpty(df.valueForCompare))
+                        {
+                            switch (df.comparison)
+                            {
+                                case "lt":
+                                    query.Add(Restrictions.Lt(notself + "MonthAmount", value));
+                                    break;
+                                case "gt":
+                                    query.Add(Restrictions.Gt(notself + "MonthAmount", value));
+                                    break;
+                                default:
+                                    query.Add(Restrictions.Eq(notself + "MonthAmount", value));
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            Int32 valueForCompare = Int32.Parse(df.valueForCompare);
+                            query.Add(Restrictions.Between(notself + "MonthAmount", value, valueForCompare));
+                        }
+>>>>>>> Update  pCommodityList
+                        continue;
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> Update  pCommodityList
         protected ICriteria SearchByRent(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             string notself = null;
@@ -635,8 +1477,115 @@ namespace friday.core.repositories
             }
             return query;
         }
-        
 
+        protected ICriteria SearchBySchool(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("School", "school");
+                notself = "school.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }                  
+                    if (df.type.Equals("ShortName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("CityName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "CityName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                   
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+        protected ICriteria SearchByActivity(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("Activity", "activity");
+                notself = "activity.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("Matters"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Matters", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                   
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
         {
             DateTime value = DateTime.Parse(df.value);

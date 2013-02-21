@@ -21,6 +21,22 @@ namespace Friday.mvc.weblogin.shop
             shop = iShopRepository.Load(uid);
 
             BindingHelper.ObjectToControl(shop, this);
+            //this.ImagePreview.Src = shop.Logo;
+
+            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+            string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+            string[] arrname = schofmntname.Split('，');
+            if (arrname.Length > 1)
+            {
+                this.NameSet.Value = schofmntname;
+            }
+            else
+            {
+                this.SchoolOfMerchant.Value = schofmntname;
+            }
+
+
+
 
         }
     }
