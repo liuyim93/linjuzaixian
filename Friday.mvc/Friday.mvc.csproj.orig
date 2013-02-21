@@ -142,19 +142,46 @@
       <DependentUpon>pActivityDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\globalGoodsType\GlobalGoodsTypeList.aspx.cs">
-      <DependentUpon>GlobalGoodsTypeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="weblogin\activity\pActivityDetail.aspx.designer.cs">
       <DependentUpon>pActivityDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\globalGoodsType\GlobalGoodsTypeList.aspx.designer.cs">
-      <DependentUpon>GlobalGoodsTypeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\activity\pActivityList.aspx.cs">
       <DependentUpon>pActivityList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\address\pAddAddress.aspx.cs">
+      <DependentUpon>pAddAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\food\pAddFood.aspx.cs">
+      <DependentUpon>pAddFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\address\pAddAddress.aspx.designer.cs">
+      <DependentUpon>pAddAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\food\pAddFood.aspx.designer.cs">
+      <DependentUpon>pAddFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\address\pAddressList.aspx.cs">
+      <DependentUpon>pAddressList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\address\pAddressList.aspx.designer.cs">
+      <DependentUpon>pAddressList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\address\pEditAddress.aspx.cs">
+      <DependentUpon>pEditAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\address\pEditAddress.aspx.designer.cs">
+      <DependentUpon>pEditAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\food\pEditFood.aspx.cs">
+      <DependentUpon>pEditFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\food\pEditFood.aspx.designer.cs">
+      <DependentUpon>pEditFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx.cs">
       <DependentUpon>pGlobalGoodsTypeDetail.aspx</DependentUpon>
@@ -201,12 +228,54 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
+      <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListFoodByRestaurant.aspx.designer.cs">
+      <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListMerchant.aspx.cs">
+      <DependentUpon>ListMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListMerchant.aspx.designer.cs">
+      <DependentUpon>ListMerchant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListSchool.aspx.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pAddLoginUser.aspx.cs">
+      <DependentUpon>pAddLoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pAddLoginUser.aspx.designer.cs">
+      <DependentUpon>pAddLoginUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pEditLoginUser.aspx.cs">
+      <DependentUpon>pEditLoginUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pEditLoginUser.aspx.designer.cs">
+      <DependentUpon>pEditLoginUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pLoginUserList.aspx.cs">
+      <DependentUpon>pLoginUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pLoginUserList.aspx.designer.cs">
+      <DependentUpon>pLoginUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pResetPassword.aspx.cs">
+      <DependentUpon>pResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pResetPassword.aspx.designer.cs">
+      <DependentUpon>pResetPassword.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx.cs">
       <DependentUpon>pMerchantCategoryDetail.aspx</DependentUpon>
@@ -257,19 +326,68 @@
     <Compile Include="weblogin\merchantCategory\pEditMerchantCategory.aspx.designer.cs">
       <DependentUpon>pEditMerchantCategory.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nSystemUserAdd.aspx.cs">
-      <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\myFavorite\pAddMyFavorite.aspx.cs">
+      <DependentUpon>pAddMyFavorite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nSystemUserAdd.aspx.designer.cs">
-      <DependentUpon>nSystemUserAdd.aspx</DependentUpon>
+    <Compile Include="weblogin\myFavorite\pAddMyFavorite.aspx.designer.cs">
+      <DependentUpon>pAddMyFavorite.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\nSystemUserUpdate.aspx.cs">
-      <DependentUpon>nSystemUserUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\myFavorite\pEditMyFavorite.aspx.cs">
+      <DependentUpon>pEditMyFavorite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\nSystemUserUpdate.aspx.designer.cs">
-      <DependentUpon>nSystemUserUpdate.aspx</DependentUpon>
+    <Compile Include="weblogin\myFavorite\pEditMyFavorite.aspx.designer.cs">
+      <DependentUpon>pEditMyFavorite.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.cs">
+      <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.designer.cs">
+      <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx.cs">
+      <DependentUpon>pMyFoodOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx.designer.cs">
+      <DependentUpon>pMyFoodOrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.cs">
+      <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.designer.cs">
+      <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pAddOrderOfFood.aspx.cs">
+      <DependentUpon>pAddOrderOfFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pAddOrderOfFood.aspx.designer.cs">
+      <DependentUpon>pAddOrderOfFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pOrderOfFoodList.aspx.cs">
+      <DependentUpon>pOrderOfFoodList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pOrderOfFoodList.aspx.designer.cs">
+      <DependentUpon>pOrderOfFoodList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pAddSystemUser.aspx.cs">
+      <DependentUpon>pAddSystemUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pAddSystemUser.aspx.designer.cs">
+      <DependentUpon>pAddSystemUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pEditSystemUser.aspx.cs">
+      <DependentUpon>pEditSystemUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pEditSystemUser.aspx.designer.cs">
+      <DependentUpon>pEditSystemUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
       <DependentUpon>pRentDetail.aspx</DependentUpon>
@@ -341,19 +459,12 @@
     <Compile Include="weblogin\shop\pShopList.aspx.designer.cs">
       <DependentUpon>pShopList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\SystemUserList.aspx.cs">
-      <DependentUpon>SystemUserList.aspx</DependentUpon>
+    <Compile Include="weblogin\systemUser\pSystemUserDetail.aspx.cs">
+      <DependentUpon>pSystemUserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\SystemUserList.aspx.designer.cs">
-      <DependentUpon>SystemUserList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\systemUser\nSystemUserDetail.aspx.cs">
-      <DependentUpon>nSystemUserDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\systemUser\nSystemUserDetail.aspx.designer.cs">
-      <DependentUpon>nSystemUserDetail.aspx</DependentUpon>
+    <Compile Include="weblogin\systemUser\pSystemUserDetail.aspx.designer.cs">
+      <DependentUpon>pSystemUserDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemUser\pSystemUserList.aspx.cs">
       <DependentUpon>pSystemUserList.aspx</DependentUpon>
@@ -447,6 +558,9 @@
     <Content Include="WebForm2.aspx" />
     <Content Include="weblogin\activity\pActivityDetail.aspx" />
     <Content Include="weblogin\activity\pActivityList.aspx" />
+    <Content Include="weblogin\address\pAddAddress.aspx" />
+    <Content Include="weblogin\address\pAddressList.aspx" />
+    <Content Include="weblogin\address\pEditAddress.aspx" />
     <Content Include="weblogin\chart\g.bar.js" />
     <Content Include="weblogin\chart\g.dot.js" />
     <Content Include="weblogin\chart\g.line.js" />
@@ -460,10 +574,11 @@
     <Content Include="weblogin\chart\test\piechart.html" />
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
+    <Content Include="weblogin\food\pAddFood.aspx" />
+    <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
     <Content Include="weblogin\house\pHouseList.aspx" />
-    <Content Include="weblogin\globalGoodsType\GlobalGoodsTypeList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx" />
     <Content Include="weblogin\index.aspx" />
     <Content Include="weblogin\js\additional-methods.js" />
@@ -526,22 +641,29 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\ListFoodByRestaurant.aspx" />
+    <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\ListSchool.aspx" />
+    <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
+    <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
+    <Content Include="weblogin\loginUser\pLoginUserList.aspx" />
+    <Content Include="weblogin\loginUser\pResetPassword.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
-<<<<<<< HEAD
     <Content Include="weblogin\activity\pAddActivity.aspx" />
-    <Content Include="weblogin\nGlobalGoodsTypeAdd.aspx" />
-    <Content Include="weblogin\nGlobalGoodsTypeUpdate.aspx" />
-=======
-    <Content Include="weblogin\nActivityAdd.aspx" />
     <Content Include="weblogin\globalGoodsType\pAddGlobalGoodsType.aspx" />
     <Content Include="weblogin\globalGoodsType\pEditGlobalGoodsType.aspx" />
->>>>>>> change filename
     <Content Include="weblogin\merchantCategory\pAddMerchantCategory.aspx" />
     <Content Include="weblogin\merchantCategory\pEditMerchantCategory.aspx" />
-    <Content Include="weblogin\nSystemUserAdd.aspx" />
-    <Content Include="weblogin\nSystemUserUpdate.aspx" />
+    <Content Include="weblogin\myFavorite\pAddMyFavorite.aspx" />
+    <Content Include="weblogin\myFavorite\pEditMyFavorite.aspx" />
+    <Content Include="weblogin\myFavorite\pMyFavoriteList.aspx" />
+    <Content Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx" />
+    <Content Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx" />
+    <Content Include="weblogin\orderOfFood\pAddOrderOfFood.aspx" />
+    <Content Include="weblogin\orderOfFood\pOrderOfFoodList.aspx" />
+    <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
+    <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />
     <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\restaurant\pRestaurantDetail.aspx" />
@@ -552,8 +674,7 @@
     <Content Include="weblogin\shop\pShopDetail.aspx" />
     <Content Include="weblogin\shop\pEditShop.aspx" />
     <Content Include="weblogin\shop\pShopList.aspx" />
-    <Content Include="weblogin\SystemUserList.aspx" />
-    <Content Include="weblogin\systemUser\nSystemUserDetail.aspx" />
+    <Content Include="weblogin\systemUser\pSystemUserDetail.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />

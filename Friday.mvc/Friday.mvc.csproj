@@ -151,10 +151,16 @@
     </Compile>
     <Compile Include="weblogin\address\pAddAddress.aspx.cs">
       <DependentUpon>pAddAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\food\pAddFood.aspx.cs">
+      <DependentUpon>pAddFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\address\pAddAddress.aspx.designer.cs">
       <DependentUpon>pAddAddress.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\food\pAddFood.aspx.designer.cs">
+      <DependentUpon>pAddFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\address\pAddressList.aspx.cs">
       <DependentUpon>pAddressList.aspx</DependentUpon>
@@ -568,6 +574,7 @@
     <Content Include="weblogin\chart\test\piechart.html" />
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
+    <Content Include="weblogin\food\pAddFood.aspx" />
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
