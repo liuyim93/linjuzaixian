@@ -250,6 +250,13 @@
     <Compile Include="weblogin\loginUser\pLoginUserList.aspx.designer.cs">
       <DependentUpon>pLoginUserList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\loginUser\pResetPassword.aspx.cs">
+      <DependentUpon>pResetPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pResetPassword.aspx.designer.cs">
+      <DependentUpon>pResetPassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx.cs">
       <DependentUpon>pMerchantCategoryDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -568,6 +575,7 @@
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserList.aspx" />
+    <Content Include="weblogin\loginUser\pResetPassword.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
     <Content Include="weblogin\activity\pAddActivity.aspx" />

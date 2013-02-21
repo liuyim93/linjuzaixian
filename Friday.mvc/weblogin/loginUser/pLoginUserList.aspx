@@ -70,7 +70,7 @@
             添加用户</span></a></li>
         <li><a class="edit" href="loginUser/pEditLoginUser.aspx?uid={id}" title="修改用户" rel="" target="navTab">
             <span>修改用户</span></a></li>
-        <li><a class="delete" href="loginUser/pEditLoginUser.aspx?uid={id}" title="密码重置" rel="" target="navTab">
+        <li><a class="delete" href="loginUser/pResetPassword.aspx?uid={id}" title="密码重置" rel="" target="navTab">
         <span>密码重置</span></a></li>
         <li><a class="delete" href="loginUser/pLoginUserList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
@@ -85,6 +85,7 @@
                 <tr>
                     <th width="10%" align="center">序 号</th>
                         <th width="10%" align="center">登录名</th>
+                        <th width="10%" align="center">密码</th>
                         <th width="10%" align="center">管理员</th>
                         <th width="10%" align="center">用户类型</th>
                 </tr>
@@ -96,6 +97,7 @@
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
                         <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
+                        <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
                         <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>                         
                         <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>               
 				</tr>

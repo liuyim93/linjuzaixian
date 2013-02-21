@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.loginUser {
     
     
-    public partial class pAddLoginUser {
+    public partial class pResetPassword {
         
         /// <summary>
         /// form 控件。
@@ -20,15 +20,6 @@ namespace Friday.mvc.weblogin.loginUser {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
-        
-        /// <summary>
-        /// LoginName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText LoginName;
         
         /// <summary>
         /// Password 控件。
@@ -47,23 +38,5 @@ namespace Friday.mvc.weblogin.loginUser {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputPassword PasswordAgain;
-        
-        /// <summary>
-        /// IsAdminV 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsAdminV;
-        
-        /// <summary>
-        /// UserType 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect UserType;
     }
 }
