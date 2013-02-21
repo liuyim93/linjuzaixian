@@ -86,7 +86,7 @@
     </ul>
 </div>
 <div id="foodList">
-    <table class="table">
+    <table class="table" rel='<%=Request.Params["rel_v3"] %>'>
         <asp:repeater id="repeater" runat="server">
               <HeaderTemplate>
                       <thead>
