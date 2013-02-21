@@ -29,9 +29,15 @@ namespace Friday.mvc.weblogin
                 string shtname = "leermei9";
                 Restaurant restaurant = restRepository.SearchByShortName(shtname);
                 MerchantCategory mCategory = new MerchantCategory();
-                 IMerchantGoodsTypeRepository merchantGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
-                restaurant.MerchantGoodsTypes
-                this.GoodsType.Attributes.Add();
+                 IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+             
+                 IList<MerchantGoodsType> goodsTypes =mGoodsTypeRepository.GetGoodsTypeByMerchantID(restaurant.Id);
+                 foreach (var i in goodsTypes) 
+                 {
+                     this.GoodsType.Items.Add(i.GoodsType);
+                 }
+
+              
      
             
             }
