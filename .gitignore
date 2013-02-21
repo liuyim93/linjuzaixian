@@ -2,4 +2,5 @@ bin/
 obj/
 *.cache
 *.debug
-
+*.suo
+*.orig
