@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"   validateRequest="false"  %>
 
 <div class="pageFormContent" layouth="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"
-    runat="server">
+    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"    runat="server">
     <div class="panel collapse" defh="155">
         <h1>
             商铺基本信息</h1>
@@ -52,7 +51,7 @@
             </p>
         </div>
     </div>
-    <div class="panel collapse" defh="95">
+<%--    <div class="panel collapse" defh="95">
         <h1>
             配送时间</h1>
         <div>
@@ -133,7 +132,7 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div>--%>
     <div class="formBar">
         <ul>
             <li>

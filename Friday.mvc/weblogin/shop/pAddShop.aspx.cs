@@ -23,22 +23,25 @@ namespace Friday.mvc.weblogin.shop
     
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                string schid;
+                schid = this.IDSet.Value;
 
-                SaveShop();
+                SaveShop(schid);
             }
          
         }
 
-        private void SaveShop()
+        private void SaveShop(string schid)
         {    
             Shop  shop=new Shop();
 
             BindingHelper.RequestToObject(shop);
             iShopRepository.SaveOrUpdate(shop);
 
-            string schid;
-            schid = this.SchoolOfMerchantID.Value;
+    
             string[] sArray = schid.Split(',');
+           
+            
             foreach (string shcidsz in sArray)
             {
                 friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
