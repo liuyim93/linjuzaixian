@@ -221,8 +221,14 @@ function dialogSearch(form){
 	array = $.map(array, function (elem, i) {
 	    return elem.name == "prefix" ? null : elem;
 	});
+    //2013-02-21 basilwang try to remove idset and nameset from url when search
+	var remove_id_set_pattern = /idset=[^&;]*/i;
+	var remove_name_set_pattern = /nameset=[^&;]*/i;
+	var url = $form.attr('action')
+                            .replace(remove_id_set_pattern, '')
+                           .replace(remove_name_set_pattern, '');
 	array.push({ name: "prefix", value: $.pdialog.getCurrentDialogPrefix() });
-	$.pdialog.reload($form.attr('action'), {data: array});
+	$.pdialog.reload(url, {data: array});
 	return false;
 }
 function dwzSearch(form, targetType){
