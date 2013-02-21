@@ -8,5 +8,6 @@ namespace friday.core.repositories
     public interface IMerchantGoodsTypeRepository : IRepository<MerchantGoodsType>
     {
         IList<MerchantGoodsType> GetGoodsTypeByMerchantID(string mid);
+        MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid);
     }
 }

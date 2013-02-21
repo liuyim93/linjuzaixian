@@ -36,9 +36,7 @@ namespace Friday.mvc.weblogin
                  IList<MerchantGoodsType> goodsTypes =mGoodsTypeRepository.GetGoodsTypeByMerchantID(restaurant.Id);
                  foreach (var i in goodsTypes) 
                  {
-                     //this.GoodsType.Items.Add(i.GoodsType);
-                     this.GoodsType.Value = i.Id;
-                     this.GoodsType.Name = "1231";
+                     this.GoodsType.Items.Add(i.GoodsType);                
                  }
 
               
@@ -133,7 +131,7 @@ namespace Friday.mvc.weblogin
             Restaurant restaurant = restRepository.SearchByShortName(shtname);
             f.Restaurant = restaurant;
 
-            f.MerchantGoodsType = mGoodsTypeRepository.Get(this.GoodsType.Value);
+            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
             
             repository.SaveOrUpdate(f);
 

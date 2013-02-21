@@ -27,10 +27,15 @@ namespace friday.core.repositories
             var q = Session.CreateQuery(@"select mgt from MerchantGoodsType as mgt
                      where Merchant_id=:mchid")
                       .SetString("mchid", mid);
-
-
-
             return q.List<MerchantGoodsType>();
         }
+        public MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid)
+        {
+            var q = Session.CreateQuery(@"select mgt from MerchantGoodsType as mgt
+                     where GoodsType=:mGoodsType and Merchant_id=:mchtid")
+                      .SetString("mGoodsType", mname).SetString("mchtid",mid);
+            return q.UniqueResult<MerchantGoodsType>();
+        }
+        
     }
 }
