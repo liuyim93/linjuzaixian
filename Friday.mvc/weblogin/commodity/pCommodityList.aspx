@@ -5,6 +5,8 @@
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="rel_v3" value='<%=Request.Params["rel_v3"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
+<input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
+<input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
 </form>
 <div class="panel close collapse" defh="75">
     <h1>
@@ -74,8 +76,8 @@
         <li class="line">line</li>
     </ul>
 </div>
-<div id="commodityList">
-    <table class="table">
+<div id="commodityList" >
+    <table class="table"    rel='<%=Request.Params["rel_v3"] %>'>
         <asp:repeater id="repeater" runat="server">
               <HeaderTemplate>
                       <thead>
@@ -92,7 +94,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                 
-                    <tr target="foodid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
+                    <tr target="commodityid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>

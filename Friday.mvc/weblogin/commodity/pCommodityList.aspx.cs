@@ -44,7 +44,7 @@ namespace Friday.mvc.weblogin.commodity
         private void DeleteCommodity()
         {
 
-            iCommodityRepository.Delete(Request.Params["uid"]);
+            iCommodityRepository.Delete(Request.Params["commodity_id"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
