@@ -227,9 +227,11 @@
     <Compile Include="domain\RentCart.cs" />
     <Compile Include="domain\RentSatistic.cs" />
     <Compile Include="repositories\ActivityRepository.cs" />
+    <Compile Include="repositories\AddressRepository.cs" />
     <Compile Include="repositories\FoodRepository.cs" />
     <Compile Include="repositories\IActivityRepository.cs" />
     <Compile Include="repositories\GlobalGoodsTypeRepository.cs" />
+    <Compile Include="repositories\IAddressRepository.cs" />
     <Compile Include="repositories\IFoodRepository.cs" />
     <Compile Include="repositories\IGlobalGoodsTypeRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
