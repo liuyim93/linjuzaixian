@@ -228,6 +228,13 @@
     <Compile Include="weblogin\food\pFoodList.aspx.designer.cs">
       <DependentUpon>pFoodList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\house\pAddHouse.aspx.cs">
+      <DependentUpon>pAddHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\house\pAddHouse.aspx.designer.cs">
+      <DependentUpon>pAddHouse.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\house\pHouseList.aspx.cs">
       <DependentUpon>pHouseList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -594,6 +601,7 @@
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
+    <Content Include="weblogin\house\pAddHouse.aspx" />
     <Content Include="weblogin\house\pHouseList.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeList.aspx" />
     <Content Include="weblogin\index.aspx" />

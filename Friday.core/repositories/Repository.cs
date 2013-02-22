@@ -1138,8 +1138,8 @@ namespace friday.core.repositories
             string notself = null;
             if (!isSelf)
             {
-                query.CreateAlias("Food", "food");
-                notself = "food.";
+                query.CreateAlias("Commodity", "commodity");
+                notself = "commodity.";
             }
 
             if (shopList != null && shopList.Count != 0)
@@ -1400,6 +1400,189 @@ namespace friday.core.repositories
                                 continue;
                             }
                         }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+        protected ICriteria SearchByHouse(ICriteria query, List<DataFilter> termList, bool isSelf, List<Rent> rentList)
+        {
+            IRentRepository iRentRepository = UnityHelper.UnityToT<IRentRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("House", "house");
+                notself = "house.";
+            }
+
+            if (rentList != null && rentList.Count != 0)
+            {
+                query.Add(Restrictions.In(notself + "Rent", rentList));
+            }
+            if (termList != null && termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("Rent"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "Rent", iRentRepository.Get(df.value)));
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRestaurant(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                //2013-02-17 basilwang we need set comparison to lower
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.ToLower().Equals("desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(notself + indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(notself + indf.type));
+                                }
+                            }
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    //if (df.type.Equals("FoodType"))
+                    //{
+                    //    if (isSelf)
+                    //    {
+                    //        query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
+                    //    }
+                    //    continue;
+                    //}
+
+                    if (df.type.Equals("GoodsType"))
+                    {
+                        if (isSelf)
+                        {
+                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.GoodsType", df.value));//不支持嵌套
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("MerchantGoodsType_id"))
+                    {
+                        query.Add(Expression.Eq(notself + "MerchantGoodsType_id", df.value));
+                        continue;
+                    }
+
+                    if (df.type.Equals("IsDiscount"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "IsDiscount", Boolean.Parse(df.value)));
+                        continue;
+                    }
+                    if (df.type.Equals("IsEnabled"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "IsEnabled", Boolean.Parse(df.value)));
+                        continue;
+                    }
+                    if (df.type.Equals("IsLimited"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "IsLimited", Boolean.Parse(df.value)));
+                        continue;
+                    }
+
+
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                    }
+                    if (df.type.Equals("Image"))
+                    {
+                        if (df.comparison.Equals("NotNull"))
+                        {
+                            query.Add(Restrictions.IsNotNull(notself + "Image"));
+                            continue;
+                        }
+                        if (df.comparison.Equals("IsNull"))
+                        {
+                            query.Add(Restrictions.IsNull(notself + "Image"));
+                            continue;
+                        }
+                    }
+
+                    if (df.type.Equals("Price"))
+                    {
+                        Double value = Double.Parse(df.value);
+                        if (string.IsNullOrEmpty(df.valueForCompare))
+                        {
+                            switch (df.comparison)
+                            {
+                                case "lt":
+                                    query.Add(Restrictions.Lt(notself + "Price", value));
+                                    break;
+                                case "gt":
+                                    query.Add(Restrictions.Gt(notself + "Price", value));
+                                    break;
+                                default:
+                                    query.Add(Restrictions.Eq(notself + "Price", value));
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            Double valueForCompare = Double.Parse(df.valueForCompare);
+                            query.Add(Restrictions.Between(notself + "Price", value, valueForCompare));
+                        }
+                        continue;
+                    }
+                    if (df.type.Equals("MonthAmount"))
+                    {
+                        Int32 value = Int32.Parse(df.value);
+                        if (string.IsNullOrEmpty(df.valueForCompare))
+                        {
+                            switch (df.comparison)
+                            {
+                                case "lt":
+                                    query.Add(Restrictions.Lt(notself + "MonthAmount", value));
+                                    break;
+                                case "gt":
+                                    query.Add(Restrictions.Gt(notself + "MonthAmount", value));
+                                    break;
+                                default:
+                                    query.Add(Restrictions.Eq(notself + "MonthAmount", value));
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            Int32 valueForCompare = Int32.Parse(df.valueForCompare);
+                            query.Add(Restrictions.Between(notself + "MonthAmount", value, valueForCompare));
+                        }
+                        continue;
                     }
 
                     //时间
