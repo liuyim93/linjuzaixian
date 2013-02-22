@@ -22,6 +22,11 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
+             <p>
+                <label>
+                    登陆名：</label>
+                <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
+            </p>
                   <p>
                 <label>
                     服务的学校：</label>
@@ -108,28 +113,48 @@
      <div class="panel close collapse" defh="400">
         <h1>
             公告和Logo</h1>
-        <div>
+        
         <div>
             <p >
                  <label >商铺公告：</label>
 					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
            </p>
-           </div>
-           <div>
+           
+            <p>
+            
+                <label>
+                    Logo上传：</label>
+          
+                <input id="Image" type="file" class="required textInput gray" runat="server" />
+              
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+           
+            </p>
+          
+             <p >
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>
+
             <p >
                  <label >商铺活动：</label>
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
-           </div>        
-         <div style="  clear:left; width:80%; margin-top:410px" >
+           </div>       
+           </div> 
+         <div class="panel close collapse" defh="70" >
+           <h1>
+            详细信息</h1>
+        <div>
+        
              <p>
                  <label>详细内容：</label>
-             <div style="   width:100%; ">
+          
 				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
+			 
                 </p>
-                  
-       </div>
+        
         </div>
     </div>
      <div class="formBar">

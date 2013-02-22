@@ -9,6 +9,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.EnumType;
 
 
 
@@ -19,12 +20,18 @@ namespace Friday.mvc.weblogin.rent
         IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-
+        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        public LoginUser loginuser;
         private Rent rent;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
             rent = iRentRepository.Load(uid);
+            UserTypeEnum ust = UserTypeEnum.租房;
+            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";
@@ -43,8 +50,9 @@ namespace Friday.mvc.weblogin.rent
             {
 
                 BindingHelper.ObjectToControl(rent, this);
-
+                this.ImagePreview.Src = rent.Logo;
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+                this.LoginName.Value = loginuser.LoginName;
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');

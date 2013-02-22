@@ -16,6 +16,9 @@ namespace Friday.mvc.weblogin.shop
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        public LoginUser loginuser;
         private Shop shop;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,6 +42,9 @@ namespace Friday.mvc.weblogin.shop
 
                 BindingHelper.ObjectToControl(shop, this);
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+                this.ImagePreview.Src = shop.Logo;
+
+                this.LoginName.Value = loginuser.LoginName;
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
