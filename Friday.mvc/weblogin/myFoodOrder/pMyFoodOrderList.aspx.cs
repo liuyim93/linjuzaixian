@@ -17,10 +17,11 @@ namespace Friday.mvc.weblogin.myFoodOrder
         protected int pageNum;
         protected int numPerPageValue;
 
+        protected string orderNumber;
+        protected string restaurantName;
         protected string loginName;
-        protected string name;
-        protected string tel;
-        protected string email;
+        protected string startDate;
+        protected string endDate;
 
         IMyFoodOrderRepository iRepositoryMyFoodOrder = UnityHelper.UnityToT<IMyFoodOrderRepository>();
 
@@ -29,7 +30,6 @@ namespace Friday.mvc.weblogin.myFoodOrder
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteMyFoodOrder();
-
             }
             else
             {
@@ -38,64 +38,98 @@ namespace Friday.mvc.weblogin.myFoodOrder
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
 
-                //List<DataFilter> filterList = new List<DataFilter>();
-                //List<DataFilter> LoginUserFilter = new List<DataFilter>();
+                List<DataFilter> filterList = new List<DataFilter>();
+                List<DataFilter> loginUserFilter = new List<DataFilter>();
+                List<DataFilter> systemUserFilter = new List<DataFilter>();
+                List<DataFilter> restaurantFilter = new List<DataFilter>();
 
-                //filterList.Add(new DataFilter()
-                //{
-                //    type = "IsDelete"
-                //});
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsDelete"
+                });
 
-                //filterList.Add(new DataFilter()
-                //{
-                //    type = "IsAnonymous"
-                //});
+                //商铺名称
+                if (!string.IsNullOrEmpty(Request.Form["RestaurantName"]))
+                {
+                    restaurantFilter.Add(new DataFilter()
+                    {
+                        type = "Name",
+                        value = loginName = Request.Form["RestaurantName"]
 
+                    });
+
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Restaurant",
+                        field = restaurantFilter
+                    });
+                }
+
+                //非匿名用户
+                systemUserFilter.Add(new DataFilter()
+                {
+                    type = "IsAnonymous"
+                });
+
+                //用户名
                 //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                //    LoginUserFilter.Add(new DataFilter()
+                //{
+                //    loginUserFilter.Add(new DataFilter()
                 //    {
                 //        type = "LoginName",
                 //        value = loginName = Request.Form["LoginName"]
 
                 //    });
 
-                //filterList.Add(new DataFilter()
-                //{
-                //    type = "LoginUser",
-                //    field = LoginUserFilter
-                //});
-
-                //if (!string.IsNullOrEmpty(Request.Form["Name"]))
-                //    filterList.Add(new DataFilter()
+                //    systemUserFilter.Add(new DataFilter()
                 //    {
-                //        type = "Name",
-                //        value = name = Request.Form["Name"]
-
+                //        type = "LoginUser",
+                //        field = loginUserFilter
                 //    });
+                //}
 
-                //if (!string.IsNullOrEmpty(Request.Form["Tel"]))
-                //    filterList.Add(new DataFilter()
-                //    {
-                //        type = "Tel",
-                //        value = tel = Request.Form["Tel"]
+                filterList.Add(new DataFilter()
+                {
+                    type = "SystemUser",
+                    field = systemUserFilter
+                });
 
-                //    });
 
-                //if (!string.IsNullOrEmpty(Request.Form["Email"]))
-                //    filterList.Add(new DataFilter()
-                //    {
-                //        type = "Email",
-                //        value = email = Request.Form["Email"]
+                if (!string.IsNullOrEmpty(Request.Form["OrderNumber"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "OrderNumber",
+                        value = orderNumber = Request.Form["OrderNumber"]
 
-                //    });
+                    });
 
-                //List<DataFilter> dflForOrder = new List<DataFilter>();
-                //string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
-                //string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
-                //dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
-                //filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
+                if (!string.IsNullOrEmpty(Request.Form["OrderStatus"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "OrderStatus",
+                        value = Request.Form["OrderStatus"]
 
-                IList<MyFoodOrder> myFoodOrderList = iRepositoryMyFoodOrder.GetPageList(start, limit, out total);
+                    });
+
+                var filter = new DataFilter();
+                if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                {
+                    filter.type = "CreateTime";
+                    filter.value = startDate = Request.Form["StartDate"];
+                    if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                    {
+                        filter.valueForCompare = endDate = Request.Form["EndDate"];
+                    }
+                    filterList.Add(filter);
+                }
+
+                List<DataFilter> dflForOrder = new List<DataFilter>();
+                string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
+                string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
+                dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
+                filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
+
+                IList<MyFoodOrder> myFoodOrderList = iRepositoryMyFoodOrder.Search(filterList,start, limit, out total);
 
                 repeater.DataSource = myFoodOrderList;
                 repeater.DataBind();

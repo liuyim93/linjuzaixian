@@ -13,20 +13,35 @@
         <table class="searchContent">
              <tr>
                 <td>
-                    <label>登录名:</label>
-                    <input type="text" name="LoginName" class="textInput"  />
+                    <label>订单编号:</label>
+                    <input type="text" name="OrderNumber" class="textInput" value="<%=orderNumber %>" />
+                </td>
+<%--                <td>
+                    <label>订单用户:</label>
+                    <input type="text" name="LoginName" class="textInput" value="<%=loginName %>"/>
+                </td>--%>
+                <td>
+                    <label>商铺名称:</label>
+                    <input type="text" name="RestaurantName" class="textInput" value="<%=restaurantName %>" />
                 </td>
                 <td>
-                    <label>真实姓名:</label>
-                    <input type="text" name="Name" class="textInput"/>
+                    <label>订单状态:</label>
+                    <select name="OrderStatus" id="OrderStatus" runat="server">
+                    <option value="">请选择</option>
+                    <option value="配送中">配送中</option>
+                    <option value="成功">成功</option>
+                    <option value="失败">失败</option>
+                     </select>
+                </td>
+             </tr>
+             <tr>
+                <td>
+                    <label>起始日期:</label>
+                    <input type="text" name="StartDate" class="date textInput readonly" readonly="true" value="<%=startDate %>"/>
                 </td>
                 <td>
-                    <label>联系电话:</label>
-                    <input type="text" name="Tel" class="textInput"  />
-                </td>
-                <td>
-                    <label>电子邮箱:</label>
-                    <input type="text" name="Email" class="textInput" />
+                    <label>截止日期:</label>
+                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true" value="<%=endDate %>"/>
                 </td>
             </tr>
         </table>
