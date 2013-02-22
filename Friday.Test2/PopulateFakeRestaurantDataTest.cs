@@ -25,7 +25,7 @@ namespace Friday.Test2
        private List<School> schoolList = new List<School>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_RESTAURANT_COUNT = 5;
-       private readonly int RESTAURANT_COUNT = 10;  //we double RESTAURANT_COUNT  eg  10*2
+       private readonly int RESTAURANT_COUNT = 15;  //we double RESTAURANT_COUNT  eg  10*2
        private readonly int FOOD_COUNT_OF_RESTAURANT = 10;
        private readonly int ORDER_COUNT = 500;
        private readonly int SHCOOL_COUNT = 10;
@@ -175,8 +175,9 @@ namespace Friday.Test2
                SendTime = 30,
                Rate = 0.8,
                SendPrice = 10,
-               ShopStatus = ShopStatusEnum.接受预定,
-               MerchantCategory = merchantCategory,               
+               ShopStatus = ShopStatusEnum.营业时间,
+               MerchantCategory = merchantCategory,   
+            
                 
               
            };
@@ -269,7 +270,7 @@ namespace Friday.Test2
                SendTime = 30,
                Rate = 0.8,
                SendPrice = 10,
-               ShopStatus = ShopStatusEnum.接受预定,
+               ShopStatus = ShopStatusEnum.正在休息,
                MerchantCategory = merchantCategory
               
               
@@ -358,7 +359,7 @@ namespace Friday.Test2
            List<School> schoolListClone = new List<School>(schoolList);
 
 
-           for (int j = 0; j < 2 * RESTAURANT_COUNT; j += 2)
+           for (int j = 0; j < 20; j += 2)
            {
 
                int iisch = new Random().Next(schoolListClone.Count);
