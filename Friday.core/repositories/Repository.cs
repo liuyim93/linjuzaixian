@@ -876,7 +876,7 @@ namespace friday.core.repositories
                     {
                         if (isSelf)
                         {
-                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.GoodsType", df.value));//不支持嵌套
+                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.Id", df.value));//不支持嵌套
                         }
                         continue;
                     }
