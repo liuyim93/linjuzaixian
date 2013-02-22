@@ -776,6 +776,11 @@ namespace friday.core.repositories
                         continue;
                     }
 
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                    }
+
                     if (df.type.Equals("Order"))
                     {
                         if (df.field != null && df.field.Count != 0)
@@ -841,6 +846,11 @@ namespace friday.core.repositories
                             SearchBySystemUser(query, df.field, false);
                         }
                         continue;
+                    }
+
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
                     }
 
                     if (df.type.Equals("Order"))

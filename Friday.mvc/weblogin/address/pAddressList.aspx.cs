@@ -65,6 +65,11 @@ namespace Friday.mvc.weblogin
                 dfl.Add(new DataFilter() { type = "SystemUser", value = SystemUserID });
             }
 
+            dfl.Add(new DataFilter()
+            {
+                type = "IsDelete"
+            });
+
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
             string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
