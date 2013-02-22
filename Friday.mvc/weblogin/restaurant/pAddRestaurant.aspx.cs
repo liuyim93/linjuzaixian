@@ -54,7 +54,7 @@ namespace Friday.mvc.weblogin.restaurant
             lumcht.Merchant = rnt;
 
             lu.LoginName = this.LoginName.Value;
-            lu.Password = this.Password.Value;
+            //lu.Password = this.Password.Value;
             lu.UserType = UserTypeEnum.餐馆;
             iLoginUserRepository.SaveOrUpdate(lu);
             iLoginUserOfMerchantRepository.SaveOrUpdate(lumcht);

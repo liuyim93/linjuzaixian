@@ -28,7 +28,9 @@ namespace Friday.mvc.weblogin.restaurant
         {
             string uid = Request.Params["uid"].ToString();
             restaurant = iRestaurantRepository.Load(uid);
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id);
+            UserTypeEnum  ust=UserTypeEnum.餐馆;
+
+            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id,ust);
                
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -55,7 +57,7 @@ namespace Friday.mvc.weblogin.restaurant
               
 
                 this.LoginName.Value = loginuser.LoginName;
-                this.Password.Value = loginuser.Password;
+                //this.Password.Value = loginuser.Password;
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
@@ -133,10 +135,10 @@ namespace Friday.mvc.weblogin.restaurant
             }
 
 
-            loginuser = iLoginUserRepository.Get(loginuserid);
-            loginuser.LoginName = this.LoginName.Value;
-            loginuser.Password = this.Password.Value;
-            iLoginUserRepository.SaveOrUpdate(loginuser);
+            //loginuser = iLoginUserRepository.Get(loginuserid);
+            //loginuser.LoginName = this.LoginName.Value;
+            ////loginuser.Password = this.Password.Value;
+            //iLoginUserRepository.SaveOrUpdate(loginuser);
          
 
 

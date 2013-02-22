@@ -37,12 +37,12 @@
                     登陆名：</label>
                 <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
             </p>
-              <p>
+         <%--     <p>
                 <label>
                     密码：</label>
                 <input type="text" id="Password" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <%--<p>
+            </p>--%>
+             <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
@@ -76,7 +76,7 @@
             </p>
 
                   <p></p>
-                  --%>
+                   
             <p>
                 <label>
                     服务的学校：</label>
@@ -103,7 +103,7 @@
                 <input type="text" id="IDSet" size="35"  
                     runat="server" readonly="true" />
             </p>
-<%--
+ 
            <p>
                 <label>
                     商铺当前状态：</label>
@@ -135,7 +135,7 @@
 				</div>
                 </p>
                   
-       </div>--%>
+       </div> 
     
         </div>
                 <div class="formBar">
