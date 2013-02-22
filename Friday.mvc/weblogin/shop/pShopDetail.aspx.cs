@@ -8,12 +8,16 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.shop
 {
     public partial class pShopDetail : System.Web.UI.Page
     {
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
+        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        public LoginUser loginuser;
         private Shop shop;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,6 +26,11 @@ namespace Friday.mvc.weblogin.shop
 
             BindingHelper.ObjectToControl(shop, this);
             //this.ImagePreview.Src = shop.Logo;
+
+            UserTypeEnum ust = UserTypeEnum.餐馆;
+
+            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
+            this.LoginName.Value = loginuser.LoginName;
 
             ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
             string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
