@@ -6,7 +6,7 @@
           <ul>
                 <li class="selected"><a href="#"><span>订单基本信息</span></a></li>
                 <li class="selected"><a href="#"><span>订单配送信息</span></a></li>
-                <li><a href='myFoodOrder/pMyFoodOrderList.aspx?systemUser_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
+                <li><a href='orderOfFood/pOrderOfFoodList.aspx?myFoodOrder_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>订单明细</span></a></li>
 
            </ul>
