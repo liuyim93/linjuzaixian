@@ -9,7 +9,7 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 
-namespace Friday.mvc.weblogin.orderOfFood
+namespace Friday.mvc.weblogin
 {
     public partial class pOrderOfFoodList : System.Web.UI.Page
     {

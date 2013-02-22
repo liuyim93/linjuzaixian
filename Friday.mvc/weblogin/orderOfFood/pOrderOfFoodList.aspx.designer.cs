@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.orderOfFood {
+namespace Friday.mvc.weblogin {
     
     
     public partial class pOrderOfFoodList {
