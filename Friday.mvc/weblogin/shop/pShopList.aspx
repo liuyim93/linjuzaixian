@@ -39,7 +39,7 @@
                  <td>
                      <label>
                          商铺当前状态:</label>
-                     <select name="ShopStatus" id="ShopStatus" runat="server">
+                     <select name="ShopStatus" id="ShopStatus" runat="server"   value="<%=shopStatus %>">
                          <option value="">请选择</option>
                          <option value="营业时间">营业时间</option>
                          <option value="正在休息">正在休息</option>
