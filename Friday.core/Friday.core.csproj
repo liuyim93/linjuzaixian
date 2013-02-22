@@ -270,6 +270,8 @@
     <Compile Include="repositories\ICommodityRepository.cs" />
     <Compile Include="repositories\HouseRepository.cs" />
     <Compile Include="repositories\IHouseRepository.cs" />
+    <Compile Include="repositories\LoginUserOfMerchantRepository.cs" />
+    <Compile Include="repositories\ILoginUserOfMerchantRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />

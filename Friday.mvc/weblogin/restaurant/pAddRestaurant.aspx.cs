@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.restaurant
 {
@@ -16,6 +17,8 @@ namespace Friday.mvc.weblogin.restaurant
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        IRepository<LoginUserOfMerchant> iLoginUserOfMerchantRepository = UnityHelper.UnityToT<IRepository<LoginUserOfMerchant>>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,9 +43,21 @@ namespace Friday.mvc.weblogin.restaurant
         private void SaveRestaurant(string schid)
         {
             Restaurant rnt = new Restaurant();
+            LoginUser  lu=new LoginUser();
+            LoginUserOfMerchant lumcht = new LoginUserOfMerchant();
 
+        
             BindingHelper.RequestToObject(rnt);
             iRestaurantRepository.SaveOrUpdate(rnt);
+
+            lumcht.LoginUser = lu;
+            lumcht.Merchant = rnt;
+
+            lu.LoginName = this.LoginName.Value;
+            lu.Password = this.Password.Value;
+            lu.UserType = UserTypeEnum.餐馆;
+            iLoginUserRepository.SaveOrUpdate(lu);
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lumcht);
 
 
             if (schid != "")

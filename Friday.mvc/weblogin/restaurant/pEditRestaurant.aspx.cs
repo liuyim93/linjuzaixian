@@ -9,6 +9,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.restaurant
 {
@@ -17,11 +18,18 @@ namespace Friday.mvc.weblogin.restaurant
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
         private Restaurant restaurant;
+        public LoginUser loginuser;
+         
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
             restaurant = iRestaurantRepository.Load(uid);
+            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id);
+               
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";
@@ -33,7 +41,9 @@ namespace Friday.mvc.weblogin.restaurant
                 {
                     schid = this.SchoolOfMerchantID.Value;
                 }
-                SaveRestaurant(uid, schid);
+
+
+                SaveRestaurant(uid, schid,loginuser.Id);
                 
             }
             else
@@ -42,6 +52,10 @@ namespace Friday.mvc.weblogin.restaurant
                 BindingHelper.ObjectToControl(restaurant, this);
                 this.ImagePreview.Src = restaurant.Logo;
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+              
+
+                this.LoginName.Value = loginuser.LoginName;
+                this.Password.Value = loginuser.Password;
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
@@ -57,7 +71,7 @@ namespace Friday.mvc.weblogin.restaurant
             }
         }
 
-        private void SaveRestaurant(string uid, string schid)
+        private void SaveRestaurant(string uid, string schid, string loginuserid)
         {
 
             BindingHelper.RequestToObject(restaurant);
@@ -117,6 +131,13 @@ namespace Friday.mvc.weblogin.restaurant
                     iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
                 }
             }
+
+
+            loginuser = iLoginUserRepository.Get(loginuserid);
+            loginuser.LoginName = this.LoginName.Value;
+            loginuser.Password = this.Password.Value;
+            iLoginUserRepository.SaveOrUpdate(loginuser);
+         
 
 
 
