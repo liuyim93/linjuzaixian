@@ -25,14 +25,14 @@ namespace Friday.mvc.weblogin.restaurant
             ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
             string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
             string[] arrname = schofmntname.Split('，');
-            if (arrname.Length > 1)
-            {
+            //if (arrname.Length > 1)
+            //{
+            //    this.NameSet.Value = schofmntname;
+            //}
+            //else
+            //{
                 this.NameSet.Value = schofmntname;
-            }
-            else
-            {
-                this.SchoolOfMerchant.Value = schofmntname;
-            }
+            //}
 
 
 

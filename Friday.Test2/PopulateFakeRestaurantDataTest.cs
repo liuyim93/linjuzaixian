@@ -21,11 +21,13 @@ namespace Friday.Test2
        private List<Restaurant> restaurantList = new List<Restaurant>();
        private List<Food> foodOfRestaurant1List = new List<Food>();
        private List<Food> foodOfRestaurant2List = new List<Food>();
+       private List<School> schoolList = new List<School>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_RESTAURANT_COUNT = 5;
        private readonly int RESTAURANT_COUNT = 10;  //we double RESTAURANT_COUNT  eg  10*2
        private readonly int FOOD_COUNT_OF_RESTAURANT = 10;
        private readonly int ORDER_COUNT = 500;
+       private readonly int SHCOOL_COUNT = 10;
        string[] mCategory = { "中餐", "西餐", "清真"};
 
        [SetUp]
@@ -288,45 +290,69 @@ namespace Friday.Test2
        }
        private void add_School_Restaurant()
        {
-           School school = new School()
+
+           string[] schname = { "山东轻工业学院", "山东农业大学", "山东工业大学", "山东师范大学", "潍坊学院", "聊城大学", "青岛科技大学", "青岛理工大学", "哈尔滨工业大学威海校区", "菏泽学院" };
+           string[] schstname = { "sduq", "sdua", "sdug", "sdut", "wfu", "lcu", "qdkju", "qdlgu", "hgu", "hzu" };
+           string[] schcity = { "济南", "泰安", "济南", "济南", "潍坊", "聊城", "青岛", "青岛", "威海", "菏泽" };
+
+           for (int s = 0; s < SHCOOL_COUNT; s++)
            {
-               CityName = "济南",
-               ShortName = "sdufe.yanshan",
-               Name = "山东财经大学燕山校区",
-               Image = "image/121.jpg",
-           };
-           for (int i = 0; i < RESTAURANT_COUNT; i++)
-           {
-               Restaurant restaurant = new RestaurantRepository().SearchByShortName("leermei"+i.ToString());
-               if (restaurant != null)
+               //int isch = new Random().Next(schname.Length);
+               //string ischName = schname[isch];
+               //string ischCity = schcity[isch];
+               //string ischstname = schstname[isch];
+               School school = new School()
                {
-                   SchoolOfMerchant schoolRestaurant = new SchoolOfMerchant()
-                   {
-                       Merchant = restaurant,
-                       School = school
-                   };
-
-                   school.SchoolOfMerchants.Add(schoolRestaurant);
-
-               }
+                   CityName = schcity[s],
+                   ShortName = schstname[s],
+                   Name = schname[s],
+                   Image = "image/121.jpg",
+               };
+               schoolList.Add(school);
            }
-           for (int i = 0; i < RESTAURANT_COUNT; i++)
+           List<School> schoolListClone = new List<School>(schoolList);
+
+
+           for (int j = 0; j < 2 * RESTAURANT_COUNT; j += 2)
            {
-               Restaurant restaurant = new RestaurantRepository().SearchByShortName("baofantang" + i.ToString());
-               if (restaurant != null)
+
+               int iisch = new Random().Next(schoolListClone.Count);
+               School school = schoolListClone[iisch];
+
+               for (int i = j; i < j + 2; i++)
                {
-                   SchoolOfMerchant schoolRestaurant = new SchoolOfMerchant()
+                   Restaurant restaurant = new RestaurantRepository().SearchByShortName("leermei" + i.ToString());
+                   if (restaurant != null)
                    {
-                        
-                        Merchant = restaurant,
-                       School = school
-                   };
+                       SchoolOfMerchant schoolRestaurant = new SchoolOfMerchant()
+                       {
+                           Merchant = restaurant,
+                           School = school
+                       };
 
-                   school.SchoolOfMerchants.Add(schoolRestaurant);
+                       school.SchoolOfMerchants.Add(schoolRestaurant);
 
+                   }
                }
+               for (int i = j; i < j + 2; i++)
+               {
+                   Restaurant restaurant = new RestaurantRepository().SearchByShortName("baofantang" + i.ToString());
+                   if (restaurant != null)
+                   {
+                       SchoolOfMerchant schoolRestaurant = new SchoolOfMerchant()
+                       {
+
+                           Merchant = restaurant,
+                           School = school
+                       };
+
+                       school.SchoolOfMerchants.Add(schoolRestaurant);
+
+                   }
+               }
+               new SchoolRepository().SaveOrUpdate(school);
+               schoolListClone.Remove(school);
            }
-           new SchoolRepository().SaveOrUpdate(school);
        }
        private void add_Restaurant_to_MyFavorite()
        {

@@ -58,7 +58,14 @@
                     <option value="正在休息">正在休息</option>
 				</select> 
             </p>
-              <p>
+            
+        </div>
+    </div>
+       <div class="panel collapse" defh="55">
+        <h1>
+            选择服务的学校</h1>
+        <div> 
+          <p>
                 <label>
                     服务的学校：</label>
                 <input type="text" id="SchoolOfMerchant" size="30" 
@@ -84,8 +91,11 @@
                 <input type="text" id="IDSet" size="35"  
                     runat="server" readonly="true" />
             </p>
+
+
+
         </div>
-    </div>
+        </div>
      <div class="panel collapse" defh="55">
         <h1>
             配送时间</h1>
@@ -130,10 +140,10 @@
          
         </div>
     </div>
-     <div class="panel close collapse" defh="400">
+     <div class="panel close collapse" defh="200">
         <h1>
             公告和Logo</h1>
-       
+       <div>
             <p >
                  <label >商铺公告：</label>
 					<textarea class="editor" tools="simple"  style="width:317px; height 200px;"   name="Bulletins" id="Bulletins"  runat="server"></textarea>
@@ -160,18 +170,20 @@
                  <label >商铺活动：</label>
 					<textarea   class="editor"    name="Activity" id="Textarea1" rows="15" cols="42"  runat="server"></textarea>
            </p>
-        
+        </div>
            </div> 
                   
-         <div style="  clear:left; width:80%; margin-top:240px" >
+    <div class="panel close collapse" defh="100">
+        <h1>
+            详细内容</h1>
+       <div>
              <p>
                  <label>详细内容：</label>
-             <div style="width:100%; ">
+           
 				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
+			 
                 </p>
                   
-       </div>
         </div>
     </div>
      <div class="formBar">

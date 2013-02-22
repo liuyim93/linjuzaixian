@@ -72,7 +72,14 @@
             </p>
          </div>
          <div>
-            <p>
+         <p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="NameSet" size="35"  
+                    runat="server" readonly="true" />
+            </p>
+
+       <%--     <p>
                 <label>
                     服务的学校：</label>
                 <input type="text" id="SchoolOfMerchant" size="30"  
@@ -97,7 +104,7 @@
                     仅演示，应隐藏ID</label>
                 <input type="text" id="IDSet" size="35"  
                     runat="server" readonly="true" />
-            </p>
+            </p>--%>
 
          </div>
          <div>
