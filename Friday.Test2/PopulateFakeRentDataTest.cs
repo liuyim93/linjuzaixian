@@ -158,6 +158,22 @@ namespace Friday.Test2
 
            new RentRepository().SaveOrUpdate(rent);
 
+           //创建Merchant的管理员用户
+           IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+           ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+
+           LoginUser lu1 = new LoginUser();
+           lu1.LoginName = "Login" + rent.Name;
+           lu1.Password = "LPass" + rent.Tel;
+           lu1.UserType = UserTypeEnum.餐馆;
+           iLoginUserRepository.SaveOrUpdate(lu1);
+
+           LoginUserOfMerchant lum = new LoginUserOfMerchant();
+           lum.Merchant = rent;
+           lum.LoginUser = lu1;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+
            for (int i = 0; i < HOUSE_COUNT_OF_RENT; i++)
            {
                houseid1 = Guid.NewGuid().ToString();
@@ -207,6 +223,8 @@ namespace Friday.Test2
            new RentRepository().SaveOrUpdate(rent);
            rentList.Add(rent);
 
+           
+
            rent = new Rent()
            {
                Activity = "8折",
@@ -233,6 +251,17 @@ namespace Friday.Test2
            rent.MerchantGoodsTypes.Add(rentHouseTye_2);
 
            new RentRepository().SaveOrUpdate(rent);
+
+           LoginUser lu2 = new LoginUser();
+           lu2.LoginName = "Login" + rent.Name;
+           lu2.Password = "LPass" + rent.Tel;
+           lu2.UserType = UserTypeEnum.租房;
+           iLoginUserRepository.SaveOrUpdate(lu2);
+
+           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+           lum2.Merchant = rent;
+           lum2.LoginUser = lu1;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
            for (int i = 0; i < HOUSE_COUNT_OF_RENT; i++)
            {

@@ -160,6 +160,23 @@ namespace Friday.Test2
 
            new ShopRepository().SaveOrUpdate(shop);
 
+           //创建Merchant的管理员用户
+           IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+           ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+
+           LoginUser lu1 = new LoginUser();
+           lu1.LoginName = "Login" + shop.Name;
+           lu1.Password = "LPass" + shop.Tel;
+           lu1.UserType = UserTypeEnum.餐馆;
+           iLoginUserRepository.SaveOrUpdate(lu1);
+
+           LoginUserOfMerchant lum = new LoginUserOfMerchant();
+           lum.Merchant = shop;
+           lum.LoginUser = lu1;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+
+
            for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
            {
                commodityid1 = Guid.NewGuid().ToString();
@@ -229,6 +246,19 @@ namespace Friday.Test2
            shop.MerchantGoodsTypes.Add(shopCommodityTye_2);
 
            new ShopRepository().SaveOrUpdate(shop);
+
+
+           LoginUser lu2 = new LoginUser();
+           lu2.LoginName = "Login" + shop.Name;
+           lu2.Password = "LPass" + shop.Tel;
+           lu2.UserType = UserTypeEnum.商店;
+           iLoginUserRepository.SaveOrUpdate(lu2);
+
+           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+           lum2.Merchant = shop;
+           lum2.LoginUser = lu1;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+
 
            for (int i = 0; i < FOOD_COUNT_OF_SHOP; i++)
            {

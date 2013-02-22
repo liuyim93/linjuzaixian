@@ -104,7 +104,7 @@ namespace Friday.mvc.weblogin
             {
                 MerchantGoodsType mectGType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(goodsType, rentId);
                 string mectGTypeID = mectGType.Id;
-                dfl.Add(new DataFilter() { type = "MerchantGoodsType_id", value = mectGTypeID.ToString() });
+                dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
                 // dfl.Add(new DataFilter() { type = "GoodsType", value = goodsType });
             }
             //else

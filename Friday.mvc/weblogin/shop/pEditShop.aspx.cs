@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.shop
 {
@@ -24,6 +25,11 @@ namespace Friday.mvc.weblogin.shop
         {
             string uid = Request.Params["uid"].ToString();
             shop = iShopRepository.Load(uid);
+
+            UserTypeEnum ust = UserTypeEnum.商店;
+
+            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";
@@ -43,8 +49,10 @@ namespace Friday.mvc.weblogin.shop
                 BindingHelper.ObjectToControl(shop, this);
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
                 this.ImagePreview.Src = shop.Logo;
+ 
 
                 this.LoginName.Value = loginuser.LoginName;
+
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
