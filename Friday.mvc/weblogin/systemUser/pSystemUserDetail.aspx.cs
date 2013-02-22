@@ -14,7 +14,9 @@ namespace Friday.mvc.weblogin
     public partial class pSystemUserDetail : System.Web.UI.Page
     {
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
+
         private SystemUser systemUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();

@@ -15,7 +15,9 @@ namespace Friday.mvc.weblogin
     public partial class pEditGlobalGoodsType : System.Web.UI.Page
     {
         IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+
         private GlobalGoodsType globalGoodsType;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();

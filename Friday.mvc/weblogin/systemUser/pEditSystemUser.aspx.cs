@@ -17,6 +17,7 @@ namespace Friday.mvc.weblogin
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
 
         private SystemUser systemUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();

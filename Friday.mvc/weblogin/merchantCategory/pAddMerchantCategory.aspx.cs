@@ -14,7 +14,9 @@ namespace Friday.mvc.weblogin
     public partial class pAddMerchantCategory : System.Web.UI.Page
     {
         IRepository<MerchantCategory> iMerchantCategoryRepository = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
+
         private MerchantCategory merchantCategory;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["__EVENTVALIDATION"] != null)

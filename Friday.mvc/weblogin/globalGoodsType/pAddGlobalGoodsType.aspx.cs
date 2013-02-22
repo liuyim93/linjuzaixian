@@ -14,7 +14,9 @@ namespace Friday.mvc.weblogin
     public partial class pAddGlobalGoodsType : System.Web.UI.Page
     {
         IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+
         private GlobalGoodsType globalGoodsType;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["__EVENTVALIDATION"] != null)

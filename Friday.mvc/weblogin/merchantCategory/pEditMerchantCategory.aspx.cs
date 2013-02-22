@@ -14,7 +14,9 @@ namespace Friday.mvc.weblogin
     public partial class pEditMerchantCategory : System.Web.UI.Page
     {
         IRepository<MerchantCategory> iMerchantCategoryRepository = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
+
         private MerchantCategory merchantCategory;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();

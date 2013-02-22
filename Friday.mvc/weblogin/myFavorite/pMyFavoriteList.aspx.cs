@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
         protected string SystemUserID;
+
         private IMyFavoriteRepository iMyFavoriteRepository = UnityHelper.UnityToT<IMyFavoriteRepository>();
 
         protected void Page_Load(object sender, EventArgs e)

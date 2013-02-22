@@ -14,7 +14,9 @@ namespace Friday.mvc.weblogin
     public partial class pEditLoginUser : System.Web.UI.Page
     {
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+
         private LoginUser loginUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();

@@ -14,7 +14,9 @@ namespace Friday.mvc.weblogin
     public partial class pAddLoginUser : System.Web.UI.Page
     {
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+
         private LoginUser loginUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["__EVENTVALIDATION"] != null)

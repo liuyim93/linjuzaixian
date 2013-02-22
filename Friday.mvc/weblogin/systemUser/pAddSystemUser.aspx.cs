@@ -15,8 +15,10 @@ namespace Friday.mvc.weblogin
     {
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
         ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
+
         private LoginUser loginUser;
         private SystemUser systemUser;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["__EVENTVALIDATION"] != null)

@@ -21,6 +21,7 @@ namespace Friday.mvc.weblogin
         protected string name;
         protected string tel;
         protected string email;
+
         ISystemUserRepository iRepositorySystemUser = UnityHelper.UnityToT<ISystemUserRepository>();
         IRepository<LoginUser> iRepositoryLoginUser = UnityHelper.UnityToT<IRepository<LoginUser>>();
 
