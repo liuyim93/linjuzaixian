@@ -25,16 +25,12 @@
                     <td>
                         <label>
                             类型:</label>
-                        <select name="mGoodsType" id="mGoodsType" runat="server">
+                        <select name="mGoodsType" id="mGoodsType" runat="server"  value="<%=goodsType%>" >
                             <option value="" >不限</option>
                        
                         </select>
                     </td>
-                    <%--<td>
-                        <label>
-                            自定义类型:</label>
-                        <input id="owenType" name="owenType" type="text" name="Name" value="<%=owenType%>" />
-                    </td>--%>
+                 
                 </tr>
                 <tr>
                     <td>
