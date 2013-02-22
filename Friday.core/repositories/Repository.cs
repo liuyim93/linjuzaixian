@@ -809,6 +809,73 @@ namespace friday.core.repositories
             return query;
         }
 
+        protected ICriteria SearchByMyFavorite(ICriteria query, List<DataFilter> termList, bool isSelf, List<SystemUser> systemUserList)
+        {
+            ISystemUserRepository iSystemUserRepository = UnityHelper.UnityToT<ISystemUserRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("MyFavorit", "myFavorit");
+                notself = "myFavorit.";
+            }
+
+            if (systemUserList != null && systemUserList.Count != 0)
+            {
+                query.Add(Restrictions.In(notself + "SystemUser", systemUserList));
+            }
+            if (termList != null && termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("SystemUser"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "SystemUser", iSystemUserRepository.Get(df.value)));
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySystemUser(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                //2013-02-17 basilwang we need set comparison to lower
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.ToLower().Equals("desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(notself + indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(notself + indf.type));
+                                }
+                            }
+                        }
+                        continue;
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
+
 
         protected ICriteria SearchByRent(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
