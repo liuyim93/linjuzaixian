@@ -334,6 +334,13 @@
     <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.designer.cs">
       <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.cs">
+      <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.designer.cs">
+      <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\systemUser\pAddSystemUser.aspx.cs">
       <DependentUpon>pAddSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -615,6 +622,7 @@
     <Content Include="weblogin\myFavorite\pAddMyFavorite.aspx" />
     <Content Include="weblogin\myFavorite\pEditMyFavorite.aspx" />
     <Content Include="weblogin\myFavorite\pMyFavoriteList.aspx" />
+    <Content Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx" />
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />
