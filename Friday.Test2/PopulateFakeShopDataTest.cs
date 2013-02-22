@@ -167,7 +167,7 @@ namespace Friday.Test2
            LoginUser lu1 = new LoginUser();
            lu1.LoginName = "Login" + shop.Name;
            lu1.Password = "LPass" + shop.Tel;
-           lu1.UserType = UserTypeEnum.餐馆;
+           lu1.UserType = UserTypeEnum.商店;
            iLoginUserRepository.SaveOrUpdate(lu1);
 
            LoginUserOfMerchant lum = new LoginUserOfMerchant();

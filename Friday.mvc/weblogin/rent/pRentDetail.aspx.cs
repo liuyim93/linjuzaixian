@@ -24,7 +24,7 @@ namespace Friday.mvc.weblogin.rent
         {
             string uid = Request.Params["uid"].ToString();
             rent = iRentRepository.Load(uid);
-            UserTypeEnum ust = UserTypeEnum.餐馆;
+            UserTypeEnum ust = UserTypeEnum.租房;
 
             loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
             this.LoginName.Value = loginuser.LoginName;

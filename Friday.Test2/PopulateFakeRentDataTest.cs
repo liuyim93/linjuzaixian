@@ -165,7 +165,7 @@ namespace Friday.Test2
            LoginUser lu1 = new LoginUser();
            lu1.LoginName = "Login" + rent.Name;
            lu1.Password = "LPass" + rent.Tel;
-           lu1.UserType = UserTypeEnum.餐馆;
+           lu1.UserType = UserTypeEnum.租房;
            iLoginUserRepository.SaveOrUpdate(lu1);
 
            LoginUserOfMerchant lum = new LoginUserOfMerchant();
