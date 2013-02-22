@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -54,7 +55,7 @@ namespace Friday.mvc.weblogin.myFoodOrder
                     restaurantFilter.Add(new DataFilter()
                     {
                         type = "Name",
-                        value = loginName = Request.Form["RestaurantName"]
+                        value = restaurantName = Request.Form["RestaurantName"]
 
                     });
 
@@ -71,7 +72,7 @@ namespace Friday.mvc.weblogin.myFoodOrder
                     type = "IsAnonymous"
                 });
 
-                //用户名
+                //用户名----------三层嵌套查询
                 //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                 //{
                 //    loginUserFilter.Add(new DataFilter()
@@ -88,11 +89,11 @@ namespace Friday.mvc.weblogin.myFoodOrder
                 //    });
                 //}
 
-                filterList.Add(new DataFilter()
-                {
-                    type = "SystemUser",
-                    field = systemUserFilter
-                });
+                //filterList.Add(new DataFilter()
+                //{
+                //    type = "SystemUser",
+                //    field = systemUserFilter
+                //});
 
 
                 if (!string.IsNullOrEmpty(Request.Form["OrderNumber"]))
