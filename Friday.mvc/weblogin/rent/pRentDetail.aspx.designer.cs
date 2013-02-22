@@ -40,24 +40,6 @@ namespace Friday.mvc.weblogin.rent {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Owener;
         
         /// <summary>
-        /// ShopHours 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ShopHours;
-        
-        /// <summary>
-        /// Distance 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Distance;
-        
-        /// <summary>
         /// Rate 控件。
         /// </summary>
         /// <remarks>
@@ -94,6 +76,24 @@ namespace Friday.mvc.weblogin.rent {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Address;
         
         /// <summary>
+        /// ShopHours 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ShopHours;
+        
+        /// <summary>
+        /// Distance 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Distance;
+        
+        /// <summary>
         /// ShopStatus 控件。
         /// </summary>
         /// <remarks>
@@ -103,6 +103,42 @@ namespace Friday.mvc.weblogin.rent {
         protected global::System.Web.UI.HtmlControls.HtmlSelect ShopStatus;
         
         /// <summary>
+        /// SchoolOfMerchant 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SchoolOfMerchant;
+        
+        /// <summary>
+        /// SchoolOfMerchantID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SchoolOfMerchantID;
+        
+        /// <summary>
+        /// NameSet 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NameSet;
+        
+        /// <summary>
+        /// IDSet 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText IDSet;
+        
+        /// <summary>
         /// Bulletins 控件。
         /// </summary>
         /// <remarks>
@@ -110,6 +146,15 @@ namespace Friday.mvc.weblogin.rent {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Bulletins;
+        
+        /// <summary>
+        /// ImagePreview 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePreview;
         
         /// <summary>
         /// Activity 控件。

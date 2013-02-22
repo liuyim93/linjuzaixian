@@ -133,15 +133,12 @@
      <div class="panel close collapse" defh="400">
         <h1>
             公告和Logo</h1>
-        <div>
-        <div>
+       
             <p >
                  <label >商铺公告：</label>
 					<textarea class="editor" tools="simple"  style="width:317px; height 200px;"   name="Bulletins" id="Bulletins"  runat="server"></textarea>
            </p>
-           </div>
-         
-           <div>
+
            <p>
             
                 <label>
@@ -159,6 +156,11 @@
                 <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
             </p>
           
+            <p >
+                 <label >商铺活动：</label>
+					<textarea   class="editor"    name="Activity" id="Textarea1" rows="15" cols="42"  runat="server"></textarea>
+           </p>
+        
            </div> 
                   
          <div style="  clear:left; width:80%; margin-top:240px" >

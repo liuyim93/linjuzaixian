@@ -4,11 +4,11 @@
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
     <div class="panel collapse" defh="95">
         <h1>
-            租房基本信息</h1>
+            租房公司基本信息</h1>
         <div>
          <p>
                 <label>
-                    租房名称：</label>
+                    公司名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
@@ -21,13 +21,7 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-        </div>
-    </div>
-     <div class="panel collapse" defh="95">
-        <h1>
-            营业时间</h1>
-        <div>
-            <p>
+                  <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
@@ -36,25 +30,9 @@
               <p>
                 <label>
                     距离：</label>
-                <input type="text" id="Text1" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
             </p>
-<%--                             <p>
-                        <label>
-                            服务的学校：</label>
-                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
-                            readonly="true" />
-                        <a class="add" target="dialog" href="ListSchool.aspx" rel="">
-                            选择</a>
-                        <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
-                            runat="server" />
-                    </p>--%>
-        </div>
-    </div>
-     <div class="panel close collapse" defh="70">
-        <h1>
-            详细信息</h1>
-        <div>
-            <p>
+              <p>
                 <label>
                     折扣：</label>
                 <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
@@ -85,32 +63,91 @@
                     <option value="正在休息">正在休息</option>
                 </select>
             </p>
+
+          
         </div>
     </div>
-     <div class="panel close collapse" defh="400">
+     <div class="panel collapse" defh="95">
         <h1>
-            公告和Logo</h1>
+            服务的学校</h1>
+    <div>
+      
+       <p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="SchoolOfMerchant" size="30" 
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="SchoolOfMerchantID"  size="30"  
+                    runat="server" readonly="true" />
+            </p>
+            <p>
+                <label>
+                    服务的学校(多选）：</label>
+                <input type="text" id="NameSet" size="35"  
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="IDSet" size="35"  
+                    runat="server" readonly="true" />
+            </p>
+ </div>
+    </div>
+         <div  class="panel close collapse" defh="120">
+          <h1>
+            公告和logo</h1>
             <div>
-        <div>
-            <p >
+              <p >
                  <label >商铺公告：</label>
 					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
            </p>
-           </div>
-           <div>
+        
+       
+           <p>
+            
+                <label>
+                    Logo上传：</label>
+          
+                <input id="Image" type="file" class="required textInput gray" runat="server" />
+              
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+           
+            </p>
+          
+             <p >
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>
+          
             <p >
                  <label >商铺活动：</label>
 					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
            </p>
-           </div>        
-         <div style="  clear:left; width:80%; margin-top:280px;margin-bottom:60px;" >
+        
+          </div>
+           </div> 
+     <div class="panel close collapse" defh="70">
+        <h1>
+            详细信息</h1>          
+       
+          <div>
+                
+        
              <p>
                  <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
+         	 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
+			 
                 </p>
-        </div></div>
+                </div>
+       
     </div>
      <div class="formBar">
         <ul>
