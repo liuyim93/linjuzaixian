@@ -5,6 +5,8 @@
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="rel_v3" value='<%=Request.Params["rel_v3"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
+<input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
+<input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
 </form>
 <div class="panel close collapse" defh="75">
     <h1>
@@ -21,9 +23,12 @@
                     </td>
 
                     <td>
-                        <label>
-                            自定义类型:</label>
-                        <input id="owenType" name="owenType" type="text" name="Name"  />
+                            <label>
+                            类型:</label>
+                        <select name="mGoodsType" id="mGoodsType" runat="server">
+                            <option value="" >不限</option>
+                       
+                        </select>
                     </td>
                 </tr>
                 <tr>
@@ -62,7 +67,7 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="House/AddHouse.aspx?shop_id={id}" title="增加房屋" target="navTab"
+        <li><a class="add" href="House/pAddHouse.aspx?merchant_id={id}" title="增加房屋" target="navTab"
             rel="" width="600" height="400"><span>增加房屋</span></a></li>
         <li><a class="edit" href="House/EditHouse.aspx?uid={houseid}" title="修改房屋" rel="" target="dialog"
             height="480"><span>修改房屋</span></a></li>
