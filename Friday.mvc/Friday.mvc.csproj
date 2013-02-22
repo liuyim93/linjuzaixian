@@ -306,6 +306,13 @@
     <Compile Include="weblogin\merchantCategory\pEditMerchantCategory.aspx.designer.cs">
       <DependentUpon>pEditMerchantCategory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.cs">
+      <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.designer.cs">
+      <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\systemUser\pAddSystemUser.aspx.cs">
       <DependentUpon>pAddSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -583,6 +590,7 @@
     <Content Include="weblogin\globalGoodsType\pEditGlobalGoodsType.aspx" />
     <Content Include="weblogin\merchantCategory\pAddMerchantCategory.aspx" />
     <Content Include="weblogin\merchantCategory\pEditMerchantCategory.aspx" />
+    <Content Include="weblogin\myFavorite\pMyFavoriteList.aspx" />
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
     <Content Include="weblogin\rent\pRentDetail.aspx" />

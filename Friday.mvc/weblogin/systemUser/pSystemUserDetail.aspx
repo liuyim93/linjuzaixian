@@ -7,6 +7,8 @@
                 <li class="selected"><a href="#"><span>顾客用户基本信息</span></a></li>
                 <li><a href='address/pAddressList.aspx?systemUser_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>配送地址</span></a></li>
+                <li><a href='myFavorite/pMyFavoriteList.aspx?systemUser_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBoxMyFavorite"
+                target="ajax"><span>我的收藏</span></a></li>
            </ul>
         </div>
     </div>
@@ -40,6 +42,8 @@
          </div>
 
         <div id="jbsxBox1" >
+        </div>
+        <div id="jbsxBoxMyFavorite" >
         </div>
     </div>
     <div class="tabsFooter">

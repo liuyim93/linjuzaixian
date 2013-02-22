@@ -4,37 +4,37 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using friday.core.repositories;
 using friday.core;
+using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
 
-namespace Friday.mvc.weblogin
+namespace Friday.mvc.weblogin.myFavorite
 {
-    public partial class pAddressList : System.Web.UI.Page
+    public partial class pMyFavoriteList : System.Web.UI.Page
     {
         protected long total;
         protected int pageNum;
         protected int numPerPageValue;
 
         protected string SystemUserID;
-        private IAddressRepository iAddressRepository = UnityHelper.UnityToT<IAddressRepository>();
+        private IMyFavoriteRepository iMyFavoriteRepository = UnityHelper.UnityToT<IMyFavoriteRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["flag"] != "alldelete")
             {
-                SearchAddress();
+                SearchMyFavorite();
             }
             else
             {
-                DeleteAddress();
+                DeleteMyFavorite();
             }
         }
-        private void DeleteAddress()
+        private void DeleteMyFavorite()
         {
 
-            iAddressRepository.Delete(Request.Params["uid"]);
+            iMyFavoriteRepository.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -43,7 +43,7 @@ namespace Friday.mvc.weblogin
             Response.Write(jsonResult.FormatResult());
             Response.End();
         }
-        private void SearchAddress()
+        private void SearchMyFavorite()
         {
             if (Request.Form["systemUser_id"] != null)
             {
@@ -57,7 +57,7 @@ namespace Friday.mvc.weblogin
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
-            IList<Address> addressList = null;
+            IList<MyFavorite> myFavoriteList = null;
             List<DataFilter> dfl = new List<DataFilter>();
 
             if (!string.IsNullOrEmpty(SystemUserID))
@@ -72,8 +72,8 @@ namespace Friday.mvc.weblogin
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            addressList = iAddressRepository.Search(dfl, start, limit, out total);
-            repeater.DataSource = addressList;
+            myFavoriteList = iMyFavoriteRepository.Search(dfl, start, limit, out total);
+            repeater.DataSource = myFavoriteList;
             repeater.DataBind();
 
 

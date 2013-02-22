@@ -41,7 +41,7 @@ namespace Friday.mvc.weblogin
         private void DeleteFood()
         {
 
-            iFoodRepository.PhysicsDelete(Request.Params["uid"]);
+            iFoodRepository.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";

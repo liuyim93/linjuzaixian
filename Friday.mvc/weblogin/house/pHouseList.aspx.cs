@@ -35,7 +35,7 @@ namespace Friday.mvc.weblogin
         private void DeleteHouse()
         {
 
-            iHouseRepository.PhysicsDelete(Request.Params["uid"]);
+            iHouseRepository.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
