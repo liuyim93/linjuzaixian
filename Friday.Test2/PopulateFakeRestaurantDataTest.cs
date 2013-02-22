@@ -19,6 +19,7 @@ namespace Friday.Test2
        private List<SystemUser> systemUserList = new List<SystemUser>();
        private List<LoginUser> loginUserList = new List<LoginUser>();
        private List<Restaurant> restaurantList = new List<Restaurant>();
+       private List<Address> addressList = new List<Address>();
        private List<Food> foodOfRestaurant1List = new List<Food>();
        private List<Food> foodOfRestaurant2List = new List<Food>();
        private List<School> schoolList = new List<School>();
@@ -29,6 +30,10 @@ namespace Friday.Test2
        private readonly int ORDER_COUNT = 500;
        private readonly int SHCOOL_COUNT = 10;
        string[] mCategory = { "中餐", "西餐", "清真"};
+       string[] schname = { "山东轻工业学院", "山东农业大学", "山东工业大学", "山东师范大学", "潍坊学院", "聊城大学", "青岛科技大学", "青岛理工大学", "哈尔滨工业大学威海校区", "菏泽学院" };
+       string[] schstname = { "sduq", "sdua", "sdug", "sdut", "wfu", "lcu", "qdkju", "qdlgu", "hgu", "hzu" };
+       string[] schcity = { "济南", "泰安", "济南", "济南", "潍坊", "聊城", "青岛", "青岛", "威海", "菏泽" };
+
 
        [SetUp]
         public void init()
@@ -81,33 +86,51 @@ namespace Friday.Test2
                tel = "187" + get_random_number_with_fixed_width(8);
                systemUser = (from u in loginUserList select u).Where(o => o.LoginName == "john" + tel).FirstOrDefault();
            }
-           SystemUser systemUser_1 = new SystemUser(systemuserid)
-           {
-               Email = "john" +  tel +"@163.com",
-               Tel = tel,
-               Name = "john" + tel,
-               //UserType=0,
-               Description = "我NO是测试账户",
+          
 
-           };
-           Address address = new Address()
-           {
-               AddressName = "山东财经大学" + get_random_number_with_fixed_width(2) + "号宿舍楼" + get_random_number_with_fixed_width(3),
+
+               SystemUser systemUser_1 = new SystemUser(systemuserid)
+               {
+                   Email = "john" + tel + "@163.com",
+                   Tel = tel,
+                   Name = "john" + tel,
+                   //UserType=0,
+                   Description = "我NO是测试账户",
+
+               };
+               for (int i = 0; i < schname.Length;i++ )
+               {         
+                  Address address = new Address()
+                {
+               AddressName = schname[i] + get_random_number_with_fixed_width(2) + "号宿舍楼" + get_random_number_with_fixed_width(3),
                BackupTel = "187" + get_random_number_with_fixed_width(8),
                Email = "john" + tel + "@163.com",
                Linkman = "john" + tel,
                QQ = get_random_number_with_fixed_width(8),
                Tel = tel,
                Weixin = get_random_number_with_fixed_width(7),
-               SystemUser = systemUser_1
-           };
+               //SystemUser = systemUser_1
+                 };
+                  addressList.Add(address);
+               }
+
+               int iAddSysRan = new Random().Next(schname.Length)+1;//mCategory.Length
+               List<Address> addressListClone = new List<Address>(addressList);
+
+               for (int i = 0; i < iAddSysRan;i++ )
+               {
+                   int rAddSysRan = new Random().Next(addressListClone.Count);
+                   addressListClone[rAddSysRan].SystemUser = systemUser_1;
+                   systemUser_1.Addresses.Add(addressListClone[rAddSysRan]);
+                   addressListClone.Remove(addressListClone[rAddSysRan]);
+               }
 
            RestaurantCart restaurantCart = new RestaurantCart()
            {
                SystemUser = systemUser_1
            };
            systemUser_1.RestaurantCarts.Add(restaurantCart);
-           systemUser_1.Addresses.Add(address);
+       
 
            //new SystemUserRepository().SaveOrUpdate(systemUser_1);
            //2013-02-04 lampard it can save restaurantCart
@@ -291,10 +314,7 @@ namespace Friday.Test2
        private void add_School_Restaurant()
        {
 
-           string[] schname = { "山东轻工业学院", "山东农业大学", "山东工业大学", "山东师范大学", "潍坊学院", "聊城大学", "青岛科技大学", "青岛理工大学", "哈尔滨工业大学威海校区", "菏泽学院" };
-           string[] schstname = { "sduq", "sdua", "sdug", "sdut", "wfu", "lcu", "qdkju", "qdlgu", "hgu", "hzu" };
-           string[] schcity = { "济南", "泰安", "济南", "济南", "潍坊", "聊城", "青岛", "青岛", "威海", "菏泽" };
-
+         
            for (int s = 0; s < SHCOOL_COUNT; s++)
            {
                //int isch = new Random().Next(schname.Length);
