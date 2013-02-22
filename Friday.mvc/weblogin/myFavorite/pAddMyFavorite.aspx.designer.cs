@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin {
     
     
-    public partial class pMyFavoriteList {
+    public partial class pAddMyFavorite {
         
         /// <summary>
         /// form 控件。
@@ -22,21 +22,21 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// repeater 控件。
+        /// Merchant 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeater;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Merchant;
         
         /// <summary>
-        /// numPerPage 控件。
+        /// MerchantID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect numPerPage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MerchantID;
     }
 }

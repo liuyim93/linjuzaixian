@@ -21,11 +21,11 @@ namespace Friday.mvc.weblogin
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                SaveFood();
+                SaveAddress();
             }
         }
 
-        private void SaveFood()
+        private void SaveAddress()
         {
             
             BindingHelper.RequestToObject(address);

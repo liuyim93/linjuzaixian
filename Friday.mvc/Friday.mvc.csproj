@@ -222,6 +222,13 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListMerchant.aspx.cs">
+      <DependentUpon>ListMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListMerchant.aspx.designer.cs">
+      <DependentUpon>ListMerchant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListSchool.aspx.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,6 +312,13 @@
     </Compile>
     <Compile Include="weblogin\merchantCategory\pEditMerchantCategory.aspx.designer.cs">
       <DependentUpon>pEditMerchantCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myFavorite\pAddMyFavorite.aspx.cs">
+      <DependentUpon>pAddMyFavorite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFavorite\pAddMyFavorite.aspx.designer.cs">
+      <DependentUpon>pAddMyFavorite.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.cs">
       <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
@@ -578,6 +592,7 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
@@ -590,6 +605,7 @@
     <Content Include="weblogin\globalGoodsType\pEditGlobalGoodsType.aspx" />
     <Content Include="weblogin\merchantCategory\pAddMerchantCategory.aspx" />
     <Content Include="weblogin\merchantCategory\pEditMerchantCategory.aspx" />
+    <Content Include="weblogin\myFavorite\pAddMyFavorite.aspx" />
     <Content Include="weblogin\myFavorite\pMyFavoriteList.aspx" />
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />

@@ -9,7 +9,7 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
 
-namespace Friday.mvc.weblogin.myFavorite
+namespace Friday.mvc.weblogin
 {
     public partial class pMyFavoriteList : System.Web.UI.Page
     {

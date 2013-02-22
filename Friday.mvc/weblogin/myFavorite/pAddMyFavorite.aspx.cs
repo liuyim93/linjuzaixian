@@ -4,36 +4,40 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using friday.core.domain;
-using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.domain;
+using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditAddress : System.Web.UI.Page
+    public partial class pAddMyFavorite : System.Web.UI.Page
     {
-        private IRepository<Address> repository = UnityHelper.UnityToT<IRepository<Address>>();
-        private Address address;
+        private IRepository<MyFavorite> myFavoriteRepository = UnityHelper.UnityToT<IRepository<MyFavorite>>();
+        private IRepository<Merchant> merchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
+        private IRepository<SystemUser> systemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
+
+        private SystemUser systemUser = new SystemUser();
+        private MyFavorite myFavorite = new MyFavorite();
+        private Merchant merchantObj = new Merchant();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            address = repository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                SaveAddress();
-            }
-            else
-            {
-                BindingHelper.ObjectToControl(address, this);
+                SaveFood();
             }
         }
 
-        private void SaveAddress()
+        private void SaveFood()
         {
 
-            BindingHelper.RequestToObject(address);
-            repository.SaveOrUpdate(address);
+            systemUser = systemUserRepository.Get(Request.Params["systemUser_id"]);
+            myFavorite.SystemUser = systemUser;
+
+            merchantObj = merchantRepository.Get(MerchantID.Value);
+            myFavorite.Merchant = merchantObj;
+            myFavoriteRepository.SaveOrUpdate(myFavorite);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
