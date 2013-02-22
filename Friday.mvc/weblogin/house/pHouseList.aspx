@@ -69,9 +69,9 @@
     <ul class="toolBar">
         <li><a class="add" href="House/pAddHouse.aspx?merchant_id={id}" title="增加房屋" target="navTab"
             rel="" width="600" height="400"><span>增加房屋</span></a></li>
-        <li><a class="edit" href="House/EditHouse.aspx?uid={houseid}" title="修改房屋" rel="" target="dialog"
+        <li><a class="edit" href="House/pEditHouse.aspx?uid={houseid}&merchant_id={id}" title="修改房屋" rel="" target="dialog"
             height="480"><span>修改房屋</span></a></li>
-        <li><a class="delete" href="House/pHouseList.aspx?flag=alldelete&uid={id}" target="navTabTodo"
+        <li><a class="delete" href="House/pHouseList.aspx?flag=alldelete&uid={id}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除房屋</span></a></li>
         <li class="line">line</li>
     </ul>

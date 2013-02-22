@@ -268,6 +268,8 @@
     <Compile Include="repositories\MerchantGoodsTypeRepository.cs" />
     <Compile Include="repositories\CommodityRepository.cs" />
     <Compile Include="repositories\ICommodityRepository.cs" />
+    <Compile Include="repositories\HouseRepository.cs" />
+    <Compile Include="repositories\IHouseRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />

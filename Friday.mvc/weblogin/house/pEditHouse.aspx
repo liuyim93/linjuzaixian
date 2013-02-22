@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddHouse.aspx.cs" Inherits="Friday.mvc.weblogin.pAddHouse" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditHouse.aspx.cs" Inherits="Friday.mvc.weblogin.pEditHouse" %>
 
 <div class="page">
     <div class="pageContent">
@@ -10,7 +9,7 @@
             <h1>
                 房屋基本信息</h1>
             <input type="hidden" id="FoodId" size="30" runat="server" />
-             <p>
+              <p>
                 <label>
                     房屋名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -89,7 +88,7 @@
             </p>
               <p>
             <label>
-                    房屋类型：</label>
+                    菜品类型：</label>
            <select name="GoodsType" id="GoodsType" runat="server">
             <option value="" ></option>
             
@@ -125,14 +124,11 @@
             <p style="color: red">
                 请上传大小为190×142的食物图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
             </p>
-          
+             
               <p >
                 <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
             </p>
           
-
-
-
             <div class="formBar">
                 <ul>
                     <li>
