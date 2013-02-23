@@ -18,17 +18,17 @@
             <p>
             <label>
                     商品单价:</label>
-            <input type="text" id="OnePrice" size="30" class="required textInput gray phone" runat="server" />
+            <input type="text" id="OnePrice" size="30" onchange="" class="required textInput gray" runat="server" readonly="true"/>
             </p>
             <p>
                 <label>
                     购买数量：</label>
-                <input type="text" id="Amount" size="30" class="required textInput gray phone" runat="server" />
+                <input type="text" id="Amount" size="30" class="required textInput gray digits" min="1" runat="server" />
             </p>          
             <p>
                 <label>
                     总金额：</label>
-                <input type="text" id="Price" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Price" size="30" class="required textInput gray" runat="server"/>
             </p>
 
             </div>
@@ -80,6 +80,17 @@
 
                 });
             }
+
+//            o.find("#OnePrice").bind("change", function (e) {
+//                if ($("#OnePrice").val() != null && $("#OnePrice").val() != "" && $("#Amount").val() != null && $("#Amount").val() != "")
+//                    $("#Price").val((parseFloat($("#OnePrice").val()) * parseFloat($("#Amount").val())).toString());
+
+//            });
+//            o.find("#Amount").bind("change", function (e) {
+//                if ($("#OnePrice").val() != null && $("#OnePrice").val() != "" && $("#Amount").val() != null && $("#Amount").val() != "")
+//                    $("#Price").val((parseFloat($("#OnePrice").val()) * parseFloat($("#Amount").val())).toString());
+//            });
+
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 
