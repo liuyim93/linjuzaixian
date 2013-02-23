@@ -13,7 +13,7 @@
                 <input type="text" id="Food" size="30" class="required textInput gray"
                     runat="server" readonly="true" />
                  <input type="hidden" id="FoodID"  runat="server" />
-                <a class="btnLook" href="ListFood.aspx?myFoodOrder_id=<%=Request.Params["myFoodOrder_id"]%>" rel="" lookupgroup="">选择商品</a>
+                <a class="btnLook" href="ListFoodByRestaurant.aspx?myFoodOrder_id=<%=Request.Params["myFoodOrder_id"]%>" rel="" lookupgroup="">选择商品</a>
             </p>
             <p>
             <label>

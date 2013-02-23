@@ -222,12 +222,12 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\ListFood.aspx.cs">
-      <DependentUpon>ListFood.aspx</DependentUpon>
+    <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
+      <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\ListFood.aspx.designer.cs">
-      <DependentUpon>ListFood.aspx</DependentUpon>
+    <Compile Include="weblogin\ListFoodByRestaurant.aspx.designer.cs">
+      <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMerchant.aspx.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
@@ -634,7 +634,7 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
-    <Content Include="weblogin\ListFood.aspx" />
+    <Content Include="weblogin\ListFoodByRestaurant.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
