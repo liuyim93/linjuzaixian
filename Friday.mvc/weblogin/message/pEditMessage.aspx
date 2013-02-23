@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMessage.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pEditActivity" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMessage.aspx.cs" Inherits="Friday.mvc.weblogin.message.pEditMessage" %>
 
 <div class="page" style="">
     <div class="pageContent">
@@ -17,26 +17,38 @@
             <h1>
                 基本信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
-           <p>
+         <p>
                 <label>
-                    活动名称：</label>
-                <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
+                    消息名称：</label>
+                <input type="text" id="ThreadIndex" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>
-                    活动事项：</label>
-                <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
+                    消息类型：</label>
+                <input type="text" id="MessageType" size="30" class="required textInput gray" runat="server" />
             </p>
-        
-         <div style="  clear:left; width:80%; margin-top:160px" >
+            <p>
+                <label>
+                    消息索引：</label>
+                <input type="text" id="TrackIndex" size="30" class="required textInput gray" runat="server" />
+            </p>
+          <p>
+           <label>
+                            IsNew:</label>
+                        <select name="IsNew" id="IsNew" runat="server"   >
+                            <option value="" ></option>
+                            <option value="True" >是</option>
+                            <option value="False" >否</option>
+                        </select>
+             </p><p></p><p></p>
              <p>
-                 <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
+                    <label>
+                        详细内容：</label>
+                     
+                        <textarea id="Content" name="Content" rows="20"   style="width:800px"
+                            runat="server"></textarea>
+                     
                 </p>
-                  
-       </div>
     
         </div>
                 <div class="formBar">
@@ -68,7 +80,7 @@
     $(function () {
         var prefix = '<%=Request.Params["prefix"]%>';
         $(document).one("panelloaded", function (e, o) {
-            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            o.find("#Content").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 
             o = null;

@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.message {
     
     
-    public partial class pEditActivity {
+    public partial class pEditMessage {
         
         /// <summary>
         /// form 控件。
@@ -31,30 +31,48 @@ namespace Friday.mvc.weblogin.message {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
         
         /// <summary>
-        /// Name 控件。
+        /// ThreadIndex 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ThreadIndex;
         
         /// <summary>
-        /// Matters 控件。
+        /// MessageType 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Matters;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MessageType;
         
         /// <summary>
-        /// Description 控件。
+        /// TrackIndex 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText TrackIndex;
+        
+        /// <summary>
+        /// IsNew 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect IsNew;
+        
+        /// <summary>
+        /// Content 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Content;
     }
 }

@@ -7,7 +7,7 @@
         <div class="tabsHeaderContent">
           <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
-                <li><a href="#"><span>相关事件</span></a></li>
+       
                 <li><a href="#"><span>详细内容</span></a></li>
       
       
@@ -52,18 +52,18 @@
                         </select>
              </p>
 
+          </div>
          <div>
-            <div style="clear: left; width: 80%; margin-top: 0px; margin-bottom: 60px;">
+           
                 <p>
                     <label>
                         详细内容：</label>
-                    <div style="width: 100%;">
-                        <textarea id="Content" name="Content" rows="20" cols="240" style="width: 100%"
+                     
+                        <textarea id="Content" name="Content" rows="20"   style="width:1000px"
                             runat="server"></textarea>
-                         
-                    </div>
+                     
                 </p>
-            </div>
+           
          </div>
 
     </div>

@@ -29,7 +29,7 @@ namespace Friday.mvc.weblogin.message
             {
 
                 BindingHelper.ObjectToControl(message, this);
-               
+                this.Content.Value = message.MessageContent.Content;
 
             }
         }
