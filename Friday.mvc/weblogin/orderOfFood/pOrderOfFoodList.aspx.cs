@@ -38,7 +38,6 @@ namespace Friday.mvc.weblogin
         }
         private void DeleteOrderOfFood()
         {
-            //未处理完
             if (Request.Form["myFoodOrder_id"] != null)
             {
                 MyFoodOrderID = Request.Form["myFoodOrder_id"];

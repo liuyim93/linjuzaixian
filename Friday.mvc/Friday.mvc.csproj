@@ -222,6 +222,13 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListFood.aspx.cs">
+      <DependentUpon>ListFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListFood.aspx.designer.cs">
+      <DependentUpon>ListFood.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListMerchant.aspx.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -347,6 +354,13 @@
     </Compile>
     <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.designer.cs">
       <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pAddOrderOfFood.aspx.cs">
+      <DependentUpon>pAddOrderOfFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pAddOrderOfFood.aspx.designer.cs">
+      <DependentUpon>pAddOrderOfFood.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\orderOfFood\pOrderOfFoodList.aspx.cs">
       <DependentUpon>pOrderOfFoodList.aspx</DependentUpon>
@@ -620,6 +634,7 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\ListFood.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
@@ -638,6 +653,7 @@
     <Content Include="weblogin\myFavorite\pMyFavoriteList.aspx" />
     <Content Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx" />
     <Content Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx" />
+    <Content Include="weblogin\orderOfFood\pAddOrderOfFood.aspx" />
     <Content Include="weblogin\orderOfFood\pOrderOfFoodList.aspx" />
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
