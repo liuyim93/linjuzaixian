@@ -23,6 +23,7 @@ namespace Friday.Test2
        private List<Food> foodOfRestaurant1List = new List<Food>();
        private List<Food> foodOfRestaurant2List = new List<Food>();
        private List<School> schoolList = new List<School>();
+       private List<MessageContent> messageContentList = new List<MessageContent>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_RESTAURANT_COUNT = 5;
        private readonly int RESTAURANT_COUNT = 15;  //we double RESTAURANT_COUNT  eg  10*2
@@ -61,8 +62,47 @@ namespace Friday.Test2
         }
        private void  add_Random_Message()
        {
-       
-       
+           IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
+           IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
+           List<LoginUser> loginUserListClone = new List<LoginUser>(loginUserList);
+
+           for (int j = 0; j < 10; j++)
+           {
+               MessageContent messageContent = new MessageContent()
+               {
+                   Content = j+"阿里巴巴员工2013年初收到了史上最丰厚的年终大礼包。"
+
+               };
+               iMessageContentRepository.SaveOrUpdate(messageContent);
+               messageContentList.Add(messageContent);
+           }
+
+           List<MessageContent> messageContentListClone = new List<MessageContent>(messageContentList);
+
+           int frlulc=0,trlulc=0;
+           for (int i = 0; i<loginUserList.Count;i++ )
+           {
+               do
+               {
+            
+                 frlulc = new Random().Next(loginUserListClone.Count);
+                 trlulc = new Random().Next(loginUserListClone.Count);
+                 }
+               while(frlulc!=trlulc && (frlulc!=0 || frlulc!=1 ));
+
+               int rmclc = new Random().Next(messageContentListClone.Count);
+
+               Message message = new Message()
+               {
+                   ThreadIndex =i+"主题"+loginUserListClone[frlulc].LoginName + "To" + loginUserListClone[trlulc].LoginName,
+                   MessageContent = messageContentListClone[rmclc],
+                   FromLoginUser = loginUserListClone[frlulc],
+                   ToLoginUser = loginUserListClone[trlulc]
+               };
+               iMessageRepository.SaveOrUpdate(message);
+
+           }      
+                 
        
        }
        //2013-02-17  pangfuxing  add MerchantCategory
