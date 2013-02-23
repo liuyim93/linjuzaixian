@@ -20,6 +20,10 @@ namespace Friday.mvc.weblogin
         protected string MyFoodOrderID;
 
         private IOrderOfFoodRepository iOrderOfFoodRepository = UnityHelper.UnityToT<IOrderOfFoodRepository>();
+        private IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+
+        private MyFoodOrder myFoodOrder;
+        private OrderOfFood orderOfFood;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,7 +39,22 @@ namespace Friday.mvc.weblogin
         private void DeleteOrderOfFood()
         {
             //未处理完
+            if (Request.Form["myFoodOrder_id"] != null)
+            {
+                MyFoodOrderID = Request.Form["myFoodOrder_id"];
+            }
+            else
+            {
+                MyFoodOrderID = Request.Params["myFoodOrder_id"];
+            }
+            myFoodOrder = iMyFoodOrderRepository.Get(MyFoodOrderID);
+            orderOfFood = iOrderOfFoodRepository.Get(Request.Params["uid"]);
+            
+            myFoodOrder.Price = myFoodOrder.Price - orderOfFood.Price;
+
+            iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
             iOrderOfFoodRepository.Delete(Request.Params["uid"]);
+
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";

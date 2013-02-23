@@ -9,11 +9,11 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="OrderOfFood/pAddOrderOfFood.aspx?myFoodOrder_id=<%=Request.Params["systemUser_id"]%>" title="增加订单明细" target="dialog"
+        <li><a class="add" href="OrderOfFood/pAddOrderOfFood.aspx?myFoodOrder_id=<%=Request.Params["myFoodOrder_id"]%>" title="增加订单明细" target="dialog"
             rel="" width="600" height="400"><span>增加订单明细</span></a></li>
-        <li><a class="edit" href="OrderOfFood/pEditOrderOfFood.aspx?uid={orderOfFoodid}" title="修改订单明细" rel="" target="dialog"
+        <li><a class="edit" href="OrderOfFood/pEditOrderOfFood.aspx?uid={orderOfFoodid}&myFoodOrder_id=<%=Request.Params["myFoodOrder_id"]%>" title="修改订单明细" rel="" target="dialog"
             height="480"><span>修改订单明细</span></a></li>
-        <li><a class="delete" href="OrderOfFood/pOrderOfFoodList.aspx?flag=alldelete&uid={orderOfFoodid}" target="ajaxTodo"
+        <li><a class="delete" href="OrderOfFood/pOrderOfFoodList.aspx?flag=alldelete&uid={orderOfFoodid}&myFoodOrder_id=<%=Request.Params["myFoodOrder_id"]%>" target="ajaxTodo"
             title="确定要删除吗?"><span>删除订单明细</span></a></li>
         <li class="line">line</li>
     </ul>
@@ -43,8 +43,8 @@
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Name")%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Price")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td>
-                         <td align="center"><%#Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Amount")) *Convert.ToDouble(DataBinder.Eval(Container.DataItem, "Food.Price"))%></td>
-
+                         <%--<td align="center"><%#Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Amount")) *Convert.ToDouble(DataBinder.Eval(Container.DataItem, "Food.Price"))%></td>--%>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
                     </tr>
 			      
                 </ItemTemplate>
