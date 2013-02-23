@@ -15,6 +15,7 @@ namespace Friday.mvc.weblogin.message
     public partial class pEditMessage : System.Web.UI.Page
     {
         IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
+        IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
         private Message message;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,9 +37,11 @@ namespace Friday.mvc.weblogin.message
 
         private void SaveMessage()
         {
-            BindingHelper.RequestToObject(message);
+            MessageContent mssc = iMessageContentRepository.Get(message.MessageContent.Id);
+            mssc.Content = this.Content.Value;
+            iMessageContentRepository.SaveOrUpdate(mssc);
 
-            
+            BindingHelper.RequestToObject(message);            
             iMessageRepository.SaveOrUpdate(message);
 
             AjaxResult result = new AjaxResult();
