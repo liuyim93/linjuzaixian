@@ -87,10 +87,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Friday.core\Friday.core.csproj">
+      <Project>{94A7D4D5-4032-4738-BD5E-C3FEAC319C5A}</Project>
+      <Name>Friday.core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Friday.mvc\Friday.mvc.csproj">
       <Project>{0AA7F462-6413-4931-A30B-6204A32E3901}</Project>
       <Name>Friday.mvc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Shadow Include="测试引用\friday.core.accessor" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

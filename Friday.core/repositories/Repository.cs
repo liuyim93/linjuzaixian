@@ -177,13 +177,30 @@ namespace friday.core.repositories
         }
         protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchByLoginUser(query, termList);
+        }
+        protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = "LoginUser";
+            return SearchByLoginUser(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList,ref int deepIndex,ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+            string oldParentSearch = parentSearch;
+            parentSearch = parentSearch + ".LoginUser";
+            string alias = parentSearch;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("LoginUser", "loginUser");
                 notself = "loginUser.";
+                if (deepIndex == 1)
+                {
+                    alias = "LoginUser";
+                }
+                query.CreateAlias(alias, "loginUser");
             }
-
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -249,16 +266,36 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
         protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchBySystemUser(query, termList);
+        }
+        protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch="SystemUser";
+            return SearchBySystemUser(query, termList, ref deepIndex,ref parentSearch);
+        }
+        protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, ref int deepIndex,ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+            string oldParentSearch = parentSearch;
+            parentSearch = parentSearch + ".SystemUser";
+            string alias = parentSearch;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("SystemUser", "systemUser");
                 notself = "systemUser.";
+                if (deepIndex == 1)
+                {
+                    alias = "SystemUser";
+                }
+                query.CreateAlias(alias, "systemUser");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -281,7 +318,7 @@ namespace friday.core.repositories
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByLoginUser(query, df.field, false);
+                            SearchByLoginUser(query, df.field, ref deepIndex,ref parentSearch);
                         }
                         continue;
                     }
@@ -333,6 +370,8 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
 
@@ -401,15 +440,33 @@ namespace friday.core.repositories
             }
             return query;
         }
-
         protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchByMyFoodOrder(query, termList);
+        }
+        protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = "MyFoodOrder";
+            return SearchByMyFoodOrder(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+
+            string oldParentSearch = parentSearch;
+            parentSearch = parentSearch + ".MyFoodOrder";
+            string alias = parentSearch;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("MyFoodOrder", "myFoodOrder");
                 notself = "myFoodOrder.";
+                if (deepIndex == 1)
+                {
+                    alias = "MyFoodOrder";
+                }
+                query.CreateAlias(alias, "myFoodOrder");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -446,7 +503,7 @@ namespace friday.core.repositories
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchBySystemUser(query, df.field, false);
+                            SearchBySystemUser(query, df.field,ref deepIndex,ref parentSearch);
                         }
                         continue;
                     }
@@ -490,6 +547,8 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
 
