@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pMessageDetail.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pActivityDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pMessageDetail.aspx.cs" Inherits="Friday.mvc.weblogin.message.pMessageDetail" %>
 
 
 

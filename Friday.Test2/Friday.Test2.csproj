@@ -76,6 +76,7 @@
     <Compile Include="PopulateFakeShopDataTest.cs" />
     <Compile Include="Test_SystemUser.cs" />
     <Compile Include="PopulateFakeRentDataTest.cs" />
+    <Compile Include="Test_Message.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.activity {
+namespace Friday.mvc.weblogin.message {
     
     
-    public partial class pActivityDetail {
+    public partial class pMessageDetail {
         
         /// <summary>
         /// Hidden1 控件。

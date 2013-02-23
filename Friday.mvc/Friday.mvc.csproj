@@ -289,12 +289,12 @@
     <Compile Include="weblogin\message\pAddMessage.aspx.designer.cs">
       <DependentUpon>pAddMessage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\message\pEditMessageActivity.aspx.cs">
-      <DependentUpon>pEditMessageActivity.aspx</DependentUpon>
+    <Compile Include="weblogin\message\pEditMessage.aspx.cs">
+      <DependentUpon>pEditMessage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\message\pEditMessageActivity.aspx.designer.cs">
-      <DependentUpon>pEditMessageActivity.aspx</DependentUpon>
+    <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
+      <DependentUpon>pEditMessage.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\school\ListSchool.aspx.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
@@ -703,7 +703,7 @@
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
-    <Content Include="weblogin\message\pEditMessageActivity.aspx" />
+    <Content Include="weblogin\message\pEditMessage.aspx" />
     <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />

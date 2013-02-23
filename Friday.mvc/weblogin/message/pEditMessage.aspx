@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMessageActivity.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pEditActivity" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMessage.aspx.cs" Inherits="Friday.mvc.weblogin.activity.pEditActivity" %>
 
 <div class="page" style="">
     <div class="pageContent">
@@ -27,21 +27,7 @@
                     活动事项：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
-              <p>
-                <label>
-                    附件上传：</label>
-          
-                <input id="Image" type="file" class="required textInput gray" runat="server" />
-                   </p><p>
-            <span style="color: red; width:300px">
-                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
-            </span>  
-            </p>
-            </p>
-             <p style="margin-left:20px;height:40px">
-                <img id="ImagePreview" runat="server"  style=" width:120px; height:100px" />
-            </p>
+        
          <div style="  clear:left; width:80%; margin-top:160px" >
              <p>
                  <label>详细内容：</label>

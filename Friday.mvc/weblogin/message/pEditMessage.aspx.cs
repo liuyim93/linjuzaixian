@@ -12,35 +12,38 @@ using System.IO;
 
 namespace Friday.mvc.weblogin.message
 {
-    public partial class pAddMessage : System.Web.UI.Page
+    public partial class pEditMessage : System.Web.UI.Page
     {
         IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
-    
+        private Message message;
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            string uid = Request.Params["uid"].ToString();
+            message = iMessageRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
                 SaveMessage();
             }
-            
+            else
+            {
+
+                BindingHelper.ObjectToControl(message, this);
+               
+
+            }
         }
 
         private void SaveMessage()
         {
-            Message act = new Message();
+            BindingHelper.RequestToObject(message);
 
-            BindingHelper.RequestToObject(act);
-
-         
             
-
-            iMessageRepository.SaveOrUpdate(act);
+            iMessageRepository.SaveOrUpdate(message);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "添加成功";
+            result.message = "修改成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();

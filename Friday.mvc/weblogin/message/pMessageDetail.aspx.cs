@@ -9,19 +9,19 @@ using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
 
-namespace Friday.mvc.weblogin.activity
+namespace Friday.mvc.weblogin.message
 {
-    public partial class pActivityDetail : System.Web.UI.Page
+    public partial class pMessageDetail : System.Web.UI.Page
     {
-        IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
-        private Activity activity;
+        IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
+        private Message message;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            activity = iActivityRepository.Load(uid);
+            message = iMessageRepository.Load(uid);
 
-            BindingHelper.ObjectToControl(activity, this);
-            ImagePreview.Src = activity.Image;
+            BindingHelper.ObjectToControl(message, this);
+          
 
         }
     }

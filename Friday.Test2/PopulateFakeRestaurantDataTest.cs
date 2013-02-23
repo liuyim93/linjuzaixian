@@ -57,7 +57,14 @@ namespace Friday.Test2
             add_Restaurant_to_MyFavorite();
             add_Random_Xiaoer_to_Restaurant();
             add_Random_MyOrder();
+            add_Random_Message();
         }
+       private void  add_Random_Message()
+       {
+       
+       
+       
+       }
        //2013-02-17  pangfuxing  add MerchantCategory
        private void add_MerchantCategory() 
        {
