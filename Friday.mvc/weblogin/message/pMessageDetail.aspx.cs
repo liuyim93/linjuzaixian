@@ -19,9 +19,13 @@ namespace Friday.mvc.weblogin.message
         {
             string uid = Request.Params["uid"].ToString();
             message = iMessageRepository.Load(uid);
-
             BindingHelper.ObjectToControl(message, this);
-          
+            this.Content.Value=message.MessageContent.Content;
+            this.FromLoginUser.Value = message.FromLoginUser.LoginName;
+            this.ToLoginUser.Value = message.ToLoginUser.LoginName;
+         
+
+
 
         }
     }

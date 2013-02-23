@@ -88,7 +88,7 @@ namespace Friday.Test2
                  frlulc = new Random().Next(loginUserListClone.Count);
                  trlulc = new Random().Next(loginUserListClone.Count);
                  }
-               while(frlulc!=trlulc && (frlulc!=0 || frlulc!=1 ));
+               while(frlulc==trlulc && (frlulc!=0 || frlulc!=1 ));
 
                int rmclc = new Random().Next(messageContentListClone.Count);
 

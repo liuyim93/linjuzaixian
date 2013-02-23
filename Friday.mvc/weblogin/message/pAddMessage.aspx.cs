@@ -15,7 +15,8 @@ namespace Friday.mvc.weblogin.message
     public partial class pAddMessage : System.Web.UI.Page
     {
         IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
-    
+        IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
+        
         protected void Page_Load(object sender, EventArgs e)
         {
           
@@ -29,14 +30,17 @@ namespace Friday.mvc.weblogin.message
 
         private void SaveMessage()
         {
-            Message act = new Message();
+            MessageContent mssc = new friday.core.MessageContent();
+            mssc.Content = this.Content.Value;
+            iMessageContentRepository.SaveOrUpdate(mssc);
 
-            BindingHelper.RequestToObject(act);
+            Message mss = new Message();
+            mss.MessageContent = mssc;
+            BindingHelper.RequestToObject(mss);
+            iMessageRepository.SaveOrUpdate(mss);
 
-         
-            
+           
 
-            iMessageRepository.SaveOrUpdate(act);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -15,14 +15,14 @@
         <form id="form" rel="pagerForm" method="post" runat="server">
         <table class="searchContent">
            <tr>
-                <td>
+               <%-- <td>
                     <label>消息名称:</label>
                     <input  type="text" name="Name" class="textInput" value="<%=name %>"
                         value="" />
-                </td>
+                </td>--%>
                 <td>
                     <label>消息主题:</label>
-                    <input type="text" name="ThreadIndex" class="textInput" value="<%=matters %>"
+                    <input type="text" name="ThreadIndex" class="textInput" value="<%=threadIndex %>"
                         value="" />
                 </td>
             
@@ -82,14 +82,14 @@
                 <tr>
                     <th width="10%" align="center">序 号</th>
                         <th width="10%" align="center">消息编号</th>
-                         <th width="10%" align="center">消息名称</th>
+                       <%--  <th width="10%" align="center">消息名称</th>--%>
                               
 
                <th width="10%" align="center">消息主题</th>
                       <th width="10%" align="center">消息内容</th>     
-              <%--                <th width="10%" align="center">email</th>
-                        <th width="10%" align="center">配送地址</th>
-                        <th width="10%" align="center">距离</th>
+                          <th width="10%" align="center">From</th>
+                        <th width="10%" align="center">To</th> <%----%>
+                <%--           <th width="10%" align="center">距离</th>
                         <th width="10%" align="center">折扣</th>
                         <th width="10%" align="center">创建时间</th>--%>
                 </tr>
@@ -103,14 +103,14 @@
                         <td><a href="message/pMessageDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>                  
+                      <%--  <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>     --%>             
                        
 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadIndex")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "MessageContent.Content")%></td> 
-                      <%--     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Email")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Address")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
+                      <td align="center"><%#DataBinder.Eval(Container.DataItem, "FromLoginUser.LoginName")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "ToLoginUser.LoginName")%></td> 
+                        <%--     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>   --%>                   
 				</tr>
