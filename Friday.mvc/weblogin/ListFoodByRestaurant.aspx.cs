@@ -15,24 +15,21 @@ namespace Friday.mvc.weblogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRepository<MyFoodOrder> repoMyFoodOrder = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
+            IRepository<Restaurant> repoRestaurant = UnityHelper.UnityToT<IRepository<Restaurant>>();
             IFoodRepository repoFood = UnityHelper.UnityToT<IFoodRepository>();
 
             IList<Food> foods = new List<Food>();
 
-            string myFoodOrder_id;
             string restaurant_id;
 
-            if (Request.Form["myFoodOrder_id"] != null)
+            if (Request.Form["restaurant_id"] != null)
             {
-                myFoodOrder_id = Request.Form["myFoodOrder_id"];
+                restaurant_id = Request.Form["restaurant_id"];
             }
             else
             {
-                myFoodOrder_id = Request.Params["myFoodOrder_id"];
+                restaurant_id = Request.Params["restaurant_id"];
             }
-
-            restaurant_id = repoMyFoodOrder.Get(myFoodOrder_id).Restaurant.Id;
 
             List<DataFilter> dfl = new List<DataFilter>();
 

@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
         protected string MyFoodOrderID;
+        protected string restaurant_id;
 
         private IOrderOfFoodRepository iOrderOfFoodRepository = UnityHelper.UnityToT<IOrderOfFoodRepository>();
         private IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
@@ -27,6 +28,17 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Form["myFoodOrder_id"] != null)
+            {
+                MyFoodOrderID = Request.Form["myFoodOrder_id"];
+            }
+            else
+            {
+                MyFoodOrderID = Request.Params["myFoodOrder_id"];
+            }
+            myFoodOrder = iMyFoodOrderRepository.Get(MyFoodOrderID);
+            restaurant_id = myFoodOrder.Restaurant.Id;
+
             if (Request.Params["flag"] != "alldelete")
             {
                 SearchOrderOfFood();
@@ -38,15 +50,7 @@ namespace Friday.mvc.weblogin
         }
         private void DeleteOrderOfFood()
         {
-            if (Request.Form["myFoodOrder_id"] != null)
-            {
-                MyFoodOrderID = Request.Form["myFoodOrder_id"];
-            }
-            else
-            {
-                MyFoodOrderID = Request.Params["myFoodOrder_id"];
-            }
-            myFoodOrder = iMyFoodOrderRepository.Get(MyFoodOrderID);
+
             orderOfFood = iOrderOfFoodRepository.Get(Request.Params["uid"]);
             
             myFoodOrder.Price = myFoodOrder.Price - orderOfFood.Price;
@@ -64,14 +68,6 @@ namespace Friday.mvc.weblogin
         }
         private void SearchOrderOfFood()
         {
-            if (Request.Form["myFoodOrder_id"] != null)
-            {
-                MyFoodOrderID = Request.Form["myFoodOrder_id"];
-            }
-            else
-            {
-                MyFoodOrderID = Request.Params["myFoodOrder_id"];
-            }
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
