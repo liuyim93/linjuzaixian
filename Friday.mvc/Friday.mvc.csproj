@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="weblogin\address\pAddAddress.aspx.cs">
       <DependentUpon>pAddAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\commodity\pAddCommodity.aspx.cs">
       <DependentUpon>pAddCommodity.aspx</DependentUpon>
@@ -258,6 +259,7 @@
     </Compile>
     <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
       <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
@@ -271,6 +273,7 @@
     </Compile>
     <Compile Include="weblogin\ListMerchant.aspx.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\message\pMessageList.aspx.cs">
       <DependentUpon>pMessageList.aspx</DependentUpon>
