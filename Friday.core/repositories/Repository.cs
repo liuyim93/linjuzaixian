@@ -182,22 +182,27 @@ namespace friday.core.repositories
         protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList)
         {
             int deepIndex = 0;
-            string parentSearch = "LoginUser";
+            string parentSearch = string.Empty;
             return SearchByLoginUser(query, termList, ref deepIndex, ref parentSearch);
         }
         protected ICriteria SearchByLoginUser(ICriteria query, List<DataFilter> termList,ref int deepIndex,ref string parentSearch)
         {
             string notself = null;
             string oldParentSearch = parentSearch;
-            parentSearch = parentSearch + ".LoginUser";
-            string alias = parentSearch;
+
+            string alias = string.Empty;
             if (deepIndex > 0)
             {
                 notself = "loginUser.";
                 if (deepIndex == 1)
                 {
-                    alias = "LoginUser";
+                    parentSearch = "LoginUser";
                 }
+                else
+                {
+                    parentSearch = parentSearch + ".LoginUser";
+                }
+                alias = parentSearch;
                 query.CreateAlias(alias, "loginUser");
             }
             deepIndex++;
@@ -277,22 +282,27 @@ namespace friday.core.repositories
         protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList)
         {
             int deepIndex = 0;
-            string parentSearch="SystemUser";
+            string parentSearch = string.Empty;
             return SearchBySystemUser(query, termList, ref deepIndex,ref parentSearch);
         }
         protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, ref int deepIndex,ref string parentSearch)
         {
             string notself = null;
             string oldParentSearch = parentSearch;
-            parentSearch = parentSearch + ".SystemUser";
-            string alias = parentSearch;
+            string alias = string.Empty;
             if (deepIndex > 0)
             {
                 notself = "systemUser.";
                 if (deepIndex == 1)
                 {
-                    alias = "SystemUser";
+                    parentSearch = "SystemUser";
                 }
+                else
+                {
+                    parentSearch = parentSearch + ".SystemUser";
+                    
+                }
+                alias = parentSearch;
                 query.CreateAlias(alias, "systemUser");
             }
             deepIndex++;
@@ -447,7 +457,7 @@ namespace friday.core.repositories
         protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList)
         {
             int deepIndex = 0;
-            string parentSearch = "MyFoodOrder";
+            string parentSearch = string.Empty;
             return SearchByMyFoodOrder(query, termList, ref deepIndex, ref parentSearch);
         }
         protected ICriteria SearchByMyFoodOrder(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
@@ -455,15 +465,19 @@ namespace friday.core.repositories
             string notself = null;
 
             string oldParentSearch = parentSearch;
-            parentSearch = parentSearch + ".MyFoodOrder";
-            string alias = parentSearch;
+            string alias = string.Empty;
             if (deepIndex > 0)
             {
                 notself = "myFoodOrder.";
                 if (deepIndex == 1)
                 {
-                    alias = "MyFoodOrder";
+                    parentSearch = "MyFoodOrder";
                 }
+                else
+                {
+                    parentSearch = parentSearch + ".MyFoodOrder";
+                }
+                alias = parentSearch;
                 query.CreateAlias(alias, "myFoodOrder");
             }
             deepIndex++;

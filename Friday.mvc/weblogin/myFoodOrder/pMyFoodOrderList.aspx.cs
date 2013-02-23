@@ -73,27 +73,27 @@ namespace Friday.mvc.weblogin
                 });
 
                 //用户名----------三层嵌套查询
-                //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                //{
-                //    loginUserFilter.Add(new DataFilter()
-                //    {
-                //        type = "LoginName",
-                //        value = loginName = Request.Form["LoginName"]
+                if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                {
+                    loginUserFilter.Add(new DataFilter()
+                    {
+                        type = "LoginName",
+                        value = loginName = Request.Form["LoginName"]
 
-                //    });
+                    });
 
-                //    systemUserFilter.Add(new DataFilter()
-                //    {
-                //        type = "LoginUser",
-                //        field = loginUserFilter
-                //    });
-                //}
+                    systemUserFilter.Add(new DataFilter()
+                    {
+                        type = "LoginUser",
+                        field = loginUserFilter
+                    });
+                }
 
-                //filterList.Add(new DataFilter()
-                //{
-                //    type = "SystemUser",
-                //    field = systemUserFilter
-                //});
+                filterList.Add(new DataFilter()
+                {
+                    type = "SystemUser",
+                    field = systemUserFilter
+                });
 
 
                 if (!string.IsNullOrEmpty(Request.Form["OrderNumber"]))
