@@ -270,11 +270,11 @@
     <Compile Include="weblogin\ListMerchant.aspx.designer.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\ListSchool.aspx.cs">
+    <Compile Include="weblogin\school\ListSchool.aspx.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\ListSchool.aspx.designer.cs">
+    <Compile Include="weblogin\school\ListSchool.aspx.designer.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\loginUser\pAddLoginUser.aspx.cs">
@@ -557,11 +557,11 @@
     <Compile Include="weblogin\activity\pEditActivity.aspx.designer.cs">
       <DependentUpon>pEditActivity.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\MultiListSchool.aspx.cs">
+    <Compile Include="weblogin\school\MultiListSchool.aspx.cs">
       <DependentUpon>MultiListSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\MultiListSchool.aspx.designer.cs">
+    <Compile Include="weblogin\school\MultiListSchool.aspx.designer.cs">
       <DependentUpon>MultiListSchool.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -674,8 +674,8 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
+    <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
-    <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserList.aspx" />
@@ -1417,7 +1417,7 @@
     <Content Include="weblogin\shop\pAddShop.aspx" />
     <Content Include="weblogin\school\pAddSchool.aspx" />
     <Content Include="weblogin\activity\pEditActivity.aspx" />
-    <Content Include="weblogin\MultiListSchool.aspx" />
+    <Content Include="weblogin\school\MultiListSchool.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

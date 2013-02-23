@@ -66,17 +66,32 @@
                     <option value="正在休息">正在休息</option>
 				</select> 
             </p><p></p>
-<%--              <p>
-                        <label>
-                            服务的学校：</label>
-                        <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray" runat="server"
-                            readonly="true" />
-                        <a class="add" target="dialog" href="ListSchool.aspx" rel="">
-                            选择</a>
-                        <input type="hidden" id="SchoolOfMerchantID" size="30" class="required textInput gray"
-                            runat="server" />
-                    </p>--%>
-          <p></p>
+          <p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="SchoolOfMerchant" size="30" 
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="school/ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="SchoolOfMerchantID"  size="30"  
+                    runat="server" readonly="true" />
+            </p>
+            <p>
+                <label>
+                    服务的学校(多选）：</label>
+                <input type="text" id="NameSet" size="35"  
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="school/MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="IDSet" size="35"  
+                    runat="server" readonly="true" />
+            </p>
            <div>
             <p >
                  <label >商铺公告：</label>

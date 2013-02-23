@@ -21,28 +21,39 @@ namespace Friday.mvc.weblogin.rent
           
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                string schid = "";
+                if (this.IDSet.Value != null && this.IDSet.Value != "")
+                {
+                    schid = this.IDSet.Value;
+                }
+                if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
+                {
+                    schid = this.SchoolOfMerchantID.Value;
+                }
 
-                SaveRent();
+                SaveRent(schid);
             }
             
         }
 
-        private void SaveRent()
+        private void SaveRent(string schid)
         {
             Rent rnt = new Rent();
             BindingHelper.RequestToObject(rnt);
             iRentRepository.SaveOrUpdate(rnt);
-            
-            //string schid;            
-            //schid = this.SchoolOfMerchantID.Value;
-            //string[] sArray = schid.Split(',');
-            //foreach (string shcidsz in sArray)
-            //{
-            //    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
-            //    schofmt.Merchant = rnt;
-            //    schofmt.School = iSchoolRepository.Get(shcidsz);
-            //    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);            
-            //}            
+
+            if (schid != "")
+            {
+                string[] sArray = schid.Split(',');
+
+                foreach (string shcidsz in sArray)
+                {
+                    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+                    schofmt.Merchant = rnt;
+                    schofmt.School = iSchoolRepository.Get(shcidsz);
+                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                }
+            }  
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
