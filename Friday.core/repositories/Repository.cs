@@ -708,6 +708,8 @@ namespace friday.core.repositories
 
         protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+            IList<Merchant>  lMerchant=new List<Merchant>();
             string notself = null;
             if (!isSelf)
             {
@@ -753,6 +755,27 @@ namespace friday.core.repositories
                     if (df.type.Equals("Tel"))
                     {
                         query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    //if (df.type.Equals("LoginName"))
+                    //{
+                    //    query.Add(Restrictions.Like(notself + "LoginName", df.value, MatchMode.Anywhere));
+                    //    continue;
+                    //}
+                    //Merchant(1)<--(n)LoginUserOfMerchant(n)-->(1)LoginUser 
+                    if (df.type.Equals("LoginName"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                         //   String[] names;// = { "AAA", "BBB", "CCC" };
+                            String[] names = iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(df.value);
+                          query.Add(Restrictions.In(notself + "Id", names));
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRestaurant(query, df.field, false);
+                        }
                         continue;
                     }
                     if (df.type.Equals("ShortName"))

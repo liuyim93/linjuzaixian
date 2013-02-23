@@ -120,7 +120,7 @@ namespace Friday.mvc.weblogin.restaurant
             ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
             repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
 
-
+            
             if (schid != "")
             {
 

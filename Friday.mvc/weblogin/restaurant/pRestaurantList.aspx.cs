@@ -27,6 +27,8 @@ namespace Friday.mvc.weblogin.restaurant
         protected string address;
         protected string shopStatus;
         protected string tel;
+        protected string loginName;
+
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
         IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();  
         
@@ -83,6 +85,14 @@ namespace Friday.mvc.weblogin.restaurant
                        {
                            type = "Tel",
                            value = tel=Request.Form["Tel"]
+
+                       });
+                   //loginName 包括店长得LoginName和相应权限店小二的LoginName
+                   if (!string.IsNullOrEmpty(Request.Form["loginName"]))
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "loginName",
+                           value = tel = Request.Form["loginName"]
 
                        });
                    var filter = new DataFilter();

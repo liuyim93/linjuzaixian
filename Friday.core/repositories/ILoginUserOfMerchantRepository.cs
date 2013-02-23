@@ -10,5 +10,6 @@ namespace friday.core.repositories
     public interface ILoginUserOfMerchantRepository : IRepository<LoginUserOfMerchant>
     {
         LoginUser GetMerchantLoginUserBy(string MerchantId,UserTypeEnum ust);
+        String[] GetLoginUserOfMerchantBy(string loginusername);
     }
 }

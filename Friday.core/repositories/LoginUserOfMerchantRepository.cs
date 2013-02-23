@@ -16,7 +16,7 @@ namespace friday.core.repositories
     {
 
     
-
+        //20120223  pangfuxing  get Merchant's  Admin user
         public LoginUser GetMerchantLoginUserBy(string MerchantId,UserTypeEnum ust)
         {
             
@@ -26,6 +26,32 @@ namespace friday.core.repositories
 
             return q.UniqueResult<LoginUser>();
         }
+
+
+        //20120223  pangfuxing get  merchant_id  in LoginUserOfMerchant
+        public String[] GetLoginUserOfMerchantBy(string loginusername)
+        {
+            string[] idset={};
+            int j = 0;
+
+            UserTypeEnum ust = UserTypeEnum.餐馆店小二;        
+
+            var q = Session.CreateQuery(@"select  u from LoginUserOfMerchant  as lu   left join  lu.LoginUser as u  where  lu.LoginName=:luname and  lu.LoginUser.UserType=:ust")
+                 .SetString("luname", loginusername).SetEnum("ust", ust).List<LoginUserOfMerchant>();
+
+            IList<LoginUserOfMerchant> loginUserOfMerchantList = new List<LoginUserOfMerchant>();
+            loginUserOfMerchantList = q;
+
+            foreach (var i in loginUserOfMerchantList)
+            {
+                idset[j] =i.Merchant.Id;
+                j++;
+            }
+
+
+            return idset;
+        }
+
 
     }
      
