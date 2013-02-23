@@ -88,11 +88,11 @@ namespace Friday.mvc.weblogin.restaurant
 
                        });
                    //loginName 包括店长得LoginName和相应权限店小二的LoginName
-                   if (!string.IsNullOrEmpty(Request.Form["loginName"]))
+                   if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                        filterList.Add(new DataFilter()
                        {
                            type = "LoginName",
-                           value = tel = Request.Form["loginName"]
+                           value = loginName = Request.Form["LoginName"]
 
                        });
                    var filter = new DataFilter();

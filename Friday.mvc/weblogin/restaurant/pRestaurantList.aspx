@@ -48,7 +48,7 @@
                 <td>
                     <label>LoginName:</label>
                     <input type="text" name="LoginName" class="textInput"  value="<%=loginName %>"
-                        value="" />
+                         />
                 </td>
                 <td>
                     <label>起始日期:</label>

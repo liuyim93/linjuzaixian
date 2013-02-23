@@ -291,7 +291,7 @@ namespace Friday.Test2
 
            LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
            lum2.Merchant = restaurant2;
-           lum2.LoginUser = lu1;
+           lum2.LoginUser = lu2;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
            for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
