@@ -94,7 +94,7 @@ namespace Friday.Test2
 
                Message message = new Message()
                {
-                   ThreadIndex =i+"主题"+loginUserListClone[frlulc].LoginName + "To" + loginUserListClone[trlulc].LoginName,
+                   ThreadIndex =i+"主题",//+loginUserListClone[frlulc].LoginName + "To" + loginUserListClone[trlulc].LoginName,
                    MessageContent = messageContentListClone[rmclc],
                    FromLoginUser = loginUserListClone[frlulc],
                    ToLoginUser = loginUserListClone[trlulc]
