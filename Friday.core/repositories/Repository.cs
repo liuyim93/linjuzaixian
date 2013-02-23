@@ -1156,6 +1156,7 @@ namespace friday.core.repositories
 
         protected ICriteria SearchByMessage(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
             string notself = null;
             if (!isSelf)
             {
@@ -1184,7 +1185,19 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "ThreadIndex", df.value, MatchMode.Anywhere));
                         continue;
                     }
+                    if (df.type.Equals("FromLoginUser"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "FromLoginUser", iLoginUserRepository.Get(df.value)));
+                        }
 
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUser(query, df.field, false);
+                        }
+                        continue;
+                    }
 
                     if (df.type.Equals("Order"))
                     {

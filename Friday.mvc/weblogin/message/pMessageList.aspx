@@ -15,15 +15,20 @@
         <form id="form" rel="pagerForm" method="post" runat="server">
         <table class="searchContent">
            <tr>
-               <%-- <td>
-                    <label>消息名称:</label>
-                    <input  type="text" name="Name" class="textInput" value="<%=name %>"
-                        value="" />
-                </td>--%>
-                <td>
-                    <label>消息主题:</label>
+               <td>                   
+                         <label>消息主题:</label>
                     <input type="text" name="ThreadIndex" class="textInput" value="<%=threadIndex %>"
                         value="" />
+                </td> 
+                <td>
+                   <label>From:</label>
+                    <input  type="text" name="FromLoginUser" class="textInput" value="<%=fromLoginUser %>"
+                         />
+                </td>
+                <td>
+                   <label>To:</label>
+                    <input  type="text" name="ToLoginUser" class="textInput" value="<%=toLoginUser %>"
+                         />
                 </td>
             
             </tr>

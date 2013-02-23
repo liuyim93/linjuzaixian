@@ -23,6 +23,8 @@ namespace Friday.mvc.weblogin.message
         protected string endDate;
         protected string name;
         protected string threadIndex;
+        protected string fromLoginUser;
+        protected string toLoginUser;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
         IMessageRepository iRepositoryMessage = UnityHelper.UnityToT<IMessageRepository>();
 
@@ -52,6 +54,20 @@ namespace Friday.mvc.weblogin.message
                         {
                             type = "ThreadIndex",
                             value = threadIndex = Request.Form["ThreadIndex"]
+
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["FromLoginUser"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "FromLoginUser",
+                            value = toLoginUser = Request.Form["FromLoginUser"]
+
+                        });
+                    if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "ToLoginUser",
+                            value = toLoginUser = Request.Form["ToLoginUser"]
 
                         });
                     

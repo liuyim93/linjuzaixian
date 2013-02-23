@@ -32,6 +32,16 @@
                     消息索引：</label>
                 <input type="text" id="TrackIndex" size="30" class="required textInput gray" runat="server" />
             </p>
+              <p>
+                <label>
+                    From：</label>
+                <input type="text" id="FromLoginUser" size="30" class=" textInput gray" runat="server" />
+            </p>
+            <p>
+                <label>
+                    To：</label>
+                <input type="text" id="ToLoginUser" size="30" class=" textInput gray" runat="server" />
+            </p>
           <p>
            <label>
                             IsNew:</label>
@@ -40,7 +50,7 @@
                             <option value="True" >是</option>
                             <option value="False" >否</option>
                         </select>
-             </p><p></p><p></p>
+             </p>
              <p>
                     <label>
                         详细内容：</label>
