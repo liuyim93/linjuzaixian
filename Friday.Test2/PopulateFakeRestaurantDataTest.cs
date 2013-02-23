@@ -156,7 +156,7 @@ namespace Friday.Test2
            string foodid2;
            //2013-2-4 lampard 
            //we should save RestaurantFoodType before we give it to the food
-           Restaurant restaurant = new Restaurant()
+           Restaurant restaurant1 = new Restaurant()
            {
                Activity = "jiuzhe",
                Address = "山东财经大学燕山",
@@ -186,24 +186,24 @@ namespace Friday.Test2
                  
 
            //2012-02-16 pangfuxing  RestaurantFoodType->MerchantGoodsType
-           MerchantGoodsType restaurantFoodTye_1 = new MerchantGoodsType() {  Merchant = restaurant, GoodsType = "汉堡" };
-           MerchantGoodsType restaurantFoodTye_2 = new MerchantGoodsType() {  Merchant = restaurant, GoodsType = "小吃" };
-           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_1);
-           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_2);
+           MerchantGoodsType restaurantFoodTye_1 = new MerchantGoodsType() {  Merchant = restaurant1, GoodsType = "汉堡" };
+           MerchantGoodsType restaurantFoodTye_2 = new MerchantGoodsType() {  Merchant = restaurant1, GoodsType = "小吃" };
+           restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_1);
+           restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_2);
 
-           new RestaurantRepository().SaveOrUpdate(restaurant);
+           new RestaurantRepository().SaveOrUpdate(restaurant1);
            //创建Merchant的管理员用户
            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
            LoginUser lu1 = new LoginUser();
-           lu1.LoginName = "Login" + restaurant.Name;
-           lu1.Password = "LPass" + restaurant.Tel;
+           lu1.LoginName = "LgnLe" + restaurant1.Name;
+           lu1.Password = "LPass" + restaurant1.Tel;
            lu1.UserType = UserTypeEnum.餐馆;
            iLoginUserRepository.SaveOrUpdate(lu1);
 
            LoginUserOfMerchant lum = new LoginUserOfMerchant();
-           lum.Merchant = restaurant;
+           lum.Merchant = restaurant1;
            lum.LoginUser = lu1;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
 
@@ -219,10 +219,10 @@ namespace Friday.Test2
                    IsDiscount = false,
                    InventoryCount = 100,
                    MerchantGoodsType = restaurantFoodTye_1,
-                   Restaurant = restaurant,
+                   Restaurant = restaurant1,
 
                };
-               restaurant.Foods.Add(food_1);
+               restaurant1.Foods.Add(food_1);
                foodOfRestaurant1List.Add(food_1);
            }
 
@@ -239,19 +239,19 @@ namespace Friday.Test2
                    DiscountInventoryCount = 100,
                    MerchantGoodsType = restaurantFoodTye_2,
                    DiscountPrice = 10,
-                   Restaurant = restaurant,
+                   Restaurant = restaurant1,
                    IsLimited = true,
 
                };
-               restaurant.Foods.Add(food_2);
+               restaurant1.Foods.Add(food_2);
                foodOfRestaurant1List.Add(food_2);
            }
 
 
-           new RestaurantRepository().SaveOrUpdate(restaurant);
-           restaurantList.Add(restaurant);
+           new RestaurantRepository().SaveOrUpdate(restaurant1);
+           restaurantList.Add(restaurant1);
 
-           restaurant = new Restaurant()
+           Restaurant restaurant2 = new Restaurant()
            {
                Activity = "jiuzhe",
                Address = "山东财经大学燕山",
@@ -276,21 +276,21 @@ namespace Friday.Test2
               
            };
 
-           restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant,  GoodsType = "米饭" };
-           restaurantFoodTye_2 = new MerchantGoodsType() {  Merchant = restaurant,  GoodsType = "面食" };
-           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_1);
-           restaurant.MerchantGoodsTypes.Add(restaurantFoodTye_2);
+           restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant2,  GoodsType = "米饭" };
+           restaurantFoodTye_2 = new MerchantGoodsType() {  Merchant = restaurant2,  GoodsType = "面食" };
+           restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_1);
+           restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_2);
 
-           new RestaurantRepository().SaveOrUpdate(restaurant);
+           new RestaurantRepository().SaveOrUpdate(restaurant2);
 
            LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "Login" + restaurant.Name;
-           lu2.Password = "LPass" + restaurant.Tel;
+           lu2.LoginName = "Lgnbao" + restaurant2.Name;
+           lu2.Password = "LPass" + restaurant2.Tel;
            lu2.UserType = UserTypeEnum.餐馆;
            iLoginUserRepository.SaveOrUpdate(lu2);
 
            LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
-           lum2.Merchant = restaurant;
+           lum2.Merchant = restaurant2;
            lum2.LoginUser = lu1;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
@@ -305,10 +305,10 @@ namespace Friday.Test2
                    IsDiscount = false,
                    InventoryCount = 100,
                    MerchantGoodsType = restaurantFoodTye_1,
-                   Restaurant = restaurant,
+                   Restaurant = restaurant2,
 
                };
-               restaurant.Foods.Add(food_1);
+               restaurant2.Foods.Add(food_1);
                foodOfRestaurant2List.Add(food_1);
            }
 
@@ -325,17 +325,17 @@ namespace Friday.Test2
                    DiscountInventoryCount = 100,
                    MerchantGoodsType = restaurantFoodTye_2,
                    DiscountPrice = 10,
-                   Restaurant = restaurant,
+                   Restaurant = restaurant2,
                    IsLimited = true,
 
                };
-               restaurant.Foods.Add(food_2);
+               restaurant2.Foods.Add(food_2);
                foodOfRestaurant2List.Add(food_2);
            }
 
 
-           new RestaurantRepository().SaveOrUpdate(restaurant);
-           restaurantList.Add(restaurant);
+           new RestaurantRepository().SaveOrUpdate(restaurant2);
+           restaurantList.Add(restaurant2);
        }
        private void add_School_Restaurant()
        {

@@ -766,8 +766,7 @@ namespace friday.core.repositories
                     if (df.type.Equals("LoginName"))
                     {
                         if (!string.IsNullOrEmpty(df.value))
-                        {
-                         //   String[] names;// = { "AAA", "BBB", "CCC" };
+                        {                         
                             String[] names = iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(df.value);
                           query.Add(Restrictions.In(notself + "Id", names));
                         }

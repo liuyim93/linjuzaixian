@@ -31,16 +31,19 @@ namespace friday.core.repositories
         //20120223  pangfuxing get  merchant_id  in LoginUserOfMerchant
         public String[] GetLoginUserOfMerchantBy(string loginusername)
         {
-            string[] idset={};
+          
             int j = 0;
 
-            UserTypeEnum ust = UserTypeEnum.餐馆店小二;        
+            UserTypeEnum ustadmin = UserTypeEnum.餐馆;
+            UserTypeEnum ustxiaoer = UserTypeEnum.餐馆店小二;
 
-            var q = Session.CreateQuery(@"select  u from LoginUserOfMerchant  as lu   left join  lu.LoginUser as u  where  lu.LoginName=:luname and  lu.LoginUser.UserType=:ust")
-                 .SetString("luname", loginusername).SetEnum("ust", ust).List<LoginUserOfMerchant>();
+            var q = Session.CreateQuery(@"select  lu from LoginUserOfMerchant  as lu   left join  lu.LoginUser as u  where  lu.LoginUser.LoginName like : lname and  lu.LoginUser.UserType=:ustadmin or lu.LoginUser.UserType=:ustxiaoer")
+                 .SetString("lname", "%" + loginusername + "%").SetEnum("ustadmin", ustadmin).SetEnum("ustxiaoer", ustxiaoer).List<LoginUserOfMerchant>();
 
             IList<LoginUserOfMerchant> loginUserOfMerchantList = new List<LoginUserOfMerchant>();
-            loginUserOfMerchantList = q;
+            loginUserOfMerchantList = q;  
+
+            string[] idset = new string[loginUserOfMerchantList.Count]; 
 
             foreach (var i in loginUserOfMerchantList)
             {

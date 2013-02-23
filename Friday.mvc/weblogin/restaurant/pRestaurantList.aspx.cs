@@ -91,7 +91,7 @@ namespace Friday.mvc.weblogin.restaurant
                    if (!string.IsNullOrEmpty(Request.Form["loginName"]))
                        filterList.Add(new DataFilter()
                        {
-                           type = "loginName",
+                           type = "LoginName",
                            value = tel = Request.Form["loginName"]
 
                        });
