@@ -162,6 +162,7 @@
                                 <li><a href="school/pSchoolList.aspx" target="navTab" rel="">学校管理</a></li>
                                 <li><a href="systemUser/pSystemUserList.aspx" target="navTab" rel="">顾客用户管理</a></li>
                                 <li><a href="loginUser/pLoginUserList.aspx" target="navTab" rel="">用户账号管理</a></li> 
+                                <li><a href="message/pMessageList.aspx" target="navTab" rel="">消息管理</a></li>
                                 <li><a href="myFoodOrder/pMyFoodOrderList.aspx" target="navTab" rel="">美食订单管理</a></li> 
                                 <li><a href="FoodList.aspx" target="navTab" rel="">test3</a></li>
                                 <li><a href="MyOrderList.aspx" target="navTab" rel="">test4</a></li>

@@ -256,25 +256,47 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
       <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
+      <DependentUpon>pMessageDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListFoodByRestaurant.aspx.designer.cs">
       <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\message\pMessageDetail.aspx.designer.cs">
+      <DependentUpon>pMessageDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListMerchant.aspx.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\message\pMessageList.aspx.cs">
+      <DependentUpon>pMessageList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListMerchant.aspx.designer.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\ListSchool.aspx.cs">
-=======
+    <Compile Include="weblogin\message\pMessageList.aspx.designer.cs">
+      <DependentUpon>pMessageList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\message\pAddMessage.aspx.cs">
+      <DependentUpon>pAddMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\message\pAddMessage.aspx.designer.cs">
+      <DependentUpon>pAddMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\message\pEditMessageActivity.aspx.cs">
+      <DependentUpon>pEditMessageActivity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\message\pEditMessageActivity.aspx.designer.cs">
+      <DependentUpon>pEditMessageActivity.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\school\ListSchool.aspx.cs">
->>>>>>> change  ListSchool's place
       <DependentUpon>ListSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -677,17 +699,17 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
-<<<<<<< HEAD
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
+    <Content Include="weblogin\message\pMessageDetail.aspx" />
+    <Content Include="weblogin\message\pMessageList.aspx" />
+    <Content Include="weblogin\message\pAddMessage.aspx" />
+    <Content Include="weblogin\message\pEditMessageActivity.aspx" />
+    <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
-    <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserList.aspx" />
     <Content Include="weblogin\loginUser\pResetPassword.aspx" />
-=======
-    <Content Include="weblogin\school\ListSchool.aspx" />
->>>>>>> change  ListSchool's place
     <Content Include="weblogin\merchantCategory\pMerchantCategoryDetail.aspx" />
     <Content Include="weblogin\merchantCategory\pMerchantCategoryList.aspx" />
     <Content Include="weblogin\activity\pAddActivity.aspx" />
