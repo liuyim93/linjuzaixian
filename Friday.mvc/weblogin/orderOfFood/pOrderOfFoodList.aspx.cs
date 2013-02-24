@@ -52,7 +52,7 @@ namespace Friday.mvc.weblogin
         {
 
             orderOfFood = iOrderOfFoodRepository.Get(Request.Params["uid"]);
-            
+
             myFoodOrder.Price = myFoodOrder.Price - orderOfFood.Price;
 
             iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
