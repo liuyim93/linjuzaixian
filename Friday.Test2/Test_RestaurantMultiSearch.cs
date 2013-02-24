@@ -45,7 +45,7 @@ namespace Friday.Test2
             iRestaurantRepository.SaveOrUpdate(rest1);
 
            LoginUser lu1 = new LoginUser();
-           lu1.LoginName = "Lgnbao" + rest1.Owener;
+           lu1.LoginName = "LogLDH" + rest1.Owener;
            lu1.Password = "LPass" + rest1.Tel;
            lu1.UserType = UserTypeEnum.餐馆;
            iLoginUserRepository.SaveOrUpdate(lu1);
@@ -55,6 +55,24 @@ namespace Friday.Test2
            lum.Merchant = rest1;
            lum.LoginUser = lu1;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+           //餐馆1的店小二   2个
+           for (int i = 0; i < 2; i++) 
+           {          
+               LoginUser xiaoErLoginUser = new LoginUser()
+              {
+               IsAdmin = false,
+               LoginName = i+"号小二" + rest1.Name,
+               Password = i+"haoxiaoer" + rest1.Tel,
+               UserType = UserTypeEnum.餐馆店小二,
+              };
+             iLoginUserRepository.SaveOrUpdate(xiaoErLoginUser);
+ 
+             LoginUserOfMerchant xiaoerlum = new LoginUserOfMerchant();
+             xiaoerlum.Merchant = rest1;
+             xiaoerlum.LoginUser = xiaoErLoginUser;
+             iLoginUserOfMerchantRepository.SaveOrUpdate(xiaoerlum);
+            }
 
 
            Restaurant rest2 = new Restaurant()
@@ -82,8 +100,8 @@ namespace Friday.Test2
            iRestaurantRepository.SaveOrUpdate(rest2);
 
            LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "Lgnbao" + rest1.Owener;
-           lu2.Password = "LPass" + rest1.Tel;
+           lu2.LoginName = "LognRxq" + rest2.Owener;
+           lu2.Password = "LPass" + rest2.Tel;
            lu2.UserType = UserTypeEnum.餐馆;
            iLoginUserRepository.SaveOrUpdate(lu2);
 
@@ -93,7 +111,23 @@ namespace Friday.Test2
            lum2.LoginUser = lu2;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
+           //餐馆2的店小二   2个
+           for (int i = 0; i < 2; i++)
+           {
+               LoginUser xiaoErLoginUser2 = new LoginUser()
+               {
+                   IsAdmin = false,
+                   LoginName = i + "号" + rest2.Name,
+                   Password = i + "haoxiaoer" + rest2.Tel,
+                   UserType = UserTypeEnum.餐馆店小二,
+               };
+               iLoginUserRepository.SaveOrUpdate(xiaoErLoginUser2);
 
+               LoginUserOfMerchant xiaoerlum2 = new LoginUserOfMerchant();
+               xiaoerlum2.Merchant = rest2;
+               xiaoerlum2.LoginUser = xiaoErLoginUser2;
+               iLoginUserOfMerchantRepository.SaveOrUpdate(xiaoerlum2);
+           }
         }
 
      

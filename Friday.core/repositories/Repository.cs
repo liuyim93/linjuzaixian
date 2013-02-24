@@ -297,11 +297,11 @@ namespace friday.core.repositories
                 notself = "loginUserOfMerchant.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "loginUserOfMerchant";
+                    parentSearch = "LoginUserOfMerchants";   //Restaurant 的一个属性  Restaurant.LoginUserOfMerchants  HasMany
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".loginUserOfMerchant";
+                    parentSearch = parentSearch + ".LoginUserOfMerchants";
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "loginUserOfMerchant");
@@ -312,6 +312,12 @@ namespace friday.core.repositories
 
                 foreach (DataFilter df in termList)
                 {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
                     
                     if (df.type.Equals("LoginUser"))
                     {
@@ -846,7 +852,7 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    if (df.type.Equals("llllLoginUserOfMechant"))
+                    if (df.type.Equals("LoginUserOfMechant"))
                     {
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)

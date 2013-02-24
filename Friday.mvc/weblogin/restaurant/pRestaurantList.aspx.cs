@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.restaurant
 {
@@ -109,15 +110,27 @@ namespace Friday.mvc.weblogin.restaurant
                            value = loginName = Request.Form["LoginName"]
 
                        });
+                       //loginUserList.Add(new DataFilter()
+                       //{
+                       //    type = "UserType",
+                       //    value = "餐馆"
+
+                       //});
                        loginUserOfMechentList.Add(new DataFilter()
                        {
                            type = "LoginUser",
                            field= loginUserList
 
                        });
+                       loginUserOfMechentList.Add(new DataFilter()
+                       {
+                           type = "IsDelete"
+                    
+
+                       });
                        filterList.Add(new DataFilter()
                        {
-                           type="llllLoginUserOfMechant",
+                           type="LoginUserOfMechant",
                            field=loginUserOfMechentList
                        });
 
