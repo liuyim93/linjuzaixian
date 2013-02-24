@@ -91,13 +91,13 @@ namespace Friday.mvc.weblogin.restaurant
 
                        });
                    //loginName 包括店长得LoginName和相应权限店小二的LoginName
-                   if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                       filterList.Add(new DataFilter()
-                       {
-                           type = "LoginName",
-                           value = loginName = Request.Form["LoginName"]
+                   //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                   //    filterList.Add(new DataFilter()
+                   //    {
+                   //        type = "LoginName",
+                   //        value = loginName = Request.Form["LoginName"]
 
-                       });
+                   //    });
 
                    //Version2  3表嵌套查询
 
@@ -117,7 +117,7 @@ namespace Friday.mvc.weblogin.restaurant
                        });
                        filterList.Add(new DataFilter()
                        {
-                           type="LoginUserOfMechant",
+                           type="llllLoginUserOfMechant",
                            field=loginUserOfMechentList
                        });
 

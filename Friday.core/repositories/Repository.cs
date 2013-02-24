@@ -275,6 +275,60 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+
+        protected ICriteria SearchByLoginUserOfMerchant(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByLoginUserOfMerchant(query, termList);
+        }
+        protected ICriteria SearchByLoginUserOfMerchant(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByLoginUserOfMerchant(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByLoginUserOfMerchant(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+            string oldParentSearch = parentSearch;
+
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "loginUserOfMerchant.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "loginUserOfMerchant";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".loginUserOfMerchant";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "loginUserOfMerchant");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    
+                    if (df.type.Equals("LoginUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchBySystemUser(query, termList);
@@ -792,12 +846,12 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    if (df.type.Equals("LoginUserOfMerchant"))
+                    if (df.type.Equals("llllLoginUserOfMechant"))
                     {
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchBySystemUser(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
