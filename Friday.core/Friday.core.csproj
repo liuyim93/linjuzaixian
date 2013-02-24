@@ -235,9 +235,11 @@
     <Compile Include="repositories\IFoodRepository.cs" />
     <Compile Include="repositories\IGlobalGoodsTypeRepository.cs" />
     <Compile Include="repositories\IOrderOfFoodRepository.cs" />
+    <Compile Include="repositories\IOrderOfHouseRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\OrderOfFoodRepository.cs" />
+    <Compile Include="repositories\OrderOfHouseRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="domain\RestaurantCart.cs" />
