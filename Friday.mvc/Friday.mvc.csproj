@@ -261,6 +261,13 @@
       <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="weblogin\ListHouseByRent.aspx.cs">
+      <DependentUpon>ListHouseByRent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListHouseByRent.aspx.designer.cs">
+      <DependentUpon>ListHouseByRent.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -710,6 +717,7 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
+    <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
