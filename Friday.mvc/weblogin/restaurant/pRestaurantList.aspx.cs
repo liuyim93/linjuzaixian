@@ -122,12 +122,7 @@ namespace Friday.mvc.weblogin.restaurant
                            field= loginUserList
 
                        });
-                       loginUserOfMechentList.Add(new DataFilter()
-                       {
-                           type = "IsDelete"
-                    
-
-                       });
+                      
                        filterList.Add(new DataFilter()
                        {
                            type="LoginUserOfMechant",

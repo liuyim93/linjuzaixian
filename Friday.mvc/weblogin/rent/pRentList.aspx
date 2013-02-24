@@ -45,8 +45,8 @@
                      </select>
                  </td>
                 <td>
-                    <label>电话:</label>
-                    <input type="text" name="Tel" class="textInput"  value="<%=tel %>"
+                      <label>LoginName:</label>
+                    <input type="text" name="LoginName" class="textInput"  value="<%=loginName %>"
                          />
                 </td>
                 <td>

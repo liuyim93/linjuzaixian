@@ -25,7 +25,7 @@ namespace Friday.mvc.weblogin.rent
         protected string owener;
         protected string shortName;
         protected string address;
-        protected string tel;
+        protected string loginName;
         IRentRepository iRepositoryRent = UnityHelper.UnityToT<IRentRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -41,6 +41,8 @@ namespace Friday.mvc.weblogin.rent
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
+                    List<DataFilter> loginUserOfMechentList = new List<DataFilter>();
+                    List<DataFilter> loginUserList = new List<DataFilter>();
 
                     filterList.Add(new DataFilter()
                     {
@@ -82,13 +84,30 @@ namespace Friday.mvc.weblogin.rent
                             value = Request.Form["ShopStatus"]
 
                         });
-                    if (!string.IsNullOrEmpty(Request.Form["Tel"]))
-                        filterList.Add(new DataFilter()
+
+                    if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                    {
+                        loginUserList.Add(new DataFilter()
                         {
-                            type = "Tel",
-                            value = tel = Request.Form["Tel"]
+                            type = "LoginName",
+                            value = loginName = Request.Form["LoginName"]
 
                         });
+                        loginUserOfMechentList.Add(new DataFilter()
+                        {
+                            type = "LoginUser",
+                            field = loginUserList
+
+                        });
+
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "LoginUserOfMechant",
+                            field = loginUserOfMechentList
+                        });
+
+                    }
+
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {
