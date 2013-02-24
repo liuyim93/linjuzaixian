@@ -4,6 +4,8 @@
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
+<input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
+<input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
 
 </form>
 <div class="panel collapse" defh="75">
@@ -15,15 +17,15 @@
              <tr>
                 <td>
                     <label>订单编号:</label>
-                    <input type="text" name="OrderNumber" class="textInput"/>
+                    <input type="text" name="OrderNumber" class="textInput" value="<%=orderNumber %>"/>
                 </td>
                 <td>
                     <label>订单用户:</label>
-                    <input type="text" name="LoginName" class="textInput" />
+                    <input type="text" name="LoginName" class="textInput" value="<%=loginName %>"/>
                 </td>
                 <td>
                     <label>商铺名称:</label>
-                    <input type="text" name="RentName" class="textInput"  />
+                    <input type="text" name="RentName" class="textInput"  value="<%=rentName %>"/>
                 </td>
                 <td>
                     <label>订单状态:</label>
@@ -85,9 +87,9 @@
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                        <th width="10%" align="center">订单编号</th>
+                        <th width="10%" orderField="OrderNumber" class="desc" align="center">订单编号</th>
                         <th width="10%" align="center">下单时间</th>
-                        <th width="10%" align="center">价格</th>
+                        <th width="10%" orderField="Price" class="desc" align="center">价格</th>
                         <th width="10%" align="center">订单用户</th>
                         <th width="10%" align="center">商铺名称</th>
                         <th width="10%" align="center">订单状态</th>       

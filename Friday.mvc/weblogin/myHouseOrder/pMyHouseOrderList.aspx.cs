@@ -129,7 +129,7 @@ namespace Friday.mvc.weblogin.myHouseOrder
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<MyHouseOrder> myHouseOrderList = iRepositoryMyHouseOrder.GetPageList(start, limit, out total);
+                IList<MyHouseOrder> myHouseOrderList = iRepositoryMyHouseOrder.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = myHouseOrderList;
                 repeater.DataBind();
