@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pOrderOfHouseList.aspx.cs" Inherits="Friday.mvc.weblogin.orderOfHouse.pOrderOfHouseList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pOrderOfHouseList.aspx.cs" Inherits="Friday.mvc.weblogin.pOrderOfHouseList" %>
 
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
