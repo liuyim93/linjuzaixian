@@ -527,7 +527,7 @@ namespace friday.core.repositories
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByRestaurant(query, df.field, false);
+                           // SearchByRestaurant(query, df.field, false);
                         }
                         continue;
                     }
@@ -705,17 +705,37 @@ namespace friday.core.repositories
             }
             return query;
         }
-
         protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
-            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-            IList<Merchant>  lMerchant=new List<Merchant>();
+            return SearchByRestaurant(query, termList);
+        }
+        protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByRestaurant(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("Restaurant", "restaurant");
                 notself = "restaurant.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "restaurant";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".restaurant";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "restaurant");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -756,37 +776,14 @@ namespace friday.core.repositories
                     {
                         query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
                         continue;
-                    }
-                    //if (df.type.Equals("LoginName"))
-                    //{
-                    //    query.Add(Restrictions.Like(notself + "LoginName", df.value, MatchMode.Anywhere));
-                    //    continue;
-                    //}
-                    //Merchant(1)<--(n)LoginUserOfMerchant(n)-->(1)LoginUser 
-                    if (df.type.Equals("LoginName"))
-                    {
-                        if (!string.IsNullOrEmpty(df.value))
-                        {                         
-                            String[] names = iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(df.value);
-                          query.Add(Restrictions.In(notself + "Id", names));
-                        }
-
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByRestaurant(query, df.field, false);
-                        }
-                        continue;
-                    }
+                    }                
+                   
                     if (df.type.Equals("ShortName"))
                     {
                         query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
                         continue;
                     }
-                    if (df.type.Equals("Address"))
-                    {
-                        query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));
-                        continue;
-                    }
+                    
 
                     if (df.type.Equals("ShopStatus"))
                     {
@@ -794,6 +791,18 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Eq(notself + "ShopStatus", ShopStatus));
                         continue;
                     }
+
+                    if (df.type.Equals("LoginUserOfMerchant"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySystemUser(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+
                     if (df.type.Equals("Order"))
                     {
                         if (df.field != null && df.field.Count != 0)
@@ -823,8 +832,131 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
+
+        //Version1  通过hql进行3表查询
+        //protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, bool isSelf)
+        //{
+        //    ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        //    IList<Merchant>  lMerchant=new List<Merchant>();
+        //    string notself = null;
+        //    if (!isSelf)
+        //    {
+        //        query.CreateAlias("Restaurant", "restaurant");
+        //        notself = "restaurant.";
+        //    }
+        //    if (termList.Count != 0)
+        //    {
+
+        //        foreach (DataFilter df in termList)
+        //        {
+        //            if (df.type.Equals("IsDelete"))
+        //            {
+        //                query.Add(Expression.Eq(notself + "IsDelete", false));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("Name"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("Owener"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "Owener", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("Type"))
+        //            {
+        //                try
+        //                {
+        //                    ShopTypeEnum Type = (ShopTypeEnum)Enum.Parse(typeof(ShopTypeEnum), df.value, true);
+        //                    query.Add(Restrictions.Eq(notself + "ShopType", Type));
+        //                    continue;
+        //                }
+        //                catch (Exception ex)
+        //                {
+        //                }
+
+        //            }
+        //            if (df.type.Equals("Tel"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+        //            //if (df.type.Equals("LoginName"))
+        //            //{
+        //            //    query.Add(Restrictions.Like(notself + "LoginName", df.value, MatchMode.Anywhere));
+        //            //    continue;
+        //            //}
+        //            //Merchant(1)<--(n)LoginUserOfMerchant(n)-->(1)LoginUser 
+        //            if (df.type.Equals("LoginName"))
+        //            {
+        //                if (!string.IsNullOrEmpty(df.value))
+        //                {                         
+        //                    String[] names = iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(df.value);
+        //                  query.Add(Restrictions.In(notself + "Id", names));
+        //                }
+
+        //                if (df.field != null && df.field.Count != 0)
+        //                {
+        //                    SearchByRestaurant(query, df.field, false);
+        //                }
+        //                continue;
+        //            }
+        //            if (df.type.Equals("ShortName"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+        //            if (df.type.Equals("Address"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("ShopStatus"))
+        //            {
+        //                ShopStatusEnum ShopStatus = (ShopStatusEnum)Enum.Parse(typeof(ShopStatusEnum), df.value, true);
+        //                query.Add(Restrictions.Eq(notself + "ShopStatus", ShopStatus));
+        //                continue;
+        //            }
+        //            if (df.type.Equals("Order"))
+        //            {
+        //                if (df.field != null && df.field.Count != 0)
+        //                {
+        //                    //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+        //                    foreach (DataFilter indf in df.field)
+        //                    {
+        //                        if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+        //                        {
+        //                            query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+        //                        }
+        //                        else
+        //                        {
+        //                            query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+        //                        }
+        //                        continue;
+        //                    }
+        //                }
+        //            }
+
+        //            //时间
+        //            if (df.type.Equals("CreateTime"))
+        //            {
+        //                SearchByCreateTime(query, df, notself);
+        //                continue;
+        //            }
+
+        //        }
+        //    }
+        //    return query;
+        //}
         protected ICriteria SearchByFood(ICriteria query, List<DataFilter> termList, bool isSelf, List<Restaurant> restaurantList)
         {
             IRestaurantRepository iRestaurantRepository = UnityHelper.UnityToT<IRestaurantRepository>();

@@ -45,6 +45,9 @@ namespace Friday.mvc.weblogin.restaurant
                    int limit = numPerPageValue;
 
                    List<DataFilter> filterList = new List<DataFilter>();
+                   List<DataFilter> loginUserOfMechentList = new List<DataFilter>();
+                   List<DataFilter> loginUserList = new List<DataFilter>();
+
                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
                        filterList.Add(new DataFilter()
                        {
@@ -95,6 +98,31 @@ namespace Friday.mvc.weblogin.restaurant
                            value = loginName = Request.Form["LoginName"]
 
                        });
+
+                   //Version2  3表嵌套查询
+
+                   if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                   { 
+                       loginUserList.Add(new DataFilter()
+                       {
+                           type = "LoginName",
+                           value = loginName = Request.Form["LoginName"]
+
+                       });
+                       loginUserOfMechentList.Add(new DataFilter()
+                       {
+                           type = "LoginUser",
+                           field= loginUserList
+
+                       });
+                       filterList.Add(new DataFilter()
+                       {
+                           type="LoginUserOfMechant",
+                           field=loginUserOfMechentList
+                       });
+
+                   }
+
                    var filter = new DataFilter();
                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                    {
