@@ -23,6 +23,7 @@ namespace Friday.mvc.weblogin
         protected string loginName;
         protected string startDate;
         protected string endDate;
+        protected string linkman;
 
         IMyFoodOrderRepository iRepositoryMyFoodOrder = UnityHelper.UnityToT<IMyFoodOrderRepository>();
 
@@ -101,6 +102,14 @@ namespace Friday.mvc.weblogin
                     {
                         type = "OrderNumber",
                         value = orderNumber = Request.Form["OrderNumber"]
+
+                    });
+
+                if (!string.IsNullOrEmpty(Request.Form["Linkman"]))
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Linkman",
+                        value = linkman = Request.Form["Linkman"]
 
                     });
 

@@ -646,6 +646,12 @@ namespace friday.core.repositories
                         continue;
                     }
 
+                    if (df.type.Equals("Linkman"))
+                    {
+                        query.Add(Expression.Like(notself + "Linkman", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
                     if (df.type.Equals("OrderStatus"))
                     {
                         try

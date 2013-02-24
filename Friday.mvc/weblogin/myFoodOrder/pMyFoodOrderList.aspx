@@ -23,9 +23,15 @@
                     <input type="text" name="LoginName" class="textInput" value="<%=loginName %>"/>
                 </td>
                 <td>
+                    <label>联系人:</label>
+                    <input type="text" name="Linkman" class="textInput" value="<%=linkman %>" />
+                </td>
+                <td>
                     <label>商铺名称:</label>
                     <input type="text" name="RestaurantName" class="textInput" value="<%=restaurantName %>" />
                 </td>
+             </tr>
+             <tr>
                 <td>
                     <label>订单状态:</label>
                     <select name="OrderStatus" id="OrderStatus" runat="server">
@@ -35,8 +41,6 @@
                     <option value="失败">失败</option>
                      </select>
                 </td>
-             </tr>
-             <tr>
                 <td>
                     <label>起始日期:</label>
                     <input type="text" name="StartDate" class="date textInput readonly" readonly="true" value="<%=startDate %>"/>
@@ -90,13 +94,11 @@
                         <th width="10%" align="center">下单时间</th>
                         <th width="10%" orderField="Price" class="desc" align="center">价格</th>
                         <th width="10%" align="center">订单用户</th>
+                        <th width="10%" align="center">联系人</th>
                         <th width="10%" align="center">商铺名称</th>
                         <th width="10%" align="center">订单状态</th>
-<%--                    <th width="10%" align="center">联系人</th>
-                        <th width="10%" align="center">联系电话</th>
-                        <th width="10%" align="center">备用电话</th>
-                        <th width="10%" align="center">配送地址</th>
-                        <th width="10%" align="center">送货时间</th>--%>          
+                        
+      
                 </tr>
                 </thead>
                 <tbody> 
@@ -110,7 +112,8 @@
                         </td>
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>                         
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "SystemUser.LoginUser.LoginName")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "SystemUser.LoginUser.LoginName")%></td>
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Linkman")%></td>  
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Restaurant.Name")%></td> 
                         <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "OrderStatus"))%></td>                 
 				</tr>
