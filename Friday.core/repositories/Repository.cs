@@ -189,6 +189,7 @@ namespace friday.core.repositories
         {
             string notself = null;
             string oldParentSearch = parentSearch;
+            string ailisstring="loginUser";
 
             string alias = string.Empty;
             if (deepIndex > 0)
@@ -202,22 +203,25 @@ namespace friday.core.repositories
                 {
                     parentSearch = parentSearch + ".LoginUser";
                 }
+
                 foreach(DataFilter df in termList)
                 {
                   if (df.type.Equals("FromLoginUser"))
                   {
                       parentSearch = "FromLoginUser";
                       df.type = "LoginName";
+                      ailisstring = "FLoginName";
                   }
                   if (df.type.Equals("ToLoginUser"))
                   {
                       parentSearch = "ToLoginUser";
                       df.type = "LoginName";
+                      ailisstring = "TLoginName";
                   }
                 }
 
                 alias = parentSearch;
-                query.CreateAlias(alias, "loginUser");
+                query.CreateAlias(alias, ailisstring);
             }
             deepIndex++;
             if (termList.Count != 0)
