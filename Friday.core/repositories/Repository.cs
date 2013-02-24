@@ -210,13 +210,15 @@ namespace friday.core.repositories
                   {
                       parentSearch = "FromLoginUser";
                       df.type = "LoginName";
-                      ailisstring = "FLoginName";
+                      ailisstring = "fLoginUser";
+                      notself = "fLoginUser.";
                   }
                   if (df.type.Equals("ToLoginUser"))
                   {
                       parentSearch = "ToLoginUser";
                       df.type = "LoginName";
-                      ailisstring = "TLoginName";
+                      ailisstring = "tLoginUser";
+                      notself = "tLoginUser.";
                   }
                 }
 
