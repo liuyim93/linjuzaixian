@@ -220,7 +220,7 @@ namespace Friday.Test2
            new ShopRepository().SaveOrUpdate(shop);
            shopList.Add(shop);
 
-           shop = new Shop()
+          Shop  shop2 = new Shop()
            {
                Activity = "8折",
                Address = "山东财经大学燕山",    
@@ -240,23 +240,23 @@ namespace Friday.Test2
               
            };
 
-           shopCommodityTye_1 = new MerchantGoodsType() { Merchant = shop,  GoodsType = "食品" };
-           shopCommodityTye_2 = new MerchantGoodsType() {  Merchant = shop,  GoodsType = "酒水" };
-           shop.MerchantGoodsTypes.Add(shopCommodityTye_1);
-           shop.MerchantGoodsTypes.Add(shopCommodityTye_2);
+           shopCommodityTye_1 = new MerchantGoodsType() { Merchant = shop2,  GoodsType = "食品" };
+           shopCommodityTye_2 = new MerchantGoodsType() {  Merchant = shop2,  GoodsType = "酒水" };
+           shop2.MerchantGoodsTypes.Add(shopCommodityTye_1);
+           shop2.MerchantGoodsTypes.Add(shopCommodityTye_2);
 
-           new ShopRepository().SaveOrUpdate(shop);
+           new ShopRepository().SaveOrUpdate(shop2);
 
 
            LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "Login" + shop.Name;
-           lu2.Password = "LPass" + shop.Tel;
+           lu2.LoginName = "Login" + shop2.Name;
+           lu2.Password = "LPass" + shop2.Tel;
            lu2.UserType = UserTypeEnum.商店;
            iLoginUserRepository.SaveOrUpdate(lu2);
 
            LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
-           lum2.Merchant = shop;
-           lum2.LoginUser = lu1;
+           lum2.Merchant = shop2;
+           lum2.LoginUser = lu2;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
 
@@ -271,10 +271,10 @@ namespace Friday.Test2
                    IsDiscount = false,
                    InventoryCount = 100,
                    MerchantGoodsType = shopCommodityTye_1,
-                   Shop = shop,
+                   Shop = shop2,
 
                };
-               shop.Commodities.Add(commodity_1);
+               shop2.Commodities.Add(commodity_1);
                commodityOfShop2List.Add(commodity_1);
            }
 
@@ -291,17 +291,17 @@ namespace Friday.Test2
                    DiscountInventoryCount = 100,
                    MerchantGoodsType = shopCommodityTye_2,
                    DiscountPrice = 10,
-                   Shop = shop,
+                   Shop = shop2,
                    IsLimited = true,
 
                };
-               shop.Commodities.Add(commodity_2);
+               shop2.Commodities.Add(commodity_2);
                commodityOfShop2List.Add(commodity_2);
            }
 
 
-           new ShopRepository().SaveOrUpdate(shop);
-           shopList.Add(shop);
+           new ShopRepository().SaveOrUpdate(shop2);
+           shopList.Add(shop2);
        }
        private void add_School_Shop()
        {
