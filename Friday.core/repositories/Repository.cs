@@ -202,6 +202,20 @@ namespace friday.core.repositories
                 {
                     parentSearch = parentSearch + ".LoginUser";
                 }
+                foreach(DataFilter df in termList)
+                {
+                  if (df.type.Equals("FromLoginUser"))
+                  {
+                      parentSearch = "FromLoginUser";
+                      df.type = "LoginName";
+                  }
+                  if (df.type.Equals("ToLoginUser"))
+                  {
+                      parentSearch = "ToLoginUser";
+                      df.type = "LoginName";
+                  }
+                }
+
                 alias = parentSearch;
                 query.CreateAlias(alias, "loginUser");
             }
@@ -240,8 +254,8 @@ namespace friday.core.repositories
                         catch (Exception ex)
                         {
                         }
-
                     }
+                 
                     if (df.type.Equals("Order"))
                     {
                         if (df.field != null && df.field.Count != 0)
@@ -1490,13 +1504,35 @@ namespace friday.core.repositories
 
         protected ICriteria SearchByMessage(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
-            ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
+            return SearchByMessage(query, termList);
+        }
+        protected ICriteria SearchByMessage(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByMessage(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByMessage(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+            string oldParentSearch = parentSearch;
+
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("Message", "message");
                 notself = "message.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Message";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".Message";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "message");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -1507,50 +1543,31 @@ namespace friday.core.repositories
                         query.Add(Expression.Eq(notself + "IsDelete", false));
                         continue;
                     }
-
-                    if (df.type.Equals("Name"))
-                    {
-                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
-                        continue;
-                    }
+                   
 
                     if (df.type.Equals("ThreadIndex"))
                     {
                         query.Add(Restrictions.Like(notself + "ThreadIndex", df.value, MatchMode.Anywhere));
                         continue;
                     }
+                   
                     if (df.type.Equals("FromLoginUser"))
                     {
-                        if (!string.IsNullOrEmpty(df.value))
-                        {
-                            query.Add(Restrictions.Eq(notself + "FromLoginUser", iLoginUserRepository.Get(df.value)));
-                        }
-
+                        //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByLoginUser(query, df.field, false);
+                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
-
-                    if (df.type.Equals("Order"))
+                    if (df.type.Equals("ToLoginUser"))
                     {
+                        //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
-                            foreach (DataFilter indf in df.field)
-                            {
-                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
-                                {
-                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
-                                }
-                                else
-                                {
-                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
-                                }
-                                continue;
-                            }
+                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
                         }
+                        continue;
                     }
 
                     //时间
@@ -1562,8 +1579,13 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
+
+
+      
         protected ICriteria SearchByCommodity(ICriteria query, List<DataFilter> termList, bool isSelf, List<Shop> shopList)
         {
             IShopRepository iShopRepository = UnityHelper.UnityToT<IShopRepository>();

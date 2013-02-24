@@ -41,6 +41,9 @@ namespace Friday.mvc.weblogin.message
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
+                    List<DataFilter> fromloginUserList = new List<DataFilter>();
+                    List<DataFilter> tologinUserList = new List<DataFilter>();
+
                     if (!string.IsNullOrEmpty(Request.Form["Name"]))
                         filterList.Add(new DataFilter()
                         {
@@ -57,20 +60,33 @@ namespace Friday.mvc.weblogin.message
 
                         });
                     if (!string.IsNullOrEmpty(Request.Form["FromLoginUser"]))
+                    {
+                        fromloginUserList.Add(new DataFilter()
+                        {
+                            type = "FromLoginUser",
+                            value = fromLoginUser = Request.Form["FromLoginUser"]
+
+                        });
                         filterList.Add(new DataFilter()
                         {
                             type = "FromLoginUser",
-                            value = toLoginUser = Request.Form["FromLoginUser"]
-
+                            field = fromloginUserList
                         });
+                    }
                     if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
-                        filterList.Add(new DataFilter()
+                    {
+                        tologinUserList.Add(new DataFilter()
                         {
                             type = "ToLoginUser",
                             value = toLoginUser = Request.Form["ToLoginUser"]
 
                         });
-                    
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "ToLoginUser",
+                            field = tologinUserList
+                        });
+                    }
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {
