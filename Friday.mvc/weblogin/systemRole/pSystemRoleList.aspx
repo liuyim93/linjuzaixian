@@ -14,20 +14,12 @@
         <table class="searchContent">
              <tr>
                 <td>
-                    <label>登录名:</label>
-                    <input type="text" name="LoginName" class="textInput" value="<%=loginName %>"  />
+                    <label>角色名:</label>
+                    <input type="text" name="Name" class="textInput" value="<%=loginName %>"  />
                 </td>
                 <td>
-                    <label>真实姓名:</label>
-                    <input type="text" name="Name" class="textInput" value="<%=name %>" />
-                </td>
-                <td>
-                    <label>联系电话:</label>
-                    <input type="text" name="Tel" class="textInput" value="<%=tel %>" />
-                </td>
-                <td>
-                    <label>电子邮箱:</label>
-                    <input type="text" name="Email" class="textInput" value="<%=email %>" />
+                    <label>备注:</label>
+                    <input type="text" name="Description" class="textInput" value="<%=name %>" />
                 </td>
             </tr>
         </table>
