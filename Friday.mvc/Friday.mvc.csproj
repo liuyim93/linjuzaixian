@@ -756,6 +756,20 @@
     <Compile Include="weblogin\myCommodityOrder\pMyCommodityOrderList.aspx.designer.cs">
       <DependentUpon>pMyCommodityOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx.cs">
+      <DependentUpon>pAddOrderOfCommodity.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx.designer.cs">
+      <DependentUpon>pAddOrderOfCommodity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx.cs">
+      <DependentUpon>pOrderOfCommodityList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx.designer.cs">
+      <DependentUpon>pOrderOfCommodityList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1657,6 +1671,8 @@
     <Content Include="weblogin\shopEmployee\pShopEmployeeList.aspx" />
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderList.aspx" />
+    <Content Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx" />
+    <Content Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

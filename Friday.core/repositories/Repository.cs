@@ -870,6 +870,121 @@ namespace friday.core.repositories
             return query;
         }
 
+        protected ICriteria SearchByMyCommodityOrder(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByMyCommodityOrder(query, termList);
+        }
+        protected ICriteria SearchByMyCommodityOrder(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByMyCommodityOrder(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByMyCommodityOrder(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "myCommodityOrder.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "MyCommodityOrder";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".MyCommodityOrder";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "myCommodityOrder");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("OrderNumber"))
+                    {
+                        query.Add(Expression.Like(notself + "OrderNumber", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("OrderStatus"))
+                    {
+                        try
+                        {
+                            MyOrderStatusEnum Type = (MyOrderStatusEnum)Enum.Parse(typeof(MyOrderStatusEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "OrderStatus", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
+
+                    }
+
+                    if (df.type.Equals("SystemUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySystemUser(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Shop"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByShop(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
 
         protected ICriteria SearchByMerchantCategory(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
