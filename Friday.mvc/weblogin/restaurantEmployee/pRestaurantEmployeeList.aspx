@@ -20,16 +20,17 @@
                     <td>
                         <label>
                             名称:</label>
-                        <input id="Name" type="text" name="Name" value="<%=name%>" />
+                        <input id="LoginName" type="text" name="LoginName" value="<%=name%>" />
                     </td>
-                    <%--<td>
+                   <td>
                         <label>
                             类型:</label>
-                        <select name="mGoodsType" id="mGoodsType" runat="server"  value="<%=goodsType%>" >
-                            <option value="" >不限</option>
-                       
+                        <select name="eUserType" id="eUserType" runat="server"  value="<%=userType%>" >
+                            <option value="" ></option>
+                            <option value="餐馆" >餐馆</option>
+                            <option value="餐馆店小二" >餐馆店小二</option>
                         </select>
-                    </td>--%>
+                    </td> <%----%>
                  
                 </tr>
               <%--  <tr>

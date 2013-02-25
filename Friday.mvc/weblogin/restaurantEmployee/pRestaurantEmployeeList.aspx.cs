@@ -9,6 +9,7 @@ using friday.core.components;
 using friday.core.repositories;
 using Microsoft.Practices.Unity;
 using friday.core;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin
 {
@@ -22,7 +23,8 @@ namespace Friday.mvc.weblogin
         public string restaurantId;
         public string name;
 
-        public string mid;
+
+        public string userType;
 
         private ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
         IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
@@ -79,10 +81,15 @@ namespace Friday.mvc.weblogin
             List<DataFilter> mechentList = new List<DataFilter>();
           
 
-            name = Request.Form["Name"];
+            name = Request.Form["LoginName"];
             if (!string.IsNullOrEmpty(name))
             {
-                logiUserList.Add(new DataFilter() { type = "Name", value = name });
+                logiUserList.Add(new DataFilter() { type = "LoginName", value = name });
+            }
+            userType = Request.Form["eUserType"];
+            if (!string.IsNullOrEmpty(userType))
+            {
+                logiUserList.Add(new DataFilter() { type = "UserType", value = userType });
             }
 
                 mechentList.Add(new DataFilter()
