@@ -429,7 +429,7 @@ namespace Friday.Test2
                IsAdmin = false,
                LoginName = "xiaoer_"+shop.ShortName+"_"+xiaoerIndex,
                Password = "xiaoer",
-               UserType =UserTypeEnum.商铺店小二,
+               UserType =UserTypeEnum.商店店小二,
            };
 
 

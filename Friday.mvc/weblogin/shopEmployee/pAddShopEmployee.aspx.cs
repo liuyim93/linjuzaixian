@@ -38,7 +38,7 @@ namespace Friday.mvc.weblogin
              IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
              LoginUser f=new LoginUser();
              BindingHelper.RequestToObject(f);
-             f.UserType = UserTypeEnum.租房店小二;
+             f.UserType = UserTypeEnum.商店店小二;
              repository.SaveOrUpdate(f);
 
              Shop shop = restRepository.Get(mid);

@@ -55,7 +55,7 @@ namespace Friday.mvc.weblogin
             {
                 result.panelId = Request.Params["rel_hook"];
             }
-            result.callbackType = "closeCurshop";
+            result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

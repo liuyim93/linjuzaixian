@@ -22,7 +22,7 @@ namespace friday.core.EnumType
         [EnumDescription("送货员")]
           送货员=5,
         [EnumDescription("商铺店小二")]
-          商铺店小二=6,
+          商店店小二=6,
         [EnumDescription("餐馆店小二")]
           餐馆店小二=7,
         [EnumDescription("租房店小二")]
