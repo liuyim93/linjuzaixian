@@ -145,6 +145,9 @@
 
         <div id="jbsxBox1" >
         </div>
+        
+        <div id="jbsxBox2" >
+        </div>
     </div>
     <div class="tabsFooter">
         <div class="tabsFooterContent">

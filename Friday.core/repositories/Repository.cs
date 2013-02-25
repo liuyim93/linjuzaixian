@@ -356,7 +356,15 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
-
+                    if (df.type.Equals("Rent"))
+                    {
+                        //根据Restaurant的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
                     if (df.type.Equals("LoginUser"))
                     {
                         //根据loginUser的属性进行嵌套筛选
@@ -1282,11 +1290,11 @@ namespace friday.core.repositories
                 notself = "rent.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Rent";
+                    parentSearch = "Merchant";
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".Rent";
+                    parentSearch = parentSearch + ".Merchant";
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "rent");
@@ -1300,6 +1308,11 @@ namespace friday.core.repositories
                     if (df.type.Equals("IsDelete"))
                     {
                         query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+                    if (df.type.Equals("Rent"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
                         continue;
                     }
 
