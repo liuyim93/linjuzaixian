@@ -21,7 +21,7 @@ namespace Friday.mvc.weblogin.orderOfFood
 
         private MyFoodOrder myFoodOrder;
         private OrderOfFood orderOfFood = new OrderOfFood();
-        private Food food;
+        private Food foodObj;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,10 +34,10 @@ namespace Friday.mvc.weblogin.orderOfFood
         private void SaveOrderOfFood()
         {
             myFoodOrder = iMyFoodOrderRepository.Get(Request.Params["myFoodOrder_id"]);
-            food = iFoodRepository.Get(Request.Params["FoodID"]);
+            foodObj = iFoodRepository.Get(Request.Params["FoodID"]);
 
             BindingHelper.RequestToObject(orderOfFood);
-            orderOfFood.Food = food;
+            orderOfFood.Food = foodObj;
             orderOfFood.MyFoodOrder = myFoodOrder;
 
             myFoodOrder.Price = myFoodOrder.Price + orderOfFood.Price;
