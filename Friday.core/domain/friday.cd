@@ -447,12 +447,11 @@
       <Property Name="CartOfCommodities" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="friday.core.SystemFunctionObjectMap">
-    <Position X="11.5" Y="3" Width="2.75" />
+  <Class Name="friday.core.SystemFunctionObject">
+    <Position X="10.5" Y="3.25" Width="3.25" />
     <TypeIdentifier>
       <HashCode>QAAQAAEAAAAgAAAAAAAAAAQAAAAAAQAAEAAAAAAAAAA=</HashCode>
-      <FileName>domain\SystemFunctionObjectMap.cs</FileName>
-      <NewMemberFileName>domain\SystemFunctionObject.cs</NewMemberFileName>
+      <FileName>domain\SystemFunctionObject.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />

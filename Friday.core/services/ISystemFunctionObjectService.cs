@@ -7,5 +7,6 @@ namespace friday.core.services
 {
     public interface ISystemFunctionObjectService
     {
+        void Generate();
     }
 }

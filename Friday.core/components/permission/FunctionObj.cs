@@ -7,18 +7,20 @@ namespace friday.core.components
 {
     public partial class SystemFunctionObjectService
     {
-        public 社区 社区模块 { get; set; }
-        public 城管 城管模块 { get; set; }
+        public 餐馆管理 餐馆管理模块 { get; set; }
+        public 统计 统计模块 { get; set; }
     }
-    public class 社区 : BaseModel
+    public class 餐馆管理 : BaseModel
     {
         [PermissionSetting(PremissionTag.Edit, PremissionTag.Enable, PremissionTag.Delete)]
-        public FunctionTag 社区维护 { get; set; }
+        public FunctionTag 餐馆维护 { get; set; }
+        [PermissionSetting(PremissionTag.Edit)]
+        public FunctionTag 餐馆信息修改 { get; set; }
         [PermissionSetting(PremissionTag.Edit, PremissionTag.Delete)]
-        public FunctionTag 网格维护 { get; set; }
+        public FunctionTag 菜品维护 { get; set; }
     }
 
-    public class 城管 : BaseModel
+    public class 统计 : BaseModel
     {
         [PermissionSetting(PremissionTag.Edit, PremissionTag.Enable, PremissionTag.Delete)]
         public FunctionTag 数据导入 { get; set; }

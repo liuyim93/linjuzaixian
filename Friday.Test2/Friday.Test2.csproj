@@ -71,6 +71,7 @@
     <Compile Include="Test_GlobalGoodsType.cs" />
     <Compile Include="Test_Shop.cs" />
     <Compile Include="Test_SchoolOfMerchant.cs" />
+    <Compile Include="Test_SystemFunctionObject.cs" />
     <Compile Include="User_Service_Test.cs" />
     <Compile Include="Test_Activity.cs" />
     <Compile Include="Test_MerchantCategory.cs" />
