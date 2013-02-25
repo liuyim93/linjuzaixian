@@ -10,6 +10,7 @@
     <link href="themes/css/core.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="themes/css/print.css" rel="stylesheet" type="text/css" media="print" />
     <link href="uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="treeview/tree.css" rel="stylesheet" type="text/css" media="screen" />
     <!--[if IE]>
 <link href="themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
 <![endif]-->

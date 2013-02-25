@@ -33,9 +33,9 @@ author:xuanye.wan@gmail.com
                 method: "POST",
                 datatype: "json",
                 url: false,
-                cbiconpath: "/themes/img/icons/",
+                cbiconpath: "treeview/images/icons/",
                 icons: ["checkbox_0.gif", "checkbox_1.gif", "checkbox_2.gif"],
-                emptyiconpath: "/themes/img/Sharedimages/s.gif",
+                emptyiconpath: "treeview/images/icons/s.gif",
                 showcheck: false, //是否显示选择            
                 oncheckboxclick: false, //当checkstate状态变化时所触发的事件，但是不会触发因级联选择而引起的变化
                 onnodeclick: false,
