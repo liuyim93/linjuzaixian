@@ -326,11 +326,11 @@ namespace friday.core.repositories
                 notself = "loginUserOfMerchant.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "LoginUserOfMerchants";   //Restaurant 的一个属性  Restaurant.LoginUserOfMerchants  HasMany
+                    parentSearch = "LoginUserOfMerchants";   //LoginUser 的一个属性，LoginUser.LoginUserOfMerchants  HasMany
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".LoginUserOfMerchants";
+                    parentSearch = parentSearch + ".LoginUserOfMerchants";  //Restaurant 的一个属性  Restaurant.LoginUserOfMerchants  HasMany
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "loginUserOfMerchant");
@@ -1347,6 +1347,7 @@ namespace friday.core.repositories
         protected ICriteria SearchByShop(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
+            int    flag=1;
 
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
@@ -1358,8 +1359,24 @@ namespace friday.core.repositories
                     parentSearch = "Shop";//对于加载ShopList中的员工列表来说，此处应该为Merchant
                 }
                 else
-                {
-                    parentSearch = parentSearch + ".Shop";
+                {                  
+                    //2012-02-25 pang fu xing for 3 table query:loginuser—>loginuserofmerchant->merchant:employeelist in shoplist  
+                    foreach(var df in termList )
+                    {
+                        if (df.type.Equals("MerchantShop"))
+                        {
+                            flag =1;
+                            df.type = "Shop";  //Recovery
+                        }                       
+                    }
+                    if (flag == 1)
+                    {
+                        parentSearch = parentSearch + ".Merchant";
+                    }
+                    else
+                    {
+                       parentSearch = parentSearch + ".Shop";
+                    }                    
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "shop");
