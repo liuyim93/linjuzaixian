@@ -57,6 +57,8 @@
             添加用户</span></a></li>
         <li><a class="edit" href="systemUser/pEditSystemUser.aspx?uid={id}" title="修改用户" rel="" target="navTab">
             <span>修改用户</span></a></li>
+        <li><a class="delete" href="systemUser/pResetSystemUserPassword.aspx?uid={id}" title="密码重置" rel="" target="navTab">
+        <span>密码重置</span></a></li>
         <li><a class="delete" href="systemUser/pSystemUserList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
         <li class="line">line</li>
@@ -70,6 +72,7 @@
                 <tr>
                     <th width="10%" align="center">序 号</th>
                         <th width="10%" align="center">登录名</th>
+                        <th width="10%" align="center">密码</th>
                         <th width="10%" align="center">真实姓名</th>
                         <th width="10%" align="center">联系电话</th>
                         <th width="10%" align="center">电子邮箱</th>
@@ -86,7 +89,8 @@
                         <td><a href="systemUser/pSystemUserDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox3"><%#Eval("LoginUser.LoginName")%>
                             </a>
                         </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>                         
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginUser.Password")%></td>  
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>                        
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Tel")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Email")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>                 

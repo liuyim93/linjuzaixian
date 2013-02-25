@@ -1,46 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddSystemUser.aspx.cs" Inherits="Friday.mvc.weblogin.pAddSystemUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pResetSystemUserPassword.aspx.cs" Inherits="Friday.mvc.weblogin.systemUser.pResetSystemUserPassword" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
     <div class="panel collapse" defh="95">
         <h1>
-            顾客用户详细信息</h1>
+            密码重置</h1>
         <div>
+            <p>
+                <label>
+                    新密码：</label>
+                <input type="password" id="Password" size="30" class="required textInput gray"  runat="server" />
+            </p>
                 <p>
                 <label>
-                    登录名：</label>
-                <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
-                <label>
-                    密码：</label>
-                <input type="password" id="Password" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
-            <label>
-                密码确认：</label>
-            <input type="password" id="PasswordAgain" size="30" class="required textInput gray" equalto="#Password"  runat="server" />
-            </p>
-             <p>
-                <label>
-                    真实姓名：</label>
-                <input type="text" id="Name" size="30" class="required  textInput gray" runat="server" />
-            </p>
-             <p>
-                <label>
-                    联系电话：</label>
-                <input type="text" id="Tel" size="30" class="required  textInput gray phone" runat="server" />
-            </p>
-             <p>
-                <label>
-                    电子邮箱：</label>
-                <input type="text" id="Email" size="30" class="required  textInput gray email" runat="server" />
-            </p>
-             <p>
-                <label>
-                    个性签名：</label>
-                <input type="text" id="Description" size="30" class="required  textInput gray" runat="server" />
-            </p> 
+                    密码确认：</label>
+                <input type="password" id="PasswordAgain" size="30" class="required textInput gray" equalto="#Password"  runat="server" />
+                </p>
+
         </div>
     </div>
      <div class="formBar">
