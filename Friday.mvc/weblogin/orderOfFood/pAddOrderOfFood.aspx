@@ -81,15 +81,20 @@
                 });
             }
 
-//            o.find("#OnePrice").bind("change", function (e) {
-//                if ($("#OnePrice").val() != null && $("#OnePrice").val() != "" && $("#Amount").val() != null && $("#Amount").val() != "")
-//                    $("#Price").val((parseFloat($("#OnePrice").val()) * parseFloat($("#Amount").val())).toString());
+            var onePrice = o.find("#OnePrice");
+            var amount = o.find("#Amount");
+            var price = o.find("#Price");
 
-//            });
-//            o.find("#Amount").bind("change", function (e) {
-//                if ($("#OnePrice").val() != null && $("#OnePrice").val() != "" && $("#Amount").val() != null && $("#Amount").val() != "")
-//                    $("#Price").val((parseFloat($("#OnePrice").val()) * parseFloat($("#Amount").val())).toString());
-//            });
+
+            o.find("#Amount").keyup(function (event) {
+                if (onePrice.val() != null && onePrice.val() != "" && amount.val().isInteger()) {
+                    price.val((parseFloat(onePrice.val()) * parseFloat(amount.val())).toString());
+                }
+                else {
+                    price.val("");
+
+                }
+            });
 
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;

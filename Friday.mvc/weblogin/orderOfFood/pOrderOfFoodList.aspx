@@ -28,7 +28,7 @@
                         <tr>
                             <th width="10%" align="center">序 号</th>
                             <th width="20%" align="center">商品名称</th>
-                            <%--<th width="10%" align="center">商品单价</th>--%>
+                            <th width="10%" align="center">商品单价</th>
                             <th width="15%" align="center">购买数量</th>
                             <th width="10%" align="center">总金额</th>
 
@@ -41,7 +41,7 @@
                     <tr target="orderOfFoodid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Name")%></td> 
-                         <%--<td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Price")%></td>--%>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Price")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td>
                          <%--<td align="center"><%#Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Amount")) *Convert.ToDouble(DataBinder.Eval(Container.DataItem, "Food.Price"))%></td>--%>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
