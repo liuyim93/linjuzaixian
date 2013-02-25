@@ -18,6 +18,8 @@
     <script src="js/jquery.cookie.js" type="text/javascript"></script>
     <script src="js/jquery.validate.js" type="text/javascript"></script>
     <script src="js/jquery.bgiframe.js" type="text/javascript"></script>
+    <!--2013-02-25 basiwlang add tree  -->
+    <script src="js/jquery.tree.js" type="text/javascript"></script>
     <script src="xheditor/xheditor-1.1.14-zh-cn.min.js" type="text/javascript"></script>
     <script src="uploadify/scripts/swfobject.js" type="text/javascript"></script>
     <script src="uploadify/scripts/jquery.uploadify.v2.1.0.js" type="text/javascript"></script>

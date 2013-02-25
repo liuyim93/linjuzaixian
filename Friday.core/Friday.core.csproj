@@ -90,6 +90,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\tree\JsonTree.cs" />
+    <Compile Include="components\tree\nvl.cs" />
     <Compile Include="components\permission\BaseModel.cs" />
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
@@ -246,10 +248,12 @@
     <Compile Include="repositories\IOrderOfFoodRepository.cs" />
     <Compile Include="repositories\IOrderOfHouseRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
+    <Compile Include="repositories\ISystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
     <Compile Include="repositories\OrderOfFoodRepository.cs" />
     <Compile Include="repositories\OrderOfHouseRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
+    <Compile Include="repositories\SystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="domain\RestaurantCart.cs" />
     <Compile Include="domain\RestaurantStatistic.cs" />
