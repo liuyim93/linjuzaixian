@@ -27,8 +27,8 @@
                             类型:</label>
                         <select name="eUserType" id="eUserType" runat="server"  value="<%=userType%>" >
                             <option value="" ></option>
-                            <option value="餐馆" >餐馆</option>
-                            <option value="餐馆店小二" >餐馆店小二</option>
+                            <option value="租房" >租房</option>
+                            <option value="租房店小二" >租房店小二</option>
                         </select>
                     </td> <%----%>
                  
