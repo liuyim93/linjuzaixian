@@ -780,7 +780,7 @@ namespace friday.core.repositories
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                           // SearchByRestaurant(query, df.field, false);
+                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
@@ -893,10 +893,10 @@ namespace friday.core.repositories
 
                     if (df.type.Equals("Rent"))
                     {
-                        //根据loginUser的属性进行嵌套筛选
+                     
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByRent(query, df.field, false);
+                            SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
@@ -1207,6 +1207,7 @@ namespace friday.core.repositories
         protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
+            int flag = 1;
 
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
@@ -1219,7 +1220,22 @@ namespace friday.core.repositories
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".Restaurant";
+                    foreach (var df in termList)
+                    {
+                        if (df.type.Equals("MerchantRestaurant"))
+                        {
+                            flag = 1;
+                            df.type = "Restaurant";  //Recovery
+                        }
+                    }
+                    if (flag == 1)
+                    {
+                        parentSearch = parentSearch + ".Merchant";
+                    }
+                    else
+                    {
+                        parentSearch = parentSearch + ".Restaurant";
+                    }        
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "restaurant");
@@ -1505,6 +1521,7 @@ namespace friday.core.repositories
         protected ICriteria SearchByRent(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
+            int flag = 0;
 
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
@@ -1517,7 +1534,22 @@ namespace friday.core.repositories
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".Rent";
+                    foreach (var df in termList)
+                    {
+                        if (df.type.Equals("MerchantRent"))
+                        {
+                            flag = 1;
+                            df.type = "Rent";  //Recovery
+                        }
+                    }
+                    if (flag == 1)
+                    {
+                        parentSearch = parentSearch + ".Merchant";
+                    }
+                    else
+                    {
+                        parentSearch = parentSearch + ".Rent";
+                    }        
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "rent");

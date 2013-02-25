@@ -94,7 +94,7 @@ namespace Friday.mvc.weblogin
 
                 mechentList.Add(new DataFilter()
                 {
-                    type = "Rent",
+                    type = "MerchantRent",
                     value = rentId
 
                 });
