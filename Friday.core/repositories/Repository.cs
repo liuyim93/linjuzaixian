@@ -1355,7 +1355,7 @@ namespace friday.core.repositories
                 notself = "shop.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Shop";
+                    parentSearch = "Shop";//对于加载ShopList中的员工列表来说，此处应该为Merchant
                 }
                 else
                 {
