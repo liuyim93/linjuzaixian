@@ -1207,7 +1207,6 @@ namespace friday.core.repositories
         protected ICriteria SearchByRestaurant(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
-            int flag = 1;
 
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
@@ -1223,19 +1222,13 @@ namespace friday.core.repositories
                     foreach (var df in termList)
                     {
                         if (df.type.Equals("MerchantRestaurant"))
-                        {
-                            flag = 1;
+                        {                            
                             df.type = "Restaurant";  //Recovery
                         }
                     }
-                    if (flag == 1)
-                    {
+                  
                         parentSearch = parentSearch + ".Merchant";
-                    }
-                    else
-                    {
-                        parentSearch = parentSearch + ".Restaurant";
-                    }        
+                   
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "restaurant");
@@ -1363,7 +1356,6 @@ namespace friday.core.repositories
         protected ICriteria SearchByShop(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
-            int    flag=1;
 
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
@@ -1377,22 +1369,15 @@ namespace friday.core.repositories
                 else
                 {                  
                     //2012-02-25 pang fu xing for 3 table query:loginuser—>loginuserofmerchant->merchant:employeelist in shoplist  
-                    foreach(var df in termList )
+                    foreach (var df in termList)
                     {
                         if (df.type.Equals("MerchantShop"))
                         {
-                            flag =1;
-                            df.type = "Shop";  //Recovery
-                        }                       
-                    }
-                    if (flag == 1)
-                    {
-                        parentSearch = parentSearch + ".Merchant";
-                    }
-                    else
-                    {
-                       parentSearch = parentSearch + ".Shop";
-                    }                    
+                            df.type = "Shop";
+                        }
+                    }                 
+                     parentSearch = parentSearch + ".Merchant";
+                                        
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "shop");
@@ -1521,7 +1506,6 @@ namespace friday.core.repositories
         protected ICriteria SearchByRent(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
-            int flag = 0;
 
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
@@ -1537,19 +1521,12 @@ namespace friday.core.repositories
                     foreach (var df in termList)
                     {
                         if (df.type.Equals("MerchantRent"))
-                        {
-                            flag = 1;
+                        {                           
                             df.type = "Rent";  //Recovery
                         }
-                    }
-                    if (flag == 1)
-                    {
+                    }                  
                         parentSearch = parentSearch + ".Merchant";
-                    }
-                    else
-                    {
-                        parentSearch = parentSearch + ".Rent";
-                    }        
+                      
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "rent");
