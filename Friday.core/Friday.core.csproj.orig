@@ -90,6 +90,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\tree\JsonTree.cs" />
+    <Compile Include="components\tree\nvl.cs" />
+    <Compile Include="components\permission\BaseModel.cs" />
+    <Compile Include="components\permission\FunctionObj.cs" />
+    <Compile Include="components\permission\FunctionTag.cs" />
+    <Compile Include="components\permission\PermissionSettingAttribute.cs" />
+    <Compile Include="components\permission\PremissionManager.cs" />
+    <Compile Include="components\PictureUpload.cs" />
     <Compile Include="components\SqlStatementInterceptor.cs" />
     <Compile Include="domain\AddressMap.cs" />
     <Compile Include="domain\CartOfCommodity.cs" />
@@ -169,6 +177,8 @@
     <Compile Include="domain\ShoppingCart.cs" />
     <Compile Include="domain\ShoppingCartMap.cs" />
     <Compile Include="domain\SnapShotCommodity.cs" />
+    <Compile Include="domain\SystemRole.cs" />
+    <Compile Include="domain\SystemRoleMap.cs" />
     <Compile Include="domain\SystemUser.cs" />
     <Compile Include="domain\SystemUserMap.cs" />
     <Compile Include="domain\Valuing.cs" />
@@ -205,6 +215,7 @@
     <Compile Include="domain\ValuingItemOfMyCommodityOrderMap.cs" />
     <Compile Include="domain\ValuingItemOfMyFoodOrderMap.cs" />
     <Compile Include="domain\ValuingItemOfMyHouseOrderMap.cs" />
+    <Compile Include="domain\SystemFunctionObjectMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
@@ -222,19 +233,27 @@
     <Compile Include="domain\MessageContent.cs" />
     <Compile Include="domain\LoginUserOfMerchant.cs" />
     <Compile Include="EnumType\UserTypeEnum.cs" />
+    <Compile Include="domain\SystemFunctionObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domain\RentCart.cs" />
     <Compile Include="domain\RentSatistic.cs" />
-<<<<<<< HEAD
     <Compile Include="repositories\ActivityRepository.cs" />
+    <Compile Include="repositories\AddressRepository.cs" />
+    <Compile Include="repositories\FoodRepository.cs" />
     <Compile Include="repositories\IActivityRepository.cs" />
-=======
     <Compile Include="repositories\GlobalGoodsTypeRepository.cs" />
+    <Compile Include="repositories\IAddressRepository.cs" />
+    <Compile Include="repositories\IFoodRepository.cs" />
     <Compile Include="repositories\IGlobalGoodsTypeRepository.cs" />
->>>>>>> Add search function finish
+    <Compile Include="repositories\IOrderOfFoodRepository.cs" />
+    <Compile Include="repositories\IOrderOfHouseRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
+    <Compile Include="repositories\ISystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
+    <Compile Include="repositories\OrderOfFoodRepository.cs" />
+    <Compile Include="repositories\OrderOfHouseRepository.cs" />
     <Compile Include="repositories\Repository.cs" />
+    <Compile Include="repositories\SystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
     <Compile Include="domain\RestaurantCart.cs" />
     <Compile Include="domain\RestaurantStatistic.cs" />
@@ -260,7 +279,24 @@
     <Compile Include="repositories\IRentRepository.cs" />
     <Compile Include="repositories\MyHouseOrderRepository.cs" />
     <Compile Include="repositories\IMyHouseOrderRepository.cs" />
+    <Compile Include="repositories\IMerchantGoodsTypeRepository.cs" />
+    <Compile Include="repositories\MerchantGoodsTypeRepository.cs" />
+    <Compile Include="repositories\CommodityRepository.cs" />
+    <Compile Include="repositories\ICommodityRepository.cs" />
+    <Compile Include="repositories\HouseRepository.cs" />
+    <Compile Include="repositories\IHouseRepository.cs" />
+    <Compile Include="repositories\LoginUserOfMerchantRepository.cs" />
+    <Compile Include="repositories\ILoginUserOfMerchantRepository.cs" />
+    <Compile Include="repositories\MessageRepository.cs" />
+    <Compile Include="repositories\IMessageRepository.cs" />
+<<<<<<< HEAD
+    <Compile Include="services\ISystemFunctionObjectService.cs" />
+=======
+    <Compile Include="repositories\OrderOfCommodityRepository.cs" />
+    <Compile Include="repositories\IOrderOfCommodityRepository.cs" />
+>>>>>>> add SearchByOrderOfCommodity() in Repository
     <Compile Include="services\IUserService.cs" />
+    <Compile Include="services\SystemFunctionObjectService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
     <Compile Include="domain\ShopStatistic.cs" />

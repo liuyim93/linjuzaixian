@@ -564,6 +564,71 @@ namespace friday.core.repositories
             }
             return query;
         }
+        protected ICriteria SearchByOrderOfCommodity(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            IMyCommodityOrderRepository iMyCommodityOrderRepository = UnityHelper.UnityToT<IMyCommodityOrderRepository>();
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("OrderOfCommodity", "orderOfCommodity");
+                notself = "orderOfCommodity.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("MyCommodityOrder"))
+                    {
+                        if (!string.IsNullOrEmpty(df.value))
+                        {
+                            query.Add(Restrictions.Eq(notself + "MyCommodityOrder", iMyCommodityOrderRepository.Get(df.value)));
+                        }
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByMyFoodOrder(query, df.field, false);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
 
         protected ICriteria SearchByOrderOfHouse(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
