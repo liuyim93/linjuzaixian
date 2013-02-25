@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditOrderOfHouse.aspx.cs" Inherits="Friday.mvc.weblogin.pEditOrderOfHouse" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditOrderOfFood.aspx.cs" Inherits="Friday.mvc.weblogin.pEditOrderOfFood" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
@@ -10,10 +10,10 @@
             <p>
                 <label>
                     商品名称：</label>
-                <input type="text" id="House" size="30" class="required textInput gray"
+                <input type="text" id="Food" size="30" class="required textInput gray"
                     runat="server" readonly="true" />
-                 <input type="hidden" id="HouseID"  runat="server" />
-                <a class="btnLook" href="ListHouseByRent.aspx?rent_id=<%=Request.Params["rent_id"]%>" rel="" lookupgroup="">选择商品</a>
+                 <input type="hidden" id="FoodID"  runat="server" />
+                <a class="btnLook" href="ListFoodByRestaurant.aspx?restaurant_id=<%=Request.Params["restaurant_id"]%>" rel="" lookupgroup="">选择商品</a>
             </p>
             <p>
             <label>

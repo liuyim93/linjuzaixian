@@ -9,7 +9,7 @@ using friday.core;
 using friday.core.components;
 using friday.core.domain;
 
-namespace Friday.mvc.weblogin.myHouseOrder
+namespace Friday.mvc.weblogin
 {
     public partial class pMyHouseOrderList : System.Web.UI.Page
     {

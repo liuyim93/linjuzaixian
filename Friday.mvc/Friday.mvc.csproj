@@ -320,6 +320,13 @@
     <Compile Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pMyHouseOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\orderOfFood\pEditOrderOfFood.aspx.cs">
+      <DependentUpon>pEditOrderOfFood.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfFood\pEditOrderOfFood.aspx.designer.cs">
+      <DependentUpon>pEditOrderOfFood.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx.cs">
       <DependentUpon>pAddOrderOfHouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -892,6 +899,7 @@
     <Content Include="weblogin\message\pEditMessage.aspx" />
     <Content Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx" />
     <Content Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx" />
+    <Content Include="weblogin\orderOfFood\pEditOrderOfFood.aspx" />
     <Content Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />

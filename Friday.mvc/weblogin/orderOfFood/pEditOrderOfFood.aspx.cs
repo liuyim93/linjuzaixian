@@ -5,13 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using friday.core.repositories;
-using friday.core.domain;
 using friday.core;
+using friday.core.domain;
 using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddOrderOfFood : System.Web.UI.Page
+    public partial class pEditOrderOfFood : System.Web.UI.Page
     {
         protected string MyFoodOrderID;
 
@@ -20,14 +20,25 @@ namespace Friday.mvc.weblogin
         private IFoodRepository iFoodRepository = UnityHelper.UnityToT<IFoodRepository>();
 
         private MyFoodOrder myFoodOrder;
-        private OrderOfFood orderOfFood = new OrderOfFood();
+        private OrderOfFood orderOfFood;
         private Food foodObj;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string uid = Request.Params["uid"].ToString();
+            orderOfFood = iOrderOfFoodRepository.Load(uid);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveOrderOfFood();
+            }
+            else
+            {
+                BindingHelper.ObjectToControl(orderOfFood, this);
+                Food.Value = orderOfFood.Food.Name;
+                FoodID.Value = orderOfFood.Food.Id;
+                OnePrice.Value = orderOfFood.Food.Price.ToString();
+                OldPrice.Value = orderOfFood.Price.ToString();
             }
         }
 
@@ -40,7 +51,7 @@ namespace Friday.mvc.weblogin
             orderOfFood.Food = foodObj;
             orderOfFood.MyFoodOrder = myFoodOrder;
 
-            myFoodOrder.Price = myFoodOrder.Price + orderOfFood.Price;
+            myFoodOrder.Price = myFoodOrder.Price - Convert.ToDouble(OldPrice.Value) + orderOfFood.Price;
 
             iOrderOfFoodRepository.SaveOrUpdate(orderOfFood);
             iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
