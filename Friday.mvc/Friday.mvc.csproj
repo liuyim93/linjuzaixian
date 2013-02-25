@@ -268,6 +268,13 @@
     <Compile Include="weblogin\ListHouseByRent.aspx.designer.cs">
       <DependentUpon>ListHouseByRent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSystemUser.aspx.cs">
+      <DependentUpon>ListSystemUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSystemUser.aspx.designer.cs">
+      <DependentUpon>ListSystemUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,6 +312,13 @@
     </Compile>
     <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
       <DependentUpon>pEditMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx.cs">
+      <DependentUpon>pAddMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>pAddMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx.cs">
       <DependentUpon>pMyHouseOrderDetail.aspx</DependentUpon>
@@ -893,10 +907,12 @@
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
     <Content Include="weblogin\ListHouseByRent.aspx" />
+    <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
     <Content Include="weblogin\message\pEditMessage.aspx" />
+    <Content Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx" />
     <Content Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx" />
     <Content Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx" />
     <Content Include="weblogin\orderOfFood\pEditOrderOfFood.aspx" />
