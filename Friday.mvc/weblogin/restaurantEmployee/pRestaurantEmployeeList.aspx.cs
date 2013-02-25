@@ -103,19 +103,14 @@ namespace Friday.mvc.weblogin
                     type = "LoginUserOfMerchant",
                     field = loginUserOfMechentList
                 });
+                //注释掉，即可吧管理员和店小二全部取出
+                //logiUserList.Add(new DataFilter()
+                //{
+                //    type = "UserType",  
+                //    value = "餐馆"
 
-                logiUserList.Add(new DataFilter()
-                {
-                    type = "UserType",
-                    value = "餐馆店小二"
-
-                });
+                //});
          
-            //if (!string.IsNullOrEmpty(restaurantId))
-            //{
-            //    dfl.Add(new DataFilter() { type = "Restaurant", value = restaurantId });
-            //}
-
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
             string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
