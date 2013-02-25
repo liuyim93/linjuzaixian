@@ -721,6 +721,27 @@
     <Compile Include="weblogin\rentEmployee\pRentEmployeeList.aspx.designer.cs">
       <DependentUpon>pRentEmployeeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\shopEmployee\pAddShopEmployee.aspx.cs">
+      <DependentUpon>pAddShopEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shopEmployee\pAddShopEmployee.aspx.designer.cs">
+      <DependentUpon>pAddShopEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\shopEmployee\pEditShopEmployee.aspx.cs">
+      <DependentUpon>pEditShopEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shopEmployee\pEditShopEmployee.aspx.designer.cs">
+      <DependentUpon>pEditShopEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\shopEmployee\pShopEmployeeList.aspx.cs">
+      <DependentUpon>pShopEmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shopEmployee\pShopEmployeeList.aspx.designer.cs">
+      <DependentUpon>pShopEmployeeList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1617,6 +1638,9 @@
     <Content Include="weblogin\rentEmployee\pAddRentEmployee.aspx" />
     <Content Include="weblogin\rentEmployee\pEditRentEmployee.aspx" />
     <Content Include="weblogin\rentEmployee\pRentEmployeeList.aspx" />
+    <Content Include="weblogin\shopEmployee\pAddShopEmployee.aspx" />
+    <Content Include="weblogin\shopEmployee\pEditShopEmployee.aspx" />
+    <Content Include="weblogin\shopEmployee\pShopEmployeeList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
