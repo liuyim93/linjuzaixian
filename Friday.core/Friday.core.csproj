@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="components\permission\BaseModel.cs" />
+    <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
     <Compile Include="components\permission\PremissionManager.cs" />
@@ -210,6 +211,7 @@
     <Compile Include="domain\ValuingItemOfMyCommodityOrderMap.cs" />
     <Compile Include="domain\ValuingItemOfMyFoodOrderMap.cs" />
     <Compile Include="domain\ValuingItemOfMyHouseOrderMap.cs" />
+    <Compile Include="domain\SystemFunctionObjectMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
     <Compile Include="EnumType\MerchantTypeEnum.cs" />
