@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin {
     
     
-    public partial class pRestaurantXiaoer {
+    public partial class pRestaurantEmployeeList {
         
         /// <summary>
         /// form 控件。

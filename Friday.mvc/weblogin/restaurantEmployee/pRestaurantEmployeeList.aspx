@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRestaurantXiaoerList.aspx.cs" Inherits="Friday.mvc.weblogin.pRestaurantXiaoer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRestaurantEmployeeList.aspx.cs" Inherits="Friday.mvc.weblogin.pRestaurantEmployeeList" %>
 
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
@@ -68,16 +68,16 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="restaurantXiaoer/pAddRestaurantXiaoer.aspx?merchant_id={id}" title="增加小二" target="dialog"
-            rel="" width="600" height="400"><span>增加小二</span></a></li>
-        <li><a class="edit" href="restaurantXiaoer/pEditRestaurantXiaoer.aspx?uid={restaurantXiaoerid}&merchant_id={id}" title="修改小二" rel="" target="dialog"
-            height="480"><span>修改小二</span></a></li>
-        <li><a class="delete" href="restaurantXiaoer/pRestaurantXiaoerList.aspx?flag=alldelete&restaurantXiaoer_id={restaurantXiaoerid}" target="ajaxTodo"
-            title="确定要删除吗?"><span>删除小二</span></a></li>
+        <li><a class="add" href="restaurantEmployee/pAddRestaurantEmployee.aspx?merchant_id={id}" title="增加员工" target="dialog"
+            rel="" width="600" height="400"><span>增加员工</span></a></li>
+        <li><a class="edit" href="restaurantEmployee/pEditRestaurantEmployee.aspx?restaurantEmployeeid={restaurantEmployee_id}" title="修改员工" rel="" target="dialog"
+            height="480"><span>修改员工</span></a></li>
+        <li><a class="delete" href="restaurantEmployee/pRestaurantEmployeeList.aspx?flag=alldelete&restaurantEmployeeid={restaurantEmployee_id}" target="ajaxTodo"
+            title="确定要删除吗?"><span>删除员工</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
-<div id="restaurantXiaoerList">
+<div id="restaurantEmployeeList">
     <table class="table" rel='<%=Request.Params["rel_v3"] %>'>
         <asp:repeater id="repeater" runat="server">
               <HeaderTemplate>
@@ -95,7 +95,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                 
-                    <tr target="foodid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
+                    <tr target="restaurantEmployee_id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Password")%></td>

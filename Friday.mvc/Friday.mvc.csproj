@@ -344,6 +344,9 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx.cs">
+      <DependentUpon>pAddRestaurantEmployee.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.cs">
       <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,8 +354,22 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.designer.cs">
-      <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
+    <Compile Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx.designer.cs">
+      <DependentUpon>pAddRestaurantEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx.cs">
+      <DependentUpon>pEditRestaurantEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx.designer.cs">
+      <DependentUpon>pEditRestaurantEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx.cs">
+      <DependentUpon>pRestaurantEmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx.designer.cs">
+      <DependentUpon>pRestaurantEmployeeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
@@ -804,8 +821,10 @@
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
-    <Content Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx" />
+    <Content Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx" />
+    <Content Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
+    <Content Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleDetail.aspx" />

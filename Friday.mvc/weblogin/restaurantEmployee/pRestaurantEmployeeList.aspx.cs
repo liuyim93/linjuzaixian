@@ -12,7 +12,7 @@ using friday.core;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pRestaurantXiaoer : System.Web.UI.Page
+    public partial class pRestaurantEmployeeList : System.Web.UI.Page
     {
         protected long total;
         protected int pageNum;
@@ -47,16 +47,16 @@ namespace Friday.mvc.weblogin
 
         private void DeleteLoginUser()
         {
-            //string loginUserid = Request.Params["loginUser_id"];
+            string restaurantEmployeeid = Request.Params["restaurantEmployeeid"];
 
-            //iLoginUserRepository.Delete(loginUserid);
-            //AjaxResult result = new AjaxResult();
-            //result.statusCode = "200";
-            //result.message = "操作成功";
-            //FormatJsonResult jsonResult = new FormatJsonResult();
-            //jsonResult.Data = result;
-            //Response.Write(jsonResult.FormatResult());
-            //Response.End();
+            iLoginUserRepository.Delete(restaurantEmployeeid);
+            AjaxResult result = new AjaxResult();
+            result.statusCode = "200";
+            result.message = "操作成功";
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = result;
+            Response.Write(jsonResult.FormatResult());
+            Response.End();
         }
         private void SearchLoginUser()
         {
@@ -123,6 +123,7 @@ namespace Friday.mvc.weblogin
             logiUserList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
             xiaoErLogiUserList = iLoginUserRepository.Search(logiUserList, start, limit, out total);
+            
             repeater.DataSource = xiaoErLogiUserList;
             repeater.DataBind();
            

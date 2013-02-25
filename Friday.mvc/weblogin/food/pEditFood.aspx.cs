@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using friday.core.domain;
 using friday.core.components;
+using friday.core.EnumType;
 using System.IO;
 
 namespace Friday.mvc.weblogin
