@@ -15,8 +15,6 @@ namespace friday.core.services
     {
         [PermissionSetting(PremissionTag.Edit, PremissionTag.Enable, PremissionTag.Delete)]
         public FunctionTag 餐馆维护 { get; set; }
-        [PermissionSetting(PremissionTag.Edit)]
-        public FunctionTag 餐馆信息修改 { get; set; }
         [PermissionSetting(PremissionTag.Edit, PremissionTag.Delete)]
         public FunctionTag 菜品维护 { get; set; }
     }

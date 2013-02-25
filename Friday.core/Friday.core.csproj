@@ -175,6 +175,8 @@
     <Compile Include="domain\ShoppingCart.cs" />
     <Compile Include="domain\ShoppingCartMap.cs" />
     <Compile Include="domain\SnapShotCommodity.cs" />
+    <Compile Include="domain\SystemRole.cs" />
+    <Compile Include="domain\SystemRoleMap.cs" />
     <Compile Include="domain\SystemUser.cs" />
     <Compile Include="domain\SystemUserMap.cs" />
     <Compile Include="domain\Valuing.cs" />

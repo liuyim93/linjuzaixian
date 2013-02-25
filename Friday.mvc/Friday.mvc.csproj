@@ -341,6 +341,34 @@
     <Compile Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx.designer.cs">
       <DependentUpon>pOrderOfHouseList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
+      <DependentUpon>pAddSystemRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.designer.cs">
+      <DependentUpon>pAddSystemRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pEditSystemRole.aspx.cs">
+      <DependentUpon>pEditSystemRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pEditSystemRole.aspx.designer.cs">
+      <DependentUpon>pEditSystemRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleDetail.aspx.cs">
+      <DependentUpon>pSystemRoleDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleDetail.aspx.designer.cs">
+      <DependentUpon>pSystemRoleDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleList.aspx.cs">
+      <DependentUpon>pSystemRoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleList.aspx.designer.cs">
+      <DependentUpon>pSystemRoleList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\school\ListSchool.aspx.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -755,6 +783,10 @@
     <Content Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
+    <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
+    <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
+    <Content Include="weblogin\systemRole\pSystemRoleDetail.aspx" />
+    <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
     <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />

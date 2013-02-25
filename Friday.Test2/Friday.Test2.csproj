@@ -80,6 +80,7 @@
     <Compile Include="PopulateFakeRentDataTest.cs" />
     <Compile Include="Test_Message.cs" />
     <Compile Include="Test_RestaurantMultiSearch.cs" />
+    <Compile Include="PopulateFakePermissionDataTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
