@@ -21,9 +21,9 @@ namespace friday.core
             Map(o=>o.PermissonTag).Not.Nullable();
             Map(o=>o.FunctionObjectName).Not.Nullable();
             Map(o=>o.ParentFunctionObjectId);
-            Map(o=>o.FunctionAvailable).Default("true").Not.Nullable();
-            Map(o=>o.DeletePermissionAvailable).Default("true").Not.Nullable();
-            Map(o=>o.EditPermissionAvailable).Default("true").Not.Nullable();
+            Map(o=>o.FunctionAvailable).Default("1").Not.Nullable();
+            Map(o=>o.DeletePermissionAvailable).Default("1").Not.Nullable();
+            Map(o=>o.EditPermissionAvailable).Default("1").Not.Nullable();
 
         }
 

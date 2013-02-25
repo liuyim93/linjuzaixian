@@ -7,10 +7,10 @@ using friday.core.repositories;
 
 namespace friday.core.services
 {
-    public class SystemFunctionObjectService:ISystemFunctionObjectService
+    public partial class SystemFunctionObjectService:ISystemFunctionObjectService
     {
 
-        SystemFunctionObjectService(IRepository<SystemFunctionObject> iSystemFunctionObjectRepository)
+        public SystemFunctionObjectService(IRepository<SystemFunctionObject> iSystemFunctionObjectRepository)
         {
             this.iSystemFunctionObjectRepository = iSystemFunctionObjectRepository;
             foreach (var item in this.GetType().GetProperties().Where(x => x.CanWrite))
