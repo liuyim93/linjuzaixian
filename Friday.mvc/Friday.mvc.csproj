@@ -268,6 +268,13 @@
     <Compile Include="weblogin\ListHouseByRent.aspx.designer.cs">
       <DependentUpon>ListHouseByRent.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListMerchantByMerchantType.aspx.cs">
+      <DependentUpon>ListMerchantByMerchantType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListMerchantByMerchantType.aspx.designer.cs">
+      <DependentUpon>ListMerchantByMerchantType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListSystemUser.aspx.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -907,6 +914,7 @@
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
     <Content Include="weblogin\ListHouseByRent.aspx" />
+    <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />

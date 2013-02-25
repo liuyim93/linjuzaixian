@@ -1,7 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListSystemUser.aspx.cs" Inherits="Friday.mvc.weblogin.ListSystemUser" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListMerchantByMerchantType.aspx.cs" Inherits="Friday.mvc.weblogin.ListMerchantByMerchantType" %>
 
 <form id="pagerForm" action="#rel#">
-<input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
+<input type="hidden" id="Hidden1" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
 </form>
@@ -13,12 +13,12 @@
         <table class="searchContent">
              <tr>
                 <td>
-                    <label>登录名:</label>
-                    <input type="text" name="LoginName" class="textInput" value="<%=loginName %>"  />
+                    <label>商铺名称:</label>
+                    <input type="text" name="Name" class="textInput" value="<%=name %>"  />
                 </td>
                 <td>
-                    <label>真实姓名:</label>
-                    <input type="text" name="Name" class="textInput" value="<%=name %>" />
+                    <label>店主名称:</label>
+                    <input type="text" name="Owener" class="textInput" value="<%=owener %>" />
                 </td>
             </tr>
         </table>
@@ -49,24 +49,24 @@
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
-                     <tr>
-                       <th width="40">序号</th> 
-					    <th width="200">登录名</th> 
-                        <th width="200">真实姓名</th> 
-                        <th width="40">选择</th> 
-                      </tr>
+                    <tr>
+                    <th width="40">序号</th> 
+					<th width="200">商铺名称</th> 
+                    <th width="200">店主名称</th> 
+                    <th width="40">选择</th> 
+                    </tr>
                 </thead>
                 <tbody> 
                 </HeaderTemplate>
                 <ItemTemplate>                
-                    <tr target="userid" rel="<%#Eval("Id")%>">
-                        <td><%#Container.ItemIndex+1%></td>
-					    <td><%#DataBinder.Eval(Container.DataItem, "LoginUser.LoginName")%></td>
-					    <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
-                        <td>
-				    <a class="btnSelect" href=javascript:$.bringBack({SystemUserID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',SystemUser:'<%#DataBinder.Eval(Container.DataItem,"LoginUser.LoginName")%>'}) title="查找带回">选择</a>
-				        </td>				
-			        </tr>
+                <tr target="userid" rel="<%#Eval("Id")%>">
+                    <td><%#Container.ItemIndex+1%></td>
+					<td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
+					<td><%#DataBinder.Eval(Container.DataItem, "Owener")%></td>
+                    <td>
+				<a class="btnSelect" href=javascript:$.bringBack({MerchantID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',Merchant:'<%#DataBinder.Eval(Container.DataItem,"Name")%>'}) title="查找带回">选择</a>
+			</td>				
+		    </tr>
             </ItemTemplate>
         </asp:repeater>
         </tbody>

@@ -245,11 +245,13 @@
     <Compile Include="repositories\IAddressRepository.cs" />
     <Compile Include="repositories\IFoodRepository.cs" />
     <Compile Include="repositories\IGlobalGoodsTypeRepository.cs" />
+    <Compile Include="repositories\IMerchantRepository.cs" />
     <Compile Include="repositories\IOrderOfFoodRepository.cs" />
     <Compile Include="repositories\IOrderOfHouseRepository.cs" />
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
+    <Compile Include="repositories\MerchantRepository.cs" />
     <Compile Include="repositories\OrderOfFoodRepository.cs" />
     <Compile Include="repositories\OrderOfHouseRepository.cs" />
     <Compile Include="repositories\Repository.cs" />

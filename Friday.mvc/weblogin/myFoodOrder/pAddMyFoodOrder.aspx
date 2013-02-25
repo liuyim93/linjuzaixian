@@ -26,7 +26,7 @@
                 <input type="text" id="Merchant" size="30" class="required textInput gray"
                     runat="server" readonly="true" />
                  <input type="hidden" id="MerchantID"  runat="server" />
-                <a class="btnLook" href="ListMerchantByMerchantType.aspx?MerchantType=餐馆" rel="" lookupgroup="">选择用户</a>
+                <a class="btnLook" href="ListMerchantByMerchantType.aspx?MerchantType=餐馆" rel="" lookupgroup="">选择商铺</a>
             </p>
 
             <p>
