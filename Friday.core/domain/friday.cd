@@ -28,7 +28,7 @@
   <Class Name="friday.core.domain.Food">
     <Position X="9.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAAAAAAAAAAAAAAAAAAQAAKAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>IAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Food.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -91,7 +91,7 @@
   <Class Name="friday.core.domain.SystemUser">
     <Position X="4" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAFAAAAAAiAggAAAAAAAAAQAAgAABAAAAAAAAAAAABE=</HashCode>
+      <HashCode>AAFAQAAAAiAggAAAAAAAAAQAAAAARAAAAAAAAAAAABE=</HashCode>
       <FileName>domain\SystemUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -166,7 +166,7 @@
   <Class Name="friday.core.AbstractCommodity">
     <Position X="9.25" Y="15.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAEAAAQAAAAAABAAAAACAgAACAA=</HashCode>
+      <HashCode>AAAAAAQAAQCAAAAAAAEQAAaAAgAAABAAAAAGEgAACAA=</HashCode>
       <FileName>domain\AbstractCommodity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -446,6 +446,13 @@
     <ShowAsCollectionAssociation>
       <Property Name="CartOfCommodities" />
     </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="friday.core.SystemFunctionObject">
+    <Position X="11.5" Y="3" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>QAAQAAEAAAAAAAAAAAAAAAQAAAAAAQAAEAAAAAAAAAA=</HashCode>
+      <FileName>domain\SystemFunctionObject.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>
