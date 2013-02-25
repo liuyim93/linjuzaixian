@@ -976,13 +976,17 @@ namespace friday.core.repositories
                         query.Add(Expression.Eq(notself + "IsDelete", false));
                         continue;
                     }
-
+                    
                     if (df.type.Equals("OrderNumber"))
                     {
                         query.Add(Expression.Like(notself + "OrderNumber", df.value, MatchMode.Anywhere));
                         continue;
                     }
-
+                    if (df.type.Equals("Linkman"))
+                    {
+                        query.Add(Expression.Like(notself + "Linkman", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
                     if (df.type.Equals("OrderStatus"))
                     {
                         try
@@ -1211,11 +1215,11 @@ namespace friday.core.repositories
                 notself = "restaurant.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Merchant";
+                    parentSearch = "Restaurant";
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".Merchant";
+                    parentSearch = parentSearch + ".Restaurant";
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "restaurant");
@@ -1270,6 +1274,11 @@ namespace friday.core.repositories
                     if (df.type.Equals("ShortName"))
                     {
                         query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("Address"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));
                         continue;
                     }
                     
@@ -1408,7 +1417,11 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
                         continue;
                     }
-
+                    if (df.type.Equals("Address"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
 
                     if (df.type.Equals("ShopStatus"))
                     {
@@ -1483,11 +1496,11 @@ namespace friday.core.repositories
                 notself = "rent.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Merchant";
+                    parentSearch = "Rent";
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".Merchant";
+                    parentSearch = parentSearch + ".Rent";
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "rent");
@@ -1545,7 +1558,11 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "ShortName", df.value, MatchMode.Anywhere));
                         continue;
                     }
-
+                    if (df.type.Equals("Address"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Address", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
 
                     if (df.type.Equals("ShopStatus"))
                     {
