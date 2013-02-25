@@ -999,7 +999,7 @@ namespace friday.core.repositories
 
                     if (df.type.Equals("SystemUser"))
                     {
-                        //根据loginUser的属性进行嵌套筛选
+                        //根据SystemUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
                             SearchBySystemUser(query, df.field, ref deepIndex, ref parentSearch);
@@ -1009,10 +1009,10 @@ namespace friday.core.repositories
 
                     if (df.type.Equals("Shop"))
                     {
-                        //根据loginUser的属性进行嵌套筛选
+                        //根据Shop的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByShop(query, df.field, false);
+                            SearchByShop(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
@@ -1346,11 +1346,11 @@ namespace friday.core.repositories
                 notself = "shop.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Merchant";
+                    parentSearch = "Shop";
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".Merchant";
+                    parentSearch = parentSearch + ".Shop";
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "shop");
