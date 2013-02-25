@@ -770,6 +770,13 @@
     <Compile Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx.designer.cs">
       <DependentUpon>pOrderOfCommodityList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListCommodityByShop.aspx.cs">
+      <DependentUpon>ListCommodityByShop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListCommodityByShop.aspx.designer.cs">
+      <DependentUpon>ListCommodityByShop.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1673,6 +1680,7 @@
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderList.aspx" />
     <Content Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx" />
     <Content Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx" />
+    <Content Include="weblogin\ListCommodityByShop.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
