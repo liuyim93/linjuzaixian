@@ -39,9 +39,16 @@
         </form>
     </div>
 </div>
-<div class="divider"></div>
-<div id="tree">
-    
+
+<div class="divider">
+</div>
+<div class="panel" defh="400" style="float:left; display:block; overflow:auto; width:240px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+    <h1>
+        功能模块</h1>
+    <div id="tree">
+    </div>
+</div>
+<div id="jbsxBox3" class="pageFormContent" style="margin-left:546px;">
 
 </div>
 <script type="text/javascript">
