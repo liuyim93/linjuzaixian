@@ -237,6 +237,15 @@ namespace friday.core.repositories
                         continue;
                     }
 
+                    if (df.type.Equals("LoginUserOfMerchant"))
+                    {
+                        //根据LoginUserOfMerchant的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
                     if (df.type.Equals("LoginName"))
                     {
                         query.Add(Expression.Like(notself + "LoginName", df.value, MatchMode.Anywhere));
@@ -338,7 +347,16 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    
+                    if (df.type.Equals("Restaurant"))
+                    {
+                        //根据Restaurant的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
                     if (df.type.Equals("LoginUser"))
                     {
                         //根据loginUser的属性进行嵌套筛选
@@ -1017,7 +1035,11 @@ namespace friday.core.repositories
                         query.Add(Expression.Eq(notself + "IsDelete", false));
                         continue;
                     }
-
+                    if (df.type.Equals("Restaurant"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        continue;
+                    }
                     if (df.type.Equals("Name"))
                     {
                         query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));

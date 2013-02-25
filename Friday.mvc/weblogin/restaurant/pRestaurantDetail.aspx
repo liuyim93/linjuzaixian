@@ -10,9 +10,12 @@
                 <li><a href="#"><span>配送时间</span></a></li>
                 <li><a href="#"><span>促销打折</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
-                 <li><a href="#"><span>详细信息</span></a></li>
+                <li><a href="#"><span>详细信息</span></a></li>
+                
                 <li><a href='Food/pFoodList.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>菜品</span></a></li>
+                <li><a href='restaurantXiaoer/prestaurantXiaoer.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
+                target="ajax"><span>店小二</span></a></li>
            </ul>
         </div>
     </div>
@@ -181,6 +184,7 @@
                 <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
             </p>
        </div>
+       
        <div>
              <p>
                  <label>详细内容：</label>
@@ -191,10 +195,13 @@
           </div>
                   
        
-         
 
         <div id="jbsxBox1" >
         </div>
+        
+          <div id="jbsxBox2" >
+        </div>
+
     </div>
     <div class="tabsFooter">
         <div class="tabsFooterContent">

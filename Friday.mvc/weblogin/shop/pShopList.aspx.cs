@@ -89,7 +89,13 @@ namespace Friday.mvc.weblogin.shop
                         type = "LoginName",
                         value = loginName = Request.Form["LoginName"]
 
-                    });                   
+                    });
+                    loginUserList.Add(new DataFilter()
+                    {
+                        type = "UserType",
+                        value = "商店"
+
+                    });
                     loginUserOfMechentList.Add(new DataFilter()
                     {
                         type = "LoginUser",

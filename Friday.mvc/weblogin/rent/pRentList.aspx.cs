@@ -93,6 +93,12 @@ namespace Friday.mvc.weblogin.rent
                             value = loginName = Request.Form["LoginName"]
 
                         });
+                        loginUserList.Add(new DataFilter()
+                        {
+                            type = "UserType",
+                            value = "租房"
+
+                        });
                         loginUserOfMechentList.Add(new DataFilter()
                         {
                             type = "LoginUser",

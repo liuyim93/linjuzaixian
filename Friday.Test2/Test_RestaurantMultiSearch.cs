@@ -143,12 +143,12 @@ namespace Friday.Test2
                value = loginName
 
            });
-           //loginUserList.Add(new DataFilter()
-           //{
-           //    type = "UserType",
-           //    value = "餐馆"
+           loginUserList.Add(new DataFilter()
+           {
+               type = "UserType",
+               value = "餐馆"
 
-           //});
+           });
            loginUserOfMechentList.Add(new DataFilter()
            {
                type = "LoginUser",

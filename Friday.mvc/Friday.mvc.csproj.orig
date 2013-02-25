@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="weblogin\address\pAddAddress.aspx.cs">
       <DependentUpon>pAddAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\commodity\pAddCommodity.aspx.cs">
       <DependentUpon>pAddCommodity.aspx</DependentUpon>
@@ -258,6 +259,14 @@
     </Compile>
     <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
       <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListHouseByRent.aspx.cs">
+      <DependentUpon>ListHouseByRent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListHouseByRent.aspx.designer.cs">
+      <DependentUpon>ListHouseByRent.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
@@ -271,6 +280,7 @@
     </Compile>
     <Compile Include="weblogin\ListMerchant.aspx.cs">
       <DependentUpon>ListMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\message\pMessageList.aspx.cs">
       <DependentUpon>pMessageList.aspx</DependentUpon>
@@ -289,12 +299,98 @@
     <Compile Include="weblogin\message\pAddMessage.aspx.designer.cs">
       <DependentUpon>pAddMessage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\message\pEditMessageActivity.aspx.cs">
-      <DependentUpon>pEditMessageActivity.aspx</DependentUpon>
+    <Compile Include="weblogin\message\pEditMessage.aspx.cs">
+      <DependentUpon>pEditMessage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\message\pEditMessageActivity.aspx.designer.cs">
-      <DependentUpon>pEditMessageActivity.aspx</DependentUpon>
+    <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
+      <DependentUpon>pEditMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx.cs">
+      <DependentUpon>pMyHouseOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx.designer.cs">
+      <DependentUpon>pMyHouseOrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx.cs">
+      <DependentUpon>pMyHouseOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx.designer.cs">
+      <DependentUpon>pMyHouseOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx.cs">
+      <DependentUpon>pAddOrderOfHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx.designer.cs">
+      <DependentUpon>pAddOrderOfHouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx.cs">
+      <DependentUpon>pEditOrderOfHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx.designer.cs">
+      <DependentUpon>pEditOrderOfHouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx.cs">
+      <DependentUpon>pOrderOfHouseList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx.designer.cs">
+      <DependentUpon>pOrderOfHouseList.aspx</DependentUpon>
+    </Compile>
+<<<<<<< HEAD
+    <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.cs">
+      <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.designer.cs">
+      <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.cs">
+      <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
+      <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
+      <DependentUpon>pAddSystemRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.designer.cs">
+      <DependentUpon>pAddSystemRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pEditSystemRole.aspx.cs">
+      <DependentUpon>pEditSystemRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pEditSystemRole.aspx.designer.cs">
+      <DependentUpon>pEditSystemRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleDetail.aspx.cs">
+      <DependentUpon>pSystemRoleDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleDetail.aspx.designer.cs">
+      <DependentUpon>pSystemRoleDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleList.aspx.cs">
+      <DependentUpon>pSystemRoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemRole\pSystemRoleList.aspx.designer.cs">
+      <DependentUpon>pSystemRoleList.aspx</DependentUpon>
+=======
+    <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.cs">
+      <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.designer.cs">
+      <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
+>>>>>>> add XiaoerList
     </Compile>
     <Compile Include="weblogin\school\ListSchool.aspx.cs">
       <DependentUpon>ListSchool.aspx</DependentUpon>
@@ -700,10 +796,26 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
+    <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
-    <Content Include="weblogin\message\pEditMessageActivity.aspx" />
+    <Content Include="weblogin\message\pEditMessage.aspx" />
+    <Content Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx" />
+    <Content Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx" />
+    <Content Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx" />
+    <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
+    <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
+<<<<<<< HEAD
+    <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
+    <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
+    <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
+    <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
+    <Content Include="weblogin\systemRole\pSystemRoleDetail.aspx" />
+    <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
+=======
+    <Content Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx" />
+>>>>>>> add XiaoerList
     <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
@@ -1162,6 +1274,26 @@
     <Content Include="weblogin\themes\silver\images\tree\folder.png" />
     <Content Include="weblogin\themes\silver\images\tree\tree.png" />
     <Content Include="weblogin\themes\silver\style.css" />
+    <Content Include="weblogin\treeview\images\icons\s.gif" />
+    <Content Include="weblogin\treeview\images\tree\arrows.gif" />
+    <Content Include="weblogin\treeview\images\tree\cbs.gif" />
+    <Content Include="weblogin\treeview\images\tree\drop-yes.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-minus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-minus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-plus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-plus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-line.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-minus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-minus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-plus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-plus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow.gif" />
+    <Content Include="weblogin\treeview\images\tree\folder-open.gif" />
+    <Content Include="weblogin\treeview\images\tree\folder.gif" />
+    <Content Include="weblogin\treeview\images\tree\leaf.gif" />
+    <Content Include="weblogin\treeview\images\tree\loading.gif" />
+    <Content Include="weblogin\treeview\tree.css" />
     <Content Include="weblogin\uploadify\cancel.png" />
     <Content Include="weblogin\uploadify\css\uploadify.css" />
     <Content Include="weblogin\uploadify\scripts\expressInstall.swf" />

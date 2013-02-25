@@ -110,12 +110,12 @@ namespace Friday.mvc.weblogin.restaurant
                            value = loginName = Request.Form["LoginName"]
 
                        });
-                       //loginUserList.Add(new DataFilter()
-                       //{
-                       //    type = "UserType",
-                       //    value = "餐馆"
+                       loginUserList.Add(new DataFilter()
+                       {
+                           type = "UserType",
+                           value = "餐馆"
 
-                       //});
+                       });
                        loginUserOfMechentList.Add(new DataFilter()
                        {
                            type = "LoginUser",

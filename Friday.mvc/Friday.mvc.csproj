@@ -343,10 +343,16 @@
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.cs">
+      <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.designer.cs">
+      <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
@@ -798,6 +804,7 @@
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
+    <Content Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
