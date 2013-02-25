@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.myHouseOrder {
+namespace Friday.mvc.weblogin {
     
     
     public partial class pEditMyHouseOrder {
