@@ -45,7 +45,7 @@
                      </select>
                  </td>
                 <td>
-                      <label>商品登陆名:</label>
+                      <label>商铺登陆名:</label>
                     <input type="text" name="LoginName" class="textInput"  value="<%=loginName %>"
                          />
                 </td>
