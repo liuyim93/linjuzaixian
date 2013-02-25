@@ -88,7 +88,7 @@ namespace Friday.mvc.weblogin
                 mechentList.Add(new DataFilter()
                 {
                     type = "Restaurant",
-                    value = Request.Form["restaurant_id"]
+                    value = restaurantId
 
                 });
                 loginUserOfMechentList.Add(new DataFilter()
@@ -100,7 +100,7 @@ namespace Friday.mvc.weblogin
 
                 logiUserList.Add(new DataFilter()
                 {
-                    type = "LoginUserOfMechant",
+                    type = "LoginUserOfMerchant",
                     field = loginUserOfMechentList
                 });
 

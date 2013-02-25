@@ -14,7 +14,7 @@
                 
                 <li><a href='Food/pFoodList.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>菜品</span></a></li>
-                <li><a href='restaurantXiaoer/prestaurantXiaoer.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
+                <li><a href='restaurantXiaoer/pRestaurantXiaoerList.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
                 target="ajax"><span>店小二</span></a></li>
            </ul>
         </div>

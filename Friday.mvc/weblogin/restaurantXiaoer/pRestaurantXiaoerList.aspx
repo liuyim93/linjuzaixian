@@ -22,17 +22,17 @@
                             名称:</label>
                         <input id="Name" type="text" name="Name" value="<%=name%>" />
                     </td>
-                    <td>
+                    <%--<td>
                         <label>
                             类型:</label>
                         <select name="mGoodsType" id="mGoodsType" runat="server"  value="<%=goodsType%>" >
                             <option value="" >不限</option>
                        
                         </select>
-                    </td>
+                    </td>--%>
                  
                 </tr>
-                <tr>
+              <%--  <tr>
                     <td>
                         <label>
                             起价:</label>
@@ -42,7 +42,7 @@
                         <label>
                             截止价:</label>
                         <input id="EndPrice" type="text" name="EndPrice" value="<%=endprice%>" />
-                </tr>
+                </tr>--%>
             </tbody>
         </table>
         <div class="subBar">
@@ -68,25 +68,25 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="Food/pAddFood.aspx?merchant_id={id}" title="增加菜品" target="dialog"
-            rel="" width="600" height="400"><span>增加菜品</span></a></li>
-        <li><a class="edit" href="Food/pEditFood.aspx?uid={foodid}&merchant_id={id}" title="修改菜品" rel="" target="dialog"
-            height="480"><span>修改菜品</span></a></li>
-        <li><a class="delete" href="Food/pFoodList.aspx?flag=alldelete&food_id={foodid}" target="ajaxTodo"
-            title="确定要删除吗?"><span>删除菜品</span></a></li>
+        <li><a class="add" href="restaurantXiaoer/pAddRestaurantXiaoer.aspx?merchant_id={id}" title="增加小二" target="dialog"
+            rel="" width="600" height="400"><span>增加小二</span></a></li>
+        <li><a class="edit" href="restaurantXiaoer/pEditRestaurantXiaoer.aspx?uid={restaurantXiaoerid}&merchant_id={id}" title="修改小二" rel="" target="dialog"
+            height="480"><span>修改小二</span></a></li>
+        <li><a class="delete" href="restaurantXiaoer/pRestaurantXiaoerList.aspx?flag=alldelete&restaurantXiaoer_id={restaurantXiaoerid}" target="ajaxTodo"
+            title="确定要删除吗?"><span>删除小二</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
-<div id="foodList">
+<div id="restaurantXiaoerList">
     <table class="table" rel='<%=Request.Params["rel_v3"] %>'>
         <asp:repeater id="repeater" runat="server">
               <HeaderTemplate>
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" orderField="Name" class="asc" align="center">菜 品 名</th>
-                            <th width="10%" orderField="Price" class="desc" align="center">单 价</th>
-                            <th width="15%" orderField="MonthAmount" class="desc" align="center">月 售 额</th>
+                            <th width="20%" orderField="LoginName" class="asc" align="center">登陆名</th>
+                            <th width="10%" orderField="Password" class="desc" align="center">密码</th>
+                            <th width="15%" orderField="UserType" class="desc" align="center">用户类型</th>
                             <th width="20%" align="center">创建时间</th>
                             <th width="20%" align="center">删除标记</th>
                         </tr>
@@ -97,9 +97,9 @@
                 
                     <tr target="foodid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td> 
-                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
-                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "MonthAmount")%></td>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td> 
+                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
+                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "UserType")%></td>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Createtime")%></td>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>
                          

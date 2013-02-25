@@ -237,7 +237,7 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    if (df.type.Equals("LoginUserOfMerchant"))
+                    if (df.type.Equals("LoginUserOfMerchant")) 
                     {
                         //根据LoginUserOfMerchant的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
@@ -1015,11 +1015,11 @@ namespace friday.core.repositories
                 notself = "restaurant.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "restaurant";
+                    parentSearch = "Merchant";
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".restaurant";
+                    parentSearch = parentSearch + ".Merchant";
                 }
                 alias = parentSearch;
                 query.CreateAlias(alias, "restaurant");
