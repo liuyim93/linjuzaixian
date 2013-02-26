@@ -65,6 +65,7 @@
                 <tr>
                     <th width="50" align="center">序 号</th>
                         <th width="200" align="center">角色</th>
+                        <th width="200" align="center">Remarks</th>
                         <th width="200" align="center">备注</th>
 
                 </tr>
@@ -77,7 +78,8 @@
                         <td align="center"><%#Container.ItemIndex+1%></td> 
                         <td><a href="permission/pSystemFunctionObjectTree.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"><%#Eval("Name")%>
                             </a>
-                        </td>                      
+                        </td>      
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Remarks")%></td>                
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>                 
 				</tr>
 			      
