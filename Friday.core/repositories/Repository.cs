@@ -1893,6 +1893,73 @@ namespace friday.core.repositories
             }
             return query;
         }
+        protected ICriteria SearchBySystemRole(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchBySystemRole(query, termList);
+        }
+        protected ICriteria SearchBySystemRole(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchBySystemRole(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchBySystemRole(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "systemRole.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "SystemRole";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".SystemRole";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "systemRole");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+                   
+                    if (df.type.Equals("Name"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Remarks"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Remarks", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Description"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Description", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
 
         protected ICriteria SearchByAddress(ICriteria query, List<DataFilter> termList, bool isSelf, List<SystemUser> systemUserList)
         {

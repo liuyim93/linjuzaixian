@@ -297,6 +297,8 @@
     <Compile Include="repositories\IMessageRepository.cs" />
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />
+    <Compile Include="repositories\SystemRoleRepository.cs" />
+    <Compile Include="repositories\ISystemRoleRepository.cs" />
     <Compile Include="services\ISystemFunctionObjectService.cs" />
     <Compile Include="repositories\OrderOfCommodityRepository.cs" />
     <Compile Include="repositories\IOrderOfCommodityRepository.cs" />

@@ -17,12 +17,12 @@ namespace Friday.mvc.weblogin
         protected int pageNum;
         protected int numPerPageValue;
 
-        protected string loginName;
+        protected string description;
         protected string name;
         protected string tel;
         protected string email;
-
-        IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+    
+        ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,26 +32,50 @@ namespace Friday.mvc.weblogin
             }
             else
             {
-                numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-                pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-                int start = (pageNum - 1) * numPerPageValue;
-                int limit = numPerPageValue;
+
+                SearchSystemRole();
 
                
-                IList<SystemRole> systemUserList = iSystemRoleRepository.GetPageList(start, limit, out total);
-
-                repeater.DataSource = systemUserList;
-                repeater.DataBind();
-
-                numPerPage.Value = numPerPageValue.ToString();
             }
+        }
+        private void  SearchSystemRole()
+        {
+            numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+            pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
+            int start = (pageNum - 1) * numPerPageValue;
+            int limit = numPerPageValue;
+
+
+            List<DataFilter> filterList = new List<DataFilter>();
+  
+            if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                filterList.Add(new DataFilter()
+                {
+                    type = "Name",
+                    value = name = Request.Form["Name"]
+
+                });
+            if (!string.IsNullOrEmpty(Request.Form["Description"]))
+                filterList.Add(new DataFilter()
+                {
+                    type = "Description",
+                    value = description = Request.Form["Description"]
+
+                });
+
+            IList<SystemRole> systemUserList = iSystemRoleRepository.Search(filterList, start, limit, out total);
+
+            repeater.DataSource = systemUserList;
+            repeater.DataBind();
+
+            numPerPage.Value = numPerPageValue.ToString();
         }
         private void DeleteSystemRole()
         {
 
             string sysid = Request.Params["uid"];
 
-            iSystemRoleRepository.Delete(sysid);
+            iSystemRoleRepository.PhysicsDelete(sysid);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -15,13 +15,13 @@
              <tr>
                 <td>
                     <label>角色名:</label>
-                    <input type="text" name="Name" class="textInput" value="<%=loginName %>"  />
+                    <input type="text" name="Name" class="textInput" value="<%=name %>"  />
                 </td>
              </tr>
              <tr>
                 <td>
                     <label>备注:</label>
-                    <input type="text" name="Description" class="textInput" value="<%=name %>" />
+                    <input type="text" name="Description" class="textInput" value="<%=description %>" />
                 </td>
             </tr>
         </table>
