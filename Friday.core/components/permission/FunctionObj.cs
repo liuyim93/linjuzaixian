@@ -8,16 +8,21 @@ namespace friday.core.services
 {
     public partial class SystemFunctionObjectService
     {
-        public 餐馆管理 餐馆管理模块 { get; set; }
+ 
         public 统计 统计模块 { get; set; }
+
+        public 餐馆管理 餐馆管理模块 { get; set; }
         public 商店管理 商店管理模块 { get; set; }
         public 租房管理 租房管理模块 { get; set; }
-        public 顾客管理 顾客管理模块 { get; set; }
+
+        public 顾客账号管理 顾客账号管理模块 { get; set; }
         public 商家账号管理 商家账号管理模块 { get; set; }
+        
         public 学校信息管理 学校信息管理模块 { get; set; }
         public 商品类型管理 商品类型管理模块 { get; set; }
+        public 商铺经营类型管理 商铺经营类型管理模块 { get; set; }
+        
         public 商家活动管理 商家活动管理模块 { get; set; }
-
         public 消息管理     消息管理模块 { get; set; }
         public 反馈管理     反馈管理模块 { get; set; }
 
@@ -37,6 +42,10 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 菜品维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商铺经营类型维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商品类型维护 { get; set; }      
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 员工维护 { get; set; }
     }
     public class 商店管理 : BaseModel
@@ -48,6 +57,8 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable,PermissionTag.Delete)]
         public FunctionTag 商铺经营类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商品类型维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 员工维护 { get; set; }
     }
     public class 租房管理 : BaseModel
@@ -57,12 +68,16 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 房屋维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商铺经营类型维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商品类型维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 员工维护 { get; set; }
     }
-    public class 顾客管理 : BaseModel
+    public class 顾客账号管理 : BaseModel
     {
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
-        public FunctionTag 顾客维护 { get; set; }
+        public FunctionTag 顾客账号维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
         public FunctionTag 密码重置 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
@@ -81,6 +96,11 @@ namespace friday.core.services
     {
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 学校信息维护 { get; set; }        
+    }
+    public class 商铺经营类型管理 : BaseModel
+    {
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商铺经营类型维护 { get; set; }
     }
     public class 商品类型管理 : BaseModel
     {
