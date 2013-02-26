@@ -299,6 +299,8 @@
     <Compile Include="repositories\IMessageRepository.cs" />
     <Compile Include="repositories\ISystemFunctionObjectInRoleRepository.cs" />
     <Compile Include="repositories\UserInRoleRepository.cs" />
+    <Compile Include="repositories\IFeedBackRepository.cs" />
+    <Compile Include="repositories\FeedBackRepository.cs" />
     <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />

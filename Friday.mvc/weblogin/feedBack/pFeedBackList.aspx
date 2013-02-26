@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pFeedBackList.aspx.cs" Inherits="Friday.mvc.weblogin.message.pFeedBackList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pFeedBackList.aspx.cs" Inherits="Friday.mvc.weblogin.feedBack.pFeedBackList" %>
 
 
 

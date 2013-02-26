@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.message {
+namespace Friday.mvc.weblogin.feedBack {
     
     
     public partial class pFeedBackList {

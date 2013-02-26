@@ -299,10 +299,12 @@
     <Compile Include="repositories\IMessageRepository.cs" />
 <<<<<<< HEAD
     <Compile Include="repositories\ISystemFunctionObjectInRoleRepository.cs" />
+    <Compile Include="repositories\UserInRoleRepository.cs" />
     <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
 =======
-    <Compile Include="repositories\UserInRoleRepository.cs" />
->>>>>>> pLoginUserList.aspx
+    <Compile Include="repositories\IFeedBackRepository.cs" />
+    <Compile Include="repositories\FeedBackRepository.cs" />
+>>>>>>> add FeedBackRepository
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />
     <Compile Include="repositories\SystemRoleRepository.cs" />

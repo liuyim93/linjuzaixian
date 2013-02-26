@@ -128,7 +128,7 @@ namespace Friday.mvc.weblogin.feedBack
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.feedBack = "删除成功";
+            result.message = "删除成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

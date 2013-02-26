@@ -2188,6 +2188,87 @@ namespace friday.core.repositories
             return query;
         }
 
+        protected ICriteria SearchByFeedBack(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByFeedBack(query, termList);
+        }
+        protected ICriteria SearchByFeedBack(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByFeedBack(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByFeedBack(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+            string oldParentSearch = parentSearch;
+
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "feedBack.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "FeedBack";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".FeedBack";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "feedBack");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+
+                    if (df.type.Equals("ThreadIndex"))
+                    {
+                        query.Add(Restrictions.Like(notself + "ThreadIndex", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("FromLoginUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+                    if (df.type.Equals("ToLoginUser"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
 
       
         protected ICriteria SearchByCommodity(ICriteria query, List<DataFilter> termList, bool isSelf, List<Shop> shopList)
