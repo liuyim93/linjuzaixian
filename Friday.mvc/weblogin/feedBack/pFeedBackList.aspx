@@ -15,21 +15,22 @@
         <form id="form" rel="pagerForm" method="post" runat="server">
         <table class="searchContent">
            <tr>
+            <td>
+                   <label>反馈人:</label>
+                    <input  type="text" name="fromSystemUser" class="textInput" value="<%=fromLoginUser %>"
+                         />
+                </td>
                <td>                   
                          <label>类型:</label>
-                    <input type="text" name="ThreadIndex" class="textInput" value="<%=type %>"
+                    <input type="text" name="Type" class="textInput" value="<%=type %>"
                         value="" />
                 </td> 
-                <td>
-                   <label>From:</label>
-                    <input  type="text" name="FromLoginUser" class="textInput" value="<%=fromLoginUser %>"
-                         />
-                </td>
-                <td>
+               
+               <%-- <td>
                    <label>内容:</label>
-                    <input  type="text" name="ToLoginUser" class="textInput" value="<%=content %>"
+                    <input  type="text" name="Contents" class="textInput" value="<%=content %>"
                          />
-                </td>
+                </td>--%>
             
             </tr>
              <tr>
@@ -105,7 +106,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="message/pFeedBackDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="feedBack/pFeedBackDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
                       <%--  <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>     --%>             
@@ -155,7 +156,7 @@
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             //debugger
-            o.find("#messageList table:eq(1) tr").click(function (e) {
+            o.find("#feedBackList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
                 }

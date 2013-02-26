@@ -2231,12 +2231,16 @@ namespace friday.core.repositories
                     }
 
 
-                    if (df.type.Equals("ThreadIndex"))
+                    if (df.type.Equals("Contents"))
                     {
-                        query.Add(Restrictions.Like(notself + "ThreadIndex", df.value, MatchMode.Anywhere));
+                        query.Add(Restrictions.Like(notself + "Contents", df.value, MatchMode.Anywhere));
                         continue;
                     }
-
+                    if (df.type.Equals("ParentFeedBack"))
+                    {
+                        query.Add(Restrictions.IsNull(notself + "ParentFeedBack"));
+                        continue;
+                    }
                     if (df.type.Equals("FromLoginUser"))
                     {
                         //根据loginUser的属性进行嵌套筛选
