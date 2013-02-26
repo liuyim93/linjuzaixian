@@ -170,6 +170,27 @@
     <Compile Include="weblogin\commodity\pEditCommodity.aspx.designer.cs">
       <DependentUpon>pEditCommodity.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\feedBack\pAddFeedBack.aspx.cs">
+      <DependentUpon>pAddFeedBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\feedBack\pAddFeedBack.aspx.designer.cs">
+      <DependentUpon>pAddFeedBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\feedBack\pEditFeedBack.aspx.cs">
+      <DependentUpon>pEditFeedBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\feedBack\pEditFeedBack.aspx.designer.cs">
+      <DependentUpon>pEditFeedBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\feedBack\pFeedBackList.aspx.cs">
+      <DependentUpon>pFeedBackList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\feedBack\pFeedBackList.aspx.designer.cs">
+      <DependentUpon>pFeedBackList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\food\pAddFood.aspx.cs">
       <DependentUpon>pAddFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -902,6 +923,9 @@
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
+    <Content Include="weblogin\feedBack\pAddFeedBack.aspx" />
+    <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />
+    <Content Include="weblogin\feedBack\pFeedBackList.aspx" />
     <Content Include="weblogin\food\pAddFood.aspx" />
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
