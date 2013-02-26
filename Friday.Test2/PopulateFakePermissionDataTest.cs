@@ -19,7 +19,8 @@ namespace Friday.Test2
        private List<SystemUser> systemUserList = new List<SystemUser>();
        private List<LoginUser> loginUserList = new List<LoginUser>();
        private List<SystemRole> systemRoleList = new List<SystemRole>();
-     
+       private Random random = new Random();
+
        private readonly int SYSTEM_ROLE_COUNT = 20;
        private readonly int RANDOM_SYSTEM_ROLE_SEED = 30;
 
@@ -51,7 +52,7 @@ namespace Friday.Test2
        }
        private String get_random_number_with_fixed_width(int width)
        {
-           int x = new Random().Next(Convert.ToInt32(String.Empty.PadRight(width, '9')));
+           int x = random.Next(Convert.ToInt32(String.Empty.PadRight(width, '9')));
            return x.ToString().PadLeft(width, '0');
 
        }
