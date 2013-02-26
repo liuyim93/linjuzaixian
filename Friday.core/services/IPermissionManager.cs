@@ -4,8 +4,8 @@ namespace friday.core.services
 {
     public interface IPermissionManager
     {
-        void Check(friday.core.components.FunctionTag functionTag, string userId, friday.core.components.PremissionTag type = PremissionTag.Enable);
-        bool HasRight(friday.core.components.FunctionTag functionTag, string userId, friday.core.components.PremissionTag type = PremissionTag.Enable);
+        void Check(friday.core.components.FunctionTag functionTag, string userId, friday.core.components.PermissionTag type = PermissionTag.Enable);
+        bool HasRight(friday.core.components.FunctionTag functionTag, string userId, friday.core.components.PermissionTag type = PermissionTag.Enable);
         void RefreshRolePermission();
         void RefreshUserInRole();
     }

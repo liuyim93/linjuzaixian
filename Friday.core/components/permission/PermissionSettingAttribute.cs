@@ -6,7 +6,7 @@ using System.Text;
 namespace friday.core.components
 {
 
-    public enum PremissionTag
+    public enum PermissionTag
     {
         Enable,
         Edit,
@@ -17,19 +17,19 @@ namespace friday.core.components
     internal class PermissionSettingAttribute : System.Attribute
     {
         private FunctionTag tag = new FunctionTag();
-        public PermissionSettingAttribute( params PremissionTag[] type )
+        public PermissionSettingAttribute( params PermissionTag[] type )
         {
             foreach( var item in type )
             {
                 switch( item )
                 {
-                    case PremissionTag.Enable:
+                    case PermissionTag.Enable:
                         tag.Enable = true;
                         break;
-                    case PremissionTag.Edit:
+                    case PermissionTag.Edit:
                         tag.Edit = true;
                         break;
-                    case PremissionTag.Delete:
+                    case PermissionTag.Delete:
                         tag.Delete = true;
                         break;
                     default:

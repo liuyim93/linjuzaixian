@@ -13,17 +13,17 @@ namespace friday.core.services
     }
     public class 餐馆管理 : BaseModel
     {
-        [PermissionSetting(PremissionTag.Edit, PremissionTag.Enable, PremissionTag.Delete)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 餐馆维护 { get; set; }
-        [PermissionSetting(PremissionTag.Edit, PremissionTag.Delete)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Delete)]
         public FunctionTag 菜品维护 { get; set; }
     }
 
     public class 统计 : BaseModel
     {
-        [PermissionSetting(PremissionTag.Edit, PremissionTag.Enable, PremissionTag.Delete)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 数据导入 { get; set; }
-        [PermissionSetting(PremissionTag.Edit, PremissionTag.Delete)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Delete)]
         public FunctionTag 业务受理 { get; set; }
     }
 }

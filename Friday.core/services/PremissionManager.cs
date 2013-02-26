@@ -15,13 +15,13 @@ namespace friday.core.components
             this.iSystemFunctionObjectInRoleRepository = iSystemFunctionObjectInRoleRepository;
             this.iSystemFunctionObjectRepository = iSystemFunctionObjectRepository;
         }
-        public void Check(FunctionTag functionTag, string userId, PremissionTag type = PremissionTag.Enable)
+        public void Check(FunctionTag functionTag, string userId, PermissionTag type = PermissionTag.Enable)
         {
             if (HasRight(functionTag,userId, type) == false)
                 throw new Exception("您没有权限请联系管理员!");
         }
 
-        public bool HasRight(FunctionTag functionTag, string userId,PremissionTag type = PremissionTag.Enable)
+        public bool HasRight(FunctionTag functionTag, string userId,PermissionTag type = PermissionTag.Enable)
         {
             string currentUserId = userId;
 
@@ -43,18 +43,18 @@ namespace friday.core.components
             }
             switch (type)
             {
-                case PremissionTag.Enable:
+                case PermissionTag.Enable:
                     return (from x in role
                             where x.Enabled
                             && getUserRoles(currentUserId).Contains(x.Role.Id)
                             select x).FirstOrDefault() != null;
 
-                case PremissionTag.Edit:
+                case PermissionTag.Edit:
                     return (from x in role
                             where x.Editable
                             && getUserRoles(currentUserId).Contains(x.Role.Id)
                             select x).FirstOrDefault() != null;
-                case PremissionTag.Delete:
+                case PermissionTag.Delete:
                     return (from x in role
                             where x.Deletable
                             && getUserRoles(currentUserId).Contains(x.Role.Id)
@@ -117,7 +117,7 @@ namespace friday.core.components
             get
             {
                 if (_UserInRole == null)
-                    RefreshRolePermission();
+                    RefreshUserInRole();
                 return _UserInRole;
             }
             set { _UserInRole = value; }

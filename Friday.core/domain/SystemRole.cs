@@ -9,7 +9,16 @@ namespace friday.core
 {
     public class SystemRole : Entity
     {
+         public SystemRole()
+        {
 
+        }
+
+         public SystemRole(string id)
+             : this()
+        {
+            this.Id = id;
+        }
         public virtual  string RoleID
         {
             get;
