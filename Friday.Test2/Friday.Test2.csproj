@@ -82,6 +82,7 @@
     <Compile Include="Test_RestaurantMultiSearch.cs" />
     <Compile Include="PopulateFakePermissionDataTest.cs" />
     <Compile Include="Test_ShopMultiSearch.cs" />
+    <Compile Include="Test_RentMultiSearch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
