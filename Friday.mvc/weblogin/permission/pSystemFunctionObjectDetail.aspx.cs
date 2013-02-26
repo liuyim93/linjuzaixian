@@ -14,12 +14,14 @@ namespace Friday.mvc.weblogin
         ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         protected void Page_Load(object sender, EventArgs e)
         {
-           SystemFunctionObject systemFunctionObject= iSystemFunctionObjectRepository.Get(Request.Params["uid"]);
+           string uid = Request.Params["uid"];
+           string rid = Request.Params["rid"];
+           SystemFunctionObject systemFunctionObject= iSystemFunctionObjectRepository.Get(uid);
            if (systemFunctionObject != null)
            {
-               this.lblEnabledState.InnerText = systemFunctionObject.FunctionAvailable?"可设置":"不可设置";
-               this.lblEditableState.InnerText  = systemFunctionObject.EditPermissionAvailable?"可设置":"不可设置";
-               this.lblDeleteableState.InnerText = systemFunctionObject.DeletePermissionAvailable ? "可设置" : "不可设置";
+               this.panelEnabledState.Visible = systemFunctionObject.FunctionAvailable;
+               this.panelEditableState.Visible  = systemFunctionObject.EditPermissionAvailable;
+               this.panelDeletableState.Visible = systemFunctionObject.DeletePermissionAvailable;
            }
         }
     }
