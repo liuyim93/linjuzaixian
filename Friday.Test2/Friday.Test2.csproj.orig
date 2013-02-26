@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -70,15 +71,20 @@
     <Compile Include="Test_GlobalGoodsType.cs" />
     <Compile Include="Test_Shop.cs" />
     <Compile Include="Test_SchoolOfMerchant.cs" />
+    <Compile Include="Test_SystemFunctionObject.cs" />
     <Compile Include="User_Service_Test.cs" />
     <Compile Include="Test_Activity.cs" />
     <Compile Include="Test_MerchantCategory.cs" />
-<<<<<<< HEAD
     <Compile Include="PopulateFakeShopDataTest.cs" />
-    <Compile Include="PopulateFakeRentDataTest.cs" />
-=======
     <Compile Include="Test_SystemUser.cs" />
->>>>>>> Add pSustemUserList & SystemUserList
+    <Compile Include="PopulateFakeRentDataTest.cs" />
+    <Compile Include="Test_Message.cs" />
+    <Compile Include="Test_RestaurantMultiSearch.cs" />
+<<<<<<< HEAD
+    <Compile Include="PopulateFakePermissionDataTest.cs" />
+=======
+    <Compile Include="Test_ShopMultiSearch.cs" />
+>>>>>>> add  Test_ShopMultiSearch()
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
