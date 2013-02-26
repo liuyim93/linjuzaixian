@@ -34,6 +34,16 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<FeedBack>();
         }
+
+        public FeedBack GetFeedBackByParentFeedBack( string id) 
+        {
+            var q = Session.CreateQuery(@"select fd  from   FeedBack as  fd   where  fd.ParentFeedBack=:fid ")
+                      .SetString("fid", id).UniqueResult<FeedBack>();            
+            return q;
+        
+        }
+
+
        
     }
 }

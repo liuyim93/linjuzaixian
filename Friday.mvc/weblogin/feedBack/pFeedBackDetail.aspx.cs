@@ -13,7 +13,8 @@ namespace Friday.mvc.weblogin.feedBack
 {
     public partial class pFeedBackDetail : System.Web.UI.Page
     {
-        IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<FeedBackRepository>();
+        IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+    
         private FeedBack  sysfeedBack;
         private FeedBack  merchfeedBack;
         protected void Page_Load(object sender, EventArgs e)
@@ -35,11 +36,21 @@ namespace Friday.mvc.weblogin.feedBack
                     value = sysParentId
 
                 });
+
+                FeedBack merchfeedBack = iFeedBackRepository.GetFeedBackByParentFeedBack(sysParentId);
+              
+            if (IsNullOrEmpty(merchfeedBack))
+              {           
             
-                merchfeedBack = iFeedBackRepository.SearchByFeedBack(filterList);
                 this.merchantUser.Value = merchfeedBack.SystemUser.Name;
                 this.mContents.Value = merchfeedBack.Contents;
-
+                  
+              }
+            else
+              {
+               this.merchantUser.Value = "";
+                this.mContents.Value = "";
+              }
             
 
         }
