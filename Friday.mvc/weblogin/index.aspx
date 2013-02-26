@@ -157,18 +157,18 @@
                     <ul class="tree treeFolder">
                         <li><a href="javascript:void(0)">系统管理</a>
                             <ul>
-                               <li><a href="activity/pActivityList.aspx" target="navTab" rel="">Activity管理</a></li>
+                               <li><a href="activity/pActivityList.aspx" target="navTab" rel="">商家活动管理</a></li>
                                 <li><a href="shop/pShopList.aspx" target="navTab" rel="">商店管理</a></li>
                                 <li><a href="rent/pRentList.aspx" target="navTab" rel="">租房管理</a></li>
                                 <li><a href="globalGoodsType/pGlobalGoodsTypeList.aspx" target="navTab" rel="">商品类型管理</a></li>
                                 <li><a href="restaurant/pRestaurantList.aspx" target="navTab" rel="">餐馆管理</a></li>
                                 <li><a href="merchantCategory/pMerchantCategoryList.aspx" target="navTab" rel="">商铺经营类型</a></li>
                                 <li><a href="school/pSchoolList.aspx" target="navTab" rel="">学校管理</a></li>
-                                <li><a href="systemUser/pSystemUserList.aspx" target="navTab" rel="">顾客用户管理</a></li>
-                                <li><a href="loginUser/pLoginUserList.aspx" target="navTab" rel="">用户账号管理</a></li> 
+                                <li><a href="systemUser/pSystemUserList.aspx" target="navTab" rel="">顾客账号管理</a></li>
+                                <li><a href="loginUser/pLoginUserList.aspx" target="navTab" rel="">商家账号管理</a></li> 
                                 <li><a href="message/pMessageList.aspx" target="navTab" rel="">消息管理</a></li>
                                 <li><a href="feedBack/pFeedBackList.aspx" target="navTab" rel="">反馈管理</a></li>
-                                <li><a href="myFoodOrder/pMyFoodOrderList.aspx" target="navTab" rel="">美食订单管理</a></li> 
+                                <li><a href="myFoodOrder/pMyFoodOrderList.aspx" target="navTab" rel="">食品订单管理</a></li> 
                                 <li><a href="myHouseOrder/pMyHouseOrderList.aspx" target="navTab" rel="">租房订单管理</a></li> 
                                 <li><a href="systemRole/pSystemRoleList.aspx" target="navTab" rel="">角色权限管理</a></li> 
                                 <li><a href="myCommodityOrder/pMyCommodityOrderList.aspx" target="navTab" rel="">商品订单管理</a></li>
