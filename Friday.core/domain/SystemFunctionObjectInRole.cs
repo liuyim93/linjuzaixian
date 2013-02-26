@@ -25,6 +25,22 @@ namespace friday.core.domain
             set;
 
         }
+
+        public virtual bool Enabled
+        {
+            get;
+            set;
+        }
+        public virtual bool Editable
+        {
+            get;
+            set;
+        }
+        public virtual bool Deletable
+        {
+            get;
+            set;
+        }
         
     }
 }
