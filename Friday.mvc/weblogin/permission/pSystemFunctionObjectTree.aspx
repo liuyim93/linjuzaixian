@@ -12,6 +12,8 @@
                     <label>功能模块名:</label>
                     <input type="text" name="Name" class="textInput" value=""  />
                 </td>
+             </tr>
+             <tr>
                 <td>
                     <label>备注:</label>
                     <input type="text" name="Description" class="textInput" value="" />
@@ -42,13 +44,13 @@
 
 <div class="divider">
 </div>
-<div class="panel" defh="400" style="float:left; display:block; overflow:auto; width:240px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+<div class="panel" defh="400" style="float:left; display:block; overflow:auto; width:150px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
     <h1>
         功能模块</h1>
     <div id="tree">
     </div>
 </div>
-<div id="jbsxBox3"  style="margin-left:246px;pading:3px 5px">
+<div id="jbsxBox3"  style="margin-left:153px;padding:3px 2px">
 
 </div>
 <script type="text/javascript">

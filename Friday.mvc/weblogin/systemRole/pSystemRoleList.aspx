@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSystemRoleList.aspx.cs" Inherits="Friday.mvc.weblogin.pSystemRoleList" %>
 
-<div layoutH="10" style="float:left; display:block; overflow:auto; width:400px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+<div layoutH="10" style="float:left; display:block; overflow:auto; width:500px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
@@ -58,7 +58,7 @@
     </ul>
 </div>
 <div id="SystemRoleList">
-    <table class="table" layouth="200">
+    <table class="table" layouth="300">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
@@ -99,12 +99,12 @@
         </select>
         <span>条，共<%=total %>条</span>
     </div>
-    <div class="pagination"  totalcount="<%=total %>"
+    <div class="pagination"  totalcount="<%=total %>" pageNumShown="2"
         numperpage="<%=numPerPage.Value %>" currentpage="<%=pageNum %>">
     </div>
 </div>
 </div>
-<div id="jbsxBox2" class="pageFormContent" style="margin-left:406px;">
+<div id="jbsxBox2" class="pageFormContent" style="margin-left:506px;">
 </div>
 <script type="text/javascript">
 
