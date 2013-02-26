@@ -119,8 +119,8 @@ namespace Friday.Test2
            });
 
            Rent r = iRentRepository.Search(filterList).FirstOrDefault();
-          
-           Assert.IsTrue(r.Name==rentName,string.Format("租房名字实际结果：{0}与期望结果{1}不一致",r.Name,rentName));
+
+           Assert.IsTrue(r.Name == rest1.Name, string.Format("租房名字实际结果：{0}与期望结果{1}不一致", r.Name, rest1.Name));
         }
 
      

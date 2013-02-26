@@ -124,7 +124,7 @@ namespace Friday.Test2
 
            Shop r = iShopRepository.Search(filterList).FirstOrDefault();
           
-           Assert.IsTrue(r.Name==shopName,string.Format("商店名字实际结果：{0}与期望结果{1}不一致",r.Name,shopName));
+           Assert.IsTrue(r.Name==rest1.Name,string.Format("商店名字实际结果：{0}与期望结果{1}不一致",r.Name,rest1.Name));
         }
 
      
