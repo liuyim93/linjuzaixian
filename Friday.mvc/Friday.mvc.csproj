@@ -477,6 +477,13 @@
     <Compile Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx.designer.cs">
       <DependentUpon>pOrderOfHouseList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\permission\pRoleInMenuPermission.aspx.cs">
+      <DependentUpon>pRoleInMenuPermission.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\permission\pRoleInMenuPermission.aspx.designer.cs">
+      <DependentUpon>pRoleInMenuPermission.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -511,6 +518,34 @@
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pAddMenuButton.aspx.cs">
+      <DependentUpon>pAddMenuButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pAddMenuButton.aspx.designer.cs">
+      <DependentUpon>pAddMenuButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pEditMenuButton.aspx.cs">
+      <DependentUpon>pEditMenuButton.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pEditMenuButton.aspx.designer.cs">
+      <DependentUpon>pEditMenuButton.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pMenuButtonList.aspx.cs">
+      <DependentUpon>pMenuButtonList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pMenuButtonList.aspx.designer.cs">
+      <DependentUpon>pMenuButtonList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pRoleMenuList.aspx.cs">
+      <DependentUpon>pRoleMenuList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\roleMenu\pRoleMenuList.aspx.designer.cs">
+      <DependentUpon>pRoleMenuList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
@@ -1064,11 +1099,16 @@
     <Content Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
+    <Content Include="weblogin\permission\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx" />
     <Content Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
     <Content Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx" />
+    <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
+    <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
+    <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />
+    <Content Include="weblogin\roleMenu\pRoleMenuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleDetail.aspx" />
