@@ -65,8 +65,9 @@ namespace Friday.mvc.weblogin
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "添加成功";
-            result.navTabId = "referer";
-            result.callbackType = "closeCurrent";
+            //2013-02-26 basilwang don't do any thing, so we put #.
+            result.navTabId = "#";
+            //result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
