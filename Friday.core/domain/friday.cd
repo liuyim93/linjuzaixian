@@ -448,11 +448,29 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.SystemFunctionObject">
-    <Position X="10.5" Y="3.25" Width="3.25" />
+    <Position X="12.75" Y="2" Width="3.25" />
     <TypeIdentifier>
       <HashCode>QAAQAAEAAAAgAAAAAAAAAAQAAAAAAQAAEAAAAAAAAAA=</HashCode>
       <FileName>domain\SystemFunctionObject.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.SystemRole">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAIAgAAAAAAAAAAQAAAAAAAAIAAAQAAAAAAA=</HashCode>
+      <FileName>domain\SystemRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.domain.UserInRole">
+    <Position X="10.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>domain\UserInRole.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LoginUser" />
+      <Property Name="Role" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>
