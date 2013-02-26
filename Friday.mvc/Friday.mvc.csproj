@@ -198,6 +198,13 @@
     <Compile Include="weblogin\feedBack\pFeedBackDetail.aspx.designer.cs">
       <DependentUpon>pFeedBackDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\feedBack\pReplyFeedBack.aspx.cs">
+      <DependentUpon>pReplyFeedBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\feedBack\pReplyFeedBack.aspx.designer.cs">
+      <DependentUpon>pReplyFeedBack.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\food\pAddFood.aspx.cs">
       <DependentUpon>pAddFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -934,6 +941,7 @@
     <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pFeedBackList.aspx" />
     <Content Include="weblogin\feedBack\pFeedBackDetail.aspx" />
+    <Content Include="weblogin\feedBack\pReplyFeedBack.aspx" />
     <Content Include="weblogin\food\pAddFood.aspx" />
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
