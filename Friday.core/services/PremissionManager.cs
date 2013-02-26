@@ -15,15 +15,15 @@ namespace friday.core.components
             this.iSystemFunctionObjectInRoleRepository = iSystemFunctionObjectInRoleRepository;
             this.iSystemFunctionObjectRepository = iSystemFunctionObjectRepository;
         }
-        public void Check(FunctionTag functionTag, PremissionTag type = PremissionTag.Enable)
+        public void Check(FunctionTag functionTag, string userId, PremissionTag type = PremissionTag.Enable)
         {
-            if (HasRight(functionTag, type) == false)
+            if (HasRight(functionTag,userId, type) == false)
                 throw new Exception("您没有权限请联系管理员!");
         }
 
-        public bool HasRight(FunctionTag functionTag, PremissionTag type = PremissionTag.Enable)
+        public bool HasRight(FunctionTag functionTag, string userId,PremissionTag type = PremissionTag.Enable)
         {
-            string currentUserId=string.Empty;
+            string currentUserId = userId;
 
 
             if (functionTag == null)
