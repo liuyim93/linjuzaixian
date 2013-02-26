@@ -320,6 +320,20 @@
     <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
       <DependentUpon>pEditMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx.cs">
+      <DependentUpon>pAddMyCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx.designer.cs">
+      <DependentUpon>pAddMyCommodityOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx.cs">
+      <DependentUpon>pEditMyCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx.designer.cs">
+      <DependentUpon>pEditMyCommodityOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx.cs">
       <DependentUpon>pAddMyFoodOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -948,6 +962,8 @@
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
     <Content Include="weblogin\message\pEditMessage.aspx" />
+    <Content Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx" />
+    <Content Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx" />
     <Content Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx" />
     <Content Include="weblogin\myFoodOrder\pEditMyFoodOrder.aspx" />
     <Content Include="weblogin\myHouseOrder\pAddMyHouseOrder.aspx" />
