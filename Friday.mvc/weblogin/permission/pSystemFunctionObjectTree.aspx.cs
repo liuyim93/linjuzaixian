@@ -48,6 +48,8 @@ namespace Friday.mvc.weblogin
                 //jt.showcheck = true;
                 //jt.checkstate = Convert.ToByte(state);
                 jt.hasChildren = haveChild;
+                //2013-02-26 basilwang if you want to lazy load, set isexpand false;
+                jt.isexpand = true;
                 //2013-02-26 basilwang if you want to lazy load ,you should write like this
                 /*
                      jt.complete = false;
