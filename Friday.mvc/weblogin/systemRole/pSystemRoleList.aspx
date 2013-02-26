@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSystemRoleList.aspx.cs" Inherits="Friday.mvc.weblogin.pSystemRoleList" %>
 
-<div layoutH="10" style="float:left; display:block; overflow:auto; width:540px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+<div layoutH="10" style="float:left; display:block; overflow:auto; width:400px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
@@ -17,6 +17,8 @@
                     <label>角色名:</label>
                     <input type="text" name="Name" class="textInput" value="<%=loginName %>"  />
                 </td>
+             </tr>
+             <tr>
                 <td>
                     <label>备注:</label>
                     <input type="text" name="Description" class="textInput" value="<%=name %>" />
@@ -100,7 +102,7 @@
     </div>
 </div>
 </div>
-<div id="jbsxBox3" class="pageFormContent" style="margin-left:546px;">
+<div id="jbsxBox3" class="pageFormContent" style="margin-left:406px;">
 </div>
 <script type="text/javascript">
 
