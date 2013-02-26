@@ -19,7 +19,8 @@ namespace friday.core
             Map(o => o.Name);
             Map(o => o.Remarks);
             Map(o => o.Description);
-                   
+
+            HasMany<RoleInMenu>(b => b.RoleInMenus).AsSet().KeyColumn("RoleID").Cascade.SaveUpdate().ForeignKeyConstraintName("Role_RoleInMenu_FK"); ;
         }
     }
 }

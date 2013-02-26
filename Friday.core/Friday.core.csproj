@@ -96,6 +96,15 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
+    <Compile Include="domain\RoleInMenu.cs" />
+    <Compile Include="domain\RoleInMenuMap.cs" />
+    <Compile Include="domain\SystemButton.cs" />
+    <Compile Include="domain\SystemButtonMap.cs" />
+    <Compile Include="domain\SystemMenu.cs" />
+    <Compile Include="domain\SystemMenuMap.cs" />
+    <Compile Include="domain\SystemUrl.cs" />
+    <Compile Include="domain\SystemUrlMap.cs" />
+    <Compile Include="domain\TreeNode.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />

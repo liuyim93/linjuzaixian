@@ -49,7 +49,13 @@ namespace friday.core
             set;
 
         }
-       
+        public virtual Iesi.Collections.Generic.ISet<RoleInMenu> RoleInMenus
+        {
+            get;
+
+            set;
+
+        }
 
         #region 显示用，不做映射  
         /// <summary>
