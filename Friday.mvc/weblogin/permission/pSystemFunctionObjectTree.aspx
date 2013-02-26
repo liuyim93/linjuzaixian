@@ -63,8 +63,8 @@
             debugger
             var $tree = o.find("#tree");
             var $form = o.find("#form");
-            debugger
-            var $jbsxBox3 = o.find("#jbsxBox3");
+            var rel_v3 = "#jbsxBox3";
+            var $rel = o.find(rel_v3);
             var _url = $form.attr("action") + "/list?t=" + (new Date().getTime());
             $.ajax({
                 type: "POST",
@@ -78,7 +78,12 @@
                     o.url = _url;
                     o.data = da;
                     o.onnodeclick = function navi(item) {
-                        $jbsxBox3.loadUrl("permission/pSystemFunctionObjectDetail.aspx?flag=" + item.id);
+                        if (!item.hasChildren) {
+                            var data = { prefix: prefix, "rel_v3": rel_v3 };
+                            $rel.loadUrl("permission/pSystemFunctionObjectDetail.aspx?flag=" + item.id, data, function () {
+                                $rel.find("[layoutH]").layoutH();
+                            });
+                        }
                     }
                     o.theme = "bbit-tree-lines";
                     $tree.treeview(o);
