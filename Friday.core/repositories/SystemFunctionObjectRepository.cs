@@ -15,7 +15,7 @@ namespace friday.core.repositories
         }
         public bool IsHaveChild(SystemFunctionObject systemFunctionObject)
         {
-            var isHaveChild = (from x in this.Session.Query<SystemFunctionObject>() select x).Count()>0 ? true : false;
+            var isHaveChild = (from x in this.Session.Query<SystemFunctionObject>() select x).Where(o => o.ParentFunctionObjectId == systemFunctionObject.Id).Count() > 0 ? true : false;
             return isHaveChild;
         }
     }
