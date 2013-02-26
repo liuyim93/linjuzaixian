@@ -30,7 +30,18 @@
                     <option value="否">否</option>
                     </select>
                 </p>
-                 <p>
+                <p>
+                    <label>
+                        用户角色：</label>
+                    <input type="text" id="NameSet" size="35"  
+                        runat="server" readonly="true" />
+                    <input type="hidden" id="IDSet" size="35"  
+                    runat="server" readonly="true" />
+                    <a class="btnLook" href="MultiListSystemRole.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择角色</a>
+                </p>
+
+
+                 <%--<p>
                      <label>
                          用户类型:</label>
                     <select name="UserType" id="UserType" runat="server">
@@ -46,7 +57,7 @@
                     <option value="租房店小二">租房店小二</option>
                     <option value="会员用户">会员用户</option>
                     </select>
-                 </p> 
+                 </p> --%>
         </div>
     </div>
      <div class="formBar">
