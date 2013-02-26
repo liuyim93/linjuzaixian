@@ -34,10 +34,9 @@ namespace Friday.mvc.weblogin
                 BindingHelper.ObjectToControl(loginUser, this);
                 IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
 
-
-                string[] schofmntname = iUserInRoleRepository.GetRoleNamesAndIDByLoginUserID(uid);
-                this.NameSet.Value = schofmntname[0];
-                this.IDSet.Value = schofmntname[1];
+                string[] info = iUserInRoleRepository.GetRoleNamesAndIDByLoginUserID(uid);
+                this.NameSet.Value = info[0];
+                this.IDSet.Value = info[1];
             }
         }
 
@@ -64,7 +63,6 @@ namespace Friday.mvc.weblogin
                 }
             }
 
-
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
@@ -74,8 +72,6 @@ namespace Friday.mvc.weblogin
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
-
-
 
         }
 

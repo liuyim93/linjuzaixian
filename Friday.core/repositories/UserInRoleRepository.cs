@@ -11,7 +11,7 @@ namespace friday.core.repositories
     {
         public string[] GetRoleNamesAndIDByLoginUserID(string userID)
         {
-            string[] schnames = {"",""} ;
+            string[] info = {"",""} ;
             string name="";
             string id="";
             int i = 1;
@@ -32,9 +32,9 @@ namespace friday.core.repositories
                 }
                 i++;
             }
-            schnames[0] = name;
-            schnames[1] = id;
-            return schnames;             
+            info[0] = name;
+            info[1] = id;
+            return info;             
         }
 
 
