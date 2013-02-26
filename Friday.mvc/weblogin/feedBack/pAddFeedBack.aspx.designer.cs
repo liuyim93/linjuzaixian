@@ -31,48 +31,21 @@ namespace Friday.mvc.weblogin.feedBack {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
         
         /// <summary>
-        /// ThreadIndex 控件。
+        /// Type 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ThreadIndex;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Type;
         
         /// <summary>
-        /// FeedBackType 控件。
+        /// Contents 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText FeedBackType;
-        
-        /// <summary>
-        /// TrackIndex 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText TrackIndex;
-        
-        /// <summary>
-        /// IsNew 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsNew;
-        
-        /// <summary>
-        /// Content 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Content;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Contents;
     }
 }

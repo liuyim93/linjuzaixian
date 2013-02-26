@@ -24,6 +24,7 @@ namespace Friday.mvc.weblogin.feedBack
 
             sysfeedBack = iFeedBackRepository.Load(uid);
             BindingHelper.ObjectToControl(sysfeedBack, this);
+            this.LoginName.Value = sysfeedBack.LoginUser.LoginName;
 
             sysParentId=sysfeedBack.Id;
 
@@ -52,14 +53,15 @@ namespace Friday.mvc.weblogin.feedBack
             if ( merchfeedBackList.Count!=0)
               {
 
-                  this.merchantUser.Value = merchfeedBackList[0].SystemUser.Name;
+                  this.merchantUser.Value = merchfeedBackList[0].LoginUser.LoginName;
                   this.mContents.Value = merchfeedBackList[0].Contents;
                   
               }
             else
               {
-               this.merchantUser.Value = "";
-                this.mContents.Value = "";
+                
+               this.merchantUser.Visible= false;
+               this.mContents.Visible = false;
               }
             
 

@@ -2236,6 +2236,12 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "Contents", df.value, MatchMode.Anywhere));
                         continue;
                     }
+
+                    if (df.type.Equals("LoginUser"))
+                    {
+                        SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
+                        continue;
+                    }
                     if (df.type.Equals("ParentFeedBack"))
                     {
                         query.Add(Restrictions.IsNull(notself + "ParentFeedBack"));
@@ -2252,24 +2258,12 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Eq(notself + "Id",df.value));
                         continue;
                     }
-                    if (df.type.Equals("FromLoginUser"))
+                    if (df.type.Equals("Type"))
                     {
-                        //根据loginUser的属性进行嵌套筛选
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
-                        }
+                        query.Add(Expression.Eq(notself + "Type", df.value));
                         continue;
                     }
-                    if (df.type.Equals("ToLoginUser"))
-                    {
-                        //根据loginUser的属性进行嵌套筛选
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
-                        }
-                        continue;
-                    }
+                    
 
                     //时间
                     if (df.type.Equals("CreateTime"))

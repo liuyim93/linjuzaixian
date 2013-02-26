@@ -17,45 +17,21 @@
             <h1>
                 基本信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
-         <p>
-                <label>
-                    消息名称：</label>
-                <input type="text" id="ThreadIndex" size="30" class="required textInput gray" runat="server" />
-            </p>
+      
             <p>
                 <label>
                     消息类型：</label>
-                <input type="text" id="FeedBackType" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Type" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
-                <label>
-                    消息索引：</label>
-                <input type="text" id="TrackIndex" size="30" class="required textInput gray" runat="server" />
-            </p>
-              <p>
-                <label>
-                    From：</label>
-                <input type="text" id="FromLoginUser" size="30" class=" textInput gray" runat="server" />
-            </p>
-            <p>
-                <label>
-                    To：</label>
-                <input type="text" id="ToLoginUser" size="30" class=" textInput gray" runat="server" />
-            </p>
-          <p>
-           <label>
-                            IsNew:</label>
-                        <select name="IsNew" id="IsNew" runat="server"   >
-                            <option value="" ></option>
-                            <option value="True" >是</option>
-                            <option value="False" >否</option>
-                        </select>
-             </p>
+         <p>
+         </p>
+         <p></p>
+         
              <p>
                     <label>
                         详细内容：</label>
                      
-                        <textarea id="Content" name="Content" rows="20"   style="width:800px"
+                        <textarea id="Contents" name="Contents" rows="20"   style="width:800px"
                             runat="server"></textarea>
                      
                 </p>
@@ -90,7 +66,7 @@
     $(function () {
         var prefix = '<%=Request.Params["prefix"]%>';
         $(document).one("panelloaded", function (e, o) {
-            o.find("#Content").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            o.find("#Contents").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 
             o = null;

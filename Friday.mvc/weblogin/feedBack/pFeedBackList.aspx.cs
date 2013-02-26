@@ -23,7 +23,7 @@ namespace Friday.mvc.weblogin.feedBack
         protected string endDate;
         protected string type;
         protected string content;
-        protected string fromLoginUser;
+        protected string loginName;
         protected string toLoginUser;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
         IFeedBackRepository iRepositoryFeedBack = UnityHelper.UnityToT<IFeedBackRepository>();
@@ -41,59 +41,49 @@ namespace Friday.mvc.weblogin.feedBack
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
-                    List<DataFilter> fromloginUserList = new List<DataFilter>();
-                    List<DataFilter> tologinUserList = new List<DataFilter>();
+                    List<DataFilter> loginUserList = new List<DataFilter>();
+                   
 
-                    if (!string.IsNullOrEmpty(Request.Form["Type"]))
+                    if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                    {
+                        loginUserList.Add(new DataFilter()
+                            {
+                                type = "LoginName",
+                                value = loginName = Request.Form["LoginName"]
+
+                            });
                         filterList.Add(new DataFilter()
                         {
-                            type = "Type",
-                            value = type = Request.Form["Type"]
+                            type = "LoginUser",
+                            field = loginUserList
 
                         });
+                    }
+                    if (!string.IsNullOrEmpty(Request.Form["Type"]))
+                    {
+                        filterList.Add(new DataFilter()
+                            {
+                                type = "Type",
+                                value = type = Request.Form["Type"]
 
+                            });
+                    }
                     if (!string.IsNullOrEmpty(Request.Form["Contents"]))
+                    {
                         filterList.Add(new DataFilter()
                         {
                             type = "Contents",
                             value = content = Request.Form["Contents"]
 
                         });
-                     
+                    }
                         filterList.Add(new DataFilter()
                         {
                             type = "ParentFeedBack",
                             value=null
 
                         });
-                    //if (!string.IsNullOrEmpty(Request.Form["FromLoginUser"]))
-                    //{
-                    //    fromloginUserList.Add(new DataFilter()
-                    //    {
-                    //        type = "FromLoginUser",
-                    //        value = fromLoginUser = Request.Form["FromLoginUser"]
-
-                    //    });
-                    //    filterList.Add(new DataFilter()
-                    //    {
-                    //        type = "FromLoginUser",
-                    //        field = fromloginUserList
-                    //    });
-                    //}
-                    //if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
-                    //{
-                    //    tologinUserList.Add(new DataFilter()
-                    //    {
-                    //        type = "ToLoginUser",
-                    //        value = toLoginUser = Request.Form["ToLoginUser"]
-
-                    //    });
-                    //    filterList.Add(new DataFilter()
-                    //    {
-                    //        type = "ToLoginUser",
-                    //        field = tologinUserList
-                    //    });
-                    //}
+                    
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {
@@ -131,7 +121,7 @@ namespace Friday.mvc.weblogin.feedBack
         {
 
 
-            iRepositoryFeedBack.Delete(Request.Params["uid"]);
+            iRepositoryFeedBack.PhysicsDelete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

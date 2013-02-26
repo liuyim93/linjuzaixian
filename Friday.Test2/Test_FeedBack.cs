@@ -33,7 +33,7 @@ namespace Friday.Test2
 
             LoginUser lu = new LoginUser()
             {
-                LoginName = "book001",
+                LoginName = "张国立",
                 Password = "book001",
                 IsAdmin = false,
                 UserType = UserTypeEnum.顾客,
@@ -41,7 +41,7 @@ namespace Friday.Test2
             };
 
             su.LoginUser = lu;
-            iSystemUserRepository.SaveOrUpdate(su);
+            iLoginUserRepository.SaveOrUpdate(lu);
 
             SystemUser su2 = new SystemUser()
             {
@@ -56,7 +56,7 @@ namespace Friday.Test2
 
             LoginUser lu2 = new LoginUser()
             {
-                LoginName = "book001",
+                LoginName = "孙红雷",
                 Password = "book001",
                 IsAdmin = false,
                 UserType = UserTypeEnum.顾客,
@@ -64,7 +64,7 @@ namespace Friday.Test2
             };
 
             su2.LoginUser = lu2;
-            iSystemUserRepository.SaveOrUpdate(su2);
+            iLoginUserRepository.SaveOrUpdate(lu2);
 
             FeedBack fb1 = new FeedBack()
             {
@@ -80,7 +80,7 @@ namespace Friday.Test2
             {
                 Type = "2",
                 Contents = "冰箱有问题。。。",
-                LoginUser = lu
+                LoginUser = lu2
             };
             iFeedBackRepository.SaveOrUpdate(fb2);
 
@@ -95,7 +95,7 @@ namespace Friday.Test2
 
             FeedBack fb4 = new FeedBack()
             {
-                Type = "4",
+                Type = "3",
                 Contents = "没有有优惠活动",
                 ParentFeedBack=fb3,
                 LoginUser = lu2

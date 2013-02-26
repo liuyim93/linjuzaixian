@@ -31,21 +31,22 @@ namespace Friday.mvc.weblogin.feedBack
 
         private void SaveReplyFeedBack( string uid)
         {
-            IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
-            SystemUser su = new SystemUser()
+            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+            //现获取当前登陆商的LoginName
+            LoginUser su = new LoginUser()
             {
-                 Name="测试",
-                  Email="ceshi@126.com"
+                 LoginName="测试"
             };
+           
 
-            iSystemUserRepository.SaveOrUpdate(su);
+            iLoginUserRepository.SaveOrUpdate(su);
 
             FeedBack ParentFeedBack = iFeedBackRepository.Get(uid);
            
 
 
             FeedBack feedBack = new FeedBack();
-            feedBack.SystemUser = su;
+            feedBack.LoginUser = su;
             feedBack.ParentFeedBack = ParentFeedBack;
 
             BindingHelper.RequestToObject(feedBack);            

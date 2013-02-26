@@ -21,7 +21,7 @@
             <p>
                 <label>
                     反馈者：</label>
-                <input type="text" id="fromSystemUser" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>
@@ -38,7 +38,7 @@
                             runat="server"></textarea>
             </p>
             </div>
-             <div  style="height:180px">
+             <div  style="height:180px"   >
                 <p>
                 <label>
                     回复人：</label>
@@ -88,7 +88,8 @@
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         $(document).one("panelloaded", function (e, o) {
-            o.find("#Content").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            o.find("#Contents").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            o.find("#mContents").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
 
         });
