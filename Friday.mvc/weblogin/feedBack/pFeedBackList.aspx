@@ -16,8 +16,8 @@
         <table class="searchContent">
            <tr>
                <td>                   
-                         <label>消息主题:</label>
-                    <input type="text" name="ThreadIndex" class="textInput" value="<%=threadIndex %>"
+                         <label>类型:</label>
+                    <input type="text" name="ThreadIndex" class="textInput" value="<%=type %>"
                         value="" />
                 </td> 
                 <td>
@@ -26,8 +26,8 @@
                          />
                 </td>
                 <td>
-                   <label>To:</label>
-                    <input  type="text" name="ToLoginUser" class="textInput" value="<%=toLoginUser %>"
+                   <label>内容:</label>
+                    <input  type="text" name="ToLoginUser" class="textInput" value="<%=content %>"
                          />
                 </td>
             
@@ -70,31 +70,31 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="message/pAddFeedBack.aspx" title="添加消息" target="navTab" rel=""><span>
-            添加消息</span></a></li>
-        <li><a class="edit" href="message/pEditFeedBack.aspx?uid={id}" title="修改消息" rel="" target="navTab">
-            <span>修改消息</span></a></li>
-        <li><a class="delete" href="message/pFeedBackList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除消息</span></a></li>
+        <li><a class="add" href="feedBack/pAddFeedBack.aspx" title="添加反馈" target="navTab" rel=""><span>
+            添加反馈</span></a></li>
+        <li><a class="edit" href="feedBack/pEditFeedBack.aspx?uid={id}" title="修改反馈" rel="" target="navTab">
+            <span>修改反馈</span></a></li>
+        <li><a class="delete" href="feedBack/pFeedBackList.aspx?flag=alldelete&uid={id}"
+            target="ajaxTodo" title="确定要删除吗?"><span>删除反馈</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
-<div id="messageList">
+<div id="feedBackList">
     <table class="table" layouth="440">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                        <th width="10%" align="center">消息编号</th>
+                        <th width="10%" align="center">编号</th>
                        <%--  <th width="10%" align="center">消息名称</th>--%>
                               
 
-               <th width="10%" align="center">消息主题</th>
-                      <th width="10%" align="center">消息内容</th>     
-                          <th width="10%" align="center">From</th>
-                        <th width="10%" align="center">To</th> <%----%>
-                <%--           <th width="10%" align="center">距离</th>
+               <th width="10%" align="center">类型</th>
+                      <th width="10%" align="center">内容</th>     
+                    <%--           <th width="10%" align="center">From</th>
+                        <th width="10%" align="center">To</th> --%>
+                <%--      <th width="10%" align="center">距离</th>
                         <th width="10%" align="center">折扣</th>
                         <th width="10%" align="center">创建时间</th>--%>
                 </tr>
@@ -111,11 +111,11 @@
                       <%--  <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>     --%>             
                        
 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadIndex")%></td>
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "FeedBackContent.Content")%></td> 
-                      <td align="center"><%#DataBinder.Eval(Container.DataItem, "FromLoginUser.LoginName")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Type")%></td>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Contents")%></td> 
+                    <%--      <td align="center"><%#DataBinder.Eval(Container.DataItem, "")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ToLoginUser.LoginName")%></td> 
-                        <%--     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>   --%>                   
 				</tr>

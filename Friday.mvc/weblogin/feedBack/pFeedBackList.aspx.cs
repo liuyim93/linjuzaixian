@@ -21,8 +21,8 @@ namespace Friday.mvc.weblogin.feedBack
 
         protected string startDate;
         protected string endDate;
-        protected string name;
-        protected string threadIndex;
+        protected string type;
+        protected string content;
         protected string fromLoginUser;
         protected string toLoginUser;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
@@ -44,49 +44,56 @@ namespace Friday.mvc.weblogin.feedBack
                     List<DataFilter> fromloginUserList = new List<DataFilter>();
                     List<DataFilter> tologinUserList = new List<DataFilter>();
 
-                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                    if (!string.IsNullOrEmpty(Request.Form["Type"]))
                         filterList.Add(new DataFilter()
                         {
-                            type = "Name",
-                            value = name = Request.Form["Name"]
+                            type = "Type",
+                            value = type = Request.Form["Type"]
 
                         });
 
-                    if (!string.IsNullOrEmpty(Request.Form["ThreadIndex"]))
+                    if (!string.IsNullOrEmpty(Request.Form["Contents"]))
                         filterList.Add(new DataFilter()
                         {
-                            type = "ThreadIndex",
-                            value = threadIndex = Request.Form["ThreadIndex"]
+                            type = "Contents",
+                            value = content = Request.Form["Contents"]
 
                         });
-                    if (!string.IsNullOrEmpty(Request.Form["FromLoginUser"]))
-                    {
-                        fromloginUserList.Add(new DataFilter()
-                        {
-                            type = "FromLoginUser",
-                            value = fromLoginUser = Request.Form["FromLoginUser"]
-
-                        });
+                     
                         filterList.Add(new DataFilter()
                         {
-                            type = "FromLoginUser",
-                            field = fromloginUserList
-                        });
-                    }
-                    if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
-                    {
-                        tologinUserList.Add(new DataFilter()
-                        {
-                            type = "ToLoginUser",
-                            value = toLoginUser = Request.Form["ToLoginUser"]
+                            type = "ParentFeedBack",
+                            value =null
 
                         });
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "ToLoginUser",
-                            field = tologinUserList
-                        });
-                    }
+                    //if (!string.IsNullOrEmpty(Request.Form["FromLoginUser"]))
+                    //{
+                    //    fromloginUserList.Add(new DataFilter()
+                    //    {
+                    //        type = "FromLoginUser",
+                    //        value = fromLoginUser = Request.Form["FromLoginUser"]
+
+                    //    });
+                    //    filterList.Add(new DataFilter()
+                    //    {
+                    //        type = "FromLoginUser",
+                    //        field = fromloginUserList
+                    //    });
+                    //}
+                    //if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
+                    //{
+                    //    tologinUserList.Add(new DataFilter()
+                    //    {
+                    //        type = "ToLoginUser",
+                    //        value = toLoginUser = Request.Form["ToLoginUser"]
+
+                    //    });
+                    //    filterList.Add(new DataFilter()
+                    //    {
+                    //        type = "ToLoginUser",
+                    //        field = tologinUserList
+                    //    });
+                    //}
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {

@@ -84,6 +84,7 @@
     <Compile Include="Test_ShopMultiSearch.cs" />
     <Compile Include="Test_RentMultiSearch.cs" />
     <Compile Include="Test_MessageMultiSearch.cs" />
+    <Compile Include="Test_FeedBack.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
