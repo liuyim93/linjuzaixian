@@ -28,7 +28,9 @@ namespace Friday.Test2
         {
 
             add_Random_SystemRoles();
-           
+
+            ISystemFunctionObjectService iSystemFunctionObjectService = UnityHelper.UnityToT<ISystemFunctionObjectService>();
+            iSystemFunctionObjectService.Generate();
 
            
         }
