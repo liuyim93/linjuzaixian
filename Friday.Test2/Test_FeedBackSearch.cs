@@ -6,19 +6,26 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.EnumType;
+using friday.core.components;
+using System.Linq;
 
 namespace Friday.Test2
 {
     [TestFixture]
-    public class Test_FeedBack
+    public class Test_FeedBackSearch
     {
         [Test]
         public void Test()
         {
-            IRepository<FeedBack> iFeedBackRepository = UnityHelper.UnityToT<IRepository<FeedBack>>();
+            IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
             IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
             IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>(); 
             IList<FeedBack> iFeedBacks = new List<FeedBack>();
+
+             string sysName = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string loginName = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string sysName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string loginName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
 
             SystemUser su = new SystemUser()
             {
@@ -26,14 +33,14 @@ namespace Friday.Test2
                 Description = "erhuan30",
                 Email = "ocam30@163.com",
                 EntityIndex = 30,
-                Name = "张国立",
+                Name = sysName,
                 IsAnonymous = false
 
             };
 
             LoginUser lu = new LoginUser()
             {
-                LoginName = "张国立",
+                LoginName = loginName,
                 Password = "book001",
                 IsAdmin = false,
                 UserType = UserTypeEnum.顾客,
@@ -49,14 +56,14 @@ namespace Friday.Test2
                 Description = "erhuan30",
                 Email = "ocam30@163.com",
                 EntityIndex = 30,
-                Name = "孙红雷",
+                Name = sysName2,
                 IsAnonymous = false
 
             };
 
             LoginUser lu2 = new LoginUser()
             {
-                LoginName = "孙红雷",
+                LoginName = loginName2,
                 Password = "book001",
                 IsAdmin = false,
                 UserType = UserTypeEnum.顾客,
@@ -109,12 +116,25 @@ namespace Friday.Test2
 
 
 
+            List<DataFilter> filterList = new List<DataFilter>();
+            List<DataFilter> loginUserList = new List<DataFilter>();
 
+            loginUserList.Add(new DataFilter()
+            {
+                type = "LoginName",
+                value = loginName2
 
+            });
+            filterList.Add(new DataFilter()
+            {
+                type = "LoginUser",
+                field = loginUserList
+
+            });
 
             FeedBack fb = iFeedBackRepository.Search(filterList).FirstOrDefault();
 
-            Assert.IsTrue(r.FromLoginUser.LoginName == lu1.LoginName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", r.FromLoginUser.LoginName, lu1.LoginName));
+            Assert.IsTrue(fb.LoginUser.LoginName == loginName2, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", fb.LoginUser.LoginName, loginName2));
       
 
         }
