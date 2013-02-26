@@ -10,6 +10,7 @@ namespace friday.core.services
     {
         public 餐馆管理 餐馆管理模块 { get; set; }
         public 统计 统计模块 { get; set; }
+        public 商铺管理 商铺管理模块 { get; set; }
     }
     public class 餐馆管理 : BaseModel
     {
@@ -18,7 +19,15 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Delete)]
         public FunctionTag 菜品维护 { get; set; }
     }
-
+    public class 商铺管理 : BaseModel
+    {
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 商铺维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable,PermissionTag.Delete)]
+        public FunctionTag 商品维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable,PermissionTag.Delete)]
+        public FunctionTag 商铺经营类型维护 { get; set; }
+    }
     public class 统计 : BaseModel
     {
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
