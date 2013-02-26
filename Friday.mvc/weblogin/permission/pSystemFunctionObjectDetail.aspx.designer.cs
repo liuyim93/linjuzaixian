@@ -13,39 +13,30 @@ namespace Friday.mvc.weblogin {
     public partial class pSystemFunctionObjectDetail {
         
         /// <summary>
-        /// Name 控件。
+        /// lblEnabledState 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEnabledState;
         
         /// <summary>
-        /// Price 控件。
+        /// lblEditableState 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Price;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEditableState;
         
         /// <summary>
-        /// OldPrice 控件。
+        /// lblDeleteableState 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText OldPrice;
-        
-        /// <summary>
-        /// InventoryCount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText InventoryCount;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblDeleteableState;
     }
 }

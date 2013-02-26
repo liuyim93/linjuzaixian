@@ -6,23 +6,18 @@
             <div>
               <p>
                 <label>
-                    菜品名称：</label>
-                <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
+                    启用权限状态：</label>
+                <label id="lblEnabledState"  runat="server" >不可设置</label>
             </p>
             <p>
                 <label>
-                    菜品当前价格：</label>
-                <input type="text" id="Price" size="30" class="required textInput gray" runat="server" />
+                    编辑权限状态：</label>
+                <label id="lblEditableState"  runat="server" >不可设置</label>
             </p>
             <p>
                 <label>
-                    菜品过去价格：</label>
-                <input type="text" id="OldPrice" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
-                <label>
-                    库存量：</label>
-                <input type="text" id="InventoryCount" size="30" class="required textInput gray" runat="server" />
+                    删除权限状态：</label>
+                <label  id="lblDeleteableState" runat="server" >不可设置</label>
             </p>
             </div>
            
