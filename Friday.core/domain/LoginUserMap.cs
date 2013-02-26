@@ -24,6 +24,8 @@ namespace friday.core.domain
             Map(o => o.UserType).CustomType<UserTypeEnum>();
 
             HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants).Inverse().Cascade.All();
+            //增加LoginUser到UserInRole的一对多关联
+            HasMany<UserInRole>(o => o.UserInRoles).Inverse().Cascade.All();
             //References<Merchant>(o => o.Merchant);//Shop 1 :N Food
 
             //2013-02-10 basilwang we can't use unique, cause this column may be null,  will be multiple null

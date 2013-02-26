@@ -15,7 +15,8 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.CreateTime).Index("CreateTime");
             Map(o => o.Version);
-            References<SystemRole>(o => o.Role).Not.Nullable();
+            //通过LoginUser取SystemRole，Fetch.Join()
+            References<SystemRole>(o => o.Role).Fetch.Join().Not.Nullable();
             References<LoginUser>(o => o.LoginUser).Not.Nullable() ;      
         }
     }

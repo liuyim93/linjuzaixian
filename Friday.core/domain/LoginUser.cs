@@ -19,6 +19,7 @@ namespace friday.core
         {
             this.Id = id;
             LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
+            UserInRoles = new Iesi.Collections.Generic.HashedSet<UserInRole>();
         }
 
         public virtual string LoginName
@@ -54,6 +55,11 @@ namespace friday.core
         /// admin,shopowner,shopxiaoer,rentowner,rentxiaoer,restaurantowner,restaurantxiaoer,restaurantdelivery,shopdelivery
         /// </summary>
         public virtual UserTypeEnum UserType
+        {
+            get;
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<UserInRole> UserInRoles
         {
             get;
             set;
