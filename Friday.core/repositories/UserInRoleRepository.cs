@@ -28,7 +28,7 @@ namespace friday.core.repositories
                 else 
                 {
                     name = sc.Name + "," + name;
-                    id = sc.Name + "," + id;  
+                    id = sc.Id + "," + id;  
                 }
                 i++;
             }
