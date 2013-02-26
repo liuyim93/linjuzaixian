@@ -48,7 +48,7 @@
     <div id="tree">
     </div>
 </div>
-<div id="jbsxBox3" class="pageFormContent" style="margin-left:246px;pading:3px 5px">
+<div id="jbsxBox3"  style="margin-left:246px;pading:3px 5px">
 
 </div>
 <script type="text/javascript">
