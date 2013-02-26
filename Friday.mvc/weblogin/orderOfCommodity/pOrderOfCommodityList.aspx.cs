@@ -56,7 +56,7 @@ namespace Friday.mvc.weblogin
             myCommodityOrder.Price = myCommodityOrder.Price - orderOfCommodity.Price;
 
             iMyCommodityOrderRepository.SaveOrUpdate(myCommodityOrder);
-            iOrderOfCommodityRepository.Delete(Request.Params["uid"]);
+            iOrderOfCommodityRepository.PhysicsDelete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
