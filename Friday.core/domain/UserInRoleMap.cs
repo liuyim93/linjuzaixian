@@ -4,22 +4,19 @@ using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
 
-namespace friday.core
+namespace friday.core.domain
 {
-    public class SystemRoleMap : ClassMap<SystemRole>
+    public class UserInRoleMap : ClassMap<UserInRole>
     {
 
-        public SystemRoleMap()
+        public UserInRoleMap()
         {
             Id(o => o.Id);
             Map(o => o.IsDelete);
             Map(o => o.CreateTime).Index("CreateTime");
             Map(o => o.Version);
-            Map(o => o.RoleID);
-            Map(o => o.Name);
-            Map(o => o.Remarks);
-            Map(o => o.Description);
-                   
+            References<SystemRole>(o => o.Role).Not.Nullable();
+            References<LoginUser>(o => o.LoginUser).Not.Nullable() ;      
         }
     }
 }

@@ -181,6 +181,8 @@
     <Compile Include="domain\SystemRoleMap.cs" />
     <Compile Include="domain\SystemUser.cs" />
     <Compile Include="domain\SystemUserMap.cs" />
+    <Compile Include="domain\UserInRole.cs" />
+    <Compile Include="domain\UserInRoleMap.cs" />
     <Compile Include="domain\Valuing.cs" />
     <Compile Include="domain\ValuingItem.cs" />
     <Compile Include="domain\ValuingMap.cs" />
