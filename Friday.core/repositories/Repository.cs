@@ -246,6 +246,14 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
+                    if (df.type.Equals("SystemUser"))
+                    {                       
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySystemUser(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
                     if (df.type.Equals("LoginName"))
                     {
                         query.Add(Expression.Like(notself + "LoginName", df.value, MatchMode.Anywhere));

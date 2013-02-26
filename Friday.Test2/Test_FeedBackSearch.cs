@@ -67,7 +67,7 @@ namespace Friday.Test2
                 Password = "book001",
                 IsAdmin = false,
                 UserType = UserTypeEnum.顾客,
-                SystemUser = su
+                SystemUser = su2
             };
 
             su2.LoginUser = lu2;
@@ -118,11 +118,45 @@ namespace Friday.Test2
 
             List<DataFilter> filterList = new List<DataFilter>();
             List<DataFilter> loginUserList = new List<DataFilter>();
+            List<DataFilter> systemUserList = new List<DataFilter>();
+            
+            filterList.Add(new DataFilter()
+            {
+                type = "ParentFeedBack",
+                value = null
 
+            });
+            
+            ////验证 LoginName的2表查询
+            //loginUserList.Add(new DataFilter()
+            //{
+            //    type = "LoginName",
+            //    value = loginName2
+
+            //});
+            //filterList.Add(new DataFilter()
+            //{
+            //    type = "LoginUser",
+            //    field = loginUserList
+
+            //});
+
+            //FeedBack fb = iFeedBackRepository.Search(filterList).FirstOrDefault();
+
+            //Assert.IsTrue(fb.LoginUser.LoginName == loginName2, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", fb.LoginUser.LoginName, loginName2));
+
+            //验证Name的3表查询
+
+            systemUserList.Add(new DataFilter()
+            {
+                type = "Name",
+                value = sysName
+
+            });
             loginUserList.Add(new DataFilter()
             {
-                type = "LoginName",
-                value = loginName2
+                type = "SystemUser",
+                field = systemUserList
 
             });
             filterList.Add(new DataFilter()
@@ -132,10 +166,10 @@ namespace Friday.Test2
 
             });
 
-            FeedBack fb = iFeedBackRepository.Search(filterList).FirstOrDefault();
 
-            Assert.IsTrue(fb.LoginUser.LoginName == loginName2, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", fb.LoginUser.LoginName, loginName2));
-      
+            FeedBack fbk = iFeedBackRepository.Search(filterList).FirstOrDefault();
+
+            Assert.IsTrue(fbk.LoginUser.SystemUser.Name == sysName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", fbk.LoginUser.SystemUser.Name, sysName));
 
         }
 

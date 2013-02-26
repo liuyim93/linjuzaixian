@@ -24,7 +24,7 @@ namespace Friday.mvc.weblogin.feedBack
         protected string type;
         protected string content;
         protected string loginName;
-        protected string toLoginUser;
+        protected string name;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
         IFeedBackRepository iRepositoryFeedBack = UnityHelper.UnityToT<IFeedBackRepository>();
 
@@ -42,7 +42,7 @@ namespace Friday.mvc.weblogin.feedBack
 
                     List<DataFilter> filterList = new List<DataFilter>();
                     List<DataFilter> loginUserList = new List<DataFilter>();
-                   
+                    List<DataFilter> systemUserList = new List<DataFilter>();
 
                     if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                     {
@@ -51,14 +51,37 @@ namespace Friday.mvc.weblogin.feedBack
                                 type = "LoginName",
                                 value = loginName = Request.Form["LoginName"]
 
-                            });
-                        filterList.Add(new DataFilter()
+                            });                    
+                    }
+                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                    {
+                        systemUserList.Add(new DataFilter()
+                        {
+                            type = "Name",
+                            value = name = Request.Form["Name"]
+
+                        });
+                        loginUserList.Add(new DataFilter()
+                        {
+                            type = "SystemUser",
+                            field = systemUserList
+
+                        });                    
+
+                    }
+
+
+                    if (!string.IsNullOrEmpty(Request.Form["Name"]) || !string.IsNullOrEmpty(Request.Form["LoginName"]))
+                    {
+                       filterList.Add(new DataFilter()
                         {
                             type = "LoginUser",
                             field = loginUserList
 
                         });
+
                     }
+
                     if (!string.IsNullOrEmpty(Request.Form["Type"]))
                     {
                         filterList.Add(new DataFilter()

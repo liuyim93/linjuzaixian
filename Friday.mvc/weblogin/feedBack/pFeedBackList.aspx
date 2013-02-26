@@ -16,21 +16,22 @@
         <table class="searchContent">
            <tr>
             <td>
-                   <label>反馈人:</label>
+                   <label>反馈人登陆名:</label>
                     <input  type="text" name="LoginName" class="textInput" value="<%=loginName %>"
                          />
                 </td>
+                <td>
+                   <label>真实姓名:</label>
+                    <input  type="text" name="Name" class="Name" value="<%=name %>"
+                         />
+                </td> 
                <td>                   
                          <label>类型:</label>
                     <input type="text" name="Type" class="textInput" value="<%=type %>"
                         value="" />
                 </td> 
                
-               <%-- <td>
-                   <label>内容:</label>
-                    <input  type="text" name="Contents" class="textInput" value="<%=content %>"
-                         />
-                </td>--%>
+               
             
             </tr>
              <tr>
