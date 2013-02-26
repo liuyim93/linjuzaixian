@@ -14,6 +14,8 @@ namespace Friday.mvc.weblogin
     public partial class pAddLoginUser : System.Web.UI.Page
     {
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
+        IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
 
         private LoginUser loginUser;
 
@@ -21,7 +23,6 @@ namespace Friday.mvc.weblogin
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
                 SaveLoginUser();
             }
         }
@@ -32,6 +33,21 @@ namespace Friday.mvc.weblogin
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
             iLoginUserRepository.SaveOrUpdate(loginUser);
+
+            string roleID = "";
+            if (this.IDSet.Value != null && this.IDSet.Value != "")
+            {
+                roleID = this.IDSet.Value;
+                string[] sArray = roleID.Split(',');
+
+                foreach (string aid in sArray)
+                {
+                    UserInRole userInRole = new UserInRole();
+                    userInRole.Role = iSystemRoleRepository.Get(aid);
+                    userInRole.LoginUser = loginUser;
+                    iUserInRoleRepository.SaveOrUpdate(userInRole);
+                }
+            }
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
