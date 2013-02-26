@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         public FeedBack()
         {
-            ChildFeedBack = new Iesi.Collections.Generic.HashedSet<FeedBack>();
+            ChildFeedBacks = new Iesi.Collections.Generic.HashedSet<FeedBack>();
 
         }
 
@@ -42,7 +42,7 @@ namespace friday.core.domain
             get;
         }
 
-        public virtual ISet<FeedBack> ChildFeedBack
+        public virtual ISet<FeedBack> ChildFeedBacks
         {
             set;
 
