@@ -25,7 +25,7 @@ namespace Friday.mvc.weblogin
             List<JsonTree> list = new List<JsonTree>();
             var nodeID = (from c in nvls where c.name == "id" select c.value).FirstOrDefault();
 
-            list = GetMenuJsonTreeByParentID(null);
+            list = GetMenuJsonTreeByParentID(nodeID=="0"?null:nodeID);
 
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = list;
@@ -48,6 +48,13 @@ namespace Friday.mvc.weblogin
                 //jt.showcheck = true;
                 //jt.checkstate = Convert.ToByte(state);
                 jt.hasChildren = haveChild;
+                //2013-02-26 basilwang if you want to lazy load ,you should write like this
+                /*
+                     jt.complete = false;
+                   otherwise  you should write like this
+                     jt.ChildNodes = GetMenuJsonTreeByParentID(systemFunctionObject.Id);
+                     jt.complete = true;
+                */
                 jt.ChildNodes = GetMenuJsonTreeByParentID(systemFunctionObject.Id);
                 jt.complete = true;
                 list.Add(jt);

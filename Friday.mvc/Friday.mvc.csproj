@@ -348,6 +348,13 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.cs">
+      <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
+      <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -791,6 +798,7 @@
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
+    <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleDetail.aspx" />
@@ -1253,6 +1261,26 @@
     <Content Include="weblogin\themes\silver\images\tree\folder.png" />
     <Content Include="weblogin\themes\silver\images\tree\tree.png" />
     <Content Include="weblogin\themes\silver\style.css" />
+    <Content Include="weblogin\treeview\images\icons\s.gif" />
+    <Content Include="weblogin\treeview\images\tree\arrows.gif" />
+    <Content Include="weblogin\treeview\images\tree\cbs.gif" />
+    <Content Include="weblogin\treeview\images\tree\drop-yes.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-minus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-minus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-plus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end-plus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-end.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-line.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-minus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-minus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-plus-nl.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow-plus.gif" />
+    <Content Include="weblogin\treeview\images\tree\elbow.gif" />
+    <Content Include="weblogin\treeview\images\tree\folder-open.gif" />
+    <Content Include="weblogin\treeview\images\tree\folder.gif" />
+    <Content Include="weblogin\treeview\images\tree\leaf.gif" />
+    <Content Include="weblogin\treeview\images\tree\loading.gif" />
+    <Content Include="weblogin\treeview\tree.css" />
     <Content Include="weblogin\uploadify\cancel.png" />
     <Content Include="weblogin\uploadify\css\uploadify.css" />
     <Content Include="weblogin\uploadify\scripts\expressInstall.swf" />
