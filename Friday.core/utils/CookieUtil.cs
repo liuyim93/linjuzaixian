@@ -9,13 +9,13 @@ namespace friday.core.utils
 {
     public class CookieUtil
     {
-        public static CookieBag getUserCookie()
+        public static CookieBag getUserCookie(HttpContextBase HttpContextBase)
         {
-            HttpContext context = HttpContext.Current;
+            HttpContextBase context = HttpContextBase;
             string id;
             bool isTicket;
             HttpCookie cookie;
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            if (context.User.Identity.IsAuthenticated)
             {
                 cookie = context.Request.Cookies[".friday"];
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(cookie.Value);
@@ -28,7 +28,7 @@ namespace friday.core.utils
                 id=cookie.Values["userID"];
                 isTicket = false;
             }
-            return new CookieBag(id,cookie,isTicket);
+            return new CookieBag(id, cookie, isTicket, context);
 
         }
     }
@@ -41,15 +41,16 @@ namespace friday.core.utils
         }
         private bool isTicket;
         private HttpCookie cookie;
-        public CookieBag(string id, HttpCookie cookie, bool isTicket)
+        private HttpContextBase httpContextBase;
+        public CookieBag(string id, HttpCookie cookie, bool isTicket, HttpContextBase context)
         {
             this.id = id;
             this.cookie = cookie;
             this.isTicket = isTicket;
+            this.httpContextBase = context;
         }
         public void remove()
         {
-            HttpContext context = HttpContext.Current;
             if (isTicket)
             {
                 FormsAuthentication.SignOut();
@@ -57,7 +58,7 @@ namespace friday.core.utils
             else
             {
                 cookie.Values["userID"] =null;
-                context.Response.Cookies.Add(cookie); 
+                httpContextBase.Response.Cookies.Add(cookie); 
             }
         }
     }

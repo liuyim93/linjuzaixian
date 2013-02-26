@@ -23,7 +23,7 @@ namespace friday.core.components
 
         public bool HasRight(FunctionTag functionTag, PremissionTag type = PremissionTag.Enable)
         {
-            int currentUserId = 0;
+            string currentUserId=string.Empty;
 
 
             if (functionTag == null)
@@ -72,10 +72,11 @@ namespace friday.core.components
             return null;
         }
 
-        private List<string> getUserRoles(int userId)
+        private List<string> getUserRoles(string userId)
         {
             return (from x in UserInRole
-                    select x.Role.Id).ToList();
+                    where x.LoginUser.Id==userId
+                    select x.Role.Id ).ToList();
         }
 
         private List<SystemFunctionObjectInRole> _RolePermissionList = null;

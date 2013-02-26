@@ -4,23 +4,42 @@ using System.Linq;
 using System.Text;
 using friday.core.repositories;
 using friday.core.domain;
+using friday.core.utils;
+using System.Web;
 
 namespace friday.core.services
 {
     public class UserService:IUserService
     {
-        ISystemUserRepository systemUserRepository;
-        public UserService(ISystemUserRepository systemUserRepository)
+        ISystemUserRepository iSystemUserRepository;
+        public UserService(ISystemUserRepository iSystemUserRepository)
         {
-            this.systemUserRepository = systemUserRepository;
+            this.iSystemUserRepository = iSystemUserRepository;
         }
-        public SystemUser getSystemUser(string id)
+        //public SystemUser getSystemUser(string id)
+        //{
+        //    return this.systemUserRepository.Get(id);
+        //}
+        //public void saveOrUpdateSystemUser(SystemUser user)
+        //{
+        //    this.systemUserRepository.SaveOrUpdate(user);
+        //}
+        private SystemUser GetOrCreateUser(CookieBag bag)
         {
-            return this.systemUserRepository.Get(id);
+            SystemUser systemUser = null;
+            try
+            {
+                systemUser = iSystemUserRepository.Get(bag.id);
+            }
+            catch (Exception ex)
+            {
+                bag.remove();
+            }
+            return systemUser;
         }
-        public void saveOrUpdateSystemUser(SystemUser user)
+        public SystemUser GetOrCreateUser(HttpContextBase httpContextBase)
         {
-            this.systemUserRepository.SaveOrUpdate(user);
+            return GetOrCreateUser(CookieUtil.getUserCookie(httpContextBase));
         }
     }
 }
