@@ -7,24 +7,28 @@ namespace friday.core.utils
 {
     public class MockLogger : ILogger
     {
-        public void Write(object message)
+        public void LogMessage(string message, string className, EventDataTypeCategory categories)
         {
-        }
 
-        public void Write(object message, string category)
-        {
         }
+        //public void Write(object message)
+        //{
+        //}
 
-        public void Write(object message, string category, int eventId)
-        {
-        }
+        //public void Write(object message, string category)
+        //{
+        //}
 
-        public void Write(object message, string category, int eventId, int priority)
-        {
-        }
+        //public void Write(object message, string category, int eventId)
+        //{
+        //}
 
-        public void Write(object message, string category, int eventId, int priority, System.Diagnostics.TraceEventType severity)
-        {
-        }
+        //public void Write(object message, string category, int eventId, int priority)
+        //{
+        //}
+
+        //public void Write(object message, string category, int eventId, int priority, System.Diagnostics.TraceEventType severity)
+        //{
+        //}
     }
 }
