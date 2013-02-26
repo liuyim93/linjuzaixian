@@ -55,6 +55,11 @@
 
     $(function () {
         var prefix = '<%=Request.Params["prefix"]%>';
+        var rawurl = '<%=Request.Path%>';
+        var query = '<%=Request.Url.Query%>';
+        debugger
+        var node_click_url = "permission/pSystemFunctionObjectDetail.aspx";
+        query = query.replace(/\?/, "&").replace(/uid/i,"rid");
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         //2013-02-10 basilwang use document
@@ -65,7 +70,7 @@
             var $form = o.find("#form");
             var rel_v3 = "#jbsxBox3";
             var $rel = o.find(rel_v3);
-            var _url = $form.attr("action") + "/list?t=" + (new Date().getTime());
+            var _url = rawurl + "/list?t=" + (new Date().getTime());
             $.ajax({
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
@@ -80,7 +85,7 @@
                     o.onnodeclick = function navi(item) {
                         if (!item.hasChildren) {
                             var data = { prefix: prefix, "rel_v3": rel_v3 };
-                            $rel.loadUrl("permission/pSystemFunctionObjectDetail.aspx?uid=" + item.id, data, function () {
+                            $rel.loadUrl(node_click_url + "?uid=" + item.id + query, data, function () {
                                 $rel.find("[layoutH]").layoutH();
                             });
                         }

@@ -75,7 +75,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="systemRole/pSystemRoleDetail.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox3"><%#Eval("Name")%>
+                        <td><a href="permission/pSystemFunctionObjectTree.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"><%#Eval("Name")%>
                             </a>
                         </td>                      
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>                 
@@ -102,7 +102,7 @@
     </div>
 </div>
 </div>
-<div id="jbsxBox3" class="pageFormContent" style="margin-left:406px;">
+<div id="jbsxBox2" class="pageFormContent" style="margin-left:406px;">
 </div>
 <script type="text/javascript">
 
