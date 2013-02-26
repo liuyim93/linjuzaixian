@@ -48,7 +48,7 @@
     <div id="tree">
     </div>
 </div>
-<div id="jbsxBox3" class="pageFormContent" style="margin-left:546px;">
+<div id="jbsxBox3" class="pageFormContent" style="margin-left:246px;pading:3px 5px">
 
 </div>
 <script type="text/javascript">
@@ -80,7 +80,7 @@
                     o.onnodeclick = function navi(item) {
                         if (!item.hasChildren) {
                             var data = { prefix: prefix, "rel_v3": rel_v3 };
-                            $rel.loadUrl("permission/pSystemFunctionObjectDetail.aspx?flag=" + item.id, data, function () {
+                            $rel.loadUrl("permission/pSystemFunctionObjectDetail.aspx?uid=" + item.id, data, function () {
                                 $rel.find("[layoutH]").layoutH();
                             });
                         }
