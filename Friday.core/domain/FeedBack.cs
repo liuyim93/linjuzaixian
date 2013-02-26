@@ -14,7 +14,7 @@ namespace friday.core.domain
 
         }
 
-        public virtual SystemUser SystemUser
+        public virtual LoginUser LoginUser
         {
             set;
 

@@ -70,7 +70,7 @@ namespace Friday.Test2
             {
                  Type="1",
                  Contents="送货速度很慢啊！！！！！！",
-                 SystemUser=su
+                 LoginUser=lu
                   
 
             };
@@ -80,7 +80,7 @@ namespace Friday.Test2
             {
                 Type = "2",
                 Contents = "冰箱有问题。。。",
-                SystemUser = su
+                LoginUser = lu
             };
             iFeedBackRepository.SaveOrUpdate(fb2);
 
@@ -88,7 +88,7 @@ namespace Friday.Test2
             {
                 Type = "3",
                 Contents = "有优惠活动吗？",
-                SystemUser=su,
+                LoginUser = lu
                 
                
             };         
@@ -98,7 +98,7 @@ namespace Friday.Test2
                 Type = "4",
                 Contents = "没有有优惠活动",
                 ParentFeedBack=fb3,
-                SystemUser=su2
+                LoginUser = lu2
             };
             iFeedBackRepository.SaveOrUpdate(fb3);
 

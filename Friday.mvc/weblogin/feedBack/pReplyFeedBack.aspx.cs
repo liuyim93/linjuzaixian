@@ -24,12 +24,12 @@ namespace Friday.mvc.weblogin.feedBack
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
-                SaveReplyFeedBack();
+                SaveReplyFeedBack(uid);
             }
 
         }
 
-        private void SaveReplyFeedBack()
+        private void SaveReplyFeedBack( string uid)
         {
             IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
             SystemUser su = new SystemUser()
@@ -37,11 +37,16 @@ namespace Friday.mvc.weblogin.feedBack
                  Name="测试",
                   Email="ceshi@126.com"
             };
+
+            iSystemUserRepository.SaveOrUpdate(su);
+
+            FeedBack ParentFeedBack = iFeedBackRepository.Get(uid);
            
 
 
             FeedBack feedBack = new FeedBack();
             feedBack.SystemUser = su;
+            feedBack.ParentFeedBack = ParentFeedBack;
 
             BindingHelper.RequestToObject(feedBack);            
             iFeedBackRepository.SaveOrUpdate(feedBack);
