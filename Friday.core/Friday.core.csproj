@@ -96,7 +96,8 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
-    <Compile Include="components\permission\PremissionManager.cs" />
+    <Compile Include="services\IPermissionManager.cs" />
+    <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
     <Compile Include="components\SqlStatementInterceptor.cs" />
     <Compile Include="domain\AddressMap.cs" />
