@@ -26,23 +26,26 @@ namespace Friday.mvc.weblogin
             rid = Request.Params["rid"];
             systemFunctionObject = iSystemFunctionObjectRepository.Get(uid);
             systemFunctionObjectInRole = iSystemFunctionObjectInRoleRepository.Get(rid, uid);
-   
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveOrUpdate();
             }
-           if (systemFunctionObject != null)
-           {
-               this.panelEnabledState.Visible = systemFunctionObject.FunctionAvailable;
-               this.panelEditableState.Visible  = systemFunctionObject.EditPermissionAvailable;
-               this.panelDeletableState.Visible = systemFunctionObject.DeletePermissionAvailable;
-           }
-          if (systemFunctionObjectInRole!=null)
-           {
-               this.cbEnabledState.Checked = systemFunctionObjectInRole.Enabled;
-               this.cbEditableState.Checked = systemFunctionObjectInRole.Editable;
-               this.cbDeletableState.Checked = systemFunctionObjectInRole.Deletable;
-           }
+            else
+            {
+                if (systemFunctionObject != null)
+                {
+                    this.panelEnabledState.Visible = systemFunctionObject.FunctionAvailable;
+                    this.panelEditableState.Visible = systemFunctionObject.EditPermissionAvailable;
+                    this.panelDeletableState.Visible = systemFunctionObject.DeletePermissionAvailable;
+                }
+                if (systemFunctionObjectInRole != null)
+                {
+                    this.cbEnabledState.Checked = systemFunctionObjectInRole.Enabled;
+                    this.cbEditableState.Checked = systemFunctionObjectInRole.Editable;
+                    this.cbDeletableState.Checked = systemFunctionObjectInRole.Deletable;
+                }
+            }
         }
         private void SaveOrUpdate()
         {

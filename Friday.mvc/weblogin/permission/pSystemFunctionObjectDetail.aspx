@@ -1,7 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSystemFunctionObjectDetail.aspx.cs"
     Inherits="Friday.mvc.weblogin.pSystemFunctionObjectDetail" %>
 
-<form id="form" method="post" class="pageForm required-validate" runat="server">
+<form id="form" method="post" onsubmit="return validateCallback(this,navTabAjaxDone);"
+class="pageForm required-validate" runat="server">
 <div class="panel" defh="400" style="">
     <h1>
         功能点权限预览</h1>
