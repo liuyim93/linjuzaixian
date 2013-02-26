@@ -2209,7 +2209,7 @@ namespace friday.core.repositories
                 notself = "feedBack.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "FeedBack";
+                    parentSearch = "ParentFeedBack";
                 }
                 else
                 {
@@ -2239,6 +2239,17 @@ namespace friday.core.repositories
                     if (df.type.Equals("ParentFeedBack"))
                     {
                         query.Add(Restrictions.IsNull(notself + "ParentFeedBack"));
+                        continue;
+                    }
+                    if (df.type.Equals("ParentFeedBackForTwo"))
+                    {
+                       // query.Add(Restrictions.Eq(notself + "ParentFeedBack", df.value));
+                        SearchByFeedBack(query, df.field, ref deepIndex, ref parentSearch);
+                        continue;
+                    }
+                    if (df.type.Equals("ParentFeedBackId"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id",df.value));
                         continue;
                     }
                     if (df.type.Equals("FromLoginUser"))

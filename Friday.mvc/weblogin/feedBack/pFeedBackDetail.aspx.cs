@@ -16,7 +16,7 @@ namespace Friday.mvc.weblogin.feedBack
         IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
     
         private FeedBack  sysfeedBack;
-        private FeedBack  merchfeedBack;
+        //private FeedBack  merchfeedBack;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
@@ -29,21 +29,31 @@ namespace Friday.mvc.weblogin.feedBack
 
 
             List<DataFilter> filterList = new List<DataFilter>();
-   
+            List<DataFilter> fltList = new List<DataFilter>(); //第一层
+
                 filterList.Add(new DataFilter()
                 {
-                    type = "ParentFeedBack",
+                    type = "ParentFeedBackId",
                     value = sysParentId
 
                 });
+                fltList.Add(new DataFilter()
+                {
+                    type = "ParentFeedBackForTwo",
+                    field = filterList
 
-                FeedBack merchfeedBack = iFeedBackRepository.GetFeedBackByParentFeedBack(sysParentId);
-              
-            if (IsNullOrEmpty(merchfeedBack))
-              {           
+                });
+
+                //FeedBack merchfeedBack = iFeedBackRepository.GetFeedBackByParentFeedBack(sysParentId);
+
+                IList<FeedBack> merchfeedBackList = iFeedBackRepository.Search(fltList);
             
-                this.merchantUser.Value = merchfeedBack.SystemUser.Name;
-                this.mContents.Value = merchfeedBack.Contents;
+       
+            if ( merchfeedBackList.Count!=0)
+              {
+
+                  this.merchantUser.Value = merchfeedBackList[0].SystemUser.Name;
+                  this.mContents.Value = merchfeedBackList[0].Contents;
                   
               }
             else
