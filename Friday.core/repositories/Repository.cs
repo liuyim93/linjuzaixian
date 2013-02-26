@@ -2262,8 +2262,7 @@ namespace friday.core.repositories
                     {
                         query.Add(Expression.Eq(notself + "Type", df.value));
                         continue;
-                    }
-                    
+                    }                   
 
                     //时间
                     if (df.type.Equals("CreateTime"))

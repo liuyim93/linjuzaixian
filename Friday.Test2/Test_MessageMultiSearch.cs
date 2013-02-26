@@ -98,6 +98,9 @@ namespace Friday.Test2
                field = tologinUserList
            });
 
+
+
+
            Message r = iMessageRepository.Search(filterList).FirstOrDefault();
 
            Assert.IsTrue(r.FromLoginUser.LoginName == lu1.LoginName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", r.FromLoginUser.LoginName, lu1.LoginName));
