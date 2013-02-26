@@ -96,7 +96,8 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
-    <Compile Include="components\permission\PremissionManager.cs" />
+    <Compile Include="services\IPermissionManager.cs" />
+    <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
     <Compile Include="components\SqlStatementInterceptor.cs" />
     <Compile Include="domain\AddressMap.cs" />
@@ -255,6 +256,7 @@
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
+    <Compile Include="repositories\IUserInRoleRepository.cs" />
     <Compile Include="repositories\MerchantRepository.cs" />
     <Compile Include="repositories\OrderOfFoodRepository.cs" />
     <Compile Include="repositories\OrderOfHouseRepository.cs" />
@@ -296,12 +298,15 @@
     <Compile Include="repositories\MessageRepository.cs" />
     <Compile Include="repositories\IMessageRepository.cs" />
 <<<<<<< HEAD
+    <Compile Include="repositories\ISystemFunctionObjectInRoleRepository.cs" />
+    <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
+=======
+    <Compile Include="repositories\UserInRoleRepository.cs" />
+>>>>>>> pLoginUserList.aspx
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />
-=======
     <Compile Include="repositories\SystemRoleRepository.cs" />
     <Compile Include="repositories\ISystemRoleRepository.cs" />
->>>>>>> add search
     <Compile Include="services\ISystemFunctionObjectService.cs" />
     <Compile Include="repositories\OrderOfCommodityRepository.cs" />
     <Compile Include="repositories\IOrderOfCommodityRepository.cs" />

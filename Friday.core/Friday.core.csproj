@@ -256,6 +256,7 @@
     <Compile Include="repositories\IRepository.cs" />
     <Compile Include="repositories\ISystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\ISystemUserRepository.cs" />
+    <Compile Include="repositories\IUserInRoleRepository.cs" />
     <Compile Include="repositories\MerchantRepository.cs" />
     <Compile Include="repositories\OrderOfFoodRepository.cs" />
     <Compile Include="repositories\OrderOfHouseRepository.cs" />
@@ -297,6 +298,7 @@
     <Compile Include="repositories\MessageRepository.cs" />
     <Compile Include="repositories\IMessageRepository.cs" />
     <Compile Include="repositories\ISystemFunctionObjectInRoleRepository.cs" />
+    <Compile Include="repositories\UserInRoleRepository.cs" />
     <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />

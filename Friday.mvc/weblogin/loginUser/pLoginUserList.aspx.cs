@@ -20,6 +20,7 @@ namespace Friday.mvc.weblogin
         protected string loginName;
 
         ILoginUserRepository iRepositoryLoginUser = UnityHelper.UnityToT<ILoginUserRepository>();
+        IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -84,6 +85,7 @@ namespace Friday.mvc.weblogin
         private void DeleteLoginUser()
         {
             iRepositoryLoginUser.Delete(Request.Params["uid"]);
+            iUserInRoleRepository.DeleteUserInRoleByLoginUserID(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
