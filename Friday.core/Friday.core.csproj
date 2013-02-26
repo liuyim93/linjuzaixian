@@ -295,6 +295,8 @@
     <Compile Include="repositories\ILoginUserOfMerchantRepository.cs" />
     <Compile Include="repositories\MessageRepository.cs" />
     <Compile Include="repositories\IMessageRepository.cs" />
+    <Compile Include="repositories\ISystemFunctionObjectInRoleRepository.cs" />
+    <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />
     <Compile Include="repositories\SystemRoleRepository.cs" />
