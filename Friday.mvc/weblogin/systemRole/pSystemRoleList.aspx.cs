@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
@@ -27,7 +28,7 @@ namespace Friday.mvc.weblogin
         {
             if (Request.Params["flag"] == "alldelete")
             {
-
+                DeleteSystemRole();
             }
             else
             {
@@ -44,6 +45,21 @@ namespace Friday.mvc.weblogin
 
                 numPerPage.Value = numPerPageValue.ToString();
             }
+        }
+        private void DeleteSystemRole()
+        {
+
+            string sysid = Request.Params["uid"];
+
+            iSystemRoleRepository.Delete(sysid);
+
+            AjaxResult result = new AjaxResult();
+            result.statusCode = "200";
+            result.message = "删除成功";
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = result;
+            Response.Write(jsonResult.FormatResult());
+            Response.End();
         }
 
     }
