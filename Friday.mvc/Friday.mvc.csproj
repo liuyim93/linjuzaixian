@@ -343,12 +343,10 @@
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx.cs">
       <DependentUpon>pAddRestaurantEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\restaurantXiaoer\pRestaurantXiaoerList.aspx.cs">
-      <DependentUpon>pRestaurantXiaoerList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.designer.cs">
