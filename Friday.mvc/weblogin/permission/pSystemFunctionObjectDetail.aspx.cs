@@ -14,13 +14,17 @@ namespace Friday.mvc.weblogin
     public partial class pSystemFunctionObjectDetail : System.Web.UI.Page
     {
         SystemFunctionObjectInRole systemFunctionObjectInRole;
+        SystemFunctionObject systemFunctionObject;
+        string uid;
+        string rid;
         ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         ISystemFunctionObjectInRoleRepository iSystemFunctionObjectInRoleRepository = UnityHelper.UnityToT<ISystemFunctionObjectInRoleRepository>();
+        IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"];
-            string rid = Request.Params["rid"];
-            SystemFunctionObject systemFunctionObject = iSystemFunctionObjectRepository.Get(uid);
+            uid = Request.Params["uid"];
+            rid = Request.Params["rid"];
+            systemFunctionObject = iSystemFunctionObjectRepository.Get(uid);
             systemFunctionObjectInRole = iSystemFunctionObjectInRoleRepository.Get(rid, uid);
    
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -42,6 +46,14 @@ namespace Friday.mvc.weblogin
         }
         private void SaveOrUpdate()
         {
+            if (systemFunctionObjectInRole == null)
+            {
+                systemFunctionObjectInRole = new SystemFunctionObjectInRole(){
+                    Role = iSystemRoleRepository.Get(rid),
+                     SystemFunctionObject=systemFunctionObject
+                };
+
+            }
             systemFunctionObjectInRole.Enabled = this.cbEnabledState.Checked;
             systemFunctionObjectInRole.Editable = this.cbEditableState.Checked;
             systemFunctionObjectInRole.Deletable = this.cbDeletableState.Checked;
