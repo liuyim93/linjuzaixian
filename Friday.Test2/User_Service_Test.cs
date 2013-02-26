@@ -23,19 +23,19 @@ namespace Friday.Test2
         [Test]
         public void add_a_system_user()
         {
-            IUserService service = UnityHelper.UnityToT<IUserService>();
-            SystemUser u = new SystemUser()
-            {
-                Name = "basilfromservice",
-                //Password = "123456",
-                Tel = "1342343214",
-                Email = "ocam@163.com",
-                Description = "a lot of things"
+            //IUserService service = UnityHelper.UnityToT<IUserService>();
+            //SystemUser u = new SystemUser()
+            //{
+            //    Name = "basilfromservice",
+            //    //Password = "123456",
+            //    Tel = "1342343214",
+            //    Email = "ocam@163.com",
+            //    Description = "a lot of things"
 
 
 
-            };
-            service.saveOrUpdateSystemUser(u);
+            //};
+            //service.saveOrUpdateSystemUser(u);
         }
 
         
