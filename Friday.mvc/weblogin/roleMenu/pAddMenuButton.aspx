@@ -15,18 +15,13 @@
             <p>
                 <label>
                     菜单路径：</label>
-                <input type="text" id="MenuRoute" name="MenuRoute" runat="server"></asp:textbox>
+                <input type="text" id="MenuRoute" name="MenuRoute" runat="server" class="required textInput gray"></asp:textbox>
             
             </p>
             <p>
                 <label>
-                    菜单Rel：</label>
-                <asp:textbox id="MenuRel" runat="server"></asp:textbox>
-            </p>
-            <p>
-                <label>
                     菜单顺序：</label>
-                <asp:textbox id="ColIndex" runat="server" ></asp:textbox>
+                <asp:textbox id="ColIndex" runat="server"  class="required textInput gray digits" min="1"></asp:textbox>
             </p>
             <p>
                 <label>

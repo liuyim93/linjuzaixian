@@ -35,29 +35,11 @@ namespace Friday.mvc.weblogin.roleMenu
                     SystemUrl url = urlRepo.GetByUrlPath(UrlPath);
                     if (url == null)
                     {
-                        if (urlRepo.GetByRel(MenuRel.Text) == false)
-                        {
-                            SystemUrl SU = new SystemUrl();
-                            SU.UrlPath = UrlPath;
-                            SU.UrlName = this.Name.Text;
-                            SU.UrlRel = MenuRel.Text;
-                            urlRepo.SaveOrUpdate(SU);
-                            dic.SystemUrl = SU;
-                        }
-                        else
-                        {
-                            AjaxResult result = new AjaxResult();
-                            result.statusCode = "300";
-                            result.errorCloseType = "dialog";
-                            result.message = "您填写的菜单Rel已被使用！";
-                            result.navTabId = "referer";
-                            result.callbackType = "closeCurrent";
-                            FormatJsonResult jsonResult = new FormatJsonResult();
-                            jsonResult.Data = result;
-                            Response.Write(jsonResult.FormatResult());
-                            Response.End();
-                            return;
-                        }
+                        SystemUrl SU = new SystemUrl();
+                        SU.UrlPath = UrlPath;
+                        SU.UrlName = this.Name.Text;
+                        urlRepo.SaveOrUpdate(SU);
+                        dic.SystemUrl = SU;
                     }
                     else
                     {
