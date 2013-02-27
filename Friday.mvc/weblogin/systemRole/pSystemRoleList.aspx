@@ -65,8 +65,10 @@
                 <tr>
                     <th width="50" align="center">序 号</th>
                         <th width="200" align="center">角色</th>
-                        <th width="200" align="center">Remarks</th>
-                        <th width="200" align="center">备注</th>
+                        <th width="100" align="center">Remarks</th>
+                        <th width="100" align="center">备注</th>
+                        <th width="200" align="center"></th>
+                        <th width="200" align="center"></th>
 
                 </tr>
                 </thead>
@@ -76,11 +78,16 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="permission/pSystemFunctionObjectTree.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"><%#Eval("Name")%>
-                            </a>
+                        <td><%#Eval("Name")%>
                         </td>      
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Remarks")%></td>                
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>                 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td> 
+                         <td><a href="permission/pSystemFunctionObjectTree.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2">功能权限
+                            </a>
+                        </td>
+                         <td><a href="permission/menu/pRoleInMenuPermission.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2">菜单权限
+                            </a>
+                        </td>                
 				</tr>
 			      
             </ItemTemplate>
@@ -116,12 +123,12 @@
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             debugger
-            o.find("#SystemRoleList table:eq(1) tr").click(function (e) {
-                if (!$(e.target).is("a")) {
-                    $(this).find("td a").trigger("click");
-                }
+//            o.find("#SystemRoleList table:eq(1) tr").click(function (e) {
+//                if (!$(e.target).is("a")) {
+//                    $(this).find("td a").trigger("click");
+//                }
 
-            });
+//            });
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
                 o.find("#form").bind("submit", function (e) {
