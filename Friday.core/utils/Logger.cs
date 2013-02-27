@@ -60,7 +60,7 @@ namespace friday.core.utils
         {
             // Create LogEntry
             LogEntry logEntry = new LogEntry();
-
+            logEntry.Message = message;
             // Add all categories
             foreach (EventDataTypeCategory enumValue in System.Enum.GetValues(typeof(EventDataTypeCategory)))
             {

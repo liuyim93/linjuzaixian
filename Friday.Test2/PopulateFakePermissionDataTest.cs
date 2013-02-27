@@ -106,17 +106,9 @@ namespace Friday.Test2
            IPermissionManager iPermissionManager = UnityHelper.UnityToT<IPermissionManager>();
            iPermissionManager.RefreshRolePermission();
            iPermissionManager.RefreshUserInRole();
-           Assert.IsTrue(iPermissionManager.HasRight(new FunctionTag(){
-               TagName = tagName
-           }, xiaoerid), "用户" + xiaoername + "应该有" + tagName + "的enable权限");
-           Assert.IsTrue(iPermissionManager.HasRight(new FunctionTag()
-           {
-               TagName = tagName
-           }, xiaoerid, PermissionTag.Edit), "用户" + xiaoername + "应该有" + tagName + "的edit权限");
-           Assert.IsFalse(iPermissionManager.HasRight(new FunctionTag()
-           {
-               TagName = tagName
-           }, xiaoerid, PermissionTag.Delete), "用户" + xiaoername + "应该没有" + tagName + "的delete权限"); 
+           Assert.IsTrue(iPermissionManager.HasRight(tagName, xiaoerid), "用户" + xiaoername + "应该有" + tagName + "的enable权限");
+           Assert.IsTrue(iPermissionManager.HasRight(tagName, xiaoerid, PermissionTag.Edit), "用户" + xiaoername + "应该有" + tagName + "的edit权限");
+           Assert.IsFalse(iPermissionManager.HasRight(tagName, xiaoerid, PermissionTag.Delete), "用户" + xiaoername + "应该没有" + tagName + "的delete权限"); 
        }
 
     }
