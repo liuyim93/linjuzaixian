@@ -122,9 +122,9 @@
     </Compile>
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\LogRepository.cs">
-    <Compile Include="repositories\RoleInMenuRepository.cs" />
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="repositories\RoleInMenuRepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\PremissionManager.cs" />
