@@ -320,6 +320,20 @@
     <Compile Include="weblogin\ListSystemUser.aspx.designer.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\log\pLogDetail.aspx.cs">
+      <DependentUpon>pLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\log\pLogDetail.aspx.designer.cs">
+      <DependentUpon>pLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\log\pLogList.aspx.cs">
+      <DependentUpon>pLogList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\log\pLogList.aspx.designer.cs">
+      <DependentUpon>pLogList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx.cs">
       <DependentUpon>pAddMerchantGoodsType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1078,6 +1092,8 @@
     <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
+    <Content Include="weblogin\log\pLogDetail.aspx" />
+    <Content Include="weblogin\log\pLogList.aspx" />
     <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx" />

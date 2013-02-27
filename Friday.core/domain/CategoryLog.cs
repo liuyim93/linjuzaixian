@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core.domain
 {
-    public class CategoryLog
+    public class CategoryLog:BaseObject
     {
         public virtual int CategoryLogID
         {

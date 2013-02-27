@@ -505,7 +505,6 @@
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Category" />
-      <Property Name="Log" />
     </ShowAsAssociation>
   </Class>
   <Font Name="宋体" Size="9" />

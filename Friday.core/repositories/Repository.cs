@@ -13,7 +13,7 @@ using Iesi.Collections.Generic;
 //CreateAlias 返回值还是当前的Criteria，但是CreateCriteria返回的新的Criteria。
 namespace friday.core.repositories
 {
-    public class Repository<T> : IRepository<T> where T : Entity
+    public class Repository<T> : IRepository<T> where T : BaseObject
     {
         public Repository()
         {
@@ -388,6 +388,86 @@ namespace friday.core.repositories
                         {
                             SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
                         }
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+        protected ICriteria SearchByLog(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByLog(query, termList);
+        }
+        protected ICriteria SearchByLog(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByLog(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByLog(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "log.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Log";
+                }
+                else
+                {                   
+                    parentSearch = parentSearch + ".Log";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "log");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+                    if (df.type.Equals("Restaurant"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        continue;
+                    }
+                    
+                   
+                    if (df.type.Equals("Tel"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                 
+
+                    if (df.type.Equals("LoginUserOfMechant"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+                                                            
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
                         continue;
                     }
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core.domain
 {
-    public class Category
+    public class Category : BaseObject
     {
         public virtual int CategoryID
         {

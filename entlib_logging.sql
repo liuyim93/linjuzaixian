@@ -110,7 +110,7 @@ CREATE PROCEDURE [dbo].[WriteLog]
 	@LogId int OUTPUT
 )
 AS 
-
+BEGIN
 	INSERT INTO [Log] (
 		EventID,
 		Priority,

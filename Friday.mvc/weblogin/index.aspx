@@ -176,6 +176,7 @@
                                 <li><a href="roleMenu/pRoleMenuList.aspx" target="navTab" rel="">角色菜单分配</a></li> 
                                 <li><a href="myCommodityOrder/pMyCommodityOrderList.aspx" target="navTab" rel="">商品订单管理</a></li>
                                 <li><a href="permission/pSystemFunctionObjectTree.aspx" target="navTab" rel="">功能模块管理</a></li> 
+                                <li><a href="log/pLogList.aspx" target="navTab" rel="">日志管理</a></li> 
                                 <li><a href="FoodList.aspx" target="navTab" rel="">test3</a></li>
                                 <li><a href="MyOrderList.aspx" target="navTab" rel="">test4</a></li>
                                 <li><a href="FeedBackList.aspx" target="navTab" rel="">test5</a></li>

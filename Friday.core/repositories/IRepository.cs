@@ -8,7 +8,7 @@ using friday.core.domain;
 
 namespace friday.core.repositories
 {
-    public interface IRepository<T>  where T : Entity
+    public interface IRepository<T>  where T : BaseObject
     {
         T Load(string id);
         T Get(string id);

@@ -120,10 +120,16 @@
     <Compile Include="domain\TreeNode.cs" />
     <Compile Include="domain\CategoryLogMap.cs" />
     <Compile Include="domain\LogMap.cs" />
+    <Compile Include="repositories\ILogRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="repositories\ISystemButtonRepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\ISystemUrlRepository.cs" />
     <Compile Include="repositories\ITreeNodeRepository.cs" />
+    <Compile Include="repositories\LogRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="repositories\SystemButtonRepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="repositories\SystemUrlRepository.cs" />
