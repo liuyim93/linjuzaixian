@@ -7,11 +7,11 @@ namespace friday.core.domain
 {
     public class Log:BaseObject
     {
-        public Log()
-        {
-            CategoryLogs = new Iesi.Collections.Generic.HashedSet<CategoryLog>();
+        //public Log()
+        //{
+        //    CategoryLogs = new Iesi.Collections.Generic.HashedSet<CategoryLog>();
 
-        }
+        //}
         public virtual int LogID
         {
             get;
@@ -82,10 +82,10 @@ namespace friday.core.domain
             get;
             set;
         }
-        public virtual Iesi.Collections.Generic.ISet<CategoryLog> CategoryLogs
-        {
-            get;
-            set;
-        }
+        //public virtual Iesi.Collections.Generic.ISet<CategoryLog> CategoryLogs
+        //{
+        //    get;
+        //    set;
+        //}
     }
 }
