@@ -1,31 +1,47 @@
 ----------------------------------------
-Logging Errors & Warnings Error: 6352 : Timestamp: 2013/1/21 14:57:39
-Message: There is no explicit mapping for the categories 'test'. The log entry was: 
-Timestamp: 2013/1/21 14:57:39
-Message: test
-Category: test
+Logging Errors & Warnings Error: 6352 : Timestamp: 2013/2/27 2:22:52
+Message: There is no explicit mapping for the categories '无, 信息, Friday.mvc.weblogin.restaurant.pRestaurantList'. The log entry was: 
+Timestamp: 2013/2/27 2:22:52
+Message: 进入餐馆管理模块.餐馆维护页面
+Category: 无, 信息, 操作日志, Friday.mvc.weblogin.restaurant.pRestaurantList
 Priority: -1
-EventId: 1
+EventId: 0
 Severity: Information
 Title:
-Machine: THINK
-App Domain: /LM/W3SVC/6/ROOT-3-130032538569916950
-ProcessId: 11900
-Process Name: C:\Program Files (x86)\IIS Express\iisexpress.exe
+Machine: LENOVO-PC
+App Domain: /LM/W3SVC/2/ROOT-5-130064044951282729
+ProcessId: 7188
+Process Name: C:\Program Files\IIS Express\iisexpress.exe
 Thread Name: 
-Win32 ThreadId:14548
+Win32 ThreadId:6756
 Extended Properties: 
 Category: 
 Priority: -1
 EventId: 6352
 Severity: Error
 Title:
-Machine: THINK
-App Domain: /LM/W3SVC/6/ROOT-3-130032538569916950
-ProcessId: 11900
-Process Name: C:\Program Files (x86)\IIS Express\iisexpress.exe
+Machine: LENOVO-PC
+App Domain: /LM/W3SVC/2/ROOT-5-130064044951282729
+ProcessId: 7188
+Process Name: C:\Program Files\IIS Express\iisexpress.exe
 Thread Name: 
-Win32 ThreadId:14548
+Win32 ThreadId:6756
+Extended Properties: 
+----------------------------------------
+----------------------------------------
+操作日志 Information: 0 : Timestamp: 2013/2/27 2:22:52
+Message: 进入餐馆管理模块.餐馆维护页面
+Category: 无, 信息, 操作日志, Friday.mvc.weblogin.restaurant.pRestaurantList
+Priority: -1
+EventId: 0
+Severity: Information
+Title:
+Machine: LENOVO-PC
+App Domain: /LM/W3SVC/2/ROOT-5-130064044951282729
+ProcessId: 7188
+Process Name: C:\Program Files\IIS Express\iisexpress.exe
+Thread Name: 
+Win32 ThreadId:6756
 Extended Properties: 
 ----------------------------------------
 ----------------------------------------
