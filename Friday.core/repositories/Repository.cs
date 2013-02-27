@@ -1552,7 +1552,7 @@ namespace friday.core.repositories
                 notself = "restaurant.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Restaurant";
+                    parentSearch = "Merchant"; //MerchantGoodsType  第二次调用
                 }
                 else
                 {

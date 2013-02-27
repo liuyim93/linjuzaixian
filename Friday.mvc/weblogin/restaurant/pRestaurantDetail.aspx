@@ -16,6 +16,8 @@
                 target="ajax"><span>菜品</span></a></li>
                 <li><a href='restaurantEmployee/pRestaurantEmployeeList.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
                 target="ajax"><span>员工列表</span></a></li>
+                <li><a href='restaurantGoodsType/pRestaurantGoodsTypeList.aspx?restaurant_id=<%= Request.Params["uid"]%>' target="navTab" rel_v3="jbsxBox3">
+                <span>商品类型管理</span></a></li>
            </ul>
         </div>
     </div>
@@ -201,7 +203,8 @@
         
           <div id="jbsxBox2" >
         </div>
-
+         <div id="jbsxBox3" >
+        </div>
     </div>
     <div class="tabsFooter">
         <div class="tabsFooterContent">
