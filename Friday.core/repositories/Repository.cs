@@ -1719,7 +1719,7 @@ namespace friday.core.repositories
                 notself = "shop.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Merchant";//对于加载ShopList中的员工列表来说，此处应该为Merchant
+                    parentSearch = "Shop";//(1)对于加载ShopList中的自定义商品列表来说，此处应该为Merchant;(2)对于查询MyCommodityOrder中的商铺名来说，此处应该为"Shop"
                 }
                 else
                 {                  
