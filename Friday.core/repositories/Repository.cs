@@ -1570,19 +1570,20 @@ namespace friday.core.repositories
                 notself = "restaurant.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Merchant"; //MerchantGoodsType  第二次调用
-                }
-                else
-                {
+                    parentSearch = "Restaurant";//(1)对于查询MyFoodOrder中的商铺名来说，此处应该为"Restaurant"：Map映射
+
                     foreach (var df in termList)
                     {
-                        if (df.type.Equals("MerchantRestaurant"))
-                        {                            
-                            df.type = "Restaurant";  //Recovery
+                        if (df.type.Equals("MerchantRestaurant"))  //(2)对于加载RestaurantList中的自定义商品类型列表来说，此处应该为Merchant：Map映射
+                        {
+                            parentSearch = "Merchant";
+                            df.type = "Restaurant";
                         }
-                    }
-                  
-                        parentSearch = parentSearch + ".Merchant";
+                    }   
+                }
+                else
+                {                                     
+                      parentSearch = parentSearch + ".Merchant";
                    
                 }
                 alias = parentSearch;
@@ -1726,21 +1727,15 @@ namespace friday.core.repositories
                         if (df.type.Equals("MerchantShop"))  //(2)对于加载ShopList中的自定义商品类型列表来说，此处应该为Merchant;
                         {
                             parentSearch = "Merchant";
+                            df.type = "Shop";
                        
                         }
                     }                 
 
                 }
                 else
-                {                  
-                    //2012-02-25 pang fu xing for 3 table query:loginuser—>loginuserofmerchant->merchant:employeelist in shoplist  
-                    foreach (var df in termList)
-                    {
-                        if (df.type.Equals("MerchantShop"))
-                        {
-                            df.type = "Shop";
-                        }
-                    }                 
+                {                
+                               
                      parentSearch = parentSearch + ".Merchant";
                                         
                 }
@@ -1879,17 +1874,19 @@ namespace friday.core.repositories
                 notself = "rent.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Merchant";
-                }
-                else
-                {
+                    parentSearch = "Rent";
+
                     foreach (var df in termList)
                     {
-                        if (df.type.Equals("MerchantRent"))
-                        {                           
-                            df.type = "Rent";  //Recovery
+                        if (df.type.Equals("MerchantRent")) 
+                        {
+                            parentSearch = "Merchant";
+                            df.type = "Rent";
                         }
-                    }                  
+                    }   
+                }
+                else
+                {                                 
                         parentSearch = parentSearch + ".Merchant";
                       
                 }
