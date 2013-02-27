@@ -731,6 +731,24 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
+                    if (df.type.Equals("Rent"))
+                    {
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+                    if (df.type.Equals("Shop"))
+                    {
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByShop(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
 
                     if (df.type.Equals("Order"))
                     {
@@ -1701,7 +1719,7 @@ namespace friday.core.repositories
                 notself = "shop.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Shop";//对于加载ShopList中的员工列表来说，此处应该为Merchant
+                    parentSearch = "Merchant";//对于加载ShopList中的员工列表来说，此处应该为Merchant
                 }
                 else
                 {                  
@@ -1851,7 +1869,7 @@ namespace friday.core.repositories
                 notself = "rent.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Rent";
+                    parentSearch = "Merchant";
                 }
                 else
                 {

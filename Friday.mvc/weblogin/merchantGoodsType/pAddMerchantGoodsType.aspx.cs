@@ -15,14 +15,18 @@ namespace Friday.mvc.weblogin
     {
         IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
+        IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
+        IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
 
         private MerchantGoodsType merchantGoodsType;
         private string mid;
+        private string mtype="";
+        private Merchant merchant;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             mid = Request.Params["merchant_id"].ToString();
-
+            mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -31,9 +35,21 @@ namespace Friday.mvc.weblogin
         }
 
         private void SaveMerchantGoodsType()
-        {
+        {       
             merchantGoodsType = new MerchantGoodsType();
-            merchantGoodsType.Merchant = iRestaurantRepository.Get(mid);             
+            if(mtype=="Restaurant")
+            {
+                merchantGoodsType.Merchant = iRestaurantRepository.Get(mid); 
+            }
+            if(mtype=="Rent")
+            {
+                merchantGoodsType.Merchant = iRentRepository.Get(mid); 
+            }
+            if (mtype == "Shop")
+            {
+                merchantGoodsType.Merchant = iShopRepository.Get(mid); 
+            }     
+                     
             BindingHelper.RequestToObject(merchantGoodsType);
             iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
 

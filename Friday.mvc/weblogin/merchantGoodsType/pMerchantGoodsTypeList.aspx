@@ -52,9 +52,9 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="merchantGoodsType/pAddMerchantGoodsType.aspx?merchant_id={id}" title="增加商品类型" target="dialog"
+        <li><a class="add" href="merchantGoodsType/pAddMerchantGoodsType.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id={id}" title="增加商品类型" target="dialog"
             rel="" width="600" height="400"><span>增加商品类型</span></a></li>
-        <li><a class="edit" href="merchantGoodsType/pEditMerchantGoodsType.aspx?uid={merchantGoodsTypeid}&merchant_id={id}" title="修改商品类型" rel="" target="dialog"
+        <li><a class="edit" href="merchantGoodsType/pEditMerchantGoodsType.aspx?uid={merchantGoodsTypeid}" title="修改商品类型" rel="" target="dialog"
             height="480"><span>修改商品类型</span></a></li>
         <li><a class="delete" href="merchantGoodsType/pMerchantGoodsTypeList.aspx?flag=alldelete&uid={merchantGoodsTypeid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除商品类型</span></a></li>
