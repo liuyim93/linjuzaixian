@@ -98,6 +98,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\EntLibConnectionProvider.cs" />
     <Compile Include="components\tree\JsonTree.cs" />
     <Compile Include="components\tree\nvl.cs" />
     <Compile Include="components\permission\BaseModel.cs" />
