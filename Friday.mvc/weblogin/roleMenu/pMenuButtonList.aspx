@@ -8,9 +8,9 @@
       <div id="left" class="left">
         <div class="panelBar">
             <ul id="dictree" class="toolBar">
-                <li><a id="addata" class="add" href="roleMenu/AddMenu.aspx?code={dicCat}" target="dialog" rel="addmenu"><span>添加</span></a></li>
+                <li><a id="addata" class="add" href="roleMenu/AddMenu.aspx?code={dicCat}" target="dialog" rel=""><span>添加</span></a></li>
                 <li><a class="delete" href="roleMenu/MenuButtonManage.aspx?flag=alldelete&code={dicCat}" target="navTabTodo" title="确定要删除吗?"><span>删除</span></a></li>
-                <li><a class="edit" href="roleMenu/EditMenu.aspx?code={dicCat}" target="dialog" rel="editmenu"><span>修改</span></a></li> 
+                <li><a class="edit" href="roleMenu/EditMenu.aspx?code={dicCat}" target="dialog" rel=""><span>修改</span></a></li> 
                 <li class="line">line</li>
             </ul>
         </div>
@@ -34,11 +34,12 @@
         //ensure this function will be called delay until initUI called
         //2013-02-10 basilwang use document
         var dtree;
-
+        var oObj;
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             debugger
             dtree = o.find("#dtree");
+            oObj = o;
             $.ajax({
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
@@ -54,7 +55,7 @@
                     d.onnodeclick = function navi(item) {
                         var $this = $(this);
                         var tabid = $this.attr("rel") || "DataDic1";
-                        o("li>a", dictree).each(function () {
+                        $("li>a", dtree).each(function () {
                             var $this = $(this);
                             var href = $this.attr("href");
                             //$this.empty();
@@ -64,12 +65,12 @@
                             //11.10号王一宁
                             if (item.hasChildren == false) {
 
-                                $("ul li:eq(0)").attr({ target: "navTabTodo" });
+                                oObj("ul li:eq(0)").attr({ target: "navTabTodo" });
                                 $this.attr("href", $this.data("ohref").replace("{dicCat}", item.id));
 
                             }
                             else {
-                                $("ul li:eq(0)").attr({ target: "dialog" });
+                                oObj("ul li:eq(0)").attr({ target: "dialog" });
                                 $this.attr("href", $this.data("ohref").replace("{dicCat}", item.id));
 
                             }
