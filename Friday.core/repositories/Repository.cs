@@ -434,11 +434,7 @@ namespace friday.core.repositories
 
                 foreach (DataFilter df in termList)
                 {
-                    if (df.type.Equals("IsDelete"))
-                    {
-                        query.Add(Expression.Eq(notself + "IsDelete", false));
-                        continue;
-                    }
+                 
                     if (df.type.Equals("Restaurant"))
                     {
                         query.Add(Restrictions.Eq(notself + "Id", df.value));
@@ -455,6 +451,68 @@ namespace friday.core.repositories
 
                     if (df.type.Equals("LoginUserOfMechant"))
                     {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }                                                           
+
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+
+        protected ICriteria SearchByCategoryLog(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByCategoryLog(query, termList);
+        }
+        protected ICriteria SearchByCategoryLog(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByCategoryLog(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByCategoryLog(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "categoryLog.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "CategoryLog";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".CategoryLog";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "categoryLog");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                  
+                    if (df.type.Equals("Restaurant"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        continue;
+                    }                   
+
+
+                    if (df.type.Equals("LoginUserOfMechant"))
+                    {
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
@@ -462,15 +520,66 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
-                                                            
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+        protected ICriteria SearchByCategory(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByCategory(query, termList);
+        }
+        protected ICriteria SearchByCategory(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByCategory(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByCategory(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
 
-                    //时间
-                    if (df.type.Equals("CreateTime"))
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "category.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Category";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".Category";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "category");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("Restaurant"))
                     {
-                        SearchByCreateTime(query, df, notself);
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
                         continue;
                     }
 
+
+                    if (df.type.Equals("LoginUserOfMechant"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
                 }
             }
             deepIndex--;
