@@ -552,7 +552,7 @@ namespace friday.core.repositories
 
                     if (df.type.Equals("CategoryID"))
                     {
-                        query.Add(Restrictions.Eq(notself + "CategoryID", df.value));
+                        query.Add(Restrictions.Eq(notself + "CategoryID",Convert.ToInt32(df.value)));
                         continue;
                     }
 

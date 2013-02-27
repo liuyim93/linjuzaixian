@@ -50,7 +50,7 @@ namespace Friday.mvc.weblogin.log
                         categoryList.Add(new DataFilter()
                         {
                             type = "CategoryID",
-                            value = categoryName = Request.Params["CategoryID"]
+                            value = categoryName = Request.Params["CategoryName"]
                         });
                         categoryOfLogList.Add(new DataFilter()
                         {
