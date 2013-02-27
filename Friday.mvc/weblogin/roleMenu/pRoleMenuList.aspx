@@ -76,7 +76,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="permission/pRoleInMenuPermission.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"><%#Eval("Name")%>
+                        <td><a href="permission/menu/pRoleInMenuPermission.aspx?uid=<%#Eval("Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"><%#Eval("Name")%>
                             </a>
                         </td>      
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Remarks")%></td>                

@@ -24,7 +24,7 @@ namespace friday.core.repositories
 
             var query = Session.CreateQuery(@"select c from RoleInMenu c 
                                                    left join fetch c.Role as r  where
-                                             r.RoleID=:RoleID").SetString("RoleID", RoleID);
+                                             c.Role=:RoleID").SetString("RoleID", RoleID);
             //.SetFirstResult(start)
             //.SetMaxResults(limit);
             //total = Session.CreateQuery(@"select count(distinct u) from SystemUserRole as u")

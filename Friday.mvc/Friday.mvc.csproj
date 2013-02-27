@@ -491,11 +491,11 @@
     <Compile Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx.designer.cs">
       <DependentUpon>pOrderOfHouseList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\permission\pRoleInMenuPermission.aspx.cs">
+    <Compile Include="weblogin\permission\menu\pRoleInMenuPermission.aspx.cs">
       <DependentUpon>pRoleInMenuPermission.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\permission\pRoleInMenuPermission.aspx.designer.cs">
+    <Compile Include="weblogin\permission\menu\pRoleInMenuPermission.aspx.designer.cs">
       <DependentUpon>pRoleInMenuPermission.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.cs">
@@ -574,13 +574,6 @@
     </Compile>
     <Compile Include="weblogin\systemRole\pEditSystemRole.aspx.designer.cs">
       <DependentUpon>pEditSystemRole.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\systemRole\pSystemRoleDetail.aspx.cs">
-      <DependentUpon>pSystemRoleDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\systemRole\pSystemRoleDetail.aspx.designer.cs">
-      <DependentUpon>pSystemRoleDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemRole\pSystemRoleList.aspx.cs">
       <DependentUpon>pSystemRoleList.aspx</DependentUpon>
@@ -1115,7 +1108,7 @@
     <Content Include="weblogin\orderOfHouse\pAddOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pEditOrderOfHouse.aspx" />
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
-    <Content Include="weblogin\permission\pRoleInMenuPermission.aspx" />
+    <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx" />
     <Content Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx" />
@@ -1127,7 +1120,6 @@
     <Content Include="weblogin\roleMenu\pRoleMenuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
-    <Content Include="weblogin\systemRole\pSystemRoleDetail.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
     <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
@@ -1588,6 +1580,9 @@
     <Content Include="weblogin\themes\silver\images\tree\folder.png" />
     <Content Include="weblogin\themes\silver\images\tree\tree.png" />
     <Content Include="weblogin\themes\silver\style.css" />
+    <Content Include="weblogin\treeview\images\icons\checkbox_0.gif" />
+    <Content Include="weblogin\treeview\images\icons\checkbox_1.gif" />
+    <Content Include="weblogin\treeview\images\icons\checkbox_2.gif" />
     <Content Include="weblogin\treeview\images\icons\s.gif" />
     <Content Include="weblogin\treeview\images\tree\arrows.gif" />
     <Content Include="weblogin\treeview\images\tree\cbs.gif" />
@@ -1912,7 +1907,6 @@
     <Folder Include="Models\" />
     <Folder Include="uploadimage\" />
     <Folder Include="Views\Home\" />
-    <Folder Include="weblogin\permission\menu\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>

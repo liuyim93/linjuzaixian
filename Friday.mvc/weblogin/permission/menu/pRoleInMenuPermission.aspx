@@ -85,7 +85,7 @@
             $.ajax({
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
-                url: "permission/pRoleInMenuPermission.aspx/GetMenuListForRole?t=" + (new Date().getTime()),
+                url: "permission/menu/pRoleInMenuPermission.aspx/GetMenuListForRole?t=" + (new Date().getTime()),
                 data: "{'nvls':[{'name':'id','value':'0'},{'name':'rid','value':'" + rid + "'}]}",
 
                 dataType: "json",
@@ -110,7 +110,7 @@
                 $.ajax({
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
-                    url: "permission/pRoleInMenuPermission.aspx/SaveRoleInMenu?t=" + (new Date().getTime()),
+                    url: "permission/menu/pRoleInMenuPermission.aspx/SaveRoleInMenu?t=" + (new Date().getTime()),
                     data: "{'menuid':'" + result + "','roleid':'" + rid + "'}",
                     dataType: "json",
                     success: function (data) {
