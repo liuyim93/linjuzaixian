@@ -119,6 +119,7 @@
     <Compile Include="domain\SystemUrlMap.cs" />
     <Compile Include="domain\TreeNode.cs" />
     <Compile Include="domain\CategoryLogMap.cs" />
+    <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ISystemButtonRepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\ISystemUrlRepository.cs" />
