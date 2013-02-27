@@ -435,25 +435,19 @@ namespace friday.core.repositories
                 foreach (DataFilter df in termList)
                 {
                  
-                    if (df.type.Equals("Restaurant"))
-                    {
-                        query.Add(Restrictions.Eq(notself + "Id", df.value));
-                        continue;
-                    }
-                    
                    
-                    if (df.type.Equals("Tel"))
+                    if (df.type.Equals("Title"))
                     {
-                        query.Add(Restrictions.Like(notself + "Tel", df.value, MatchMode.Anywhere));
+                        query.Add(Restrictions.Like(notself + "Title", df.value, MatchMode.Anywhere));
                         continue;
                     }
-                 
 
-                    if (df.type.Equals("LoginUserOfMechant"))
+
+                    if (df.type.Equals("CategoryLog"))
                     {
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByCategoryLog(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }                                                           
@@ -487,7 +481,7 @@ namespace friday.core.repositories
                 notself = "categoryLog.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "CategoryLog";
+                    parentSearch = "CategoryLogs";
                 }
                 else
                 {
@@ -503,20 +497,12 @@ namespace friday.core.repositories
 
                 foreach (DataFilter df in termList)
                 {
-                  
-                    if (df.type.Equals("Restaurant"))
-                    {
-                        query.Add(Restrictions.Eq(notself + "Id", df.value));
-                        continue;
-                    }                   
 
-
-                    if (df.type.Equals("LoginUserOfMechant"))
-                    {
-                        //根据loginUser的属性进行嵌套筛选
+                    if (df.type.Equals("Category"))
+                    {                       
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByCategory(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
@@ -564,22 +550,12 @@ namespace friday.core.repositories
                 foreach (DataFilter df in termList)
                 {
 
-                    if (df.type.Equals("Restaurant"))
+                    if (df.type.Equals("CategoryName"))
                     {
-                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        query.Add(Restrictions.Eq(notself + "CategoryName", df.value));
                         continue;
                     }
 
-
-                    if (df.type.Equals("LoginUserOfMechant"))
-                    {
-                        //根据loginUser的属性进行嵌套筛选
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
-                        }
-                        continue;
-                    }
                 }
             }
             deepIndex--;
