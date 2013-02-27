@@ -45,7 +45,7 @@ namespace Friday.mvc.weblogin
                 List<DataFilter> filterList = new List<DataFilter>();
                 List<DataFilter> restaurantList = new List<DataFilter>();
 
-                if (Request.Params["merchantType"] == "Restaurant")
+                if (merchantType == "Restaurant")
                 {
                     if (Request.Form["restaurant_id"] != null)
                     {
@@ -65,6 +65,52 @@ namespace Friday.mvc.weblogin
                     {
                         type="Restaurant",
                         field=restaurantList
+                    }
+                        );
+                }
+                if (merchantType == "Rent")
+                {
+                    if (Request.Form["rent_id"] != null)
+                    {
+                        merchantId = Request.Form["rent_id"];
+                    }
+                    else
+                    {
+                        merchantId = Request.Params["rent_id"];
+                    }
+                    restaurantList.Add(new DataFilter()
+                    {
+                        type = "Rent",
+                        value = merchantId
+                    }
+                        );
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Rent",
+                        field = restaurantList
+                    }
+                        );
+                }
+                if (merchantType == "Shop")
+                {
+                    if (Request.Form["shop_id"] != null)
+                    {
+                        merchantId = Request.Form["shop_id"];
+                    }
+                    else
+                    {
+                        merchantId = Request.Params["shop_id"];
+                    }
+                    restaurantList.Add(new DataFilter()
+                    {
+                        type = "Shop",
+                        value = merchantId
+                    }
+                        );
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Shop",
+                        field = restaurantList
                     }
                         );
                 }
