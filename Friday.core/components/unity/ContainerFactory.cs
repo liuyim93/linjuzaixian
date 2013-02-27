@@ -11,6 +11,9 @@ using System.Web.Caching;
 using System.IO;
 using UnityConfiguration;
 using friday.core.utils;
+using Microsoft.Practices.EnterpriseLibrary.Common.Configuration.Unity;
+using Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.Unity;
+using Microsoft.Practices.EnterpriseLibrary.Data.Configuration.Unity;
 
 namespace friday.core.components
 {
@@ -30,6 +33,11 @@ namespace friday.core.components
                         IUnityContainer Container = new UnityContainer();
                         Container.RegisterType<ICache, WebCache>(new ContainerControlledLifetimeManager());
                         Container.RegisterType<ILogger, Logger>(new ContainerControlledLifetimeManager());
+                        //2013-02-27 basilwang add EnterpriseLibraryCoreExtension
+                        Container.AddNewExtension<EnterpriseLibraryCoreExtension>();
+                        Container.AddNewExtension<LoggingBlockExtension>();
+                        Container.AddNewExtension<DataAccessBlockExtension>();
+ 
                         ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
                         if (HttpContext.Current != null)
                         {

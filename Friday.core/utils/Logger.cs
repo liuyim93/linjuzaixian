@@ -6,6 +6,7 @@ using Microsoft.Practices.EnterpriseLibrary.Logging;
 using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using System.Diagnostics;
 using friday.core.services;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace friday.core.utils
 {
@@ -14,7 +15,9 @@ namespace friday.core.utils
         LogWriter writer;
         public Logger()
         {
-            writer = EnterpriseLibraryContainer.Current.GetInstance<LogWriter>();
+            Database db = EnterpriseLibraryContainer.Current.GetInstance<Database>();
+            writer = UnityHelper.UnityToT<LogWriter>();
+            //writer = EnterpriseLibraryContainer.Current.GetInstance<LogWriter>();
         }
 
         //public Logger(LogWriter logWriter)
