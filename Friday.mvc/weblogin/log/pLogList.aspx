@@ -24,14 +24,16 @@
                   
                 </td> 
                <td>                   
-                    <p>Category</p>
-                      <select name="CategoryName" id="CategoryName" runat="server">
-                    <option value="">请选择</option>
+                                     
+                      <label>
+                         CategoryName:</label>
+                     <select name="CategoryName" id="CategoryName" runat="server"  value="<%=categoryName %>">
+                           <option value="">请选择</option>
                     <option value="1">调试</option>
                     <option value="2">信息</option>
                     <option value="3">操作日志</option>
                     <option value="4">异常</option>
-                    </select>
+                     </select>
                 </td> 
                
                
