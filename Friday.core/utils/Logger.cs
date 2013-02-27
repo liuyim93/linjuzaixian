@@ -15,7 +15,7 @@ namespace friday.core.utils
         LogWriter writer;
         public Logger()
         {
-            Database db = EnterpriseLibraryContainer.Current.GetInstance<Database>();
+            //Database db = EnterpriseLibraryContainer.Current.GetInstance<Database>();
             writer = UnityHelper.UnityToT<LogWriter>();
             //writer = EnterpriseLibraryContainer.Current.GetInstance<LogWriter>();
         }

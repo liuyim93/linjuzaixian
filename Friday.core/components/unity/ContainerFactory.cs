@@ -35,7 +35,6 @@ namespace friday.core.components
                         Container.RegisterType<ILogger, Logger>(new ContainerControlledLifetimeManager());
                         //2013-02-27 basilwang add EnterpriseLibraryCoreExtension
                         Container.AddNewExtension<EnterpriseLibraryCoreExtension>();
-                        Container.AddNewExtension<LoggingBlockExtension>();
                         Container.AddNewExtension<DataAccessBlockExtension>();
  
                         ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
