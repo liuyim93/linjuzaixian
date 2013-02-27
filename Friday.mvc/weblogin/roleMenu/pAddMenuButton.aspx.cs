@@ -22,7 +22,7 @@ namespace Friday.mvc.weblogin.roleMenu
 
                 SystemMenu dic = new SystemMenu();
                 BindingHelper.RequestToObject(dic);
-                dic.ParentID = Request.Params["code"];
+                dic.ParentID = (Request.Params["code"] == "" || Request.Params["code"] == null) ? null : Request.Params["code"];
                 dic.TLevel = Convert.ToInt32(TLevel.Value);
                 string UrlPath = MenuRoute.Value.ToLower();
                 dic.MenuRoute = UrlPath;
@@ -50,27 +50,34 @@ namespace Friday.mvc.weblogin.roleMenu
 
             }
 
-            else if (Request.Params["code"] != "" && Request.Params["code"] != null)
+            else 
             {
-                string code = Request.Params["code"];
-                SystemMenu category = categoryRepo.Get(code);
-
-                if (category.Leaf == false)
+                if (Request.Params["code"] == "" || Request.Params["code"] == null)
                 {
-                    ParentID.Value = code;
-                    TLevel.Value = Convert.ToString(category.TLevel + 1);
+                    TLevel.Value = Convert.ToString(0);
                 }
+
                 else
                 {
-                    AjaxResult result = new AjaxResult();
-                    result.statusCode = "300";
-                    result.errorCloseType = "dialog";
-                    result.message = "您选择的父节点不能为叶节点！";
-                    result.callbackType = "closeCurrent";
-                    FormatJsonResult jsonResult = new FormatJsonResult();
-                    jsonResult.Data = result;
-                    Response.Write(jsonResult.FormatResult());
-                    Response.End();
+                    string code = Request.Params["code"];
+                    SystemMenu category = categoryRepo.Get(code);
+
+                    if (category.Leaf == false)
+                    {
+                        TLevel.Value = Convert.ToString(category.TLevel + 1);
+                    }
+                    else
+                    {
+                        AjaxResult result = new AjaxResult();
+                        result.statusCode = "300";
+                        result.errorCloseType = "dialog";
+                        result.message = "您选择的父节点不能为叶节点！";
+                        result.callbackType = "closeCurrent";
+                        FormatJsonResult jsonResult = new FormatJsonResult();
+                        jsonResult.Data = result;
+                        Response.Write(jsonResult.FormatResult());
+                        Response.End();
+                    }
                 }
             }
 

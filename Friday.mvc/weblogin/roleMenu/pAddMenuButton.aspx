@@ -5,7 +5,6 @@
         <form id="form" method="post" runat="server" class="pageForm required-validate">
         <div class="pageFormContent" layouth="56">
             <asp:textbox id="Id" runat="server" style="display: none;" visibla="false"></asp:textbox>
-            <input name="ParentID" id="ParentID" type="hidden" runat="server"/>
             <input name="TLevel" id="TLevel" type="hidden" runat="server"/>
             <p>
                 <label>
