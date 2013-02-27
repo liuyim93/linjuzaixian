@@ -24,6 +24,8 @@ namespace friday.core.domain
             Map(o => o.Win32ThreadId).Length(128).Nullable();
             Map(o => o.Message).Length(1500).Nullable();
             Map(o => o.FormattedMessage).Length(10000).Nullable();
+
+            HasMany<CategoryLog>(o => o.CategoryLogs).Inverse().Cascade.All();
         }
     }
 }

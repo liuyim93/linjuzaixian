@@ -60,7 +60,7 @@ namespace Friday.mvc.weblogin.log
                         filterList.Add(new DataFilter()
                         {
                             type = "CategoryLog",
-                            field = categoryList
+                            field = categoryOfLogList
                         });
                     
                     }
