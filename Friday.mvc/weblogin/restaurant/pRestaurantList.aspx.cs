@@ -39,7 +39,7 @@ namespace Friday.mvc.weblogin.restaurant
         private string tagName;
         protected void Page_Load(object sender, EventArgs e)
         {
-           tagName = systemFunctionObjectService.餐馆管理模块.餐馆维护.TagName;
+           tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
            iLogger.LogMessage("进入" + tagName + "页面", typeof(pRestaurantList).FullName, EventDataTypeCategory.信息 | EventDataTypeCategory.操作日志);
            if (Request.Params["flag"] != "alldelete")
            {
