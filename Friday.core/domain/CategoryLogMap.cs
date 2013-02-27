@@ -11,8 +11,8 @@ namespace friday.core.domain
         public CategoryLogMap()
         {
             Id(o => o.CategoryLogID).GeneratedBy.Native();
-            References<Category>(o => o.Category).Not.Nullable();
-            References<Log>(o => o.Log).Not.Nullable();
+            References<Category>(o => o.Category).Column("CategoryID").Not.Nullable();
+            References<Log>(o => o.Log).Column("LogID").Not.Nullable();
         }
     }
 }
