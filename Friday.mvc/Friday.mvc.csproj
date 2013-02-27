@@ -236,6 +236,13 @@
     <Compile Include="weblogin\food\pEditFood.aspx.designer.cs">
       <DependentUpon>pEditFood.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx.cs">
+      <DependentUpon>MultiListGlobalGoodsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>MultiListGlobalGoodsType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx.cs">
       <DependentUpon>pGlobalGoodsTypeDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -367,6 +374,13 @@
     </Compile>
     <Compile Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx.designer.cs">
       <DependentUpon>pEditMerchantGoodsType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pSelectGlobalGoodsType.aspx.cs">
+      <DependentUpon>pSelectGlobalGoodsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pSelectGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>pSelectGlobalGoodsType.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
@@ -967,6 +981,7 @@
     <Content Include="weblogin\food\pAddFood.aspx" />
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
+    <Content Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
     <Content Include="weblogin\house\pAddHouse.aspx" />
     <Content Include="weblogin\house\pEditHouse.aspx" />
@@ -1044,6 +1059,7 @@
     <Content Include="weblogin\log\pLogList.aspx" />
     <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />
+    <Content Include="weblogin\merchantGoodsType\pSelectGlobalGoodsType.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
