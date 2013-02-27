@@ -13,7 +13,7 @@ namespace friday.core.domain
             Id(o => o.CategoryID).GeneratedBy.Native();
             Map(o => o.CategoryName).Length(64).Not.Nullable();
 
-            //HasMany<CategoryLog>(o => o.CategoryLogs).Inverse().Cascade.All();
+            HasMany<CategoryLog>(o => o.CategoryLogs).KeyColumn("CategoryID").Inverse().Cascade.All();
         }
     }
 }

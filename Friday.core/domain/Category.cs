@@ -24,10 +24,10 @@ namespace friday.core.domain
             set;
         }
 
-        //public virtual Iesi.Collections.Generic.ISet<CategoryLog> CategoryLogs
-        //{
-        //    get;
-        //    set;
-        //}
+        public virtual Iesi.Collections.Generic.ISet<CategoryLog> CategoryLogs
+        {
+            get;
+            set;
+        }
     }
 }

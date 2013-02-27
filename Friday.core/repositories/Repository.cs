@@ -485,7 +485,7 @@ namespace friday.core.repositories
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".CategoryLog";
+                    parentSearch = parentSearch + ".CategoryLogs";
 
                 }
                 alias = parentSearch;

@@ -93,7 +93,7 @@
                 <HeaderTemplate>
                 <thead>
                 <tr>
-                   <%-- <th width="10%" align="center">序 号</th>--%>
+                 
                         <th width="10%" align="center">LogID</th>
                        <th width="10%" align="center">名称</th> 
                               
@@ -101,7 +101,7 @@
                    <th width="10%" align="center">线程名称</th>
                       <th width="10%" align="center">消息内容</th>     
                              <th width="10%" align="center">优先级</th>
-                        <th width="10%" align="center">进程名称</th> >
+                        <th width="10%" align="center">进程名称</th> 
                    <th width="10%" align="center">时间戳</th>
                         <th width="10%" align="center">机器名称</th>
                         <th width="10%" align="center">ThreadName</th> 

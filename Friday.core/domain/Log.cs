@@ -82,10 +82,10 @@ namespace friday.core.domain
             get;
             set;
         }
-        //public virtual Iesi.Collections.Generic.ISet<CategoryLog> CategoryLogs
-        //{
-        //    get;
-        //    set;
-        //}
+        public virtual Iesi.Collections.Generic.ISet<CategoryLog> CategoryLogs
+        {
+            get;
+            set;
+        }
     }
 }
