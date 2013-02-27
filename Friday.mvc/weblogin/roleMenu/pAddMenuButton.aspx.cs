@@ -14,7 +14,6 @@ namespace Friday.mvc.weblogin.roleMenu
     public partial class pAddMenuButton : System.Web.UI.Page
     {
         private ISystemMenuRepository categoryRepo = new SystemMenuRepository();
-        private ISystemUrlRepository urlRepo = new SystemUrlRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,23 +28,6 @@ namespace Friday.mvc.weblogin.roleMenu
                 dic.MenuRoute = UrlPath;
                 dic.ColIndex = Convert.ToInt32(ColIndex.Text);
 
-                //张超 2011-08-17 判断网址是否存在
-                if (UrlPath != "")
-                {
-                    SystemUrl url = urlRepo.GetByUrlPath(UrlPath);
-                    if (url == null)
-                    {
-                        SystemUrl SU = new SystemUrl();
-                        SU.UrlPath = UrlPath;
-                        SU.UrlName = this.Name.Text;
-                        urlRepo.SaveOrUpdate(SU);
-                        dic.SystemUrl = SU;
-                    }
-                    else
-                    {
-                        dic.SystemUrl = url;
-                    }
-                }
                 if (Leaff.SelectedIndex == 0)
                 {
                     dic.Leaf = false;

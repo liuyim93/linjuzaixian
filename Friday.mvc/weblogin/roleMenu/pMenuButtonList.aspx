@@ -23,10 +23,10 @@
             </ul>
         </div>
          
-         <div id="dtree" layoutH="57" class="lefttree">
+         <div id="dtree" >
          </div>
          </div>
-       <div id="C_right" class="right"></div>
+       <div id="C_right"></div>
          
     </div>
     </div>

@@ -8,12 +8,11 @@ namespace friday.core
 {
     public class SystemMenu : TreeNode
     {
-        public SystemMenu(string id,string Name,string TreeCode,bool Leaf,string ParentID,int TLevel,string MenuImage,
-              int ColIndex, string Remarks, string MenuRoute, string MenuRel, bool IfiFrame)
+        public SystemMenu(string id,string Name ,bool Leaf,string ParentID,int TLevel,string MenuImage,
+              int ColIndex, string Remarks, string MenuRoute, bool IfiFrame)
         {
             this.Id = id;
             this.Name = Name;
-            this.TreeCode = TreeCode;
             this.Leaf = Leaf;
             this.ParentID = ParentID;
             this.TLevel = TLevel;
@@ -21,7 +20,6 @@ namespace friday.core
             this.ColIndex = ColIndex;
             this.Remarks = Remarks;
             this.MenuRoute = MenuRoute;
-            this.MenuRel = MenuRel;
             this.IfiFrame = IfiFrame;
         }
         public SystemMenu()
@@ -42,19 +40,14 @@ namespace friday.core
         /// <summary>
         /// 菜单rel
         /// </summary>
-        public virtual string MenuRel
-        { get; set; }
+
         public virtual string Remarks
         { get; set; }
 
-        public virtual Iesi.Collections.Generic.ISet<SystemButton> Buttons
-        { get; set; }
 
         public virtual Iesi.Collections.Generic.ISet<RoleInMenu> RoleInMenus
         { get; set; }
-        public virtual SystemUrl SystemUrl
-        { get; set; }
-        
+
         public virtual int ColIndex
         { get; set; }
 

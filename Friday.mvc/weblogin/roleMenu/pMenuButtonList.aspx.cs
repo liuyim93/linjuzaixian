@@ -14,8 +14,6 @@ namespace Friday.mvc.weblogin.roleMenu
 {
     public partial class pMenuButtonList : System.Web.UI.Page
     {
-        ISystemButtonRepository dicRepository = new SystemButtonRepository();
-        ISystemUrlRepository urlRepo = new SystemUrlRepository();
         IRepository<SystemMenu> m = new Repository<SystemMenu>();
         ISystemMenuRepository categoryRepo = new SystemMenuRepository();
 

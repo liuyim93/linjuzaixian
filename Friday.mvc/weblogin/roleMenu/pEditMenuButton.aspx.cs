@@ -14,7 +14,6 @@ namespace Friday.mvc.weblogin.roleMenu
     public partial class pEditMenuButton : System.Web.UI.Page
     {
         private ISystemMenuRepository categoryRepo = new SystemMenuRepository();
-        private ISystemUrlRepository urlRepo = new SystemUrlRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {

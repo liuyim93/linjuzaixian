@@ -14,11 +14,6 @@ namespace friday.core
         public virtual string Name { get; set; }
 
         /// <summary>
-        /// 标识树形结构的编码
-        /// </summary>
-        public virtual string TreeCode { get; set; }
-
-        /// <summary>
         /// 是否叶节点
         /// </summary>
         public virtual bool Leaf { get; set; }

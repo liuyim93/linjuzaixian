@@ -5,15 +5,10 @@ using System.Text;
 
 namespace friday.core.repositories
 {
-    public interface ISystemMenuRepository : ITreeNodeRepository<SystemMenu>
+    public interface ISystemMenuRepository : IRepository<SystemMenu>
     {
         IList<SystemMenu> GetChildrenFromParentID(string ParentID);
         bool IsHaveChild(SystemMenu systemMenu);
-        SystemMenu GetSystemMenuByMenuID(string MenuID);
-        string GetCodeByParentCode(string ParentID);
-        IList<SystemMenu> GetMenuByUserIDAndParentID(string userID,string parentID);
-        IList<SystemMenu> GetMenuByUserIDandCompanyID(string userID, string companyID);
-        string GetIDByTreeCode(string TreeCode);
-        string GetColIndexByParentCode(string ParentID);
+
     }
 }

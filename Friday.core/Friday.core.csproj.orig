@@ -111,37 +111,30 @@
     <Compile Include="domain\Log.cs" />
     <Compile Include="domain\RoleInMenu.cs" />
     <Compile Include="domain\RoleInMenuMap.cs" />
-    <Compile Include="domain\SystemButton.cs" />
-    <Compile Include="domain\SystemButtonMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
     <Compile Include="domain\SystemMenuMap.cs" />
-    <Compile Include="domain\SystemUrl.cs" />
-    <Compile Include="domain\SystemUrlMap.cs" />
     <Compile Include="domain\TreeNode.cs" />
-<<<<<<< HEAD
     <Compile Include="domain\CategoryLogMap.cs" />
+    <Compile Include="repositories\IRoleInMenuRepository.cs" />
+<<<<<<< HEAD
     <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ILogRepository.cs">
       <SubType>Code</SubType>
     </Compile>
-=======
-    <Compile Include="repositories\IRoleInMenuRepository.cs" />
->>>>>>> Add RoleInMenuRepository.cs
     <Compile Include="repositories\ISystemButtonRepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\ISystemUrlRepository.cs" />
     <Compile Include="repositories\ITreeNodeRepository.cs" />
-<<<<<<< HEAD
     <Compile Include="repositories\LogRepository.cs">
+    <Compile Include="repositories\RoleInMenuRepository.cs" />
       <SubType>Code</SubType>
     </Compile>
-=======
-    <Compile Include="repositories\RoleInMenuRepository.cs" />
->>>>>>> Add RoleInMenuRepository.cs
     <Compile Include="repositories\SystemButtonRepository.cs" />
+=======
+    <Compile Include="repositories\ISystemMenuRepository.cs" />
+    <Compile Include="repositories\RoleInMenuRepository.cs" />
+>>>>>>> delete unused file~
     <Compile Include="repositories\SystemMenuRepository.cs" />
-    <Compile Include="repositories\SystemUrlRepository.cs" />
-    <Compile Include="repositories\TreeNodeRepository.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
