@@ -44,13 +44,13 @@
 
 <div class="divider">
 </div>
-<div class="panel" defh="400" style="float:left; display:block; overflow:auto; width:150px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+<div class="panel" defh="600" style="float:left; display:block; overflow:auto; width:200px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
     <h1>
         功能模块</h1>
     <div id="tree">
     </div>
 </div>
-<div id="jbsxBox3"  style="margin-left:153px;padding:3px 2px">
+<div id="jbsxBox3"  style="margin-left:203px;padding:3px 2px">
 
 </div>
 <script type="text/javascript">
