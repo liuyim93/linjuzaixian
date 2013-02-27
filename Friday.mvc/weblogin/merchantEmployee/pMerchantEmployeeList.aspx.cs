@@ -38,11 +38,34 @@ namespace Friday.mvc.weblogin
                 if (Request.Params["flag"] != "alldelete")
                 {
                     SearchLoginUser();
+                    
                 }
                 else
                 {
                     DeleteLoginUser();
                 }
+
+                if (Request.Params["__EVENTVALIDATION"] == null)
+               {            
+                   if (mType == "Restaurant")
+                    {
+                        this.eUserType.Items.Add("餐馆");
+                        this.eUserType.Items.Add("餐馆店小二");                    
+                    }
+                    if (mType == "Rent")
+                    {
+                        this.eUserType.Items.Add("租房");
+                        this.eUserType.Items.Add("租房店小二");
+                    }
+                    if (mType == "Shop")
+                    {
+                        this.eUserType.Items.Add("商店");
+                        this.eUserType.Items.Add("商店店小二");
+                    }
+               }
+
+
+
            
         }
        
