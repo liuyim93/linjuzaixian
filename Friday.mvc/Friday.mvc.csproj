@@ -355,13 +355,6 @@
     <Compile Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx.designer.cs">
       <DependentUpon>pRestaurantGoodsTypeList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx.cs">
-      <DependentUpon>pMerchantGoodsTypeDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx.designer.cs">
-      <DependentUpon>pMerchantGoodsTypeDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1099,7 +1092,6 @@
     <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />
     <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />
-    <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />

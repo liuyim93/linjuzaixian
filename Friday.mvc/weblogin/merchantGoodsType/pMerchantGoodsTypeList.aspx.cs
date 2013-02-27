@@ -17,6 +17,9 @@ namespace Friday.mvc.weblogin
         protected long total;
         protected int pageNum;
         protected int numPerPageValue;
+        string merchantId;
+        string merchantType;
+
 
         protected string goodsType;
 
@@ -24,6 +27,8 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            merchantType = Request.Params["merchantType"];
+
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteMerchantGoodsType();
@@ -31,11 +36,38 @@ namespace Friday.mvc.weblogin
             }
             else
             {
-                numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+              
+
+                numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
                 pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
                 List<DataFilter> filterList = new List<DataFilter>();
+                List<DataFilter> restaurantList = new List<DataFilter>();
+
+                if (Request.Params["merchantType"] == "Restaurant")
+                {
+                    if (Request.Form["restaurant_id"] != null)
+                    {
+                        merchantId = Request.Form["restaurant_id"];
+                    }
+                    else
+                    {
+                        merchantId = Request.Params["restaurant_id"];
+                    }
+                    restaurantList.Add(new DataFilter()
+                    {
+                        type = "Restaurant", 
+                        value = merchantId
+                    }
+                        );
+                    filterList.Add(new DataFilter()
+                    {
+                        type="Restaurant",
+                        field=restaurantList
+                    }
+                        );
+                }
 
                 filterList.Add(new DataFilter()
                 {
@@ -50,13 +82,6 @@ namespace Friday.mvc.weblogin
 
                     });
 
-                //if (!string.IsNullOrEmpty(Request.Form["MerchantType"]))
-                //    filterList.Add(new DataFilter()
-                //    {
-                //        type = "MerchantType",
-                //        value = Request.Form["MerchantType"]
-
-                //    });
                 List<DataFilter> dflForOrder = new List<DataFilter>();
                 string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
                 string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];

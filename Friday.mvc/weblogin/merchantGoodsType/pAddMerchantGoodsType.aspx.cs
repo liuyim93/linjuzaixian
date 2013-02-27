@@ -14,11 +14,15 @@ namespace Friday.mvc.weblogin
     public partial class pAddMerchantGoodsType : System.Web.UI.Page
     {
         IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
+        IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
 
         private MerchantGoodsType merchantGoodsType;
+        private string mid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            mid = Request.Params["merchant_id"].ToString();
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -29,6 +33,7 @@ namespace Friday.mvc.weblogin
         private void SaveMerchantGoodsType()
         {
             merchantGoodsType = new MerchantGoodsType();
+            merchantGoodsType.Merchant = iRestaurantRepository.Get(mid);             
             BindingHelper.RequestToObject(merchantGoodsType);
             iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
 
@@ -36,6 +41,10 @@ namespace Friday.mvc.weblogin
             result.statusCode = "200";
             result.message = "添加成功";
             result.navTabId = "referer";
+            if (Request.Params["rel_hook"] != null)
+            {
+                result.panelId = Request.Params["rel_hook"];
+            }
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;

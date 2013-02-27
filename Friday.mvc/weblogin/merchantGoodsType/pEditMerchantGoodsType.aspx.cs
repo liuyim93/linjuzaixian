@@ -43,6 +43,10 @@ namespace Friday.mvc.weblogin
             result.statusCode = "200";
             result.message = "修改成功";
             result.navTabId = "referer";
+            if (Request.Params["rel_hook"] != null)
+            {
+                result.panelId = Request.Params["rel_hook"];
+            }
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;

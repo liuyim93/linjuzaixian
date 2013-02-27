@@ -2,6 +2,7 @@
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+       <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
     <div class="panel collapse" defh="95">
         <h1>
             商品类型信息</h1>

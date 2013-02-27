@@ -16,8 +16,11 @@
                 target="ajax"><span>菜品</span></a></li>
                 <li><a href='restaurantEmployee/pRestaurantEmployeeList.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
                 target="ajax"><span>员工列表</span></a></li>
-                <li><a href='restaurantGoodsType/pRestaurantGoodsTypeList.aspx?restaurant_id=<%= Request.Params["uid"]%>' target="navTab" rel_v3="jbsxBox3">
-                <span>商品类型管理</span></a></li>
+               <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Restaurant&restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
+                target="ajax"><span>商品类型管理</span></a></li>
+               
+              
+               
            </ul>
         </div>
     </div>
@@ -201,10 +204,12 @@
         <div id="jbsxBox1" >
         </div>
         
-          <div id="jbsxBox2" >
+        <div id="jbsxBox2" >
         </div>
-         <div id="jbsxBox3" >
+
+        <div id="jbsxBox111" >
         </div>
+
     </div>
     <div class="tabsFooter">
         <div class="tabsFooterContent">
