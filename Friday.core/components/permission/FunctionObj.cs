@@ -44,7 +44,7 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 商铺经营类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
-        public FunctionTag 商品类型维护 { get; set; }      
+        public FunctionTag 自定义商品类型维护 { get; set; }      
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 员工维护 { get; set; }
     }
@@ -57,7 +57,7 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable,PermissionTag.Delete)]
         public FunctionTag 商铺经营类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
-        public FunctionTag 商品类型维护 { get; set; }
+        public FunctionTag 自定义商品类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 员工维护 { get; set; }
     }
@@ -70,7 +70,7 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 商铺经营类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
-        public FunctionTag 商品类型维护 { get; set; }
+        public FunctionTag 自定义商品类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 员工维护 { get; set; }
     }
