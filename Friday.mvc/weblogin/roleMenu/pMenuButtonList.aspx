@@ -33,13 +33,13 @@
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         //2013-02-10 basilwang use document
-        var dictree;
+        var dtree;
 
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             debugger
-            dictree = o.find("#dictree");
-            o.ajax({
+            dtree = o.find("#dtree");
+            $.ajax({
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
                 url: "roleMenu/pMenuButtonList.aspx/GetSystemMenu?t=" + (new Date().getTime()),
@@ -82,7 +82,7 @@
 
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);
-                    gpage.jObj("dtree").treeview(d);
+                    dtree.treeview(d);
                 }
             });
         });
