@@ -550,9 +550,9 @@ namespace friday.core.repositories
                 foreach (DataFilter df in termList)
                 {
 
-                    if (df.type.Equals("CategoryName"))
+                    if (df.type.Equals("CategoryID"))
                     {
-                        query.Add(Restrictions.Eq(notself + "CategoryName", df.value));
+                        query.Add(Restrictions.Eq(notself + "CategoryID", df.value));
                         continue;
                     }
 
