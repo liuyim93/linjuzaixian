@@ -20,9 +20,7 @@
                     <input  type="text" name="Title" class="textInput" value="<%=title %>"
                          />
                 </td>
-                <td>
-                  
-                </td> 
+               
                <td>                   
                                      
                       <label>
@@ -41,7 +39,7 @@
             </tr>
              <tr>
              
-              <%--  <td>
+            <td>
                     <label>起始日期:</label>
                     <input  type="text" name="StartDate" class="date textInput readonly" readonly="true" value="<%=startDate %>"
                         value="" />
@@ -50,7 +48,7 @@
                     <label>截止日期:</label>
                     <input type="text" name="EndDate" class="date textInput readonly" readonly="true" value="<%=endDate %>"
                         value="" />
-                </td>--%>
+                </td>
             </tr>
         </table>
         <div class="subBar">
@@ -77,14 +75,14 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="log/pAddLog.aspx" title="添加日志 target="navTab" rel=""><span>
+       <%-- <li><a class="add" href="log/pAddLog.aspx" title="添加日志 target="navTab" rel=""><span>
             添加日志</span></a></li>
         <li><a class="edit" href="log/pEditLog.aspx?uid={id}" title="修改日志" rel="" target="navTab">
             <span>修改日志</span></a></li>
       
         <li><a class="delete" href="log/pLogList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除日志</span></a></li>
-        <li class="line">line</li>
+        <li class="line">line</li>--%>
     </ul>
 </div>
 <div id="logList">

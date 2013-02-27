@@ -64,6 +64,26 @@ namespace Friday.mvc.weblogin.log
                         });
                     
                     }
+                    if (!string.IsNullOrEmpty(Request.Form["Title"]))
+                    {
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Title",
+                            value = title = Request.Form["Title"]
+                        });
+                    }
+
+                    var filter = new DataFilter();
+                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
+                    {
+                        filter.type = "Timestamp";
+                        filter.value = startDate = Request.Form["StartDate"];
+                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
+                        {
+                            filter.valueForCompare = endDate = Request.Form["EndDate"];
+                        }
+                        filterList.Add(filter);
+                    }
 
                     IList<Log> logList = iRepositoryLog.Search(filterList, start, limit, out total);
 
