@@ -450,8 +450,13 @@ namespace friday.core.repositories
                             SearchByCategoryLog(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
-                    }                                                           
+                    }
 
+                    if (df.type.Equals("Timestamp"))
+                    {
+                        SearchByTimestamp(query, df, notself);
+                        continue;
+                    }
 
                 }
             }
@@ -3043,6 +3048,31 @@ namespace friday.core.repositories
             {
                 DateTime valueForCompare = DateTime.Parse(df.valueForCompare);
                 query.Add(Restrictions.Between(notself + "CreateTime", value, valueForCompare));
+            }
+        }
+        protected void SearchByTimestamp(ICriteria query, DataFilter df, string notself)
+        {
+            DateTime value = DateTime.Parse(df.value);
+            if (string.IsNullOrEmpty(df.valueForCompare))
+            {
+                switch (df.comparison)
+                {
+                    case "lt":
+                        query.Add(Restrictions.Lt(notself + "Timestamp", value));
+                        break;
+                    case "gt":
+                        query.Add(Restrictions.Gt(notself + "Timestamp", value));
+                        break;
+                    default:
+                        query.Add(Restrictions.Eq(notself + "Timestamp", value));
+                        break;
+
+                }
+            }
+            else
+            {
+                DateTime valueForCompare = DateTime.Parse(df.valueForCompare);
+                query.Add(Restrictions.Between(notself + "Timestamp", value, valueForCompare));
             }
         }
     }

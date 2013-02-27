@@ -45,7 +45,7 @@ namespace Friday.mvc.weblogin.log
                     List<DataFilter> categoryOfLogList = new List<DataFilter>();
                     List<DataFilter> categoryList = new List<DataFilter>();
 
-                    if(Request.Params["CategoryName"]!=null)
+                    if(!string.IsNullOrEmpty(Request.Form["CategoryName"]))
                     {
                         categoryList.Add(new DataFilter()
                         {
