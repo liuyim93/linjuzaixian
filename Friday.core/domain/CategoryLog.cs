@@ -7,7 +7,19 @@ namespace friday.core.domain
 {
     public class CategoryLog
     {
-        public Category Category;
-        public Log Log;
+        public virtual int CategoryLogID
+        {
+            get;
+            set;
+        }
+        public virtual Category Category
+        {
+            get;set;
+        }
+        public virtual Log Log
+        {
+            get;
+            set;
+        }
     }
 }

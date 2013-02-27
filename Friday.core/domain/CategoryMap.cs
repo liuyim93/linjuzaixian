@@ -8,6 +8,10 @@ namespace friday.core.domain
 {
     public class CategoryMap:ClassMap<Category>
     {
-
+        public CategoryMap()
+        {
+            Id(o => o.CategoryID).GeneratedBy.Native();
+            Map(o => o.CategoryName).Length(64).Not.Nullable();
+        }
     }
 }

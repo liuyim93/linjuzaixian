@@ -7,72 +7,72 @@ namespace friday.core.domain
 {
     public class Log
     {
-        public int LogID
+        public virtual int LogID
         {
             get;
             set;
         }
-        public int EventID
+        public virtual int EventID
         {
             get;
             set;
         }
-        public int Priority
+        public virtual int Priority
         {
             get;
             set;
         }
-        public string Severity
+        public virtual string Severity
         {
             get;
             set;
         }
-        public string Title
+        public virtual string Title
         {
             get;
             set;
         }
-        public DateTime Timestamp
+        public virtual DateTime Timestamp
         {
             get;
             set;
         }
-        public string MachineName
+        public virtual string MachineName
         {
             get;
             set;
         }
-        public string AppDomainName
+        public virtual string AppDomainName
         {
             get;
             set;
         }
-        public string ProcessID
+        public virtual string ProcessID
         {
             get;
             set;
         }
-        public string ProcessName
+        public virtual string ProcessName
         {
             get;
             set;
         }
-        public string ThreadName
+        public virtual string ThreadName
         {
             get;
             set;
         }
-        public string Win32ThreadId
+        public virtual string Win32ThreadId
         {
             get;
             set;
         }
-        public string Message
+        public virtual string Message
         {
             get;
             set;
         }
-        public string FormattedMessage
+        public virtual string FormattedMessage
         {
             get;
             set;

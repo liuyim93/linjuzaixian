@@ -7,12 +7,12 @@ namespace friday.core.domain
 {
     public class Category
     {
-        public int CategoryID
+        public virtual int CategoryID
         {
             get;
             set;
         }
-        public string CategoryName
+        public virtual string CategoryName
         {
             get;
             set;
