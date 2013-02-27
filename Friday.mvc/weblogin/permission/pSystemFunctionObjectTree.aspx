@@ -80,7 +80,7 @@
                 data: "{'nvls':[{'name':'id','value':'0'}]}",
                 dataType: "json",
                 success: function (data) {
-                    var o = { showcheck: true };
+                    var o = { showcheck: false };
                     var da = eval("(" + data.d + ")");
                     o.url = _url;
                     o.data = da;
