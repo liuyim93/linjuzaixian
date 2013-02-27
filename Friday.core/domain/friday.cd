@@ -21,7 +21,7 @@
   <Class Name="friday.core.domain.FeedBack">
     <Position X="12.5" Y="23.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAQCCAABAAAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAQACAABAAAE=</HashCode>
       <FileName>domain\FeedBack.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -314,7 +314,7 @@
   <Class Name="friday.core.LoginUser">
     <Position X="7.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAQAAAAAAAAAAAAAAAAAACAAACAACAACAAAAAAAA=</HashCode>
+      <HashCode>AEAAAQAAAAAAAAAAAAAAAAAACAAACAASAACAAAAAAAA=</HashCode>
       <FileName>domain\LoginUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -457,7 +457,7 @@
   <Class Name="friday.core.SystemRole">
     <Position X="12.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAIAgAAAAAAAAAAQAAAAAAAAIAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAIAgAAAAAAAAAAQACAAAAAAIAAAQAAAAAAA=</HashCode>
       <FileName>domain\SystemRole.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -468,19 +468,44 @@
       <FileName>domain\UserInRole.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="LoginUser" />
       <Property Name="Role" />
+      <Property Name="LoginUser" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.SystemFunctionObjectInRole">
     <Position X="10.25" Y="1" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAIAAEAAAAAAAAAAAAAAAAIACAAAAAAA=</HashCode>
       <FileName>domain\SystemFunctionObjectInRole.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Role" />
       <Property Name="SystemFunctionObject" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.domain.Category">
+    <Position X="19.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.domain.Log">
+    <Position X="15" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YCAAEAEgAAQAEEAEAAACAAAAAAAAEAAAAAAAIAQAAAA=</HashCode>
+      <FileName>domain\Log.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.domain.CategoryLog">
+    <Position X="17" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>domain\CategoryLog.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Log" />
+      <Field Name="Category" />
     </ShowAsAssociation>
   </Class>
   <Font Name="宋体" Size="9" />

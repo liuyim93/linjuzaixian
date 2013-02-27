@@ -105,6 +105,10 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
+    <Compile Include="domain\Category.cs" />
+    <Compile Include="domain\CategoryLog.cs" />
+    <Compile Include="domain\CategoryMap.cs" />
+    <Compile Include="domain\Log.cs" />
     <Compile Include="domain\RoleInMenu.cs" />
     <Compile Include="domain\RoleInMenuMap.cs" />
     <Compile Include="domain\SystemButton.cs" />
