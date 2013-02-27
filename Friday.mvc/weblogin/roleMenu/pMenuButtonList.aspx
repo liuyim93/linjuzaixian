@@ -16,9 +16,9 @@
       <div id="left" class="left">
         <div class="panelBar">
             <ul id="dictreeToolBar" class="toolBar">
-                <li><a id="addata" class="add" href="roleMenu/pAddMenuButton.aspx?flag=save&code={dicCat}" target="dialog" rel=""><span>添加</span></a></li>
-                <li><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code={dicCat}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-                <li><a class="edit" href="roleMenu/pEditMenuButton.aspx?flag=save&code={dicCat}" target="dialog" rel=""><span>修改</span></a></li> 
+                <li><a id="addata" class="add" href="roleMenu/pAddMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>添加</span></a></li>
+                <li><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code=" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+                <li><a class="edit" href="roleMenu/pEditMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>修改</span></a></li> 
                 <li class="line">line</li>
             </ul>
         </div>
@@ -74,24 +74,18 @@
                     var d = { showcheck: false };
                     var da = eval("(" + data.d + ")");
                     d.data = da;
-                    d.url = "roleMenu/pMenuButtonList.aspx/GetSystemMenu?t=" + (new Date().getTime());
-
+                    //2013-02-27 basilwang block this, otherwise will call twice and the last one without nvls para
+                    //d.url = "roleMenu/pMenuButtonList.aspx/GetSystemMenu?t=" + (new Date().getTime());
                     d.onnodeclick = function navi(item) {
-                        var $this = $(this);
                         $("li>a", dictreeToolBar).each(function () {
                             var $this = $(this);
                             var href = $this.attr("href");
-                            //$this.empty();
                             if ($this.data("ohref") == null)
                                 $this.data("ohref", href);
 
-                            if (item.hasChildren == false) {
-                                $this.attr("href", $this.data("ohref").replace("{dicCat}", item.id));
-                            }
-                            else {
 
-                                $this.attr("href", $this.data("ohref").replace("{dicCat}", item.id));
-                            }
+                             $this.attr("href", $this.data("ohref").replace("code=", "code="+item.id));
+
                         });
                     }
                     d.theme = "bbit-tree-lines";
