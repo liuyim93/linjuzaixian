@@ -13,18 +13,18 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditRestaurantEmployee : System.Web.UI.Page
+    public partial class pEditMerchantEmployee : System.Web.UI.Page
     {
         private IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         private LoginUser lu;
 
-        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
+        IMerchantRepository restRepository = UnityHelper.UnityToT<IMerchantRepository>();
         ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
     
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["restaurantEmployeeid"].ToString();
+            string uid = Request.Params["merchantEmployeeid"].ToString();
       
             lu = repository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)

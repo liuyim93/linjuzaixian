@@ -323,10 +323,31 @@
 <<<<<<< HEAD
     <Compile Include="weblogin\log\pLogDetail.aspx.cs">
       <DependentUpon>pLogDetail.aspx</DependentUpon>
+=======
+    <Compile Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx.cs">
+      <DependentUpon>pAddMerchantEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx.designer.cs">
+      <DependentUpon>pAddMerchantEmployee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pEditMerchantEmployee.aspx.cs">
+      <DependentUpon>pEditMerchantEmployee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pEditMerchantEmployee.aspx.designer.cs">
+      <DependentUpon>pEditMerchantEmployee.aspx</DependentUpon>
+>>>>>>> Update mEmployee
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.cs">
+      <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\log\pLogDetail.aspx.designer.cs">
       <DependentUpon>pLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.designer.cs">
+      <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\log\pLogList.aspx.cs">
       <DependentUpon>pLogList.aspx</DependentUpon>
@@ -334,14 +355,6 @@
     </Compile>
     <Compile Include="weblogin\log\pLogList.aspx.designer.cs">
       <DependentUpon>pLogList.aspx</DependentUpon>
-=======
-    <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.cs">
-      <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.designer.cs">
-      <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
->>>>>>> Update mGoodsType  & Add mEmployee
     </Compile>
     <Compile Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx.cs">
       <DependentUpon>pAddMerchantGoodsType.aspx</DependentUpon>
@@ -511,29 +524,8 @@
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx.cs">
-      <DependentUpon>pAddRestaurantEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectTree.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectTree.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx.designer.cs">
-      <DependentUpon>pAddRestaurantEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx.cs">
-      <DependentUpon>pEditRestaurantEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx.designer.cs">
-      <DependentUpon>pEditRestaurantEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx.cs">
-      <DependentUpon>pRestaurantEmployeeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx.designer.cs">
-      <DependentUpon>pRestaurantEmployeeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
@@ -892,48 +884,6 @@
     <Compile Include="weblogin\school\MultiListSchool.aspx.designer.cs">
       <DependentUpon>MultiListSchool.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\rentEmployee\pAddRentEmployee.aspx.cs">
-      <DependentUpon>pAddRentEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rentEmployee\pAddRentEmployee.aspx.designer.cs">
-      <DependentUpon>pAddRentEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rentEmployee\pEditRentEmployee.aspx.cs">
-      <DependentUpon>pEditRentEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rentEmployee\pEditRentEmployee.aspx.designer.cs">
-      <DependentUpon>pEditRentEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rentEmployee\pRentEmployeeList.aspx.cs">
-      <DependentUpon>pRentEmployeeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rentEmployee\pRentEmployeeList.aspx.designer.cs">
-      <DependentUpon>pRentEmployeeList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\shopEmployee\pAddShopEmployee.aspx.cs">
-      <DependentUpon>pAddShopEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\shopEmployee\pAddShopEmployee.aspx.designer.cs">
-      <DependentUpon>pAddShopEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\shopEmployee\pEditShopEmployee.aspx.cs">
-      <DependentUpon>pEditShopEmployee.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\shopEmployee\pEditShopEmployee.aspx.designer.cs">
-      <DependentUpon>pEditShopEmployee.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\shopEmployee\pShopEmployeeList.aspx.cs">
-      <DependentUpon>pShopEmployeeList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\shopEmployee\pShopEmployeeList.aspx.designer.cs">
-      <DependentUpon>pShopEmployeeList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\myCommodityOrder\pMyCommodityOrderDetail.aspx.cs">
       <DependentUpon>pMyCommodityOrderDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1098,10 +1048,12 @@
     <Content Include="weblogin\ListSystemUser.aspx" />
 <<<<<<< HEAD
     <Content Include="weblogin\log\pLogDetail.aspx" />
-    <Content Include="weblogin\log\pLogList.aspx" />
 =======
+    <Content Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx" />
+    <Content Include="weblogin\merchantEmployee\pEditMerchantEmployee.aspx" />
+>>>>>>> Update mEmployee
     <Content Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx" />
->>>>>>> Update mGoodsType  & Add mEmployee
+    <Content Include="weblogin\log\pLogList.aspx" />
     <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />
     <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />
@@ -1125,10 +1077,7 @@
     <Content Include="weblogin\orderOfHouse\pOrderOfHouseList.aspx" />
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
-    <Content Include="weblogin\restaurantEmployee\pAddRestaurantEmployee.aspx" />
-    <Content Include="weblogin\restaurantEmployee\pEditRestaurantEmployee.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
-    <Content Include="weblogin\restaurantEmployee\pRestaurantEmployeeList.aspx" />
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />
@@ -1904,12 +1853,6 @@
     <Content Include="weblogin\school\pAddSchool.aspx" />
     <Content Include="weblogin\activity\pEditActivity.aspx" />
     <Content Include="weblogin\school\MultiListSchool.aspx" />
-    <Content Include="weblogin\rentEmployee\pAddRentEmployee.aspx" />
-    <Content Include="weblogin\rentEmployee\pEditRentEmployee.aspx" />
-    <Content Include="weblogin\rentEmployee\pRentEmployeeList.aspx" />
-    <Content Include="weblogin\shopEmployee\pAddShopEmployee.aspx" />
-    <Content Include="weblogin\shopEmployee\pEditShopEmployee.aspx" />
-    <Content Include="weblogin\shopEmployee\pShopEmployeeList.aspx" />
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderList.aspx" />
     <Content Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx" />

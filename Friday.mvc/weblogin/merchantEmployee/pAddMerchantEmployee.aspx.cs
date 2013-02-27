@@ -13,18 +13,19 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddRestaurantEmployee : System.Web.UI.Page
+    public partial class pAddMerchantEmployee : System.Web.UI.Page
     {
 
-        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
+        IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
         ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
         
         string mid;
+        string mtype;
 
         protected void Page_Load(object sender, EventArgs e)
         {
              mid = Request.Params["merchant_id"].ToString();
-
+             mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -38,14 +39,25 @@ namespace Friday.mvc.weblogin
              IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
              LoginUser f=new LoginUser();
              BindingHelper.RequestToObject(f);
-             f.UserType = UserTypeEnum.餐馆店小二;
-             repository.SaveOrUpdate(f);
+             if (mtype == "Restaurant")
+             {
+                 f.UserType = UserTypeEnum.餐馆店小二;
+             }
+             if (mtype == "Rent")
+             {
+                 f.UserType = UserTypeEnum.租房店小二;
+             }
+             if (mtype == "Shop")
+             {
+                 f.UserType = UserTypeEnum.商店店小二;
+             }
+            repository.SaveOrUpdate(f);
 
-             Restaurant restaurant = restRepository.Get(mid);
+            Merchant merchant = merchantRepository.Get(mid);
 
              LoginUserOfMerchant lum = new LoginUserOfMerchant();
              lum.LoginUser = f;
-             lum.Merchant = restaurant;
+             lum.Merchant = merchant;
              iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
 
             AjaxResult result = new AjaxResult();

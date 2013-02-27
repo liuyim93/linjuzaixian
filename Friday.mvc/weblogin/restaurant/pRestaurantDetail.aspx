@@ -14,7 +14,7 @@
                 
                 <li><a href='Food/pFoodList.aspx?restaurant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>菜品</span></a></li>
-                <li><a href='restaurantEmployee/pMerchantEmployeeList.aspx?merchantType=Restaurant&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
+                <li><a href='merchantEmployee/pMerchantEmployeeList.aspx?merchantType=Restaurant&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
                 target="ajax"><span>员工列表</span></a></li>
                <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Restaurant&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
                 target="ajax"><span>商品类型管理</span></a></li>

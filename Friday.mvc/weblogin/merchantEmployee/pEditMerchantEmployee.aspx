@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMerchantEmployee.aspx.cs" Inherits="Friday.mvc.weblogin.pEditRestaurantEmployee" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMerchantEmployee.aspx.cs" Inherits="Friday.mvc.weblogin.pEditMerchantEmployee" %>
 
 
 
@@ -9,7 +9,7 @@
         <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
         <div class="pageFormContent" layoutH="80px" style="">
             <h1>
-                餐馆员工基本信息</h1>
+                商铺员工基本信息</h1>
             <input type="hidden" id="FoodId" size="30" runat="server" />
              <p>
                 <label>

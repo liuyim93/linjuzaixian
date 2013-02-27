@@ -14,9 +14,7 @@ namespace Friday.mvc.weblogin
     public partial class pAddMerchantGoodsType : System.Web.UI.Page
     {
         IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
-        IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-        IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
-        IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
+        IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
 
         private MerchantGoodsType merchantGoodsType;
         private string mid;
@@ -37,19 +35,9 @@ namespace Friday.mvc.weblogin
         private void SaveMerchantGoodsType()
         {       
             merchantGoodsType = new MerchantGoodsType();
-            if(mtype=="Restaurant")
-            {
-                merchantGoodsType.Merchant = iRestaurantRepository.Get(mid); 
-            }
-            if(mtype=="Rent")
-            {
-                merchantGoodsType.Merchant = iRentRepository.Get(mid); 
-            }
-            if (mtype == "Shop")
-            {
-                merchantGoodsType.Merchant = iShopRepository.Get(mid); 
-            }     
-                     
+         
+            merchantGoodsType.Merchant = merchantRepository.Get(mid); 
+               
             BindingHelper.RequestToObject(merchantGoodsType);
             iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
 

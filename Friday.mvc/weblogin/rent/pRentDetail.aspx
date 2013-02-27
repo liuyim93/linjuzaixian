@@ -11,9 +11,9 @@
                 <li><a href="#"><span>详细信息</span></a></li>
                 <li><a href='house/pHouseList.aspx?rent_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>房屋</span></a></li>
-                <li><a href='rentEmployee/pRentEmployeeList.aspx?rent_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
+                 <li><a href='merchantEmployee/pMerchantEmployeeList.aspx?merchantType=Rent&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
                 target="ajax"><span>员工列表</span></a></li>
-                  <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Rent&rent_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
+                  <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Rent&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
                 target="ajax"><span>商品类型管理</span></a></li>
            </ul>
         </div>

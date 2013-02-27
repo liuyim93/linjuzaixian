@@ -25,6 +25,7 @@ namespace Friday.mvc.weblogin
 
 
         public string userType;
+        public string mType;
 
         private ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
         IMerchantRepository restRepository = UnityHelper.UnityToT<IMerchantRepository>();
@@ -63,14 +64,10 @@ namespace Friday.mvc.weblogin
         private void SearchLoginUser()
         {
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            if (Request.Form["merchant_id"] != null)
-            {
-                merchantId = Request.Form["merchant_id"];
-            }
-            else
-            {
-                merchantId = Request.Params["merchant_id"];
-            }
+          
+            merchantId = Request.Params["merchant_id"];
+            mType = Request.Params["merchantType"];
+
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
@@ -94,13 +91,13 @@ namespace Friday.mvc.weblogin
 
                 mechentList.Add(new DataFilter()
                 {
-                    type = "MerchantMerchant",
+                    type = "Merchant" + mType,
                     value = merchantId
 
                 });
                 loginUserOfMechentList.Add(new DataFilter()
                 {
-                    type = "Merchant",
+                    type = mType,
                     field = mechentList
                 });
 
@@ -110,14 +107,7 @@ namespace Friday.mvc.weblogin
                     type = "LoginUserOfMerchant",
                     field = loginUserOfMechentList
                 });
-                //注释掉，即可吧管理员和店小二全部取出
-                //logiUserList.Add(new DataFilter()
-                //{
-                //    type = "UserType",  
-                //    value = "餐馆"
-
-                //});
-         
+               
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
             string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
