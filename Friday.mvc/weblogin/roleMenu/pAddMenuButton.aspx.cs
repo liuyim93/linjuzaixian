@@ -30,11 +30,11 @@ namespace Friday.mvc.weblogin.roleMenu
 
                 if (Leaff.SelectedIndex == 0)
                 {
-                    dic.Leaf = false;
+                    dic.Leaf = true;
                 }
                 else
                 {
-                    dic.Leaf = true;
+                    dic.Leaf = false;
                 }
                 categoryRepo.SaveOrUpdate(dic);
 
@@ -49,7 +49,6 @@ namespace Friday.mvc.weblogin.roleMenu
                 Response.End();
 
             }
-
             else 
             {
                 if (Request.Params["code"] == "" || Request.Params["code"] == null)
@@ -80,7 +79,6 @@ namespace Friday.mvc.weblogin.roleMenu
                     }
                 }
             }
-
 
         }
     }

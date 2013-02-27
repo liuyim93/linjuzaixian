@@ -17,7 +17,36 @@ namespace Friday.mvc.weblogin.roleMenu
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["code"] != "" && Request.Params["code"] != null)
+            if (Request.Params["__EVENTVALIDATION"] != null)
+            {
+                SystemMenu category = categoryRepo.Load(Id.Value);
+                BindingHelper.RequestToObject(category);
+                category.TLevel = Convert.ToInt32(TLevel.Value);
+                string UrlPath = MenuRoute.Value.ToLower();
+                category.MenuRoute = UrlPath;
+                category.ColIndex = Convert.ToInt32(ColIndex.Text);
+
+                if (Leaff.SelectedIndex == 0)
+                {
+                    category.Leaf = true;
+                }
+                else
+                {
+                    category.Leaf = false;
+                }
+
+                categoryRepo.SaveOrUpdate(category);
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "200";
+                result.message = "操作成功";
+                result.navTabId = "referer";
+                result.callbackType = "closeCurrent";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+            else
             {
                 string code = Request.Params["code"];
                 SystemMenu category = categoryRepo.Get(code);
@@ -32,36 +61,6 @@ namespace Friday.mvc.weblogin.roleMenu
                     ColIndex.Text = category.ColIndex.ToString();
                 }
 
-            }
-
-            if (Request.Params["__EVENTVALIDATION"] != null)
-            {
-                SystemMenu category = categoryRepo.Load(Id.Value);
-                BindingHelper.RequestToObject(category);
-                category.TLevel = Convert.ToInt32(TLevel.Value);
-                string UrlPath = MenuRoute.Value.ToLower();
-                category.MenuRoute = UrlPath;
-                category.ColIndex = Convert.ToInt32(ColIndex.Text);
-
-                if (Leaff.SelectedIndex == 0)
-                {
-                    category.Leaf = false;
-                }
-                else
-                {
-                    category.Leaf = true;
-                }
-
-                categoryRepo.SaveOrUpdate(category);
-                AjaxResult result = new AjaxResult();
-                result.statusCode = "200";
-                result.message = "操作成功";
-                result.navTabId = "referer";
-                result.callbackType = "closeCurrent";
-                FormatJsonResult jsonResult = new FormatJsonResult();
-                jsonResult.Data = result;
-                Response.Write(jsonResult.FormatResult());
-                Response.End();
             }
             
         }
