@@ -18,11 +18,12 @@ namespace Friday.mvc.weblogin.roleMenu
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.QueryString["flag"] == "save")
+            if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
                 SystemMenu dic = new SystemMenu();
                 BindingHelper.RequestToObject(dic);
+                dic.ParentID = Request.Params["code"];
                 dic.TLevel = Convert.ToInt32(TLevel.Value);
                 string UrlPath = MenuRoute.Value.ToLower();
                 dic.MenuRoute = UrlPath;
@@ -49,9 +50,8 @@ namespace Friday.mvc.weblogin.roleMenu
                             result.statusCode = "300";
                             result.errorCloseType = "dialog";
                             result.message = "您填写的菜单Rel已被使用！";
-                            result.navTabId = "menubuttonmanage";
-                            result.callbackType = "forward";
-                            result.forwardUrl = "RolePowerManage/MenuButtonManage.aspx";
+                            result.navTabId = "referer";
+                            result.callbackType = "closeCurrent";
                             FormatJsonResult jsonResult = new FormatJsonResult();
                             jsonResult.Data = result;
                             Response.Write(jsonResult.FormatResult());
@@ -64,7 +64,7 @@ namespace Friday.mvc.weblogin.roleMenu
                         dic.SystemUrl = url;
                     }
                 }
-                if (UrlPath == "")
+                if (Leaff.SelectedIndex == 0)
                 {
                     dic.Leaf = false;
                 }
@@ -77,9 +77,8 @@ namespace Friday.mvc.weblogin.roleMenu
                 AjaxResult result1 = new AjaxResult();
                 result1.statusCode = "200";
                 result1.message = "操作成功";
-                result1.navTabId = "menubuttonmanage";
+                result1.navTabId = "referer";
                 result1.callbackType = "closeCurrent";
-                result1.forwardUrl = "RolePowerManage/MenuButtonManage.aspx";
                 FormatJsonResult jsonResult1 = new FormatJsonResult();
                 jsonResult1.Data = result1;
                 Response.Write(jsonResult1.FormatResult());
@@ -87,18 +86,15 @@ namespace Friday.mvc.weblogin.roleMenu
 
             }
 
-            else if (Request["code"] != "" && Request["code"] != null)
+            else if (Request.Params["code"] != "" && Request.Params["code"] != null)
             {
-                string code = Request["code"];
-                SystemMenu category = categoryRepo.GetSystemMenuByMenuID(code);
+                string code = Request.Params["code"];
+                SystemMenu category = categoryRepo.Get(code);
 
                 if (category.Leaf == false)
                 {
                     ParentID.Value = code;
                     TLevel.Value = Convert.ToString(category.TLevel + 1);
-                    ///TODO 2011-08-05
-                    TreeCode.Text = categoryRepo.GetCodeByParentCode(code);
-                    ColIndex.Text = categoryRepo.GetColIndexByParentCode(code);
                 }
                 else
                 {
@@ -106,9 +102,7 @@ namespace Friday.mvc.weblogin.roleMenu
                     result.statusCode = "300";
                     result.errorCloseType = "dialog";
                     result.message = "您选择的父节点不能为叶节点！";
-                    result.navTabId = "menubuttonmanage";
-                    result.callbackType = "forward";
-                    result.forwardUrl = "RolePowerManage/MenuButtonManage.aspx";
+                    result.callbackType = "closeCurrent";
                     FormatJsonResult jsonResult = new FormatJsonResult();
                     jsonResult.Data = result;
                     Response.Write(jsonResult.FormatResult());
