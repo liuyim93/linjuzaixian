@@ -19,7 +19,7 @@ namespace friday.core.services
         public 商家账号管理 商家账号管理模块 { get; set; }
         
         public 学校信息管理 学校信息管理模块 { get; set; }
-        public 自定义商品类型管理 自定义商品类型管理模块 { get; set; }
+        //public 自定义商品类型管理 自定义商品类型管理模块 { get; set; }
         public 商品类型管理 商品类型管理模块 { get; set; }
         public 商铺经营类型管理 商铺经营类型管理模块 { get; set; }
         
@@ -97,11 +97,11 @@ namespace friday.core.services
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 商铺经营类型维护 { get; set; }
     }
-    public class 自定义商品类型管理 : BaseModel
-    {
-        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
-        public FunctionTag 自定义商品类型维护 { get; set; }
-    }
+    //public class 自定义商品类型管理 : BaseModel
+    //{
+    //    [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+    //    public FunctionTag 自定义商品类型维护 { get; set; }
+    //}
     public class 商品类型管理 : BaseModel
     {
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
