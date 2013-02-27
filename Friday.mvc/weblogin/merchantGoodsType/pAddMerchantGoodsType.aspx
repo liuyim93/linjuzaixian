@@ -9,11 +9,24 @@
         <div>
             <p>
                 <label>
-                    商品类型：</label>
+                    自定义商品类型：</label>
                 <input type="text" id="GoodsType" size="30" class="required textInput gray"  runat="server" />
-                 <a class="btnLook" href="school/ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
+                
             </p>
-           
+             <p>
+                <label>
+                    系统商品类型：</label>
+                <input type="text" id="NameSet" size="35"  
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="globalGoodsType/MultiListGlobalGoodsType.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="IDSet" size="35"  
+                    runat="server" readonly="true" />
+            </p>
+ 
         </div>
     </div>
      <div class="formBar">

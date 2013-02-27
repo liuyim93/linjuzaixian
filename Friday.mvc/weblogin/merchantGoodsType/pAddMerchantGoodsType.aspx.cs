@@ -36,8 +36,7 @@ namespace Friday.mvc.weblogin
         {       
             merchantGoodsType = new MerchantGoodsType();
          
-            merchantGoodsType.Merchant = merchantRepository.Get(mid); 
-               
+            merchantGoodsType.Merchant = merchantRepository.Get(mid);                
             BindingHelper.RequestToObject(merchantGoodsType);
             iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
 
