@@ -98,6 +98,7 @@
     <Compile Include="SystemTest.cs" />
     <Compile Include="Test_Merchant.cs" />
     <Compile Include="Test_GlobalGoodsType.cs" />
+    <Compile Include="RoleInMenuPermissionDataTest.cs" />
     <Compile Include="Test_Shop.cs" />
     <Compile Include="Test_SchoolOfMerchant.cs" />
     <Compile Include="Test_SystemFunctionObject.cs" />
