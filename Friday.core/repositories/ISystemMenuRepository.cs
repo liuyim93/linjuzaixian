@@ -7,6 +7,8 @@ namespace friday.core.repositories
 {
     public interface ISystemMenuRepository : ITreeNodeRepository<SystemMenu>
     {
+        IList<SystemMenu> GetChildrenFromParentID(string ParentID);
+        bool IsHaveChild(SystemMenu systemMenu);
         SystemMenu GetSystemMenuByMenuID(string MenuID);
         string GetCodeByParentCode(string ParentID);
         IList<SystemMenu> GetMenuByUserIDAndParentID(string userID,string parentID);
