@@ -50,10 +50,10 @@ namespace Friday.mvc.weblogin.orderOfCommodity
             result.message = "修改成功";
             result.navTabId = "referer";
             //2013-02-13 basilwang set rel_hook to panelId
-            //if (Request.Params["rel_hook"] != null)
-            //{
-            //    result.panelId = Request.Params["rel_hook"];
-            //}
+            if (Request.Params["rel_hook"] != null)
+            {
+                result.panelId = Request.Params["rel_hook"];
+            }
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
