@@ -55,7 +55,7 @@ namespace Friday.mvc.weblogin
 
                     merchantList.Add(new DataFilter()
                     {
-                        type = merchantType, 
+                        type ="Merchant"+merchantType, 
                         value = merchantId
                     }
                         );

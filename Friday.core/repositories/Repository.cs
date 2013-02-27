@@ -1711,7 +1711,7 @@ namespace friday.core.repositories
         protected ICriteria SearchByShop(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
-
+       
             string oldParentSearch = parentSearch;
             string alias = string.Empty;
             if (deepIndex > 0)
@@ -1719,7 +1719,17 @@ namespace friday.core.repositories
                 notself = "shop.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "Shop";//(1)对于加载ShopList中的自定义商品列表来说，此处应该为Merchant;(2)对于查询MyCommodityOrder中的商铺名来说，此处应该为"Shop"
+                    parentSearch = "Shop";//(1)对于查询MyCommodityOrder中的商铺名来说，此处应该为"Shop"
+
+                    foreach (var df in termList)
+                    {
+                        if (df.type.Equals("MerchantShop"))  //(2)对于加载ShopList中的自定义商品类型列表来说，此处应该为Merchant;
+                        {
+                            parentSearch = "Merchant";
+                       
+                        }
+                    }                 
+
                 }
                 else
                 {                  
