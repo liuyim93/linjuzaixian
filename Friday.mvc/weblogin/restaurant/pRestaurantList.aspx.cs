@@ -9,6 +9,8 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
 using friday.core.EnumType;
+using friday.core.services;
+using friday.core.utils;
 
 namespace Friday.mvc.weblogin.restaurant
 {
@@ -29,13 +31,16 @@ namespace Friday.mvc.weblogin.restaurant
         protected string shopStatus;
         protected string tel;
         protected string loginName;
-
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();  
-        
+        IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();
+        SystemFunctionObjectService systemFunctionObjectService = (SystemFunctionObjectService)UnityHelper.UnityToT<ISystemFunctionObjectService>();
+        IPermissionManager iPermissionManager = UnityHelper.UnityToT<IPermissionManager>();
+        ILogger iLogger = UnityHelper.UnityToT<ILogger>();
+        private string tagName;
         protected void Page_Load(object sender, EventArgs e)
-        {                     
-            
+        {
+           tagName = systemFunctionObjectService.餐馆管理模块.餐馆维护.TagName;
+           iLogger.LogMessage("进入" + tagName + "页面", typeof(pRestaurantList).FullName, EventDataTypeCategory.信息 | EventDataTypeCategory.操作日志);
            if (Request.Params["flag"] != "alldelete")
            {
                if (Request.Params["flag"] != "alldelete")

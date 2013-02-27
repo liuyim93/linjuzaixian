@@ -14,7 +14,7 @@ namespace Friday.mvc
         protected void Page_Load(object sender, EventArgs e)
         {
             ILogger logger = UnityHelper.UnityToT<ILogger>();
-            logger.Write("test", "test");
+            //logger.Write("test", "test");
 
         }
     }
