@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRoleInMenuPermission.aspx.cs" Inherits="Friday.mvc.weblogin.permission.pRoleInMenuPermission" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRoleInMenuPermission.aspx.cs"
+    Inherits="Friday.mvc.weblogin.permission.pRoleInMenuPermission" %>
 
 <input type="hidden" id="hdnrid" value="<%=HttpContext.Current.Request.Params["uid"]%>" />
 <div class="panel" defh="75">
@@ -7,15 +8,17 @@
     <div class="searchBar">
         <form id="form" method="post" runat="server">
         <table class="searchContent">
-             <tr>
+            <tr>
                 <td>
-                    <label>功能模块名:</label>
-                    <input type="text" name="Name" class="textInput" value=""  />
+                    <label>
+                        功能模块名:</label>
+                    <input type="text" name="Name" class="textInput" value="" />
                 </td>
-             </tr>
-             <tr>
+            </tr>
+            <tr>
                 <td>
-                    <label>备注:</label>
+                    <label>
+                        备注:</label>
                     <input type="text" name="Description" class="textInput" value="" />
                 </td>
             </tr>
@@ -41,28 +44,29 @@
         </form>
     </div>
 </div>
-
 <div class="divider">
 </div>
-<div class="panel" defh="450" style="float:left; display:block; overflow:auto; width:300px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
-    <h1>
-        功能模块</h1>
-    <div id="divTree">
+<div style="float: left; display: block; overflow: auto; width: 100%; margin: 2px;
+    border: solid 1px #CCC; line-height: 21px; background: #fff">
+    <div class="panel" defh="450">
+        <h1>
+            功能模块</h1>
+        <div id="divTree">
         </div>
-       <div class="formBar">
-            <ul>
-                <li>
-                    <div class="buttonActive">
-                        <div class="buttonContent">
-                            <button id="btnSave" type="button">
-                                保存</button></div>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    </div>
+    <div class="formBar">
+        <ul>
+            <li>
+                <div class="buttonActive">
+                    <div class="buttonContent">
+                        <button id="btnSave" type="button">
+                            保存</button></div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>
-<div id="jbsxBox3"  style="margin-left:203px;padding:3px 2px">
-
+<div id="jbsxBox3" style="margin-left: 203px; padding: 3px 2px">
 </div>
 <script type="text/javascript">
 
