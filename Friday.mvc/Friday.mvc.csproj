@@ -925,6 +925,13 @@
     <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx.designer.cs">
       <DependentUpon>pMerchantGoodsTypeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1570,6 +1577,7 @@
     <Content Include="weblogin\uploadify\scripts\swfobject.js" />
     <Content Include="weblogin\uploadify\scripts\uploadify.swf" />
     <Content Include="weblogin\users\nSystemUserList.aspx" />
+    <Content Include="weblogin\login.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
