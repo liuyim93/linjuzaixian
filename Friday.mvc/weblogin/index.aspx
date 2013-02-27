@@ -161,6 +161,7 @@
                                 <li><a href="shop/pShopList.aspx" target="navTab" rel="">商店管理</a></li>
                                 <li><a href="rent/pRentList.aspx" target="navTab" rel="">租房管理</a></li>
                                 <li><a href="globalGoodsType/pGlobalGoodsTypeList.aspx" target="navTab" rel="">商品类型管理</a></li>
+                                <li><a href="merchantGoodsType/pMerchantGoodsTypeList.aspx" target="navTab" rel="">自定义商品类型管理</a></li>
                                 <li><a href="restaurant/pRestaurantList.aspx" target="navTab" rel="">餐馆管理</a></li>
                                 <li><a href="merchantCategory/pMerchantCategoryList.aspx" target="navTab" rel="">商铺经营类型</a></li>
                                 <li><a href="school/pSchoolList.aspx" target="navTab" rel="">学校管理</a></li>

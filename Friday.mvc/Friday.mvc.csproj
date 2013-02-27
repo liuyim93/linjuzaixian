@@ -897,6 +897,34 @@
     <Compile Include="weblogin\commodity\ListCommodityByShop.aspx.designer.cs">
       <DependentUpon>ListCommodityByShop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx.cs">
+      <DependentUpon>pAddMerchantGoodsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx.designer.cs">
+      <DependentUpon>pAddMerchantGoodsType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx.cs">
+      <DependentUpon>pEditMerchantGoodsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx.designer.cs">
+      <DependentUpon>pEditMerchantGoodsType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx.cs">
+      <DependentUpon>pMerchantGoodsTypeDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx.designer.cs">
+      <DependentUpon>pMerchantGoodsTypeDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx.cs">
+      <DependentUpon>pMerchantGoodsTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx.designer.cs">
+      <DependentUpon>pMerchantGoodsTypeList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1818,6 +1846,10 @@
     <Content Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx" />
     <Content Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx" />
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
+    <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
+    <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />
+    <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeDetail.aspx" />
+    <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

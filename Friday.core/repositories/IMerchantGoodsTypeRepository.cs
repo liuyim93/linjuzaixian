@@ -9,5 +9,7 @@ namespace friday.core.repositories
     {
         IList<MerchantGoodsType> GetGoodsTypeByMerchantID(string mid);
         MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid);
+        IList<MerchantGoodsType> Search(List<DataFilter> termList);
+        IList<MerchantGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total);
     }
 }
