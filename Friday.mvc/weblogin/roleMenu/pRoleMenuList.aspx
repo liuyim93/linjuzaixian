@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pRoleMenuList.aspx.cs" Inherits="Friday.mvc.weblogin.roleMenu.pRoleMenuList" %>
 
-<div layoutH="10" style="float:left; display:block; overflow:auto; width:500px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+<div layoutH="10" style="float:left; display:block; overflow:auto; width:600px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
