@@ -20,9 +20,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Friday.mvc.test", "Friday.mvc.test\Friday.mvc.test.csproj", "{50E2B5E8-29D6-4DE1-B9B5-3CB2EC865C97}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "others", "others", "{516FFE58-37CE-4C4D-90EE-3DD442ADAE11}"
-	ProjectSection(SolutionItems) = preProject
-		entlib_logging.sql = entlib_logging.sql
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
