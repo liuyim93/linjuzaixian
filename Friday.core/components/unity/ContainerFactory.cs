@@ -35,6 +35,16 @@ namespace friday.core.components
                         Container.RegisterType<ILogger, Logger>(new ContainerControlledLifetimeManager());
                         //2013-02-27 basilwang add EnterpriseLibraryCoreExtension
                         Container.AddNewExtension<EnterpriseLibraryCoreExtension>();
+                        /*2013-02-27 basilwang I think there exists a but                    
+                         * based on this article  Microsoft Enterprise Library 5.0 Beta1 Change Log                        
+                         * http://entlib.codeplex.com/wikipage?title=EntLib5Beta1ChangeLog#daab                        
+                         * ....When using the Unity integration, in previous versions you had to add the core Enterprise Library container extension                   
+                         * and an extension per block. Now only the core extension is needed, the rest of the blocks are supported automatically.
+                         * The old extensions remain in the code solely for backwards compatibility. They now have no function.
+                         * ....
+                         * 
+                         * but we have to add DataAccessBlockExtension, otherwise, The error message which the type Database does not have an accessible constructor will be shown
+                         */
                         Container.AddNewExtension<DataAccessBlockExtension>();
  
                         ExeConfigurationFileMap infraFileMap = new ExeConfigurationFileMap();
