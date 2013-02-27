@@ -13,13 +13,13 @@ namespace Friday.mvc.weblogin.roleMenu {
     public partial class pEditMenuButton {
         
         /// <summary>
-        /// Form1 控件。
+        /// form 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
         /// Id 控件。
@@ -58,15 +58,6 @@ namespace Friday.mvc.weblogin.roleMenu {
         protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// TreeCode 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TreeCode;
-        
-        /// <summary>
         /// MenuRoute 控件。
         /// </summary>
         /// <remarks>
@@ -74,24 +65,6 @@ namespace Friday.mvc.weblogin.roleMenu {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText MenuRoute;
-        
-        /// <summary>
-        /// UrlID 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden UrlID;
-        
-        /// <summary>
-        /// choose 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlAnchor choose;
         
         /// <summary>
         /// MenuRel 控件。

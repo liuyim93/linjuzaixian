@@ -2,8 +2,7 @@
 
 <div class="page">
     <div class="pageContent">
-        <form id="Form1" method="post" runat="server" action="RolePowerManage/EditMenu.aspx?flag=save"
-        class="pageForm required-validate" onsubmit="return validateCallbackMB(this);">
+        <form id="form" method="post" runat="server" class="pageForm required-validate">
         <div class="pageFormContent" layouth="56">
             <input name="Id" id="Id" type="hidden" runat="server"/>
             <input name="ParentID" id="ParentID" type="hidden" runat="server"/>
@@ -15,24 +14,8 @@
             </p>
             <p>
                 <label>
-                    菜单编号：</label>
-                <asp:textbox id="TreeCode" readonly="true" runat="server"></asp:textbox>
-            </p>
-            <p>
-                <label>
                     菜单路径：</label>
                 <input type="text" id="MenuRoute" name="MenuRoute" runat="server" readonly="true"></asp:textbox>
-                <input name="UrlID" id="UrlID" type="hidden" runat="server"/>
-                
-                <a href="RolePowerManage/SelectUrl.aspx" target="dialog" callback="function callback() {
-                 var st = gpage.jObj('REL',null,'dlg_pageurl').val();
-                 var ss = st.split('&');
-			     gpage.jObj('MenuRoute','editmenu',null).val(ss[0]);
-			     gpage.jObj('UrlID','editmenu',null).val(ss[1]);
-			     gpage.jObj('MenuRel','editmenu',null).val(ss[2]);
-			     if(ss[0] != '')
-			     { gpage.jObj('Leaff','editmenu',null).val('true'); }
-                 }" rel="dlg_pageurl" runat="server" id="choose"><span>选择</span></a>
             
             </p>
             <p>
@@ -61,25 +44,59 @@
                     
             </p>
         </div>
-        <div class="formBar">
-            <ul>
-                <li>
-                    <div class="buttonActive">
-                        <div class="buttonContent">
-                            <button type="submit">
-                                保存</button></div>
+     <div class="formBar">
+        <ul>
+            <li>
+                <div class="buttonActive">
+                    <div class="buttonContent">
+                        <button type="submit">
+                            保存</button>
                     </div>
-                </li>
-                <li>
-                    <div class="button">
-                        <div class="buttonContent">
-                            <button type="button" class="close">
-                                取消</button></div>
+                </div>
+            </li>
+            <li></li>
+            <li>
+                <div class="buttonActive">
+                    <div class="buttonContent">
+                        <button type="reset" id="Button1">
+                            重置</button>
                     </div>
-                </li>
-            </ul>
-        </div>
+                </div>
+            </li>
+            <li></li>
+        </ul>
+    </div>
         </form>
     </div>
 </div>
 
+<script type="text/javascript">
+
+    $(function () {
+        var prefix = '<%=Request.Params["prefix"] %>';
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
+        //2013-02-10 basilwang use document
+        $(document).one("panelloaded", function (e, o) {
+
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, navTabAjaxDone)
+
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, dialogAjaxDone)
+
+                });
+            }
+            //2013-02-10 basilwang set o to null to avoid memory leak
+            o = null;
+
+        });
+
+
+    });
+</script>

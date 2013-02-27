@@ -18,66 +18,53 @@ namespace Friday.mvc.weblogin.roleMenu
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request["code"] != "" && Request["code"] != null)
+            if (Request.Params["code"] != "" && Request.Params["code"] != null)
             {
-                string code = Request["code"];
-                SystemMenu category = categoryRepo.GetSystemMenuByMenuID(code);
+                string code = Request.Params["code"];
+                SystemMenu category = categoryRepo.Get(code);
 
                 bool ISC = categoryRepo.IsHaveChild(category);
-                if (ISC == true)
-                {
-                    choose.Visible = false;
-                }
 
                 if (category != null)
                 {
                     BindingHelper.ObjectToControl(category, Page);
                     Leaff.Value = Convert.ToString(category.Leaf);
                     TLevel.Value = Convert.ToString(category.TLevel);
-                    if (category.SystemUrl != null)
-                    { UrlID.Value = category.SystemUrl.Id; }
                     ColIndex.Text = category.ColIndex.ToString();
                 }
 
             }
 
-            if (this.Request.Headers["X-Requested-With"] == "XMLHttpRequest")
+            if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                if (Request.QueryString["flag"] == "save")
-                {
-                    SystemMenu category = categoryRepo.Load(Id.Value);
-                    BindingHelper.RequestToObject(category);
-                    category.TLevel = Convert.ToInt32(TLevel.Value);
-                    string UrlPath = MenuRoute.Value.ToLower();
-                    category.MenuRoute = UrlPath;
-                    category.ColIndex = Convert.ToInt32(ColIndex.Text);
-                    if (UrlID.Value != "")
-                    {
-                        SystemUrl url = urlRepo.Load(UrlID.Value);
-                        category.SystemUrl = url;
-                    }
-                    if (UrlPath == "")
-                    {
-                        category.Leaf = false;
-                    }
-                    else
-                    {
-                        category.Leaf = true;
-                    }
+                SystemMenu category = categoryRepo.Load(Id.Value);
+                BindingHelper.RequestToObject(category);
+                category.TLevel = Convert.ToInt32(TLevel.Value);
+                string UrlPath = MenuRoute.Value.ToLower();
+                category.MenuRoute = UrlPath;
+                category.ColIndex = Convert.ToInt32(ColIndex.Text);
 
-                    categoryRepo.SaveOrUpdate(category);
-                    AjaxResult result = new AjaxResult();
-                    result.statusCode = "200";
-                    result.message = "操作成功";
-                    result.navTabId = "menubuttonmanage";
-                    result.callbackType = "forward";
-                    result.forwardUrl = "RolePowerManage/MenuButtonManage.aspx";
-                    FormatJsonResult jsonResult = new FormatJsonResult();
-                    jsonResult.Data = result;
-                    Response.Write(jsonResult.FormatResult());
-                    Response.End();
+                if (Leaff.SelectedIndex == 0)
+                {
+                    category.Leaf = false;
                 }
+                else
+                {
+                    category.Leaf = true;
+                }
+
+                categoryRepo.SaveOrUpdate(category);
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "200";
+                result.message = "操作成功";
+                result.navTabId = "referer";
+                result.callbackType = "closeCurrent";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
             }
+            
         }
     }
 }
