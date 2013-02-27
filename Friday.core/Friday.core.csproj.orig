@@ -45,9 +45,17 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EnterpriseLibrary.Common.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Data.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EnterpriseLibrary.Logging.5.0.505.1\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Logging.Database, Version=5.0.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EnterpriseLibrary.Logging.Database.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Logging.Database.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
@@ -90,12 +98,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\EntLibConnectionProvider.cs" />
     <Compile Include="components\tree\JsonTree.cs" />
     <Compile Include="components\tree\nvl.cs" />
     <Compile Include="components\permission\BaseModel.cs" />
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
+    <Compile Include="domain\Category.cs" />
+    <Compile Include="domain\CategoryLog.cs" />
+    <Compile Include="domain\CategoryMap.cs" />
+    <Compile Include="domain\Log.cs" />
+    <Compile Include="domain\RoleInMenu.cs" />
+    <Compile Include="domain\RoleInMenuMap.cs" />
+    <Compile Include="domain\SystemButton.cs" />
+    <Compile Include="domain\SystemButtonMap.cs" />
+    <Compile Include="domain\SystemMenu.cs" />
+    <Compile Include="domain\SystemMenuMap.cs" />
+    <Compile Include="domain\SystemUrl.cs" />
+    <Compile Include="domain\SystemUrlMap.cs" />
+    <Compile Include="domain\TreeNode.cs" />
+<<<<<<< HEAD
+    <Compile Include="domain\CategoryLogMap.cs" />
+    <Compile Include="domain\LogMap.cs" />
+    <Compile Include="repositories\ILogRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+=======
+    <Compile Include="repositories\IRoleInMenuRepository.cs" />
+>>>>>>> Add RoleInMenuRepository.cs
+    <Compile Include="repositories\ISystemButtonRepository.cs" />
+    <Compile Include="repositories\ISystemMenuRepository.cs" />
+    <Compile Include="repositories\ISystemUrlRepository.cs" />
+    <Compile Include="repositories\ITreeNodeRepository.cs" />
+<<<<<<< HEAD
+    <Compile Include="repositories\LogRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+=======
+    <Compile Include="repositories\RoleInMenuRepository.cs" />
+>>>>>>> Add RoleInMenuRepository.cs
+    <Compile Include="repositories\SystemButtonRepository.cs" />
+    <Compile Include="repositories\SystemMenuRepository.cs" />
+    <Compile Include="repositories\SystemUrlRepository.cs" />
+    <Compile Include="repositories\TreeNodeRepository.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
@@ -297,14 +343,11 @@
     <Compile Include="repositories\ILoginUserOfMerchantRepository.cs" />
     <Compile Include="repositories\MessageRepository.cs" />
     <Compile Include="repositories\IMessageRepository.cs" />
-<<<<<<< HEAD
     <Compile Include="repositories\ISystemFunctionObjectInRoleRepository.cs" />
     <Compile Include="repositories\UserInRoleRepository.cs" />
-    <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
-=======
     <Compile Include="repositories\IFeedBackRepository.cs" />
     <Compile Include="repositories\FeedBackRepository.cs" />
->>>>>>> add FeedBackRepository
+    <Compile Include="repositories\SystemFunctionObjectInRoleRepository.cs" />
     <Compile Include="services\FeedBackService.cs" />
     <Compile Include="services\IFeedBackService.cs" />
     <Compile Include="repositories\SystemRoleRepository.cs" />
