@@ -329,6 +329,7 @@
     </Compile>
     <Compile Include="weblogin\log\pLogDetail.aspx.cs">
       <DependentUpon>pLogDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx.cs">
       <DependentUpon>pAddMerchantEmployee.aspx</DependentUpon>
@@ -559,13 +560,6 @@
     </Compile>
     <Compile Include="weblogin\roleMenu\pMenuButtonList.aspx.designer.cs">
       <DependentUpon>pMenuButtonList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\roleMenu\pRoleMenuList.aspx.cs">
-      <DependentUpon>pRoleMenuList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\roleMenu\pRoleMenuList.aspx.designer.cs">
-      <DependentUpon>pRoleMenuList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
@@ -1084,7 +1078,6 @@
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />
-    <Content Include="weblogin\roleMenu\pRoleMenuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
