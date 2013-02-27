@@ -11,6 +11,7 @@
                 <label>
                     商品类型：</label>
                 <input type="text" id="GoodsType" size="30" class="required textInput gray"  runat="server" />
+                 <a class="btnLook" href="school/ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
             </p>
            
         </div>

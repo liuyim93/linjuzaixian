@@ -322,10 +322,16 @@
     </Compile>
     <Compile Include="weblogin\log\pLogDetail.aspx.cs">
       <DependentUpon>pLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.cs">
+      <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\log\pLogDetail.aspx.designer.cs">
       <DependentUpon>pLogDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.designer.cs">
+      <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\log\pLogList.aspx.cs">
       <DependentUpon>pLogList.aspx</DependentUpon>
@@ -1088,6 +1094,7 @@
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\log\pLogDetail.aspx" />
+    <Content Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx" />
     <Content Include="weblogin\log\pLogList.aspx" />
     <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />

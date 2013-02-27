@@ -36,84 +36,36 @@ namespace Friday.mvc.weblogin
             }
             else
             {
-              
+                if (Request.Form["merchant_id"] != null)
+                {
+                    merchantId = Request.Form["merchant_id"];
+                }
+                else
+                {
+                    merchantId = Request.Params["merchant_id"];
+                }              
 
                 numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
                 pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
                 List<DataFilter> filterList = new List<DataFilter>();
-                List<DataFilter> restaurantList = new List<DataFilter>();
+                List<DataFilter> merchantList = new List<DataFilter>();
 
-                if (merchantType == "Restaurant")
-                {
-                    if (Request.Form["restaurant_id"] != null)
+
+                    merchantList.Add(new DataFilter()
                     {
-                        merchantId = Request.Form["restaurant_id"];
-                    }
-                    else
-                    {
-                        merchantId = Request.Params["restaurant_id"];
-                    }
-                    restaurantList.Add(new DataFilter()
-                    {
-                        type = "Restaurant", 
+                        type = merchantType, 
                         value = merchantId
                     }
                         );
                     filterList.Add(new DataFilter()
                     {
-                        type="Restaurant",
-                        field=restaurantList
+                        type = merchantType,
+                        field = merchantList
                     }
-                        );
-                }
-                if (merchantType == "Rent")
-                {
-                    if (Request.Form["rent_id"] != null)
-                    {
-                        merchantId = Request.Form["rent_id"];
-                    }
-                    else
-                    {
-                        merchantId = Request.Params["rent_id"];
-                    }
-                    restaurantList.Add(new DataFilter()
-                    {
-                        type = "Rent",
-                        value = merchantId
-                    }
-                        );
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "Rent",
-                        field = restaurantList
-                    }
-                        );
-                }
-                if (merchantType == "Shop")
-                {
-                    if (Request.Form["shop_id"] != null)
-                    {
-                        merchantId = Request.Form["shop_id"];
-                    }
-                    else
-                    {
-                        merchantId = Request.Params["shop_id"];
-                    }
-                    restaurantList.Add(new DataFilter()
-                    {
-                        type = "Shop",
-                        value = merchantId
-                    }
-                        );
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "Shop",
-                        field = restaurantList
-                    }
-                        );
-                }
+                        );                
+               
 
                 filterList.Add(new DataFilter()
                 {
