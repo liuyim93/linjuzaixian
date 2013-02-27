@@ -85,7 +85,7 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="restaurant/pAddRestaurant.aspx" title="添加餐馆" target="navTab" rel=""><span>
+        <li ><a class="add" href="restaurant/pAddRestaurant.aspx" title="添加餐馆" target="navTab" rel=""><span>
             添加餐馆</span></a></li>
         <li><a class="edit" href="restaurant/pEditRestaurant.aspx?uid={id}" title="修改餐馆" rel="" target="navTab">
             <span>修改餐馆</span></a></li>
