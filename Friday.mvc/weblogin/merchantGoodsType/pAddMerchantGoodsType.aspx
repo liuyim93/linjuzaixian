@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddMerchantGoodsType.aspx.cs" Inherits="Friday.mvc.weblogin.pAddGlobalGoodsType" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddMerchantGoodsType.aspx.cs" Inherits="Friday.mvc.weblogin.pAddMerchantGoodsType" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
@@ -11,16 +11,7 @@
                     商品类型：</label>
                 <input type="text" id="GoodsType" size="30" class="required textInput gray"  runat="server" />
             </p>
-            <p>
-                <label>
-                    商铺类型：</label>
-                <select id="MerchantType" runat="server">
-                    <option value="">请选择</option>
-                    <option value="餐馆">餐馆</option>
-                    <option value="租房">租房</option>
-                    <option value="百货">百货</option>
-                </select>
-            </p>
+           
         </div>
     </div>
      <div class="formBar">

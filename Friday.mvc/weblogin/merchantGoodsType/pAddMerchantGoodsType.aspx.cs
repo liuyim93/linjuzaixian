@@ -11,26 +11,26 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddGlobalGoodsType : System.Web.UI.Page
+    public partial class pAddMerchantGoodsType : System.Web.UI.Page
     {
-        IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+        IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
 
-        private GlobalGoodsType globalGoodsType;
+        private MerchantGoodsType merchantGoodsType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
-                SaveGlobalGoodsType();
+                SaveMerchantGoodsType();
             }
         }
 
-        private void SaveGlobalGoodsType()
+        private void SaveMerchantGoodsType()
         {
-            globalGoodsType = new GlobalGoodsType();
-            BindingHelper.RequestToObject(globalGoodsType);
-            iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
+            merchantGoodsType = new MerchantGoodsType();
+            BindingHelper.RequestToObject(merchantGoodsType);
+            iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

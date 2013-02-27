@@ -7,21 +7,22 @@ using System.Web.UI.WebControls;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pGlobalGoodsTypeDetail : System.Web.UI.Page
+    public partial class pMerchantGoodsTypeDetail : System.Web.UI.Page
     {
-        IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+        MerchantGoodsTypeRepository iMerchantGoodsTypeRepository =new  MerchantGoodsTypeRepository();
 
-        private GlobalGoodsType globalGoodsType;
+        private MerchantGoodsType merchantGoodsType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            globalGoodsType = iGlobalGoodsTypeRepository.Load(uid);
+            merchantGoodsType = iMerchantGoodsTypeRepository.Get(uid);
 
-            BindingHelper.ObjectToControl(globalGoodsType, this);
+            BindingHelper.ObjectToControl(merchantGoodsType, this);
         }
     }
 }

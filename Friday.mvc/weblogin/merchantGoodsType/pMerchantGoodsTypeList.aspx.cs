@@ -50,13 +50,13 @@ namespace Friday.mvc.weblogin
 
                     });
 
-                if (!string.IsNullOrEmpty(Request.Form["MerchantType"]))
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "MerchantType",
-                        value = Request.Form["MerchantType"]
+                //if (!string.IsNullOrEmpty(Request.Form["MerchantType"]))
+                //    filterList.Add(new DataFilter()
+                //    {
+                //        type = "MerchantType",
+                //        value = Request.Form["MerchantType"]
 
-                    });
+                //    });
                 List<DataFilter> dflForOrder = new List<DataFilter>();
                 string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
                 string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
@@ -74,7 +74,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteMerchantGoodsType()
         {
-            iRepositoryMerchantGoodsType.Delete(Request.Params["uid"]);
+            iRepositoryMerchantGoodsType.PhysicsDelete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

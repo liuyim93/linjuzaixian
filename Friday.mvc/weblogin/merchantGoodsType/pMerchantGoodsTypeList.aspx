@@ -16,7 +16,7 @@
                     <label>商品类型:</label>
                     <input type="text" name="GoodsType" class="textInput" value="<%=goodsType %>" />
                 </td>
-                 <td>
+               <%--  <td>
                      <label>
                          商铺类型:</label>
                      <select name="MerchantType" id="MerchantType" runat="server">
@@ -26,7 +26,7 @@
                     <option value="百货">百货</option>
                      </select>
                  </td>
-
+--%>
             </tr>
         </table>
         <div class="subBar">
@@ -69,7 +69,7 @@
                 <tr>
                     <th width="10%" align="center">序 号</th>
                         <th width="10%" align="center">商品类型</th>
-                    <th width="10%" align="center">商铺类型</th>
+                    <th width="10%" align="center">删除标记</th>
 
                 </tr>
                 </thead>
@@ -82,7 +82,7 @@
                         <td><a href="merchantGoodsType/pMerchantGoodsTypeDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>' target="ajax" rel_v3="jbsxBox3"><%#Eval("GoodsType")%>
                             </a>
                         </td>
-                        <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "MerchantType"))%></td>                    
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>                    
 				</tr>
 			      
             </ItemTemplate>

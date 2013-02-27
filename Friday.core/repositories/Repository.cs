@@ -506,6 +506,96 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchByMerchantGoodsType(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByMerchantGoodsType(query, termList);
+        }
+        protected ICriteria SearchByMerchantGoodsType(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByMerchantGoodsType(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByMerchantGoodsType(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "merchantGoodsType.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "MerchantGoodsType";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".MerchantGoodsType";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "merchantGoodsType");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+                    if (df.type.Equals("GoodsType"))
+                    {
+                        query.Add(Expression.Like(notself + "GoodsType",df.value,MatchMode.Anywhere));
+                        continue;
+                    }   
+                    if (df.type.Equals("Restaurant"))
+                    {
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+
 
         protected ICriteria SearchByOrderOfFood(ICriteria query, List<DataFilter> termList, bool isSelf)
         {

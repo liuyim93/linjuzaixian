@@ -12,18 +12,9 @@ using friday.core.EnumType;
 namespace friday.core.repositories
 {
     public class MerchantGoodsTypeRepository : Repository<MerchantGoodsType>, friday.core.repositories.IMerchantGoodsTypeRepository
-    {
-        //public string GetGoodsTypeNamesByMerchantID(string mid) 
-        //{
-        //    var q = Session.CreateQuery(@"select at  from   Activity as  at   where  at.Name=:attname ")
-        //                  .SetString("spname", name).UniqueResult<Activity>(); ;
-
-        //    return q;
-        //}
+    {        
         public IList<MerchantGoodsType> GetGoodsTypeByMerchantID(string mid)
         {
-            //var start = (pageIndex - 1) * pageSize;
-            //var end = pageSize;
             var q = Session.CreateQuery(@"select mgt from MerchantGoodsType as mgt
                      where Merchant_id=:mchid")
                       .SetString("mchid", mid);
@@ -39,12 +30,12 @@ namespace friday.core.repositories
 
         protected virtual ICriteria Query
         {
-            get { return Session.CreateCriteria(typeof(OrderOfFood)); }
+            get { return Session.CreateCriteria(typeof(MerchantGoodsType)); }
         }
         //对外获取方法
         public IList<MerchantGoodsType> Search(List<DataFilter> termList)
         {
-            return SearchByMerchantGoodsType(Query, termList, true).List<OrderOfFood>();
+            return SearchByMerchantGoodsType(Query, termList, true).List<MerchantGoodsType>();
         }
         public IList<MerchantGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
