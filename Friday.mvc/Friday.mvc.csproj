@@ -1912,6 +1912,7 @@
     <Folder Include="Models\" />
     <Folder Include="uploadimage\" />
     <Folder Include="Views\Home\" />
+    <Folder Include="weblogin\permission\menu\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
