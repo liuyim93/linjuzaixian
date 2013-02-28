@@ -13,7 +13,6 @@
     <ul id="dictreeToolBar" class="toolBar">
         <li><a id="addata" class="add" href="roleMenu/pAddMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>添加</span></a></li>
         <li><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code=" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-        <li><a class="edit" href="roleMenu/pEditMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>修改</span></a></li> 
         <li class="line">line</li>
     </ul>
 </div>
@@ -22,6 +21,8 @@
     <div id="dtree" >
     </div>
 </div>  
+<div id="jbsxBox3"  style="margin-left:403px;padding:3px 2px" class="pageFormContent">
+</div>
 
 <script type="text/javascript">
 
@@ -34,10 +35,16 @@
         var dtree;
         var oObj;
         var dictreeToolBar;
+        var rel_v3 = "#jbsxBox3";
+        var $rel;
 
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             debugger
+
+            var node_click_url = "roleMenu/pEditMenuButton.aspx";
+
+             $rel= o.find(rel_v3);
 
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
@@ -73,8 +80,10 @@
                             if ($this.data("ohref") == null)
                                 $this.data("ohref", href);
 
-
                              $this.attr("href", $this.data("ohref").replace("code=", "code="+item.id));
+                            
+                            var data = { prefix: prefix, "rel_v3": rel_v3 };
+                            $rel.loadUrl(node_click_url + "?code=" + item.id, data, function () { });
 
                         });
                     }

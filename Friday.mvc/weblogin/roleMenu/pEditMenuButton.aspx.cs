@@ -39,8 +39,7 @@ namespace Friday.mvc.weblogin.roleMenu
                 AjaxResult result = new AjaxResult();
                 result.statusCode = "200";
                 result.message = "操作成功";
-                result.navTabId = "referer";
-                result.callbackType = "closeCurrent";
+                result.navTabId = "#";
                 FormatJsonResult jsonResult = new FormatJsonResult();
                 jsonResult.Data = result;
                 Response.Write(jsonResult.FormatResult());

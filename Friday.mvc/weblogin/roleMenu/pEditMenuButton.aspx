@@ -1,12 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMenuButton.aspx.cs" Inherits="Friday.mvc.weblogin.roleMenu.pEditMenuButton" %>
 
-<div class="page">
-    <div class="pageContent">
-        <form id="form" method="post" runat="server" class="pageForm required-validate">
-        <div class="pageFormContent" layouth="56">
-            <input name="Id" id="Id" type="hidden" runat="server"/>
-            <input name="ParentID" id="ParentID" type="hidden" runat="server"/>
-            <input name="TLevel" id="TLevel" type="hidden" runat="server"/>
+    <form id="form" method="post" onsubmit="return validateCallback(this,navTabAjaxDone);"
+    class="pageForm required-validate" runat="server">
+    <div class="panel" style="">
+        <h1>修改界面</h1>
+        <input name="Id" id="Id" type="hidden" runat="server"/>
+        <input name="ParentID" id="ParentID" type="hidden" runat="server"/>
+        <input name="TLevel" id="TLevel" type="hidden" runat="server"/>
+        <div>
             <p>
                 <label>
                     菜单名称：</label>
@@ -38,7 +39,7 @@
 				</select>   
                     
             </p>
-        </div>
+        
      <div class="formBar">
         <ul>
             <li>
@@ -61,9 +62,10 @@
             <li></li>
         </ul>
     </div>
-        </form>
     </div>
 </div>
+</form>
+
 
 <script type="text/javascript">
 
