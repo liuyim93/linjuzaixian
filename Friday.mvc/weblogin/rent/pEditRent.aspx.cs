@@ -15,7 +15,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.rent
 {
-    public partial class pEditRent : System.Web.UI.Page
+    public partial class pEditRent : BasePage
     {
         IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();

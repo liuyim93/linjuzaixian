@@ -11,7 +11,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pSelectGlobalGoodsType : System.Web.UI.Page
+    public partial class pSelectGlobalGoodsType : BasePage
     {
         IMerchantGoodsTypeRepository iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
         IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();

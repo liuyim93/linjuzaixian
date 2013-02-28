@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddOrderOfHouse : System.Web.UI.Page
+    public partial class pAddOrderOfHouse : BasePage
     {
         protected string MyHouseOrderID;
 

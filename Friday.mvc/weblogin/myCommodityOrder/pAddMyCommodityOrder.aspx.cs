@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddMyCommodityOrder : System.Web.UI.Page
+    public partial class pAddMyCommodityOrder : BasePage
     {
         IRepository<MyCommodityOrder> iMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<MyCommodityOrder>>();
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();

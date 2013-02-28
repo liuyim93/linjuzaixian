@@ -10,7 +10,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListHouseByRent : System.Web.UI.Page
+    public partial class ListHouseByRent : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

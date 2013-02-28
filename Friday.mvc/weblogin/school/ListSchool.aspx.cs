@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListSchool : System.Web.UI.Page
+    public partial class ListSchool : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

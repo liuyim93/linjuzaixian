@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.roleMenu
 {
-    public partial class pAddMenuButton : System.Web.UI.Page
+    public partial class pAddMenuButton : BasePage
     {
         private ISystemMenuRepository categoryRepo = new SystemMenuRepository();
 

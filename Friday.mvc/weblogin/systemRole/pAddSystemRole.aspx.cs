@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddSystemRole : System.Web.UI.Page
+    public partial class pAddSystemRole : BasePage
     {
         IRepository<SystemRole> sysRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
 

@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditMerchantCategory : System.Web.UI.Page
+    public partial class pEditMerchantCategory : BasePage
     {
         IRepository<MerchantCategory> iMerchantCategoryRepository = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
 

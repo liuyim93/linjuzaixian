@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.log
 {
-    public partial class pLogDetail : System.Web.UI.Page
+    public partial class pLogDetail : BasePage
     {
         ILogRepository iLogRepository = UnityHelper.UnityToT<ILogRepository>();
     

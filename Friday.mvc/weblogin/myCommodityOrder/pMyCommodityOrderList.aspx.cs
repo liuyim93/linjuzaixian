@@ -12,7 +12,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pMyCommodityOrderList : System.Web.UI.Page
+    public partial class pMyCommodityOrderList : BasePage
     {
         protected long total;
         protected int pageNum;

@@ -9,7 +9,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.users
 {
-    public partial class nSystemUserList : System.Web.UI.Page
+    public partial class nSystemUserList : BasePage
     {
         protected long total;
         protected int pageNum;

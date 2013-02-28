@@ -10,7 +10,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListMerchantByMerchantType : System.Web.UI.Page
+    public partial class ListMerchantByMerchantType : BasePage
     {
         protected long total;
         protected int pageNum;

@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.activity
 {
-    public partial class pActivityDetail : System.Web.UI.Page
+    public partial class pActivityDetail : BasePage
     {
         IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
         private Activity activity;

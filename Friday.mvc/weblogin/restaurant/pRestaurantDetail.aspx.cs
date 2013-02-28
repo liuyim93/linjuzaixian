@@ -11,7 +11,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.restaurant
 {
-    public partial class pRestaurantDetail : System.Web.UI.Page
+    public partial class pRestaurantDetail : BasePage
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();

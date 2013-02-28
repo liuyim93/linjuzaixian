@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.rent
 {
-    public partial class pAddRent : System.Web.UI.Page
+    public partial class pAddRent : BasePage
     {
         IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();

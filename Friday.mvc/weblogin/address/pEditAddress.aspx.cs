@@ -11,7 +11,7 @@ using friday.core;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditAddress : System.Web.UI.Page
+    public partial class pEditAddress : BasePage
     {
         private IRepository<Address> repository = UnityHelper.UnityToT<IRepository<Address>>();
         private Address address;

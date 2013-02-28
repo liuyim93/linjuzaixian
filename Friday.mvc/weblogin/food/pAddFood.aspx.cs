@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddFood : System.Web.UI.Page
+    public partial class pAddFood : BasePage
     {
 
         IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();        

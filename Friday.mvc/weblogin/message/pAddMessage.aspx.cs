@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin.message
 {
-    public partial class pAddMessage : System.Web.UI.Page
+    public partial class pAddMessage : BasePage
     {
         IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
         IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();

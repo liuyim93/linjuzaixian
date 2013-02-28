@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.feedBack
 {
-    public partial class pFeedBackDetail : System.Web.UI.Page
+    public partial class pFeedBackDetail : BasePage
     {
         IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
     

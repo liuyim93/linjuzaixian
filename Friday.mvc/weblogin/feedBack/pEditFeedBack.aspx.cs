@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin.feedBack
 {
-    public partial class pEditFeedBack : System.Web.UI.Page
+    public partial class pEditFeedBack : BasePage
     {
         IRepository<FeedBack> iFeedBackRepository = UnityHelper.UnityToT<IRepository<FeedBack>>();
       

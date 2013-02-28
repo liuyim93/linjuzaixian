@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditCommodity : System.Web.UI.Page
+    public partial class pEditCommodity : BasePage
     {
         private IRepository<Commodity> repository = UnityHelper.UnityToT<IRepository<Commodity>>();
         private Commodity f;

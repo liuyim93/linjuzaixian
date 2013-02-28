@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class MultiListSchool : System.Web.UI.Page
+    public partial class MultiListSchool : BasePage
     {
         protected long total;
         protected int pageNum;

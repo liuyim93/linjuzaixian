@@ -10,7 +10,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class MultiListSystemRole : System.Web.UI.Page
+    public partial class MultiListSystemRole : BasePage
     {
         protected long total;
         protected int pageNum;

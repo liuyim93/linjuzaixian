@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.rent
 {
-    public partial class pRentList : System.Web.UI.Page
+    public partial class pRentList : BasePage
     {
         protected long total;
         protected int pageNum;

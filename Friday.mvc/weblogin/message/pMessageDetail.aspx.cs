@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin.message
 {
-    public partial class pMessageDetail : System.Web.UI.Page
+    public partial class pMessageDetail : BasePage
     {
         IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
         private Message message;

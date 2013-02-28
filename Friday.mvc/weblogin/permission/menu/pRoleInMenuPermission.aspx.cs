@@ -11,7 +11,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin.permission
 {
-    public partial class pRoleInMenuPermission : System.Web.UI.Page
+    public partial class pRoleInMenuPermission : BasePage
     {
         public static ISystemMenuRepository SystemMenuRepository = new SystemMenuRepository();
         public static IRoleInMenuRepository RoleInMenuRepository = new RoleInMenuRepository();

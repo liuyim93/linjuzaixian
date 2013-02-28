@@ -13,7 +13,7 @@ using System.Web.Script.Services;
 namespace Friday.mvc.weblogin
 {
     [ScriptService]
-    public partial class pSystemFunctionObjectTree : System.Web.UI.Page
+    public partial class pSystemFunctionObjectTree : BasePage
     {
         private static ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         protected void Page_Load(object sender, EventArgs e)

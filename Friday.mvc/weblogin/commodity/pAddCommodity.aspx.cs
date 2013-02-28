@@ -12,7 +12,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddCommodity : System.Web.UI.Page
+    public partial class pAddCommodity : BasePage
     {
         IShopRepository restRepository = UnityHelper.UnityToT<IShopRepository>();
         IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();

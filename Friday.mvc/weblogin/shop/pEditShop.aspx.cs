@@ -12,7 +12,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.shop
 {
-    public partial class pEditShop : System.Web.UI.Page
+    public partial class pEditShop : BasePage
     {
         IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();

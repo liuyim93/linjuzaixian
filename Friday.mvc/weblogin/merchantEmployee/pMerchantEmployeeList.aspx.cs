@@ -13,7 +13,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pMerchantEmployeeList : System.Web.UI.Page
+    public partial class pMerchantEmployeeList : BasePage
     {
         protected long total;
         protected int pageNum;

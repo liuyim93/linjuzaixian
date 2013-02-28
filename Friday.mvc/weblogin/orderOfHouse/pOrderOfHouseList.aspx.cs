@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pOrderOfHouseList : System.Web.UI.Page
+    public partial class pOrderOfHouseList : BasePage
     {
         protected long total;
         protected int pageNum;

@@ -13,7 +13,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddMerchantEmployee : System.Web.UI.Page
+    public partial class pAddMerchantEmployee : BasePage
     {
 
         IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();

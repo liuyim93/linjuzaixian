@@ -13,7 +13,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddHouse : System.Web.UI.Page
+    public partial class pAddHouse : BasePage
     {
         IRentRepository restRepository = UnityHelper.UnityToT<IRentRepository>();
         IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();

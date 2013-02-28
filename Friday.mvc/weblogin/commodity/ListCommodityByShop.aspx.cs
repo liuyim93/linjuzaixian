@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListCommodityByShop : System.Web.UI.Page
+    public partial class ListCommodityByShop : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -12,7 +12,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin.roleMenu
 {
-    public partial class pMenuButtonList : System.Web.UI.Page
+    public partial class pMenuButtonList : BasePage
     {
         IRepository<SystemMenu> m = new Repository<SystemMenu>();
         ISystemMenuRepository categoryRepo = new SystemMenuRepository();

@@ -10,7 +10,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pMerchantCategoryDetail : System.Web.UI.Page
+    public partial class pMerchantCategoryDetail : BasePage
     {
         IRepository<MerchantCategory> iMerchantCategoryRepository = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
 

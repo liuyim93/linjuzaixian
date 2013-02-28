@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pLoginUserList : System.Web.UI.Page
+    public partial class pLoginUserList : BasePage
     {
         protected long total;
         protected int pageNum;

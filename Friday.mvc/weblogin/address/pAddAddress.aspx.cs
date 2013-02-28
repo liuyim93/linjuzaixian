@@ -11,7 +11,7 @@ using friday.core.domain;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pAddAddress : System.Web.UI.Page
+    public partial class pAddAddress : BasePage
     {
         private IRepository<Address> addressRepository = UnityHelper.UnityToT<IRepository<Address>>();
         private IRepository<SystemUser> systemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();

@@ -10,7 +10,7 @@ using friday.core;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListMerchant : System.Web.UI.Page
+    public partial class ListMerchant : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

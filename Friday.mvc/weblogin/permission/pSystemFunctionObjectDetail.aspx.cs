@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pSystemFunctionObjectDetail : System.Web.UI.Page
+    public partial class pSystemFunctionObjectDetail : BasePage
     {
         SystemFunctionObjectInRole systemFunctionObjectInRole;
         SystemFunctionObject systemFunctionObject;

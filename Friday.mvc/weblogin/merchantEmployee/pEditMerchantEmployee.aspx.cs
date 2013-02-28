@@ -13,7 +13,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditMerchantEmployee : System.Web.UI.Page
+    public partial class pEditMerchantEmployee : BasePage
     {
         private IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         private LoginUser lu;

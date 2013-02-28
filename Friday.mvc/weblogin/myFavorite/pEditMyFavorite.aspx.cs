@@ -11,7 +11,7 @@ using friday.core;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditMyFavorite : System.Web.UI.Page
+    public partial class pEditMyFavorite : BasePage
     {
         IRepository<MyFavorite> iMyFavoriteRepository = UnityHelper.UnityToT<IRepository<MyFavorite>>();
         IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();

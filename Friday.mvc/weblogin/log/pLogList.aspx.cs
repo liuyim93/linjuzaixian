@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.log
 {
-    public partial class pLogList : System.Web.UI.Page
+    public partial class pLogList : BasePage
     {
         protected long total;
         protected int pageNum;

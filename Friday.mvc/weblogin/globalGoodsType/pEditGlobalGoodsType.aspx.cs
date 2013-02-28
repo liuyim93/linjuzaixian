@@ -12,7 +12,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditGlobalGoodsType : System.Web.UI.Page
+    public partial class pEditGlobalGoodsType : BasePage
     {
         IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
 

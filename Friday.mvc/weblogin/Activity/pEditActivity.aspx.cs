@@ -12,7 +12,7 @@ using System.IO;
 
 namespace Friday.mvc.weblogin.activity
 {
-    public partial class pEditActivity : System.Web.UI.Page
+    public partial class pEditActivity : BasePage
     {
         IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
         private Activity activity;

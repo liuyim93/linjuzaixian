@@ -300,7 +300,6 @@
     </Compile>
     <Compile Include="weblogin\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -930,7 +929,6 @@
     </Compile>
     <Compile Include="weblogin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>

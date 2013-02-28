@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.school
 {
-    public partial class pAddSchool : System.Web.UI.Page
+    public partial class pAddSchool : BasePage
     {
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
     

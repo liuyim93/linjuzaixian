@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.feedBack
 {
-    public partial class pFeedBackList : System.Web.UI.Page
+    public partial class pFeedBackList : BasePage
     {
         protected long total;
         protected int pageNum;

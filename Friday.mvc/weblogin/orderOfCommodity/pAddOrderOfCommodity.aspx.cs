@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.orderOfCommodity
 {
-    public partial class pAddOrderOfCommodity : System.Web.UI.Page
+    public partial class pAddOrderOfCommodity : BasePage
     {
         protected string MyCommodityOrderID;
 

@@ -10,7 +10,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pGlobalGoodsTypeDetail : System.Web.UI.Page
+    public partial class pGlobalGoodsTypeDetail : BasePage
     {
         IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
 
