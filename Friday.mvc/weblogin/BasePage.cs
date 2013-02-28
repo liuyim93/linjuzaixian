@@ -17,14 +17,14 @@ namespace Friday.mvc
         protected ILogger iLogger = UnityHelper.UnityToT<ILogger>();
         protected IUserService iUserServie = UnityHelper.UnityToT<IUserService>();
         protected string tagName;
-        protected void  PermissionCheck()
+        protected void  PermissionCheck(PermissionTag tag=PermissionTag.Enable)
         {
             if (string.IsNullOrEmpty(tagName))
             {
                 iLogger.LogMessage("没有设置tagName", this.GetType().FullName, EventDataTypeCategory.异常日志);
                 throw new WeatException("没有设置tagName");
             }
-            if(!iPermissionManager.HasRight(tagName,iUserServie.GetLoginUser(new HttpContextWrapper(HttpContext.Current)).Id))
+            if(!iPermissionManager.HasRight(tagName,iUserServie.GetLoginUser(new HttpContextWrapper(HttpContext.Current)).Id,tag))
             {
                  AjaxResult result = new AjaxResult();
                 result.statusCode = "300";
@@ -34,6 +34,18 @@ namespace Friday.mvc
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
            }
+        }
+        protected bool PermissionValidate(PermissionTag tag=PermissionTag.Enable)
+        {
+            if (string.IsNullOrEmpty(tagName))
+            {
+                iLogger.LogMessage("没有设置tagName", this.GetType().FullName, EventDataTypeCategory.异常日志);
+                throw new WeatException("没有设置tagName");
+            }
+            if (iPermissionManager.HasRight(tagName, iUserServie.GetLoginUser(new HttpContextWrapper(HttpContext.Current)).Id,tag))
+                return true;
+            else
+                return false;
         }
     }
 }

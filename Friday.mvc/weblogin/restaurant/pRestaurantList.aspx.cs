@@ -38,6 +38,11 @@ namespace Friday.mvc.weblogin.restaurant
         {
            tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
            this.PermissionCheck();
+           if(!this.PermissionValidate(PermissionTag.Delete))
+           {
+               //this.liDelete
+               this.liDelete.Visible = false;
+           }
            iLogger.LogMessage("进入" + tagName + "页面", typeof(pRestaurantList).FullName, EventDataTypeCategory.信息 | EventDataTypeCategory.操作日志);
            if (Request.Params["flag"] != "alldelete")
            {

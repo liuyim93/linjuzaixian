@@ -85,11 +85,11 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li ><a class="add" href="restaurant/pAddRestaurant.aspx" title="添加餐馆" target="navTab" rel=""><span>
+        <li><a class="add" href="restaurant/pAddRestaurant.aspx" title="添加餐馆" target="navTab" rel=""><span>
             添加餐馆</span></a></li>
         <li><a class="edit" href="restaurant/pEditRestaurant.aspx?uid={id}" title="修改餐馆" rel="" target="navTab">
             <span>修改餐馆</span></a></li>
-        <li><a class="delete" href="restaurant/pRestaurantList.aspx?flag=alldelete&uid={id}"
+        <li id="liDelete" runat="server"><a class="delete" href="restaurant/pRestaurantList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除餐馆</span></a></li>
         <li class="line">line</li>
     </ul>
