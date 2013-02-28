@@ -13,7 +13,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.restaurant
 {
-    public partial class pEditRestaurant : System.Web.UI.Page
+    public partial class pEditRestaurant : BasePage
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
@@ -26,11 +26,22 @@ namespace Friday.mvc.weblogin.restaurant
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
+            string uid ;
+            this.tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+    
+            }
             restaurant = iRestaurantRepository.Load(uid);
-            UserTypeEnum  ust=UserTypeEnum.餐馆;
+            //UserTypeEnum  ust=UserTypeEnum.餐馆;
 
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id,ust);
+            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id,ust);
                
             if (Request.Params["__EVENTVALIDATION"] != null)
             {

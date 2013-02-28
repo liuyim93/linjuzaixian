@@ -200,7 +200,7 @@ namespace Friday.Test2
                 Name = "餐馆编辑管理",
                 Leaf = true,
                 ParentID = restaurantModel.Id,
-                MenuRoute = "restaurant/pRestaurantList.aspx",
+                MenuRoute = "restaurant/pEditRestaurant.aspx",
                 TLevel = 1,
                 ColIndex = 5
             };
@@ -852,7 +852,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject adminsfb in adminSFOCheckList)
                             {
                                 SystemFunctionObjectInRole adminSFunctionInRole = new SystemFunctionObjectInRole();
-                                adminSFunctionInRole.Role = sr;
+                                adminSFunctionInRole.SystemRole = sr;
                                 adminSFunctionInRole.SystemFunctionObject = adminsfb;
                                 adminSFunctionInRole.Deletable = adminsfb.DeletePermissionAvailable;
                                 adminSFunctionInRole.Editable = adminsfb.EditPermissionAvailable;
@@ -866,7 +866,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject customersfb in customerList)
                             {
                                 SystemFunctionObjectInRole customerSFunctionInRole = new SystemFunctionObjectInRole();
-                                customerSFunctionInRole.Role = sr;
+                                customerSFunctionInRole.SystemRole = sr;
                                 customerSFunctionInRole.SystemFunctionObject = customersfb;
                                 customerSFunctionInRole.Deletable = customersfb.DeletePermissionAvailable;
                                 customerSFunctionInRole.Editable = customersfb.EditPermissionAvailable;
@@ -880,7 +880,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject shopsfb in shopOwnerList)
                             {
                                 SystemFunctionObjectInRole shopSFunctionInRole = new SystemFunctionObjectInRole();
-                                shopSFunctionInRole.Role = sr;
+                                shopSFunctionInRole.SystemRole = sr;
                                 shopSFunctionInRole.SystemFunctionObject = shopsfb;
                                 shopSFunctionInRole.Deletable = shopsfb.DeletePermissionAvailable;
                                 shopSFunctionInRole.Editable = shopsfb.EditPermissionAvailable;
@@ -894,7 +894,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject restaurantsfb in restaurantList)
                             {
                                 SystemFunctionObjectInRole restaurantSFunctionInRole = new SystemFunctionObjectInRole();
-                                restaurantSFunctionInRole.Role = sr;
+                                restaurantSFunctionInRole.SystemRole = sr;
                                 restaurantSFunctionInRole.SystemFunctionObject = restaurantsfb;
                                 restaurantSFunctionInRole.Deletable = restaurantsfb.DeletePermissionAvailable;
                                 restaurantSFunctionInRole.Editable = restaurantsfb.EditPermissionAvailable;
@@ -908,7 +908,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject rentsfb in rentList)
                             {
                                 SystemFunctionObjectInRole rentSFunctionInRole = new SystemFunctionObjectInRole();
-                                rentSFunctionInRole.Role = sr;
+                                rentSFunctionInRole.SystemRole = sr;
                                 rentSFunctionInRole.SystemFunctionObject = rentsfb;
                                 rentSFunctionInRole.Deletable = rentsfb.DeletePermissionAvailable;
                                 rentSFunctionInRole.Editable = rentsfb.EditPermissionAvailable;
@@ -922,7 +922,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject shopEmpsfb in shopEmpList)
                             {
                                 SystemFunctionObjectInRole shopEmpSFunctionInRole = new SystemFunctionObjectInRole();
-                                shopEmpSFunctionInRole.Role = sr;
+                                shopEmpSFunctionInRole.SystemRole = sr;
                                 shopEmpSFunctionInRole.SystemFunctionObject = shopEmpsfb;
                                 shopEmpSFunctionInRole.Deletable = shopEmpsfb.DeletePermissionAvailable;
                                 shopEmpSFunctionInRole.Editable = shopEmpsfb.EditPermissionAvailable;
@@ -936,7 +936,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject restaurantEmpsfb in restaurantEmpList)
                             {
                                 SystemFunctionObjectInRole restaurantEmpSFunctionInRole = new SystemFunctionObjectInRole();
-                                restaurantEmpSFunctionInRole.Role = sr;
+                                restaurantEmpSFunctionInRole.SystemRole = sr;
                                 restaurantEmpSFunctionInRole.SystemFunctionObject = restaurantEmpsfb;
                                 restaurantEmpSFunctionInRole.Deletable = restaurantEmpsfb.DeletePermissionAvailable;
                                 restaurantEmpSFunctionInRole.Editable = restaurantEmpsfb.EditPermissionAvailable;
@@ -950,7 +950,7 @@ namespace Friday.Test2
                             foreach (SystemFunctionObject rentEmpsfb in rentEmpList)
                             {
                                 SystemFunctionObjectInRole rentEmpSFunctionInRole = new SystemFunctionObjectInRole();
-                                rentEmpSFunctionInRole.Role = sr;
+                                rentEmpSFunctionInRole.SystemRole = sr;
                                 rentEmpSFunctionInRole.SystemFunctionObject = rentEmpsfb;
                                 rentEmpSFunctionInRole.Deletable = rentEmpsfb.DeletePermissionAvailable;
                                 rentEmpSFunctionInRole.Editable = rentEmpsfb.EditPermissionAvailable;

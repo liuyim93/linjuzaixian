@@ -94,7 +94,7 @@ namespace Friday.Test2
            //2013-02-26 basilwang may need set enabled editable deletable based on SystemFunctionObject
            SystemFunctionObjectInRole systemFunctionObjectInRole = new SystemFunctionObjectInRole()
            {
-               Role = systemRole,
+               SystemRole = systemRole,
                SystemFunctionObject = systemFunctionObject,
                Enabled=true,
                Editable=true,

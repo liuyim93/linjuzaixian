@@ -61,18 +61,18 @@ namespace friday.core.components
                 case PermissionTag.Enable:
                     return (from x in role
                             where x.Enabled
-                            && getUserRoles(currentUserId).Contains(x.Role.Id)
+                            && getUserRoles(currentUserId).Contains(x.SystemRole.Id)
                             select x).FirstOrDefault() != null;
 
                 case PermissionTag.Edit:
                     return (from x in role
                             where x.Editable
-                            && getUserRoles(currentUserId).Contains(x.Role.Id)
+                            && getUserRoles(currentUserId).Contains(x.SystemRole.Id)
                             select x).FirstOrDefault() != null;
                 case PermissionTag.Delete:
                     return (from x in role
                             where x.Deletable
-                            && getUserRoles(currentUserId).Contains(x.Role.Id)
+                            && getUserRoles(currentUserId).Contains(x.SystemRole.Id)
                             select x).FirstOrDefault() != null;
 
             }

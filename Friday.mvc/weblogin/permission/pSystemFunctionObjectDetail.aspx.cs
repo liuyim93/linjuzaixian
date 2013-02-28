@@ -52,7 +52,7 @@ namespace Friday.mvc.weblogin
             if (systemFunctionObjectInRole == null)
             {
                 systemFunctionObjectInRole = new SystemFunctionObjectInRole(){
-                    Role = iSystemRoleRepository.Get(rid),
+                    SystemRole = iSystemRoleRepository.Get(rid),
                      SystemFunctionObject=systemFunctionObject
                 };
 
