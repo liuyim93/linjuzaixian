@@ -225,17 +225,17 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(merchantGoodsType);
             adminMenuCheckList.Add(merchantGoodsType);
 
-            SystemMenu permission = new SystemMenu()
+            SystemMenu roleMenu = new SystemMenu()
             {
-                Name = "功能模块管理",
+                Name = "菜单管理",
                 Leaf = true,
                 ParentID = baseInfo.Id,
-                MenuRoute = "permission/pSystemFunctionObjectTree.aspx",
+                MenuRoute = "roleMenu/pMenuButtonList.aspx",
                 TLevel = 1,
                 ColIndex = 4
             };
-            iSystemMenuRepository.SaveOrUpdate(permission);
-            adminMenuCheckList.Add(permission);
+            iSystemMenuRepository.SaveOrUpdate(roleMenu);
+            adminMenuCheckList.Add(roleMenu);
 
             SystemMenu systemUser = new SystemMenu()
             {
@@ -529,6 +529,31 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(dealBusiness);
             adminMenuCheckList.Add(dealBusiness);
+
+            //日志模块
+            SystemMenu logModel = new SystemMenu()
+            {
+                Name = "日志模块",
+                Leaf = false,
+                ParentID = null,
+                TLevel = 0,
+                ColIndex = 8
+
+            };
+            iSystemMenuRepository.SaveOrUpdate(logModel);
+            adminMenuCheckList.Add(logModel);
+
+            SystemMenu logManage = new SystemMenu()
+            {
+                Name = "日志管理",
+                Leaf = true,
+                ParentID = logModel.Id,
+                MenuRoute = "log/pLogList.aspx",
+                TLevel = 1,
+                ColIndex = 1
+            };
+            iSystemMenuRepository.SaveOrUpdate(logManage);
+            adminMenuCheckList.Add(logManage);
         }
 
         //角色和权限关联

@@ -9,7 +9,6 @@ namespace friday.core.repositories
 {
     public interface ISystemUserRepository : IRepository<SystemUser>
     {
-        IList<SystemUser> GetSystemUsersByPageList(int start, int limit, out long total);
         IList<SystemUser> Search(List<DataFilter> termList);
         IList<SystemUser> Search(List<DataFilter> termList, int start, int limit, out long total);
     }
