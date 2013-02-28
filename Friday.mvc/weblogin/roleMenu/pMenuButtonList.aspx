@@ -3,35 +3,25 @@
 <form id="pagerForm" action="#rel#">
 </form>
 <div class="panel" defh="50">
-
     <div class="searchBar">
         <form id="form" rel="pagerForm" method="post" runat="server">
         </form>
     </div>
 </div>
 
-<div class="page">
-    <div class="pageContent"> 
-    <div class="pageFormContent">
-      <div id="left" class="left">
-        <div class="panelBar">
-            <ul id="dictreeToolBar" class="toolBar">
-                <li><a id="addata" class="add" href="roleMenu/pAddMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>添加</span></a></li>
-                <li><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code=" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-                <li><a class="edit" href="roleMenu/pEditMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>修改</span></a></li> 
-                <li class="line">line</li>
-            </ul>
-        </div>
-         
-         <div id="dtree" >
-         </div>
-         </div>
-       <div id="C_right"></div>
-         
-    </div>
-    </div>
+<div class="panelBar">
+    <ul id="dictreeToolBar" class="toolBar">
+        <li><a id="addata" class="add" href="roleMenu/pAddMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>添加</span></a></li>
+        <li><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code=" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+        <li><a class="edit" href="roleMenu/pEditMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>修改</span></a></li> 
+        <li class="line">line</li>
+    </ul>
 </div>
-
+ 
+<div class="panel" defh="500" style="float:left; display:block; overflow:auto; width:400px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">      
+    <div id="dtree" >
+    </div>
+</div>  
 
 <script type="text/javascript">
 
