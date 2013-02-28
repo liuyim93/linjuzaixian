@@ -82,7 +82,7 @@ namespace Friday.Test2
            UserInRole userInRole = new UserInRole()
            {
                LoginUser = loginUser,
-               Role = systemRole
+               SystemRole = systemRole
            };
            IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
            iUserInRoleRepository.SaveOrUpdate(userInRole);

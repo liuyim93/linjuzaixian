@@ -45,9 +45,9 @@ namespace friday.core.repositories
             var menuList = (from user in this.Session.Query<LoginUser>()
                             where user.Id == userid
                             from roles in user.UserInRoles
-                            from roleinmenus in roles.Role.RoleInMenus
+                            from roleinmenus in roles.SystemRole.RoleInMenus
                             select roleinmenus
-                            ).Select(o=>o.Menu).Where(o=>o.ParentID==parentid && o.IsDelete==false).OrderBy(o=>o.ColIndex).Distinct().ToList();
+                            ).Select(o=>o.SystemMenu).Where(o=>o.ParentID==parentid && o.IsDelete==false).OrderBy(o=>o.ColIndex).Distinct().ToList();
             return menuList;
         }
 

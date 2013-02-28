@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         
 
-        public virtual SystemRole Role
+        public virtual SystemRole SystemRole
         {
             get;
 

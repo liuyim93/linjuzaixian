@@ -11,7 +11,7 @@ namespace friday.core
     {
         
 
-        public virtual SystemRole Role
+        public virtual SystemRole SystemRole
         {
             get;
 
@@ -19,7 +19,7 @@ namespace friday.core
 
         }
 
-        public virtual SystemMenu Menu
+        public virtual SystemMenu SystemMenu
         {
             get;
 

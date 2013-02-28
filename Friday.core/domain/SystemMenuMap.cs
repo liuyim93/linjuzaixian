@@ -11,7 +11,6 @@ namespace friday.core.domain
 
         public SystemMenuMap()
         {
-            Table("SystemMenu");
             Id(o => o.Id);
             Map(o => o.IsDelete);
             Map(o => o.CreateTime).Index("CreateTime");
@@ -26,7 +25,7 @@ namespace friday.core.domain
             Map(o => o.ColIndex);
             Map(o => o.IfiFrame);
             
-            HasMany<RoleInMenu>(b => b.RoleInMenus).KeyColumn("MenuID").Cascade.All().Inverse().LazyLoad().ForeignKeyConstraintName("Menu_RoleInMenu_FK");
+            HasMany<RoleInMenu>(b => b.RoleInMenus).Cascade.All().Inverse().LazyLoad();
         }
     }
 }

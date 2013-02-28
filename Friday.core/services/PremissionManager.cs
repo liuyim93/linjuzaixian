@@ -91,7 +91,7 @@ namespace friday.core.components
         {
             return (from x in UserInRole
                     where x.LoginUser.Id==userId
-                    select x.Role.Id ).ToList();
+                    select x.SystemRole.Id ).ToList();
         }
 
         private List<SystemFunctionObjectInRole> _RolePermissionList = null;

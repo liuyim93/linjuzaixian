@@ -29,24 +29,43 @@ namespace Friday.Test2
         [SetUp]
         public void init()
         {
-            //添加角色
+            //添加角色和admin账号
             add_Random_SystemRoles();
             //添加菜单
             add_Random_SystemMenus();
             //添加关联
             add_Random_RoleInMenus();
+            
         }
 
         //添加角色
         private void add_Random_SystemRoles()
         {
             IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+            IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
 
             SystemRole admin = new SystemRole()
             {
                 Name = "管理员",
             };
             iSystemRoleRepository.SaveOrUpdate(admin);
+
+            //添加管理员admin
+            LoginUser adminLoginUser = new LoginUser()
+            {
+                LoginName = "admin",
+                Password = "admin",
+                IsAdmin = true
+            };
+            iLoginUserRepository.SaveOrUpdate(adminLoginUser);
+
+            UserInRole userInRole = new UserInRole()
+            {
+                LoginUser = adminLoginUser,
+                SystemRole = admin
+            };
+            iUserInRoleRepository.SaveOrUpdate(userInRole);
 
             SystemRole customer = new SystemRole()
             {
@@ -107,6 +126,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(restaurantModel);
+            adminMenuCheckList.Add(restaurantModel);
 
             SystemMenu restaurantMange = new SystemMenu()
             {
@@ -118,6 +138,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(restaurantMange);
+            adminMenuCheckList.Add(restaurantMange);
 
             SystemMenu foodOrderDetail = new SystemMenu()
             {
@@ -129,6 +150,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(foodOrderDetail);
+            adminMenuCheckList.Add(foodOrderDetail);
 
             SystemMenu foodOrder = new SystemMenu()
             {
@@ -140,6 +162,7 @@ namespace Friday.Test2
                 ColIndex = 3
             };
             iSystemMenuRepository.SaveOrUpdate(foodOrder);
+            adminMenuCheckList.Add(foodOrder);
 
             SystemMenu food = new SystemMenu()
             {
@@ -151,6 +174,7 @@ namespace Friday.Test2
                 ColIndex = 4
             };
             iSystemMenuRepository.SaveOrUpdate(food);
+            adminMenuCheckList.Add(food);
 
             //基本信息模块
             SystemMenu baseInfo = new SystemMenu()
@@ -163,6 +187,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(baseInfo);
+            adminMenuCheckList.Add(baseInfo);
 
             SystemMenu activity = new SystemMenu()
             {
@@ -174,6 +199,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(activity);
+            adminMenuCheckList.Add(activity);
 
             SystemMenu globalGoodsType = new SystemMenu()
             {
@@ -185,6 +211,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(globalGoodsType);
+            adminMenuCheckList.Add(globalGoodsType);
 
             SystemMenu merchantGoodsType = new SystemMenu()
             {
@@ -196,6 +223,7 @@ namespace Friday.Test2
                 ColIndex = 3
             };
             iSystemMenuRepository.SaveOrUpdate(merchantGoodsType);
+            adminMenuCheckList.Add(merchantGoodsType);
 
             SystemMenu permission = new SystemMenu()
             {
@@ -207,6 +235,7 @@ namespace Friday.Test2
                 ColIndex = 4
             };
             iSystemMenuRepository.SaveOrUpdate(permission);
+            adminMenuCheckList.Add(permission);
 
             SystemMenu systemUser = new SystemMenu()
             {
@@ -218,6 +247,7 @@ namespace Friday.Test2
                 ColIndex = 5
             };
             iSystemMenuRepository.SaveOrUpdate(systemUser);
+            adminMenuCheckList.Add(systemUser);
 
             SystemMenu merchantMember = new SystemMenu()
             {
@@ -229,6 +259,7 @@ namespace Friday.Test2
                 ColIndex = 6
             };
             iSystemMenuRepository.SaveOrUpdate(merchantMember);
+            adminMenuCheckList.Add(merchantMember);
 
             SystemMenu loginUser = new SystemMenu()
             {
@@ -240,6 +271,7 @@ namespace Friday.Test2
                 ColIndex = 7
             };
             iSystemMenuRepository.SaveOrUpdate(loginUser);
+            adminMenuCheckList.Add(loginUser);
 
             SystemMenu systemRole = new SystemMenu()
             {
@@ -251,6 +283,7 @@ namespace Friday.Test2
                 ColIndex = 8
             };
             iSystemMenuRepository.SaveOrUpdate(systemRole);
+            adminMenuCheckList.Add(systemRole);
 
             SystemMenu merchantCategory = new SystemMenu()
             {
@@ -262,6 +295,7 @@ namespace Friday.Test2
                 ColIndex = 9
             };
             iSystemMenuRepository.SaveOrUpdate(merchantCategory);
+            adminMenuCheckList.Add(merchantCategory);
 
             SystemMenu school = new SystemMenu()
             {
@@ -273,6 +307,7 @@ namespace Friday.Test2
                 ColIndex = 10
             };
             iSystemMenuRepository.SaveOrUpdate(school);
+            adminMenuCheckList.Add(school);
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
@@ -285,6 +320,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(messageModel);
+            adminMenuCheckList.Add(messageModel);
 
             SystemMenu message = new SystemMenu()
             {
@@ -296,6 +332,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(message);
+            adminMenuCheckList.Add(message);
 
             //反馈模块
             SystemMenu feedBackModel = new SystemMenu()
@@ -308,6 +345,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(feedBackModel);
+            adminMenuCheckList.Add(feedBackModel);
 
             SystemMenu feedBack = new SystemMenu()
             {
@@ -319,6 +357,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(feedBack);
+            adminMenuCheckList.Add(feedBack);
 
             SystemMenu feedBackReply = new SystemMenu()
             {
@@ -330,6 +369,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(feedBackReply);
+            adminMenuCheckList.Add(feedBackReply);
 
             //租房模块
             SystemMenu rentModel = new SystemMenu()
@@ -342,6 +382,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(rentModel);
+            adminMenuCheckList.Add(rentModel);
 
             SystemMenu rentMange = new SystemMenu()
             {
@@ -353,6 +394,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(rentMange);
+            adminMenuCheckList.Add(rentMange);
 
             SystemMenu houseOrderDetail = new SystemMenu()
             {
@@ -364,6 +406,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(houseOrderDetail);
+            adminMenuCheckList.Add(houseOrderDetail);
 
             SystemMenu houseOrder = new SystemMenu()
             {
@@ -375,6 +418,7 @@ namespace Friday.Test2
                 ColIndex = 3
             };
             iSystemMenuRepository.SaveOrUpdate(houseOrder);
+            adminMenuCheckList.Add(houseOrder);
 
             SystemMenu house = new SystemMenu()
             {
@@ -386,6 +430,7 @@ namespace Friday.Test2
                 ColIndex = 4
             };
             iSystemMenuRepository.SaveOrUpdate(house);
+            adminMenuCheckList.Add(house);
 
             //商店模块
             SystemMenu shopModel = new SystemMenu()
@@ -398,6 +443,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(shopModel);
+            adminMenuCheckList.Add(restaurantMange);
 
             SystemMenu shopMange = new SystemMenu()
             {
@@ -409,6 +455,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(shopMange);
+            adminMenuCheckList.Add(shopMange);
 
             SystemMenu commodityOrderDetail = new SystemMenu()
             {
@@ -420,6 +467,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(commodityOrderDetail);
+            adminMenuCheckList.Add(commodityOrderDetail);
 
             SystemMenu commodityOrder = new SystemMenu()
             {
@@ -431,6 +479,7 @@ namespace Friday.Test2
                 ColIndex = 3
             };
             iSystemMenuRepository.SaveOrUpdate(commodityOrder);
+            adminMenuCheckList.Add(commodityOrder);
 
             SystemMenu commodity = new SystemMenu()
             {
@@ -442,6 +491,7 @@ namespace Friday.Test2
                 ColIndex = 4
             };
             iSystemMenuRepository.SaveOrUpdate(commodity);
+            adminMenuCheckList.Add(commodity);
 
             //统计模块
             SystemMenu statisticModel = new SystemMenu()
@@ -454,6 +504,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(statisticModel);
+            adminMenuCheckList.Add(statisticModel);
 
             SystemMenu inputData = new SystemMenu()
             {
@@ -465,6 +516,7 @@ namespace Friday.Test2
                 ColIndex = 1
             };
             iSystemMenuRepository.SaveOrUpdate(inputData);
+            adminMenuCheckList.Add(inputData);
 
             SystemMenu dealBusiness = new SystemMenu()
             {
@@ -475,14 +527,16 @@ namespace Friday.Test2
                 TLevel = 1,
                 ColIndex = 2
             };
-
             iSystemMenuRepository.SaveOrUpdate(dealBusiness);
+            adminMenuCheckList.Add(dealBusiness);
         }
 
         //角色和权限关联
         private void add_Random_RoleInMenus()
         {
             IRepository<RoleInMenu> iRoleInMenuRepository = UnityHelper.UnityToT<IRepository<RoleInMenu>>();
+            IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+            IList<SystemRole> systemRoleList = iSystemRoleRepository.GetAll();
 
             foreach (SystemRole sr in systemRoleList)
             {
@@ -493,8 +547,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in adminMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -504,8 +558,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in customerMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -515,8 +569,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in shopOwnerMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -526,8 +580,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in restaruantOwnerMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -537,8 +591,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in rentOwnerMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -548,8 +602,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in shopMemberMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -559,8 +613,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in restaurantMemberMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;
@@ -570,8 +624,8 @@ namespace Friday.Test2
                             foreach (SystemMenu sm in rentMemberMenuCheckList)
                             {
                                 RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.Menu = sm;
-                                roleInMenu.Role = sr;
+                                roleInMenu.SystemMenu = sm;
+                                roleInMenu.SystemRole = sr;
                                 iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
                             }
                             break;

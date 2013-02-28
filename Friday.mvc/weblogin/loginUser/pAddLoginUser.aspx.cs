@@ -43,7 +43,7 @@ namespace Friday.mvc.weblogin
                 foreach (string aid in sArray)
                 {
                     UserInRole userInRole = new UserInRole();
-                    userInRole.Role = iSystemRoleRepository.Get(aid);
+                    userInRole.SystemRole = iSystemRoleRepository.Get(aid);
                     userInRole.LoginUser = loginUser;
                     iUserInRoleRepository.SaveOrUpdate(userInRole);
                 }

@@ -17,8 +17,8 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.ButtonID);
 
-            References<SystemRole>(o => o.Role).Not.LazyLoad().Column("RoleID");
-            References<SystemMenu>(o => o.Menu).Column("MenuID");      
+            References<SystemRole>(o => o.SystemRole).Not.LazyLoad();
+            References<SystemMenu>(o => o.SystemMenu);      
         }
     }
 }

@@ -81,8 +81,8 @@ namespace Friday.mvc.weblogin.permission
                 SystemMenu menu = SystemMenuRepository.Get(menulist[i]);
 
                 cr = new RoleInMenu();
-                cr.Menu = menu;
-                cr.Role = role;
+                cr.SystemMenu = menu;
+                cr.SystemRole = role;
                 cr.ButtonID = null;
                 RoleInMenuRepository.SaveOrUpdate(cr);
 
