@@ -13,7 +13,7 @@ namespace Friday.mvc.weblogin
 {
     public partial class pSelectGlobalGoodsType : System.Web.UI.Page
     {
-        IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
+        IMerchantGoodsTypeRepository iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
         IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
         IGlobalGoodsTypeRepository globalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
 
@@ -22,6 +22,7 @@ namespace Friday.mvc.weblogin
         private string mtype="";
         private Merchant merchant;
         public string mGoodsIdSet;
+        public string mGoodsNameSet;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -36,22 +37,27 @@ namespace Friday.mvc.weblogin
 
         private void SaveMerchantGoodsType()
         {
+            
 
             mGoodsIdSet = this.IDSet.Value;
-            string[] sArray = mGoodsIdSet.Split(',');
-            foreach (var i in sArray)
+            mGoodsNameSet = this.NameSet.Value;
+            string[] sIdArray = mGoodsIdSet.Split(',');
+            string[] sNameArray = mGoodsNameSet.Split(',');
+            foreach (var i in sNameArray)
             {
-                if (merchantRepository.Get(i) ==null)
+                if (iMerchantGoodsTypeRepository.IsHaveTheSameName(i))
                 {
+                    //result.statusCode = "300";
+                    //result.message = "已存在此商品类型";
+                }
+                else 
+                {                  
                     merchantGoodsType = new MerchantGoodsType();
                     merchantGoodsType.Merchant = merchantRepository.Get(mid);
-                    merchantGoodsType.GoodsType = globalGoodsTypeRepository.Get(i).GoodsType;
+                    merchantGoodsType.GoodsType =i;
                     iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
                 }
-                
             }
-            
-          
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

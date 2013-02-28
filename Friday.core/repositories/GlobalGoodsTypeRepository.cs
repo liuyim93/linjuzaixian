@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NHibernate;
 using friday.core.components;
+using NHibernate.Linq;
 
 namespace friday.core.repositories
 {
@@ -31,8 +32,7 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<GlobalGoodsType>();
         }
-
-
+      
     }
 
 }
