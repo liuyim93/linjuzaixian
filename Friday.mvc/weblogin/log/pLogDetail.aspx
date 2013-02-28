@@ -14,7 +14,7 @@
            </ul>
         </div>
     </div>
-    <div class="tabsContent" style="height: 250px;">
+    <div class="tabsContent" style="height: 380px;">
          <div>
          <div  style=" height:180px">
              <input type="hidden" id="Hidden1" size="30" runat="server" />
@@ -85,7 +85,7 @@
             <p>
                 <label>
                     FormattedMessage：</label>
-                <input type="text" id="FormattedMessage" size="30" class="required textInput gray" runat="server" />
+                <textarea  id="FormattedMessage" cols="150" rows="8" class="textInput gray" runat="server" />
             </p>
            
             </div>

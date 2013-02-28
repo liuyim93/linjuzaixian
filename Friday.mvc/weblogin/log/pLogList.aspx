@@ -1,53 +1,46 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pLogList.aspx.cs" Inherits="Friday.mvc.weblogin.log.pLogList" %>
 
-
-
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
 </form>
-
 <div class="panel collapse" defh="75">
     <h1>
         查询条件</h1>
     <div class="searchBar">
         <form id="form" rel="pagerForm" method="post" runat="server">
         <table class="searchContent">
-           <tr>
-            <td>
-                   <label>Title:</label>
-                    <input  type="text" name="Title" class="textInput" value="<%=title %>"
-                         />
-                </td>
-               
-               <td>                   
-                                     
-                      <label>
-                         CategoryName:</label>
-                     <select name="CategoryName" id="CategoryName" runat="server"  value="<%=categoryName %>">
-                           <option value="">请选择</option>
-                    <option value="1">调试</option>
-                    <option value="2">信息</option>
-                    <option value="3">操作日志</option>
-                    <option value="4">异常</option>
-                     </select>
-                </td> 
-               
-               
-            
-            </tr>
-             <tr>
-             
-            <td>
-                    <label>起始日期:</label>
-                    <input  type="text" name="StartDate" class="date textInput readonly" readonly="true" value="<%=startDate %>"
-                        value="" />
+            <tr>
+                <td>
+                    <label>
+                        Title:</label>
+                    <input type="text" name="Title" class="textInput" value="<%=title %>" />
                 </td>
                 <td>
-                    <label>截止日期:</label>
-                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true" value="<%=endDate %>"
-                        value="" />
+                    <label>
+                        CategoryName:</label>
+                    <select name="CategoryName" id="CategoryName" runat="server" value="<%=categoryName %>">
+                        <option value="">请选择</option>
+                        <option value="1">调试</option>
+                        <option value="2">信息</option>
+                        <option value="3">操作日志</option>
+                        <option value="4">异常</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>
+                        起始日期:</label>
+                    <input type="text" name="StartDate" class="date textInput readonly" readonly="true"
+                        value="<%=startDate %>" value="" />
+                </td>
+                <td>
+                    <label>
+                        截止日期:</label>
+                    <input type="text" name="EndDate" class="date textInput readonly" readonly="true"
+                        value="<%=endDate %>" value="" />
                 </td>
             </tr>
         </table>
@@ -72,10 +65,9 @@
         </form>
     </div>
 </div>
-
 <div class="panelBar">
     <ul class="toolBar">
-       <%-- <li><a class="add" href="log/pAddLog.aspx" title="添加日志 target="navTab" rel=""><span>
+        <%-- <li><a class="add" href="log/pAddLog.aspx" title="添加日志 target="navTab" rel=""><span>
             添加日志</span></a></li>
         <li><a class="edit" href="log/pEditLog.aspx?uid={id}" title="修改日志" rel="" target="navTab">
             <span>修改日志</span></a></li>
@@ -86,7 +78,7 @@
     </ul>
 </div>
 <div id="logList">
-    <table class="table" layouth="440">
+    <table class="table" layouth="580">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
@@ -96,13 +88,13 @@
                        <th width="10%" align="center">名称</th> 
                               
 
-                   <th width="10%" align="center">线程名称</th>
+                   <%--<th width="10%" align="center">线程名称</th>--%>
                       <th width="10%" align="center">消息内容</th>     
-                             <th width="10%" align="center">优先级</th>
-                        <th width="10%" align="center">进程名称</th> 
+                          <%--   <th width="10%" align="center">优先级</th>--%>
+                       <%-- <th width="10%" align="center">进程名称</th> --%>
                    <th width="10%" align="center">时间</th>
-                        <th width="10%" align="center">机器名称</th>
-                        <th width="10%" align="center">ThreadName</th> 
+                        <%--<th width="10%" align="center">机器名称</th>--%>
+                        <%--<th width="10%" align="center">ThreadName</th> --%>
                 </tr>
                 </thead>
                 <tbody> 
@@ -117,14 +109,14 @@
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Title")%></td>              
                        
 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadName")%></td>
+                       <%-- <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadName")%></td>--%>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Message")%></td> 
-                       <td align="center"><%#DataBinder.Eval(Container.DataItem, "Priority")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "ProcessName")%></td> 
+                     <%--  <td align="center"><%#DataBinder.Eval(Container.DataItem, "Priority")%></td> --%>
+                      <%--  <td align="center"><%#DataBinder.Eval(Container.DataItem, "ProcessName")%></td> --%>
                          <%--2013-02-28 basilwang we need GMT+8 --%>
                          <td align="center"><%#Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "Timestamp")).AddHours(8)%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "MachineName")%></td>  
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadName")%></td>                      
+                        <%--<td align="center"><%#DataBinder.Eval(Container.DataItem, "MachineName")%></td>--%>  
+                        <%--<td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadName")%></td>   --%>                   
 				</tr>
 			      
             </ItemTemplate>
@@ -143,15 +135,12 @@
         </select>
         <span>条，共<%=total %>条</span>
     </div>
-    <div class="pagination"  totalcount="<%=total %>"
-        numperpage="<%=numPerPage.Value %>" currentpage="<%=pageNum %>">
+    <div class="pagination" totalcount="<%=total %>" numperpage="<%=numPerPage.Value %>"
+        currentpage="<%=pageNum %>">
     </div>
 </div>
-
 <div id="jbsxBox3" class="pageFormContent" style="">
 </div>
-
-
 <script type="text/javascript">
 
     $(function () {
