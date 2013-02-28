@@ -36,12 +36,18 @@ namespace friday.core.repositories
 //                 .SetBoolean("isdelete", false)
 //                 .List<SystemMenu>();
 
+
+            /* 2013-02-27 basilwang must use distinct after orderby 
+             * the reference is http://www.ienablemuch.com/2010/12/performing-order-by-on-distinct-on-linq.html
+             *Performing ORDER BY on DISTINCT on Linq to NHibernate(version 3)
+             *
+             */
             var menuList = (from user in this.Session.Query<LoginUser>()
                             where user.Id == userid
                             from roles in user.UserInRoles
                             from roleinmenus in roles.Role.RoleInMenus
                             select roleinmenus
-                            ).Select(o=>o.Menu).Where(o=>o.ParentID==parentid).ToList();
+                            ).Select(o=>o.Menu).Where(o=>o.ParentID==parentid && o.IsDelete==false).OrderBy(o=>o.ColIndex).Distinct().ToList();
             return menuList;
         }
 
