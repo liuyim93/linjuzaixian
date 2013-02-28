@@ -15,16 +15,6 @@ namespace friday.core.repositories
 {
     public class SystemUserRepository : Repository<SystemUser>,ISystemUserRepository
     {
-        public IList<SystemUser> GetSystemUsersByPageList(int start, int limit, out long total)
-        {
-            var q = Session.CreateQuery(@"select distinct u from SystemUser as u where u.IsDelete=false and u.IsAnonymous=false order by CreateTime desc")
-                  .SetFirstResult(start)
-                  .SetMaxResults(limit).List<SystemUser>();
-            total = Session.CreateQuery(@"select count(distinct u) from SystemUser as u where u.IsDelete=false and u.IsAnonymous=false ")
-                 .UniqueResult<long>();
-
-            return q;
-        }
 
         protected virtual ICriteria Query
         {
