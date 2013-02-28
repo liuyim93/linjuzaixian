@@ -58,21 +58,39 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlSelect IsAdminV;
         
         /// <summary>
-        /// NameSet 控件。
+        /// SystemRole 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText NameSet;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SystemRole;
         
         /// <summary>
-        /// IDSet 控件。
+        /// SystemRoleID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden IDSet;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden SystemRoleID;
+        
+        /// <summary>
+        /// Merchant 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Merchant;
+        
+        /// <summary>
+        /// MerchantID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MerchantID;
     }
 }

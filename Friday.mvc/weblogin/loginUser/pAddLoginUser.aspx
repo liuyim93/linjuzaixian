@@ -33,13 +33,20 @@
                 <p>
                     <label>
                         用户角色：</label>
-                    <input type="text" id="NameSet" size="35"  
+                    <input type="text" id="SystemRole" size="35"  
                         runat="server" readonly="true" />
-                    <input type="hidden" id="IDSet" size="35"  
+                    <input type="hidden" id="SystemRoleID" size="35"  
                     runat="server" readonly="true" />
-                    <a class="btnLook" href="MultiListSystemRole.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择角色</a>
+                    <a class="btnLook" href="ListSystemRole.aspx"  rel=""  lookupgroup="">选择角色</a>
                 </p>
-
+                  <p>
+                <label>
+                    商铺名称：</label>
+                <input type="text" id="Merchant" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                 <input type="hidden" id="MerchantID"  runat="server" />
+                <a class="btnLook" href="ListMerchant.aspx" rel="" lookupgroup="">选择商铺</a>
+            </p>
 
                  <%--<p>
                      <label>

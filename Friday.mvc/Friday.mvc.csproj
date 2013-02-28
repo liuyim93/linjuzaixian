@@ -935,6 +935,13 @@
     <Compile Include="weblogin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSystemRole.aspx.cs">
+      <DependentUpon>ListSystemRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSystemRole.aspx.designer.cs">
+      <DependentUpon>ListSystemRole.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1881,6 +1888,7 @@
     <Content Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx" />
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
+    <Content Include="weblogin\ListSystemRole.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

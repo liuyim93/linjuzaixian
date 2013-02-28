@@ -35,19 +35,19 @@ namespace Friday.mvc.weblogin
             iLoginUserRepository.SaveOrUpdate(loginUser);
 
             string roleID = "";
-            if (this.IDSet.Value != null && this.IDSet.Value != "")
-            {
-                roleID = this.IDSet.Value;
-                string[] sArray = roleID.Split(',');
+            //if (this.IDSet.Value != null && this.IDSet.Value != "")
+            //{
+            //    roleID = this.IDSet.Value;
+            //    string[] sArray = roleID.Split(',');
 
-                foreach (string aid in sArray)
-                {
-                    UserInRole userInRole = new UserInRole();
-                    userInRole.SystemRole = iSystemRoleRepository.Get(aid);
-                    userInRole.LoginUser = loginUser;
-                    iUserInRoleRepository.SaveOrUpdate(userInRole);
-                }
-            }
+            //    foreach (string aid in sArray)
+            //    {
+            //        UserInRole userInRole = new UserInRole();
+            //        userInRole.SystemRole = iSystemRoleRepository.Get(aid);
+            //        userInRole.LoginUser = loginUser;
+            //        iUserInRoleRepository.SaveOrUpdate(userInRole);
+            //    }
+            //}
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
