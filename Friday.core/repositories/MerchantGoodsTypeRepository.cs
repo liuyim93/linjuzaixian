@@ -13,26 +13,13 @@ using NHibernate.Linq;
 namespace friday.core.repositories
 {
     public class MerchantGoodsTypeRepository : Repository<MerchantGoodsType>, friday.core.repositories.IMerchantGoodsTypeRepository
-    {        
-//        public IList<MerchantGoodsType> GetGoodsTypeByMerchantIDbyHql(string mid)
-//        {
-//            var q = Session.CreateQuery(@"select mgt from MerchantGoodsType as mgt
-//                     where Merchant_id=:mchid")
-//                      .SetString("mchid", mid);
-//            return q.List<MerchantGoodsType>();
-//        }
+    {       
+
         public IList<MerchantGoodsType> GetGoodsTypeByMerchantID(string mid)
         {
             var list = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id== mid).ToList();
             return list;
         }
-//        public MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid)
-//        {
-//            var q = Session.CreateQuery(@"select mgt from MerchantGoodsType as mgt
-//                     where GoodsType=:mGoodsType and Merchant_id=:mchtid")
-//                      .SetString("mGoodsType", mname).SetString("mchtid",mid);
-//            return q.UniqueResult<MerchantGoodsType>();
-//        }
         public MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid)
         {
             var m = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id == mid && o.GoodsType==mname).SingleOrDefault();

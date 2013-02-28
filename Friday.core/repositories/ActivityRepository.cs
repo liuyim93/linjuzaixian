@@ -14,15 +14,8 @@ using friday.core.EnumType;
 namespace friday.core.repositories
 {
     public class ActivityRepository : Repository<Activity>, IActivityRepository
-    {
-        
-        //public Activity SearchByShortName(string name)
-        //{
-        //    var q = Session.CreateQuery(@"select at  from   Activity as  at   where  at.Name=:attname ")
-        //              .SetString("spname", name).UniqueResult<Activity>(); ;
-
-        //    return q;
-        //}
+    {        
+       
         public Activity SearchByShortName(string name)
         {
             var m = (from x in this.Session.Query<Activity>() select x).Where(o => o.Name == name).SingleOrDefault();

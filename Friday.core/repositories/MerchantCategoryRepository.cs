@@ -16,12 +16,6 @@ namespace friday.core.repositories
     public class MerchantCategoryRepository : Repository<MerchantCategory>, IMerchantCategoryRepository
     {
 
-        //public MerchantCategory SearchByMerchantCategoryName(string name) 
-        //{
-        //    var q = Session.CreateQuery(@"select mc  from   MerchantCategory as  mc   where  mc.MerchantCategoryName=:mCname ")
-        //                .SetString("mCname", name).UniqueResult<MerchantCategory>(); ;
-        //    return q;        
-        //}
         public MerchantCategory SearchByMerchantCategoryName(string mname)
         {
             var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantCategoryName==mname).SingleOrDefault();

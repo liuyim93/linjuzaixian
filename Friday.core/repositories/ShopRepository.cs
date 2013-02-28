@@ -16,14 +16,6 @@ namespace friday.core.repositories
     public class ShopRepository : Repository<Shop>, IShopRepository
     {
 
-
-        //public Shop SearchByShortName(string name)
-        //{
-        //    var q = Session.CreateQuery(@"select sp  from   Shop as  sp   where  sp.ShortName=:spshortname ")
-        //              .SetString("spshortname", name).UniqueResult<Shop>(); ;
-
-        //    return q;
-        //}
         public Shop SearchByShortName(string name)
         {
             var m = (from x in this.Session.Query<Shop>() select x).Where(o => o.ShortName== name).SingleOrDefault();

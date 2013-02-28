@@ -16,13 +16,6 @@ namespace friday.core.repositories
     public class RentRepository : Repository<Rent>, IRentRepository
     {
 
-        //public Rent SearchByShortName(string name)
-        //{
-        //    var q = Session.CreateQuery(@"select rt  from   Rent as  rt   where  rt.ShortName=:rshortname ")
-        //              .SetString("rshortname", name).UniqueResult<Rent>(); ;
-
-        //    return q;
-        //}
         public Rent SearchByShortName(string name)
         {
             var m = (from x in this.Session.Query<Rent>() select x).Where(o => o.ShortName == name).SingleOrDefault();
@@ -51,12 +44,7 @@ namespace friday.core.repositories
                  .List<Rent>();
         }
 
-        //public Rent SearchByShortName(string shortName)
-        //{
-        //    return Query.Add(Restrictions.Eq("ShortName", shortName)).Add(Restrictions.Eq("IsDelete", false)).List<Rent>().FirstOrDefault();
-        //}
-
-
+       
     }
 
 }

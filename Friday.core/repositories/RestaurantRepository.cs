@@ -17,13 +17,6 @@ namespace friday.core.repositories
     {
 
 
-        //public Restaurant SearchByShortName(string  name) 
-        //{
-        //    var q = Session.CreateQuery(@"select rt  from   Restaurant as  rt   where  rt.ShortName=:rshortname ")
-        //              .SetString("rshortname", name).UniqueResult<Restaurant>(); ;
-           
-        //    return q;
-        //}
         public Restaurant SearchByShortName(string name)
         {
             var m = (from x in this.Session.Query<Restaurant>() select x).Where(o => o.ShortName == name).SingleOrDefault();
@@ -53,10 +46,7 @@ namespace friday.core.repositories
                  .List<Restaurant>();
         }
 
-        //public Restaurant SearchByShortName(string shortName)
-        //{
-        //    return Query.Add(Restrictions.Eq("ShortName", shortName)).Add(Restrictions.Eq("IsDelete", false)).List<Restaurant>().FirstOrDefault();
-        //}
+  
 
 
     }
