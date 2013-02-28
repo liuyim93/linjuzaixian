@@ -156,6 +156,9 @@
       <DependentUpon>pAddAddress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="weblogin\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="weblogin\commodity\pAddCommodity.aspx.cs">
       <DependentUpon>pAddCommodity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

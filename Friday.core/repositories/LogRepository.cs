@@ -41,7 +41,7 @@ namespace friday.core.repositories
 
           public Log GerLogByLogID(string id)
           {
-              var m = (from x in this.Session.Query<Log>() select x).Where(o => o.LogID == Convert.ToInt32(id) && o.IsDelete == false).SingleOrDefault();
+              var m = (from x in this.Session.Query<Log>() select x).Where(o => o.LogID == Convert.ToInt32(id)).SingleOrDefault();
               return m;
           }
 

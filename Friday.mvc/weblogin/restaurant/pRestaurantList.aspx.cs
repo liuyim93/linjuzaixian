@@ -14,7 +14,7 @@ using friday.core.utils;
 
 namespace Friday.mvc.weblogin.restaurant
 {
-    public partial class pRestaurantList : System.Web.UI.Page
+    public partial class pRestaurantList : BasePage
     {
         protected long total;
         protected int pageNum;
@@ -33,13 +33,11 @@ namespace Friday.mvc.weblogin.restaurant
         protected string loginName;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
         IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();
-        SystemFunctionObjectService systemFunctionObjectService = (SystemFunctionObjectService)UnityHelper.UnityToT<ISystemFunctionObjectService>();
-        IPermissionManager iPermissionManager = UnityHelper.UnityToT<IPermissionManager>();
-        ILogger iLogger = UnityHelper.UnityToT<ILogger>();
-        private string tagName;
+
         protected void Page_Load(object sender, EventArgs e)
         {
            tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
+           this.PermissionCheck();
            iLogger.LogMessage("进入" + tagName + "页面", typeof(pRestaurantList).FullName, EventDataTypeCategory.信息 | EventDataTypeCategory.操作日志);
            if (Request.Params["flag"] != "alldelete")
            {
