@@ -397,17 +397,17 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
-        protected ICriteria SearchBySystemFunctionObjectInRole(ICriteria query, List<DataFilter> termList, bool isSelf)
+        protected ICriteria SearchBySystemFunctionObject(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
-            return SearchBySystemFunctionObjectInRole(query, termList);
+            return SearchBySystemFunctionObject(query, termList);
         }
-        protected ICriteria SearchBySystemFunctionObjectInRole(ICriteria query, List<DataFilter> termList)
+        protected ICriteria SearchBySystemFunctionObject(ICriteria query, List<DataFilter> termList)
         {
             int deepIndex = 0;
             string parentSearch = string.Empty;
-            return SearchBySystemFunctionObjectInRole(query, termList, ref deepIndex, ref parentSearch);
+            return SearchBySystemFunctionObject(query, termList, ref deepIndex, ref parentSearch);
         }
-        protected ICriteria SearchBySystemFunctionObjectInRole(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        protected ICriteria SearchBySystemFunctionObject(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
         {
             string notself = null;
 
@@ -415,18 +415,18 @@ namespace friday.core.repositories
             string alias = string.Empty;
             if (deepIndex > 0)
             {
-                notself = "systemFunctionObjectInRole.";
+                notself = "systemFunctionObject.";
                 if (deepIndex == 1)
                 {
-                    parentSearch = "SystemFunctionObjectInRole";
+                    parentSearch = "SystemFunctionObject";
                 }
                 else
                 {
-                    parentSearch = parentSearch + ".SystemFunctionObjectInRole";
+                    parentSearch = parentSearch + ".SystemFunctionObject";
 
                 }
                 alias = parentSearch;
-                query.CreateAlias(alias, "systemFunctionObjectInRole");
+                query.CreateAlias(alias, "systemFunctionObject");
             }
             deepIndex++;
             if (termList.Count != 0)
@@ -435,11 +435,12 @@ namespace friday.core.repositories
                 foreach (DataFilter df in termList)
                 {
 
-                    if (df.type.Equals("Title"))
+                    if (df.type.Equals("FunctionObjectName"))
                     {
-                        query.Add(Restrictions.Like(notself + "Title", df.value, MatchMode.Anywhere));
+                        query.Add(Restrictions.Eq(notself + "FunctionObjectName", df.value));                    
                         continue;
                     }
+
 
                 }
             }

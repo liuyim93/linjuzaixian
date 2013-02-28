@@ -16,8 +16,7 @@ namespace friday.core.repositories
     {
 
         SystemFunctionObjectInRole Get(string SystemRoleId, string SystemFunctionObjectId);
-        IList<SystemFunctionObjectInRole> Search(List<DataFilter> termList);
-        IList<SystemFunctionObjectInRole> Search(List<DataFilter> termList, int start, int limit, out long total);
+       
        
     }
 }
