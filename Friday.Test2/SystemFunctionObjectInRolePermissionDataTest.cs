@@ -106,11 +106,11 @@ namespace Friday.Test2
             //添加管理员控制的所有功能键对象
             adminMenuCheckList = iSystemFunctionObjectRepository.GetAll();
 
-            string[] customerArr = { "基本信息", "顾客账号维护" };
+            string[] customerArr = { "基本信息模块", "顾客账号维护" };
             foreach (var i in customerArr) 
             {            
             List<DataFilter> customerFilterList = new List<DataFilter>();
-            //对于Customer 取值 FunctionObjectName： 基本信息 or 顾客账号维护          
+            //对于Customer 取值 FunctionObjectName： 基本信息模块 or 顾客账号维护          
             customerFilterList.Add(new DataFilter()
              {
                  type = "FunctionObjectName",
@@ -125,7 +125,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
-            string[] shopArr = { "基本信息", "商店管理", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商家账号维护" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopFilterList = new List<DataFilter>();
@@ -142,7 +142,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopEmpList = new List<SystemFunctionObject>();
-            string[] shopEmpArr = { "基本信息", "商店管理", "商品维护", "商品订单维护", "商品订单明细维护" };
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopEmpFilterList = new List<DataFilter>();
@@ -159,7 +159,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> restaurantList = new List<SystemFunctionObject>();
-            string[] restaurantArr = { "基本信息", "餐馆管理", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护" };
+            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护" };
             foreach (var i in restaurantArr)
             {
                 List<DataFilter> restaurantFilterList = new List<DataFilter>();
@@ -176,7 +176,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> restaurantEmpList = new List<SystemFunctionObject>();
-            string[] restaurantEmpArr = { "基本信息", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护" };
+            string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护" };
             foreach (var i in restaurantEmpArr)
             {
                 List<DataFilter> restaurantEmpFilterList = new List<DataFilter>();
@@ -193,7 +193,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> rentList = new List<SystemFunctionObject>();
-            string[] rentArr = { "基本信息", "租房管理", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护" };
+            string[] rentArr = { "基本信息模块", "租房模块", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护" };
             foreach (var i in rentArr)
             {
                 List<DataFilter> rentFilterList = new List<DataFilter>();
@@ -210,7 +210,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> rentEmpList = new List<SystemFunctionObject>();
-            string[] rentEmpArr = { "基本信息", "租房管理", "房屋维护", "租房订单维护", "租房订单明细维护" };
+            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护" };
             foreach (var i in rentEmpArr)
             {
                 List<DataFilter> rentEmpFilterList = new List<DataFilter>();
