@@ -942,6 +942,20 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Images\adminLogin\user_all_bg.gif" />
+    <Content Include="Images\adminLogin\user_bottom_c.gif" />
+    <Content Include="Images\adminLogin\user_bottom_l.gif" />
+    <Content Include="Images\adminLogin\user_bottom_r.gif" />
+    <Content Include="Images\adminLogin\user_botton.gif" />
+    <Content Include="Images\adminLogin\user_login_name.gif" />
+    <Content Include="Images\adminLogin\user_login_password.gif" />
+    <Content Include="Images\adminLogin\user_login_re.gif" />
+    <Content Include="Images\adminLogin\user_main_c.gif" />
+    <Content Include="Images\adminLogin\user_main_l.gif" />
+    <Content Include="Images\adminLogin\user_main_r.gif" />
+    <Content Include="Images\adminLogin\user_top_c.gif" />
+    <Content Include="Images\adminLogin\user_top_l.gif" />
+    <Content Include="Images\adminLogin\user_top_r.gif" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -973,6 +987,7 @@
     <Content Include="weblogin\commodity\pAddCommodity.aspx" />
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
+    <Content Include="Content\adminLogin.css" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\feedBack\pAddFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />

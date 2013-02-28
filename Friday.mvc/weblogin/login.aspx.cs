@@ -53,13 +53,15 @@ namespace friday.mvc
         }
         private string getCookieCode()
         {
-            HttpCookie cookie = Request.Cookies["weat_anonymous"];
-            string code = cookie.Values["cookieCode"];
-            if (string.IsNullOrEmpty(code))
-            {
-                return "1111";
-            }
-            return code;
+            return string.Empty;
+            //2013-02-28 basilwang temporialiy block verify code
+            //HttpCookie cookie = Request.Cookies["weat_anonymous"];
+            //string code = cookie.Values["cookieCode"];
+            //if (string.IsNullOrEmpty(code))
+            //{
+            //    return "1111";
+            //}
+            //return code;
         }
         protected void populateFormAuthCookie(bool isPersistent, string userID, string userType)
         {
