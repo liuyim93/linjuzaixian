@@ -397,6 +397,56 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchBySystemFunctionObjectInRole(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchBySystemFunctionObjectInRole(query, termList);
+        }
+        protected ICriteria SearchBySystemFunctionObjectInRole(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchBySystemFunctionObjectInRole(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchBySystemFunctionObjectInRole(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "systemFunctionObjectInRole.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "SystemFunctionObjectInRole";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".SystemFunctionObjectInRole";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "systemFunctionObjectInRole");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("Title"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Title", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected ICriteria SearchByLog(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchByLog(query, termList);
