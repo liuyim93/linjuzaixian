@@ -49,48 +49,49 @@ namespace Friday.Test2
                 Name = "管理员",
             };
             iSystemRoleRepository.SaveOrUpdate(admin);
-
+            systemRoleList.Add(admin);
             SystemRole customer = new SystemRole()
             {
                 Name = "顾客",
             };
             iSystemRoleRepository.SaveOrUpdate(customer);
-
+            systemRoleList.Add(customer);
             SystemRole shopOwner = new SystemRole()
             {
                 Name = "商店店主",
             };
             iSystemRoleRepository.SaveOrUpdate(shopOwner);
-
+            systemRoleList.Add(shopOwner);
             SystemRole restaruantOwner = new SystemRole()
             {
                 Name = "餐馆店主",
             };
             iSystemRoleRepository.SaveOrUpdate(restaruantOwner);
-
+            systemRoleList.Add(restaruantOwner);
             SystemRole rentOwner = new SystemRole()
             {
                 Name = "租房店主",
             };
             iSystemRoleRepository.SaveOrUpdate(rentOwner);
-
+            systemRoleList.Add(rentOwner);
             SystemRole shopMember = new SystemRole()
             {
                 Name = "商店店小二",
             };
             iSystemRoleRepository.SaveOrUpdate(shopMember);
-
+            systemRoleList.Add(shopMember);
             SystemRole restaurantMember = new SystemRole()
             {
                 Name = "餐馆店小二",
             };
             iSystemRoleRepository.SaveOrUpdate(restaurantMember);
-
+            systemRoleList.Add(restaurantMember);
             SystemRole rentMember = new SystemRole()
             {
                 Name = "租房店小二",
             };
             iSystemRoleRepository.SaveOrUpdate(rentMember);
+            systemRoleList.Add(rentMember);
         }
 
 
@@ -100,7 +101,7 @@ namespace Friday.Test2
             IRepository<SystemFunctionObjectInRole> iSystemFunctionObjectInRoleRepository = UnityHelper.UnityToT<IRepository<SystemFunctionObjectInRole>>();
             ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
 
-            systemRoleList = iSystemRoleRepository.GetAll();
+            //systemRoleList = iSystemRoleRepository.GetAll();
 
             IList<SystemFunctionObject> customerList = new List<SystemFunctionObject>();
             //添加管理员控制的所有功能键对象
@@ -258,7 +259,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "商店":
+                    case "商店店主":
                         {
                             foreach (SystemFunctionObject shopsfb in shopOwnerList)
                             {
@@ -272,7 +273,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "餐馆":
+                    case "餐馆店主":
                         {
                             foreach (SystemFunctionObject restaurantsfb in restaurantList)
                             {
@@ -286,7 +287,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "租房":
+                    case "租房店主":
                         {
                             foreach (SystemFunctionObject rentsfb in rentList)
                             {
@@ -300,7 +301,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "商铺店小二":
+                    case "商店店小二":
                         {
                             foreach (SystemFunctionObject shopEmpsfb in shopEmpList)
                             {
