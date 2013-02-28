@@ -82,7 +82,7 @@
                 success: function (data) {
                     var o = { showcheck: false };
                     var da = eval("(" + data.d + ")");
-                    o.url = _url;
+                    //o.url = _url;
                     o.data = da;
                     o.onnodeclick = function navi(item) {
                         if (!item.hasChildren) {

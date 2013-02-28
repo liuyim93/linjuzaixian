@@ -10,9 +10,9 @@ namespace friday.core.repositories
         public bool GetRoleInMenuByMenuIDandRoleID(string menuid, string roleid)
         {
             var query = Session.CreateQuery(@"select ur from RoleInMenu ur 
-                                                    left join fetch ur.Menu u 
-                                                    left join fetch ur.Role r 
-                                                where ur.Menu=:MenuID and ur.Role=:RoleID")
+                                                    left join fetch ur.SystemMenu u 
+                                                    left join fetch ur.SystemRole r 
+                                                where ur.SystemMenu=:MenuID and ur.SystemRole=:RoleID")
                          .SetString("MenuID", menuid).SetString("RoleID", roleid)
                          .List<RoleInMenu>().ToList<RoleInMenu>();
             return ((query.Count > 0) ? true : false);
@@ -23,8 +23,8 @@ namespace friday.core.repositories
         {
 
             var query = Session.CreateQuery(@"select c from RoleInMenu c 
-                                                   left join fetch c.Role as r  where
-                                             c.Role=:RoleID").SetString("RoleID", RoleID);
+                                                   left join fetch c.SystemRole as r  where
+                                             c.SystemRole=:RoleID").SetString("RoleID", RoleID);
 
             return query.List<RoleInMenu>();
         }
