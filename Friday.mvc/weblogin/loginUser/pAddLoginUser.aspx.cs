@@ -16,6 +16,7 @@ namespace Friday.mvc.weblogin
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
         IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+        IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
 
         private LoginUser loginUser;
 
@@ -32,27 +33,23 @@ namespace Friday.mvc.weblogin
             loginUser = new LoginUser();
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
-        
-
             string roleID = "";
-            roleID = this.SystemRoleID.Value;
-            
+            roleID = this.SystemRoleID.Value;            
             loginUser.SystemRole=iSystemRoleRepository.Get(roleID);
             iLoginUserRepository.SaveOrUpdate(loginUser);
-            //if (this.IDSet.Value != null && this.IDSet.Value != "")
-            //{
-            //    roleID = this.IDSet.Value;
-            //    string[] sArray = roleID.Split(',');
 
-            //    foreach (string aid in sArray)
-            //    {
-            //        UserInRole userInRole = new UserInRole();
-            //        userInRole.SystemRole = iSystemRoleRepository.Get(aid);
-            //        userInRole.LoginUser = loginUser;
-            //        iUserInRoleRepository.SaveOrUpdate(userInRole);
-            //    }
-            //}
-
+            string merchantid="";
+            merchantid=this.MerchantID.Value;
+            if (merchantid!=""&&merchantid!=null)
+            {
+              LoginUserOfMerchant loginuserofmerchant = new LoginUserOfMerchant()
+               {
+                 LoginUser=loginUser,
+                 Merchant = iMerchantRepository.Get(merchantid)
+               };
+            }       
+            
+         
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "添加成功";
