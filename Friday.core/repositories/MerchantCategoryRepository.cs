@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
@@ -15,13 +16,16 @@ namespace friday.core.repositories
     public class MerchantCategoryRepository : Repository<MerchantCategory>, IMerchantCategoryRepository
     {
 
-        public MerchantCategory SearchByMerchantCategoryName(string name) 
+        //public MerchantCategory SearchByMerchantCategoryName(string name) 
+        //{
+        //    var q = Session.CreateQuery(@"select mc  from   MerchantCategory as  mc   where  mc.MerchantCategoryName=:mCname ")
+        //                .SetString("mCname", name).UniqueResult<MerchantCategory>(); ;
+        //    return q;        
+        //}
+        public MerchantCategory SearchByMerchantCategoryName(string mname)
         {
-            var q = Session.CreateQuery(@"select mc  from   MerchantCategory as  mc   where  mc.MerchantCategoryName=:mCname ")
-                        .SetString("mCname", name).UniqueResult<MerchantCategory>(); ;
-
-            return q;
-        
+            var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantCategoryName==mname).SingleOrDefault();
+            return m;
         }
 
         protected virtual ICriteria Query

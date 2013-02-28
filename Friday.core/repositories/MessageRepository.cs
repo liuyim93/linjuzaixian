@@ -14,16 +14,8 @@ namespace friday.core.repositories
 {
     public class MessageRepository : Repository<Message>, IMessageRepository
     {
-
-
-        public Message SearchByShortName(string name)
-        {
-            var q = Session.CreateQuery(@"select at  from   Message as  at   where  at.Name=:attname ")
-                      .SetString("spname", name).UniqueResult<Message>(); ;
-
-            return q;
-        }
-
+            
+ 
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(Message)); }

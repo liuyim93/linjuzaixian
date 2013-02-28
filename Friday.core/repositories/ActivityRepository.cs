@@ -23,6 +23,7 @@ namespace friday.core.repositories
 
             return q;
         }
+        
 
         protected virtual ICriteria Query
         {

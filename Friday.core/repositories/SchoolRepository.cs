@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
@@ -15,12 +16,17 @@ namespace friday.core.repositories
     public class SchoolRepository : Repository<School>, ISchoolRepository
     {
 
+        //public School SearchByShortName(string name)
+        //{
+        //    var q = Session.CreateQuery(@"select sh  from   School as  sh   where  sh.ShortName=:shshortname ")
+        //              .SetString("shshortname", name).UniqueResult<School>(); ;
+
+        //    return q;
+        //}
         public School SearchByShortName(string name)
         {
-            var q = Session.CreateQuery(@"select sh  from   School as  sh   where  sh.ShortName=:shshortname ")
-                      .SetString("shshortname", name).UniqueResult<School>(); ;
-
-            return q;
+            var m = (from x in this.Session.Query<School>() select x).Where(o => o.ShortName == name).SingleOrDefault();
+            return m;
         }
         protected virtual ICriteria Query
         {

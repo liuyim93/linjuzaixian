@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
@@ -24,6 +25,7 @@ namespace friday.core.repositories
             var q = Session.CreateQuery(@"select s  from   SchoolOfMerchant as  sm left join  sm.School  as  s    where  sm.Merchant=:MId ")
                            .SetString("MId", rentid).List<School>();
             
+        
             foreach (School sc in q)
             {
                 if (i == 1)

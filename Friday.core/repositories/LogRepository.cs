@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
@@ -38,14 +39,18 @@ namespace friday.core.repositories
                  .List<Log>();
         }
 
-          public Log GerLogByLogID(string id)
-        {
-            var q = Session.CreateQuery(@"select lg  from   Log as  lg   where  lg.LogID=:lid ")
-                      .SetString("lid", id).UniqueResult<Log>(); ;
+        //  public Log GerLogByLogID(string id)
+        //{
+        //    var q = Session.CreateQuery(@"select lg  from   Log as  lg   where  lg.LogID=:lid ")
+        //              .SetString("lid", id).UniqueResult<Log>(); ;
 
-            return q;
-        }
-        
+        //    return q;
+        //}
+          public Log GerLogByLogID(string id)
+          {
+              var m = (from x in this.Session.Query<Log>() select x).Where(o => o.LogID == Convert.ToInt32(id)).SingleOrDefault();
+              return m;
+          }
 
 
     }
