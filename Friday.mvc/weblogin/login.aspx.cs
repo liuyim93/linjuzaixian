@@ -17,7 +17,7 @@ using friday.core;
 
 namespace friday.mvc
 {
-    public partial class login : BasePage
+    public partial class login : System.Web.UI.Page
     {
         protected string message;
         private string userid;

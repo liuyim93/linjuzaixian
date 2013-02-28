@@ -16,7 +16,7 @@ using friday.core;
 
 namespace friday.mvc
 {
-    public partial class index : BasePage
+    public partial class index : System.Web.UI.Page
     {
         public string UserName = string.Empty;
         //private static ISystemMenuRepository menuRepo = new SystemMenuRepository();
