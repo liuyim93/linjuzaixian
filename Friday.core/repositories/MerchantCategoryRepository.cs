@@ -18,7 +18,7 @@ namespace friday.core.repositories
 
         public MerchantCategory SearchByMerchantCategoryName(string mname)
         {
-            var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantCategoryName==mname).SingleOrDefault();
+            var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantCategoryName == mname && o.IsDelete == false).SingleOrDefault();
             return m;
         }
 

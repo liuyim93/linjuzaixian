@@ -18,7 +18,7 @@ namespace friday.core.repositories
     
         public School SearchByShortName(string name)
         {
-            var m = (from x in this.Session.Query<School>() select x).Where(o => o.ShortName == name).SingleOrDefault();
+            var m = (from x in this.Session.Query<School>() select x).Where(o => o.ShortName == name && o.IsDelete == false).SingleOrDefault();
             return m;
         }
         protected virtual ICriteria Query

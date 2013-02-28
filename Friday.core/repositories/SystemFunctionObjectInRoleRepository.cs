@@ -11,7 +11,7 @@ namespace friday.core.repositories
     {
         public SystemFunctionObjectInRole Get(string SystemRoleId, string SystemFunctionObjectId)
         {
-            var s = (from x in this.Session.Query<SystemFunctionObjectInRole>() select x).Where(o => o.SystemFunctionObject.Id == SystemFunctionObjectId && o.Role.Id==SystemRoleId).SingleOrDefault();
+            var s = (from x in this.Session.Query<SystemFunctionObjectInRole>() select x).Where(o => o.SystemFunctionObject.Id == SystemFunctionObjectId && o.Role.Id == SystemRoleId && o.IsDelete == false).SingleOrDefault();
             return s;
         }
      

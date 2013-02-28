@@ -17,12 +17,12 @@ namespace friday.core.repositories
 
         public IList<MerchantGoodsType> GetGoodsTypeByMerchantID(string mid)
         {
-            var list = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id== mid).ToList();
+            var list = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id == mid && o.IsDelete == false).ToList();
             return list;
         }
         public MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid)
         {
-            var m = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id == mid && o.GoodsType==mname).SingleOrDefault();
+            var m = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id == mid && o.GoodsType == mname && o.IsDelete == false).SingleOrDefault();
             return m;
         }
         protected virtual ICriteria Query
@@ -50,7 +50,7 @@ namespace friday.core.repositories
 
         public bool IsHaveTheSameName(string name)
         {
-            var isHaveChild = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.GoodsType == name).Count() > 0 ? true : false;
+            var isHaveChild = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.GoodsType == name && o.IsDelete == false).Count() > 0 ? true : false;
             return isHaveChild;
         }
     }

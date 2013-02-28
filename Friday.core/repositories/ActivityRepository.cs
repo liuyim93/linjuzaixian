@@ -18,7 +18,7 @@ namespace friday.core.repositories
        
         public Activity SearchByShortName(string name)
         {
-            var m = (from x in this.Session.Query<Activity>() select x).Where(o => o.Name == name).SingleOrDefault();
+            var m = (from x in this.Session.Query<Activity>() select x).Where(o => o.Name == name && o.IsDelete == false).SingleOrDefault();
             return m;
         }
 
