@@ -100,7 +100,7 @@
                       <th width="10%" align="center">消息内容</th>     
                              <th width="10%" align="center">优先级</th>
                         <th width="10%" align="center">进程名称</th> 
-                   <th width="10%" align="center">时间戳</th>
+                   <th width="10%" align="center">时间</th>
                         <th width="10%" align="center">机器名称</th>
                         <th width="10%" align="center">ThreadName</th> 
                 </tr>
@@ -121,7 +121,8 @@
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Message")%></td> 
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Priority")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ProcessName")%></td> 
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Timestamp")%></td> 
+                         <%--2013-02-28 basilwang we need GMT+8 --%>
+                         <td align="center"><%#Convert.ToDateTime(DataBinder.Eval(Container.DataItem, "Timestamp")).AddHours(8)%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "MachineName")%></td>  
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadName")%></td>                      
 				</tr>
