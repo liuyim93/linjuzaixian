@@ -195,6 +195,17 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(food);
             adminMenuCheckList.Add(food);
 
+            SystemMenu restaurantEditMange = new SystemMenu()
+            {
+                Name = "餐馆编辑管理",
+                Leaf = true,
+                ParentID = restaurantModel.Id,
+                MenuRoute = "restaurant/pRestaurantList.aspx",
+                TLevel = 1,
+                ColIndex = 5
+            };
+            iSystemMenuRepository.SaveOrUpdate(restaurantEditMange);
+
             //基本信息模块
             SystemMenu baseInfo = new SystemMenu()
             {
@@ -451,6 +462,17 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(house);
             adminMenuCheckList.Add(house);
 
+            SystemMenu rentEditManage = new SystemMenu()
+            {
+                Name = "租房编辑管理",
+                Leaf = true,
+                ParentID = rentModel.Id,
+                MenuRoute = "rent/pRentList.aspx",
+                TLevel = 1,
+                ColIndex = 5
+            };
+            iSystemMenuRepository.SaveOrUpdate(rentEditManage);
+
             //商店模块
             SystemMenu shopModel = new SystemMenu()
             {
@@ -511,6 +533,17 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(commodity);
             adminMenuCheckList.Add(commodity);
+
+            SystemMenu shopEditMange = new SystemMenu()
+            {
+                Name = "商店编辑管理",
+                Leaf = true,
+                ParentID = shopModel.Id,
+                MenuRoute = "shop/pShopList.aspx",
+                TLevel = 1,
+                ColIndex = 5
+            };
+            iSystemMenuRepository.SaveOrUpdate(shopEditMange);
 
             //统计模块
             SystemMenu statisticModel = new SystemMenu()
