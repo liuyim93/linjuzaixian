@@ -84,15 +84,15 @@
                 <thead>
                 <tr>
                  
-                        <th width="10%" align="center">LogID</th>
-                       <th width="10%" align="center">名称</th> 
+                        <th width="50" align="center">日志ID</th>
+                       <%--<th width="10%" align="center">名称</th> --%>
                               
 
                    <%--<th width="10%" align="center">线程名称</th>--%>
-                      <th width="10%" align="center">消息内容</th>     
+                      <th width="600" align="center">消息内容</th>     
                           <%--   <th width="10%" align="center">优先级</th>--%>
                        <%-- <th width="10%" align="center">进程名称</th> --%>
-                   <th width="10%" align="center">时间</th>
+                   <th width="200" align="center">时间</th>
                         <%--<th width="10%" align="center">机器名称</th>--%>
                         <%--<th width="10%" align="center">ThreadName</th> --%>
                 </tr>
@@ -106,7 +106,7 @@
                  <td><a href="log/pLogDetail.aspx?uid=<%#Eval("LogID")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("LogID")%>
                             </a>
                         </td>
-                       <td align="center"><%#DataBinder.Eval(Container.DataItem, "Title")%></td>              
+                      <%-- <td align="center"><%#DataBinder.Eval(Container.DataItem, "Title")%></td> --%>             
                        
 
                        <%-- <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadName")%></td>--%>
