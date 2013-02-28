@@ -126,7 +126,9 @@
     </Compile>
     <Compile Include="repositories\RoleInMenuRepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
+    <Compile Include="services\IMenuService.cs" />
     <Compile Include="services\IPermissionManager.cs" />
+    <Compile Include="services\MenuService.cs" />
     <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
     <Compile Include="components\SqlStatementInterceptor.cs" />

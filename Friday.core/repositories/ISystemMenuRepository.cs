@@ -9,6 +9,6 @@ namespace friday.core.repositories
     {
         IList<SystemMenu> GetChildrenFromParentID(string ParentID);
         bool IsHaveChild(SystemMenu systemMenu);
-
+        IList<SystemMenu> GetMenuByUserIDAndParentID(string userid, string parentid);
     }
 }

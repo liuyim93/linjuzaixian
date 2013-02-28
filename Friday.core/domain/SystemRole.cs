@@ -11,7 +11,8 @@ namespace friday.core
     {
          public SystemRole()
         {
-
+            RoleInMenus = new Iesi.Collections.Generic.HashedSet<RoleInMenu>();
+            UserInRoles = new Iesi.Collections.Generic.HashedSet<UserInRole>();
         }
 
          public SystemRole(string id)
@@ -56,7 +57,11 @@ namespace friday.core
             set;
 
         }
-
+        public virtual Iesi.Collections.Generic.ISet<UserInRole> UserInRoles
+        {
+            get;
+            set;
+        }
         #region 显示用，不做映射  
         /// <summary>
         /// 节点值

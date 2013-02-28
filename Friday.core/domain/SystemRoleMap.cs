@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
+using friday.core.domain;
 
 namespace friday.core
 {
@@ -21,6 +22,8 @@ namespace friday.core
             Map(o => o.Description);
 
             HasMany<RoleInMenu>(b => b.RoleInMenus).AsSet().KeyColumn("RoleID").Cascade.SaveUpdate().ForeignKeyConstraintName("Role_RoleInMenu_FK"); ;
+            //2013-02-27 basilwang we need navigate to UserInRole to get LoginUser
+            HasMany<UserInRole>(o => o.UserInRoles).Inverse().Cascade.All();
         }
     }
 }

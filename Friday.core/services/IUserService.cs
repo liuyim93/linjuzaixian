@@ -12,5 +12,6 @@ namespace friday.core.services
         //SystemUser getSystemUser(string id);
         //void saveOrUpdateSystemUser(SystemUser user);
         SystemUser GetOrCreateUser(HttpContextBase httpContextBase);
+        LoginUser GetLoginUser(HttpContextBase httpContextBase);
     }
 }

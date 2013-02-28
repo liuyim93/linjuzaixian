@@ -11,6 +11,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using friday.core.components;
+using friday.core.services;
+using friday.core;
 
 namespace friday.mvc
 {
@@ -19,7 +21,8 @@ namespace friday.mvc
         public string UserName = string.Empty;
         //private static ISystemMenuRepository menuRepo = new SystemMenuRepository();
         //private static IMenuService menuService = new MenuService(menuRepo);
-
+        private IUserService iUserService = UnityHelper.UnityToT<IUserService>();
+        private IMenuService iMenuService = UnityHelper.UnityToT<IMenuService>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["flag"] != "logout")
@@ -41,12 +44,12 @@ namespace friday.mvc
         }
         protected void InitMenu()
         {
-            //var currentuser = new CurrentUser();
-            //UserName = currentuser.UserInfo.Name;
+            var currentuser = iUserService.GetLoginUser(new HttpContextWrapper(HttpContext.Current));
+            UserName = currentuser.LoginName;
 
-            //divMenu.InnerHtml = menuService.MenuList(currentuser.UserInfo);
-            //labLogin.InnerText = UserName + "用户，欢迎您！";
-            //labLoginDate.InnerText = "登录时间：" + DateTime.Now.ToString();
+            divMenu.InnerHtml = iMenuService.MenuList(currentuser.Id);
+            labLogin.InnerText = UserName + "用户，欢迎您！";
+            labLoginDate.InnerText = "登录时间：" + DateTime.Now.ToString();
 
         }
     }

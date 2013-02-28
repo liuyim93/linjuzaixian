@@ -42,7 +42,6 @@
     <script src="js/dwz.accordion.js" type="text/javascript"></script>
     <!-2013-01-12 basilwang add page.js->
     <script src="js/dwz.page.js" type="text/javascript"></script>
-
     <script src="js/dwz.ui.js" type="text/javascript"></script>
     <script src="js/dwz.theme.js" type="text/javascript"></script>
     <script src="js/dwz.switchEnv.js" type="text/javascript"></script>
@@ -67,8 +66,6 @@
     <script src="js/dwz.history.js" type="text/javascript"></script>
     <script src="js/dwz.combox.js" type="text/javascript"></script>
     <script src="js/dwz.print.js" type="text/javascript"></script>
-
-
     <!--
 <script src="bin/dwz.min.js" type="text/javascript"></script>
 -->
@@ -89,7 +86,7 @@
         });
         
 
-</script>
+    </script>
 </head>
 <body scroll="no">
     <div id="layout">
@@ -148,47 +145,7 @@
                     <div>
                         收缩</div>
                 </div>
-                <!--2012-06-07  庞夫星		
-			<div class="accordion" fillspace="sideBar" id="divMenu" runat="server">
-                </div>
-		
-				-->
-                <div class="accordion">
-                    <ul class="tree treeFolder">
-                        <li><a href="javascript:void(0)">系统管理</a>
-                            <ul>
-                               <li><a href="activity/pActivityList.aspx" target="navTab" rel="">商家活动管理</a></li>
-                                <li><a href="shop/pShopList.aspx" target="navTab" rel="">商店管理</a></li>
-                                <li><a href="rent/pRentList.aspx" target="navTab" rel="">租房管理</a></li>
-                                <li><a href="globalGoodsType/pGlobalGoodsTypeList.aspx" target="navTab" rel="">商品类型管理</a></li>                                
-                                <li><a href="restaurant/pRestaurantList.aspx" target="navTab" rel="">餐馆管理</a></li>
-                                <li><a href="merchantCategory/pMerchantCategoryList.aspx" target="navTab" rel="">商铺经营类型</a></li>
-                                <li><a href="school/pSchoolList.aspx" target="navTab" rel="">学校管理</a></li>
-                                <li><a href="systemUser/pSystemUserList.aspx" target="navTab" rel="">顾客账号管理</a></li>
-                                <li><a href="loginUser/pLoginUserList.aspx" target="navTab" rel="">商家账号管理</a></li> 
-                                <li><a href="message/pMessageList.aspx" target="navTab" rel="">消息管理</a></li>
-                                <li><a href="feedBack/pFeedBackList.aspx" target="navTab" rel="">反馈管理</a></li>
-                                <li><a href="myFoodOrder/pMyFoodOrderList.aspx" target="navTab" rel="">食品订单管理</a></li> 
-                                <li><a href="myHouseOrder/pMyHouseOrderList.aspx" target="navTab" rel="">租房订单管理</a></li> 
-                                <li><a href="systemRole/pSystemRoleList.aspx" target="navTab" rel="">角色权限管理</a></li> 
-                                <li><a href="roleMenu/pMenuButtonList.aspx" target="navTab" rel="">菜单管理</a></li> 
-                                <li><a href="myCommodityOrder/pMyCommodityOrderList.aspx" target="navTab" rel="">商品订单管理</a></li>
-
-                                <li><a href="log/pLogList.aspx" target="navTab" rel="">日志管理</a></li> 
-                                <li><a href="FoodList.aspx" target="navTab" rel="">test3</a></li>
-                                <li><a href="MyOrderList.aspx" target="navTab" rel="">test4</a></li>
-                                <li><a href="FeedBackList.aspx" target="navTab" rel="">test5</a></li>
-                                <li><a href="ActivityList.aspx" target="navTab" rel="">test6</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="tree treeFolder">
-                        <li><a href="javascript:void(0)">业务处理</a>
-                            <ul>
-                                <li><a href="ProfitList.aspx" target="navTab" rel="ProfitList">test7</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+                <div class="accordion" fillspace="sideBar" id="divMenu" runat="server">
                 </div>
             </div>
         </div>
@@ -218,7 +175,6 @@
                         <div class="accountInfo">
                         </div>
                         <div class="pageFormContent" layouth="80" style="margin-right: 230px">
-                           
                         </div>
                     </div>
                 </div>

@@ -12,14 +12,12 @@ namespace friday.core
         public LoginUser()
         {
             LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
-
+            UserInRoles = new Iesi.Collections.Generic.HashedSet<UserInRole>();
         }
 
         public LoginUser(string id): this()
         {
             this.Id = id;
-            LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
-            UserInRoles = new Iesi.Collections.Generic.HashedSet<UserInRole>();
         }
 
         public virtual string LoginName

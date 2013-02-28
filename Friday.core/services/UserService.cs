@@ -12,9 +12,11 @@ namespace friday.core.services
     public class UserService:IUserService
     {
         ISystemUserRepository iSystemUserRepository;
-        public UserService(ISystemUserRepository iSystemUserRepository)
+        IRepository<LoginUser> iLoginUserRepository;
+        public UserService(ISystemUserRepository iSystemUserRepository, IRepository<LoginUser> iLoginUserRepository)
         {
             this.iSystemUserRepository = iSystemUserRepository;
+            this.iLoginUserRepository = iLoginUserRepository;
         }
         //public SystemUser getSystemUser(string id)
         //{
@@ -41,5 +43,23 @@ namespace friday.core.services
         {
             return GetOrCreateUser(CookieUtil.getUserCookie(httpContextBase));
         }
+        public LoginUser GetLoginUser(HttpContextBase httpContextBase)
+        {
+            return GetLoginUser(CookieUtil.getUserCookie(httpContextBase));
+        }
+        private LoginUser GetLoginUser(CookieBag bag)
+        {
+            LoginUser loginUser = null;
+            try
+            {
+                loginUser = iLoginUserRepository.Get(bag.id);
+            }
+            catch (Exception ex)
+            {
+                bag.remove();
+            }
+            return loginUser;
+        }
+      
     }
 }
