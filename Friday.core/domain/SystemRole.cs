@@ -13,6 +13,7 @@ namespace friday.core
         {
             RoleInMenus = new Iesi.Collections.Generic.HashedSet<RoleInMenu>();
             UserInRoles = new Iesi.Collections.Generic.HashedSet<UserInRole>();
+            LoginUsers = new Iesi.Collections.Generic.HashedSet<LoginUser>();
         }
 
          public SystemRole(string id)
@@ -58,6 +59,11 @@ namespace friday.core
 
         }
         public virtual Iesi.Collections.Generic.ISet<UserInRole> UserInRoles
+        {
+            get;
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<LoginUser> LoginUsers
         {
             get;
             set;

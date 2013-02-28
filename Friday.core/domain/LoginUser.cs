@@ -47,7 +47,11 @@ namespace friday.core
             get;
             set;
         }
-
+        public virtual SystemRole SystemRole
+        {
+            get;
+            set;
+        }
 
         /// <summary>
         /// admin,shopowner,shopxiaoer,rentowner,rentxiaoer,restaurantowner,restaurantxiaoer,restaurantdelivery,shopdelivery

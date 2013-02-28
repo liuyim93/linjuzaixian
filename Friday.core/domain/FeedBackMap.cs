@@ -18,7 +18,7 @@ namespace friday.core.domain
             Map(o=>o.EntityIndex);
             Map(o=>o.Contents);
             Map(o => o.Type);
-            References<LoginUser>(o => o.LoginUser).Not.Nullable(); ;//Shop 1 :N Food
+            References<LoginUser>(o => o.LoginUser).Not.Nullable(); //Shop 1 :N Food
             References<FeedBack>(o => o.ParentFeedBack);
             HasMany<FeedBack>(o => o.ChildFeedBacks).Inverse().Cascade.All();
 

@@ -32,9 +32,13 @@ namespace Friday.mvc.weblogin
             loginUser = new LoginUser();
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
-            iLoginUserRepository.SaveOrUpdate(loginUser);
+        
 
             string roleID = "";
+            roleID = this.SystemRoleID.Value;
+            
+            loginUser.SystemRole=iSystemRoleRepository.Get(roleID);
+            iLoginUserRepository.SaveOrUpdate(loginUser);
             //if (this.IDSet.Value != null && this.IDSet.Value != "")
             //{
             //    roleID = this.IDSet.Value;
