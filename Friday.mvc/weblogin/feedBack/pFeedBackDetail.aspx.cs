@@ -44,8 +44,7 @@ namespace Friday.mvc.weblogin.feedBack
                     field = filterList
 
                 });
-
-                //FeedBack merchfeedBack = iFeedBackRepository.GetFeedBackByParentFeedBack(sysParentId);
+           
 
                 IList<FeedBack> merchfeedBackList = iFeedBackRepository.Search(fltList);
             
