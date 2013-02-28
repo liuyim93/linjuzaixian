@@ -13,7 +13,7 @@ namespace Friday.mvc.weblogin
 {
     public partial class pAddMerchantGoodsType : System.Web.UI.Page
     {
-        IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
+        IMerchantGoodsTypeRepository iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
         IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
 
         private MerchantGoodsType merchantGoodsType;
@@ -38,12 +38,27 @@ namespace Friday.mvc.weblogin
          
             merchantGoodsType.Merchant = merchantRepository.Get(mid);                
             BindingHelper.RequestToObject(merchantGoodsType);
-            iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
+            string GoodTypeName = this.GoodsType.Value;
 
+            bool flag=iMerchantGoodsTypeRepository.IsHaveTheSameName(GoodTypeName);
             AjaxResult result = new AjaxResult();
-            result.statusCode = "200";
-            result.message = "添加成功";
-            result.navTabId = "referer";
+            if (flag == true)
+            {
+                result.statusCode = "300";
+                result.message = "已存在此商品类型";
+                result.navTabId = "referer";
+            
+            }
+            else 
+            {
+
+                iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
+                result.statusCode = "200";
+                result.message = "添加成功";
+                result.navTabId = "referer";
+            }      
+
+          
             if (Request.Params["rel_hook"] != null)
             {
                 result.panelId = Request.Params["rel_hook"];

@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using NHibernate.Linq;
 namespace friday.core.repositories
 {
     public class MerchantGoodsTypeRepository : Repository<MerchantGoodsType>, friday.core.repositories.IMerchantGoodsTypeRepository
@@ -51,5 +52,10 @@ namespace friday.core.repositories
                  .List<MerchantGoodsType>();
         }
 
+        public bool IsHaveTheSameName(string name)
+        {
+            var isHaveChild = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.GoodsType == name).Count() > 0 ? true : false;
+            return isHaveChild;
+        }
     }
 }

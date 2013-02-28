@@ -118,10 +118,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <Content Include="..\Friday.mvc\hibernate.cfg.xml">
       <Link>hibernate.cfg.xml</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="unity.di.infrastructure.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
