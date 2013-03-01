@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using friday.core.utils;
 using friday.core.repositories;
+using friday.core.components;
 
 namespace friday.core.services
 {
-    class RestaurantService:IRestaurantService
+    public class RestaurantService:IRestaurantService
     {
         IRestaurantRepository iRestaurantRepository =UnityHelper.UnityToT<IRestaurantRepository>();
         ILogger iLogger = UnityHelper.UnityToT<ILogger>();
@@ -30,5 +31,19 @@ namespace friday.core.services
             iRestaurantRepository.Delete(id);
         }
 
+        public Restaurant SearchByShortName(string name)
+        {
+            return iRestaurantRepository.SearchByShortName(name);
+        }
+
+        public IList<Restaurant> Search(List<DataFilter> termList)
+        {
+            return iRestaurantRepository.Search(termList);
+        }
+
+        public IList<Restaurant> Search(List<DataFilter> termList, int start, int limit, out long total)
+        {
+            return iRestaurantRepository.Search(termList, start, limit, out total);
+        }
     }
 }

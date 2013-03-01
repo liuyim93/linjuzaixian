@@ -32,19 +32,25 @@ namespace Friday.mvc.weblogin.restaurant
         protected string tel;
         protected string loginName;
         private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IRestaurantRepository iRepositoryRestaurant = UnityHelper.UnityToT<IRestaurantRepository>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
            tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
            this.PermissionCheck();
             //2013-02-28 basilwang you can use this to block button
-           //if(!this.PermissionValidate(PermissionTag.Delete))
-           //{
-           //    //this.liDelete
-           //    this.liDelete.Visible = false;
-           //}
-           //iLogger.LogMessage("进入" + tagName + "页面", typeof(pRestaurantList).FullName, EventDataTypeCategory.信息 | EventDataTypeCategory.操作日志);
+           if (!this.PermissionValidate(PermissionTag.Delete))
+           {
+               //this.liDelete
+               this.liDelete.Visible = false;
+           }
+
+           if (!this.PermissionValidate(PermissionTag.Edit))
+           {
+               this.liEdit.Visible = false;
+           }
+
+
            if (Request.Params["flag"] != "alldelete")
            {
                if (Request.Params["flag"] != "alldelete")
@@ -100,16 +106,6 @@ namespace Friday.mvc.weblogin.restaurant
                            value = tel=Request.Form["Tel"]
 
                        });
-                   //loginName 包括店长得LoginName和相应权限店小二的LoginName
-                   //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                   //    filterList.Add(new DataFilter()
-                   //    {
-                   //        type = "LoginName",
-                   //        value = loginName = Request.Form["LoginName"]
-
-                   //    });
-
-                   //Version2  3表嵌套查询
 
                    //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                    //{ 
@@ -151,35 +147,24 @@ namespace Friday.mvc.weblogin.restaurant
                        }
                        filterList.Add(filter);
                    }
-                   
-                   IList<Restaurant> restaurantList = iRepositoryRestaurant.Search(filterList,start, limit, out total);
 
+                   IList<Restaurant> restaurantList = iRestaurantService.Search(filterList, start, limit, out total);
 
                    repeater.DataSource = restaurantList;
                    repeater.DataBind();
 
                    numPerPage.Value = numPerPageValue.ToString();
-
                }
            }
-
            else
            {
                DeleteRestaurant();
-
            }
-         
-      
         }
-
-
-
-
 
         private void DeleteRestaurant()
         {
-
-            iRepositoryRestaurant.Delete(Request.Params["uid"]);
+            iRestaurantService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -188,7 +173,5 @@ namespace Friday.mvc.weblogin.restaurant
             Response.Write(jsonResult.FormatResult());
             Response.End();
         }
-    
-
     }
 }

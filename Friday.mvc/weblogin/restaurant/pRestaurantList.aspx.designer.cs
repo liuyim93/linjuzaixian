@@ -40,5 +40,6 @@ namespace Friday.mvc.weblogin.restaurant {
         protected global::System.Web.UI.HtmlControls.HtmlSelect numPerPage;
 
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl liDelete;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liEdit;
     }
 }
