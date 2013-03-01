@@ -13,8 +13,11 @@
                  <thead>
                      <tr>
                        <th width="40">序号</th> 
-					    <th width="200">商品名称</th> 
-                        <th width="100">商品单价</th> 
+					    <th width="200">房屋名称</th> 
+                        <th width="100">租金单价</th> 
+                        <th width="150">起租时间</th> 
+                        <th width="150">到期时间</th> 
+                        <th width="50">总天数</th> 
                         <th width="40">选择</th> 
                       </tr>
                  </thead>
@@ -25,6 +28,9 @@
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
+                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "TimeOfRentFrom")%></td>
+                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "TimeOfRentTO")%></td>
+                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "DaySpanOfRent")%></td>
                      <td>
 					<a class="btnSelect" href=javascript:$.bringBack({HouseID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',House:'<%#DataBinder.Eval(Container.DataItem,"Name")%>',Amount:'',Price:'',OnePrice:'<%#DataBinder.Eval(Container.DataItem,"Price")%>'}) title="查找带回">选择</a>
 				</td>				

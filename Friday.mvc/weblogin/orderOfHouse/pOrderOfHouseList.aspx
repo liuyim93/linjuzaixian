@@ -27,8 +27,8 @@
                       <thead>
                         <tr>
                             <th width="5%" align="center">序 号</th>
-                            <th width="20%" align="center">商品名称</th>
-                            <th width="5%" align="center">每月租金</th>
+                            <th width="20%" align="center">房屋名称</th>
+                            <th width="5%" align="center">租金单价</th>
                             <th width="5%" align="center">租入数量</th>
                             <th width="5%" align="center">总租金</th>
                             <th width="20%" align="center">起租时间</th>
