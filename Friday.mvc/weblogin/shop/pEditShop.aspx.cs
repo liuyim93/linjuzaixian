@@ -26,9 +26,8 @@ namespace Friday.mvc.weblogin.shop
             string uid = Request.Params["uid"].ToString();
             shop = iShopRepository.Load(uid);
 
-            UserTypeEnum ust = UserTypeEnum.商店;
-
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
+            //UserTypeEnum ust = UserTypeEnum.商店;
+            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -51,7 +50,7 @@ namespace Friday.mvc.weblogin.shop
                 this.ImagePreview.Src = shop.Logo;
  
 
-                this.LoginName.Value = loginuser.LoginName;
+                //this.LoginName.Value = loginuser.LoginName;
 
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);

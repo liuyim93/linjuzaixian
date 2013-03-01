@@ -27,10 +27,9 @@ namespace Friday.mvc.weblogin.shop
             BindingHelper.ObjectToControl(shop, this);
             //this.ImagePreview.Src = shop.Logo;
 
-            UserTypeEnum ust = UserTypeEnum.商店;
-
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
-            this.LoginName.Value = loginuser.LoginName;
+            //UserTypeEnum ust = UserTypeEnum.商店;
+            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
+            //this.LoginName.Value = loginuser.LoginName;
 
             ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
             string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);

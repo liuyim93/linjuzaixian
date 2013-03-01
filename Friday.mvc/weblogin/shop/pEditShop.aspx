@@ -22,11 +22,11 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-             <p>
+             <%--<p>
                 <label>
                     登陆名：</label>
                 <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
-            </p>
+            </p>--%>
                   <p>
                 <label>
                     服务的学校：</label>
