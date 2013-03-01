@@ -31,7 +31,7 @@
                     <label>订单状态:</label>
                     <select name="OrderStatus" id="OrderStatus" runat="server">
                     <option value="">请选择</option>
-                    <option value="配送中">配送中</option>
+                    <option value="配送中">进行中</option>
                     <option value="成功">成功</option>
                     <option value="失败">失败</option>
                      </select>
@@ -108,7 +108,7 @@
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>                         
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "SystemUser.LoginUser.LoginName")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rent.Name")%></td> 
-                        <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "OrderStatus"))%></td>                 
+                        <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "OrderStatus")) == "配送中" ? "进行中" : friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "OrderStatus"))%></td>                 
 				</tr>
 			      
             </ItemTemplate>

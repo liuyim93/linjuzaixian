@@ -22,7 +22,7 @@
             </p>
             <p>
                 <label>
-                    购买数量：</label>
+                    租入数量：</label>
                 <input type="text" id="Amount" size="30" class="required textInput gray digits" min="1" runat="server" />
             </p>          
             <p>

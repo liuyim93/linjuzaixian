@@ -26,13 +26,15 @@
               <HeaderTemplate>
                       <thead>
                         <tr>
-                            <th width="10%" align="center">序 号</th>
+                            <th width="5%" align="center">序 号</th>
                             <th width="20%" align="center">商品名称</th>
-                            <th width="10%" align="center">商品单价</th>
-                            <th width="15%" align="center">购买数量</th>
-                            <th width="10%" align="center">总金额</th>
-
-                        </tr>
+                            <th width="5%" align="center">每月租金</th>
+                            <th width="5%" align="center">租入数量</th>
+                            <th width="5%" align="center">总租金</th>
+                            <th width="20%" align="center">起租时间</th>
+                            <th width="20%" align="center">到期时间</th>
+                            <th width="5%" align="center">总天数</th>                     
+                       </tr>
                     </thead>
                     <tbody>
                  </HeaderTemplate>
@@ -45,6 +47,9 @@
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td>
                          <%--<td align="center"><%#Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Amount")) *Convert.ToDouble(DataBinder.Eval(Container.DataItem, "House.Price"))%></td>--%>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "House.TimeOfRentFrom")%></td>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "House.TimeOfRentTO")%></td>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "House.DaySpanOfRent")%></td>
                     </tr>
 			      
                 </ItemTemplate>

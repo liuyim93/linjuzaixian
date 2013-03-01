@@ -44,7 +44,7 @@
                     订单状态：</label>
                 <select name="OrderStatus" id="OrderStatus" runat="server">
                 <option value="">请选择</option>
-                <option value="配送中">配送中</option>
+                <option value="配送中">进行中</option>
                 <option value="成功">成功</option>
                 <option value="失败">失败</option>
                 </select>
@@ -67,16 +67,7 @@
                     备用电话：</label>
                 <input type="text" id="BackupTel" size="30" class="required  textInput gray phone" readonly="readonly" runat="server" />
             </p>
-             <p>
-                <label>
-                    地址：</label>
-                <input type="text" id="Address" size="30" class="required  textInput gray" readonly="readonly" runat="server" />
-            </p>
-            <p>
-                <label>
-                    送货时间：</label>
-                <input type="text" id="SendTime" size="30" class="required  textInput gray" readonly="readonly" runat="server" />
-            </p>
+
          </div>
         
         <div id="jbsxBox1" >
