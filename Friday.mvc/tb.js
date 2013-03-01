@@ -358,10 +358,16 @@ TB.add("mod~global", function() {
            {
                isApp: false,
                passCookie: true,
+               loginServer: "member/login.jhtml",
+               logoutServer: "http://login.taobao.com/member/logout.jhtml",
+               registerServer: "http://register.tmall.com/",
+               spaceServer: "http://jianghu.taobao.com/admin/home.htm"
+               /*
                loginServer: "http://login.tmall.com",
                logoutServer: "http://login.taobao.com/member/logout.jhtml",
                registerServer: "http://register.tmall.com/",
                spaceServer: "http://jianghu.taobao.com/admin/home.htm"
+               */
            };
         _options = _kissy.merge(_default_options, _options);
         TB.environment.isApp = _options.isApp;
@@ -508,7 +514,7 @@ TB.add("mod~global", function() {
                 });
                 _tb_global._initMemberInfo()
             } else {
-                u = '\u55b5\uff0c\u6b22\u8fce\u6765\u5929\u732b\uff01<a class="sn-login" href="' + w + '" target="_top">\u8bf7\u767b\u5f55</a><a class="sn-register" href="' + s + '" target="_top">\u514d\u8d39\u6ce8\u518c</a><i class="sn-separator"></i>';
+                u = '欢迎来邻居网<a class="sn-login" href="' + w + '" target="_top">请登录</a><a class="sn-register" href="' + s + '" target="_top">免费注册</a><i class="sn-separator"></i>';
                 t.innerHTML = u;
                 _tb_global._fireMemberInfoReadyFnList()
             }
