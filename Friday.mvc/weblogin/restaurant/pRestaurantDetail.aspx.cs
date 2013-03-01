@@ -30,7 +30,9 @@ namespace Friday.mvc.weblogin.restaurant
             //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id, ust);
 
             //this.LoginName.Value = restaurant.LoginUserOfMerchants.First().LoginUser.UserInRoles.FirstOrDefault().SystemRole.Name;
-           
+            
+            loginuser
+            this.LoginName.Value =loginuser.LoginName; 
 
             BindingHelper.ObjectToControl(restaurant, this);
             this.ImagePreview.Src = restaurant.Logo;

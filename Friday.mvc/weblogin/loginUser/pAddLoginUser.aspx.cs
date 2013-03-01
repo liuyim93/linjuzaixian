@@ -13,7 +13,7 @@ namespace Friday.mvc.weblogin
 {
     public partial class pAddLoginUser : BasePage
     {
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
         IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
         IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
         IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
@@ -31,7 +31,23 @@ namespace Friday.mvc.weblogin
 
         private void SaveLoginUser()
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
             loginUser = new LoginUser();
+
+            loginUser = iLoginUserRepository.GetLoginUserByLoginName(Request.Params["LoginName"]);
+
+            if (loginUser != null)
+            {
+                result.statusCode = "300";
+                result.message = "您填写的登录名已被使用！";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();              
+            }
+            else 
+            {
+                
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
             iLoginUserRepository.SaveOrUpdate(loginUser);
@@ -64,20 +80,21 @@ namespace Friday.mvc.weblogin
                 loginuserofmerchant.LoginUser = loginUser;
                 loginuserofmerchant.Merchant = iMerchantRepository.Get(merchantiID);
                 iLoginUserOfMerchantRepository.SaveOrUpdate(loginuserofmerchant);              
-            }               
+            }             
          
-            AjaxResult result = new AjaxResult();
+           
             result.statusCode = "200";
             result.message = "添加成功";
+            
+           }
+
+
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
+          
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
-
-
-
         }
 
     }
