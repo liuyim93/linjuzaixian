@@ -11,5 +11,6 @@ namespace friday.core.repositories
     {
         IList<SystemRole> Search(List<DataFilter> termList);
         IList<SystemRole> Search(List<DataFilter> termList, int start, int limit, out long total);
+        SystemRole GetRoleByName(string SystemRoleName);
     }
 }

@@ -24,6 +24,9 @@ namespace Friday.Test2
        private List<Food> foodOfRestaurant2List = new List<Food>();
        private List<School> schoolList = new List<School>();
        private List<MessageContent> messageContentList = new List<MessageContent>();
+       private IList<SystemRole> systemRoleList = new List<SystemRole>();
+       ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+       IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_RESTAURANT_COUNT = 5;
        private readonly int RESTAURANT_COUNT = 15;  //we double RESTAURANT_COUNT  eg  10*2
@@ -39,6 +42,9 @@ namespace Friday.Test2
        [SetUp]
         public void init()
         {
+            add_Random_SystemRoles();
+            systemRoleList = iSystemRoleRepository.GetAll();
+
             for (int i = 0; i < SYSTEM_USER_COUNT; i++)
             {
                 add_SystemUser_Address_LoginUser();
@@ -61,6 +67,78 @@ namespace Friday.Test2
             add_Random_Message();
             add_Random_FeedBack();
         }
+       //添加角色
+       private void add_Random_SystemRoles()
+       {
+           IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+           IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+           IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
+
+           SystemRole admin = new SystemRole()
+           {
+               Name = "管理员",
+           };
+           iSystemRoleRepository.SaveOrUpdate(admin);
+
+           //添加管理员admin
+           LoginUser adminLoginUser = new LoginUser()
+           {
+               LoginName = "admin",
+               Password = "admin",
+               IsAdmin = true
+           };
+           iLoginUserRepository.SaveOrUpdate(adminLoginUser);
+
+           UserInRole userInRole = new UserInRole()
+           {
+               LoginUser = adminLoginUser,
+               SystemRole = admin
+           };
+           iUserInRoleRepository.SaveOrUpdate(userInRole);
+
+           SystemRole customer = new SystemRole()
+           {
+               Name = "顾客",
+           };
+           iSystemRoleRepository.SaveOrUpdate(customer);
+
+           SystemRole shopOwner = new SystemRole()
+           {
+               Name = "商店店主",
+           };
+           iSystemRoleRepository.SaveOrUpdate(shopOwner);
+
+           SystemRole restaruantOwner = new SystemRole()
+           {
+               Name = "餐馆店主",
+           };
+           iSystemRoleRepository.SaveOrUpdate(restaruantOwner);
+
+           SystemRole rentOwner = new SystemRole()
+           {
+               Name = "租房店主",
+           };
+           iSystemRoleRepository.SaveOrUpdate(rentOwner);
+
+           SystemRole shopMember = new SystemRole()
+           {
+               Name = "商店店小二",
+           };
+           iSystemRoleRepository.SaveOrUpdate(shopMember);
+
+           SystemRole restaurantMember = new SystemRole()
+           {
+               Name = "餐馆店小二",
+           };
+           iSystemRoleRepository.SaveOrUpdate(restaurantMember);
+
+           SystemRole rentMember = new SystemRole()
+           {
+               Name = "租房店小二",
+           };
+           iSystemRoleRepository.SaveOrUpdate(rentMember);
+       }
+
        private void add_Random_FeedBack() 
        {
 
@@ -169,6 +247,7 @@ namespace Friday.Test2
 
        private void add_SystemUser_Address_LoginUser()
        {
+           
            string systemuserid = Guid.NewGuid().ToString();
            string loginuserid = Guid.NewGuid().ToString();
            string tel;
@@ -270,7 +349,7 @@ namespace Friday.Test2
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.营业时间,
                MerchantCategory = merchantCategory,   
-            
+              MerchantType=MerchantTypeEnum.餐馆
                 
               
            };
@@ -299,6 +378,11 @@ namespace Friday.Test2
            lum.Merchant = restaurant1;
            lum.LoginUser = lu1;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+           UserInRole uir = new UserInRole();
+           uir.LoginUser = lu1;
+           uir.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
+           iUserInRoleRepository.SaveOrUpdate(uir);
 
 
            for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
@@ -364,8 +448,8 @@ namespace Friday.Test2
                Rate = 0.8,
                SendPrice = 10,
                ShopStatus = ShopStatusEnum.正在休息,
-               MerchantCategory = merchantCategory
-              
+               MerchantCategory = merchantCategory,
+              MerchantType=MerchantTypeEnum.餐馆
               
            };
 
@@ -386,6 +470,11 @@ namespace Friday.Test2
            lum2.Merchant = restaurant2;
            lum2.LoginUser = lu2;
            iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+
+           UserInRole uir2 = new UserInRole();
+           uir2.LoginUser = lu2;
+           uir2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
+           iUserInRoleRepository.SaveOrUpdate(uir2);
 
            for (int i = 0; i < FOOD_COUNT_OF_RESTAURANT; i++)
            {
@@ -553,9 +642,7 @@ namespace Friday.Test2
                LoginName = "xiaoer_"+restaurant.ShortName+"_"+xiaoerIndex,
                Password = "xiaoer",
                //UserType =UserTypeEnum.餐馆店小二,
-           };
-
-
+           };         
 
            LoginUserOfMerchant loginUserOfMerchant = new LoginUserOfMerchant()
            {
@@ -567,6 +654,11 @@ namespace Friday.Test2
            LoginUser.LoginUserOfMerchants.Add(loginUserOfMerchant);
 
            new LoginUserRepository().SaveOrUpdate(LoginUser);
+           UserInRole uirxiaoer = new UserInRole();
+           uirxiaoer.LoginUser = LoginUser;
+           uirxiaoer.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
+           iUserInRoleRepository.SaveOrUpdate(uirxiaoer);
+
 
        }
        private void add_Random_MyOrder()

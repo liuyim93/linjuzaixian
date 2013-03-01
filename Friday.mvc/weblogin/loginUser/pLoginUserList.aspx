@@ -93,6 +93,7 @@
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
+                      <th width="10%" align="center">ID</th>
                         <th width="10%" align="center">登录名</th>
                         <th width="10%" align="center">密码</th>
                         <%--<th width="10%" align="center">管理员</th>--%>
@@ -105,6 +106,8 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
+                        <td><a href="loginUser/pLoginUserDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
+                            </a></td>
                         <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
                         <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
                    <%--     <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>      --%>                   
@@ -145,12 +148,12 @@
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
 //            debugger
-//            o.find("#LoginUserList table:eq(1) tr").click(function (e) {
-//                if (!$(e.target).is("a")) {
-//                    $(this).find("td a").trigger("click");
-//                }
+             o.find("#LoginUserList table:eq(1) tr").click(function (e) {
+                if (!$(e.target).is("a")) {
+                    $(this).find("td a").trigger("click");
+                }
 
-//            });
+            });
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
                 o.find("#form").bind("submit", function (e) {
