@@ -22,7 +22,17 @@ namespace Friday.mvc.weblogin.restaurant
 
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Restaurant增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";

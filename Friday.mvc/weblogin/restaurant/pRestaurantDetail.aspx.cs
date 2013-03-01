@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.EnumType;
+using friday.core.domain;
 
 namespace Friday.mvc.weblogin.restaurant
 {
@@ -24,6 +25,16 @@ namespace Friday.mvc.weblogin.restaurant
         private LoginUserOfMerchant lum;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Restaurant浏览权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
             string uid = Request.Params["uid"].ToString();
             restaurant = iRestaurantRepository.Load(uid);
             //UserTypeEnum ust = UserTypeEnum.餐馆;
