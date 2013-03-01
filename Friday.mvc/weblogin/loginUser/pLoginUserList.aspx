@@ -17,8 +17,8 @@
                     <input type="text" name="LoginName" class="textInput" value="<%=loginName%>"/>
                 </td>
                 <td>
-                    <label>管理员:</label>
-                    <%--<select name="IsAdmin" id="IsAdmin" runat="server">
+                   <%--  <label>管理员:</label>
+                   <select name="IsAdmin" id="IsAdmin" runat="server">
                     <option value="">请选择</option>
                     <option value="是">是</option>
                     <option value="否">否</option>
@@ -28,12 +28,13 @@
                              <p>
                     <label>
                         所属商家：</label>
-                    <input type="text" id="NameSet" size="35"  
+                   
+                     <input type="text" id="NameSet" size="35"  
                         runat="server" readonly="true" />
-                    <input type="hidden" id="IDSet" size="35"  
+                     <a class="btnLook" href="MultiListMerchant.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">
+                   选择商家</a>       </p> <input type="hidden" id="IDSet" size="35"  
                     runat="server" readonly="true" />
-                    <a class="btnLook" href="MultiListMerchant.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择商家</a>
-                </p>  
+           
             
                  <%--   <select name="UserType" id="UserType" runat="server">
                     <option value="">请选择</option>

@@ -1519,7 +1519,19 @@ namespace friday.core.repositories
                     {
                         SearchByMerchantCategory(query, df.field, false);
                     }
+                    if (df.type.Equals("MerchantType"))
+                    {
+                        try
+                        {
+                            MerchantTypeEnum Type = (MerchantTypeEnum)Enum.Parse(typeof(MerchantTypeEnum), df.value, true);
+                            query.Add(Restrictions.Eq(notself + "MerchantType", Type));
+                            continue;
+                        }
+                        catch (Exception ex)
+                        {
+                        }
 
+                    }
                     if (df.type.Equals("Order"))
                     {
                         if (df.field != null && df.field.Count != 0)

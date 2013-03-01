@@ -21,6 +21,7 @@ namespace Friday.mvc.weblogin
 
         ILoginUserRepository iRepositoryLoginUser = UnityHelper.UnityToT<ILoginUserRepository>();
         IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
+        IMerchantRepository iRepositoryMerchant= UnityHelper.UnityToT<IMerchantRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -37,6 +38,8 @@ namespace Friday.mvc.weblogin
                 int limit = numPerPageValue;
 
                 List<DataFilter> filterList = new List<DataFilter>();
+                List<DataFilter> loginUserOfMerchantList = new List<DataFilter>();
+                List<DataFilter> MerchantList = new List<DataFilter>();
 
                 filterList.Add(new DataFilter()
                 {
@@ -59,14 +62,27 @@ namespace Friday.mvc.weblogin
 
                     });
 
-                if (!string.IsNullOrEmpty(Request.Form["UserType"]))
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "UserType",
-                        value = Request.Form["UserType"]
+                if (!string.IsNullOrEmpty(Request.Form["IDSet"]))
+                   {  
+                     MerchantList.Add(new DataFilter()
+                     {
+                        type = "Restaurant",
+                        value = Request.Form["IDSet"]
 
-                    });
+                     });
+                     loginUserOfMerchantList.Add(new DataFilter()
+                     {
+                         type = "Restaurant",
+                          field=MerchantList
 
+                     });
+                     filterList.Add(new DataFilter()
+                     {
+                         type = "LoginUserOfMerchant",
+                         field = loginUserOfMerchantList
+                     });
+
+                    }
                 List<DataFilter> dflForOrder = new List<DataFilter>();
                 string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
                 string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
