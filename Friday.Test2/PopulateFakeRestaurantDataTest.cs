@@ -42,7 +42,7 @@ namespace Friday.Test2
        [SetUp]
         public void init()
         {
-            add_Random_SystemRoles();
+           
             systemRoleList = iSystemRoleRepository.GetAll();
 
             for (int i = 0; i < SYSTEM_USER_COUNT; i++)
@@ -67,77 +67,7 @@ namespace Friday.Test2
             add_Random_Message();
             add_Random_FeedBack();
         }
-       //添加角色
-       private void add_Random_SystemRoles()
-       {
-           IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
-           IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-           IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
 
-           SystemRole admin = new SystemRole()
-           {
-               Name = "管理员",
-           };
-           iSystemRoleRepository.SaveOrUpdate(admin);
-
-           //添加管理员admin
-           LoginUser adminLoginUser = new LoginUser()
-           {
-               LoginName = "admin",
-               Password = "admin",
-               IsAdmin = true
-           };
-           iLoginUserRepository.SaveOrUpdate(adminLoginUser);
-
-           UserInRole userInRole = new UserInRole()
-           {
-               LoginUser = adminLoginUser,
-               SystemRole = admin
-           };
-           iUserInRoleRepository.SaveOrUpdate(userInRole);
-
-           SystemRole customer = new SystemRole()
-           {
-               Name = "顾客",
-           };
-           iSystemRoleRepository.SaveOrUpdate(customer);
-
-           SystemRole shopOwner = new SystemRole()
-           {
-               Name = "商店店主",
-           };
-           iSystemRoleRepository.SaveOrUpdate(shopOwner);
-
-           SystemRole restaruantOwner = new SystemRole()
-           {
-               Name = "餐馆店主",
-           };
-           iSystemRoleRepository.SaveOrUpdate(restaruantOwner);
-
-           SystemRole rentOwner = new SystemRole()
-           {
-               Name = "租房店主",
-           };
-           iSystemRoleRepository.SaveOrUpdate(rentOwner);
-
-           SystemRole shopMember = new SystemRole()
-           {
-               Name = "商店店小二",
-           };
-           iSystemRoleRepository.SaveOrUpdate(shopMember);
-
-           SystemRole restaurantMember = new SystemRole()
-           {
-               Name = "餐馆店小二",
-           };
-           iSystemRoleRepository.SaveOrUpdate(restaurantMember);
-
-           SystemRole rentMember = new SystemRole()
-           {
-               Name = "租房店小二",
-           };
-           iSystemRoleRepository.SaveOrUpdate(rentMember);
-       }
 
        private void add_Random_FeedBack() 
        {

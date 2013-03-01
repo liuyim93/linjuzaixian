@@ -68,7 +68,7 @@
                      <tr>
                       <th width="60"><input type="checkbox" class="checkboxCtrl" group="ids" />全选</th> 
                        <th width="40">序号</th> 
-					    <th width="250">学校名称</th> 
+					    <th width="250">商铺名称</th> 
                       </tr>
                  </thead>
                  <tbody> 

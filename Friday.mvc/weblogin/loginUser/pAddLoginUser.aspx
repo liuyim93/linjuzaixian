@@ -33,39 +33,24 @@
                  <p>
                     <label>
                         用户角色：</label>
-                    <input type="text" id="NameSet" size="35"  
+                    <input type="text" id="SystemRole" size="35"  
                         runat="server" readonly="true" />
-                    <input type="hidden" id="IDSet" size="35"  
+                    <input type="hidden" id="SystemRoleID" size="35"  
                     runat="server" readonly="true" />
-                    <a class="btnLook" href="MultiListSystemRole.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择角色</a>
-                </p>  
+                    <a class="btnLook" href="ListSystemRole.aspx"  rel=""  lookupgroup="">选择角色</a>
+                </p>          
+          
             
-                  <p>
-                <label>
-                    商铺名称：</label>
-                <input type="text" id="Merchant" size="30" class="required textInput gray"
+                    <p>
+                    <label>
+                        所属商家：</label>                   
+                     <input type="text" id="NameSet" size="35"  
+                        runat="server" readonly="true" />  
+                     <a class="btnLook" href="MultiListMerchant.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">
+                   选择商家</a>       </p> <input type="hidden" id="IDSet" size="35"  
                     runat="server" readonly="true" />
-                 <input type="hidden" id="MerchantID"  runat="server" />
-                <a class="btnLook" href="ListMerchant.aspx" rel="" lookupgroup="">选择商铺</a>
-            </p>
+           
 
-                 <%--<p>
-                     <label>
-                         用户类型:</label>
-                    <select name="UserType" id="UserType" runat="server">
-                    <option value="">请选择</option>
-                    <option value="管理员">管理员</option>
-                    <option value="顾客">顾客</option>
-                    <option value="商店">商店</option>
-                    <option value="餐馆">餐馆</option>
-                    <option value="租房">租房</option>
-                    <option value="送货员">送货员</option>
-                    <option value="商铺店小二">商铺店小二</option>
-                    <option value="餐馆店小二">餐馆店小二</option>
-                    <option value="租房店小二">租房店小二</option>
-                    <option value="会员用户">会员用户</option>
-                    </select>
-                 </p> --%>
         </div>
     </div>
      <div class="formBar">

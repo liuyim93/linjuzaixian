@@ -30,7 +30,7 @@
                         所属商家：</label>
                    
                      <input type="text" id="NameSet" size="35"  
-                        runat="server" readonly="true" />
+                        runat="server" readonly="true" />  
                      <a class="btnLook" href="MultiListMerchant.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">
                    选择商家</a>       </p> <input type="hidden" id="IDSet" size="35"  
                     runat="server" readonly="true" />
@@ -96,8 +96,8 @@
                       <th width="10%" align="center">ID</th>
                         <th width="10%" align="center">登录名</th>
                         <th width="10%" align="center">密码</th>
-                        <%--<th width="10%" align="center">管理员</th>--%>
-                        <th width="10%" align="center">用户类型</th>
+                        <%--<th width="10%" align="center">管理员</th>
+                        <th width="10%" align="center">用户类型</th>--%>
                 </tr>
                 </thead>
                 <tbody> 
@@ -111,8 +111,8 @@
                         <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
                         <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
                    <%--     <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>      --%>                   
-                        <%--<td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>   --%>            
-				         <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
+                        <%--<td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>              
+				         <td><%#DataBinder.Eval(Container.DataItem, "UserInRole.ID")%></td> --%> 
                 </tr>
 			      
             </ItemTemplate>
