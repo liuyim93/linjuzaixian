@@ -32,6 +32,7 @@ namespace friday.core.domain
             Map(o => o.Distance);
             Map(o => o.Rate);
             Map(o => o.ShopStatus).CustomType<ShopStatusEnum>();
+            Map(o => o.MerchantType).CustomType<MerchantTypeEnum>();
 
             References<MerchantCategory>(o => o.MerchantCategory);
             /* test not keynullable*/

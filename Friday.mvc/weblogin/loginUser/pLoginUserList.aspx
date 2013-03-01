@@ -18,16 +18,24 @@
                 </td>
                 <td>
                     <label>管理员:</label>
-                    <select name="IsAdmin" id="IsAdmin" runat="server">
+                    <%--<select name="IsAdmin" id="IsAdmin" runat="server">
                     <option value="">请选择</option>
                     <option value="是">是</option>
                     <option value="否">否</option>
-                    </select>
+                    </select>--%>
                 </td>
                  <td>
-                     <label>
-                         用户类型:</label>
-                    <select name="UserType" id="UserType" runat="server">
+                             <p>
+                    <label>
+                        所属商家：</label>
+                    <input type="text" id="NameSet" size="35"  
+                        runat="server" readonly="true" />
+                    <input type="hidden" id="IDSet" size="35"  
+                    runat="server" readonly="true" />
+                    <a class="btnLook" href="MultiListMerchant.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择商家</a>
+                </p>  
+            
+                 <%--   <select name="UserType" id="UserType" runat="server">
                     <option value="">请选择</option>
                     <option value="管理员">管理员</option>
                     <option value="顾客">顾客</option>
@@ -39,7 +47,7 @@
                     <option value="餐馆店小二">餐馆店小二</option>
                     <option value="租房店小二">租房店小二</option>
                     <option value="会员用户">会员用户</option>
-                    </select>
+                    </select>--%>
                  </td>            
                </tr>
         </table>

@@ -108,6 +108,12 @@ namespace friday.core
             get;
         }
 
+        public virtual MerchantTypeEnum MerchantType
+        {
+            get;
+
+            set;
+        }
 
         public virtual ShopStatusEnum ShopStatus
         {
