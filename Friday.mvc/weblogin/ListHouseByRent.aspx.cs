@@ -17,8 +17,8 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
         protected string name;
-        public string startprice;
-        public string endprice;
+        protected string startprice;
+        protected string endprice;
 
         protected void Page_Load(object sender, EventArgs e)
         {
