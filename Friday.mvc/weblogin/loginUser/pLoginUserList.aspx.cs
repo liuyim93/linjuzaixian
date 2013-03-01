@@ -120,7 +120,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteLoginUser()
         {
-            iRepositoryLoginUser.Delete(Request.Params["uid"]);
+            iRepositoryLoginUser.PhysicsDelete(Request.Params["uid"]);
             iUserInRoleRepository.DeleteUserInRoleByLoginUserID(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();

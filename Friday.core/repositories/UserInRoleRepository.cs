@@ -15,7 +15,7 @@ namespace friday.core.repositories
             string name="";
             string id="";
             int i = 1;
-            var q = Session.CreateQuery(@"select s  from   UserInRole as  sm left join  sm.Role  as  s    where  sm.LoginUser=:LId ")
+            var q = Session.CreateQuery(@"select s  from   UserInRole as  sm left join  sm.SystemRole  as  s    where  sm.LoginUser=:LId ")
                            .SetString("LId", userID).List<SystemRole>();
 
             foreach (SystemRole sc in q)

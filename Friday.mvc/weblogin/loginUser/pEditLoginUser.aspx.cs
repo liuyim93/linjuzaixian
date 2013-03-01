@@ -16,6 +16,7 @@ namespace Friday.mvc.weblogin
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
         IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+        IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
 
         private LoginUser loginUser;
         private string uid;
@@ -35,8 +36,11 @@ namespace Friday.mvc.weblogin
                 IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
 
                 string[] info = iUserInRoleRepository.GetRoleNamesAndIDByLoginUserID(uid);
-                this.NameSet.Value = info[0];
-                this.IDSet.Value = info[1];
+                this.SystemRole.Value = info[0];
+                this.SystemRoleID.Value = info[1];
+
+                this.NameSet.Value = loginUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Name;
+                this.IDSet.Value = loginUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id;
             }
         }
 
@@ -49,9 +53,9 @@ namespace Friday.mvc.weblogin
 
             iUserInRoleRepository.DeleteUserInRoleByLoginUserID(uid);
             string roleID = "";
-            if (this.IDSet.Value != null && this.IDSet.Value != "")
+            if (this.SystemRoleID.Value != null && this.SystemRoleID.Value != "")
             {
-                roleID = this.IDSet.Value;
+                roleID = this.SystemRoleID.Value;
                 string[] sArray = roleID.Split(',');
 
                 foreach (string aid in sArray)
