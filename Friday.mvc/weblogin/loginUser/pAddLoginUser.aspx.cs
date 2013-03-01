@@ -17,6 +17,7 @@ namespace Friday.mvc.weblogin
         IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
         IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
         IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
+        IRepository<LoginUserOfMerchant> iLoginUserOfMerchantRepository = UnityHelper.UnityToT<IRepository<LoginUserOfMerchant>>();
 
         private LoginUser loginUser;
 
@@ -30,26 +31,40 @@ namespace Friday.mvc.weblogin
 
         private void SaveLoginUser()
         {
-              loginUser = new LoginUser();
+            loginUser = new LoginUser();
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
             iLoginUserRepository.SaveOrUpdate(loginUser);
 
-            string roleID = "";
-            if (this.IDSet.Value != null && this.IDSet.Value != "")
-            {
-                roleID = this.IDSet.Value;
-                string[] sArray = roleID.Split(',');
 
-                foreach (string aid in sArray)
-                {
-                    UserInRole userInRole = new UserInRole();
-                    userInRole.SystemRole = iSystemRoleRepository.Get(aid);
-                    userInRole.LoginUser = loginUser;
-                    iUserInRoleRepository.SaveOrUpdate(userInRole);
-                }
+        
+            string roleID = "";
+            if (this.SystemRoleID.Value != null && this.SystemRoleID.Value != "")
+            {
+                roleID = this.SystemRoleID.Value;
+               UserInRole userinrole = new UserInRole();
+               userinrole.SystemRole=iSystemRoleRepository.Get(roleID);
+               userinrole.LoginUser = loginUser;
+               iUserInRoleRepository.SaveOrUpdate(userinrole);
+                //string[] sArray = roleID.Split(',');
+                //foreach (string aid in sArray)
+                //{
+                //    UserInRole userInRole = new UserInRole();
+                //    userInRole.SystemRole = iSystemRoleRepository.Get(aid);
+                //    userInRole.LoginUser = loginUser;
+                //    iUserInRoleRepository.SaveOrUpdate(userInRole);
+                //}
             }
-               
+
+            string merchantiID = "";
+            if (this.IDSet.Value != null && this.IDSet.Value != "") 
+            {
+                merchantiID = this.IDSet.Value;
+                LoginUserOfMerchant loginuserofmerchant = new LoginUserOfMerchant();
+                loginuserofmerchant.LoginUser = loginUser;
+                loginuserofmerchant.Merchant = iMerchantRepository.Get(merchantiID);
+                iLoginUserOfMerchantRepository.SaveOrUpdate(loginuserofmerchant);              
+            }               
          
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
