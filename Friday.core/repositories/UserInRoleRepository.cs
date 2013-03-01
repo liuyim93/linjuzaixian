@@ -45,7 +45,7 @@ namespace friday.core.repositories
            {
                try
                {
-                   Session.CreateQuery(@"delete from   UserInRole as  sm  where  sm.LoginUser.Id=:LId ")
+                   Session.CreateQuery(@"update UserInRole set IsDelete=true  where  LoginUser.Id=:LId ")
                         .SetString("LId", MID).ExecuteUpdate();                  
                    tran.Commit();
                }
