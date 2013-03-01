@@ -43,7 +43,7 @@ namespace Friday.Test2
                 LoginName = loginName,
                 Password = "book001",
                 IsAdmin = false,
-                UserType = UserTypeEnum.顾客,
+                //UserType = UserTypeEnum.顾客,
                 SystemUser = su
             };
 
@@ -66,7 +66,7 @@ namespace Friday.Test2
                 LoginName = loginName2,
                 Password = "book001",
                 IsAdmin = false,
-                UserType = UserTypeEnum.顾客,
+                //UserType = UserTypeEnum.顾客,
                 SystemUser = su2
             };
 

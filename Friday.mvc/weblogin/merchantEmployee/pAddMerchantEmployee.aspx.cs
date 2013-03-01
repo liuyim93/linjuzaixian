@@ -39,18 +39,18 @@ namespace Friday.mvc.weblogin
              IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
              LoginUser f=new LoginUser();
              BindingHelper.RequestToObject(f);
-             if (mtype == "Restaurant")
-             {
-                 f.UserType = UserTypeEnum.餐馆店小二;
-             }
-             if (mtype == "Rent")
-             {
-                 f.UserType = UserTypeEnum.租房店小二;
-             }
-             if (mtype == "Shop")
-             {
-                 f.UserType = UserTypeEnum.商店店小二;
-             }
+             //if (mtype == "Restaurant")
+             //{
+             //    f.UserType = UserTypeEnum.餐馆店小二;
+             //}
+             //if (mtype == "Rent")
+             //{
+             //    f.UserType = UserTypeEnum.租房店小二;
+             //}
+             //if (mtype == "Shop")
+             //{
+             //    f.UserType = UserTypeEnum.商店店小二;
+             //}
             repository.SaveOrUpdate(f);
 
             Merchant merchant = merchantRepository.Get(mid);

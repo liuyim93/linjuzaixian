@@ -95,7 +95,7 @@
                     <th width="10%" align="center">序 号</th>
                         <th width="10%" align="center">登录名</th>
                         <th width="10%" align="center">密码</th>
-                        <th width="10%" align="center">管理员</th>
+                        <%--<th width="10%" align="center">管理员</th>--%>
                         <th width="10%" align="center">用户类型</th>
                 </tr>
                 </thead>
@@ -107,9 +107,10 @@
                         <td align="center"><%#Container.ItemIndex+1%></td> 
                         <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
                         <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
-                        <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>                         
-                        <td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>               
-				</tr>
+                   <%--     <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>      --%>                   
+                        <%--<td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>   --%>            
+				         <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
+                </tr>
 			      
             </ItemTemplate>
         </asp:repeater>

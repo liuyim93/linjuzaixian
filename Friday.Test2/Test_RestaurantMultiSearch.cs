@@ -53,7 +53,7 @@ namespace Friday.Test2
            LoginUser lu1 = new LoginUser();
            lu1.LoginName = loginName;
            lu1.Password = loginName;
-           lu1.UserType = UserTypeEnum.餐馆;
+           //lu1.UserType = UserTypeEnum.餐馆;
            iLoginUserRepository.SaveOrUpdate(lu1);
 
 
@@ -108,7 +108,7 @@ namespace Friday.Test2
            LoginUser lu2 = new LoginUser();
            lu2.LoginName = loginName2;
            lu2.Password = loginName2;
-           lu2.UserType = UserTypeEnum.餐馆;
+           //lu2.UserType = UserTypeEnum.餐馆;
            iLoginUserRepository.SaveOrUpdate(lu2);
 
 

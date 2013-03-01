@@ -117,7 +117,7 @@ namespace Friday.Test2
                IsAdmin = false,
                LoginName = "john" + tel,
                Password = "john",
-               UserType = UserTypeEnum.会员用户
+               //UserType = UserTypeEnum.会员用户
            };
            systemUser_1.LoginUser = loginUser;
            new LoginUserRepository().SaveOrUpdate(loginUser);
@@ -167,7 +167,7 @@ namespace Friday.Test2
            LoginUser lu1 = new LoginUser();
            lu1.LoginName = "Login" + shop.Name;
            lu1.Password = "LPass" + shop.Tel;
-           lu1.UserType = UserTypeEnum.商店;
+           //lu1.UserType = UserTypeEnum.商店;
            iLoginUserRepository.SaveOrUpdate(lu1);
 
            LoginUserOfMerchant lum = new LoginUserOfMerchant();
@@ -251,7 +251,7 @@ namespace Friday.Test2
            LoginUser lu2 = new LoginUser();
            lu2.LoginName = "Login" + shop2.Name;
            lu2.Password = "LPass" + shop2.Tel;
-           lu2.UserType = UserTypeEnum.商店;
+           //lu2.UserType = UserTypeEnum.商店;
            iLoginUserRepository.SaveOrUpdate(lu2);
 
            LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
@@ -429,7 +429,7 @@ namespace Friday.Test2
                IsAdmin = false,
                LoginName = "xiaoer_"+shop.ShortName+"_"+xiaoerIndex,
                Password = "xiaoer",
-               UserType =UserTypeEnum.商店店小二,
+               //UserType =UserTypeEnum.商店店小二,
            };
 
 

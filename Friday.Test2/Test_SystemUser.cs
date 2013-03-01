@@ -46,7 +46,7 @@ namespace Friday.Test2
                 LoginName = "book001",
                 Password = "book001",
                 IsAdmin = false,
-                UserType = UserTypeEnum.顾客,
+                //UserType = UserTypeEnum.顾客,
                 SystemUser = s1
             };
             iLoginUserRepository.SaveOrUpdate(lu1);
@@ -56,7 +56,7 @@ namespace Friday.Test2
                 LoginName = "book002",
                 Password = "book002",
                 IsAdmin = false,
-                UserType = UserTypeEnum.顾客,
+                //UserType = UserTypeEnum.顾客,
                 SystemUser = s2
             };
             iLoginUserRepository.SaveOrUpdate(lu2);
@@ -66,7 +66,7 @@ namespace Friday.Test2
                 LoginName = "book003",
                 Password = "book003",
                 IsAdmin = false,
-                UserType = UserTypeEnum.顾客,
+                //UserType = UserTypeEnum.顾客,
                 SystemUser = s3
             };
             iLoginUserRepository.SaveOrUpdate(lu3);

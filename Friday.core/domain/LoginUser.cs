@@ -56,11 +56,11 @@ namespace friday.core
         /// <summary>
         /// admin,shopowner,shopxiaoer,rentowner,rentxiaoer,restaurantowner,restaurantxiaoer,restaurantdelivery,shopdelivery
         /// </summary>
-        public virtual UserTypeEnum UserType
-        {
-            get;
-            set;
-        }
+        //public virtual UserTypeEnum UserType
+        //{
+        //    get;
+        //    set;
+        //}
         public virtual Iesi.Collections.Generic.ISet<UserInRole> UserInRoles
         {
             get;

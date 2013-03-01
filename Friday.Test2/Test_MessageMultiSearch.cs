@@ -30,13 +30,13 @@ namespace Friday.Test2
             LoginUser lu1 = new LoginUser();
             lu1.LoginName = loginName;
             lu1.Password = loginName;
-            lu1.UserType = UserTypeEnum.顾客;
+            //lu1.UserType = UserTypeEnum.顾客;
             iLoginUserRepository.SaveOrUpdate(lu1);
 
             LoginUser lu2 = new LoginUser();
             lu2.LoginName = loginName2;
             lu2.Password = loginName2;
-            lu2.UserType = UserTypeEnum.顾客;
+            //lu2.UserType = UserTypeEnum.顾客;
             iLoginUserRepository.SaveOrUpdate(lu2);
 
             MessageContent Mescnt = new MessageContent();

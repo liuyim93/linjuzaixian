@@ -21,7 +21,7 @@ namespace friday.core.domain
             Map(o => o.LoginName);
             Map(o => o.Password);
             Map(o => o.IsAdmin);
-            Map(o => o.UserType).CustomType<UserTypeEnum>();
+            //Map(o => o.UserType).CustomType<UserTypeEnum>();
 
             HasMany<LoginUserOfMerchant>(o => o.LoginUserOfMerchants).Inverse().Cascade.All();
             //增加LoginUser到UserInRole的一对多关联

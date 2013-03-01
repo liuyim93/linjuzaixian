@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin
 {
@@ -18,6 +19,7 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
         protected string loginName;
+        protected string merchantType;
 
         ILoginUserRepository iRepositoryLoginUser = UnityHelper.UnityToT<ILoginUserRepository>();
         IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
@@ -40,6 +42,9 @@ namespace Friday.mvc.weblogin
                 List<DataFilter> filterList = new List<DataFilter>();
                 List<DataFilter> loginUserOfMerchantList = new List<DataFilter>();
                 List<DataFilter> MerchantList = new List<DataFilter>();
+                Merchant merchant = new Merchant();
+
+
 
                 filterList.Add(new DataFilter()
                 {
@@ -63,16 +68,31 @@ namespace Friday.mvc.weblogin
                     });
 
                 if (!string.IsNullOrEmpty(Request.Form["IDSet"]))
-                   {  
+                   {
+                      merchant = iRepositoryMerchant.Get(Request.Form["IDSet"]);
+                      //merchantType=EnumDescription.GetFieldText(merchant.MerchantType);
+                      if (merchant.MerchantType == MerchantTypeEnum.餐馆)
+                    {
+                        merchantType = "Restaurant";
+                    }
+                    if (merchant.MerchantType ==MerchantTypeEnum.租房)
+                    {
+                        merchantType = "Rent";
+                    }
+                    if (merchant.MerchantType == MerchantTypeEnum.百货)
+                    {
+                        merchantType = "Shop";
+                    }
+
                      MerchantList.Add(new DataFilter()
                      {
-                        type = "Restaurant",
+                         type = merchantType,
                         value = Request.Form["IDSet"]
 
                      });
                      loginUserOfMerchantList.Add(new DataFilter()
                      {
-                         type = "Restaurant",
+                         type = merchantType,
                           field=MerchantList
 
                      });
