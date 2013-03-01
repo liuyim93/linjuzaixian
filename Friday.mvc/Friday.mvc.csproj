@@ -118,6 +118,8 @@
   <ItemGroup>
     <Compile Include="App_Start\FormRewriterControlAdapter.cs" />
     <Compile Include="App_Start\RewriteFormHtmlTextWriter.cs" />
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
+    <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -947,11 +949,40 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="assets\mods\friday\category.js" />
+    <Content Include="assets\mods\friday\direct-promo.js" />
+    <Content Include="assets\mods\friday\fp.js" />
+    <Content Include="assets\mods\friday\global-v2.css" />
+    <Content Include="assets\mods\friday\slide2.css" />
+    <Content Include="assets\mods\friday\slide2.js" />
+    <Content Include="assets\mods\login\asynchavana.js" />
+    <Content Include="assets\mods\login\AudioCheckCode.js" />
+    <Content Include="assets\mods\login\capslocktip.js" />
+    <Content Include="assets\mods\login\checkcode.js" />
+    <Content Include="assets\mods\login\checkusername.js" />
+    <Content Include="assets\mods\login\css\full-pkg.css" />
+    <Content Include="assets\mods\login\css\mini-pkg.css" />
+    <Content Include="assets\mods\login\images\c.png" />
+    <Content Include="assets\mods\login\longlogin.js" />
+    <Content Include="assets\mods\login\message.js" />
+    <Content Include="assets\mods\login\moduleswitch.js" />
+    <Content Include="assets\mods\login\nickclear.js" />
+    <Content Include="assets\mods\login\page-pkg.js" />
+    <Content Include="assets\mods\login\page.js" />
+    <Content Include="assets\mods\login\placeholder.js" />
+    <Content Include="assets\mods\login\pluginpop.js" />
+    <Content Include="assets\mods\login\safeedit.js" />
+    <Content Include="assets\mods\login\SafeEditTab.js" />
+    <Content Include="assets\mods\login\safemode.js" />
+    <Content Include="assets\mods\login\submitbutton.js" />
+    <Content Include="assets\mods\login\tracknick.js" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Images\146-77.png" />
+    <Content Include="Images\194-382.png" />
     <Content Include="Images\adminLogin\user_all_bg.gif" />
     <Content Include="Images\adminLogin\user_bottom_c.gif" />
     <Content Include="Images\adminLogin\user_bottom_l.gif" />
@@ -966,6 +997,8 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="slide2.html" />
+    <Content Include="tb.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1892,6 +1925,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Account\Models\" />
+    <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="Models\" />
     <Folder Include="uploadimage\" />
@@ -1906,6 +1941,8 @@
     <Content Include="unity.di.infrastructure.config" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="App_Browsers\Form.browser" />
+    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Home\login.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
