@@ -27,7 +27,7 @@ namespace friday.core.domain
             //增加LoginUser到UserInRole的一对多关联
             HasMany<UserInRole>(o => o.UserInRoles).Inverse().Cascade.All();
             //References<Merchant>(o => o.Merchant);//Shop 1 :N Food
-            References<SystemRole>(o => o.SystemRole).Not.Nullable();
+          
             //2013-02-10 basilwang we can't use unique, cause this column may be null,  will be multiple null
             References<SystemUser>(o => o.SystemUser).Column("SystemUserID").Nullable().Cascade.All(); //.Unique()对“SystemUserID”进行了唯一性限定 
         }

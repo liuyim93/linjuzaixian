@@ -24,7 +24,7 @@ namespace friday.core
             //2013-02-27 basilwang we need navigate to UserInRole to get LoginUser
             HasMany<UserInRole>(o => o.UserInRoles).Inverse().Cascade.All();
 
-            HasMany<LoginUser>(o => o.LoginUsers).Inverse().Cascade.All();
+            
         }
     }
 }
