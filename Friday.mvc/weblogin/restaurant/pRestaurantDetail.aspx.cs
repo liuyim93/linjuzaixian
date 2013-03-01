@@ -16,17 +16,21 @@ namespace Friday.mvc.weblogin.restaurant
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-       
+        IList<LoginUserOfMerchant> loginUserOfMerchants=new List<LoginUserOfMerchant>();
+        List<LoginUserOfMerchant> LoginUserOfMerchantList = new List<LoginUserOfMerchant>();
+
         public LoginUser loginuser;
         private Restaurant restaurant;
+        private LoginUserOfMerchant lum;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
             restaurant = iRestaurantRepository.Load(uid);
             //UserTypeEnum ust = UserTypeEnum.餐馆;
+            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id, ust);
 
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id, ust);
-            this.LoginName.Value = loginuser.LoginName;
+            //this.LoginName.Value = restaurant.LoginUserOfMerchants.First().LoginUser.UserInRoles.FirstOrDefault().SystemRole.Name;
+           
 
             BindingHelper.ObjectToControl(restaurant, this);
             this.ImagePreview.Src = restaurant.Logo;
