@@ -111,34 +111,34 @@ namespace Friday.mvc.weblogin.restaurant
 
                    //Version2  3表嵌套查询
 
-                   if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                   { 
-                       loginUserList.Add(new DataFilter()
-                       {
-                           type = "LoginName",
-                           value = loginName = Request.Form["LoginName"]
+                   //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                   //{ 
+                   //    loginUserList.Add(new DataFilter()
+                   //    {
+                   //        type = "LoginName",
+                   //        value = loginName = Request.Form["LoginName"]
 
-                       });
-                       loginUserList.Add(new DataFilter()
-                       {
-                           type = "UserType",
-                           value = "餐馆"
+                   //    });
+                   //    loginUserList.Add(new DataFilter()
+                   //    {
+                   //        type = "UserType",
+                   //        value = "餐馆"
 
-                       });
-                       loginUserOfMechentList.Add(new DataFilter()
-                       {
-                           type = "LoginUser",
-                           field= loginUserList
+                   //    });
+                   //    loginUserOfMechentList.Add(new DataFilter()
+                   //    {
+                   //        type = "LoginUser",
+                   //        field= loginUserList
 
-                       });
+                   //    });
                       
-                       filterList.Add(new DataFilter()
-                       {
-                           type="LoginUserOfMechant",
-                           field=loginUserOfMechentList
-                       });
+                   //    filterList.Add(new DataFilter()
+                   //    {
+                   //        type="LoginUserOfMechant",
+                   //        field=loginUserOfMechentList
+                   //    });
 
-                   }
+                   //}
 
                    var filter = new DataFilter();
                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))

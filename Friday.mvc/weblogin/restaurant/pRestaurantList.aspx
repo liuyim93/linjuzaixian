@@ -46,9 +46,9 @@
                      </select>
                  </td>
                 <td>
-                    <label>餐馆登录名:</label>
+                  <%--  <label>餐馆登录名:</label>
                     <input type="text" name="LoginName" class="textInput"  value="<%=loginName %>"
-                         />
+                         />--%>
                 </td>
                 <td>
                     <label>起始日期:</label>

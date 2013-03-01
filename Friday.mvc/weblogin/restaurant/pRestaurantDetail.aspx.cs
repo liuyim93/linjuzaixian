@@ -23,7 +23,7 @@ namespace Friday.mvc.weblogin.restaurant
         {
             string uid = Request.Params["uid"].ToString();
             restaurant = iRestaurantRepository.Load(uid);
-            UserTypeEnum ust = UserTypeEnum.餐馆;
+            //UserTypeEnum ust = UserTypeEnum.餐馆;
 
             loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id, ust);
             this.LoginName.Value = loginuser.LoginName;
