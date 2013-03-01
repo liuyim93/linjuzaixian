@@ -26,8 +26,8 @@ namespace Friday.mvc.weblogin.rent
             rent = iRentRepository.Load(uid);
             UserTypeEnum ust = UserTypeEnum.租房;
 
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
-            this.LoginName.Value = loginuser.LoginName;
+            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
+            //this.LoginName.Value = loginuser.LoginName;
 
             BindingHelper.ObjectToControl(rent, this);
 

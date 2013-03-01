@@ -29,8 +29,8 @@ namespace Friday.mvc.weblogin.rent
         {
             string uid = Request.Params["uid"].ToString();
             rent = iRentRepository.Load(uid);
-            UserTypeEnum ust = UserTypeEnum.租房;
-            loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
+            //UserTypeEnum ust = UserTypeEnum.租房;
+            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -52,7 +52,7 @@ namespace Friday.mvc.weblogin.rent
                 BindingHelper.ObjectToControl(rent, this);
                 this.ImagePreview.Src = rent.Logo;
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-                this.LoginName.Value = loginuser.LoginName;
+                //this.LoginName.Value = loginuser.LoginName;
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
