@@ -14,7 +14,7 @@ namespace Friday.mvc.weblogin.restaurant
     public partial class pRestaurantDetail : BasePage
     {
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
         ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
         IList<LoginUserOfMerchant> loginUserOfMerchants=new List<LoginUserOfMerchant>();
         List<LoginUserOfMerchant> LoginUserOfMerchantList = new List<LoginUserOfMerchant>();
@@ -30,9 +30,9 @@ namespace Friday.mvc.weblogin.restaurant
             //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id, ust);
 
             //this.LoginName.Value = restaurant.LoginUserOfMerchants.First().LoginUser.UserInRoles.FirstOrDefault().SystemRole.Name;
-            
-            loginuser
-            this.LoginName.Value =loginuser.LoginName; 
+
+            //string loginusername = iLoginUserRepository.GetMerchantAdminLoginUserByMerchantID(restaurant.Id);
+            //this.LoginName.Value = loginusername; 
 
             BindingHelper.ObjectToControl(restaurant, this);
             this.ImagePreview.Src = restaurant.Logo;

@@ -67,7 +67,7 @@ namespace Friday.mvc.weblogin.restaurant
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
               
 
-                this.LoginName.Value = loginuser.LoginName;
+                //this.LoginName.Value = loginuser.LoginName;
                 //this.Password.Value = loginuser.Password;
 
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
