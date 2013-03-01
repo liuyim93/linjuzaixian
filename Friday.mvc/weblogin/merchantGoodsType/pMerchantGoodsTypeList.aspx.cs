@@ -53,18 +53,23 @@ namespace Friday.mvc.weblogin
                 List<DataFilter> merchantList = new List<DataFilter>();
 
 
+                    //merchantList.Add(new DataFilter()
+                    //{
+                    //    type ="Merchant"+merchantType, 
+                    //    value = merchantId
+                    //});
+
                     merchantList.Add(new DataFilter()
                     {
-                        type ="Merchant"+merchantType, 
+                        type = "Merchant",
                         value = merchantId
-                    }
-                        );
+                    });
+
                     filterList.Add(new DataFilter()
                     {
-                        type = merchantType,
+                        type = "Merchant",
                         field = merchantList
-                    }
-                        );                
+                    });                
                
 
                 filterList.Add(new DataFilter()

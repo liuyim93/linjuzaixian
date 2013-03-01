@@ -355,32 +355,16 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    if (df.type.Equals("Restaurant"))
+                    if (df.type.Equals("Merchant"))
                     {
-                        //根据Restaurant的属性进行嵌套筛选
+                        //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByMerchant(query, df.field,ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
-                    if (df.type.Equals("Rent"))
-                    {
-                        //根据Rent的属性进行嵌套筛选
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
-                        }
-                        continue;
-                    }
-                    if (df.type.Equals("Shop"))
-                    {
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByShop(query, df.field, ref deepIndex, ref parentSearch);
-                        }
-                        continue;
-                    }
+
                     if (df.type.Equals("LoginUser"))
                     {
                         //根据loginUser的属性进行嵌套筛选
@@ -772,34 +756,43 @@ namespace friday.core.repositories
                     {
                         query.Add(Expression.Like(notself + "GoodsType",df.value,MatchMode.Anywhere));
                         continue;
-                    }   
-                    if (df.type.Equals("Restaurant"))
+                    }
+                    if (df.type.Equals("Merchant"))
                     {
 
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByMerchant(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
-                    if (df.type.Equals("Rent"))
-                    {
+                    //if (df.type.Equals("Restaurant"))
+                    //{
 
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
-                        }
-                        continue;
-                    }
-                    if (df.type.Equals("Shop"))
-                    {
+                    //    if (df.field != null && df.field.Count != 0)
+                    //    {
+                    //        SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
+                    //    }
+                    //    continue;
+                    //}
+                    //if (df.type.Equals("Rent"))
+                    //{
 
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByShop(query, df.field, ref deepIndex, ref parentSearch);
-                        }
-                        continue;
-                    }
+                    //    if (df.field != null && df.field.Count != 0)
+                    //    {
+                    //        SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
+                    //    }
+                    //    continue;
+                    //}
+                    //if (df.type.Equals("Shop"))
+                    //{
+
+                    //    if (df.field != null && df.field.Count != 0)
+                    //    {
+                    //        SearchByShop(query, df.field, ref deepIndex, ref parentSearch);
+                    //    }
+                    //    continue;
+                    //}
 
                     if (df.type.Equals("Order"))
                     {
@@ -1464,12 +1457,35 @@ namespace friday.core.repositories
 
         protected ICriteria SearchByMerchant(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchByMerchant(query, termList);
+        }
+        protected ICriteria SearchByMerchant(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByMerchant(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByMerchant(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("Merchant", "merchant");
                 notself = "merchant.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Merchant";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".Merchant";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "merchant");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -1478,6 +1494,12 @@ namespace friday.core.repositories
                     if (df.type.Equals("IsDelete"))
                     {
                         query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Merchant"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
                         continue;
                     }
 
@@ -1527,9 +1549,10 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
-
 
         protected ICriteria SearchByGlobalGoodsType(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
@@ -1623,14 +1646,14 @@ namespace friday.core.repositories
                 {
                     parentSearch = "Restaurant";//(1)对于查询MyFoodOrder中的商铺名来说，此处应该为"Restaurant"：Map映射
 
-                    foreach (var df in termList)
-                    {
-                        if (df.type.Equals("MerchantRestaurant"))  //(2)对于加载RestaurantList中的自定义商品类型列表来说，此处应该为Merchant：Map映射
-                        {
-                            parentSearch = "Merchant";
-                            df.type = "Restaurant";
-                        }
-                    }   
+                    //foreach (var df in termList)
+                    //{
+                    //    if (df.type.Equals("MerchantRestaurant"))  //(2)对于加载RestaurantList中的自定义商品类型列表来说，此处应该为Merchant：Map映射
+                    //    {
+                    //        parentSearch = "Merchant";
+                    //        df.type = "Restaurant";
+                    //    }
+                    //}   
                 }
                 else
                 {                                     
@@ -1773,15 +1796,15 @@ namespace friday.core.repositories
                 {
                     parentSearch = "Shop";//(1)对于查询MyCommodityOrder中的商铺名来说，此处应该为"Shop"
 
-                    foreach (var df in termList)
-                    {
-                        if (df.type.Equals("MerchantShop"))  //(2)对于加载ShopList中的自定义商品类型列表来说，此处应该为Merchant;
-                        {
-                            parentSearch = "Merchant";
-                            df.type = "Shop";
+                    //foreach (var df in termList)
+                    //{
+                    //    if (df.type.Equals("MerchantShop"))  //(2)对于加载ShopList中的自定义商品类型列表来说，此处应该为Merchant;
+                    //    {
+                    //        parentSearch = "Merchant";
+                    //        df.type = "Shop";
                        
-                        }
-                    }                 
+                    //    }
+                    //}                 
 
                 }
                 else
@@ -1927,14 +1950,14 @@ namespace friday.core.repositories
                 {
                     parentSearch = "Rent";
 
-                    foreach (var df in termList)
-                    {
-                        if (df.type.Equals("MerchantRent")) 
-                        {
-                            parentSearch = "Merchant";
-                            df.type = "Rent";
-                        }
-                    }   
+                    //foreach (var df in termList)
+                    //{
+                    //    if (df.type.Equals("MerchantRent")) 
+                    //    {
+                    //        parentSearch = "Merchant";
+                    //        df.type = "Rent";
+                    //    }
+                    //}   
                 }
                 else
                 {                                 

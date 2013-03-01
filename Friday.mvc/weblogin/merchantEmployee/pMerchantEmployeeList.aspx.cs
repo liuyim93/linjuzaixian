@@ -112,24 +112,24 @@ namespace Friday.mvc.weblogin
                 logiUserList.Add(new DataFilter() { type = "UserType", value = userType });
             }
 
-                mechentList.Add(new DataFilter()
-                {
-                    type =  mType,
-                    value = merchantId
+            mechentList.Add(new DataFilter()
+            {
+                type = "Merchant",
+                value = merchantId
 
-                });
-                loginUserOfMechentList.Add(new DataFilter()
-                {
-                    type = mType,
-                    field = mechentList
-                });
+            });
 
+            loginUserOfMechentList.Add(new DataFilter()
+            {
+                type = "Merchant",
+                field = mechentList
+            });
 
-                logiUserList.Add(new DataFilter()
-                {
-                    type = "LoginUserOfMerchant",
-                    field = loginUserOfMechentList
-                });
+            logiUserList.Add(new DataFilter()
+            {
+                type = "LoginUserOfMerchant",
+                field = loginUserOfMechentList
+            });
                
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
