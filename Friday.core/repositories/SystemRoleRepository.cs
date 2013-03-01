@@ -27,6 +27,11 @@ namespace friday.core.repositories
         {
             var s = (from x in this.Session.Query<SystemRole>() select x).Where(o => o.Name == SystemRoleName).SingleOrDefault();
             return s;
+        }
+        public SystemRole GetRoleByName(string SystemRoleName)
+        {
+            var s = (from x in this.Session.Query<SystemRole>() select x).Where(o => o.Name == SystemRoleName).SingleOrDefault();
+            return s;
 
         protected virtual ICriteria Query
         {
