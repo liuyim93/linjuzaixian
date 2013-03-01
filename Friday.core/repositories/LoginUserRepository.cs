@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using NHibernate.Linq;
 
 namespace friday.core.repositories
 {
@@ -17,10 +18,8 @@ namespace friday.core.repositories
 
         public LoginUser GetLoginUserByLoginName(string LoginName)
         {
-            var q = Session.CreateQuery(@"select distinct u from LoginUser as u where u.IsDelete=false and u.LoginName=:LoginName")
-                  .SetString("LoginName", LoginName);
-
-            return q.UniqueResult<LoginUser>();
+            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.LoginName == LoginName).SingleOrDefault();
+            return q;
         }
 
         protected virtual ICriteria Query

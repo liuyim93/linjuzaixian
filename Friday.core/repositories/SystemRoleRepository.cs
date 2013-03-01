@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
@@ -14,15 +15,13 @@ namespace friday.core.repositories
 {
     public class SystemRoleRepository : Repository<SystemRole>, ISystemRoleRepository
     {
+        //public SystemRole SearchByShortName(string name)
+        //{
+        //    var q = Session.CreateQuery(@"select sp  from   SystemRole as  sp   where  sp.ShortName=:spshortname ")
+        //              .SetString("spshortname", name).UniqueResult<SystemRole>(); ;
 
-
-        public SystemRole SearchByShortName(string name)
-        {
-            var q = Session.CreateQuery(@"select sp  from   SystemRole as  sp   where  sp.ShortName=:spshortname ")
-                      .SetString("spshortname", name).UniqueResult<SystemRole>(); ;
-
-            return q;
-        }
+        //    return q;
+        //}
 
         protected virtual ICriteria Query
         {
