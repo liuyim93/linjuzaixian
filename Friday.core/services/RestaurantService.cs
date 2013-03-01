@@ -13,6 +13,11 @@ namespace friday.core.services
         IRestaurantRepository iRestaurantRepository =UnityHelper.UnityToT<IRestaurantRepository>();
         ILogger iLogger = UnityHelper.UnityToT<ILogger>();
 
+        public Restaurant Load(string id)
+        {
+            return iRestaurantRepository.Load(id);
+        }
+
         public void Save(Restaurant restaurant)
         {
             iLogger.LogMessage("插入Restaurant数据，ID：" + restaurant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);

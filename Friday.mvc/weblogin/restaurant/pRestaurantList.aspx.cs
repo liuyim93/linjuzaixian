@@ -31,7 +31,7 @@ namespace Friday.mvc.weblogin.restaurant
         protected string shopStatus;
         protected string tel;
         protected string loginName;
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
+
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
 
         protected void Page_Load(object sender, EventArgs e)

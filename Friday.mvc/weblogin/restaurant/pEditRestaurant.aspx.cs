@@ -10,12 +10,14 @@ using friday.core;
 using friday.core.components;
 using System.IO;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.restaurant
 {
     public partial class pEditRestaurant : BasePage
     {
-        IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
+
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
@@ -23,7 +25,6 @@ namespace Friday.mvc.weblogin.restaurant
         private Restaurant restaurant;
         public LoginUser loginuser;
          
-
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid ;
@@ -38,10 +39,8 @@ namespace Friday.mvc.weblogin.restaurant
                 uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
     
             }
-            restaurant = iRestaurantRepository.Load(uid);
-            //UserTypeEnum  ust=UserTypeEnum.餐馆;
+            restaurant = iRestaurantService.Load(uid);
 
-            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id,ust);
                
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -54,7 +53,6 @@ namespace Friday.mvc.weblogin.restaurant
                 {
                     schid = this.SchoolOfMerchantID.Value;
                 }
-
 
                 SaveRestaurant(uid, schid,loginuser.Id);
                 
@@ -125,7 +123,7 @@ namespace Friday.mvc.weblogin.restaurant
                 this.ImagePreview.Src = restaurant.Logo;
             }
 
-            iRestaurantRepository.SaveOrUpdate(restaurant);
+            iRestaurantService.Update(restaurant);
 
 
             ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
@@ -146,14 +144,6 @@ namespace Friday.mvc.weblogin.restaurant
             }
 
 
-            //loginuser = iLoginUserRepository.Get(loginuserid);
-            //loginuser.LoginName = this.LoginName.Value;
-            ////loginuser.Password = this.Password.Value;
-            //iLoginUserRepository.SaveOrUpdate(loginuser);
-         
-
-
-
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
@@ -163,8 +153,6 @@ namespace Friday.mvc.weblogin.restaurant
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
-
-        
 
         }
 

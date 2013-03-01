@@ -8,6 +8,7 @@ namespace friday.core.services
 {
     public interface IRestaurantService
     {
+        Restaurant Load(string id);
         void Save(Restaurant restaurant);
         void Update(Restaurant restaurant);
         void Delete(string id);
