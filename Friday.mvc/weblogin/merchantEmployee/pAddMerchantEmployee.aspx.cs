@@ -18,7 +18,8 @@ namespace Friday.mvc.weblogin
 
         IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
         ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-        
+        ISystemRoleRepository systemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+
         string mid;
         string mtype;
 
@@ -37,21 +38,26 @@ namespace Friday.mvc.weblogin
         private void SaveLoginUser()
         {    
              IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+             IRepository<UserInRole> userInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
+
              LoginUser f=new LoginUser();
-             BindingHelper.RequestToObject(f);
-             //if (mtype == "Restaurant")
-             //{
-             //    f.UserType = UserTypeEnum.餐馆店小二;
-             //}
-             //if (mtype == "Rent")
-             //{
-             //    f.UserType = UserTypeEnum.租房店小二;
-             //}
-             //if (mtype == "Shop")
-             //{
-             //    f.UserType = UserTypeEnum.商店店小二;
-             //}
-            repository.SaveOrUpdate(f);
+             BindingHelper.RequestToObject(f);             
+             repository.SaveOrUpdate(f);
+             UserInRole ur = new UserInRole();
+             if (mtype == "Restaurant")
+             {
+                 ur.SystemRole = systemRoleRepository.GetRoleByName("餐馆店小二");
+             }
+             if (mtype == "Rent")
+             {
+                 ur.SystemRole = systemRoleRepository.GetRoleByName("租房店小二");
+             }
+             if (mtype == "Shop")
+             {
+                 ur.SystemRole = systemRoleRepository.GetRoleByName("商店店小二");
+             }
+             ur.LoginUser = f;
+             userInRoleRepository.SaveOrUpdate(ur);
 
             Merchant merchant = merchantRepository.Get(mid);
 

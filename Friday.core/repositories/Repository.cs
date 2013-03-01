@@ -266,18 +266,18 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    if (df.type.Equals("UserType"))
-                    {
-                        try
-                        {
-                            UserTypeEnum Type = (UserTypeEnum)Enum.Parse(typeof(UserTypeEnum), df.value, true);
-                            query.Add(Restrictions.Eq(notself + "UserType", Type));
-                            continue;
-                        }
-                        catch (Exception ex)
-                        {
-                        }
-                    }
+                    //if (df.type.Equals("UserType"))
+                    //{
+                    //    try
+                    //    {
+                    //        UserTypeEnum Type = (UserTypeEnum)Enum.Parse(typeof(UserTypeEnum), df.value, true);
+                    //        query.Add(Restrictions.Eq(notself + "UserType", Type));
+                    //        continue;
+                    //    }
+                    //    catch (Exception ex)
+                    //    {
+                    //    }
+                    //}
                  
                     if (df.type.Equals("Order"))
                     {
