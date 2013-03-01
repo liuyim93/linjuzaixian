@@ -22,12 +22,12 @@
                         <input id="LoginName" type="text" name="LoginName" value="<%=name%>" />
                     </td>
                    <td>
-                        <label>
+                      <%--  <label>
                             类型:</label>
                         <select name="eUserType" id="eUserType" runat="server"  value="<%=userType%>" >
                             <option value="" ></option>
                          
-                        </select>
+                        </select>--%>
                     </td> <%----%>
                  
                 </tr>
@@ -85,7 +85,7 @@
                             <th width="10%" align="center">序 号</th>
                             <th width="20%" orderField="LoginName" class="asc" align="center">登陆名</th>
                             <th width="10%" orderField="Password" class="desc" align="center">密码</th>
-                            <th width="15%" orderField="UserType" class="desc" align="center">用户类型</th>
+                          <%--  <th width="15%" orderField="UserType" class="desc" align="center">用户类型</th>--%>
                             <th width="20%" align="center">创建时间</th>
                             <th width="20%" align="center">删除标记</th>
                         </tr>
@@ -98,7 +98,7 @@
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
-                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "UserType")%></td>
+                        <%--  <td align="center"><%#DataBinder.Eval(Container.DataItem, "UserType")%></td>--%>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Createtime")%></td>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>
                          

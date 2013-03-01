@@ -45,24 +45,24 @@ namespace Friday.mvc.weblogin
                     DeleteLoginUser();
                 }
 
-                if (Request.Params["__EVENTVALIDATION"] == null)
-               {            
-                   if (mType == "Restaurant")
-                    {
-                        this.eUserType.Items.Add("餐馆");
-                        this.eUserType.Items.Add("餐馆店小二");                    
-                    }
-                    if (mType == "Rent")
-                    {
-                        this.eUserType.Items.Add("租房");
-                        this.eUserType.Items.Add("租房店小二");
-                    }
-                    if (mType == "Shop")
-                    {
-                        this.eUserType.Items.Add("商店");
-                        this.eUserType.Items.Add("商店店小二");
-                    }
-               }
+               // if (Request.Params["__EVENTVALIDATION"] == null)
+               //{            
+               //    if (mType == "Restaurant")
+               //     {
+               //         this.eUserType.Items.Add("餐馆");
+               //         this.eUserType.Items.Add("餐馆店小二");                    
+               //     }
+               //     if (mType == "Rent")
+               //     {
+               //         this.eUserType.Items.Add("租房");
+               //         this.eUserType.Items.Add("租房店小二");
+               //     }
+               //     if (mType == "Shop")
+               //     {
+               //         this.eUserType.Items.Add("商店");
+               //         this.eUserType.Items.Add("商店店小二");
+               //     }
+               //}
 
 
 
@@ -106,11 +106,11 @@ namespace Friday.mvc.weblogin
             {
                 logiUserList.Add(new DataFilter() { type = "LoginName", value = name });
             }
-            userType = Request.Form["eUserType"];
-            if (!string.IsNullOrEmpty(userType))
-            {
-                logiUserList.Add(new DataFilter() { type = "UserType", value = userType });
-            }
+            //userType = Request.Form["eUserType"];
+            //if (!string.IsNullOrEmpty(userType))
+            //{
+            //    logiUserList.Add(new DataFilter() { type = "UserType", value = userType });
+            //}
 
             mechentList.Add(new DataFilter()
             {
