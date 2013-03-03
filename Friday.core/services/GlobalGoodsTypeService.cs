@@ -46,5 +46,9 @@ namespace friday.core.services
             return iGlobalGoodsTypeRepository.Search(termList);
         }
 
+        public IList<GlobalGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total)
+        {
+            return iGlobalGoodsTypeRepository.Search(termList, start, limit, out total);
+        }
     }
 }
