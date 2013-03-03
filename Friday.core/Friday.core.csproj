@@ -137,6 +137,7 @@
     <Compile Include="services\IMerchantCategoryService.cs" />
     <Compile Include="services\IMyFavoriteService.cs" />
     <Compile Include="services\IMyFoodOrderService.cs" />
+    <Compile Include="services\IMyHouseOrderService.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\IRestaurantService.cs" />
     <Compile Include="services\LoginUserService.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="services\MerchantCategoryService.cs" />
     <Compile Include="services\MyFavoriteService.cs" />
     <Compile Include="services\MyFoodOrderService.cs" />
+    <Compile Include="services\MyHouseOrderService.cs" />
     <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
     <Compile Include="components\SqlStatementInterceptor.cs" />
