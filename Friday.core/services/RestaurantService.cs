@@ -10,9 +10,13 @@ namespace friday.core.services
 {
     public class RestaurantService:IRestaurantService
     {
-        IRestaurantRepository iRestaurantRepository =UnityHelper.UnityToT<IRestaurantRepository>();
-        ILogger iLogger = UnityHelper.UnityToT<ILogger>();
-
+        private IRestaurantRepository iRestaurantRepository;
+        private ILogger iLogger;
+        public RestaurantService(IRestaurantRepository iRestaurantRepository, ILogger iLogger)
+        {
+            this.iRestaurantRepository = iRestaurantRepository;
+            this.iLogger = iLogger;
+        }
         public Restaurant Load(string id)
         {
             return iRestaurantRepository.Load(id);
