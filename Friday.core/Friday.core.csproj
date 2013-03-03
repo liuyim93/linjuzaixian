@@ -142,6 +142,7 @@
     <Compile Include="services\IOrderOfHouseService.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\IRestaurantService.cs" />
+    <Compile Include="services\IRoleInMenuService.cs" />
     <Compile Include="services\LoginUserService.cs" />
     <Compile Include="services\MenuService.cs" />
     <Compile Include="services\MerchantCategoryService.cs" />
@@ -364,6 +365,7 @@
     <Compile Include="repositories\IOrderOfCommodityRepository.cs" />
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\RestaurantService.cs" />
+    <Compile Include="services\RoleInMenuService.cs" />
     <Compile Include="services\SystemFunctionObjectService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
