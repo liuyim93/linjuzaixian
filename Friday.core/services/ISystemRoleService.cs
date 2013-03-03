@@ -13,7 +13,7 @@ namespace friday.core.services
         void Save(SystemRole systemRole);
         void Update(SystemRole systemRole);
         void Delete(string id);
-        SystemRole GetRoleByName(string SystemRoleName);
+        SystemRole GetRoleByName(string name);
         IList<SystemRole> Search(List<DataFilter> termList);
         IList<SystemRole> Search(List<DataFilter> termList, int start, int limit, out long total);
     }
