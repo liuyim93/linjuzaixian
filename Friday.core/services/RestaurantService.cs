@@ -8,7 +8,7 @@ using friday.core.components;
 
 namespace friday.core.services
 {
-    public class RestaurantService:IRestaurantService
+    public class RestaurantService : IRestaurantService
     {
         private IRestaurantRepository iRestaurantRepository;
         private ILogger iLogger;

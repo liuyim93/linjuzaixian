@@ -116,26 +116,29 @@
     <Compile Include="domain\TreeNode.cs" />
     <Compile Include="domain\CategoryLogMap.cs" />
     <Compile Include="repositories\IRoleInMenuRepository.cs" />
-<<<<<<< HEAD
     <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ILogRepository.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="repositories\ISystemButtonRepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
-    <Compile Include="repositories\ISystemUrlRepository.cs" />
-    <Compile Include="repositories\ITreeNodeRepository.cs" />
     <Compile Include="repositories\LogRepository.cs">
-    <Compile Include="repositories\RoleInMenuRepository.cs" />
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="repositories\SystemButtonRepository.cs" />
-=======
-    <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\RoleInMenuRepository.cs" />
->>>>>>> delete unused file~
     <Compile Include="repositories\SystemMenuRepository.cs" />
+<<<<<<< HEAD
+    <Compile Include="repositories\MessageContentRepository.cs" />
+    <Compile Include="repositories\IMessageContentRepository.cs" />
+    <Compile Include="repositories\FoodStatisticRepository.cs" />
+    <Compile Include="repositories\IFoodStatisticRepository.cs" />
+=======
+    <Compile Include="services\GlobalGoodsTypeService.cs" />
+    <Compile Include="services\IGlobalGoodsTypeService.cs" />
+>>>>>>> Add GlobalGoodsTypeService
+    <Compile Include="services\IMenuService.cs" />
     <Compile Include="services\IPermissionManager.cs" />
+    <Compile Include="services\IRestaurantService.cs" />
+    <Compile Include="services\MenuService.cs" />
     <Compile Include="services\PremissionManager.cs" />
     <Compile Include="components\PictureUpload.cs" />
     <Compile Include="components\SqlStatementInterceptor.cs" />
@@ -349,10 +352,49 @@
     <Compile Include="repositories\OrderOfCommodityRepository.cs" />
     <Compile Include="repositories\IOrderOfCommodityRepository.cs" />
     <Compile Include="services\IUserService.cs" />
+    <Compile Include="services\RestaurantService.cs" />
     <Compile Include="services\SystemFunctionObjectService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
     <Compile Include="domain\ShopStatistic.cs" />
+    <Compile Include="services\LoginUserOfMerchantService.cs" />
+    <Compile Include="services\ILoginUserOfMerchantService.cs" />
+    <Compile Include="services\SchoolOfMerchantService.cs" />
+    <Compile Include="services\ISchoolOfMerchantService.cs" />
+    <Compile Include="services\SchoolService.cs" />
+    <Compile Include="services\ISchoolService.cs" />
+    <Compile Include="services\RentService.cs" />
+    <Compile Include="services\IRentService.cs" />
+    <Compile Include="services\ShopService.cs" />
+    <Compile Include="services\IShopService.cs" />
+    <Compile Include="services\FoodService.cs" />
+    <Compile Include="services\IFoodService.cs" />
+    <Compile Include="services\MerchantGoodsTypeService.cs" />
+    <Compile Include="services\IMerchantGoodsTypeService.cs" />
+    <Compile Include="services\CommodityService.cs" />
+    <Compile Include="services\ICommodityService.cs" />
+    <Compile Include="services\HouseService.cs" />
+    <Compile Include="services\IHouseService.cs" />
+    <Compile Include="services\MessageService.cs" />
+    <Compile Include="services\IMessageService.cs" />
+    <Compile Include="services\MessageContentService.cs" />
+    <Compile Include="services\IMessageContentService.cs" />
+    <Compile Include="services\ActivityService.cs" />
+    <Compile Include="services\IActivityService.cs" />
+    <Compile Include="services\IMerchantService.cs" />
+    <Compile Include="services\MerchantService.cs" />
+    <Compile Include="services\SystemRoleService.cs" />
+    <Compile Include="services\ISystemRoleService.cs" />
+    <Compile Include="services\MyCommodityOrderService.cs" />
+    <Compile Include="services\IMyCommodityOrderService.cs" />
+    <Compile Include="services\OrderOfCommodityService.cs" />
+    <Compile Include="services\IOrderOfCommodityService.cs" />
+    <Compile Include="services\LoginUserService.cs" />
+    <Compile Include="services\ILoginUserService.cs" />
+    <Compile Include="services\UserInRoleService.cs" />
+    <Compile Include="services\IUserInRoleService.cs" />
+    <Compile Include="services\FoodStatisticService.cs" />
+    <Compile Include="services\IFoodStatisticService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

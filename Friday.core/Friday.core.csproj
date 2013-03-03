@@ -128,6 +128,8 @@
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="repositories\MessageContentRepository.cs" />
     <Compile Include="repositories\IMessageContentRepository.cs" />
+    <Compile Include="services\GlobalGoodsTypeService.cs" />
+    <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
     <Compile Include="repositories\IFoodStatisticRepository.cs" />
     <Compile Include="services\IMenuService.cs" />
