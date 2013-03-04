@@ -15,13 +15,7 @@ namespace friday.core.repositories
 {
     public class SystemRoleRepository : Repository<SystemRole>, ISystemRoleRepository
     {
-        //public SystemRole SearchByShortName(string name)
-        //{
-        //    var q = Session.CreateQuery(@"select sp  from   SystemRole as  sp   where  sp.ShortName=:spshortname ")
-        //              .SetString("spshortname", name).UniqueResult<SystemRole>(); ;
-
-        //    return q;
-        //}
+       
         public SystemRole GetRoleByName(string SystemRoleName)
         {
             var s = (from x in this.Session.Query<SystemRole>() select x).Where(o => o.Name == SystemRoleName).SingleOrDefault();
