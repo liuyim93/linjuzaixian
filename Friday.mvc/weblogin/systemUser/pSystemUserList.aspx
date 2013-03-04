@@ -57,7 +57,7 @@
             添加用户</span></a></li>
         <li id="liEdit" runat="server"><a class="edit" href="systemUser/pEditSystemUser.aspx?uid={id}" title="修改用户" rel="" target="navTab">
             <span>修改用户</span></a></li>
-        <li><a class="delete" href="systemUser/pResetSystemUserPassword.aspx?uid={id}" title="密码重置" rel="" target="navTab">
+        <li id="liReset" runat="server"><a class="delete" href="systemUser/pResetSystemUserPassword.aspx?uid={id}" title="密码重置" rel="" target="navTab">
         <span>密码重置</span></a></li>
         <li id="liDelete" runat="server"><a class="delete" href="systemUser/pSystemUserList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>

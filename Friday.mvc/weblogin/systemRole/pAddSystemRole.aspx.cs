@@ -8,12 +8,13 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddSystemRole : BasePage
     {
-        IRepository<SystemRole> sysRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+        private ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,16 +26,26 @@ namespace Friday.mvc.weblogin
         }
         private void SaveSystemRole()
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有SystemRole增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             SystemRole sys = new SystemRole();
             BindingHelper.RequestToObject(sys);
-            sysRepository.SaveOrUpdate(sys);
+            iSystemRoleService.Save(sys);
 
-            AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();

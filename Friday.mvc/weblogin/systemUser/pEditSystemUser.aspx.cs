@@ -8,20 +8,31 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditSystemUser : BasePage
     {
-        IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        private ISystemUserService iSystemUserService = UnityHelper.UnityToT<ISystemUserService>();
 
         private SystemUser systemUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            systemUser = iSystemUserRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.基本信息模块.顾客账号维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            systemUser = iSystemUserService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -39,7 +50,7 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(systemUser);
             BindingHelper.RequestToObject(systemUser.LoginUser);
-            iSystemUserRepository.SaveOrUpdate(systemUser);
+            iSystemUserService.Update(systemUser);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

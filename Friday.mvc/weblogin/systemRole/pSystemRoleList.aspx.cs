@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -21,11 +22,25 @@ namespace Friday.mvc.weblogin
         protected string name;
         protected string tel;
         protected string email;
-    
-        ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+
+        private ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.基本信息模块.角色权限维护.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
+
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.liEdit.Visible = false;
+            }
+
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteSystemRole();
@@ -63,7 +78,7 @@ namespace Friday.mvc.weblogin
 
                 });
 
-            IList<SystemRole> systemUserList = iSystemRoleRepository.Search(filterList, start, limit, out total);
+            IList<SystemRole> systemUserList = iSystemRoleService.Search(filterList, start, limit, out total);
 
             repeater.DataSource = systemUserList;
             repeater.DataBind();
@@ -75,7 +90,7 @@ namespace Friday.mvc.weblogin
 
             string sysid = Request.Params["uid"];
 
-            iSystemRoleRepository.PhysicsDelete(sysid);
+            iSystemRoleService.Delete(sysid);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

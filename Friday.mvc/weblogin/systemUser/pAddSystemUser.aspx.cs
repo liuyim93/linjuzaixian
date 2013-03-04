@@ -8,19 +8,32 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddSystemUser : BasePage
     {
-        IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
-        ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
+        private ISystemUserService iSystemUserService = UnityHelper.UnityToT<ISystemUserService>();
+        private ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
 
         private LoginUser loginUser;
         private SystemUser systemUser;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有SystemUser增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -30,7 +43,7 @@ namespace Friday.mvc.weblogin
 
         private void SaveSystemUser()
         {
-            loginUser = iLoginUserRepository.GetLoginUserByLoginName(Request.Params["LoginName"]);
+            loginUser = iLoginUserService.GetLoginUserByLoginName(Request.Params["LoginName"]);
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
@@ -48,14 +61,14 @@ namespace Friday.mvc.weblogin
                 systemUser = new SystemUser();
                 BindingHelper.RequestToObject(systemUser);
                 systemUser.IsAnonymous = false;
-                iSystemUserRepository.SaveOrUpdate(systemUser);
+                iSystemUserService.Save(systemUser);
 
                 loginUser = new LoginUser();
                 BindingHelper.RequestToObject(loginUser);
                 loginUser.IsAdmin = false;
                 //loginUser.UserType = friday.core.EnumType.UserTypeEnum.顾客;
                 loginUser.SystemUser = systemUser;
-                iLoginUserRepository.SaveOrUpdate(loginUser);
+                iLoginUserService.Save(loginUser);
 
 
                 result.statusCode = "200";

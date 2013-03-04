@@ -8,19 +8,32 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.systemUser
 {
     public partial class pResetSystemUserPassword : BasePage
     {
-        IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        private ISystemUserService iSystemUserService = UnityHelper.UnityToT<ISystemUserService>();
+        private ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
 
         private LoginUser loginUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            loginUser = iSystemUserRepository.Load(uid).LoginUser;
+            string uid;
+            this.tagName = systemFunctionObjectService.基本信息模块.顾客账号维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+
+            loginUser = iSystemUserService.Load(uid).LoginUser;
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -33,7 +46,7 @@ namespace Friday.mvc.weblogin.systemUser
         {
 
             BindingHelper.RequestToObject(loginUser);
-            iLoginUserRepository.SaveOrUpdate(loginUser);
+            iLoginUserService.Update(loginUser);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

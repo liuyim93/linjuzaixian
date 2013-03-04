@@ -8,18 +8,30 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditSystemRole : BasePage
     {
-        IRepository<SystemRole> sysRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
+        private ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
         SystemRole sys = new SystemRole();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string uid;
+            this.tagName = systemFunctionObjectService.基本信息模块.角色权限维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
 
-            sys = sysRepository.Get(Request.Params["uid"]);
+            }
+            sys = iSystemRoleService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -37,7 +49,7 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(sys);
 
-            sysRepository.SaveOrUpdate(sys);
+            iSystemRoleService.Update(sys);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

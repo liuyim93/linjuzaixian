@@ -9,16 +9,26 @@ using friday.core.domain;
 using System.Web.Services;
 using friday.core;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.roleMenu
 {
     public partial class pMenuButtonList : BasePage
     {
-        IRepository<SystemMenu> m = new Repository<SystemMenu>();
-        ISystemMenuRepository categoryRepo = new SystemMenuRepository();
+        private ISystemMenuService iSystemMenuService = UnityHelper.UnityToT<ISystemMenuService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //tagName = systemFunctionObjectService.基本信息模块.角色权限维护.TagName;
+            //this.PermissionCheck();
+            ////2013-02-28 basilwang you can use this to block button
+            //if (!this.PermissionValidate(PermissionTag.Delete))
+            //{
+            //    //this.liDelete
+            //    this.liDelete.Visible = false;
+            //}
+
+
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteMenu();
@@ -28,8 +38,8 @@ namespace Friday.mvc.weblogin.roleMenu
 
         private void DeleteMenu()
         {
-            string TreeId = categoryRepo.Get(Request.Params["code"]).Id;
-            m.PhysicsDelete(TreeId);
+            string TreeId = iSystemMenuService.Load(Request.Params["code"]).Id;
+            iSystemMenuService.Delete(TreeId);
             AjaxResult result = new AjaxResult();
 
             result.statusCode = "200";

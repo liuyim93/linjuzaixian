@@ -12,7 +12,7 @@
 <div class="panelBar">
     <ul id="dictreeToolBar" class="toolBar">
         <li><a id="addata" class="add" href="roleMenu/pAddMenuButton.aspx?flag=save&code=" target="dialog" rel=""><span>添加</span></a></li>
-        <li><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code=" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+        <li id="liDelete" runat="server"><a class="delete" href="roleMenu/pMenuButtonList.aspx?flag=alldelete&code=" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
