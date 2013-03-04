@@ -17,10 +17,11 @@ namespace Friday.mvc.weblogin.restaurant
     public partial class pEditRestaurant : BasePage
     {
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
-        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
+
         private Restaurant restaurant;
         public LoginUser loginuser;
          
@@ -61,9 +62,8 @@ namespace Friday.mvc.weblogin.restaurant
 
                 BindingHelper.ObjectToControl(restaurant, this);
                 this.ImagePreview.Src = restaurant.Logo;
-                ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-                                           
-                string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+
+                string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
                 if (arrname.Length > 1)
                 {
@@ -121,8 +121,7 @@ namespace Friday.mvc.weblogin.restaurant
             iRestaurantService.Update(restaurant);
 
 
-            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-            repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
+            iSchoolOfMerchantService.DeleteSchoolOfMerchantByMerchantID(uid);
 
             
             if (schid != "")
@@ -133,8 +132,8 @@ namespace Friday.mvc.weblogin.restaurant
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = restaurant;
-                    schofmt.School = iSchoolRepository.Get(shcidsz);
-                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                    schofmt.School = iSchoolService.Load(shcidsz);
+                    iSchoolOfMerchantService.Update(schofmt);
                 }
             }
 

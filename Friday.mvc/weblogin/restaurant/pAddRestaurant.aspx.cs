@@ -68,7 +68,7 @@ namespace Friday.mvc.weblogin.restaurant
             //lu.Password = this.Password.Value;
             //lu.UserType = UserTypeEnum.餐馆;
             iLoginUserService.Save(lu);
-            iLoginUserOfMerchantService.Update(lumcht);
+            iLoginUserOfMerchantService.Save(lumcht);
 
 
             if (schid != "")
@@ -79,7 +79,7 @@ namespace Friday.mvc.weblogin.restaurant
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = rnt;
-                    schofmt.School = iSchoolService.Get(shcidsz);
+                    schofmt.School = iSchoolService.Load(shcidsz);
                     iSchoolOfMerchantService.Save(schofmt);
                 }
             }
