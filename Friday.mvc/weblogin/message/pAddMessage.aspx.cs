@@ -9,17 +9,29 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.message
 {
     public partial class pAddMessage : BasePage
     {
-        IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
-        IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
+        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
+        IMessageContentService iMessageContentService = UnityHelper.UnityToT<IMessageContentService>();
         
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Message增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -32,12 +44,12 @@ namespace Friday.mvc.weblogin.message
         {
             MessageContent mssc = new friday.core.MessageContent();
             mssc.Content = this.Content.Value;
-            iMessageContentRepository.SaveOrUpdate(mssc);
+            iMessageContentService.Save(mssc);
 
             Message mss = new Message();
             mss.MessageContent = mssc;
             BindingHelper.RequestToObject(mss);
-            iMessageRepository.SaveOrUpdate(mss);
+            iMessageService.Save(mss);
 
            
 

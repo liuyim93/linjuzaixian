@@ -18,6 +18,16 @@ namespace Friday.mvc.weblogin.message
         private Message message;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有浏览Message权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
             string uid = Request.Params["uid"].ToString();
             message = iMessageService.Load(uid);
             BindingHelper.ObjectToControl(message, this);

@@ -9,6 +9,9 @@ namespace friday.core.services
 {
     public interface IMessageContentService
     {
-     
+        MessageContent Load(string id);
+        void Save(MessageContent messageContent);
+        void Update(MessageContent messageContent);
+        void Delete(string id);
     }
 }
