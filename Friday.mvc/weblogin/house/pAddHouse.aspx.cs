@@ -10,19 +10,33 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddHouse : BasePage
     {
-        IRentRepository restRepository = UnityHelper.UnityToT<IRentRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IHouseService iHouseService = UnityHelper.UnityToT<IHouseService>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             mid = Request.Params["merchant_id"].ToString();
+  
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有House增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -32,8 +46,8 @@ namespace Friday.mvc.weblogin
             else
             {
 
-                Rent rst = restRepository.Get(mid);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Rent rst = iRentService.Load(mid);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.GoodsType.Items.Add(i.GoodsType);
@@ -48,7 +62,6 @@ namespace Friday.mvc.weblogin
 
         private void SaveHouse()
         {
-            IRepository<House> repository = UnityHelper.UnityToT<IRepository<House>>();
             House f = new House();
 
             BindingHelper.RequestToObject(f);
@@ -88,11 +101,11 @@ namespace Friday.mvc.weblogin
             }
 
 
-            Rent rent = restRepository.Get(mid);
+            Rent rent = iRentService.Load(mid);
             f.Rent = rent;
-            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, rent.Id);
+            f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, rent.Id);
 
-            repository.SaveOrUpdate(f);
+            iHouseService.Save(f);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

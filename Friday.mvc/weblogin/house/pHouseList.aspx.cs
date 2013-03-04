@@ -9,6 +9,7 @@ using friday.core.components;
 using friday.core.repositories;
 using Microsoft.Practices.Unity;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -27,13 +28,14 @@ namespace Friday.mvc.weblogin
         public string goodsType;
         public string mid;
 
-        private IHouseRepository iHouseRepository = UnityHelper.UnityToT<IHouseRepository>();
-        IRentRepository restRepository = UnityHelper.UnityToT<IRentRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IHouseService iHouseService = UnityHelper.UnityToT<IHouseService>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            tagName = systemFunctionObjectService.租房模块.房屋维护.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -52,7 +54,7 @@ namespace Friday.mvc.weblogin
         {
             string houseid = Request.Params["house_id"];
 
-            iHouseRepository.Delete(houseid);
+            iHouseService.Delete(houseid);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -102,7 +104,7 @@ namespace Friday.mvc.weblogin
             goodsType = Request.Form["mGoodsType"];
             if (!string.IsNullOrEmpty(goodsType))
             {
-                MerchantGoodsType mectGType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(goodsType, rentId);
+                MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, rentId);
                 string mectGTypeID = mectGType.Id;
                 dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
                 // dfl.Add(new DataFilter() { type = "GoodsType", value = goodsType });
@@ -129,14 +131,14 @@ namespace Friday.mvc.weblogin
             //dflForOrder.Add(new DataFilter() { type = "Price" });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            houseList = iHouseRepository.Search(dfl, start, limit, out total);
+            houseList = iHouseService.Search(dfl, start, limit, out total);
             repeater.DataSource = houseList;
             repeater.DataBind();
 
             if (Request.Params["__EVENTVALIDATION"] == null)
             {
-                Rent rst = restRepository.Get(rentId);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Rent rst = iRentService.Load(rentId);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.mGoodsType.Items.Add(i.GoodsType);

@@ -9,16 +9,18 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditHouse : BasePage
     {
-        private IRepository<House> repository = UnityHelper.UnityToT<IRepository<House>>();
+        
+        IHouseService iHouseService = UnityHelper.UnityToT<IHouseService>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        
         private House f;
-
-        IRentRepository restRepository = UnityHelper.UnityToT<IRentRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
@@ -27,7 +29,10 @@ namespace Friday.mvc.weblogin
             string uid = Request.Params["uid"].ToString();
             mid = Request.Params["merchant_id"].ToString();
 
-            f = repository.Load(uid);
+            this.tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+            f = iHouseService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -38,13 +43,13 @@ namespace Friday.mvc.weblogin
 
                 BindingHelper.ObjectToControl(f, this);
                 this.ImagePreview.Src = f.Image;
-                Rent rst = restRepository.Get(mid);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Rent rst = iRentService.Load(mid);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.GoodsType.Items.Add(i.GoodsType);
                 }
-                MerchantGoodsType merchantGoodsType = mGoodsTypeRepository.Get(f.MerchantGoodsType.Id);
+                MerchantGoodsType merchantGoodsType = iMerchantGoodsTypeService.Load(f.MerchantGoodsType.Id);
                 this.GoodsType.Value = merchantGoodsType.GoodsType;
 
             }
@@ -91,12 +96,12 @@ namespace Friday.mvc.weblogin
 
 
 
-            Rent rent = restRepository.Get(mid);
+            Rent rent = iRentService.Load(mid);
             f.Rent = rent;
-            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, rent.Id);
+            f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, rent.Id);
 
 
-            repository.SaveOrUpdate(f);
+            iHouseService.Update(f);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
