@@ -22,7 +22,7 @@ namespace Friday.mvc.Areas.Account.Controllers
         public ActionResult login(string from, string style, string redirectURL, bool? full_redirect)
         {
             var is_mini = false;
-            if (style == "mini")
+            if (style == "miniall")
                 is_mini = true;
             ViewData["PageID"] = is_mini ? "page2" : "page";
             ViewData["IsMini"] = is_mini;
