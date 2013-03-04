@@ -31,6 +31,7 @@ namespace Friday.mvc.weblogin
 
             this.tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);
+           
 
             f = iFoodService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
