@@ -8,20 +8,32 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditMyFoodOrder : BasePage
     {
-        IRepository<MyFoodOrder> iMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
+        IMyFoodOrderService iMyFoodOrderService = UnityHelper.UnityToT<IMyFoodOrderService>();
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
 
         private MyFoodOrder myFoodOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            myFoodOrder = iMyFoodOrderRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.餐馆模块.食品订单维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            myFoodOrder = iMyFoodOrderService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -40,7 +52,7 @@ namespace Friday.mvc.weblogin
             BindingHelper.RequestToObject(myFoodOrder);
             myFoodOrder.SystemUser = iSystemUserRepository.Get(Request.Params["SystemUserID"]);
 
-            iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
+            iMyFoodOrderService.Update(myFoodOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

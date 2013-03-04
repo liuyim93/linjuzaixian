@@ -8,12 +8,13 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddMyFoodOrder : BasePage
     {
-        IRepository<MyFoodOrder> iMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
+        IMyFoodOrderService iMyFoodOrderService = UnityHelper.UnityToT<IMyFoodOrderService>();
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
         IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
 
@@ -32,6 +33,18 @@ namespace Friday.mvc.weblogin
 
         private void SaveMyFoodOrder()
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有MyFoodOrder增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             restaurantObj = iRestaurantRepository.Get(Request.Params["MerchantID"]);
             systemUserObj = iSystemUserRepository.Get(Request.Params["SystemUserID"]);
 
@@ -39,10 +52,7 @@ namespace Friday.mvc.weblogin
             myFoodOrder.Restaurant = restaurantObj;
 
             BindingHelper.RequestToObject(myFoodOrder);
-            iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
-
-            AjaxResult result = new AjaxResult();
-            FormatJsonResult jsonResult = new FormatJsonResult();
+            iMyFoodOrderService.Save(myFoodOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";
