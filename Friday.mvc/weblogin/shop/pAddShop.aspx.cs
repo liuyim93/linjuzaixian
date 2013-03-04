@@ -8,19 +8,29 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.shop
 {
     public partial class pAddShop : BasePage
     {
-        IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
-        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
    
 
         protected void Page_Load(object sender, EventArgs e)
         {
-    
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Shop增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid="";
@@ -43,7 +53,7 @@ namespace Friday.mvc.weblogin.shop
             Shop  shop=new Shop();
 
             BindingHelper.RequestToObject(shop);
-            iShopRepository.SaveOrUpdate(shop);
+            iShopService.Save(shop);
 
             if (schid != "")
             { 
@@ -53,8 +63,8 @@ namespace Friday.mvc.weblogin.shop
             {
                 friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                 schofmt.Merchant = shop;
-                schofmt.School = iSchoolRepository.Get(shcidsz);
-                iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                schofmt.School = iSchoolService.Load(shcidsz);
+                iSchoolOfMerchantService.Save(schofmt);
             }
             }
             AjaxResult result = new AjaxResult();

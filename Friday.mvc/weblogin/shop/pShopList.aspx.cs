@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.shop
 {
@@ -31,6 +32,8 @@ namespace Friday.mvc.weblogin.shop
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.商店模块.商店维护.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] != "alldelete")
             {

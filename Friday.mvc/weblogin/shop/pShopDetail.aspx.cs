@@ -9,30 +9,34 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.shop
 {
     public partial class pShopDetail : BasePage
     {
-        IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-        public LoginUser loginuser;
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
         private Shop shop;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Shop浏览权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             string uid = Request.Params["uid"].ToString();
-            shop = iShopRepository.Load(uid);
+            shop = iShopService.Load(uid);
 
             BindingHelper.ObjectToControl(shop, this);
-            //this.ImagePreview.Src = shop.Logo;
 
-            //UserTypeEnum ust = UserTypeEnum.商店;
-            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
-            //this.LoginName.Value = loginuser.LoginName;
-
-            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-            string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+            string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
             string[] arrname = schofmntname.Split('，');
             if (arrname.Length > 1)
             {

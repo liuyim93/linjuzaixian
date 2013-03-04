@@ -9,22 +9,33 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.shop
 {
     public partial class pEditShop : BasePage
     {
-        IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
-        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-        public LoginUser loginuser;
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+       
         private Shop shop;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            shop = iShopRepository.Load(uid);
+
+            this.tagName = systemFunctionObjectService.商店模块.商店维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }        
+            shop = iShopService.Load(uid);
 
             //UserTypeEnum ust = UserTypeEnum.商店;
             //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
@@ -46,14 +57,14 @@ namespace Friday.mvc.weblogin.shop
             {
 
                 BindingHelper.ObjectToControl(shop, this);
-                ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
+               
                 this.ImagePreview.Src = shop.Logo;
  
 
                 //this.LoginName.Value = loginuser.LoginName;
 
 
-                string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+                string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
                 if (arrname.Length>1)
                 {             
@@ -71,10 +82,9 @@ namespace Friday.mvc.weblogin.shop
         {
 
             BindingHelper.RequestToObject(shop);
-            iShopRepository.SaveOrUpdate(shop);
+            iShopService.Update(shop);
 
-            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-            repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
+            iSchoolOfMerchantService.DeleteSchoolOfMerchantByMerchantID(uid);
 
 
             if (schid != "")
@@ -85,8 +95,8 @@ namespace Friday.mvc.weblogin.shop
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = shop;
-                    schofmt.School = iSchoolRepository.Get(shcidsz);
-                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                    schofmt.School = iSchoolService.Load(shcidsz);
+                    iSchoolOfMerchantService.Update(schofmt);
                 }
             }
             AjaxResult result = new AjaxResult();
