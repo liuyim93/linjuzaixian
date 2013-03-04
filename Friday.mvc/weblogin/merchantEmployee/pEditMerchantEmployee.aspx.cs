@@ -47,7 +47,7 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(lu);
 
-            iLoginUserService.SaveOrUpdate(lu);
+            iLoginUserService.Update(lu);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -36,8 +36,8 @@ namespace Friday.mvc.weblogin.message
 
                 BindingHelper.ObjectToControl(message, this);
                 this.Content.Value = message.MessageContent.Content;
-                this.FromLoginUser.Value = message.FromLoginUser.LoginName;
-                this.ToLoginUser.Value = message.ToLoginUser.LoginName;
+                //this.FromLoginUser.Value = message.FromLoginUser.LoginName;
+                //this.ToLoginUser.Value = message.ToLoginUser.LoginName;
 
             }
         }

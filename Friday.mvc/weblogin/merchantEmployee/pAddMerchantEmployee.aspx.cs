@@ -54,7 +54,7 @@ namespace Friday.mvc.weblogin
            
              LoginUser f=new LoginUser();
              BindingHelper.RequestToObject(f);             
-             iLoginUserService.SaveOrUpdate(f);
+             iLoginUserService.Save(f);
              UserInRole ur = new UserInRole();
              if (mtype == "Restaurant")
              {
@@ -69,7 +69,7 @@ namespace Friday.mvc.weblogin
                  ur.SystemRole = iSystemRoleService.GetRoleByName("商店店小二");
              }
              ur.LoginUser = f;
-             iUserInRoleService.SaveOrUpdate(ur);
+             iUserInRoleService.Save(ur);
 
             Merchant merchant = iMerchantService.Load(mid);
 

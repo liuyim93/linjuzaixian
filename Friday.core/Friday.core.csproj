@@ -384,6 +384,8 @@
     <Compile Include="services\IOrderOfCommodityService.cs" />
     <Compile Include="services\LoginUserService.cs" />
     <Compile Include="services\ILoginUserService.cs" />
+    <Compile Include="services\UserInRoleService.cs" />
+    <Compile Include="services\IUserInRoleService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
