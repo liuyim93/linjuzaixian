@@ -41,19 +41,15 @@ namespace friday.core.services
             iSchoolOfMerchantRepository.Delete(id);
         }
 
-        public SchoolOfMerchant SearchByShortName(string name)
+        public string GetSchoolNamesByMerchantID(string mid)
         {
-            return iSchoolOfMerchantRepository.SearchByShortName(name);
+            return iSchoolOfMerchantRepository.GetSchoolNamesByMerchantID(mid);
         }
 
-        public IList<SchoolOfMerchant> Search(List<DataFilter> termList)
+        public void DeleteSchoolOfMerchantByMerchantID(string MID)
         {
-            return iSchoolOfMerchantRepository.Search(termList);
+            iSchoolOfMerchantRepository.DeleteSchoolOfMerchantByMerchantID(MID);
         }
-
-        public IList<SchoolOfMerchant> Search(List<DataFilter> termList, int start, int limit, out long total)
-        {
-            return iSchoolOfMerchantRepository.Search(termList, start, limit, out total);
-        }
+     
     }
 }

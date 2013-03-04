@@ -13,8 +13,7 @@ namespace friday.core.services
         void Save(SchoolOfMerchant restaurant);
         void Update(SchoolOfMerchant restaurant);
         void Delete(string id);
-        SchoolOfMerchant SearchByShortName(string name);
-        IList<SchoolOfMerchant> Search(List<DataFilter> termList);
-        IList<SchoolOfMerchant> Search(List<DataFilter> termList, int start, int limit, out long total);
+        string GetSchoolNamesByMerchantID(string mid);
+        void DeleteSchoolOfMerchantByMerchantID(string MID);
     }
 }
