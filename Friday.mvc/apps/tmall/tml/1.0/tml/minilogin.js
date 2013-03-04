@@ -49,8 +49,9 @@ TML.add("minilogin", function (_tml) {
         //2013-03-04 basilwang we use localhost
         //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
         _url = "http" + (is_daily ? "" : "s") + "://" + _domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
-
-        _default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
+        //2013-03-04 basilwang we use localhost
+        //_default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
+        _default_config = { needRedirect: false, proxyURL: "http://" + _domain + "/miniLoginProxy.htm" };
     MiniLogin = { show: function (_fn, _config) {
         var _mini_login = this;
         if (typeof _fn !== "function") {

@@ -34,12 +34,18 @@ namespace Friday.mvc.Areas.Account.Controllers
             return View();
         }
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult login(LoginModel loginModel)
+        public ActionResult login(LoginModel loginModel,string tpl_redirect_url)
         {
             if (this.ModelState.IsValid)
             {
                 //2013-03-04 basilwang TODO we need validate loginModel
-                return RedirectToAction("MyCart",new {controller= "Home", area="Cart"});
+                //validate username and password
+                if (false /*is full login*/)
+                {
+                    return RedirectToAction("MyCart", new { controller = "Home", area = "Cart" });
+                }
+
+                return Redirect(tpl_redirect_url);
             }
             else
             {

@@ -15,6 +15,11 @@ namespace Friday.mvc.Areas.Account
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
+       name: "miniLoginProxy",
+       url: "miniLoginProxy.htm",
+       defaults: new { area = "Account", controller = "Home", action = "miniLoginProxy", id = UrlParameter.Optional }
+      );
+            context.MapRoute(
           name: "user_login_info",
           url: "member/{action}.do",
           defaults: new { area = "Account", controller = "Home", action = "user_login_info", id = UrlParameter.Optional }

@@ -1968,6 +1968,7 @@
     <Content Include="Areas\Account\Views\Home\login.cshtml" />
     <Content Include="Areas\Cart\Views\Web.config" />
     <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
+    <Content Include="Areas\Account\Views\Home\miniLoginProxy.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
