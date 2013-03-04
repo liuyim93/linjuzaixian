@@ -21,6 +21,12 @@ namespace friday.core
             set;
         }
 
+        public virtual int Direction   //0：表示LoginUser—>Merchant； 1：反之
+        {
+            get;
+            set;
+        }
+
         public virtual string ThreadIndex
         {
             get;
