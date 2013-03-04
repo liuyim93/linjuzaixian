@@ -1015,7 +1015,7 @@
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
     <Content Include="slide2.html" />
-    <Content Include="tb.js" />
+    <Content Include="core.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

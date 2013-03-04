@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "miniLoginProxy";
+}
+
+<script>
+    function getRequest(name) {
+        var r = new RegExp("[\\?&]" + name + "=([a-z_]+\\d*)", "i");
+        r = r.exec(location.search);
+        return r ? r[1] : null;
+    }
+    function getDomain(len) {
+        var arr = location.hostname.split(".")
+        return arr.splice((arr.length - len) > 0 ? arr.length - len : 0, len).join(".");
+    }
+    function log(str) {
+        if (window.console && (typeof console.log === "function")) {
+            console.log(str);
+        }
+    }
+    if (!getRequest("nsdomain")) {
+        document.domain = getDomain(2);
+    }
+    var callback = getRequest("callback");
+    if (callback) {
+        try {
+            parent.window[callback]();
+        } catch (e) {
+            log(e);
+        }
+    }
+</script>

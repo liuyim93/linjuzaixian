@@ -41,6 +41,10 @@ namespace Friday.mvc.Areas.Account.Controllers
                 return View();
             }
         }
+        public ActionResult miniLoginProxy()
+        {
+            return View();
+        }
 
     }
 }
