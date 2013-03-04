@@ -8,12 +8,13 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddMerchantCategory : BasePage
     {
-        IRepository<MerchantCategory> iMerchantCategoryRepository = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
+        IMerchantCategoryService iMerchantCategoryService = UnityHelper.UnityToT<IMerchantCategoryService>();
 
         private MerchantCategory merchantCategory;
 
@@ -28,16 +29,26 @@ namespace Friday.mvc.weblogin
 
         private void SaveMerchantCategory()
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有MerchantCategory增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             merchantCategory = new MerchantCategory();
             BindingHelper.RequestToObject(merchantCategory);
-            iMerchantCategoryRepository.SaveOrUpdate(merchantCategory);
+            iMerchantCategoryService.Save(merchantCategory);
 
-            AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "添加成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();

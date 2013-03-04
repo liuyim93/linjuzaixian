@@ -50,9 +50,9 @@
     <ul class="toolBar">
         <li><a class="add" href="systemRole/pAddSystemRole.aspx" title="添加角色" target="navTab" rel=""><span>
             添加角色</span></a></li>
-        <li><a class="edit" href="systemRole/pEditSystemRole.aspx?uid={id}" title="修改角色" rel="" target="navTab">
+        <li id="liEdit" runat="server"><a class="edit" href="systemRole/pEditSystemRole.aspx?uid={id}" title="修改角色" rel="" target="navTab">
             <span>修改角色</span></a></li>
-        <li><a class="delete" href="systemRole/pSystemRoleList.aspx?flag=alldelete&uid={id}"
+        <li id="liDelete" runat="server"><a class="delete" href="systemRole/pSystemRoleList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除角色</span></a></li>
         <li class="line">line</li>
     </ul>

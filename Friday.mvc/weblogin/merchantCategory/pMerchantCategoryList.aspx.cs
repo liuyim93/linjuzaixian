@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -19,10 +20,24 @@ namespace Friday.mvc.weblogin
         
         protected string merchantCategoryName;
 
-        IMerchantCategoryRepository iRepositoryMerchantCategory = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+        IMerchantCategoryService iMerchantCategoryService = UnityHelper.UnityToT<IMerchantCategoryService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.基本信息模块.商铺经营类型维护.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
+
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.liEdit.Visible = false;
+            }
+
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteMerchantCategory();
@@ -63,7 +78,7 @@ namespace Friday.mvc.weblogin
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<MerchantCategory> merchantCategoryList = iRepositoryMerchantCategory.Search(filterList, start, limit, out total);
+                IList<MerchantCategory> merchantCategoryList = iMerchantCategoryService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = merchantCategoryList;
                 repeater.DataBind();
@@ -74,7 +89,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteMerchantCategory()
         {
-            iRepositoryMerchantCategory.Delete(Request.Params["uid"]);
+            iMerchantCategoryService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

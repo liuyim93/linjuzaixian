@@ -8,19 +8,31 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditMerchantCategory : BasePage
     {
-        IRepository<MerchantCategory> iMerchantCategoryRepository = UnityHelper.UnityToT<IRepository<MerchantCategory>>();
+        IMerchantCategoryService iMerchantCategoryService = UnityHelper.UnityToT<IMerchantCategoryService>();
 
         private MerchantCategory merchantCategory;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            merchantCategory = iMerchantCategoryRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.基本信息模块.商铺经营类型维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            merchantCategory = iMerchantCategoryService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -36,7 +48,7 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(merchantCategory);
-            iMerchantCategoryRepository.SaveOrUpdate(merchantCategory);
+            iMerchantCategoryService.Update(merchantCategory);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

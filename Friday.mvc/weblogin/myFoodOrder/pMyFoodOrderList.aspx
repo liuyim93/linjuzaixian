@@ -76,9 +76,9 @@
     <ul class="toolBar">
         <li><a class="add" href="myFoodOrder/pAddMyFoodOrder.aspx" title="添加订单" target="navTab" rel=""><span>
             添加订单</span></a></li>
-        <li><a class="edit" href="myFoodOrder/pEditMyFoodOrder.aspx?uid={id}" title="修改订单" rel="" target="navTab">
+        <li  id="liEdit" runat="server"><a class="edit" href="myFoodOrder/pEditMyFoodOrder.aspx?uid={id}" title="修改订单" rel="" target="navTab">
             <span>修改订单</span></a></li>
-        <li><a class="delete" href="myFoodOrder/pMyFoodOrderList.aspx?flag=alldelete&uid={id}"
+        <li id="liDelete" runat="server"><a class="delete" href="myFoodOrder/pMyFoodOrderList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除订单</span></a></li>
         <li class="line">line</li>
     </ul>

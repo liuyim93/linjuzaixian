@@ -11,9 +11,9 @@
     <ul class="toolBar">
         <li><a class="add" href="OrderOfHouse/pAddOrderOfHouse.aspx?myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>&rent_id=<%=rent_id %>" title="增加订单明细" target="dialog"
             rel="" width="600" height="400"><span>增加订单明细</span></a></li>
-        <li><a class="edit" href="OrderOfHouse/pEditOrderOfHouse.aspx?uid={orderOfHouseid}&myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>" title="修改订单明细" rel="" target="dialog"
+        <li id="liEdit" runat="server"><a class="edit" href="OrderOfHouse/pEditOrderOfHouse.aspx?uid={orderOfHouseid}&myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>" title="修改订单明细" rel="" target="dialog"
             height="480"><span>修改订单明细</span></a></li>
-        <li><a class="delete" href="OrderOfHouse/pOrderOfHouseList.aspx?flag=alldelete&uid={orderOfHouseid}&myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>" target="ajaxTodo"
+        <li id="liDelete" runat="server"><a class="delete" href="OrderOfHouse/pOrderOfHouseList.aspx?flag=alldelete&uid={orderOfHouseid}&myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>" target="ajaxTodo"
             title="确定要删除吗?"><span>删除订单明细</span></a></li>
         <li class="line">line</li>
     </ul>

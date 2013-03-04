@@ -13,6 +13,24 @@ namespace Friday.mvc.weblogin {
     public partial class pMyFavoriteList {
         
         /// <summary>
+        /// liEdit 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liEdit;
+        
+        /// <summary>
+        /// liDelete 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liDelete;
+        
+        /// <summary>
         /// form 控件。
         /// </summary>
         /// <remarks>

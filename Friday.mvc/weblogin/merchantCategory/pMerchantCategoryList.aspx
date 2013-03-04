@@ -54,9 +54,9 @@
     <ul class="toolBar">
         <li><a class="add" href="merchantCategory/pAddMerchantCategory.aspx" title="添加经营类型" target="navTab" rel=""><span>
             添加经营类型</span></a></li>
-        <li><a class="edit" href="merchantCategory/pEditMerchantCategory.aspx?uid={id}" title="修改经营类型" rel="" target="navTab">
+        <li  id="liEdit" runat="server"><a class="edit" href="merchantCategory/pEditMerchantCategory.aspx?uid={id}" title="修改经营类型" rel="" target="navTab">
             <span>修改经营类型</span></a></li>
-        <li><a class="delete" href="merchantCategory/pMerchantCategoryList.aspx?flag=alldelete&uid={id}"
+        <li id="liDelete" runat="server"><a class="delete" href="merchantCategory/pMerchantCategoryList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除经营类型</span></a></li>
         <li class="line">line</li>
     </ul>
