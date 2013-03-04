@@ -791,7 +791,7 @@ TB.add("mod~global", function() {
     }};
     TB.Cart = _kissy.merge({},
                {
-                   domain: (document.domain.indexOf("taobao.com") > -1 || document.domain.indexOf("tmall.com") > -1) ? "taobao.com" : "localhost:33722",
+                   domain: (document.domain.indexOf("taobao.com") > -1 || document.domain.indexOf("tmall.com") > -1) ? "taobao.com" : "localhost:7525",
                    API: "http://%domain%/check_cart_login.htm",
                    cache: {},
                    popup: null,
