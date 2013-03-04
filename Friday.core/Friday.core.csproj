@@ -362,6 +362,8 @@
     <Compile Include="services\IFoodService.cs" />
     <Compile Include="services\MerchantGoodsTypeService.cs" />
     <Compile Include="services\IMerchantGoodsTypeService.cs" />
+    <Compile Include="services\CommodityService.cs" />
+    <Compile Include="services\ICommodityService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

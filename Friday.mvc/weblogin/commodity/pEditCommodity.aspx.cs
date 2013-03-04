@@ -9,16 +9,17 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditCommodity : BasePage
     {
-        private IRepository<Commodity> repository = UnityHelper.UnityToT<IRepository<Commodity>>();
+        ICommodityService iCommodityService = UnityHelper.UnityToT<ICommodityService>();
         private Commodity f;
 
-        IShopRepository restRepository = UnityHelper.UnityToT<IShopRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
@@ -26,8 +27,10 @@ namespace Friday.mvc.weblogin
         {
             string uid = Request.Params["uid"].ToString();
             mid = Request.Params["merchant_id"].ToString();
+            this.tagName = systemFunctionObjectService.商店模块.商品维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
 
-            f = repository.Load(uid);
+            f = iCommodityService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -38,13 +41,13 @@ namespace Friday.mvc.weblogin
 
                 BindingHelper.ObjectToControl(f, this);
                 this.ImagePreview.Src = f.Image;
-                Shop rst = restRepository.Get(mid);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Shop rst = iShopService.Load(mid);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.GoodsType.Items.Add(i.GoodsType);
                 }
-                MerchantGoodsType merchantGoodsType = mGoodsTypeRepository.Get(f.MerchantGoodsType.Id);
+                MerchantGoodsType merchantGoodsType = iMerchantGoodsTypeService.Load(f.MerchantGoodsType.Id);
                 this.GoodsType.Value = merchantGoodsType.GoodsType;
 
             }
@@ -91,12 +94,12 @@ namespace Friday.mvc.weblogin
 
 
 
-            Shop shop = restRepository.Get(mid);
+            Shop shop = iShopService.Load(mid);
             f.Shop = shop;
-            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
+            f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
 
 
-            repository.SaveOrUpdate(f);
+            iCommodityService.Update(f);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
