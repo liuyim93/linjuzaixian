@@ -24,8 +24,8 @@ namespace Friday.mvc.weblogin.message
         protected string endDate;
         protected string name;
         protected string threadIndex;
-        protected string fromLoginUser;
-        protected string toLoginUser;
+        protected string loginUser;
+        protected string merchant;
        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -44,8 +44,8 @@ namespace Friday.mvc.weblogin.message
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
-                    List<DataFilter> fromloginUserList = new List<DataFilter>();
-                    List<DataFilter> tologinUserList = new List<DataFilter>();
+                    List<DataFilter> loginUserList = new List<DataFilter>();
+                    List<DataFilter> merchantList = new List<DataFilter>();
 
                     if (!string.IsNullOrEmpty(Request.Form["Name"]))
                         filterList.Add(new DataFilter()
@@ -62,34 +62,48 @@ namespace Friday.mvc.weblogin.message
                             value = threadIndex = Request.Form["ThreadIndex"]
 
                         });
-                    if (!string.IsNullOrEmpty(Request.Form["FromLoginUser"]))
+                    if (!string.IsNullOrEmpty(Request.Form["LoginUser"]))
                     {
-                        fromloginUserList.Add(new DataFilter()
+                        loginUserList.Add(new DataFilter()
                         {
-                            type = "FromLoginUser",
-                            value = fromLoginUser = Request.Form["FromLoginUser"]
+                            type = "LoginUser",
+                            value = loginUser = Request.Form["LoginUser"]
 
                         });
                         filterList.Add(new DataFilter()
                         {
-                            type = "FromLoginUser",
-                            field = fromloginUserList
+                            type = "LoginUser",
+                            field = loginUserList
                         });
                     }
-                    if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
+                    if (!string.IsNullOrEmpty(Request.Form["Merchant"]))
                     {
-                        tologinUserList.Add(new DataFilter()
+                        merchantList.Add(new DataFilter()
                         {
-                            type = "ToLoginUser",
-                            value = toLoginUser = Request.Form["ToLoginUser"]
+                            type = "Merchant",
+                            value = merchant = Request.Form["Merchant"]
 
                         });
                         filterList.Add(new DataFilter()
                         {
-                            type = "ToLoginUser",
-                            field = tologinUserList
+                            type = "Merchant",
+                            field = merchantList
                         });
                     }
+                    //if (!string.IsNullOrEmpty(Request.Form["ToLoginUser"]))
+                    //{
+                    //    tologinUserList.Add(new DataFilter()
+                    //    {
+                    //        type = "ToLoginUser",
+                    //        value = toLoginUser = Request.Form["ToLoginUser"]
+
+                    //    });
+                    //    filterList.Add(new DataFilter()
+                    //    {
+                    //        type = "ToLoginUser",
+                    //        field = tologinUserList
+                    //    });
+                    //}
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {

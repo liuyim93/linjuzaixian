@@ -2534,7 +2534,7 @@ namespace friday.core.repositories
                         continue;
                     }
                    
-                    if (df.type.Equals("FromLoginUser"))
+                    if (df.type.Equals("LoginUser"))
                     {
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
@@ -2543,12 +2543,12 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
-                    if (df.type.Equals("ToLoginUser"))
+                    if (df.type.Equals("Merchant"))
                     {
                         //根据loginUser的属性进行嵌套筛选
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByLoginUser(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByMerchant(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }

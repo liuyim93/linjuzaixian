@@ -21,13 +21,13 @@
                         value="" />
                 </td> 
                 <td>
-                   <label>From:</label>
-                    <input  type="text" name="FromLoginUser" class="textInput" value="<%=fromLoginUser %>"
+                   <label>LoginUser:</label>
+                    <input  type="text" name="LoginUser" class="textInput" value="<%=loginUser %>"
                          />
                 </td>
                 <td>
-                   <label>To:</label>
-                    <input  type="text" name="ToLoginUser" class="textInput" value="<%=toLoginUser %>"
+                   <label>Merchant:</label>
+                    <input  type="text" name="Merchant" class="textInput" value="<%=merchant %>"
                          />
                 </td>
             
@@ -92,8 +92,8 @@
 
                <th width="10%" align="center">消息主题</th>
                       <th width="10%" align="center">消息内容</th>     
-                          <th width="10%" align="center">From</th>
-                        <th width="10%" align="center">To</th> <%----%>
+                          <th width="10%" align="center">LoginUser</th>
+                        <th width="10%" align="center">Merchant</th> <%----%>
                 <%--           <th width="10%" align="center">距离</th>
                         <th width="10%" align="center">折扣</th>
                         <th width="10%" align="center">创建时间</th>--%>
@@ -113,8 +113,8 @@
 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ThreadIndex")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "MessageContent.Content")%></td> 
-                      <td align="center"><%#DataBinder.Eval(Container.DataItem, "FromLoginUser.LoginName")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "ToLoginUser.LoginName")%></td> 
+                      <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginUser.LoginName")%></td> 
+                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Merchant.Name")%></td> 
                         <%--     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>   --%>                   
