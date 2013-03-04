@@ -17,7 +17,7 @@ namespace Friday.mvc.weblogin.rent
     {
         IRentService iRentService = UnityHelper.UnityToT<IRentService>();
 
-        public LoginUser loginuser;
+        //public LoginUser loginuser;
         private Rent rent;
         protected void Page_Load(object sender, EventArgs e)
         {

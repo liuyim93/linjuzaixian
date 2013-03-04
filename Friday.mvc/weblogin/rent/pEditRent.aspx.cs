@@ -21,9 +21,7 @@ namespace Friday.mvc.weblogin.rent
         IRentService iRentService = UnityHelper.UnityToT<IRentService>();
         ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
         ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
-        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
-        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
-        public LoginUser loginuser;
+
         private Rent rent;
 
         protected void Page_Load(object sender, EventArgs e)

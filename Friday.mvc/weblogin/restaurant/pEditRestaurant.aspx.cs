@@ -19,11 +19,10 @@ namespace Friday.mvc.weblogin.restaurant
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
         ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
         ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
-        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
-        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
+        //ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
 
         private Restaurant restaurant;
-        public LoginUser loginuser;
+        //public LoginUser loginuser;
          
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,7 +53,7 @@ namespace Friday.mvc.weblogin.restaurant
                     schid = this.SchoolOfMerchantID.Value;
                 }
 
-                SaveRestaurant(uid, schid,loginuser.Id);
+                SaveRestaurant(uid, schid);
                 
             }
             else
@@ -77,7 +76,7 @@ namespace Friday.mvc.weblogin.restaurant
             }
         }
 
-        private void SaveRestaurant(string uid, string schid, string loginuserid)
+        private void SaveRestaurant(string uid, string schid)
         {
 
             BindingHelper.RequestToObject(restaurant);

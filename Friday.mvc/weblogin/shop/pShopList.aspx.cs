@@ -27,8 +27,7 @@ namespace Friday.mvc.weblogin.shop
         protected string address;
         protected string shopStatus;
         protected string loginName;
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IShopRepository iRepositoryShop = UnityHelper.UnityToT<IShopRepository>();
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -79,37 +78,9 @@ namespace Friday.mvc.weblogin.shop
                         type = "ShopStatus",
                         value = shopStatus = Request.Form["ShopStatus"]
 
-                    });
-               
+                    });               
 
-                if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                {
-                    loginUserList.Add(new DataFilter()
-                    {
-                        type = "LoginName",
-                        value = loginName = Request.Form["LoginName"]
-
-                    });
-                    loginUserList.Add(new DataFilter()
-                    {
-                        type = "UserType",
-                        value = "商店"
-
-                    });
-                    loginUserOfMechentList.Add(new DataFilter()
-                    {
-                        type = "LoginUser",
-                        field = loginUserList
-
-                    });
-
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "LoginUserOfMechant",
-                        field = loginUserOfMechentList
-                    });
-
-                }
+             
                 var filter = new DataFilter();
                 if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                 {
@@ -122,7 +93,7 @@ namespace Friday.mvc.weblogin.shop
                     filterList.Add(filter);
                 }
 
-                IList<Shop> shopList = iRepositoryShop.Search(filterList, start, limit, out total);
+                IList<Shop> shopList = iShopService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = shopList;
                 repeater.DataBind();
@@ -148,7 +119,7 @@ namespace Friday.mvc.weblogin.shop
 
             string shopid = Request.Params["uid"];
 
-            iRepositoryShop.Delete(shopid);
+            iShopService.Delete(shopid);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

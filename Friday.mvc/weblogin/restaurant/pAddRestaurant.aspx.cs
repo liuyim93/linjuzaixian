@@ -18,8 +18,7 @@ namespace Friday.mvc.weblogin.restaurant
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
         ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
         ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
-        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
-        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
+        //ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,21 +53,21 @@ namespace Friday.mvc.weblogin.restaurant
         private void SaveRestaurant(string schid)
         {
             Restaurant rnt = new Restaurant();
-            LoginUser  lu=new LoginUser();
-            LoginUserOfMerchant lumcht = new LoginUserOfMerchant();
+            //LoginUser  lu=new LoginUser();
+            //LoginUserOfMerchant lumcht = new LoginUserOfMerchant();
 
         
             BindingHelper.RequestToObject(rnt);
             iRestaurantService.Save(rnt);
 
-            lumcht.LoginUser = lu;
-            lumcht.Merchant = rnt;
+            //lumcht.LoginUser = lu;
+            //lumcht.Merchant = rnt;
 
-            lu.LoginName = this.LoginName.Value;
+            //lu.LoginName = this.LoginName.Value;
             //lu.Password = this.Password.Value;
             //lu.UserType = UserTypeEnum.餐馆;
-            iLoginUserService.Save(lu);
-            iLoginUserOfMerchantService.Save(lumcht);
+            //iLoginUserService.Save(lu);
+            //iLoginUserOfMerchantService.Save(lumcht);
 
 
             if (schid != "")
