@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -20,14 +21,17 @@ namespace Friday.mvc.weblogin
         protected string MyCommodityOrderID;
         protected string shop_id;
 
-        private IOrderOfCommodityRepository iOrderOfCommodityRepository = UnityHelper.UnityToT<IOrderOfCommodityRepository>();
-        private IMyCommodityOrderRepository iMyCommodityOrderRepository = UnityHelper.UnityToT<IMyCommodityOrderRepository>();
+        IOrderOfCommodityService iOrderOfCommodityService = UnityHelper.UnityToT<IOrderOfCommodityService>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
 
         private MyCommodityOrder myCommodityOrder;
         private OrderOfCommodity orderOfCommodity;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.商店模块.商品订单明细维护.TagName;
+            this.PermissionCheck();
+
             if (Request.Form["myCommodityOrder_id"] != null)
             {
                 MyCommodityOrderID = Request.Form["myCommodityOrder_id"];
@@ -36,7 +40,7 @@ namespace Friday.mvc.weblogin
             {
                 MyCommodityOrderID = Request.Params["myCommodityOrder_id"];
             }
-            myCommodityOrder = iMyCommodityOrderRepository.Get(MyCommodityOrderID);
+            myCommodityOrder = iMyCommodityOrderService.Get(MyCommodityOrderID);
             shop_id = myCommodityOrder.Shop.Id;
 
             if (Request.Params["flag"] != "alldelete")
@@ -45,18 +49,30 @@ namespace Friday.mvc.weblogin
             }
             else
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.商店模块.商品订单明细维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有OrderOfCommodity删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
                 DeleteOrderOfCommodity();
             }
         }
         private void DeleteOrderOfCommodity()
         {
 
-            orderOfCommodity = iOrderOfCommodityRepository.Get(Request.Params["uid"]);
+            orderOfCommodity = iOrderOfCommodityService.Get(Request.Params["uid"]);
 
             myCommodityOrder.Price = myCommodityOrder.Price - orderOfCommodity.Price;
 
-            iMyCommodityOrderRepository.SaveOrUpdate(myCommodityOrder);
-            iOrderOfCommodityRepository.PhysicsDelete(Request.Params["uid"]);
+            iMyCommodityOrderService.Update(myCommodityOrder);
+            iOrderOfCommodityService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -92,7 +108,7 @@ namespace Friday.mvc.weblogin
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            orderOfCommodityList = iOrderOfCommodityRepository.Search(dfl, start, limit, out total);
+            orderOfCommodityList = iOrderOfCommodityService.Search(dfl, start, limit, out total);
             repeater.DataSource = orderOfCommodityList;
             repeater.DataBind();
 

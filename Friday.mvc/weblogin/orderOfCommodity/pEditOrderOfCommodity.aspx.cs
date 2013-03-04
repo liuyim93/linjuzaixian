@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,8 +16,8 @@ namespace Friday.mvc.weblogin
     {
         protected string MyCommodityOrderID;
 
-        private IOrderOfCommodityRepository iOrderOfCommodityRepository = UnityHelper.UnityToT<IOrderOfCommodityRepository>();
-        private IMyCommodityOrderRepository iMyCommodityOrderRepository = UnityHelper.UnityToT<IMyCommodityOrderRepository>();
+        IOrderOfCommodityService iOrderOfCommodityService = UnityHelper.UnityToT<IOrderOfCommodityService>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
         private ICommodityRepository iCommodityRepository = UnityHelper.UnityToT<ICommodityRepository>();
 
         private MyCommodityOrder myCommodityOrder;
@@ -25,8 +26,11 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.商店模块.商品订单明细维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
             string uid = Request.Params["uid"].ToString();
-            orderOfCommodity = iOrderOfCommodityRepository.Load(uid);
+            orderOfCommodity = iOrderOfCommodityService.Load(uid);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -44,7 +48,7 @@ namespace Friday.mvc.weblogin
 
         private void SaveOrderOfCommodity()
         {
-            myCommodityOrder = iMyCommodityOrderRepository.Get(Request.Params["myCommodityOrder_id"]);
+            myCommodityOrder = iMyCommodityOrderService.Load(Request.Params["myCommodityOrder_id"]);
             commodityObj = iCommodityRepository.Get(Request.Params["CommodityID"]);
 
             BindingHelper.RequestToObject(orderOfCommodity);
@@ -53,8 +57,8 @@ namespace Friday.mvc.weblogin
 
             myCommodityOrder.Price = myCommodityOrder.Price - Convert.ToDouble(OldPrice.Value) + orderOfCommodity.Price;
 
-            iOrderOfCommodityRepository.SaveOrUpdate(orderOfCommodity);
-            iMyCommodityOrderRepository.SaveOrUpdate(myCommodityOrder);
+            iOrderOfCommodityService.Update(orderOfCommodity);
+            iMyCommodityOrderService.Update(myCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

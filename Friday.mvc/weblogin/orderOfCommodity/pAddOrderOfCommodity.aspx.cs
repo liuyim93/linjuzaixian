@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.orderOfCommodity
 {
@@ -15,9 +16,9 @@ namespace Friday.mvc.weblogin.orderOfCommodity
     {
         protected string MyCommodityOrderID;
 
-        private IOrderOfCommodityRepository iOrderOfCommodityRepository = UnityHelper.UnityToT<IOrderOfCommodityRepository>();
-        private IMyCommodityOrderRepository iMyCommodityOrderRepository = UnityHelper.UnityToT<IMyCommodityOrderRepository>();
-        private ICommodityRepository iCommodityRepository = UnityHelper.UnityToT<ICommodityRepository>();
+        IOrderOfCommodityService iOrderOfCommodityService = UnityHelper.UnityToT<IOrderOfCommodityService>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
+        ICommodityService iCommodityService = UnityHelper.UnityToT<ICommodityService>();
 
         private MyCommodityOrder myCommodityOrder;
         private OrderOfCommodity orderOfCommodity = new OrderOfCommodity();
@@ -25,6 +26,19 @@ namespace Friday.mvc.weblogin.orderOfCommodity
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            tagName = systemFunctionObjectService.商店模块.商品订单明细维护.TagName;
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                result.statusCode = "300";
+                result.message = "没有OrderOfCommodity增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveOrderOfCommodity();
@@ -33,8 +47,8 @@ namespace Friday.mvc.weblogin.orderOfCommodity
 
         private void SaveOrderOfCommodity()
         {
-            myCommodityOrder = iMyCommodityOrderRepository.Get(Request.Params["myCommodityOrder_id"]);
-            commodityObj = iCommodityRepository.Get(Request.Params["CommodityID"]);
+            myCommodityOrder = iMyCommodityOrderService.Load(Request.Params["myCommodityOrder_id"]);
+            commodityObj = iCommodityService.Load(Request.Params["CommodityID"]);
 
             BindingHelper.RequestToObject(orderOfCommodity);
             orderOfCommodity.Commodity = commodityObj;
@@ -42,8 +56,8 @@ namespace Friday.mvc.weblogin.orderOfCommodity
 
             myCommodityOrder.Price = myCommodityOrder.Price + orderOfCommodity.Price;
 
-            iOrderOfCommodityRepository.SaveOrUpdate(orderOfCommodity);
-            iMyCommodityOrderRepository.SaveOrUpdate(myCommodityOrder);
+            iOrderOfCommodityService.Save(orderOfCommodity);
+            iMyCommodityOrderService.Save(myCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
