@@ -9,16 +9,16 @@ using friday.core.repositories;
 using friday.core.components;
 using friday.core.EnumType;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.restaurant
 {
     public partial class pRestaurantDetail : BasePage
     {
-        IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-        ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
         IList<LoginUserOfMerchant> loginUserOfMerchants=new List<LoginUserOfMerchant>();
-        List<LoginUserOfMerchant> LoginUserOfMerchantList = new List<LoginUserOfMerchant>();
+      
 
         public LoginUser loginuser;
         private Restaurant restaurant;
@@ -36,33 +36,17 @@ namespace Friday.mvc.weblogin.restaurant
                 Response.End();
             }
             string uid = Request.Params["uid"].ToString();
-            restaurant = iRestaurantRepository.Load(uid);
-            //UserTypeEnum ust = UserTypeEnum.餐馆;
-            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(restaurant.Id, ust);
-
-            //this.LoginName.Value = restaurant.LoginUserOfMerchants.First().LoginUser.UserInRoles.FirstOrDefault().SystemRole.Name;
-
-            //string loginusername = iLoginUserRepository.GetMerchantAdminLoginUserByMerchantID(restaurant.Id);
-            //this.LoginName.Value = loginusername; 
-
+            restaurant = iRestaurantService.Load(uid);
+          
             BindingHelper.ObjectToControl(restaurant, this);
             this.ImagePreview.Src = restaurant.Logo;
 
-            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-            string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+            ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+            string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
             string[] arrname = schofmntname.Split('，');
-            //if (arrname.Length > 1)
-            //{
-            //    this.NameSet.Value = schofmntname;
-            //}
-            //else
-            //{
+        
                 this.NameSet.Value = schofmntname;
-            //}
-
-
-
-
+        
         }
     }
 }

@@ -17,7 +17,6 @@ namespace Friday.mvc.weblogin.restaurant
     public partial class pEditRestaurant : BasePage
     {
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
-
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
@@ -63,11 +62,7 @@ namespace Friday.mvc.weblogin.restaurant
                 BindingHelper.ObjectToControl(restaurant, this);
                 this.ImagePreview.Src = restaurant.Logo;
                 ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-              
-
-                //this.LoginName.Value = loginuser.LoginName;
-                //this.Password.Value = loginuser.Password;
-
+                                           
                 string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
                 if (arrname.Length > 1)

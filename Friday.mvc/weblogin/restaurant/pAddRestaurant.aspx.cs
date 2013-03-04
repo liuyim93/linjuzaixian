@@ -9,12 +9,13 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.restaurant
 {
     public partial class pAddRestaurant : BasePage
     {
-        IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
         IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
         IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
@@ -58,7 +59,7 @@ namespace Friday.mvc.weblogin.restaurant
 
         
             BindingHelper.RequestToObject(rnt);
-            iRestaurantRepository.SaveOrUpdate(rnt);
+            iRestaurantService.SaveOrUpdate(rnt);
 
             lumcht.LoginUser = lu;
             lumcht.Merchant = rnt;

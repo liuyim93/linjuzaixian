@@ -348,6 +348,9 @@
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
     <Compile Include="domain\ShopStatistic.cs" />
+    <Compile Include="services\LoginUserOfMerchantService.cs" />
+    <Compile Include="services\ILoginUserOfMerchantService.cs" />
+    <Compile Include="services\SchoolOfMerchantService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

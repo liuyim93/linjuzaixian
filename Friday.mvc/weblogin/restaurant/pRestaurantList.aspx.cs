@@ -106,36 +106,7 @@ namespace Friday.mvc.weblogin.restaurant
                            value = tel=Request.Form["Tel"]
 
                        });
-
-                   //if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
-                   //{ 
-                   //    loginUserList.Add(new DataFilter()
-                   //    {
-                   //        type = "LoginName",
-                   //        value = loginName = Request.Form["LoginName"]
-
-                   //    });
-                   //    loginUserList.Add(new DataFilter()
-                   //    {
-                   //        type = "UserType",
-                   //        value = "餐馆"
-
-                   //    });
-                   //    loginUserOfMechentList.Add(new DataFilter()
-                   //    {
-                   //        type = "LoginUser",
-                   //        field= loginUserList
-
-                   //    });
-                      
-                   //    filterList.Add(new DataFilter()
-                   //    {
-                   //        type="LoginUserOfMechant",
-                   //        field=loginUserOfMechentList
-                   //    });
-
-                   //}
-
+                                     
                    var filter = new DataFilter();
                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                    {
