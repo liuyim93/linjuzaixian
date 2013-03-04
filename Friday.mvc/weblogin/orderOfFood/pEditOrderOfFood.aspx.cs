@@ -29,7 +29,6 @@ namespace Friday.mvc.weblogin
             string uid="";
             this.tagName = systemFunctionObjectService.餐馆模块.食品订单明细维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);
-            if (this.CurrentUser.IsAdmin)
             uid = Request.Params["uid"].ToString();
 
             orderOfFood = iOrderOfFoodService.Load(uid);
