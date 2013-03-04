@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.school
 {
@@ -24,11 +25,13 @@ namespace Friday.mvc.weblogin.school
         protected string name;
         protected string cityName;
         protected string shortName;
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        ISchoolRepository iRepositorySchool = UnityHelper.UnityToT<ISchoolRepository>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            tagName = systemFunctionObjectService.基本信息模块.学校信息维护.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -75,7 +78,7 @@ namespace Friday.mvc.weblogin.school
                         filterList.Add(filter);
                     }
 
-                    IList<School> schoolList = iRepositorySchool.Search(filterList, start, limit, out total);
+                    IList<School> schoolList = iSchoolService.Search(filterList, start, limit, out total);
 
                     repeater.DataSource = schoolList;
                     repeater.DataBind();
@@ -101,7 +104,7 @@ namespace Friday.mvc.weblogin.school
 
             
 
-            iRepositorySchool.Delete(Request.Params["uid"]);
+            iSchoolService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

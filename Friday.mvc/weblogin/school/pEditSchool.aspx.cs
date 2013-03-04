@@ -8,17 +8,29 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.school
 {
     public partial class pEditSchool : BasePage
     {
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
         private School school;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            school = iSchoolRepository.Load(uid);
+            this.tagName = systemFunctionObjectService.基本信息模块.学校信息维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            school = iSchoolService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -37,7 +49,7 @@ namespace Friday.mvc.weblogin.school
 
             BindingHelper.RequestToObject(school);
 
-            iSchoolRepository.SaveOrUpdate(school);
+            iSchoolService.Update(school);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
