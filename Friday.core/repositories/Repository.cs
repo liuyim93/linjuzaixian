@@ -2089,6 +2089,94 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchByFoodStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByFoodStatistic(query, termList);
+        }
+        protected ICriteria SearchByFoodStatistic(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByFoodStatistic(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByFoodStatistic(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "foodStatistic.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "FoodStatistic";                 
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".FoodStatistic";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "foodStatistic");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+                   
+
+                    if (df.type.Equals("LoginUserOfMechant"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected ICriteria SearchByFood(ICriteria query, List<DataFilter> termList, bool isSelf, List<Restaurant> restaurantList)
         {
             IRestaurantRepository iRestaurantRepository = UnityHelper.UnityToT<IRestaurantRepository>();
