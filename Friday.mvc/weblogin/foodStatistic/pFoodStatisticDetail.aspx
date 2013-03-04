@@ -20,6 +20,11 @@
                     食品名称：</label>
                 <input type="text" id="FoodName" size="30" class="required textInput gray" runat="server" />
             </p>
+             <p>
+                <label>
+                    所属餐馆：</label>
+                <input type="text" id="RestaurantName" size="30" class="required textInput gray" runat="server" />
+            </p>
             <p>
                 <label>
                     年：</label>

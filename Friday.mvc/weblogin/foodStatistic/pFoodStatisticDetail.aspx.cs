@@ -22,8 +22,9 @@ namespace Friday.mvc.weblogin.foodStatistic
             string uid = Request.Params["uid"].ToString();
             foodStatistic = iFoodStatisticService.Load(uid);
             BindingHelper.ObjectToControl(foodStatistic, this);
-          
-         
+
+            this.FoodName.Value = foodStatistic.Food.Name;
+            this.RestaurantName.Value = foodStatistic.Food.Restaurant.Name;
 
 
 

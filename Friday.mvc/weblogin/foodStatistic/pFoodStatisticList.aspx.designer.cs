@@ -22,6 +22,42 @@ namespace Friday.mvc.weblogin.foodStatistic {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
+        /// Merchant 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Merchant;
+        
+        /// <summary>
+        /// MerchantID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MerchantID;
+        
+        /// <summary>
+        /// Food 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Food;
+        
+        /// <summary>
+        /// FoodID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden FoodID;
+        
+        /// <summary>
         /// repeater 控件。
         /// </summary>
         /// <remarks>

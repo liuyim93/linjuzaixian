@@ -13,7 +13,7 @@
         <table class="searchContent">
              <tr>
                 <td>
-                    <label>房屋名称:</label>
+                    <label>食品名称:</label>
                     <input type="text" name="Name" class="textInput" value="<%=name %>"  />
                 </td>
                 <td>
