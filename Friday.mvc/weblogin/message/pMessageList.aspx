@@ -21,13 +21,13 @@
                         value="" />
                 </td> 
                 <td>
-                   <label>LoginName:</label>
-                    <input  type="text" name="LoginName" class="textInput" value="<%=loginName %>"
+                   <label>LoginUserName:</label>
+                    <input  type="text" name="LoginUserName" class="textInput" value="<%=loginUserName %>"
                          />
                 </td>
                 <td>
-                   <label>Merchant:</label>
-                    <input  type="text" name="Merchant" class="textInput" value="<%=merchant %>"
+                   <label>MerchantName:</label>
+                    <input  type="text" name="MerchantName" class="textInput" value="<%=merchantName %>"
                          />
                 </td>
             

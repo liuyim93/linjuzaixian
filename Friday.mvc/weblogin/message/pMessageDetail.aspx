@@ -29,12 +29,12 @@
             </p>
              <p>
                 <label>
-                    LoginUser：</label>
+                    LoginUserName：</label>
                 <input type="text" id="LoginUserName" size="30" class="required textInput gray" runat="server" />
             </p>
              <p>
                 <label>
-                    Merchant：</label>
+                    MerchantName：</label>
                 <input type="text" id="MerchantName" size="30" class="required textInput gray" runat="server" />
             </p>
                <p>

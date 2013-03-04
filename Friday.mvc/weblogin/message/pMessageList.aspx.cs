@@ -24,8 +24,8 @@ namespace Friday.mvc.weblogin.message
         protected string endDate;
         protected string name;
         protected string threadIndex;
-        protected string loginName;
-        protected string merchant;
+        protected string loginUserName;
+        protected string merchantName;
        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -62,12 +62,12 @@ namespace Friday.mvc.weblogin.message
                             value = threadIndex = Request.Form["ThreadIndex"]
 
                         });
-                    if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
+                    if (!string.IsNullOrEmpty(Request.Form["LoginUserName"]))
                     {
                         loginUserList.Add(new DataFilter()
                         {
                             type = "LoginName",
-                            value = loginName = Request.Form["LoginName"]
+                            value = loginUserName = Request.Form["LoginUserName"]
 
                         });
                         filterList.Add(new DataFilter()
@@ -76,12 +76,12 @@ namespace Friday.mvc.weblogin.message
                             field = loginUserList
                         });
                     }
-                    if (!string.IsNullOrEmpty(Request.Form["Merchant"]))
+                    if (!string.IsNullOrEmpty(Request.Form["MerchantName"]))
                     {
                         merchantList.Add(new DataFilter()
                         {
                             type = "Name",
-                            value = merchant = Request.Form["Merchant"]
+                            value = merchantName = Request.Form["MerchantName"]
 
                         });
                         filterList.Add(new DataFilter()
