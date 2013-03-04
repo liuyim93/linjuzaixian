@@ -9,20 +9,31 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddFood : BasePage
     {
 
-        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();        
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
              mid = Request.Params["merchant_id"].ToString();
+             if (!this.PermissionValidate(PermissionTag.Enable))
+             {
+                 AjaxResult result = new AjaxResult();
+                 result.statusCode = "300";
+                 result.message = "没有Food增加权限";
+                 FormatJsonResult jsonResult = new FormatJsonResult();
+                 jsonResult.Data = result;
+                 Response.Write(jsonResult.FormatResult());
+                 Response.End();
+             }
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -32,8 +43,8 @@ namespace Friday.mvc.weblogin
             else 
             {
 
-                Restaurant rst = restRepository.Get(mid);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Restaurant rst = iRestaurantService.Load(mid);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                  foreach (var i in goodsTypes) 
                  {
                      this.GoodsType.Items.Add(i.GoodsType);                
@@ -47,8 +58,8 @@ namespace Friday.mvc.weblogin
         }
 
         private void SaveFood()
-        {    
-             IRepository<Food> repository = UnityHelper.UnityToT<IRepository<Food>>();
+        {
+            IFoodService iFoodService = UnityHelper.UnityToT<IFoodService>();
              Food f=new Food();
 
             BindingHelper.RequestToObject(f);
@@ -86,13 +97,13 @@ namespace Friday.mvc.weblogin
             {
                 f.Image = "/uploadimage/foodImage/" + filesnewName;
             }
-          
 
-            Restaurant restaurant = restRepository.Get(mid);
+
+            Restaurant restaurant = iRestaurantService.Load(mid);
             f.Restaurant = restaurant;
-            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
-            
-            repository.SaveOrUpdate(f);
+            f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
+
+            iFoodService.Save(f);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

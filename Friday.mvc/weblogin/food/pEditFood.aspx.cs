@@ -10,16 +10,17 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.EnumType;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditFood : BasePage
     {
-        private IRepository<Food> repository = UnityHelper.UnityToT<IRepository<Food>>();
+       
+        IFoodService iFoodService = UnityHelper.UnityToT<IFoodService>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
         private Food f;
-
-        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
@@ -28,7 +29,10 @@ namespace Friday.mvc.weblogin
             string uid = Request.Params["uid"].ToString();
             mid = Request.Params["merchant_id"].ToString();
 
-            f = repository.Load(uid);
+            this.tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+            f = iFoodService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -39,13 +43,13 @@ namespace Friday.mvc.weblogin
 
                 BindingHelper.ObjectToControl(f, this);
                 this.ImagePreview.Src = f.Image;            
-                Restaurant rst = restRepository.Get(mid);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Restaurant rst = iRestaurantService.Load(mid);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.GoodsType.Items.Add(i.GoodsType);
                 }
-                MerchantGoodsType  merchantGoodsType= mGoodsTypeRepository.Get(f.MerchantGoodsType.Id);
+                MerchantGoodsType  merchantGoodsType= iMerchantGoodsTypeService.Load(f.MerchantGoodsType.Id);
                 this.GoodsType.Value = merchantGoodsType.GoodsType;
 
             }
@@ -64,12 +68,12 @@ namespace Friday.mvc.weblogin
 
 
 
-            Restaurant restaurant = restRepository.Get(mid);
+            Restaurant restaurant = iRestaurantService.Load(mid);
             f.Restaurant = restaurant;
-            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
-            
+            f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, restaurant.Id);
 
-            repository.SaveOrUpdate(f);
+
+            iFoodService.Update(f);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
