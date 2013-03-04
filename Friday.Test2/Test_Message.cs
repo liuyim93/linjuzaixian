@@ -22,7 +22,7 @@ namespace Friday.Test2
 
             LoginUser lu = new LoginUser()
             {
-                 LoginName="liudehua",
+                 LoginName="renxianqi",
                   Password="2222"
             };
             iLoginUserRepository.SaveOrUpdate(lu);
@@ -34,7 +34,7 @@ namespace Friday.Test2
                 Address = "erhuan30",
                 Email = "ocam30@163.com",
                 EntityIndex = 30,
-                Name = "天外村",
+                Name = "中豪大酒店",
                 Owener = "basil30",
                 Rate = 30
 

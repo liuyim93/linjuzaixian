@@ -21,8 +21,8 @@
                         value="" />
                 </td> 
                 <td>
-                   <label>LoginUser:</label>
-                    <input  type="text" name="LoginUser" class="textInput" value="<%=loginUser %>"
+                   <label>LoginName:</label>
+                    <input  type="text" name="LoginName" class="textInput" value="<%=loginName %>"
                          />
                 </td>
                 <td>
