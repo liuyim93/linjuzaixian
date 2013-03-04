@@ -127,6 +127,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="mvcunity\BootStrapper.cs" />
     <Compile Include="mvcunity\ControllerFactory.cs" />
     <Compile Include="mvcunity\ModelBinder.cs" />
@@ -1948,7 +1949,6 @@
     <Folder Include="Areas\Cart\Models\" />
     <Folder Include="Areas\Cart\Views\Shared\" />
     <Folder Include="Logs\" />
-    <Folder Include="Models\" />
     <Folder Include="uploadimage\" />
     <Folder Include="Views\Home\" />
     <Folder Include="weblogin\themes\img\Expert\" />
@@ -1964,6 +1964,7 @@
     <Content Include="Areas\Account\Views\Web.config" />
     <Content Include="Areas\Account\Views\Home\login.cshtml" />
     <Content Include="Areas\Cart\Views\Web.config" />
+    <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

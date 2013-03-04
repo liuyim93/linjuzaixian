@@ -17,6 +17,7 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             return JavaScript(script);
         }
+        [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult login(string from, string style, string redirectURL, bool? full_redirect)
         {
             var is_mini = false;
@@ -24,6 +25,11 @@ namespace Friday.mvc.Areas.Account.Controllers
                 is_mini = true;
             ViewData["PageID"] = is_mini ? "page2" : "page";
             ViewData["IsMini"] = is_mini;
+            return View();
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult login()
+        {
             return View();
         }
 

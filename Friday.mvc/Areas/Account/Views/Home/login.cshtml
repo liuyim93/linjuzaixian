@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Friday.mvc.Models;
+@model LoginModel
+@{
     Layout = null;
 }
 <!DOCTYPE html>
@@ -57,64 +59,71 @@
                             <div id="J_Static" class="static">
                                 <a href="#" id="J_SC_Guide" tabindex="1" style="position: absolute; left: -9999px;">
                                     点击回车可关闭安全控件</a>
-                                <form id="J_StaticForm"  method="post">
-                                <div class="field ph-hide username-field">
-                                    <label for="TPL_username_1">
-                                        登录名：</label>
-                                    <a href="#" class="dynamic-link" id="J_DynamicLink">手机动态密码登录</a> <span class="ph-label">
-                                        手机号/会员名/邮箱</span>
-                                    <input type="text" name="TPL_username" id="TPL_username_1" class="login-text J_UserName"
-                                        value="" maxlength="32" tabindex="1" />
-                                </div>
-                                <div class="field">
-                                    <label id="password-label">
-                                        登录密码：</label>
-                                    <a href="http://110.taobao.com/account/activate.htm" target="_blank" id="forget-pw-safe"
-                                        class="forget-pw">忘记登录密码?</a> <span id="J_StandardPwd">
-                                            <input type="password" aria-labelledby="password-label" name="TPL_password" id="TPL_password_1"
-                                                class="login-text" maxlength="20" tabindex="2" />
-                                        </span><span id="J_PasswordEdit" class="password-edit" style="display: none;">
-                                    </span><strong id="J_CapsLockTip" class="warning-tip" style="display: none;">Caps Lock键正处于启用状态，<br />
-                                        启用它可能导致密码输入错误。</strong>
-                                </div>
-                                <div class="field field-checkcode hidden" id="l_f_code">
-                                    <span class="ph-label">验证码</span>
-                                    <input id="J_CodeInput_i" type="text" class="login-text checkcode J_CheckCode" maxlength="4"
-                                        name="TPL_checkcode" tabindex="3" />
-                                    <img id="J_StandardCode_m" src="https://s.tbcdn.cn/apps/login/static/img/blank.gif"
-                                        data-src="https://regcheckcode.taobao.com/auction/checkcode?sessionID=a7d052d7ba62d0790aab1bf27fcf4f4c&rad=0.5894400425760928"
-                                        class="check-code-img" />
-                                    <input name="need_check_code" type="hidden" value="" />
-                                    <a href="#" class="change-code" id="J_StandardCode">看不清<br />
-                                        换一张</a>
-                                </div>
-                                <!--安全插件checkbox-->
-                                <div class="safe">
-                                    <span class="safe-login">
-                                        <input type="checkbox" id="J_SafeLoginCheck" tabindex="4" /><label for="J_SafeLoginCheck">安全控件登录</label>
-                                    </span>
-                                    <!--两周类免登录checkbox-->
-                                    <span class="long-login" id="J_LongLogin_c">
-                                        <input type="checkbox" id="J_LongLogin_1" name="longLogin" value="0" tabindex="4" /><label
-                                            for="J_LongLogin_1">十天内免登录</label>
-                                    </span><a class="long-login-help" id="J_LongLogin_help" title="去看看什么是免登录" target="_blank"
-                                        href="http://service.taobao.com/support/help-11985.htm">帮助</a>
-                                    <div class="login-tips" style="visibility: hidden;">
-                                        <div class="login-tips-content">
+                               @using (Html.BeginForm("login", "Home", FormMethod.Post, new { area = "Account", id = "J_StaticForm" }))
+                               {
+@*                                <form id="J_StaticForm"  method="post">*@
+                                    <div class="field ph-hide username-field">
+                                        <label for="TPL_username_1">
+                                            登录名：</label>
+                                        
+                                        <a href="#" class="dynamic-link" id="J_DynamicLink">手机动态密码登录</a> <span class="ph-label">
+                                            手机号/会员名/邮箱</span>
+                                        @Html.TextBoxFor(model => model.TPL_username, new { id = "TPL_username_1", @class = "login-text J_UserName",tabindex="1", maxlength="32" })
+                                        
+                                        @*<input type="text" name="TPL_username" id="TPL_username_1" class="login-text J_UserName"
+                                            value="" maxlength="32" tabindex="1" />*@
+                                    </div>
+                                    <div class="field">
+                                        <label id="password-label">
+                                            登录密码：</label>
+                                        <a href="http://110.taobao.com/account/activate.htm" target="_blank" id="forget-pw-safe"
+                                            class="forget-pw">忘记登录密码?</a> <span id="J_StandardPwd">
+                                            @Html.PasswordFor(model => model.TPL_password, new Dictionary<string, object> { { "id", "TPL_password_1" }, { "class", "login-text" }, { "aria-labelledby", "password-label" }, { "tabindex", "2" }, {"maxlength","20"} })
+                                        
+                                               @* <input type="password" aria-labelledby="password-label" name="TPL_password" id="TPL_password_1"
+                                                    class="login-text" maxlength="20" tabindex="2" />*@
+                                            </span><span id="J_PasswordEdit" class="password-edit" style="display: none;">
+                                        </span><strong id="J_CapsLockTip" class="warning-tip" style="display: none;">Caps Lock键正处于启用状态，<br />
+                                            启用它可能导致密码输入错误。</strong>
+                                    </div>
+                                    <div class="field field-checkcode hidden" id="l_f_code">
+                                        <span class="ph-label">验证码</span>
+                                        <input id="J_CodeInput_i" type="text" class="login-text checkcode J_CheckCode" maxlength="4"
+                                            name="TPL_checkcode" tabindex="3" />
+                                        <img id="J_StandardCode_m" src="https://s.tbcdn.cn/apps/login/static/img/blank.gif"
+                                            data-src="https://regcheckcode.taobao.com/auction/checkcode?sessionID=a7d052d7ba62d0790aab1bf27fcf4f4c&rad=0.5894400425760928"
+                                            class="check-code-img" />
+                                        <input name="need_check_code" type="hidden" value="" />
+                                        <a href="#" class="change-code" id="J_StandardCode">看不清<br />
+                                            换一张</a>
+                                    </div>
+                                    <!--安全插件checkbox-->
+                                    <div class="safe">
+                                        <span class="safe-login">
+                                            <input type="checkbox" id="J_SafeLoginCheck" tabindex="4" /><label for="J_SafeLoginCheck">安全控件登录</label>
+                                        </span>
+                                        <!--两周类免登录checkbox-->
+                                        <span class="long-login" id="J_LongLogin_c">
+                                            <input type="checkbox" id="J_LongLogin_1" name="longLogin" value="0" tabindex="4" /><label
+                                                for="J_LongLogin_1">十天内免登录</label>
+                                        </span><a class="long-login-help" id="J_LongLogin_help" title="去看看什么是免登录" target="_blank"
+                                            href="http://service.taobao.com/support/help-11985.htm">帮助</a>
+                                        <div class="login-tips" style="visibility: hidden;">
+                                            <div class="login-tips-content">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="submit">
-                                    <button type="submit" class="J_Submit" tabindex="5" id="J_SubmitStatic">
-                                        登 录</button>
-                                </div>
-                                <ul class="entries">
-                                    </li>
-                                    <li id="registerUrl_1" class="register"><a id="J_RegisterLink1" href="http://reg.taobao.com/member/newbie.htm?from=login"
-                                        target="_blank" tabindex="8">免费注册</a></li>
-                                </ul>
-                                <span id="J_PasswordEditTmp" class="password-edit-tmp"></span>
-                                </form>
+                                    <div class="submit">
+                                        <button type="submit" class="J_Submit" tabindex="5" id="J_SubmitStatic">
+                                            登 录</button>
+                                    </div>
+                                    <ul class="entries">
+                                        <li id="registerUrl_1" class="register"><a id="J_RegisterLink1" href="http://reg.taobao.com/member/newbie.htm?from=login"
+                                            target="_blank" tabindex="8">免费注册</a></li>
+                                    </ul>
+                                    <span id="J_PasswordEditTmp" class="password-edit-tmp"></span>
+@*                                </form>*@
+                                    }
                             </div>
                         </div>
                     </div>
