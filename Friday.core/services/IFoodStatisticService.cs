@@ -12,8 +12,8 @@ namespace friday.core.services
         void Save(FoodStatistic foodStatistic);
         void Update(FoodStatistic foodStatistic);
         void Delete(string id);
-       
-        //IList<FoodStatistic> Search(List<DataFilter> termList);
-        //IList<FoodStatistic> Search(List<DataFilter> termList, int start, int limit, out long total);
+
+        IList<FoodStatistic> Search(List<DataFilter> termList);
+        IList<FoodStatistic> Search(List<DataFilter> termList, int start, int limit, out long total);
     }
 }

@@ -38,16 +38,16 @@ namespace friday.core.services
         {
             iLogger.LogMessage("删除FoodStatistic数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iFoodStatisticRepository.Delete(id);
-        }        
+        }
 
-        //public IList<FoodStatistic> Search(List<DataFilter> termList)
-        //{
-        //    return iFoodStatisticRepository.Search(termList);
-        //}
+        public IList<FoodStatistic> Search(List<DataFilter> termList)
+        {
+            return iFoodStatisticRepository.Search(termList);
+        }
 
-        //public IList<FoodStatistic> Search(List<DataFilter> termList, int start, int limit, out long total)
-        //{
-        //    return iFoodStatisticRepository.Search(termList, start, limit, out total);
-        //}
+        public IList<FoodStatistic> Search(List<DataFilter> termList, int start, int limit, out long total)
+        {
+            return iFoodStatisticRepository.Search(termList, start, limit, out total);
+        }
     }
 }

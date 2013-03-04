@@ -115,6 +115,7 @@
     <Compile Include="Test_RentMultiSearch.cs" />
     <Compile Include="Test_MessageMultiSearch.cs" />
     <Compile Include="Test_FeedBackSearch.cs" />
+    <Compile Include="Test_FoodStatistic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
