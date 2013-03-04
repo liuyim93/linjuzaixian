@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -23,11 +24,14 @@ namespace Friday.mvc.weblogin
 
         protected string goodsType;
 
-        IMerchantGoodsTypeRepository iRepositoryMerchantGoodsType = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             merchantType = Request.Params["merchantType"];
+
+            tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] == "alldelete")
             {
@@ -91,7 +95,7 @@ namespace Friday.mvc.weblogin
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<MerchantGoodsType> merchantGoodsTypeList = iRepositoryMerchantGoodsType.Search(filterList, start, limit, out total);
+                IList<MerchantGoodsType> merchantGoodsTypeList = iMerchantGoodsTypeService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = merchantGoodsTypeList;
                 repeater.DataBind();
@@ -102,7 +106,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteMerchantGoodsType()
         {
-            iRepositoryMerchantGoodsType.PhysicsDelete(Request.Params["uid"]);
+            iMerchantGoodsTypeService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

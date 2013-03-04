@@ -15,9 +15,7 @@ using friday.core.services;
 namespace Friday.mvc.weblogin
 {
     public partial class pAddMerchantEmployee : BasePage
-    {
-
-  
+    {  
         ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
         ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
         IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();

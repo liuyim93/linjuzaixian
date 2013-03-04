@@ -9,19 +9,23 @@ using friday.core;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditMerchantGoodsType : BasePage
     {
-        IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
-
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
         private MerchantGoodsType merchantGoodsType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            merchantGoodsType = iMerchantGoodsTypeRepository.Load(uid);
+
+            tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
+            this.PermissionCheck();
+
+            merchantGoodsType = iMerchantGoodsTypeService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -37,7 +41,7 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(merchantGoodsType);
-            iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
+            iMerchantGoodsTypeService.Update(merchantGoodsType);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

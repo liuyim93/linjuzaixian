@@ -8,14 +8,15 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pSelectGlobalGoodsType : BasePage
     {
-        IMerchantGoodsTypeRepository iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
-        IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
-        IGlobalGoodsTypeRepository globalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
         private MerchantGoodsType merchantGoodsType;
         private string mid;
@@ -26,6 +27,17 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有选择GlobalGoodsType的权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             mid = Request.Params["merchant_id"].ToString();
             mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -45,7 +57,7 @@ namespace Friday.mvc.weblogin
             string[] sNameArray = mGoodsNameSet.Split(',');
             foreach (var i in sNameArray)
             {
-                if (iMerchantGoodsTypeRepository.IsHaveTheSameName(i))
+                if (iMerchantGoodsTypeService.IsHaveTheSameName(i))
                 {
                     //result.statusCode = "300";
                     //result.message = "已存在此商品类型";
@@ -53,9 +65,9 @@ namespace Friday.mvc.weblogin
                 else 
                 {                  
                     merchantGoodsType = new MerchantGoodsType();
-                    merchantGoodsType.Merchant = merchantRepository.Get(mid);
+                    merchantGoodsType.Merchant = iMerchantService.Load(mid);
                     merchantGoodsType.GoodsType =i;
-                    iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
+                    iMerchantGoodsTypeService.Save(merchantGoodsType);
                 }
             }
 

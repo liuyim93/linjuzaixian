@@ -8,13 +8,15 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddMerchantGoodsType : BasePage
     {
-        IMerchantGoodsTypeRepository iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
-        IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
+    
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
 
         private MerchantGoodsType merchantGoodsType;
         private string mid;
@@ -23,6 +25,17 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有MerchantGoodsType增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             mid = Request.Params["merchant_id"].ToString();
             mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -36,11 +49,11 @@ namespace Friday.mvc.weblogin
         {       
             merchantGoodsType = new MerchantGoodsType();
          
-            merchantGoodsType.Merchant = merchantRepository.Get(mid);                
+            merchantGoodsType.Merchant = iMerchantService.Load(mid);                
             BindingHelper.RequestToObject(merchantGoodsType);
             string GoodTypeName = this.GoodsType.Value;
 
-            bool flag=iMerchantGoodsTypeRepository.IsHaveTheSameName(GoodTypeName);
+            bool flag=iMerchantGoodsTypeService.IsHaveTheSameName(GoodTypeName);
             AjaxResult result = new AjaxResult();
             if (flag == true)
             {
@@ -52,7 +65,7 @@ namespace Friday.mvc.weblogin
             else 
             {
 
-                iMerchantGoodsTypeRepository.SaveOrUpdate(merchantGoodsType);
+                iMerchantGoodsTypeService.Save(merchantGoodsType);
                 result.statusCode = "200";
                 result.message = "添加成功";
                 result.navTabId = "referer";
