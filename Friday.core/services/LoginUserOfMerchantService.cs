@@ -46,10 +46,10 @@ namespace friday.core.services
             return iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(MerchantId,ust);
         }
 
-        public String[] GetLoginUserOfMerchantBy(string loginusername)
-        {
-            return iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(loginusername);
-        }
+        //public String[] GetLoginUserOfMerchantBy(string loginusername)
+        //{
+        //    return iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(loginusername);
+        //}
             
     }
 }
