@@ -1,0 +1,29 @@
+.tml-overlay{position:absolute;left:-9999px;top:-9999px}
+.tml-ext-mask{background-color:#000;opacity:.5;filter:alpha(opacity=50)}
+.tml-dialog .tml-stdmod-header,.tml-dialog .tml-ext-close{background:url(http://img01.taobaocdn.com/tps/i1/T1U6rrXlNqXXaZ_F7_-126-41.png) no-repeat}
+.tml-dialog{padding:10px}
+.tml-dialog-skin{background:#716564;opacity:.4;filter:alpha(opacity=40);position:absolute;height:100%;width:100%;_padding:0 20px 0 0;top:0;left:0}
+.tml-dialog-hasmask .tml-dialog-skin{background:#fff}
+.tml-contentbox{position:relative;z-index:2;height:100%;background:#fff;border:1px solid #908b8b;overflow:hidden}
+.tml-dialog .tml-stdmod-header{height:35px;line-height:35px;padding-left:10px;border-bottom:1px solid #8c0400;background-color:#b6000c;background-position:20px 10px;font-size:14px;font-weight:700}
+.tml-dialog .tml-stdmod-body{overflow:hidden}
+.tml-dialog .tml-ext-close{outline:medium none;position:absolute;z-index:3;right:20px;top:20px;overflow:hidden;display:block;height:16px;width:16px;line-height:99em;background-position:0 -25px}
+.tml-dialog .tml-ext-close:hover{background-position:-16px -25px}
+.tml-dialog-cat{position:absolute;top:0;left:50%;margin:-10px 0 0 -23px;width:55px;height:50px;background:url(http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizinMethod='scale',src="http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png");_background:0}
+.tml-dialog-default .tml-stdmod-header{background-image:none;color:#fff}
+.tml-dialog-gray .tml-stdmod-header{background:#e6e6e6;border-bottom-color:#d9d9d9}
+.tml-dialog-gray .tml-ext-close{background-position:-32px -25px}
+.tml-dialog-gray .tml-ext-close:hover{background-position:-48px -25px}
+body .tml-dialog-back{padding:0;border:1px solid #d5323d}
+.tml-dialog-back .tml-stdmod-header{background:#fff9f9;border-bottom:1px solid #f5edec;line-height:25px;height:25px}
+.tml-dialog-back .tml-contentbox{border:0}
+.tml-dialog-back .tml-ext-close{background-position:-68px -25px;right:10px;top:6px}
+.tml-dialog-back .tml-ext-close:hover{background-position:-84px -25px}
+body .tml-dialog-back .tml-dialog-skin{padding:1px 1px 0 0;background:#999;left:2px;top:2px}
+.tml-dialog-cfmTitle{margin:15px 5px 0 20px;border:none!important;background-color:#fff!important;color:#666}
+.tml-dialog-btnArea{margin:10px 0 0 20px;padding:0 0 13px 0}
+.tml-dialog-cfmOk,.tml-dialog-cfmCancel{margin:0 10px 0 0;padding-left:20px;padding-right:20px}
+.tml-dialog-cfmTitle .ui-msg,.tml-dialog-cfmTitle .ui-msg-con,.tml-dialog-cfmTitle .ui-msg-icon{border:0;background-color:#fff}
+.tml-dialog-prtTip{margin:10px 0 0 20px;color:#666}
+.tml-dialog-prtInput{width:318px;height:35px;display:block;margin:2px 0 0 20px}
+.tml-dialog-prtError{margin:5px 0 0 20px!important;display:none!important}

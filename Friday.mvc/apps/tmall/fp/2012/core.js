@@ -806,6 +806,7 @@ TB.add("mod~global", function() {
                              });
                          return
                          }
+                         /*
                          this._addStyleSheetOnce();
                          var _guid = _kissy.guid();
                          this.cache[_guid] = _kissy.makeArray(arguments);
@@ -816,6 +817,12 @@ TB.add("mod~global", function() {
                                              location.href = _url
                                      }
                                 })
+                          */
+                       _kissy.use("tml/minilogin,tml/overlay/css/overlay.css", function(u, _minilogin) {
+                           _minilogin && _minilogin.show(function() {
+                               document.location.href = _url
+                           }, {needRedirect: false,check: true})
+                       })
                    }
                    ,redirectCallback: function(p) {
         var _guid = p.guid;
@@ -1045,7 +1052,7 @@ TB.use("mod~global");
             return e.apply(this, f)
         })
     },version: "1.0"};
-    KISSY.config && KISSY.config({packages: [{name: "tml",tag: "20121030",path: "http://a.tbcdn.cn/apps/tmall/tml/1.0/",charset: "utf-8"}]})
+    KISSY.config && KISSY.config({packages: [{name: "tml",tag: "20121030",path: "./apps/tmall/tml/1.0/",charset: "utf-8"}]})
 })(); /*pub-1|2013-01-15 17:19:40*/
 //2013-02-19 basilwang refactor variable name
 (function(_kissy, _window) {
