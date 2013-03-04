@@ -7,7 +7,7 @@
 */
 TML.add("minilogin", function (_tml) {
     function p(b) {
-        function a() {
+        function _set_center() {
             var _documentElement = document.documentElement;
             _div.style.top = _documentElement.offsetHeight / 2 + _documentElement.scrollTop + "px"
         }
@@ -19,21 +19,21 @@ TML.add("minilogin", function (_tml) {
         _div.innerHTML = '<div class="tml-contentbox"><div class="tml-stdmod-header" style="position: relative;z-index: 2"></div> <div class="tml-stdmod-body" style="background: #FAFAFA;">   <div class="tml-mLogin-mask" style="position: absolute;width: 50px;background: #FAFAFA;height: 100%;"></div>   <iframe style="margin:20px 0 0 40px;" width="310" scrolling="no" height="304" frameborder="no" src="' +
             b + '   " onload="var c=document.getElementById(\'tml-mLogin\');if(c){c.style.height = \'349px\';c.style.height = \'360px\';}"></iframe></div></div><a id="TML_Login_MLogin_Close" href="#" class="tml-ext-close">X</a><div class="tml-dialog-skin" style="height:382px;"></div><i class="tml-dialog-cat"></i>';
         document.body.appendChild(_div);
-        _event.on(_kissy.get("#TML_Login_MLogin_Close"), "click", function (d) {
-            d.preventDefault();
+        _event.on(_kissy.get("#TML_Login_MLogin_Close"), "click", function (_event) {
+            _event.preventDefault();
             _div.style.display = "none"
         });
         if (_kissy.UA.ie == 6) {
-            a();
-            _event.on(window, "scroll", a)
+            _set_center();
+            _event.on(window, "scroll", _set_center)
         }
         return _div
     }
-    function l(b) {
-        var a =
-            document.createElement("a");
-        a.href = b;
-        return a.hostname === location.hostname
+    function _is_same_hostname(_url_for_href) {
+        var _a_tag =
+            document.createElement("_a_tag");
+        _a_tag.href = _url_for_href;
+        return _a_tag.hostname === location.hostname
     }
     var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event,
         _segment_function = function (_last_segment_count) {
@@ -42,14 +42,15 @@ TML.add("minilogin", function (_tml) {
         } (2),
         is_daily = _segment_function.indexOf(".net") !== -1,
         _domain = is_daily ? "daily.tmall.net" : "tmall.com",
-        _url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=", j = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
+        _url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
+        _default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
     MiniLogin = { show: function (_fn, _config) {
         var _mini_login = this;
         if (typeof _fn !== "function") {
             _config = _fn;
             _fn = null
         }
-        _config = _kissy.merge(j, _config);
+        _config = _kissy.merge(_default_config, _config);
         var _date = new Date;
         _date.setDate(_date.getDate() - 1);
         document.cookie = "cookie2=;expires=" + _date.toGMTString() + ";path=/;domain=.tmall.com";
@@ -61,52 +62,52 @@ TML.add("minilogin", function (_tml) {
         }, _config)
     }, _checkPage: function () {
         return window.TB && window.TB.userInfo && window.TB.userInfo.isLogin
-    }, _check: function (b, a) {
-        var _mini_login = this, d = a.checkTimeout || 5, f = false, g = _kissy.later(function () {
-            f || b(_mini_login._checkPage());
-            g && g.cancel()
-        }, d * 1E3);
-        if (a && a.checkApi &&
-            a.checkApi.indexOf(".tmall.") == -1)
-            a.checkApi = undefined;
-        return _kissy.io({ type: "get", url: a.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (n) {
+    }, _check: function (_fn, _config) {
+        var _mini_login = this, _timeout = _config.checkTimeout || 5, f = false, _later_fn = _kissy.later(function () {
+            f || _fn(_mini_login._checkPage());
+            _later_fn && _later_fn.cancel()
+        }, _timeout * 1E3);
+        if (_config && _config.checkApi &&
+            _config.checkApi.indexOf(".tmall.") == -1)
+            _config.checkApi = undefined;
+        return _kissy.io({ type: "get", url: _config.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (_callback_info) {
             f = true;
-            b(n.login)
+            _fn(_callback_info.login)
         }, error: function () {
             f = true;
-            b(_mini_login._checkPage())
-        }, timeout: d, dataType: "jsonp", cache: false
+            _fn(_mini_login._checkPage())
+        }, timeout: _timeout, dataType: "jsonp", cache: false
         })
-    }, _show: function (b, a) {
-        var c = _kissy.get("#tml-mLogin"), d, f = _url, g = "";
-        if (a.needRedirect)
-            f += encodeURIComponent(location.href.split("#")[0]) + "&full_redirect=true";
+    }, _show: function (_fn, _config) {
+        var _dom_div_id_tml_mLogin = _kissy.get("#tml-mLogin"), _callbak, _show_url = _url, _proxy_url = "";
+        if (_config.needRedirect)
+            _show_url += encodeURIComponent(location.href.split("#")[0]) + "&full_redirect=true";
         else {
-            d = "g_tml_callbak" + (new Date).getTime();
-            window[d] = function () {
-                c.style.display = "none";
-                b && b();
+            _callbak = "g_tml_callbak" + (new Date).getTime();
+            window[_callbak] = function () {
+                _dom_div_id_tml_mLogin.style.display = "none";
+                _fn && _fn();
                 try {
-                    delete window[d]
+                    delete window[_callbak]
                 } catch (n) {
                 }
             };
-            g = a.proxyURL + (a.proxyURL.indexOf("?") > 0 ? "&" : "?") + "callback=" + d;
-            if (!l(a.proxyURL) && document.domain !== _segment_function)
+            _proxy_url = _config.proxyURL + (_config.proxyURL.indexOf("?") > 0 ? "&" : "?") + "callback=" + _callbak;
+            if (!_is_same_hostname(_config.proxyURL) && document.domain !== _segment_function)
                 document.domain = _segment_function;
-            if (l(a.proxyURL) && document.domain === location.hostname)
-                g += "&nsdomain=true";
-            f += encodeURIComponent(g) + "&full_redirect=false"
+            if (_is_same_hostname(_config.proxyURL) && document.domain === location.hostname)
+                _proxy_url += "&nsdomain=true";
+            _show_url += encodeURIComponent(_proxy_url) + "&full_redirect=false"
         }
-        if (c)
-            _kissy.get("iframe", c).src = f;
+        if (_dom_div_id_tml_mLogin)
+            _kissy.get("iframe", _dom_div_id_tml_mLogin).src = _show_url;
         else
-            c = p(f);
-        c.style.display = ""
+            _dom_div_id_tml_mLogin = p(_show_url);
+        _dom_div_id_tml_mLogin.style.display = ""
     }, config: function (b) {
         if (b && b.proxyUrl && b.proxyUrl.indexOf(".tmall.") == -1)
             b.proxyUrl = undefined;
-        return j = _kissy.merge(j, b)
+        return _default_config = _kissy.merge(_default_config, b)
     } 
     };
     return _tml.MiniLogin = MiniLogin
