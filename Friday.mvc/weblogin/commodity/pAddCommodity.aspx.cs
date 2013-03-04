@@ -23,6 +23,7 @@ namespace Friday.mvc.weblogin
         protected void Page_Load(object sender, EventArgs e)
         {
             mid = Request.Params["merchant_id"].ToString();
+            tagName = systemFunctionObjectService.商店模块.商品维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

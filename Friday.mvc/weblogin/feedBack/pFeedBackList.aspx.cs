@@ -132,7 +132,18 @@ namespace Friday.mvc.weblogin.feedBack
 
             else
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
 
+                tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有FeedBack删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
                 DeleteFeedBack();
 
             }

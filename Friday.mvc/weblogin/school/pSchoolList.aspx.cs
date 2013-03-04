@@ -89,6 +89,18 @@ namespace Friday.mvc.weblogin.school
 
             else
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.基本信息模块.学校信息维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有School删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
 
                 DeleteSchool();
 

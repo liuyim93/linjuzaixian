@@ -25,6 +25,7 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

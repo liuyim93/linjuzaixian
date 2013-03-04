@@ -20,6 +20,7 @@ namespace Friday.mvc.weblogin.restaurant
         private Restaurant restaurant;
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

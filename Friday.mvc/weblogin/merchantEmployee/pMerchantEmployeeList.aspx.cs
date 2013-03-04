@@ -43,29 +43,23 @@ namespace Friday.mvc.weblogin
                 }
                 else
                 {
+
+                    AjaxResult result = new AjaxResult();
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+
+                    tagName = systemFunctionObjectService.基本信息模块.员工维护.TagName;
+                    if (!this.PermissionValidate(PermissionTag.Delete))
+                    {
+                        result.statusCode = "300";
+                        result.message = "没有MerchantEmployee删除权限";
+                        jsonResult.Data = result;
+                        Response.Write(jsonResult.FormatResult());
+                        Response.End();
+                    }
+
+
                     DeleteLoginUser();
-                }
-
-               // if (Request.Params["__EVENTVALIDATION"] == null)
-               //{            
-               //    if (mType == "Restaurant")
-               //     {
-               //         this.eUserType.Items.Add("餐馆");
-               //         this.eUserType.Items.Add("餐馆店小二");                    
-               //     }
-               //     if (mType == "Rent")
-               //     {
-               //         this.eUserType.Items.Add("租房");
-               //         this.eUserType.Items.Add("租房店小二");
-               //     }
-               //     if (mType == "Shop")
-               //     {
-               //         this.eUserType.Items.Add("商店");
-               //         this.eUserType.Items.Add("商店店小二");
-               //     }
-               //}
-
-
+                }            
 
            
         }

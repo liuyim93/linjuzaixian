@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin.feedBack
         IFeedBackService iFeedBackService = UnityHelper.UnityToT<IFeedBackService>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

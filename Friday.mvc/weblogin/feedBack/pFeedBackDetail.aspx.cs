@@ -21,6 +21,7 @@ namespace Friday.mvc.weblogin.feedBack
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
+            tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

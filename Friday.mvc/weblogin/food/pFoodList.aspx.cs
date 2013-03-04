@@ -43,6 +43,18 @@ namespace Friday.mvc.weblogin
                 }
                 else
                 {
+                    AjaxResult result = new AjaxResult();
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+
+                    tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
+                    if (!this.PermissionValidate(PermissionTag.Delete))
+                    {
+                        result.statusCode = "300";
+                        result.message = "没有Food删除权限";
+                        jsonResult.Data = result;
+                        Response.Write(jsonResult.FormatResult());
+                        Response.End();
+                    }
                     DeleteFood();
                 }           
         }

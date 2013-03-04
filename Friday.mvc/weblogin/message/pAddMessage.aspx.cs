@@ -20,6 +20,7 @@ namespace Friday.mvc.weblogin.message
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.消息模块.消息维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

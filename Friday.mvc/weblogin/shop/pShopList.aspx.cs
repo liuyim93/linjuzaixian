@@ -107,6 +107,18 @@ namespace Friday.mvc.weblogin.shop
 
             else
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.商店模块.商店维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有Shop删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
 
                 DeleteShop();
 

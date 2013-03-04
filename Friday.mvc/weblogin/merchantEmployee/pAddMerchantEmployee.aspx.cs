@@ -27,6 +27,7 @@ namespace Friday.mvc.weblogin
         {
              mid = Request.Params["merchant_id"].ToString();
              mtype = Request.Params["mType"].ToString();
+             tagName = systemFunctionObjectService.基本信息模块.员工维护.TagName;
              if (!this.PermissionValidate(PermissionTag.Enable))
              {
                  AjaxResult result = new AjaxResult();
