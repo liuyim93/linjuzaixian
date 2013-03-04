@@ -1063,7 +1063,18 @@ TB.use("mod~global");
     _config.assetsServer = _url;
     var _timestamp = _config.t || "20121130";
     var _version = _kissy.version == "1.30" ? "1.3.0" : "1.2.0";
-    _kissy.config({map: [[/(.+tmall\/.+)2012\/fp-min\.js(\?[^?]+)?$/, "$12012/??fp.js,mods/slide2.js,mods/category.js,mods/brand.js,mods/cate-fold.js,mods/floor.js,mods/direct-promo.js,mods/act.js,util/util.js,util/localstorage.js,act/winner/html.js,act/winner/winner.js$2.js"], [/.+?(switchable|suggest|datalazyload|sizzle|template)-min\.js(\?[^?]+)?$/, "http://a.tbcdn.cn/s/kissy/" + _version + "/??switchable-min.js,suggest-min.js,datalazyload-min.js,template-min.js"], [/(.+tmall\/fp\/.+)-min.js(\?[^?]+)?$/, "$1.js$2"], [/(.+tmall\/fp\/.+)-min.css(\?[^?]+)?$/, "$1.css$2"]],packages: [{name: "2012",charset: "gbk",path: "http://" + _url + "/apps/tmall/fp/",tag: _timestamp}]});
+    _kissy.config(
+        { map:
+           [
+             [/(.+tmall\/.+)2012\/fp-min\.js(\?[^?]+)?$/, "$12012/??fp.js,mods/slide2.js,mods/category.js,mods/brand.js,mods/cate-fold.js,mods/floor.js,mods/direct-promo.js,mods/act.js,util/util.js,util/localstorage.js,act/winner/html.js,act/winner/winner.js$2.js"]
+           , [/.+?(switchable|suggest|datalazyload|sizzle|template)-min\.js(\?[^?]+)?$/, "http://a.tbcdn.cn/s/kissy/" + _version + "/??switchable-min.js,suggest-min.js,datalazyload-min.js,template-min.js"],
+             [/(.+tmall\/fp\/.+)-min.js(\?[^?]+)?$/, "$1.js$2"],
+             [/(.+tmall\/fp\/.+)-min.css(\?[^?]+)?$/, "$1.css$2"]
+           ], 
+                packages: [{ name: "2012", charset: "gbk", path: "./apps/tmall/fp/", tag: _timestamp}]
+         }
+         );
+    //                packages: [{ name: "2012", charset: "gbk", path: "http://" + _url + "/apps/tmall/fp/", tag: _timestamp}]
     _window._poc = _window._poc || [];
     MFP.POC = {add: function(K) {
         _window._poc.push(["_trackCustomTime", "tt_" + K, +new Date])

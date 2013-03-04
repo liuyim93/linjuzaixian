@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 /*pub-1|2013-01-15 17:19:40*/
-KISSY.add(function (E, O) {
+KISSY.add("2012/mods/direct-promo",function (E, O) {
         var E = KISSY,
             Q = E.DOM,
             N = "http://delta.taobao.com/home/delivery/AllContentByPage.do?resourceIds=",

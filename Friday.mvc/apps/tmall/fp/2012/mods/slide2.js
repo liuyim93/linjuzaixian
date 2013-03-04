@@ -1,5 +1,5 @@
 // JScript source code
-KISSY.add(function (E, C) {
+KISSY.add("2012/mods/slide2",function (E, C) {
         var T = E.DOM, Y = E.Event; var D = window; var M = E.UA.ie == 6;
         var I = E.UA.ie && E.UA.ie < 9;
         var O = !D.g_config.closeSlideAutoPlay;

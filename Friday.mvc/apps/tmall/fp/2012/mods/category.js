@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 /*pub-1|2013-01-15 17:19:40*/
-KISSY.add(function (C, U) {
+KISSY.add("2012/mods/category",function (C, U) {
         var C = KISSY,
             T = C.DOM,
             W = C.Event,
@@ -164,4 +164,4 @@ KISSY.add(function (C, U) {
             }
         });
         return N
-    }, { requires: ["./direct-promo"] });
+    }, { requires: ["2012/mods/direct-promo"] });

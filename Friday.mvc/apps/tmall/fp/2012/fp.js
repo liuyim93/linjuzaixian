@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 /*pub-1|2013-02-01 11:22:14*/
-KISSY.add(function (H, C, P) {
+KISSY.add("2012/fp",function (H, C, P) {
         var A = H.DOM, Q = H.Event, K = H.UA;
         var J = window, O = document, F = J.g_config;
         function B()
@@ -23,4 +23,4 @@ KISSY.add(function (H, C, P) {
                 }
 
             }); return B
-    }, { requires: ["./slide2","./category"] });
+    }, { requires: ["2012/mods/slide2","2012/mods/category"] });
