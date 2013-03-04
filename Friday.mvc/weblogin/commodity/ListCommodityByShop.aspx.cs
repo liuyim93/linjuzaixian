@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,8 +16,9 @@ namespace Friday.mvc.weblogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRepository<Shop> repoShop = UnityHelper.UnityToT<IRepository<Shop>>();
-            ICommodityRepository repoCommodity = UnityHelper.UnityToT<ICommodityRepository>();
+
+            IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+            ICommodityService iCommodityService = UnityHelper.UnityToT<ICommodityService>();
 
             IList<Commodity> commoditys = new List<Commodity>();
 
@@ -40,7 +42,7 @@ namespace Friday.mvc.weblogin
 
             dfl.Add(new DataFilter() { type = "IsDelete"});
 
-            commoditys = repoCommodity.Search(dfl);
+            commoditys = iCommodityService.Search(dfl);
             repeater.DataSource = commoditys;
             repeater.DataBind();
         }

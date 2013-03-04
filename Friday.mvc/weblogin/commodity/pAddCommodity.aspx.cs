@@ -9,20 +9,30 @@ using friday.core;
 using friday.core.components;
 using System.IO;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddCommodity : BasePage
     {
-        IShopRepository restRepository = UnityHelper.UnityToT<IShopRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             mid = Request.Params["merchant_id"].ToString();
-
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Commodity增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -31,23 +41,19 @@ namespace Friday.mvc.weblogin
             else
             {
 
-                Shop rst = restRepository.Get(mid);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Shop rst = iShopService.Load(mid);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.GoodsType.Items.Add(i.GoodsType);
                 }
-
-
-
-
             }
 
         }
 
         private void SaveCommodity()
         {
-            IRepository<Commodity> repository = UnityHelper.UnityToT<IRepository<Commodity>>();
+            ICommodityService iCommodityService = UnityHelper.UnityToT<ICommodityService>();
             Commodity f = new Commodity();
 
             BindingHelper.RequestToObject(f);
@@ -87,11 +93,11 @@ namespace Friday.mvc.weblogin
             }
 
 
-            Shop shop = restRepository.Get(mid);
+            Shop shop = iShopService.Load(mid);
             f.Shop = shop;
-            f.MerchantGoodsType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
+            f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
 
-            repository.SaveOrUpdate(f);
+            iCommodityService.Save(f);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.commodity
 {
@@ -25,13 +26,15 @@ namespace Friday.mvc.weblogin.commodity
         public string goodsType;
         public string mid;
 
-        private ICommodityRepository iCommodityRepository = UnityHelper.UnityToT<ICommodityRepository>();
-        IShopRepository restRepository = UnityHelper.UnityToT<IShopRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IShopService iShopService = UnityHelper.UnityToT<IShopService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        ICommodityService iCommodityService = UnityHelper.UnityToT<ICommodityService>();
 
-         
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.商店模块.商品维护.TagName;
+            this.PermissionCheck();
+
             if (Request.Params["flag"] != "alldelete")
             {
                 SearchCommodity();
@@ -44,7 +47,7 @@ namespace Friday.mvc.weblogin.commodity
         private void DeleteCommodity()
         {
 
-            iCommodityRepository.Delete(Request.Params["commodity_id"]);
+            iCommodityService.Delete(Request.Params["commodity_id"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -93,7 +96,7 @@ namespace Friday.mvc.weblogin.commodity
             goodsType = Request.Form["mGoodsType"];
             if (!string.IsNullOrEmpty(goodsType))
             {
-                MerchantGoodsType mectGType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(goodsType, shopId);
+                MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, shopId);
                 string mectGTypeID = mectGType.Id;
                 dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
                 // dfl.Add(new DataFilter() { type = "GoodsType", value = goodsType });
@@ -120,14 +123,14 @@ namespace Friday.mvc.weblogin.commodity
             //dflForOrder.Add(new DataFilter() { type = "Price" });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            commodityList = iCommodityRepository.Search(dfl, start, limit, out total);
+            commodityList = iCommodityService.Search(dfl, start, limit, out total);
             repeater.DataSource = commodityList;
             repeater.DataBind();
 
             if (Request.Params["__EVENTVALIDATION"] == null)
             {
-                Shop rst = restRepository.Get(shopId);
-                IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+                Shop rst = iShopService.Load(shopId);
+                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
                 {
                     this.mGoodsType.Items.Add(i.GoodsType);
