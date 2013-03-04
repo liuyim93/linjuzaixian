@@ -10,6 +10,7 @@ using friday.core;
 using friday.core.components;
 using System.IO;
 using friday.core.EnumType;
+using friday.core.services;
 
 
 
@@ -17,20 +18,31 @@ namespace Friday.mvc.weblogin.rent
 {
     public partial class pEditRent : BasePage
     {
-        IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
-        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
         public LoginUser loginuser;
         private Rent rent;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            rent = iRentRepository.Load(uid);
+            rent = iRentService.Load(uid);
             //UserTypeEnum ust = UserTypeEnum.租房;
             //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
+            this.tagName = systemFunctionObjectService.租房模块.租房维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -51,10 +63,8 @@ namespace Friday.mvc.weblogin.rent
 
                 BindingHelper.ObjectToControl(rent, this);
                 this.ImagePreview.Src = rent.Logo;
-                ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-                //this.LoginName.Value = loginuser.LoginName;
 
-                string schofmntname = repoSchoolOfMerchant.GetSchoolNamesByMerchantID(uid);
+                string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
                 string[] arrname = schofmntname.Split('，');
                 if (arrname.Length > 1)
                 {
@@ -110,7 +120,7 @@ namespace Friday.mvc.weblogin.rent
                 this.ImagePreview.Src = rent.Logo;
             }
 
-            iRentRepository.SaveOrUpdate(rent);
+            iRentService.Update(rent);
 
 
             //2013-02-05  庞夫星
@@ -129,8 +139,7 @@ namespace Friday.mvc.weblogin.rent
             //    schofmt.School = iSchoolRepository.Get(shcidsz);
             //    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
             //}   
-            ISchoolOfMerchantRepository repoSchoolOfMerchant = new SchoolOfMerchantRepository();
-            repoSchoolOfMerchant.DeleteSchoolOfMerchantByMerchantID(uid);
+            iSchoolOfMerchantService.DeleteSchoolOfMerchantByMerchantID(uid);
 
 
             if (schid != "")
@@ -141,8 +150,8 @@ namespace Friday.mvc.weblogin.rent
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = rent;
-                    schofmt.School = iSchoolRepository.Get(shcidsz);
-                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                    schofmt.School = iSchoolService.Load(shcidsz);
+                    iSchoolOfMerchantService.Update(schofmt);
                 }
             }
 

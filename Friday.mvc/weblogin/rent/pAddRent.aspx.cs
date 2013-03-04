@@ -8,17 +8,29 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.rent
 {
     public partial class pAddRent : BasePage
     {
-        IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
-        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-          
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Rent增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";
@@ -40,7 +52,7 @@ namespace Friday.mvc.weblogin.rent
         {
             Rent rnt = new Rent();
             BindingHelper.RequestToObject(rnt);
-            iRentRepository.SaveOrUpdate(rnt);
+            iRentService.Save(rnt);
 
             if (schid != "")
             {
@@ -50,8 +62,8 @@ namespace Friday.mvc.weblogin.rent
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = rnt;
-                    schofmt.School = iSchoolRepository.Get(shcidsz);
-                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                    schofmt.School = iSchoolService.Load(shcidsz);
+                    iSchoolOfMerchantService.Save(schofmt);
                 }
             }  
 

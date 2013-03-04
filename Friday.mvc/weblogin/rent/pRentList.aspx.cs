@@ -31,6 +31,17 @@ namespace Friday.mvc.weblogin.rent
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.租房模块.租房维护.TagName;
+            this.PermissionCheck();
+            //if (!this.PermissionValidate(PermissionTag.Delete))
+            //{
+            //    this.liDelete.Visible = false;
+            //}
+
+            //if (!this.PermissionValidate(PermissionTag.Edit))
+            //{
+            //    this.liEdit.Visible = false;
+            //}
 
             if (Request.Params["flag"] != "alldelete")
             {
