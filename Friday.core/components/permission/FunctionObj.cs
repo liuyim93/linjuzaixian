@@ -107,6 +107,8 @@ namespace friday.core.services
         public FunctionTag 公共商品类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 顾客账号维护 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 菜单管理 { get; set; }
     }
     //public class 自定义商品类型管理 : BaseModel
     //{

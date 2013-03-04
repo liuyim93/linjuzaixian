@@ -8,18 +8,22 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.roleMenu
 {
     public partial class pEditMenuButton : BasePage
     {
-        private ISystemMenuRepository categoryRepo = new SystemMenuRepository();
+        private ISystemMenuService iSystemMenuService = UnityHelper.UnityToT<ISystemMenuService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                SystemMenu category = categoryRepo.Load(Id.Value);
+                SystemMenu category = iSystemMenuService.Load(Id.Value);
                 BindingHelper.RequestToObject(category);
                 category.TLevel = Convert.ToInt32(TLevel.Value);
                 string UrlPath = MenuRoute.Value.ToLower();
@@ -35,7 +39,7 @@ namespace Friday.mvc.weblogin.roleMenu
                     category.Leaf = false;
                 }
 
-                categoryRepo.SaveOrUpdate(category);
+                iSystemMenuService.Update(category);
                 AjaxResult result = new AjaxResult();
                 result.statusCode = "200";
                 result.message = "操作成功";
@@ -48,9 +52,9 @@ namespace Friday.mvc.weblogin.roleMenu
             else
             {
                 string code = Request.Params["code"];
-                SystemMenu category = categoryRepo.Get(code);
+                SystemMenu category = iSystemMenuService.Load(code);
 
-                bool ISC = categoryRepo.IsHaveChild(category);
+                bool ISC = iSystemMenuService.IsHaveChild(category);
 
                 if (category != null)
                 {

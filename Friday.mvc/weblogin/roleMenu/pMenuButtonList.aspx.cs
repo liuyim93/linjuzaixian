@@ -19,14 +19,14 @@ namespace Friday.mvc.weblogin.roleMenu
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //tagName = systemFunctionObjectService.基本信息模块.角色权限维护.TagName;
-            //this.PermissionCheck();
-            ////2013-02-28 basilwang you can use this to block button
-            //if (!this.PermissionValidate(PermissionTag.Delete))
-            //{
-            //    //this.liDelete
-            //    this.liDelete.Visible = false;
-            //}
+            tagName = systemFunctionObjectService.基本信息模块.菜单管理.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
 
 
             if (Request.Params["flag"] == "alldelete")

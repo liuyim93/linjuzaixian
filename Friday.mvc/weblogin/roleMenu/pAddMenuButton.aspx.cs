@@ -8,18 +8,29 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.roleMenu
 {
     public partial class pAddMenuButton : BasePage
     {
-        private ISystemMenuRepository categoryRepo = new SystemMenuRepository();
+        private ISystemMenuService iSystemMenuService = UnityHelper.UnityToT<ISystemMenuService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有SystemMenu增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
                 SystemMenu dic = new SystemMenu();
                 BindingHelper.RequestToObject(dic);
                 dic.ParentID = (Request.Params["code"] == "" || Request.Params["code"] == null) ? null : Request.Params["code"];
@@ -36,7 +47,7 @@ namespace Friday.mvc.weblogin.roleMenu
                 {
                     dic.Leaf = false;
                 }
-                categoryRepo.SaveOrUpdate(dic);
+                iSystemMenuService.Save(dic);
 
                 AjaxResult result1 = new AjaxResult();
                 result1.statusCode = "200";
@@ -59,7 +70,7 @@ namespace Friday.mvc.weblogin.roleMenu
                 else
                 {
                     string code = Request.Params["code"];
-                    SystemMenu category = categoryRepo.Get(code);
+                    SystemMenu category = iSystemMenuService.Load(code);
 
                     if (category.Leaf == false)
                     {
