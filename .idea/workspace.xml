@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,26 +35,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1045" column="37" selection-start="52184" selection-end="52184" vertical-scroll-proportion="0.51171875">
+            <state line="1046" column="35" selection-start="52220" selection-end="52220" vertical-scroll-proportion="20.107143">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="minilogin.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="minilogin.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="31" selection-start="2036" selection-end="2036" vertical-scroll-proportion="0.0">
+            <state line="64" column="23" selection-start="3487" selection-end="3487" vertical-scroll-proportion="0.7407407">
               <folding>
-                <marker date="1362382360894" expanded="true" signature="795:824" placeholder="..." />
-                <marker date="1362382360894" expanded="true" signature="869:889" placeholder="..." />
-                <marker date="1362382360894" expanded="true" signature="930:994" placeholder="..." />
-                <marker date="1362382360894" expanded="true" signature="1020:1041" placeholder="..." />
-                <marker date="1362382360894" expanded="true" signature="1372:1385" placeholder="..." />
+                <marker date="1362386961187" expanded="true" signature="798:827" placeholder="..." />
+                <marker date="1362386961187" expanded="true" signature="872:892" placeholder="..." />
+                <marker date="1362386961187" expanded="true" signature="933:997" placeholder="..." />
+                <marker date="1362386961187" expanded="true" signature="1023:1044" placeholder="..." />
+                <marker date="1362386961187" expanded="true" signature="1375:1388" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Friday.mvc.csproj" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1020" column="22" selection-start="50139" selection-end="50139" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -144,8 +151,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/tb.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/slide2.html" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/overlay/css/overlay.css" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js" />
       </list>
     </option>
   </component>
@@ -519,23 +526,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="31" selection-start="2036" selection-end="2036" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1362382360894" expanded="true" signature="795:824" placeholder="..." />
-            <marker date="1362382360894" expanded="true" signature="869:889" placeholder="..." />
-            <marker date="1362382360894" expanded="true" signature="930:994" placeholder="..." />
-            <marker date="1362382360894" expanded="true" signature="1020:1041" placeholder="..." />
-            <marker date="1362382360894" expanded="true" signature="1372:1385" placeholder="..." />
-          </folding>
+        <state line="1020" column="22" selection-start="50139" selection-end="50139" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1045" column="37" selection-start="52184" selection-end="52184" vertical-scroll-proportion="0.51171875">
+        <state line="1046" column="35" selection-start="52220" selection-end="52220" vertical-scroll-proportion="20.107143">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="23" selection-start="3487" selection-end="3487" vertical-scroll-proportion="0.7407407">
+          <folding>
+            <marker date="1362386961187" expanded="true" signature="798:827" placeholder="..." />
+            <marker date="1362386961187" expanded="true" signature="872:892" placeholder="..." />
+            <marker date="1362386961187" expanded="true" signature="933:997" placeholder="..." />
+            <marker date="1362386961187" expanded="true" signature="1023:1044" placeholder="..." />
+            <marker date="1362386961187" expanded="true" signature="1375:1388" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

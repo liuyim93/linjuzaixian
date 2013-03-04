@@ -5,7 +5,7 @@
 * Time: 下午2:51
 * To change this template use File | Settings | File Templates.
 */
-TML.add("minilogin", function (o) {
+TML.add("minilogin", function (_tml) {
     function p(b) {
         function a() {
             var _documentElement = document.documentElement;
@@ -36,49 +36,49 @@ TML.add("minilogin", function (o) {
         return a.hostname === location.hostname
     }
     var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event,
-        i = function (b) {
-            var a = location.hostname.split(".");
-            return a.splice(a.length - b > 0 ? a.length - b : 0, b).join(".")
+        _segment_function = function (_last_segment_count) {
+            var _hostname_array = location.hostname.split(".");
+            return _hostname_array.splice(_hostname_array.length - _last_segment_count > 0 ? _hostname_array.length - _last_segment_count : 0, _last_segment_count).join(".")
         } (2),
-        h = i.indexOf(".net") !== -1,
-        m = h ? "daily.tmall.net" : "tmall.com",
-        r = "http" + (h ? "" : "s") + "://login." + (h ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=", j = { needRedirect: false, proxyURL: "http://vip." + m + "/miniLoginProxy.htm" };
-    h = { show: function (b, a) {
-        var c = this;
-        if (typeof b !== "function") {
-            a = b;
-            b = null
+        is_daily = _segment_function.indexOf(".net") !== -1,
+        _domain = is_daily ? "daily.tmall.net" : "tmall.com",
+        _url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=", j = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
+    MiniLogin = { show: function (_fn, _config) {
+        var _mini_login = this;
+        if (typeof _fn !== "function") {
+            _config = _fn;
+            _fn = null
         }
-        a = _kissy.merge(j, a);
-        var d = new Date;
-        d.setDate(d.getDate() - 1);
-        document.cookie = "cookie2=;expires=" + d.toGMTString() + ";path=/;domain=.tmall.com";
-        a.check === false ? this._show(b, a) : this._check(function (f) {
+        _config = _kissy.merge(j, _config);
+        var _date = new Date;
+        _date.setDate(_date.getDate() - 1);
+        document.cookie = "cookie2=;expires=" + _date.toGMTString() + ";path=/;domain=.tmall.com";
+        _config.check === false ? this._show(_fn, _config) : this._check(function (f) {
             if (f)
-                b && b();
+                _fn && _fn();
             else
-                c._show(b, a)
-        }, a)
+                _mini_login._show(_fn, _config)
+        }, _config)
     }, _checkPage: function () {
         return window.TB && window.TB.userInfo && window.TB.userInfo.isLogin
     }, _check: function (b, a) {
-        var c = this, d = a.checkTimeout || 5, f = false, g = _kissy.later(function () {
-            f || b(c._checkPage());
+        var _mini_login = this, d = a.checkTimeout || 5, f = false, g = _kissy.later(function () {
+            f || b(_mini_login._checkPage());
             g && g.cancel()
         }, d * 1E3);
         if (a && a.checkApi &&
             a.checkApi.indexOf(".tmall.") == -1)
             a.checkApi = undefined;
-        return _kissy.io({ type: "get", url: a.checkApi || "http://vip." + m + "/member/user_login_info.do", success: function (n) {
+        return _kissy.io({ type: "get", url: a.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (n) {
             f = true;
             b(n.login)
         }, error: function () {
             f = true;
-            b(c._checkPage())
+            b(_mini_login._checkPage())
         }, timeout: d, dataType: "jsonp", cache: false
         })
     }, _show: function (b, a) {
-        var c = _kissy.get("#tml-mLogin"), d, f = r, g = "";
+        var c = _kissy.get("#tml-mLogin"), d, f = _url, g = "";
         if (a.needRedirect)
             f += encodeURIComponent(location.href.split("#")[0]) + "&full_redirect=true";
         else {
@@ -92,8 +92,8 @@ TML.add("minilogin", function (o) {
                 }
             };
             g = a.proxyURL + (a.proxyURL.indexOf("?") > 0 ? "&" : "?") + "callback=" + d;
-            if (!l(a.proxyURL) && document.domain !== i)
-                document.domain = i;
+            if (!l(a.proxyURL) && document.domain !== _segment_function)
+                document.domain = _segment_function;
             if (l(a.proxyURL) && document.domain === location.hostname)
                 g += "&nsdomain=true";
             f += encodeURIComponent(g) + "&full_redirect=false"
@@ -109,5 +109,5 @@ TML.add("minilogin", function (o) {
         return j = _kissy.merge(j, b)
     } 
     };
-    return o.MiniLogin = h
+    return _tml.MiniLogin = MiniLogin
 }, { requires: ["overlay/css/overlay.css"] });
