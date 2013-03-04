@@ -40,9 +40,14 @@ TML.add("minilogin", function (_tml) {
             var _hostname_array = location.hostname.split(".");
             return _hostname_array.splice(_hostname_array.length - _last_segment_count > 0 ? _hostname_array.length - _last_segment_count : 0, _last_segment_count).join(".")
         } (2),
-        is_daily = _segment_function.indexOf(".net") !== -1,
+        //2013-03-04 basilwang daily means localhost in our context
+        //is_daily = _segment_function.indexOf(".net") !== -1,
+        is_daily = true,
         _domain = is_daily ? "daily.tmall.net" : "tmall.com",
-        _url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
+        //2013-03-04 basilwang we use localhost
+        //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
+        _url = "http" + (is_daily ? "" : "s") + "://" + (is_daily ? "localhost:7525" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
+
         _default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
     MiniLogin = { show: function (_fn, _config) {
         var _mini_login = this;
