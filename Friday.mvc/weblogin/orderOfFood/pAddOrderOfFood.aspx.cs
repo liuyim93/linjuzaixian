@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core.domain;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,8 +16,8 @@ namespace Friday.mvc.weblogin
     {
         protected string MyFoodOrderID;
 
-        private IOrderOfFoodRepository iOrderOfFoodRepository = UnityHelper.UnityToT<IOrderOfFoodRepository>();
-        private IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+        private IOrderOfFoodService iOrderOfFoodService = UnityHelper.UnityToT<IOrderOfFoodService>();
+        private IMyFoodOrderService iMyFoodOrderService = UnityHelper.UnityToT<IMyFoodOrderService>();
         private IFoodRepository iFoodRepository = UnityHelper.UnityToT<IFoodRepository>();
 
         private MyFoodOrder myFoodOrder;
@@ -33,7 +34,19 @@ namespace Friday.mvc.weblogin
 
         private void SaveOrderOfFood()
         {
-            myFoodOrder = iMyFoodOrderRepository.Get(Request.Params["myFoodOrder_id"]);
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有OrderOfFood增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
+            myFoodOrder = iMyFoodOrderService.Load(Request.Params["myFoodOrder_id"]);
             foodObj = iFoodRepository.Get(Request.Params["FoodID"]);
 
             BindingHelper.RequestToObject(orderOfFood);
@@ -42,10 +55,9 @@ namespace Friday.mvc.weblogin
 
             myFoodOrder.Price = myFoodOrder.Price + orderOfFood.Price;
 
-            iOrderOfFoodRepository.SaveOrUpdate(orderOfFood);
-            iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
+            iOrderOfFoodService.Save(orderOfFood);
+            iMyFoodOrderService.Update(myFoodOrder);
 
-            AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
             result.navTabId = "referer";
@@ -55,7 +67,6 @@ namespace Friday.mvc.weblogin
             //    result.panelId = Request.Params["rel_hook"];
             //}
             result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();

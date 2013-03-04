@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,8 +16,8 @@ namespace Friday.mvc.weblogin
     {
         protected string MyFoodOrderID;
 
-        private IOrderOfFoodRepository iOrderOfFoodRepository = UnityHelper.UnityToT<IOrderOfFoodRepository>();
-        private IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+        private IOrderOfFoodService iOrderOfFoodService = UnityHelper.UnityToT<IOrderOfFoodService>();
+        private IMyFoodOrderService iMyFoodOrderService = UnityHelper.UnityToT<IMyFoodOrderService>();
         private IFoodRepository iFoodRepository = UnityHelper.UnityToT<IFoodRepository>();
 
         private MyFoodOrder myFoodOrder;
@@ -25,8 +26,20 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            orderOfFood = iOrderOfFoodRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.餐馆模块.食品订单明细维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+
+            orderOfFood = iOrderOfFoodService.Load(uid);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -44,7 +57,7 @@ namespace Friday.mvc.weblogin
 
         private void SaveOrderOfFood()
         {
-            myFoodOrder = iMyFoodOrderRepository.Get(Request.Params["myFoodOrder_id"]);
+            myFoodOrder = iMyFoodOrderService.Load(Request.Params["myFoodOrder_id"]);
             foodObj = iFoodRepository.Get(Request.Params["FoodID"]);
 
             BindingHelper.RequestToObject(orderOfFood);
@@ -53,8 +66,8 @@ namespace Friday.mvc.weblogin
 
             myFoodOrder.Price = myFoodOrder.Price - Convert.ToDouble(OldPrice.Value) + orderOfFood.Price;
 
-            iOrderOfFoodRepository.SaveOrUpdate(orderOfFood);
-            iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
+            iOrderOfFoodService.Update(orderOfFood);
+            iMyFoodOrderService.Update(myFoodOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

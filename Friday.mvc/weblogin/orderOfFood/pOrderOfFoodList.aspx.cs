@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -20,14 +21,28 @@ namespace Friday.mvc.weblogin
         protected string MyFoodOrderID;
         protected string restaurant_id;
 
-        private IOrderOfFoodRepository iOrderOfFoodRepository = UnityHelper.UnityToT<IOrderOfFoodRepository>();
-        private IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+        private IOrderOfFoodService iOrderOfFoodService = UnityHelper.UnityToT<IOrderOfFoodService>();
+        private IMyFoodOrderService iMyFoodOrderService = UnityHelper.UnityToT<IMyFoodOrderService>();
 
         private MyFoodOrder myFoodOrder;
         private OrderOfFood orderOfFood;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.餐馆模块.食品订单明细维护.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
+
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.liEdit.Visible = false;
+            }
+
             if (Request.Form["myFoodOrder_id"] != null)
             {
                 MyFoodOrderID = Request.Form["myFoodOrder_id"];
@@ -36,7 +51,7 @@ namespace Friday.mvc.weblogin
             {
                 MyFoodOrderID = Request.Params["myFoodOrder_id"];
             }
-            myFoodOrder = iMyFoodOrderRepository.Get(MyFoodOrderID);
+            myFoodOrder = iMyFoodOrderService.Load(MyFoodOrderID);
             restaurant_id = myFoodOrder.Restaurant.Id;
 
             if (Request.Params["flag"] != "alldelete")
@@ -51,12 +66,12 @@ namespace Friday.mvc.weblogin
         private void DeleteOrderOfFood()
         {
 
-            orderOfFood = iOrderOfFoodRepository.Get(Request.Params["uid"]);
+            orderOfFood = iOrderOfFoodService.Load(Request.Params["uid"]);
 
             myFoodOrder.Price = myFoodOrder.Price - orderOfFood.Price;
 
-            iMyFoodOrderRepository.SaveOrUpdate(myFoodOrder);
-            iOrderOfFoodRepository.Delete(Request.Params["uid"]);
+            iMyFoodOrderService.Update(myFoodOrder);
+            iOrderOfFoodService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -92,7 +107,7 @@ namespace Friday.mvc.weblogin
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            orderOfFoodList = iOrderOfFoodRepository.Search(dfl, start, limit, out total);
+            orderOfFoodList = iOrderOfFoodService.Search(dfl, start, limit, out total);
             repeater.DataSource = orderOfFoodList;
             repeater.DataBind();
 
