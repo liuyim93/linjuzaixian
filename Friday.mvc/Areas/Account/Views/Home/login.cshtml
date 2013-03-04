@@ -59,7 +59,7 @@
                             <div id="J_Static" class="static">
                                 <a href="#" id="J_SC_Guide" tabindex="1" style="position: absolute; left: -9999px;">
                                     点击回车可关闭安全控件</a>
-                               @using (Html.BeginForm("login", "Home", FormMethod.Post, new { area = "Account", id = "J_StaticForm" }))
+                               @using (Html.BeginRouteForm("member_login", new { area = "Account", id = "J_StaticForm" }))
                                {
 @*                                <form id="J_StaticForm"  method="post">*@
                                     <div class="field ph-hide username-field">
@@ -78,6 +78,8 @@
                                             登录密码：</label>
                                         <a href="http://110.taobao.com/account/activate.htm" target="_blank" id="forget-pw-safe"
                                             class="forget-pw">忘记登录密码?</a> <span id="J_StandardPwd">
+@*                                            2013-03-04 basilwang to add hypen to the html attributs
+                                            based on http://stackoverflow.com/questions/4888822/adding-a-hyphen-to-the-html-attribute-name-using-mvc3-webgrid-helper*@
                                             @Html.PasswordFor(model => model.TPL_password, new Dictionary<string, object> { { "id", "TPL_password_1" }, { "class", "login-text" }, { "aria-labelledby", "password-label" }, { "tabindex", "2" }, {"maxlength","20"} })
                                         
                                                @* <input type="password" aria-labelledby="password-label" name="TPL_password" id="TPL_password_1"

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Friday.mvc.Models;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
@@ -28,9 +29,17 @@ namespace Friday.mvc.Areas.Account.Controllers
             return View();
         }
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult login()
+        public ActionResult login(LoginModel loginModel)
         {
-            return View();
+            if (this.ModelState.IsValid)
+            {
+                //2013-03-04 basilwang TODO we need validate loginModel
+                return RedirectToAction("MyCart",new {controller= "Home", area="Cart"});
+            }
+            else
+            {
+                return View();
+            }
         }
 
     }
