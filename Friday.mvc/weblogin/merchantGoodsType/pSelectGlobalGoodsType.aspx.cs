@@ -16,7 +16,7 @@ namespace Friday.mvc.weblogin
     {
         IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
         IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
-        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
+       // IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
         private MerchantGoodsType merchantGoodsType;
         private string mid;
