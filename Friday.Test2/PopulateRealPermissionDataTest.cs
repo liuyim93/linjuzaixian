@@ -12,7 +12,7 @@ using friday.core.components;
 
 namespace Friday.Test2
 {
-    [TestClass]
+    [TestFixture]
     public class PopulateRealPermissionDataTest
     {
         //每个角色拥有的菜单权限,需要根据实际情况维护
