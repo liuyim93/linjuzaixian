@@ -45,8 +45,8 @@ namespace Friday.Test2
 
             Message mess1 = new Message()
             {
-                FromLoginUser=lu1,
-                ToLoginUser=lu2,
+                //FromLoginUser=lu1,
+                //ToLoginUser=lu2,
                 MessageContent=Mescnt                          
 
             };
@@ -57,8 +57,8 @@ namespace Friday.Test2
 
            Message rest2 = new Message()
            {
-               FromLoginUser = lu2,
-               ToLoginUser = lu1,
+               //FromLoginUser = lu2,
+               //ToLoginUser = lu1,
                MessageContent = Mescnt 
 
            };
@@ -103,7 +103,8 @@ namespace Friday.Test2
 
            Message r = iMessageRepository.Search(filterList).FirstOrDefault();
 
-           Assert.IsTrue(r.FromLoginUser.LoginName == lu1.LoginName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", r.FromLoginUser.LoginName, lu1.LoginName));
+        //   Assert.IsTrue(r.FromLoginUser.LoginName == lu1.LoginName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", r.FromLoginUser.LoginName, lu1.LoginName));
+        //
         }
 
      

@@ -19,8 +19,8 @@ namespace friday.core.domain
             Map(o => o.MessageType);
             Map(o => o.ThreadIndex);
             Map(o => o.TrackIndex);
-            References<LoginUser>(o => o.FromLoginUser).Not.Nullable();
-            References<LoginUser>(o => o.ToLoginUser).Not.Nullable();
+            References<LoginUser>(o => o.LoginUser).Not.Nullable();
+            References<Merchant>(o => o.Merchant).Not.Nullable();
             References<MessageContent>(o => o.MessageContent).Not.Nullable();
         }
     }

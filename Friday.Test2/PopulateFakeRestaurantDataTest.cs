@@ -64,7 +64,7 @@ namespace Friday.Test2
             add_Restaurant_to_MyFavorite();
             add_Random_Xiaoer_to_Restaurant();
             add_Random_MyOrder();
-            add_Random_Message();
+            //add_Random_Message();
             add_Random_FeedBack();
         }
 
@@ -114,51 +114,51 @@ namespace Friday.Test2
            //}      
        
        }
-       private void  add_Random_Message()
-       {
-           IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
-           IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
-           List<LoginUser> loginUserListClone = new List<LoginUser>(loginUserList);
+       //private void  add_Random_Message()
+       //{
+       //    IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
+       //    IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
+       //    List<LoginUser> loginUserListClone = new List<LoginUser>(loginUserList);
 
-           for (int j = 0; j < 10; j++)
-           {
-               MessageContent messageContent = new MessageContent()
-               {
-                   Content = j+"阿里巴巴员工2013年初收到了史上最丰厚的年终大礼包。"
+       //    for (int j = 0; j < 10; j++)
+       //    {
+       //        MessageContent messageContent = new MessageContent()
+       //        {
+       //            Content = j+"阿里巴巴员工2013年初收到了史上最丰厚的年终大礼包。"
 
-               };
-               iMessageContentRepository.SaveOrUpdate(messageContent);
-               messageContentList.Add(messageContent);
-           }
+       //        };
+       //        iMessageContentRepository.SaveOrUpdate(messageContent);
+       //        messageContentList.Add(messageContent);
+       //    }
 
-           List<MessageContent> messageContentListClone = new List<MessageContent>(messageContentList);
+       //    List<MessageContent> messageContentListClone = new List<MessageContent>(messageContentList);
 
-           int frlulc=0,trlulc=0;
-           for (int i = 0; i<loginUserList.Count;i++ )
-           {
-               do
-               {
+       //    int frlulc=0,trlulc=0;
+       //    for (int i = 0; i<loginUserList.Count;i++ )
+       //    {
+       //        do
+       //        {
             
-                 frlulc = new Random().Next(loginUserListClone.Count);
-                 trlulc = new Random().Next(loginUserListClone.Count);
-                 }
-               while(frlulc==trlulc && (frlulc!=0 || frlulc!=1 ));
+       //          frlulc = new Random().Next(loginUserListClone.Count);
+       //          trlulc = new Random().Next(loginUserListClone.Count);
+       //          }
+       //        while(frlulc==trlulc && (frlulc!=0 || frlulc!=1 ));
 
-               int rmclc = new Random().Next(messageContentListClone.Count);
+       //        int rmclc = new Random().Next(messageContentListClone.Count);
 
-               Message message = new Message()
-               {
-                   ThreadIndex =i+"主题",//+loginUserListClone[frlulc].LoginName + "To" + loginUserListClone[trlulc].LoginName,
-                   MessageContent = messageContentListClone[rmclc],
-                   FromLoginUser = loginUserListClone[frlulc],
-                   ToLoginUser = loginUserListClone[trlulc]
-               };
-               iMessageRepository.SaveOrUpdate(message);
+       //        Message message = new Message()
+       //        {
+       //            ThreadIndex =i+"主题",//+loginUserListClone[frlulc].LoginName + "To" + loginUserListClone[trlulc].LoginName,
+       //            MessageContent = messageContentListClone[rmclc],
+       //            FromLoginUser = loginUserListClone[frlulc],
+       //            ToLoginUser = loginUserListClone[trlulc]
+       //        };
+       //        iMessageRepository.SaveOrUpdate(message);
 
-           }      
+       //    }      
                  
        
-       }
+       //}
        //2013-02-17  pangfuxing  add MerchantCategory
        private void add_MerchantCategory() 
        {

@@ -38,13 +38,8 @@ namespace Friday.mvc.weblogin.feedBack
         {
             ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
             //现获取当前登陆商的LoginName
-            LoginUser su = new LoginUser()
-            {
-                 LoginName="测试"
-            };
-           
-
-            iLoginUserRepository.SaveOrUpdate(su);
+            LoginUser su = new LoginUser();
+            su = iLoginUserService.GetLoginUserByLoginName(this.CurrentUser.LoginName);                      
 
             FeedBack ParentFeedBack = iFeedBackService.Load(uid);
            

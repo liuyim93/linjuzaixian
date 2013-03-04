@@ -9,13 +9,13 @@ namespace friday.core
     public class Message:Entity
     {
 
-        public virtual LoginUser FromLoginUser
+        public virtual LoginUser LoginUser
         {
             get;
             set;
         }
 
-        public virtual LoginUser ToLoginUser
+        public virtual Merchant Merchant
         {
             get;
             set;
