@@ -10,6 +10,7 @@ using friday.core.repositories;
 using Microsoft.Practices.Unity;
 using friday.core;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -27,13 +28,13 @@ namespace Friday.mvc.weblogin
         public string userType;
         public string mType;
 
-        private ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
-        IMerchantRepository restRepository = UnityHelper.UnityToT<IMerchantRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-              
+            tagName = systemFunctionObjectService.基本信息模块.员工维护.TagName;
+            this.PermissionCheck();
 
                 if (Request.Params["flag"] != "alldelete")
                 {
@@ -75,7 +76,7 @@ namespace Friday.mvc.weblogin
         {
             string merchantEmployeeid = Request.Params["merchantEmployeeid"];
 
-            iLoginUserRepository.Delete(merchantEmployeeid);
+            iLoginUserService.Delete(merchantEmployeeid);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -137,7 +138,7 @@ namespace Friday.mvc.weblogin
             dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
             logiUserList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            xiaoErLogiUserList = iLoginUserRepository.Search(logiUserList, start, limit, out total);
+            xiaoErLogiUserList = iLoginUserService.Search(logiUserList, start, limit, out total);
             
             repeater.DataSource = xiaoErLogiUserList;
             repeater.DataBind();

@@ -10,15 +10,17 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.EnumType;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddMerchantEmployee : BasePage
     {
 
-        IMerchantRepository merchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-        ISystemRoleRepository systemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+  
+        ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
 
         string mid;
         string mtype;
@@ -37,34 +39,34 @@ namespace Friday.mvc.weblogin
 
         private void SaveLoginUser()
         {    
-             IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-             IRepository<UserInRole> userInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
-
+             ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+             IUserInRoleService iUserInRoleService = UnityHelper.UnityToT<IUserInRoleService>();
+           
              LoginUser f=new LoginUser();
              BindingHelper.RequestToObject(f);             
-             repository.SaveOrUpdate(f);
+             iLoginUserService.SaveOrUpdate(f);
              UserInRole ur = new UserInRole();
              if (mtype == "Restaurant")
              {
-                 ur.SystemRole = systemRoleRepository.GetRoleByName("餐馆店小二");
+                 ur.SystemRole = iSystemRoleService.GetRoleByName("餐馆店小二");
              }
              if (mtype == "Rent")
              {
-                 ur.SystemRole = systemRoleRepository.GetRoleByName("租房店小二");
+                 ur.SystemRole = iSystemRoleService.GetRoleByName("租房店小二");
              }
              if (mtype == "Shop")
              {
-                 ur.SystemRole = systemRoleRepository.GetRoleByName("商店店小二");
+                 ur.SystemRole = iSystemRoleService.GetRoleByName("商店店小二");
              }
              ur.LoginUser = f;
-             userInRoleRepository.SaveOrUpdate(ur);
+             iUserInRoleService.SaveOrUpdate(ur);
 
-            Merchant merchant = merchantRepository.Get(mid);
+            Merchant merchant = iMerchantService.Load(mid);
 
              LoginUserOfMerchant lum = new LoginUserOfMerchant();
              lum.LoginUser = f;
              lum.Merchant = merchant;
-             iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+             iLoginUserOfMerchantService.Save(lum);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

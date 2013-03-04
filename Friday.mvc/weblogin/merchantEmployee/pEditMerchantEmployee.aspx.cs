@@ -10,23 +10,25 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.EnumType;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditMerchantEmployee : BasePage
     {
-        private IRepository<LoginUser> repository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+       
         private LoginUser lu;
-
-        IMerchantRepository restRepository = UnityHelper.UnityToT<IMerchantRepository>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
-    
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+      
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["merchantEmployeeid"].ToString();
-      
-            lu = repository.Load(uid);
+
+            tagName = systemFunctionObjectService.基本信息模块.员工维护.TagName;
+            this.PermissionCheck();
+
+            lu = iLoginUserService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -45,7 +47,7 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(lu);
 
-            repository.SaveOrUpdate(lu);
+            iLoginUserService.SaveOrUpdate(lu);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

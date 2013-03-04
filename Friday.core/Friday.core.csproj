@@ -374,6 +374,10 @@
     <Compile Include="services\IMessageContentService.cs" />
     <Compile Include="services\ActivityService.cs" />
     <Compile Include="services\IActivityService.cs" />
+    <Compile Include="services\IMerchantService.cs" />
+    <Compile Include="services\MerchantService.cs" />
+    <Compile Include="services\SystemRoleService.cs" />
+    <Compile Include="services\ISystemRoleService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
