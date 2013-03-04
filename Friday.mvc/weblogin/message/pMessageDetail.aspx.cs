@@ -8,17 +8,18 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.message
 {
     public partial class pMessageDetail : BasePage
     {
-        IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
+        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
         private Message message;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            message = iMessageRepository.Load(uid);
+            message = iMessageService.Load(uid);
             BindingHelper.ObjectToControl(message, this);
             this.Content.Value=message.MessageContent.Content;
             this.FromLoginUser.Value = message.FromLoginUser.LoginName;

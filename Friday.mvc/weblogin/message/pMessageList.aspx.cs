@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.message
 {
@@ -25,11 +26,13 @@ namespace Friday.mvc.weblogin.message
         protected string threadIndex;
         protected string fromLoginUser;
         protected string toLoginUser;
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IMessageRepository iRepositoryMessage = UnityHelper.UnityToT<IMessageRepository>();
+       IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.消息模块.消息维护.TagName;
+            this.PermissionCheck();
+
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -99,7 +102,7 @@ namespace Friday.mvc.weblogin.message
                         filterList.Add(filter);
                     }
 
-                    IList<Message> messageList = iRepositoryMessage.Search(filterList, start, limit, out total);
+                    IList<Message> messageList = iMessageService.Search(filterList, start, limit, out total);
 
                     repeater.DataSource = messageList;
                     repeater.DataBind();
@@ -124,7 +127,7 @@ namespace Friday.mvc.weblogin.message
         {
 
 
-            iRepositoryMessage.Delete(Request.Params["uid"]);
+            iMessageService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

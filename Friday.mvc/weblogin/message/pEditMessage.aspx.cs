@@ -9,18 +9,23 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.message
 {
     public partial class pEditMessage : BasePage
     {
-        IRepository<Message> iMessageRepository = UnityHelper.UnityToT<IRepository<Message>>();
+        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
         IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
         private Message message;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            message = iMessageRepository.Load(uid);
+
+            this.tagName = systemFunctionObjectService.消息模块.消息维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+            message = iMessageService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -43,8 +48,8 @@ namespace Friday.mvc.weblogin.message
             mssc.Content = this.Content.Value;
             iMessageContentRepository.SaveOrUpdate(mssc);
 
-            BindingHelper.RequestToObject(message);            
-            iMessageRepository.SaveOrUpdate(message);
+            BindingHelper.RequestToObject(message);
+            iMessageService.Update(message);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -126,6 +126,8 @@
     </Compile>
     <Compile Include="repositories\RoleInMenuRepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
+    <Compile Include="repositories\MessageContentRepository.cs" />
+    <Compile Include="repositories\IMessageContentRepository.cs" />
     <Compile Include="services\IMenuService.cs" />
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\IRestaurantService.cs" />
@@ -366,6 +368,10 @@
     <Compile Include="services\ICommodityService.cs" />
     <Compile Include="services\HouseService.cs" />
     <Compile Include="services\IHouseService.cs" />
+    <Compile Include="services\MessageService.cs" />
+    <Compile Include="services\IMessageService.cs" />
+    <Compile Include="services\MessageContentService.cs" />
+    <Compile Include="services\IMessageContentService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
