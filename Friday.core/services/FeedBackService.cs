@@ -9,9 +9,9 @@ using friday.core.components;
 
 namespace friday.core.services
 {
-    public class FeedBackService:IFeedBackService
+    public class FeedBackService : IFeedBackService
     {
-       private IFeedBackRepository iFeedBackRepository;
+        private IFeedBackRepository iFeedBackRepository;
         private ILogger iLogger;
         public FeedBackService(IFeedBackRepository iFeedBackRepository, ILogger iLogger)
         {
@@ -41,6 +41,7 @@ namespace friday.core.services
             iFeedBackRepository.Delete(id);
         }
 
+
         public IList<FeedBack> Search(List<DataFilter> termList)
         {
             return iFeedBackRepository.Search(termList);
@@ -50,6 +51,5 @@ namespace friday.core.services
         {
             return iFeedBackRepository.Search(termList, start, limit, out total);
         }
-
     }
 }
