@@ -16,10 +16,10 @@ namespace Friday.mvc.weblogin.restaurant
     public partial class pAddRestaurant : BasePage
     {
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
-        IRepository<SchoolOfMerchant> iSchoolOfMerchantRepository = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();
-        IRepository<School> iSchoolRepository = UnityHelper.UnityToT<IRepository<School>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        IRepository<LoginUserOfMerchant> iLoginUserOfMerchantRepository = UnityHelper.UnityToT<IRepository<LoginUserOfMerchant>>();
+        ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -59,7 +59,7 @@ namespace Friday.mvc.weblogin.restaurant
 
         
             BindingHelper.RequestToObject(rnt);
-            iRestaurantService.SaveOrUpdate(rnt);
+            iRestaurantService.Save(rnt);
 
             lumcht.LoginUser = lu;
             lumcht.Merchant = rnt;
@@ -67,8 +67,8 @@ namespace Friday.mvc.weblogin.restaurant
             lu.LoginName = this.LoginName.Value;
             //lu.Password = this.Password.Value;
             //lu.UserType = UserTypeEnum.餐馆;
-            iLoginUserRepository.SaveOrUpdate(lu);
-            iLoginUserOfMerchantRepository.SaveOrUpdate(lumcht);
+            iLoginUserService.Save(lu);
+            iLoginUserOfMerchantService.Update(lumcht);
 
 
             if (schid != "")
@@ -79,8 +79,8 @@ namespace Friday.mvc.weblogin.restaurant
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = rnt;
-                    schofmt.School = iSchoolRepository.Get(shcidsz);
-                    iSchoolOfMerchantRepository.SaveOrUpdate(schofmt);
+                    schofmt.School = iSchoolService.Get(shcidsz);
+                    iSchoolOfMerchantService.Save(schofmt);
                 }
             }
 

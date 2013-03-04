@@ -23,16 +23,16 @@ namespace friday.core.services
             return iSchoolOfMerchantRepository.Load(id);
         }
 
-        public void Save(SchoolOfMerchant restaurant)
+        public void Save(SchoolOfMerchant schoolOfMerchant)
         {
-            iLogger.LogMessage("插入SchoolOfMerchant数据，ID：" + restaurant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iSchoolOfMerchantRepository.SaveOrUpdate(restaurant);
+            iLogger.LogMessage("插入SchoolOfMerchant数据，ID：" + schoolOfMerchant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iSchoolOfMerchantRepository.SaveOrUpdate(schoolOfMerchant);
         }
 
-        public void Update(SchoolOfMerchant restaurant)
+        public void Update(SchoolOfMerchant schoolOfMerchant)
         {
-            iLogger.LogMessage("更新SchoolOfMerchant数据，ID：" + restaurant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iSchoolOfMerchantRepository.SaveOrUpdate(restaurant);
+            iLogger.LogMessage("更新SchoolOfMerchant数据，ID：" + schoolOfMerchant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iSchoolOfMerchantRepository.SaveOrUpdate(schoolOfMerchant);
         }
 
         public void Delete(string id)

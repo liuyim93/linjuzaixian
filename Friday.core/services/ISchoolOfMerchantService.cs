@@ -10,8 +10,8 @@ namespace friday.core.services
     public interface ISchoolOfMerchantService
     {
         SchoolOfMerchant Load(string id);
-        void Save(SchoolOfMerchant restaurant);
-        void Update(SchoolOfMerchant restaurant);
+        void Save(SchoolOfMerchant schoolOfMerchant);
+        void Update(SchoolOfMerchant schoolOfMerchant);
         void Delete(string id);
         string GetSchoolNamesByMerchantID(string mid);
         void DeleteSchoolOfMerchantByMerchantID(string MID);

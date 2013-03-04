@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace friday.core.services
 {
     public interface ILoginUserOfMerchantService
     {
         LoginUserOfMerchant Load(string id);
-        void Save(LoginUserOfMerchant restaurant);
-        void Update(LoginUserOfMerchant restaurant);
+        void Save(LoginUserOfMerchant loginUserOfMerchant);
+        void Update(LoginUserOfMerchant loginUserOfMerchant);
         void Delete(string id);
-        LoginUserOfMerchant SearchByShortName(string name);
-        IList<LoginUserOfMerchant> Search(List<DataFilter> termList);
-        IList<LoginUserOfMerchant> Search(List<DataFilter> termList, int start, int limit, out long total);
+        LoginUser GetMerchantLoginUserBy(string MerchantId, UserTypeEnum ust);
+        String[] GetLoginUserOfMerchantBy(string loginusername);
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using friday.core.utils;
 using friday.core.repositories;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace friday.core.services
 {
@@ -22,16 +23,16 @@ namespace friday.core.services
             return iLoginUserOfMerchantRepository.Load(id);
         }
 
-        public void Save(LoginUserOfMerchant restaurant)
+        public void Save(LoginUserOfMerchant loginUserOfMerchant)
         {
-            iLogger.LogMessage("插入LoginUserOfMerchant数据，ID：" + restaurant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iLoginUserOfMerchantRepository.SaveOrUpdate(restaurant);
+            iLogger.LogMessage("插入LoginUserOfMerchant数据，ID：" + loginUserOfMerchant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iLoginUserOfMerchantRepository.SaveOrUpdate(loginUserOfMerchant);
         }
 
-        public void Update(LoginUserOfMerchant restaurant)
+        public void Update(LoginUserOfMerchant loginUserOfMerchant)
         {
-            iLogger.LogMessage("更新LoginUserOfMerchant数据，ID：" + restaurant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iLoginUserOfMerchantRepository.SaveOrUpdate(restaurant);
+            iLogger.LogMessage("更新LoginUserOfMerchant数据，ID：" + loginUserOfMerchant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iLoginUserOfMerchantRepository.SaveOrUpdate(loginUserOfMerchant);
         }
 
         public void Delete(string id)
@@ -40,19 +41,15 @@ namespace friday.core.services
             iLoginUserOfMerchantRepository.Delete(id);
         }
 
-        public LoginUserOfMerchant SearchByShortName(string name)
+        public LoginUser GetMerchantLoginUserBy(string MerchantId, UserTypeEnum ust)
         {
-            return iLoginUserOfMerchantRepository.SearchByShortName(name);
+            return iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(MerchantId,ust);
         }
 
-        public IList<LoginUserOfMerchant> Search(List<DataFilter> termList)
+        public String[] GetLoginUserOfMerchantBy(string loginusername)
         {
-            return iLoginUserOfMerchantRepository.Search(termList);
+            return iLoginUserOfMerchantRepository.GetLoginUserOfMerchantBy(loginusername);
         }
-
-        public IList<LoginUserOfMerchant> Search(List<DataFilter> termList, int start, int limit, out long total)
-        {
-            return iLoginUserOfMerchantRepository.Search(termList, start, limit, out total);
-        }
+            
     }
 }
