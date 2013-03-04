@@ -11,7 +11,7 @@ namespace friday.core.services
 {
     public class ActivityService:IActivityService
     {
-       private IActivityRepository iActivityRepository;
+        private IActivityRepository iActivityRepository;
         private ILogger iLogger;
         public ActivityService(IActivityRepository iActivityRepository, ILogger iLogger)
         {
@@ -40,16 +40,15 @@ namespace friday.core.services
             iLogger.LogMessage("删除Activity数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iActivityRepository.Delete(id);
         }
-        public Activity SearchByActivityName(string name)
-        {
-            return iActivityRepository.SearchByShortName(name);
-        }
-
+       
         public IList<Activity> Search(List<DataFilter> termList)
         {
             return iActivityRepository.Search(termList);
         }
-
+        public Activity SearchByName(string name) 
+        {
+            return iActivityRepository.SearchByName(name);
+        }
         public IList<Activity> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
             return iActivityRepository.Search(termList, start, limit, out total);

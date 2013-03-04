@@ -372,6 +372,8 @@
     <Compile Include="services\IMessageService.cs" />
     <Compile Include="services\MessageContentService.cs" />
     <Compile Include="services\IMessageContentService.cs" />
+    <Compile Include="services\ActivityService.cs" />
+    <Compile Include="services\IActivityService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

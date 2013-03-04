@@ -9,7 +9,7 @@ namespace friday.core.repositories
 {
     public interface IActivityRepository : IRepository<Activity>
     {
-        Activity SearchByShortName(string name);
+        Activity SearchByName(string name);
         IList<Activity> Search(List<DataFilter> termList);
         IList<Activity> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

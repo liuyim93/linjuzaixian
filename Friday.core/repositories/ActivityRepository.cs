@@ -16,7 +16,7 @@ namespace friday.core.repositories
     public class ActivityRepository : Repository<Activity>, IActivityRepository
     {        
        
-        public Activity SearchByShortName(string name)
+        public Activity SearchByName(string name)
         {
             var m = (from x in this.Session.Query<Activity>() select x).Where(o => o.Name == name && o.IsDelete == false).SingleOrDefault();
             return m;

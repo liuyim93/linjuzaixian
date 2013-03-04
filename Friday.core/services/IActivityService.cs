@@ -13,7 +13,7 @@ namespace friday.core.services
         void Save(Activity activity);
         void Update(Activity activity);
         void Delete(string id);
-        Activity SearchByShortName(string name);
+        Activity SearchByName(string name); 
         IList<Activity> Search(List<DataFilter> termList);
         IList<Activity> Search(List<DataFilter> termList, int start, int limit, out long total);
     }
