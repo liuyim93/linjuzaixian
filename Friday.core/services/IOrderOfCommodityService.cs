@@ -13,7 +13,6 @@ namespace friday.core.services
         void Save(OrderOfCommodity orderOfCommodity);
         void Update(OrderOfCommodity orderOfCommodity);
         void Delete(string id);
-        OrderOfCommodity SearchByShortName(string name);
         IList<OrderOfCommodity> Search(List<DataFilter> termList);
         IList<OrderOfCommodity> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

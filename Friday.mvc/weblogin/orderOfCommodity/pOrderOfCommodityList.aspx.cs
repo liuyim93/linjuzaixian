@@ -40,7 +40,7 @@ namespace Friday.mvc.weblogin
             {
                 MyCommodityOrderID = Request.Params["myCommodityOrder_id"];
             }
-            myCommodityOrder = iMyCommodityOrderService.Get(MyCommodityOrderID);
+            myCommodityOrder = iMyCommodityOrderService.Load(MyCommodityOrderID);
             shop_id = myCommodityOrder.Shop.Id;
 
             if (Request.Params["flag"] != "alldelete")
@@ -67,7 +67,7 @@ namespace Friday.mvc.weblogin
         private void DeleteOrderOfCommodity()
         {
 
-            orderOfCommodity = iOrderOfCommodityService.Get(Request.Params["uid"]);
+            orderOfCommodity = iOrderOfCommodityService.Load(Request.Params["uid"]);
 
             myCommodityOrder.Price = myCommodityOrder.Price - orderOfCommodity.Price;
 

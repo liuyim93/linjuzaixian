@@ -30,7 +30,7 @@ namespace Friday.mvc.weblogin.orderOfCommodity
             FormatJsonResult jsonResult = new FormatJsonResult();
 
             tagName = systemFunctionObjectService.商店模块.商品订单明细维护.TagName;
-            if (!this.PermissionValidate(PermissionTag.Edit))
+            if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 result.statusCode = "300";
                 result.message = "没有OrderOfCommodity增加权限";
