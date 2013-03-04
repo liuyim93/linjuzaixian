@@ -29,6 +29,17 @@ namespace Friday.mvc.weblogin
         {
              mid = Request.Params["merchant_id"].ToString();
              mtype = Request.Params["mType"].ToString();
+             if (!this.PermissionValidate(PermissionTag.Enable))
+             {
+                 AjaxResult result = new AjaxResult();
+                 result.statusCode = "300";
+                 result.message = "没有MerchantEmployee增加权限";
+                 FormatJsonResult jsonResult = new FormatJsonResult();
+                 jsonResult.Data = result;
+                 Response.Write(jsonResult.FormatResult());
+                 Response.End();
+             }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
