@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pFoodStatisticDetail.aspx.cs" Inherits="Friday.mvc.weblogin.message.pMessageDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pFoodStatisticDetail.aspx.cs" Inherits="Friday.mvc.weblogin.foodStatistic.pFoodStatisticDetail" %>
 
 
 
@@ -8,9 +8,7 @@
           <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
        
-                <li><a href="#"><span>详细内容</span></a></li>
-      
-      
+           
            </ul>
         </div>
     </div>
@@ -19,57 +17,42 @@
              <input type="hidden" id="Hidden1" size="30" runat="server" />
             <p>
                 <label>
-                    消息名称：</label>
-                <input type="text" id="ThreadIndex" size="30" class="required textInput gray" runat="server" />
+                    食品名称：</label>
+                <input type="text" id="FoodName" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>
-                    消息类型：</label>
-                <input type="text" id="MessageType" size="30" class="required textInput gray" runat="server" />
+                    年：</label>
+                <input type="text" id="Year" size="30" class="required textInput gray" runat="server" />
             </p>
              <p>
                 <label>
-                    LoginUserName：</label>
-                <input type="text" id="LoginUserName" size="30" class="required textInput gray" runat="server" />
+                    月：</label>
+                <input type="text" id="Month" size="30" class="required textInput gray" runat="server" />
             </p>
              <p>
                 <label>
-                    MerchantName：</label>
-                <input type="text" id="MerchantName" size="30" class="required textInput gray" runat="server" />
+                    日：</label>
+                <input type="text" id="Day" size="30" class="required textInput gray" runat="server" />
             </p>
                <p>
                 <label>
-                    方向：</label>
-                <input type="text" id="Direction" size="30" class="required textInput gray" runat="server" />
+                    销量：</label>
+                <input type="text" id="Amount" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>
-                    消息索引：</label>
-                <input type="text" id="TrackIndex" size="30" class="required textInput gray" runat="server" />
+                    评价次数：</label>
+                <input type="text" id="ValuingCount" size="30" class="required textInput gray" runat="server" />
             </p>
-          <p>
-           <label>
-                            IsNew:</label>
-                        <select name="IsNew" id="IsNew" runat="server"   >
-                            <option value="" ></option>
-                            <option value="True" >是</option>
-                            <option value="False" >否</option>
-                        </select>
-             </p>
-
+             <p>
+                <label>
+                    评分均值：</label>
+                <input type="text" id="AverageValuing" size="30" class="required textInput gray" runat="server" />
+            </p>
+          
           </div>
-         <div>
-           
-                <p>
-                    <label>
-                        详细内容：</label>
-                     
-                        <textarea id="Content" name="Content" rows="20"   style="width:1000px"
-                            runat="server"></textarea>
-                     
-                </p>
-           
-         </div>
+       
 
     </div>
     <div class="tabsFooter">

@@ -10,31 +10,19 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core.services;
 
-namespace Friday.mvc.weblogin.message
+namespace Friday.mvc.weblogin.foodStatistic
 {
-    public partial class pMessageDetail : BasePage
+    public partial class pFoodStatisticDetail : BasePage
     {
-        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
-        private Message message;
+        IFoodStatisticService iFoodStatisticService = UnityHelper.UnityToT<IFoodStatisticService>();
+        private FoodStatistic foodStatistic;
         protected void Page_Load(object sender, EventArgs e)
         {
-            tagName = systemFunctionObjectService.消息模块.消息维护.TagName;
-            if (!this.PermissionValidate(PermissionTag.Enable))
-            {
-                AjaxResult result = new AjaxResult();
-                result.statusCode = "300";
-                result.message = "没有浏览Message权限";
-                FormatJsonResult jsonResult = new FormatJsonResult();
-                jsonResult.Data = result;
-                Response.Write(jsonResult.FormatResult());
-                Response.End();
-            }
+           
             string uid = Request.Params["uid"].ToString();
-            message = iMessageService.Load(uid);
-            BindingHelper.ObjectToControl(message, this);
-            this.Content.Value=message.MessageContent.Content;
-            this.LoginUserName.Value = message.LoginUser.LoginName;
-            this.MerchantName.Value = message.Merchant.Name;
+            foodStatistic = iFoodStatisticService.Load(uid);
+            BindingHelper.ObjectToControl(foodStatistic, this);
+          
          
 
 
