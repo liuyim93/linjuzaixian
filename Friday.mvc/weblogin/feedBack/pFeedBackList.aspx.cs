@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.feedBack
 {
@@ -25,11 +26,12 @@ namespace Friday.mvc.weblogin.feedBack
         protected string content;
         protected string loginName;
         protected string name;
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IFeedBackRepository iRepositoryFeedBack = UnityHelper.UnityToT<IFeedBackRepository>();
-
+        IFeedBackService iFeedBackService = UnityHelper.UnityToT<IFeedBackService>();
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
+            this.PermissionCheck();
+
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -119,7 +121,7 @@ namespace Friday.mvc.weblogin.feedBack
                         filterList.Add(filter);
                     }
 
-                    IList<FeedBack> feedBackList = iRepositoryFeedBack.Search(filterList, start, limit, out total);
+                    IList<FeedBack> feedBackList = iFeedBackService.Search(filterList, start, limit, out total);
 
                     repeater.DataSource = feedBackList;
                     repeater.DataBind();
@@ -144,7 +146,7 @@ namespace Friday.mvc.weblogin.feedBack
         {
 
 
-            iRepositoryFeedBack.PhysicsDelete(Request.Params["uid"]);
+            iFeedBackService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

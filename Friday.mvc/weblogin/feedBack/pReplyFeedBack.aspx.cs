@@ -9,18 +9,23 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.feedBack
 {
     public partial class pReplyFeedBack : BasePage
     {
-        IRepository<FeedBack> iFeedBackRepository = UnityHelper.UnityToT<IRepository<FeedBack>>();
+        IFeedBackService iFeedBackService = UnityHelper.UnityToT<IFeedBackService>();
       
         private FeedBack feedBack;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-          
+
+            tagName = systemFunctionObjectService.反馈模块.反馈回复.TagName;
+            this.PermissionCheck();
+
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -31,7 +36,7 @@ namespace Friday.mvc.weblogin.feedBack
 
         private void SaveReplyFeedBack( string uid)
         {
-            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+            ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
             //现获取当前登陆商的LoginName
             LoginUser su = new LoginUser()
             {
@@ -41,7 +46,7 @@ namespace Friday.mvc.weblogin.feedBack
 
             iLoginUserRepository.SaveOrUpdate(su);
 
-            FeedBack ParentFeedBack = iFeedBackRepository.Get(uid);
+            FeedBack ParentFeedBack = iFeedBackService.Load(uid);
            
 
 
@@ -49,8 +54,8 @@ namespace Friday.mvc.weblogin.feedBack
             feedBack.LoginUser = su;
             feedBack.ParentFeedBack = ParentFeedBack;
 
-            BindingHelper.RequestToObject(feedBack);            
-            iFeedBackRepository.SaveOrUpdate(feedBack);
+            BindingHelper.RequestToObject(feedBack);
+            iFeedBackService.Save(feedBack);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

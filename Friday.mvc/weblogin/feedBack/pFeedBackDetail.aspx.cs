@@ -8,21 +8,33 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.feedBack
 {
     public partial class pFeedBackDetail : BasePage
     {
-        IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+        IFeedBackService iFeedBackService = UnityHelper.UnityToT<IFeedBackService>();
     
         private FeedBack  sysfeedBack;
         //private FeedBack  merchfeedBack;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有浏览FeedBack权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             string sysParentId = null;
 
-            sysfeedBack = iFeedBackRepository.Load(uid);
+            sysfeedBack = iFeedBackService.Load(uid);
             BindingHelper.ObjectToControl(sysfeedBack, this);
             this.LoginName.Value = sysfeedBack.LoginUser.LoginName;
 
@@ -44,9 +56,9 @@ namespace Friday.mvc.weblogin.feedBack
                     field = filterList
 
                 });
-           
 
-                IList<FeedBack> merchfeedBackList = iFeedBackRepository.Search(fltList);
+
+                IList<FeedBack> merchfeedBackList = iFeedBackService.Search(fltList);
             
        
             if ( merchfeedBackList.Count!=0)
