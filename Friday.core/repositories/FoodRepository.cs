@@ -34,9 +34,9 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<Food>();
         }
-        public IList<Food> Search(List<DataFilter> termList,List<Restaurant> shopList,int start, int limit)
+        public IList<Food> Search(List<DataFilter> termList, List<Restaurant> restaurantList, int start, int limit)
         {
-            return SearchByFood(Query, termList, true, shopList)
+            return SearchByFood(Query, termList, true, restaurantList)
                 .SetFirstResult(start)
                 .SetMaxResults(limit)
                 .List<Food>();

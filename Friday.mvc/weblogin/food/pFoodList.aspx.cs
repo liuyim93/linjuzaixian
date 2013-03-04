@@ -9,6 +9,7 @@ using friday.core.components;
 using friday.core.repositories;
 using Microsoft.Practices.Unity;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -27,13 +28,15 @@ namespace Friday.mvc.weblogin
         public string goodsType;
         public string mid;
 
-        private IFoodRepository iFoodRepository = UnityHelper.UnityToT<IFoodRepository>();
-        IRestaurantRepository restRepository = UnityHelper.UnityToT<IRestaurantRepository>();
-        IMerchantGoodsTypeRepository mGoodsTypeRepository = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
+        IFoodService iFoodService = UnityHelper.UnityToT<IFoodService>();
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
+        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        IMerchantGoodsTypeRepository iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-              
+            tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
+            this.PermissionCheck();
 
                 if (Request.Params["flag"] != "alldelete")
                 {
@@ -42,8 +45,7 @@ namespace Friday.mvc.weblogin
                 else
                 {
                     DeleteFood();
-                }
-           
+                }           
         }
        
 
@@ -52,7 +54,7 @@ namespace Friday.mvc.weblogin
         {
             string foodid = Request.Params["food_id"];
 
-            iFoodRepository.Delete(foodid);
+            iFoodService.Delete(foodid);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -102,7 +104,7 @@ namespace Friday.mvc.weblogin
             goodsType = Request.Form["mGoodsType"];
             if (!string.IsNullOrEmpty(goodsType))
             {
-                MerchantGoodsType mectGType = mGoodsTypeRepository.GetGoodsTypeByTypeNameAndMerchantID(goodsType, restaurantId);
+                MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, restaurantId);
                 string mectGTypeID = mectGType.Id;
                 dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
                 //dfl.Add(new DataFilter() { type = "MerchantGoodsType_id", value = mectGTypeID });
@@ -130,14 +132,14 @@ namespace Friday.mvc.weblogin
             //dflForOrder.Add(new DataFilter() { type = "Price" });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            foodList = iFoodRepository.Search(dfl, start, limit, out total);
+            foodList = iFoodService.Search(dfl, start, limit, out total);
             repeater.DataSource = foodList;
             repeater.DataBind();
 
             if (Request.Params["__EVENTVALIDATION"] == null)
           {
-            Restaurant rst = restRepository.Get(restaurantId);
-            IList<MerchantGoodsType> goodsTypes = mGoodsTypeRepository.GetGoodsTypeByMerchantID(rst.Id);
+              Restaurant rst = iRestaurantService.Load(restaurantId);
+            IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
             foreach (var i in goodsTypes)
             {
                 this.mGoodsType.Items.Add(i.GoodsType);
