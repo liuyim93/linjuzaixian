@@ -354,6 +354,8 @@
     <Compile Include="services\ISchoolOfMerchantService.cs" />
     <Compile Include="services\SchoolService.cs" />
     <Compile Include="services\ISchoolService.cs" />
+    <Compile Include="services\RentService.cs" />
+    <Compile Include="services\IRentService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

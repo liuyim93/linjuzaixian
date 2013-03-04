@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.rent
 {
@@ -26,7 +27,7 @@ namespace Friday.mvc.weblogin.rent
         protected string shortName;
         protected string address;
         protected string loginName;
-        IRentRepository iRepositoryRent = UnityHelper.UnityToT<IRentRepository>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -125,7 +126,7 @@ namespace Friday.mvc.weblogin.rent
                         }
                         filterList.Add(filter);
                     }
-                    IList<Rent> rentList = iRepositoryRent.Search(filterList,start, limit, out total);
+                    IList<Rent> rentList = iRentService.Search(filterList,start, limit, out total);
 
 
                     repeater.DataSource = rentList;
@@ -150,7 +151,7 @@ namespace Friday.mvc.weblogin.rent
         private void DeleteRent()
         {
 
-            iRepositoryRent.Delete(Request.Params["uid"]);
+            iRentService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
