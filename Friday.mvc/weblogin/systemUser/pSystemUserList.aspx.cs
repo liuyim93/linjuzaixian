@@ -45,6 +45,19 @@ namespace Friday.mvc.weblogin
 
             if (Request.Params["flag"] == "alldelete")
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.基本信息模块.顾客账号维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有SystemUser删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+
                 DeleteSystemUser();
 
             }

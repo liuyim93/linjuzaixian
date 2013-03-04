@@ -41,6 +41,19 @@ namespace Friday.mvc.weblogin
 
             if (Request.Params["flag"] == "alldelete")
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有GlobalGoodsType删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+
                 DeleteGlobalGoodsType();
 
             }
