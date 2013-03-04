@@ -37,7 +37,14 @@
                     
                 </td>
                 <td>
-                
+                      <p>
+                <label>
+                    食品名称：</label>
+                <input type="text" id="FoodRest" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                 <input type="hidden" id="FoodRestID"  runat="server" />
+                <a class="btnLook" href="ListFoodInRestaurant.aspx" rel="" lookupgroup="">选择食品</a>
+            </p>
                 </td>
             
             </tr>

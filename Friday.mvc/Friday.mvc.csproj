@@ -975,6 +975,13 @@
     <Compile Include="weblogin\ListSystemRole.aspx.designer.cs">
       <DependentUpon>ListSystemRole.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListFoodInRestaurant.aspx.cs">
+      <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
+      <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1960,6 +1967,7 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
+    <Content Include="weblogin\ListFoodInRestaurant.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
