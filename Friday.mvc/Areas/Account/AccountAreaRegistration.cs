@@ -15,6 +15,11 @@ namespace Friday.mvc.Areas.Account
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
+          name: "user_login_info",
+          url: "member/{action}.do",
+          defaults: new { area = "Account", controller = "Home", action = "user_login_info", id = UrlParameter.Optional }
+         );
+            context.MapRoute(
            name: "check_cart_login",
            url: "{action}.htm",
            defaults: new { area = "Account", controller = "Home", action = "check_cart_login", id = UrlParameter.Optional }

@@ -18,6 +18,11 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             return JavaScript(script);
         }
+        public ActionResult user_login_info(string callback, string _ksTS)
+        {
+            string script = callback + "({\"login\":false,\"nick\":\"\",\"uid\":0})";
+            return JavaScript(script);
+        }
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult login(string from, string style, string redirectURL, bool? full_redirect)
         {
