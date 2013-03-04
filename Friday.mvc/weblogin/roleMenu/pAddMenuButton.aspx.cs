@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin.roleMenu
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.基本信息模块.菜单管理.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

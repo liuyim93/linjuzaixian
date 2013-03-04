@@ -29,6 +29,7 @@ namespace Friday.mvc.weblogin
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
+            tagName = systemFunctionObjectService.租房模块.租房订单明细维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Edit))
             {
                 result.statusCode = "300";

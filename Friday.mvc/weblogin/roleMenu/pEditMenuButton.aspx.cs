@@ -18,7 +18,7 @@ namespace Friday.mvc.weblogin.roleMenu
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
+            tagName = systemFunctionObjectService.基本信息模块.菜单管理.TagName;
             this.PermissionCheck(PermissionTag.Edit);
 
             if (Request.Params["__EVENTVALIDATION"] != null)

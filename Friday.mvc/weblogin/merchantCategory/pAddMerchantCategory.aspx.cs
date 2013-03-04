@@ -23,6 +23,7 @@ namespace Friday.mvc.weblogin
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
+            tagName = systemFunctionObjectService.基本信息模块.商铺经营类型维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 result.statusCode = "300";
