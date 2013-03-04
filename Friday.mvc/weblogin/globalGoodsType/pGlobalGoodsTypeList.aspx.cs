@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -20,10 +21,24 @@ namespace Friday.mvc.weblogin
 
         protected string goodsType;
 
-        IGlobalGoodsTypeRepository iRepositoryGlobalGoodsType = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
+
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.liEdit.Visible = false;
+            }
+
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteGlobalGoodsType();
@@ -63,7 +78,7 @@ namespace Friday.mvc.weblogin
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<GlobalGoodsType> globalGoodsTypeList = iRepositoryGlobalGoodsType.Search(filterList, start, limit, out total);
+                IList<GlobalGoodsType> globalGoodsTypeList = iGlobalGoodsTypeService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = globalGoodsTypeList;
                 repeater.DataBind();
@@ -74,7 +89,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteGlobalGoodsType()
         {
-            iRepositoryGlobalGoodsType.Delete(Request.Params["uid"]);
+            iGlobalGoodsTypeService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

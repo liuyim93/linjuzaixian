@@ -9,19 +9,32 @@ using friday.core;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditGlobalGoodsType : BasePage
     {
-        IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
         private GlobalGoodsType globalGoodsType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            globalGoodsType = iGlobalGoodsTypeRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            globalGoodsType = iGlobalGoodsTypeService.Load(uid);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -37,7 +50,7 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(globalGoodsType);
-            iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
+            iGlobalGoodsTypeService.Update(globalGoodsType);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

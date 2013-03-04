@@ -54,9 +54,9 @@
     <ul class="toolBar">
         <li><a class="add" href="globalGoodsType/pAddGlobalGoodsType.aspx" title="添加商品类型" target="navTab" rel=""><span>
             添加商品类型</span></a></li>
-        <li><a class="edit" href="globalGoodsType/pEditGlobalGoodsType.aspx?uid={id}" title="修改商品类型" rel="" target="navTab">
+        <li  id="liEdit" runat="server"><a class="edit" href="globalGoodsType/pEditGlobalGoodsType.aspx?uid={id}" title="修改商品类型" rel="" target="navTab">
             <span>修改商品类型</span></a></li>
-        <li><a class="delete" href="globalGoodsType/pGlobalGoodsTypeList.aspx?flag=alldelete&uid={id}"
+        <li id="liDelete" runat="server"><a class="delete" href="globalGoodsType/pGlobalGoodsTypeList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除商品类型</span></a></li>
         <li class="line">line</li>
     </ul>

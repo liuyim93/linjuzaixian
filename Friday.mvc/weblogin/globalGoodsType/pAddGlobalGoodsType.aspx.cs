@@ -8,12 +8,13 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddGlobalGoodsType : BasePage
     {
-        IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
         private GlobalGoodsType globalGoodsType;
 
@@ -28,16 +29,26 @@ namespace Friday.mvc.weblogin
 
         private void SaveGlobalGoodsType()
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有GlobalGoodsType增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             globalGoodsType = new GlobalGoodsType();
             BindingHelper.RequestToObject(globalGoodsType);
-            iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
+            iGlobalGoodsTypeService.Save(globalGoodsType);
 
-            AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "添加成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
