@@ -9,27 +9,39 @@ using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.rent
 {
     public partial class pRentDetail : BasePage
     {
-        IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        IRentService iRentService = UnityHelper.UnityToT<IRentService>();
 
         public LoginUser loginuser;
         private Rent rent;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            rent = iRentRepository.Load(uid);
-            UserTypeEnum ust = UserTypeEnum.租房;
-
-            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
-            //this.LoginName.Value = loginuser.LoginName;
+            rent = iRentService.Load(uid);
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有Rent浏览权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
 
             BindingHelper.ObjectToControl(rent, this);
+            this.ImagePreview.Src = rent.Logo;
+
+            ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
+            string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
+            string[] arrname = schofmntname.Split('，');
+
+            this.NameSet.Value = schofmntname;
 
         }
     }

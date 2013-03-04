@@ -15,14 +15,9 @@ namespace Friday.mvc.weblogin.restaurant
 {
     public partial class pRestaurantDetail : BasePage
     {
-        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
-        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
-        IList<LoginUserOfMerchant> loginUserOfMerchants=new List<LoginUserOfMerchant>();
-      
+        IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();    
 
-        public LoginUser loginuser;
         private Restaurant restaurant;
-        private LoginUserOfMerchant lum;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.PermissionValidate(PermissionTag.Enable))
