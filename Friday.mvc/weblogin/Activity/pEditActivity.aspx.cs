@@ -9,17 +9,21 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using System.IO;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.activity
 {
     public partial class pEditActivity : BasePage
     {
-        IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
+        IActivityService iActivityService = UnityHelper.UnityToT<IActivityService>();
         private Activity activity;
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            activity = iActivityRepository.Load(uid);
+            this.tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+            activity = iActivityService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -74,7 +78,7 @@ namespace Friday.mvc.weblogin.activity
                 this.ImagePreview.Src = activity.Image;
             }
             
-            iActivityRepository.SaveOrUpdate(activity);
+            iActivityService.Update(activity);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

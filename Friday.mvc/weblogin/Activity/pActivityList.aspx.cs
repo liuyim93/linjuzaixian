@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.activity
 {
@@ -23,11 +24,12 @@ namespace Friday.mvc.weblogin.activity
         protected string endDate;
         protected string name;
         protected string matters;
-        private SystemUserRepository repositoryForSystemUser = new SystemUserRepository();
-        IActivityRepository iRepositoryActivity = UnityHelper.UnityToT<IActivityRepository>();
-
+        IActivityService iActivityService = UnityHelper.UnityToT<IActivityService>();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            this.tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -67,7 +69,7 @@ namespace Friday.mvc.weblogin.activity
                         filterList.Add(filter);
                     }
 
-                    IList<Activity> activityList = iRepositoryActivity.Search(filterList, start, limit, out total);
+                    IList<Activity> activityList = iActivityService.Search(filterList, start, limit, out total);
 
                     repeater.DataSource = activityList;
                     repeater.DataBind();
@@ -92,7 +94,7 @@ namespace Friday.mvc.weblogin.activity
         {
 
 
-            iRepositoryActivity.Delete(Request.Params["uid"]);
+            iActivityService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
