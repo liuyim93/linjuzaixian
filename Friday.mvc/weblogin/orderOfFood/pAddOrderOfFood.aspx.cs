@@ -29,7 +29,7 @@ namespace Friday.mvc.weblogin
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
-            if (!this.PermissionValidate(PermissionTag.Enable))
+            if (!this.PermissionValidate(PermissionTag.Edit))
             {
                 result.statusCode = "300";
                 result.message = "没有OrderOfFood增加权限";

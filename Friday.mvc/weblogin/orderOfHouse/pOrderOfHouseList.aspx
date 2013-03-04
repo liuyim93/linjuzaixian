@@ -9,7 +9,7 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="OrderOfHouse/pAddOrderOfHouse.aspx?myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>&rent_id=<%=rent_id %>" title="增加订单明细" target="dialog"
+        <li id="liAdd" runat="server"><a class="add" href="OrderOfHouse/pAddOrderOfHouse.aspx?myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>&rent_id=<%=rent_id %>" title="增加订单明细" target="dialog"
             rel="" width="600" height="400"><span>增加订单明细</span></a></li>
         <li id="liEdit" runat="server"><a class="edit" href="OrderOfHouse/pEditOrderOfHouse.aspx?uid={orderOfHouseid}&myHouseOrder_id=<%=Request.Params["myHouseOrder_id"]%>" title="修改订单明细" rel="" target="dialog"
             height="480"><span>修改订单明细</span></a></li>

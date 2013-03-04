@@ -41,6 +41,7 @@ namespace Friday.mvc.weblogin
             if (!this.PermissionValidate(PermissionTag.Edit))
             {
                 this.liEdit.Visible = false;
+                this.liAdd.Visible = false;
             }
 
             if (Request.Form["myHouseOrder_id"] != null)
