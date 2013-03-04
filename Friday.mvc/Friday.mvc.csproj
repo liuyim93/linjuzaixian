@@ -213,6 +213,13 @@
     <Compile Include="weblogin\feedBack\pReplyFeedBack.aspx.designer.cs">
       <DependentUpon>pReplyFeedBack.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\foodStatistic\pFoodStatisticList.aspx.cs">
+      <DependentUpon>pFoodStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\foodStatistic\pFoodStatisticList.aspx.designer.cs">
+      <DependentUpon>pFoodStatisticList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\food\pAddFood.aspx.cs">
       <DependentUpon>pAddFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1057,6 +1064,7 @@
     <Content Include="weblogin\feedBack\pFeedBackList.aspx" />
     <Content Include="weblogin\feedBack\pFeedBackDetail.aspx" />
     <Content Include="weblogin\feedBack\pReplyFeedBack.aspx" />
+    <Content Include="weblogin\foodStatistic\pFoodStatisticList.aspx" />
     <Content Include="weblogin\food\pAddFood.aspx" />
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
