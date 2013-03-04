@@ -352,6 +352,8 @@
     <Compile Include="services\ILoginUserOfMerchantService.cs" />
     <Compile Include="services\SchoolOfMerchantService.cs" />
     <Compile Include="services\ISchoolOfMerchantService.cs" />
+    <Compile Include="services\SchoolService.cs" />
+    <Compile Include="services\ISchoolService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
