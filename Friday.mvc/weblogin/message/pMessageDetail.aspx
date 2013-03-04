@@ -29,13 +29,18 @@
             </p>
              <p>
                 <label>
-                    From：</label>
-                <input type="text" id="FromLoginUser" size="30" class="required textInput gray" runat="server" />
+                    LoginUser：</label>
+                <input type="text" id="LoginUserName" size="30" class="required textInput gray" runat="server" />
             </p>
              <p>
                 <label>
-                    To：</label>
-                <input type="text" id="ToLoginUser" size="30" class="required textInput gray" runat="server" />
+                    Merchant：</label>
+                <input type="text" id="MerchantName" size="30" class="required textInput gray" runat="server" />
+            </p>
+               <p>
+                <label>
+                    方向：</label>
+                <input type="text" id="Direction" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>

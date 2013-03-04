@@ -32,7 +32,7 @@
                     消息索引：</label>
                 <input type="text" id="TrackIndex" size="30" class="required textInput gray" runat="server" />
             </p>
-              <p>
+        <%--      <p>
                 <label>
                     From：</label>
                 <input type="text" id="FromLoginUser" size="30" class=" textInput gray" runat="server" />
@@ -41,7 +41,7 @@
                 <label>
                     To：</label>
                 <input type="text" id="ToLoginUser" size="30" class=" textInput gray" runat="server" />
-            </p>
+            </p>--%>
           <p>
            <label>
                             IsNew:</label>

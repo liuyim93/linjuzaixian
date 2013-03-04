@@ -33,8 +33,8 @@ namespace Friday.mvc.weblogin.message
             message = iMessageService.Load(uid);
             BindingHelper.ObjectToControl(message, this);
             this.Content.Value=message.MessageContent.Content;
-            //this.FromLoginUser.Value = message.FromLoginUser.LoginName;
-            //this.ToLoginUser.Value = message.ToLoginUser.LoginName;
+            this.LoginUserName.Value = message.LoginUser.LoginName;
+            this.MerchantName.Value = message.Merchant.Name;
          
 
 

@@ -40,22 +40,31 @@ namespace Friday.mvc.weblogin.message {
         protected global::System.Web.UI.HtmlControls.HtmlInputText MessageType;
         
         /// <summary>
-        /// FromLoginUser 控件。
+        /// LoginUserName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText FromLoginUser;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText LoginUserName;
         
         /// <summary>
-        /// ToLoginUser 控件。
+        /// MerchantName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ToLoginUser;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MerchantName;
+        
+        /// <summary>
+        /// Direction 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Direction;
         
         /// <summary>
         /// TrackIndex 控件。
