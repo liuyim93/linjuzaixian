@@ -26,14 +26,6 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["__EVENTVALIDATION"] != null)
-            {
-                SaveOrderOfHouse();
-            }
-        }
-
-        private void SaveOrderOfHouse()
-        {
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
@@ -45,6 +37,16 @@ namespace Friday.mvc.weblogin
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
             }
+            if (Request.Params["__EVENTVALIDATION"] != null)
+            {
+                SaveOrderOfHouse();
+            }
+        }
+
+        private void SaveOrderOfHouse()
+        {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
 
             myHouseOrder = iMyHouseOrderService.Load(Request.Params["myHouseOrder_id"]);
             houseObj = iHouseRepository.Get(Request.Params["HouseID"]);

@@ -18,14 +18,6 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["__EVENTVALIDATION"] != null)
-            {
-
-                SaveSystemRole();
-            }     
-        }
-        private void SaveSystemRole()
-        {
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
@@ -37,6 +29,16 @@ namespace Friday.mvc.weblogin
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
             }
+            if (Request.Params["__EVENTVALIDATION"] != null)
+            {
+
+                SaveSystemRole();
+            }     
+        }
+        private void SaveSystemRole()
+        {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
 
             SystemRole sys = new SystemRole();
             BindingHelper.RequestToObject(sys);

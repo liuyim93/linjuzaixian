@@ -24,15 +24,6 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Request.Params["__EVENTVALIDATION"] != null)
-            {
-
-                SaveMyFoodOrder();
-            }
-        }
-
-        private void SaveMyFoodOrder()
-        {
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
 
@@ -44,6 +35,17 @@ namespace Friday.mvc.weblogin
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
             }
+            if (Request.Params["__EVENTVALIDATION"] != null)
+            {
+
+                SaveMyFoodOrder();
+            }
+        }
+
+        private void SaveMyFoodOrder()
+        {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
 
             restaurantObj = iRestaurantRepository.Get(Request.Params["MerchantID"]);
             systemUserObj = iSystemUserRepository.Get(Request.Params["SystemUserID"]);
