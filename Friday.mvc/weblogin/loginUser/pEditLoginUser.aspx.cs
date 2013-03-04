@@ -66,7 +66,7 @@ namespace Friday.mvc.weblogin
                     iUserInRoleRepository.SaveOrUpdate(userInRole);
                 }
             }
-
+            iPermissionManager.RefreshUserInRole();
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

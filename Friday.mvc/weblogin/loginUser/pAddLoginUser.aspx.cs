@@ -62,6 +62,7 @@ namespace Friday.mvc.weblogin
                userinrole.SystemRole=iSystemRoleRepository.Get(roleID);
                userinrole.LoginUser = loginUser;
                iUserInRoleRepository.SaveOrUpdate(userinrole);
+               iPermissionManager.RefreshUserInRole();
                 //string[] sArray = roleID.Split(',');
                 //foreach (string aid in sArray)
                 //{

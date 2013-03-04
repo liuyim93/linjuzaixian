@@ -70,7 +70,7 @@ namespace Friday.mvc.weblogin
              }
              ur.LoginUser = f;
              iUserInRoleService.Save(ur);
-
+             iPermissionManager.RefreshUserInRole();
             Merchant merchant = iMerchantService.Load(mid);
 
              LoginUserOfMerchant lum = new LoginUserOfMerchant();

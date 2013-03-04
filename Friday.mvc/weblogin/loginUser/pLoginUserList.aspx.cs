@@ -122,6 +122,7 @@ namespace Friday.mvc.weblogin
         {
             iRepositoryLoginUser.PhysicsDelete(Request.Params["uid"]);
             iUserInRoleRepository.DeleteUserInRoleByLoginUserID(Request.Params["uid"]);
+            iPermissionManager.RefreshUserInRole();
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

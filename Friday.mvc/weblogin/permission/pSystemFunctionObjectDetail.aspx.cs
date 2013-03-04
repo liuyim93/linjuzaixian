@@ -61,6 +61,7 @@ namespace Friday.mvc.weblogin
             systemFunctionObjectInRole.Editable = this.cbEditableState.Checked;
             systemFunctionObjectInRole.Deletable = this.cbDeletableState.Checked;
             iSystemFunctionObjectInRoleRepository.SaveOrUpdate(systemFunctionObjectInRole);
+            iPermissionManager.RefreshRolePermission();
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
