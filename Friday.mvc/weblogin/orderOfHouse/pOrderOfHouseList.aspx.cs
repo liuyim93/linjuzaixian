@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -20,14 +21,28 @@ namespace Friday.mvc.weblogin
         protected string MyHouseOrderID;
         protected string rent_id;
 
-        private IOrderOfHouseRepository iOrderOfHouseRepository = UnityHelper.UnityToT<IOrderOfHouseRepository>();
-        private IMyHouseOrderRepository iMyHouseOrderRepository = UnityHelper.UnityToT<IMyHouseOrderRepository>();
+        private IOrderOfHouseService iOrderOfHouseService = UnityHelper.UnityToT<IOrderOfHouseService>();
+        private IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
 
         private MyHouseOrder myHouseOrder;
         private OrderOfHouse orderOfHouse;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.租房模块.租房订单明细维护.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
+
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.liEdit.Visible = false;
+            }
+
             if (Request.Form["myHouseOrder_id"] != null)
             {
                 MyHouseOrderID = Request.Form["myHouseOrder_id"];
@@ -36,7 +51,7 @@ namespace Friday.mvc.weblogin
             {
                 MyHouseOrderID = Request.Params["myHouseOrder_id"];
             }
-            myHouseOrder = iMyHouseOrderRepository.Get(MyHouseOrderID);
+            myHouseOrder = iMyHouseOrderService.Load(MyHouseOrderID);
             rent_id = myHouseOrder.Rent.Id;
 
             if (Request.Params["flag"] != "alldelete")
@@ -51,12 +66,12 @@ namespace Friday.mvc.weblogin
         private void DeleteOrderOfHouse()
         {
 
-            orderOfHouse = iOrderOfHouseRepository.Get(Request.Params["uid"]);
+            orderOfHouse = iOrderOfHouseService.Load(Request.Params["uid"]);
 
             myHouseOrder.Price = myHouseOrder.Price - orderOfHouse.Price;
 
-            iMyHouseOrderRepository.SaveOrUpdate(myHouseOrder);
-            iOrderOfHouseRepository.Delete(Request.Params["uid"]);
+            iMyHouseOrderService.Update(myHouseOrder);
+            iOrderOfHouseService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -92,7 +107,7 @@ namespace Friday.mvc.weblogin
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            orderOfHouseList = iOrderOfHouseRepository.Search(dfl, start, limit, out total);
+            orderOfHouseList = iOrderOfHouseService.Search(dfl, start, limit, out total);
             repeater.DataSource = orderOfHouseList;
             repeater.DataBind();
 

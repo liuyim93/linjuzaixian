@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,8 +16,8 @@ namespace Friday.mvc.weblogin
     {
         protected string MyHouseOrderID;
 
-        private IOrderOfHouseRepository iOrderOfHouseRepository = UnityHelper.UnityToT<IOrderOfHouseRepository>();
-        private IMyHouseOrderRepository iMyHouseOrderRepository = UnityHelper.UnityToT<IMyHouseOrderRepository>();
+        private IOrderOfHouseService iOrderOfHouseService = UnityHelper.UnityToT<IOrderOfHouseService>();
+        private IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
         private IHouseRepository iHouseRepository = UnityHelper.UnityToT<IHouseRepository>();
 
         private MyHouseOrder myHouseOrder;
@@ -33,7 +34,19 @@ namespace Friday.mvc.weblogin
 
         private void SaveOrderOfHouse()
         {
-            myHouseOrder = iMyHouseOrderRepository.Get(Request.Params["myHouseOrder_id"]);
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有OrderOfHouse增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
+            myHouseOrder = iMyHouseOrderService.Load(Request.Params["myHouseOrder_id"]);
             houseObj = iHouseRepository.Get(Request.Params["HouseID"]);
 
             BindingHelper.RequestToObject(orderOfHouse);
@@ -42,10 +55,9 @@ namespace Friday.mvc.weblogin
 
             myHouseOrder.Price = myHouseOrder.Price + orderOfHouse.Price;
 
-            iOrderOfHouseRepository.SaveOrUpdate(orderOfHouse);
-            iMyHouseOrderRepository.SaveOrUpdate(myHouseOrder);
+            iOrderOfHouseService.Save(orderOfHouse);
+            iMyHouseOrderService.Update(myHouseOrder);
 
-            AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
             result.navTabId = "referer";
@@ -55,7 +67,6 @@ namespace Friday.mvc.weblogin
             //    result.panelId = Request.Params["rel_hook"];
             //}
             result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();

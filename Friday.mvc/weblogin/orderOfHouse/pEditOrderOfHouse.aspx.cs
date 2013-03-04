@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,8 +16,8 @@ namespace Friday.mvc.weblogin
     {
         protected string MyHouseOrderID;
 
-        private IOrderOfHouseRepository iOrderOfHouseRepository = UnityHelper.UnityToT<IOrderOfHouseRepository>();
-        private IMyHouseOrderRepository iMyHouseOrderRepository = UnityHelper.UnityToT<IMyHouseOrderRepository>();
+        private IOrderOfHouseService iOrderOfHouseService = UnityHelper.UnityToT<IOrderOfHouseService>();
+        private IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
         private IHouseRepository iHouseRepository = UnityHelper.UnityToT<IHouseRepository>();
 
         private MyHouseOrder myHouseOrder;
@@ -25,8 +26,19 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            orderOfHouse = iOrderOfHouseRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.租房模块.租房订单明细维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            orderOfHouse = iOrderOfHouseService.Load(uid);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -44,7 +56,7 @@ namespace Friday.mvc.weblogin
 
         private void SaveOrderOfHouse()
         {
-            myHouseOrder = iMyHouseOrderRepository.Get(Request.Params["myHouseOrder_id"]);
+            myHouseOrder = iMyHouseOrderService.Load(Request.Params["myHouseOrder_id"]);
             houseObj = iHouseRepository.Get(Request.Params["HouseID"]);
 
             BindingHelper.RequestToObject(orderOfHouse);
@@ -53,8 +65,8 @@ namespace Friday.mvc.weblogin
 
             myHouseOrder.Price = myHouseOrder.Price - Convert.ToDouble(OldPrice.Value) + orderOfHouse.Price;
 
-            iOrderOfHouseRepository.SaveOrUpdate(orderOfHouse);
-            iMyHouseOrderRepository.SaveOrUpdate(myHouseOrder);
+            iOrderOfHouseService.Update(orderOfHouse);
+            iMyHouseOrderService.Update(myHouseOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
