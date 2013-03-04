@@ -146,6 +146,7 @@
     <Compile Include="services\ISystemMenuService.cs" />
     <Compile Include="services\ISystemRoleService.cs" />
     <Compile Include="services\ISystemUserService.cs" />
+    <Compile Include="services\IUserInRoleService.cs" />
     <Compile Include="services\LoginUserService.cs" />
     <Compile Include="services\MenuService.cs" />
     <Compile Include="services\MerchantCategoryService.cs" />
@@ -373,6 +374,7 @@
     <Compile Include="services\SystemMenuService.cs" />
     <Compile Include="services\SystemRoleService.cs" />
     <Compile Include="services\SystemUserService.cs" />
+    <Compile Include="services\UserInRoleService.cs" />
     <Compile Include="services\UserService.cs" />
     <Compile Include="domain\Statistic.cs" />
     <Compile Include="domain\ShopStatistic.cs" />
