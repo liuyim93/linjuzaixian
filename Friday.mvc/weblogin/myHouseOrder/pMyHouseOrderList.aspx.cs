@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -23,10 +24,24 @@ namespace Friday.mvc.weblogin
         protected string startDate;
         protected string endDate;
 
-        IMyHouseOrderRepository iRepositoryMyHouseOrder = UnityHelper.UnityToT<IMyHouseOrderRepository>();
+        IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.租房模块.租房订单维护.TagName;
+            this.PermissionCheck();
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                //this.liDelete
+                this.liDelete.Visible = false;
+            }
+
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.liEdit.Visible = false;
+            }
+
             if (Request.Params["flag"] == "alldelete")
             {
                 DeleteMyHouseOrder();
@@ -129,7 +144,7 @@ namespace Friday.mvc.weblogin
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<MyHouseOrder> myHouseOrderList = iRepositoryMyHouseOrder.Search(filterList, start, limit, out total);
+                IList<MyHouseOrder> myHouseOrderList = iMyHouseOrderService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = myHouseOrderList;
                 repeater.DataBind();
@@ -140,7 +155,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteMyHouseOrder()
         {
-            iRepositoryMyHouseOrder.Delete(Request.Params["uid"]);
+            iMyHouseOrderService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -8,12 +8,13 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddMyHouseOrder : BasePage
     {
-        IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
+        IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
         IRepository<Rent> iRentRepository = UnityHelper.UnityToT<IRepository<Rent>>();
 
@@ -32,6 +33,18 @@ namespace Friday.mvc.weblogin
 
         private void SaveMyHouseOrder()
         {
+            AjaxResult result = new AjaxResult();
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                result.statusCode = "300";
+                result.message = "没有MyHouseOrder增加权限";
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             rentObj = iRentRepository.Get(Request.Params["MerchantID"]);
             systemUserObj = iSystemUserRepository.Get(Request.Params["SystemUserID"]);
 
@@ -39,10 +52,7 @@ namespace Friday.mvc.weblogin
             myHouseOrder.Rent = rentObj;
 
             BindingHelper.RequestToObject(myHouseOrder);
-            iMyHouseOrderRepository.SaveOrUpdate(myHouseOrder);
-
-            AjaxResult result = new AjaxResult();
-            FormatJsonResult jsonResult = new FormatJsonResult();
+            iMyHouseOrderService.Save(myHouseOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";

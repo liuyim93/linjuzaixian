@@ -8,20 +8,32 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditMyHouseOrder : BasePage
     {
-        IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
+        IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
         IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
 
         private MyHouseOrder myHouseOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
-            myHouseOrder = iMyHouseOrderRepository.Load(uid);
+            string uid;
+            this.tagName = systemFunctionObjectService.租房模块.租房订单维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+            if (this.CurrentUser.IsAdmin)
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+            else
+            {
+                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+            myHouseOrder = iMyHouseOrderService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -40,7 +52,7 @@ namespace Friday.mvc.weblogin
             BindingHelper.RequestToObject(myHouseOrder);
             myHouseOrder.SystemUser = iSystemUserRepository.Get(Request.Params["SystemUserID"]);
 
-            iMyHouseOrderRepository.SaveOrUpdate(myHouseOrder);
+            iMyHouseOrderService.Update(myHouseOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
