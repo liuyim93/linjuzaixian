@@ -31,7 +31,6 @@ namespace Friday.mvc.weblogin
         IFoodService iFoodService = UnityHelper.UnityToT<IFoodService>();
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
         IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
-        IMerchantGoodsTypeRepository iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -107,17 +106,9 @@ namespace Friday.mvc.weblogin
                 MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, restaurantId);
                 string mectGTypeID = mectGType.Id;
                 dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
-                //dfl.Add(new DataFilter() { type = "MerchantGoodsType_id", value = mectGTypeID });
-               // dfl.Add(new DataFilter() { type = "GoodsType", value = goodsType });
+                
             }
-            //else
-            //{
-            //    if (!string.IsNullOrEmpty(owenType))
-            //    {
-            //        dfl.Add(new DataFilter() { type = "FoodType", value = owenType });
-            //    }
-            //}
-
+       
 
             if (!string.IsNullOrEmpty(restaurantId))
             {
@@ -128,8 +119,6 @@ namespace Friday.mvc.weblogin
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
             string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
             dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
-            //dflForOrder.Add(new DataFilter() { type = "FoodType", comparison = "Desc" });
-            //dflForOrder.Add(new DataFilter() { type = "Price" });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
             foodList = iFoodService.Search(dfl, start, limit, out total);

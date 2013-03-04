@@ -358,6 +358,10 @@
     <Compile Include="services\IRentService.cs" />
     <Compile Include="services\ShopService.cs" />
     <Compile Include="services\IShopService.cs" />
+    <Compile Include="services\FoodService.cs" />
+    <Compile Include="services\IFoodService.cs" />
+    <Compile Include="services\MerchantGoodsTypeService.cs" />
+    <Compile Include="services\IMerchantGoodsTypeService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

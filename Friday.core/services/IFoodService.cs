@@ -13,7 +13,6 @@ namespace friday.core.services
         void Save(Food food);
         void Update(Food food);
         void Delete(string id);
-        Food SearchByShortName(string name);
         IList<Food> Search(List<DataFilter> termList);
         IList<Food> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<Food> Search(List<DataFilter> termList, List<Restaurant> restaurantList, int start, int limit);
