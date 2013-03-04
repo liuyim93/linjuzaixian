@@ -21,32 +21,41 @@ namespace Friday.Test2
             string loginName = Guid.NewGuid().ToString().GetHashCode().ToString();
             string messageName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
             string loginName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string restName1 = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string restName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
             IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
             IList<Message> iMessages = new List<Message>();
            IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
             ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
-
+            IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
 
             LoginUser lu1 = new LoginUser();
             lu1.LoginName = loginName;
             lu1.Password = loginName;
-            //lu1.UserType = UserTypeEnum.顾客;
-            iLoginUserRepository.SaveOrUpdate(lu1);
+            iLoginUserRepository.SaveOrUpdate(lu1);           
 
             LoginUser lu2 = new LoginUser();
             lu2.LoginName = loginName2;
             lu2.Password = loginName2;
-            //lu2.UserType = UserTypeEnum.顾客;
             iLoginUserRepository.SaveOrUpdate(lu2);
 
+            Restaurant rst1 = new Restaurant();
+            rst1.Name = restName1;
+            iRestaurantRepository.SaveOrUpdate(rst1);
+
+            Restaurant rst2 = new Restaurant();
+            rst2.Name = restName2;
+            iRestaurantRepository.SaveOrUpdate(rst2);
+            
             MessageContent Mescnt = new MessageContent();
             Mescnt.Content = "大润发促销活动马上结束";
             iMessageContentRepository.SaveOrUpdate(Mescnt);
 
             Message mess1 = new Message()
             {
-                //FromLoginUser=lu1,
-                //ToLoginUser=lu2,
+                Direction=0,
+                LoginUser=lu1,
+                Merchant=rst1,
                 MessageContent=Mescnt                          
 
             };
@@ -57,8 +66,9 @@ namespace Friday.Test2
 
            Message rest2 = new Message()
            {
-               //FromLoginUser = lu2,
-               //ToLoginUser = lu1,
+                Merchant=rst2,
+                 LoginUser=lu2,
+                 Direction=1,
                MessageContent = Mescnt 
 
            };
@@ -68,43 +78,39 @@ namespace Friday.Test2
 
 
 
-
            List<DataFilter> filterList = new List<DataFilter>();
-           List<DataFilter> fromloginUserList = new List<DataFilter>();
-           List<DataFilter> tologinUserList = new List<DataFilter>();
+           List<DataFilter> loginUserList = new List<DataFilter>();
+           List<DataFilter> merchantList = new List<DataFilter>();
 
-
-           fromloginUserList.Add(new DataFilter()
+           loginUserList.Add(new DataFilter()
            {
-               type = "FromLoginUser",
-               value =loginName
+               type = "LoginName",
+               value = loginName
 
            });
            filterList.Add(new DataFilter()
            {
-               type = "FromLoginUser",
-               field = fromloginUserList
+               type = "LoginUser",
+               field = loginUserList
            });
-
-           tologinUserList.Add(new DataFilter()
+           merchantList.Add(new DataFilter()
            {
-               type = "ToLoginUser",
-               value =  loginName2 
+               type = "Name",
+               value = restName1
 
            });
            filterList.Add(new DataFilter()
            {
-               type = "ToLoginUser",
-               field = tologinUserList
+               type = "Merchant",
+               field = merchantList
            });
-
 
 
 
            Message r = iMessageRepository.Search(filterList).FirstOrDefault();
 
-        //   Assert.IsTrue(r.FromLoginUser.LoginName == lu1.LoginName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", r.FromLoginUser.LoginName, lu1.LoginName));
-        //
+           Assert.IsTrue(r.LoginUser.LoginName == loginName, string.Format("Mess1发送者名字实际结果：{0}与期望结果{1}不一致", r.LoginUser.LoginName, loginName));
+        
         }
 
      
