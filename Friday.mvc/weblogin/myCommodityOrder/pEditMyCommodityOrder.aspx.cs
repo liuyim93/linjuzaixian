@@ -20,6 +20,9 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.商店模块.商品订单维护.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
             string uid = Request.Params["uid"].ToString();
             myCommodityOrder = iMyCommodityOrderRepository.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)

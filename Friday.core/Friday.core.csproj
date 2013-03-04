@@ -378,6 +378,8 @@
     <Compile Include="services\MerchantService.cs" />
     <Compile Include="services\SystemRoleService.cs" />
     <Compile Include="services\ISystemRoleService.cs" />
+    <Compile Include="services\MyCommodityOrderService.cs" />
+    <Compile Include="services\IMyCommodityOrderService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

@@ -9,6 +9,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -25,12 +26,34 @@ namespace Friday.mvc.weblogin
         protected string endDate;
         protected string linkman;
 
-        IMyCommodityOrderRepository iRepositoryMyCommodityOrder = UnityHelper.UnityToT<IMyCommodityOrderRepository>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.商店模块.商品订单维护.TagName;
+            this.PermissionCheck();
+
+            string merchantID = "";
+            if (!this.CurrentUser.IsAdmin)
+            {
+                merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
+            }
+
             if (Request.Params["flag"] == "alldelete")
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.商店模块.商品订单维护.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有MyCommodityOrder删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
                 DeleteMyCommodityOrder();
             }
             else
@@ -58,14 +81,24 @@ namespace Friday.mvc.weblogin
                         type = "Name",
                         value = shopName = Request.Form["ShopName"]
 
-                    });
+                    });                
+                }
 
-                    filterList.Add(new DataFilter()
+                if (!this.CurrentUser.IsAdmin)
+                {
+                    shopFilter.Add(new DataFilter()
                     {
                         type = "Shop",
-                        field = shopFilter
+                        value = merchantID
+
                     });
                 }
+
+                filterList.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    field = shopFilter
+                });
 
                 //非匿名用户
                 systemUserFilter.Add(new DataFilter()
@@ -139,7 +172,7 @@ namespace Friday.mvc.weblogin
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<MyCommodityOrder> myCommodityOrderList = iRepositoryMyCommodityOrder.Search(filterList,start, limit, out total);
+                IList<MyCommodityOrder> myCommodityOrderList = iMyCommodityOrderService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = myCommodityOrderList;
                 repeater.DataBind();
@@ -150,7 +183,7 @@ namespace Friday.mvc.weblogin
 
         private void DeleteMyCommodityOrder()
         {
-            iRepositoryMyCommodityOrder.Delete(Request.Params["uid"]);
+            iMyCommodityOrderService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
