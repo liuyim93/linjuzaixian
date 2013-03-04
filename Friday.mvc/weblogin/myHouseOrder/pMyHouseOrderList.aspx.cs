@@ -40,6 +40,14 @@ namespace Friday.mvc.weblogin
             if (!this.PermissionValidate(PermissionTag.Edit))
             {
                 this.liEdit.Visible = false;
+                this.liAdd.Visible = false;
+            }
+
+            string merchantID = "";
+            if (!this.CurrentUser.IsAdmin)
+            {
+                merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
             }
 
             if (Request.Params["flag"] == "alldelete")
@@ -72,13 +80,23 @@ namespace Friday.mvc.weblogin
                         value = rentName = Request.Form["RentName"]
 
                     });
+                }
 
-                    filterList.Add(new DataFilter()
+                if (!this.CurrentUser.IsAdmin)
+                {
+                    rentFilter.Add(new DataFilter()
                     {
                         type = "Rent",
-                        field = rentFilter
+                        value = merchantID
+
                     });
                 }
+
+                filterList.Add(new DataFilter()
+                {
+                    type = "Rent",
+                    field = rentFilter
+                });
 
                 //非匿名用户
                 systemUserFilter.Add(new DataFilter()

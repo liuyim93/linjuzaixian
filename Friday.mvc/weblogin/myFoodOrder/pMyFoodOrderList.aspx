@@ -74,7 +74,7 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="myFoodOrder/pAddMyFoodOrder.aspx" title="添加订单" target="navTab" rel=""><span>
+        <li id="liAdd" runat="server"><a class="add" href="myFoodOrder/pAddMyFoodOrder.aspx" title="添加订单" target="navTab" rel=""><span>
             添加订单</span></a></li>
         <li  id="liEdit" runat="server"><a class="edit" href="myFoodOrder/pEditMyFoodOrder.aspx?uid={id}" title="修改订单" rel="" target="navTab">
             <span>修改订单</span></a></li>

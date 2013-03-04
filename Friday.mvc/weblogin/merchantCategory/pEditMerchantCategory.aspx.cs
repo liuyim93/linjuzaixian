@@ -20,19 +20,10 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid;
             this.tagName = systemFunctionObjectService.基本信息模块.商铺经营类型维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);
-            if (this.CurrentUser.IsAdmin)
-            {
-                uid = Request.Params["uid"].ToString();
-            }
-            else
-            {
-                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
 
-            }
-            merchantCategory = iMerchantCategoryService.Load(uid);
+            merchantCategory = iMerchantCategoryService.Load(Request.Params["uid"].ToString());
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 

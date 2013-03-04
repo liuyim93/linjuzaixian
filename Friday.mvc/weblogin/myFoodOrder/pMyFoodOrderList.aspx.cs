@@ -42,6 +42,14 @@ namespace Friday.mvc.weblogin
             if (!this.PermissionValidate(PermissionTag.Edit))
             {
                 this.liEdit.Visible = false;
+                this.liAdd.Visible = false;
+            }
+
+            string merchantID="";
+            if (!this.CurrentUser.IsAdmin)
+            {
+                merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+
             }
 
             if (Request.Params["flag"] == "alldelete")
@@ -75,12 +83,24 @@ namespace Friday.mvc.weblogin
 
                     });
 
-                    filterList.Add(new DataFilter()
+                }
+
+                if (!this.CurrentUser.IsAdmin)
+                {
+                    restaurantFilter.Add(new DataFilter()
                     {
                         type = "Restaurant",
-                        field = restaurantFilter
+                        value = merchantID
+
                     });
                 }
+
+                filterList.Add(new DataFilter()
+                {
+                    type = "Restaurant",
+                    field = restaurantFilter
+                });
+
 
                 //非匿名用户
                 systemUserFilter.Add(new DataFilter()

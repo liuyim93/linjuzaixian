@@ -11,9 +11,9 @@
     <ul class="toolBar">
         <li><a class="add" href="MyFavorite/pAddMyFavorite.aspx?systemUser_id=<%=Request.Params["systemUser_id"]%>" title="增加收藏" target="dialog"
             rel="" width="600" height="400"><span>增加收藏</span></a></li>
-        <li  id="liEdit" runat="server"><a class="edit" href="MyFavorite/pEditMyFavorite.aspx?systemUser_id=<%=Request.Params["systemUser_id"]%>&uid={myFavoriteid}" title="修改收藏" rel="" target="dialog"
+        <li><a class="edit" href="MyFavorite/pEditMyFavorite.aspx?systemUser_id=<%=Request.Params["systemUser_id"]%>&uid={myFavoriteid}" title="修改收藏" rel="" target="dialog"
             height="480"><span>修改收藏</span></a></li>
-        <li id="liDelete" runat="server"><a class="delete" href="MyFavorite/pMyFavoriteList.aspx?flag=alldelete&uid={myFavoriteid}" target="ajaxTodo"
+        <li><a class="delete" href="MyFavorite/pMyFavoriteList.aspx?flag=alldelete&uid={myFavoriteid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除收藏</span></a></li>
         <li class="line">line</li>
     </ul>

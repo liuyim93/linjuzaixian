@@ -22,15 +22,8 @@ namespace Friday.mvc.weblogin
             string uid;
             this.tagName = systemFunctionObjectService.基本信息模块.角色权限维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);
-            if (this.CurrentUser.IsAdmin)
-            {
-                uid = Request.Params["uid"].ToString();
-            }
-            else
-            {
-                uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            uid = Request.Params["uid"].ToString();
 
-            }
             sys = iSystemRoleService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
