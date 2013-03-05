@@ -445,6 +445,8 @@
     <Compile Include="services\IFoodStatisticService.cs" />
     <Compile Include="services\ValuingCommentsService.cs" />
     <Compile Include="services\ValuingOfMyCommodityOrderService.cs" />
+    <Compile Include="services\HouseStatisticService.cs" />
+    <Compile Include="services\IHouseStatisticService.cs" />
     <Compile Include="services\ValuingOfMyFoodOrderService.cs" />
     <Compile Include="services\ValuingOfMyHouseOrderService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
