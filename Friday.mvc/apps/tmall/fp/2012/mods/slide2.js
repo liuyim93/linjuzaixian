@@ -32,9 +32,9 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                 var _slide = _slide2.slide = new _switchable.Slide("#" + _str_J_MfpSlide, _config);
                 _window.g_config.Slide = _slide;
                 _is_ie6 && _kissy.ready(function () { _slide2._fixPng24() });
-                _slide.on("beforeSwitch", function (_event) {
-                    _slide2._textAnim(_event);
-                    _slide2._lazyLoad(_event)
+                _slide.on("beforeSwitch", function (_op /*_op includes fromIndex and toIndex*/) {
+                    _slide2._textAnim(_op);
+                    _slide2._lazyLoad(_op)
                 });
                 _mfp.on("directSuccess", function (_event) { _slide2._directImg(_event.data) });
                 _dom.show(_slide.nav);
@@ -42,9 +42,9 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                 //E.ready(function () { Z._tanxAd() });
                 ; _slide2._hoverMask();
                 !_closeSlideAutoPlay && _slide.switchTo(parseInt(Math.random() * _slide.triggers.length))
-            }, _lazyLoad: function (_event) {
+            }, _lazyLoad: function (_op /*_op includes fromIndex and toIndex*/) {
                 var _slide = this.slide;
-                var _panel_to_Index = _slide.panels[_event.toIndex];
+                var _panel_to_Index = _slide.panels[_op.toIndex];
                 var _b_on_panel_to_Index = _kissy.get("b", _panel_to_Index);
                 var _img_on_panel_to_Index = _kissy.get("img", _b_on_panel_to_Index);
                 if (_dom.hasAttr(_panel_to_Index, _str_data_image) && _img_on_panel_to_Index) {
@@ -54,10 +54,10 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                     _dom.removeAttr(_img_on_panel_to_Index, _str_data_text_src)
                 }
             },
-                _textAnim: function (_event) {
+                _textAnim: function (_op /*_op includes fromIndex and toIndex*/) {
                     var _slide = this.slide;
                     var _panel_activeIndex = _slide.panels[_slide.activeIndex];
-                    var _panel_to_Index = _slide.panels[_event.toIndex];
+                    var _panel_to_Index = _slide.panels[_op.toIndex];
                     var _b_on_panel_activeIndex = _kissy.get("_b_on_panel_activeIndex", _panel_activeIndex);
                     var _b_on_panel_to_Index = _kissy.get("_b_on_panel_activeIndex", _panel_to_Index);
                     var _img_on_panel_to_Index = _kissy.get("img", _b_on_panel_to_Index);
