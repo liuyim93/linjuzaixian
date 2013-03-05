@@ -351,6 +351,20 @@
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListMyFoodOrder.aspx.cs">
+      <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListMyHouseOrder.aspx.cs">
+      <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListMyHouseOrder.aspx.designer.cs">
+      <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListSystemUser.aspx.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,6 +378,20 @@
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.cs">
+      <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.cs">
+      <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.designer.cs">
+      <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\loginUser\pLoginUserDetail.aspx.cs">
       <DependentUpon>pLoginUserDetail.aspx</DependentUpon>
@@ -654,6 +682,20 @@
     </Compile>
     <Compile Include="weblogin\scoreOfItemInFoodOrder\pScoreOfItemInFoodOrderList.aspx.designer.cs">
       <DependentUpon>pScoreOfItemInFoodOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInHouseOrder\pAddScoreOfItemInHouseOrder.aspx.cs">
+      <DependentUpon>pAddScoreOfItemInHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInHouseOrder\pAddScoreOfItemInHouseOrder.aspx.designer.cs">
+      <DependentUpon>pAddScoreOfItemInHouseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInHouseOrder\pEditScoreOfItemInHouseOrder.aspx.cs">
+      <DependentUpon>pEditScoreOfItemInHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInHouseOrder\pEditScoreOfItemInHouseOrder.aspx.designer.cs">
+      <DependentUpon>pEditScoreOfItemInHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx.cs">
       <DependentUpon>pScoreOfItemInHouseOrderList.aspx</DependentUpon>
@@ -1047,6 +1089,7 @@
     <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
       <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1158,6 +1201,70 @@
     </Compile>
     <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyCommodityOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pAddValuingOfMyFoodOrder.aspx.cs">
+      <DependentUpon>pAddValuingOfMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pAddValuingOfMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>pAddValuingOfMyFoodOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pEditValuingOfMyFoodOrder.aspx.cs">
+      <DependentUpon>pEditValuingOfMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pEditValuingOfMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>pEditValuingOfMyFoodOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderDetail.aspx.cs">
+      <DependentUpon>pValuingOfMyFoodOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderDetail.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyFoodOrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx.cs">
+      <DependentUpon>pValuingOfMyFoodOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyFoodOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pAddValuingOfMyHouseOrder.aspx.cs">
+      <DependentUpon>pAddValuingOfMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pAddValuingOfMyHouseOrder.aspx.designer.cs">
+      <DependentUpon>pAddValuingOfMyHouseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pEditValuingOfMyHouseOrder.aspx.cs">
+      <DependentUpon>pEditValuingOfMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pEditValuingOfMyHouseOrder.aspx.designer.cs">
+      <DependentUpon>pEditValuingOfMyHouseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderDetail.aspx.cs">
+      <DependentUpon>pValuingOfMyHouseOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderDetail.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyHouseOrderDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx.cs">
+      <DependentUpon>pValuingOfMyHouseOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyHouseOrderList.aspx</DependentUpon>
+=======
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
+>>>>>>> Update
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1338,8 +1445,12 @@
     <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
+    <Content Include="weblogin\ListMyFoodOrder.aspx" />
+    <Content Include="weblogin\ListMyHouseOrder.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
+    <Content Include="weblogin\ListValuingItemOfMyFoodOrder.aspx" />
+    <Content Include="weblogin\ListValuingItemOfMyHouseOrder.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />
     <Content Include="weblogin\log\pLogDetail.aspx" />
     <Content Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx" />
@@ -1380,6 +1491,8 @@
     <Content Include="weblogin\scoreOfItemInFoodOrder\pAddScoreOfItemInFoodOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInFoodOrder\pEditScoreOfItemInFoodOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInFoodOrder\pScoreOfItemInFoodOrderList.aspx" />
+    <Content Include="weblogin\scoreOfItemInHouseOrder\pAddScoreOfItemInHouseOrder.aspx" />
+    <Content Include="weblogin\scoreOfItemInHouseOrder\pEditScoreOfItemInHouseOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
@@ -1890,6 +2003,14 @@
     <Content Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx" />
+    <Content Include="weblogin\valuingOfMyFoodOrder\pAddValuingOfMyFoodOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyFoodOrder\pEditValuingOfMyFoodOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderDetail.aspx" />
+    <Content Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx" />
+    <Content Include="weblogin\valuingOfMyHouseOrder\pAddValuingOfMyHouseOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyHouseOrder\pEditValuingOfMyHouseOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderDetail.aspx" />
+    <Content Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
@@ -2177,6 +2298,7 @@
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
     <Content Include="weblogin\ListFoodInRestaurant.aspx" />
+    <Content Include="weblogin\ListCommodityByMerchant.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2188,15 +2310,8 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
-<<<<<<< HEAD
-    <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
-=======
-    <Folder Include="Views\Home\" />
->>>>>>> Add pScoreOfItemInHouseOrderList.aspx
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
-    <Folder Include="weblogin\valuingOfMyFoodOrder\" />
-    <Folder Include="weblogin\valuingOfMyHouseOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

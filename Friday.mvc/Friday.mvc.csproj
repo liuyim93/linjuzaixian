@@ -1091,10 +1091,16 @@
     </Compile>
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.designer.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.cs">
       <DependentUpon>pEditValuingComments.aspx</DependentUpon>
@@ -2289,6 +2295,7 @@
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
     <Content Include="weblogin\ListFoodInRestaurant.aspx" />
+    <Content Include="weblogin\ListCommodityByMerchant.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

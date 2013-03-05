@@ -18,8 +18,8 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
         protected string name;
-        protected string goodsName;
-        protected string endprice;
+        protected string merchantName;
+        protected string merchantId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,42 +31,35 @@ namespace Friday.mvc.weblogin
             IRepository<Restaurant> repoRestaurant = UnityHelper.UnityToT<IRepository<Restaurant>>();
             IFoodRepository repoFood = UnityHelper.UnityToT<IFoodRepository>();
 
-            IList<Food> foods = new List<Food>();
-
-            string restaurant_id;
-
-            if (Request.Form["restaurant_id"] != null)
-            {
-                restaurant_id = Request.Form["restaurant_id"];
-            }
-            else
-            {
-                restaurant_id = Request.Params["restaurant_id"];
-            }
+            IList<Food> foods = new List<Food>();            
 
             List<DataFilter> dfl = new List<DataFilter>();
-            if (!string.IsNullOrEmpty(restaurant_id))
-            {
-                dfl.Add(new DataFilter() { type = "Restaurant", value = restaurant_id });
-            }
+            List<DataFilter> mfl = new List<DataFilter>();
+            //if (!string.IsNullOrEmpty(Request.Form["MerchantID"]))
+            //{
+            //    mfl.Add(new DataFilter() 
+            //    { 
+            //        type = "Restaurant",
+            //        value = merchantId = Request.Form["MerchantID"]
+            //    });
+            //    merchantName = Request.Form["Merchant"];
 
-            if (!string.IsNullOrEmpty(Request.Form["goodsName"]))
+            //    dfl.Add(new DataFilter() 
+            //    {
+            //        type = "Restaurant",
+            //        field=mfl
+                
+            //    });
+            //}
+
+            if (!string.IsNullOrEmpty(Request.Form["GoodsName"]))
                 dfl.Add(new DataFilter()
                 {
                     type = "Name",
-                    value = goodsName = Request.Form["Name"]
+                    value = name = Request.Form["GoodsName"]
 
                 });
 
-            //startprice = Request.Form["StartPrice"];
-            //endprice = Request.Form["EndPrice"];
-            //if (!string.IsNullOrEmpty(startprice))
-            //{
-            //    if (!string.IsNullOrEmpty(endprice))
-            //    {
-            //        dfl.Add(new DataFilter() { type = "Price", value = startprice, valueForCompare = endprice });
-            //    }
-            //}
 
             dfl.Add(new DataFilter() { type = "IsDelete"});
 
