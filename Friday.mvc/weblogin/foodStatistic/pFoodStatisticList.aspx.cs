@@ -22,6 +22,8 @@ namespace Friday.mvc.weblogin.foodStatistic
 
         protected string startDate;
         protected string endDate;
+        protected string name;
+        protected string foodName;
  
        IFoodStatisticService iFoodStatisticService = UnityHelper.UnityToT<IFoodStatisticService>();
 
@@ -38,39 +40,32 @@ namespace Friday.mvc.weblogin.foodStatistic
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
-                    //List<DataFilter> loginUserList = new List<DataFilter>();
-                    //List<DataFilter> merchantList = new List<DataFilter>();
+                    List<DataFilter> foodList = new List<DataFilter>();
+                    
 
-                    //if (!string.IsNullOrEmpty(Request.Form["Name"]))
-                    //    filterList.Add(new DataFilter()
-                    //    {
-                    //        type = "Name",
-                    //        value = name = Request.Form["Name"]
+                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Name",
+                            value = name = Request.Form["Name"]
 
-                    //    });
+                        });
 
-                    //if (!string.IsNullOrEmpty(Request.Form["ThreadIndex"]))
-                    //    filterList.Add(new DataFilter()
-                    //    {
-                    //        type = "ThreadIndex",
-                    //        value = threadIndex = Request.Form["ThreadIndex"]
+                    if (!string.IsNullOrEmpty(this.FoodID.Value))
+                      {
+                          foodList.Add(new DataFilter()
+                        {
+                            type = "Food",
+                            value = Request.Form["FoodID"]
 
-                    //    });
-                    //if (!string.IsNullOrEmpty(Request.Form["LoginUserName"]))
-                    //{
-                    //    loginUserList.Add(new DataFilter()
-                    //    {
-                    //        type = "LoginName",
-                    //        value = loginUserName = Request.Form["LoginUserName"]
-
-                    //    });
-                    //    filterList.Add(new DataFilter()
-                    //    {
-                    //        type = "LoginUser",
-                    //        field = loginUserList
-                    //    });
-                    //}
-                                   
+                        });
+                          filterList.Add(new DataFilter()
+                          {
+                              type = "Food",
+                              field = foodList
+                          });
+                        foodName = Request.Form["Food"];
+                      }                                 
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {

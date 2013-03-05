@@ -2904,12 +2904,11 @@ namespace friday.core.repositories
                     }
                    
 
-                    if (df.type.Equals("LoginUserOfMechant"))
-                    {
-                        //根据loginUser的属性进行嵌套筛选
+                    if (df.type.Equals("Food"))
+                    {                        
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByLoginUserOfMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                            SearchByFood(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
@@ -2988,6 +2987,11 @@ namespace friday.core.repositories
                     if (df.type.Equals("IsDelete"))
                     {
                         query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+                    if (df.type.Equals("Food"))
+                    {
+                        query.Add(Expression.Eq(notself + "Id", df.value));
                         continue;
                     }
                     if (df.type.Equals("Restaurant"))

@@ -18,18 +18,20 @@
                <td>                   
                          <p>
                 <label>
-                    食品名称：</label>
+                    准确食品名称：</label>
                 <input type="text" id="Food" size="30" class="required textInput gray"
-                    runat="server" readonly="true" />
+                    runat="server" readonly="true"  />
                  <input type="hidden" id="FoodID"  runat="server" />
                 <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=0" rel="" lookupgroup="" style=" float:right">选择食品</a>
               </p>
                 </td> 
                 <td>
-                        
+                        <label>
+                            模糊食品名称:</label>
+                        <input id="Name" type="text" name="Name" value="<%=name%>" />
                 </td>
                 <td>
-                
+            
                 </td>
             
             </tr>
@@ -114,7 +116,7 @@
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ValuingCount")%></td> 
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "AverageValuing")%></td> 
                              <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Name")%></td>  
-                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Name")%></td>   <%--    --%>                   
+                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Restaurant.Name")%></td>   <%--    --%>                   
 				</tr>
 			      
             </ItemTemplate>
