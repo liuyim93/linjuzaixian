@@ -25,7 +25,7 @@
                 <td>
                     <label>
                         商品名称:</label>
-                    <input id="GoodsName" type="text" name="StartPrice" value="<%=goodsName %>" />
+                    <input id="GoodsName" type="text" name="GoodsName" value="<%=goodsName %>" />
                 </td>
               
                 </tr>
