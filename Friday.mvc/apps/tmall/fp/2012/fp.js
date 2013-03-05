@@ -19,7 +19,7 @@ KISSY.add("2012/fp",function (_kissy, _slide2, _category) {
                 },
                 _initMain: function () {
                     new _slide2();
-                    //new P("#J_Category", { viewId: "#J_SubCategory", subViews: ".j_SubView", triggers: ".j_MenuItem", bottomCl: ".j_BottomMenu", dataUrl: "http://" + location.host + "/go/rgn/mfp2012/all-cat-asyn.php" });
+                    new _category("#J_Category", { viewId: "#J_SubCategory", subViews: ".j_SubView", triggers: ".j_MenuItem", bottomCl: ".j_BottomMenu", dataUrl: "http://" + location.host + "/go/rgn/mfp2012/all-cat-asyn.php" });
                 }
 
             }); return FP
