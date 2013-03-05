@@ -18,7 +18,7 @@
                <td>                   
                          <p>
                 <label>
-                    准确房屋名称：</label>
+                    准确商品名称：</label>
                 <input type="text" id="Commodity" size="30" class="required textInput gray"
                     runat="server" readonly="true"  />
                  <input type="hidden" id="CommodityID"  runat="server" />
@@ -27,7 +27,7 @@
                 </td> 
                 <td>
                         <label>
-                            模糊房屋名称:</label>
+                            模糊商品名称:</label>
                         <input id="Name" type="text" name="Name" value="<%=name%>" />
                 </td>
                 <td>
