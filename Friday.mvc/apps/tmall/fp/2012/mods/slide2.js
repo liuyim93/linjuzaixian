@@ -124,14 +124,14 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                 }
                 , _hoverMask: function () {
                 var _slide2 = this;
-                var Z = _kissy.all("." + _str_j_MaskBanner, _slide2.slide.container);
-                _kissy.each(Z, function (b) {
-                    var a = _kissy.query("li", b);
-                    _event.on(a, "mouseenter mouseleave", function (f) {
+                var _node_ul_class_j_MaskBanner = _kissy.all("." + _str_j_MaskBanner, _slide2.slide.container);
+                _kissy.each(_node_ul_class_j_MaskBanner, function (_node) {
+                    var _li = _kissy.query("li", _node);
+                    _event.on(_li, "mouseenter mouseleave", function (_event) {
                         var c = this;
-                        var d = f.type === "mouseenter" ? 0.3 : 0;
-                        _kissy.each(a, function (e) {
-                            var h, g = _kissy.get("a", e);
+                        var d = _event.type === "mouseenter" ? 0.3 : 0;
+                        _kissy.each(_li, function (e) {
+                            var h, g = _kissy.get("_li", e);
                             if (!(h = _kissy.get("i", g))) {
                                 h = _dom.create("<i>");
                                 _dom.append(h, g)
