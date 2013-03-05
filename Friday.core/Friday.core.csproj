@@ -148,6 +148,8 @@
     <Compile Include="repositories\IMessageContentRepository.cs" />
     <Compile Include="repositories\ValuingCommentsRepository.cs" />
     <Compile Include="repositories\ValuingOfMyCommodityOrderRepository.cs" />
+    <Compile Include="repositories\HouseStatisticRepository.cs" />
+    <Compile Include="repositories\IHouseStatisticRepository.cs" />
     <Compile Include="repositories\ValuingOfMyFoodOrderRepository.cs" />
     <Compile Include="repositories\ValuingOfMyHouseOrderRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
