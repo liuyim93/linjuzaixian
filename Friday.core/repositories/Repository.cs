@@ -4525,12 +4525,37 @@ namespace friday.core.repositories
         }
         protected ICriteria SearchByRestaurantStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchByRestaurantStatistic(query, termList);
+        }
+        protected ICriteria SearchByRestaurantStatistic(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByRestaurantStatistic(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByRestaurantStatistic(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("RestaurantStatistic", "restaurantStatistic");
                 notself = "restaurantStatistic.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "RestaurantStatistic";
+
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".RestaurantStatistic";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "restaurantStatistic");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -4542,12 +4567,37 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    if (df.type.Equals("RestaurantStatistic"))
+                    if (df.type.Equals("Restaurant"))
                     {
-                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
                         continue;
                     }
-                    
+
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
                     //时间
                     if (df.type.Equals("CreateTime"))
                     {
@@ -4557,6 +4607,8 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
