@@ -8,19 +8,19 @@
 /*pub-1|2013-01-15 17:19:40*/
 KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
         var _kissy = KISSY,
-            Q = _kissy.DOM,
+            _dom = _kissy.DOM,
             N = "http://delta.taobao.com/home/delivery/AllContentByPage.do?resourceIds=",
-            G = "J_DirectPromo",
-            H = "J_DirectPromo_",
-            L = "J_DirectPromoFloatBox",
-            F = "__content_results",
-            A = /^https?:\/\/\S+$/i,
-            I = /^https?:\/\/\S+(png|jpg|gif)$/i,
-            J = window,
+            _str_J_DirectPromo = "J_DirectPromo",
+            _str_J_DirectPromo_ = "J_DirectPromo_",
+            _str_J_DirectPromoFloatBox = "J_DirectPromoFloatBox",
+            _str_content_results = "__content_results",
+            _reg_for_http = /^https?:\/\/\S+$/i,
+            _reg_for_image = /^https?:\/\/\S+(png|jpg|gif)$/i,
+            _window = window,
             D = false,
             M = {},
             P = [];
-        var B = J.g_config;
+        var _config = _window.g_config;
         function C(U, S) {
             var R = U.length, T;
             while (R--) {
@@ -30,19 +30,19 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
             }
             return S
         }
-        var K = { init: function (U) {
-            var R = _kissy.query("." + G),
+        var DirectPromo = { init: function (U) {
+            var _node_class_J_DirectPromo = _kissy.query("." + _str_J_DirectPromo),
                 S = [],
-                T; if (!R || R.length === 0) { return }
-            _kissy.each(R, function (V) {
-                T = V.getAttribute("data-resid");
-                if (T) { S.push(T); M[T] = V }
+                _resid; if (!_node_class_J_DirectPromo || _node_class_J_DirectPromo.length === 0) { return }
+            _kissy.each(_node_class_J_DirectPromo, function (_node) {
+                _resid = _node.getAttribute("data-resid");
+                if (_resid) { S.push(_resid); M[_resid] = _node }
             });
             U && (S = C(U, S));
             this.request(S)
         }
             , request: function (W, V, T) {
-                var U = this;
+                var _directpromo = this;
                 var R = N + W.join(",") + "&t=" + +new Date;
                 var X = window.location.href.split("?")[1] || "";
                 var S = _kissy.unparam(X);
@@ -50,23 +50,23 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                     R += "&preview=preview"
                 }
                 _kissy.getScript(R, function () {
-                    var Y = J[F], a, Z = 0; if (!Y || Y.length === 0) { return }
+                    var Y = _window[_str_content_results], a, Z = 0; if (!Y || Y.length === 0) { return }
                     if (V && V > 0) {
                         for (; Z < V; Z++) {
                             a = Y[Z].content;
-                            if (a && I.test(a)) {
+                            if (a && _reg_for_image.test(a)) {
                                 new Image().src = a
                             }
                         }
                     }
                     P = P.concat(Y);
-                    U.render(T);
-                    MFP.fire("directSuccess", { data: J[F] })
+                    _directpromo.render(T);
+                    MFP.fire("directSuccess", { data: _window[_str_content_results] })
                 })
             }, render: function (T) {
                 var S = P.length, U, R, V; while (S--) {
                     U = P[S]; V = U.id;
-                    if (!M[V]) { R = _kissy.get("#" + (V === T ? L : H + V)); if (R) { M[V] = R } else { continue } } P.splice(S, 1); this._fill(U)
+                    if (!M[V]) { R = _kissy.get("#" + (V === T ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + V)); if (R) { M[V] = R } else { continue } } P.splice(S, 1); this._fill(U)
                 }
             }, detect: function (S) {
                 var R = 100, V = 50, U = 0, T = this; if (D) { return } D = true;
@@ -74,7 +74,7 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                     var X, W; _kissy.each(P, function (Z, Y) {
                             X = Z.id;
                             if (!M[X]) {
-                                W = _kissy.get("#" + (X === S ? L : H + X));
+                                W = _kissy.get("#" + (X === S ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + X));
                                 if (W) { M[X] = W }
                             }
                             if (M[X]) {
@@ -89,28 +89,28 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                 var R = M[W.id], V = W.content, U = W.link, S;
                 if (!R || !V)
                 { return }
-                if (I.test(V)) { S = '<img src="' + V + '" />' }
+                if (_reg_for_image.test(V)) { S = '<img src="' + V + '" />' }
                 else {
                     if (V == "http://tms.tms.tms")
                     { return }
                     else {
-                        if (A.test(V)) {
+                        if (_reg_for_http.test(V)) {
                             S = '<iframe src="' + V + '" scrolling="no" frameborder="0" width="330" height="200"></iframe>';
                             U = ""
                         }
                         else {
                             if (W.id == 395) {
                                 if (V && V == "chaoshi")
-                                { Q.show(R) }
+                                { _dom.show(R) }
                                 else
-                                { Q.remove(R) }
+                                { _dom.remove(R) }
                                 return
                             }
                             else {
                                 if (W.id == 396) {
-                                    var T = Q.create(V);
+                                    var T = _dom.create(V);
                                     if (_kissy.get("#J_Category")) {
-                                        Q.attr("#J_Category", "data-spm", Q.attr(T, "data-spm"));
+                                        _dom.attr("#J_Category", "data-spm", _dom.attr(T, "data-spm"));
                                         _kissy.one("#j_Menu").html(_kissy.one("#j_Menu", T).html());
                                         _kissy.use("2012/mods/category", function (X, Y) {
                                             new Y("#J_Category",
@@ -128,6 +128,6 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                 R.innerHTML = U ? '<a target="_blank" href="' + U + '">' + S + "</a>" : S
             }
         };
-        return K
+        return DirectPromo
     }
 );

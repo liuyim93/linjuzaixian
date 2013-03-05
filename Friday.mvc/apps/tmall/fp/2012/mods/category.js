@@ -6,58 +6,58 @@
  * To change this template use File | Settings | File Templates.
  */
 /*pub-1|2013-01-15 17:19:40*/
-KISSY.add("2012/mods/category",function (C, U) {
-        var C = KISSY,
-            T = C.DOM,
-            W = C.Event,
-            B = window,
-            X = document,
-            M = (C.UA.ie == 6),
-            F = "selected",
-            R = "hidden",
-            L = "DIV",
-            P = "mouseenter",
-            H = "mouseleave",
-            E = "click";
-        var D = B.g_config;
-        var K = { showDelay: 0.1, hideDelay: 0.1, viewId: null, subViews: null, triggers: null, lazyload: true, dataUrl: null }; var J = "755px"; var Q = 10; var O = 10; var V = true; var G = false; var I = D.isTestEnv ? "http://110.75.14.52/recommend.htm?appId=12001&uid=100028393" : "http://ald.taobao.com/recommend.htm?appId=12001";
-        function N(S, Z) {
-            var Y = this;
-            if (!(Y instanceof N))
-            { return new N(S, Z) }
-            Y.container = C.get(S);
-            Y.config = C.merge(K, Z || {});
-            Y.config.viewer = C.get(Z.viewId, Y.container);
-            Y.triggers = T.query(Z.triggers, Y.container);
-            Y._init()
+KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
+        var _kissy = KISSY,
+            _dom = _kissy.DOM,
+            _event = _kissy.Event,
+            _window = window,
+            _document = document,
+            _is_ie6 = (_kissy.UA.ie == 6),
+            _str_selected = "selected",
+            _str_hidden = "hidden",
+            _str_div = "DIV",
+            _str_mouseenter = "mouseenter",
+            _str_mouseleave = "mouseleave",
+            _str_click = "click";
+        var _g_config = _window.g_config;
+        var _options = { showDelay: 0.1, hideDelay: 0.1, viewId: null, subViews: null, triggers: null, lazyload: true, dataUrl: null }; var J = "755px"; var Q = 10; var O = 10; var V = true; var G = false; var I = _g_config.isTestEnv ? "http://110.75.14.52/recommend.htm?appId=12001&uid=100028393" : "http://ald.taobao.com/recommend.htm?appId=12001";
+        function Category(_selector, _op) {
+            var _category = this;
+            if (!(_category instanceof Category))
+            { return new Category(_selector, _op) }
+            _category.container = _kissy.get(_selector);
+            _category.config = _kissy.merge(_options, _op || {});
+            _category.config.viewer = _kissy.get(_op.viewId, _category.container);
+            _category.triggers = _dom.query(_op.triggers, _category.container);
+            _category._init()
         }
         function A(S, Z) {
             for (var Y = 0; Y < S.length; Y = Y + 1)
             { if (S[Y] === Z) { return Y } } return -1
         }
-        C.mix(N.prototype, { changeTrigger:
+        _kissy.mix(Category.prototype, { changeTrigger:
             function (S) {
                 var Y = this;
                 var a = Y.triggers, Z = a[S];
-                C.each(a, function (b) { T.removeClass(b, F) });
-                T.addClass(Z, F);
+                _kissy.each(a, function (b) { _dom.removeClass(b, _str_selected) });
+                _dom.addClass(Z, _str_selected);
                 Y.triggerIdx = S
             },
             changeView: function (Y) {
                 var Z = this;
-                C.each(Z.subViews, function (a) { T.addClass(a, R) });
-                T.removeClass(Y, R);
-                var S = T.height(Y);
-                T.height(Z.viewer, (S + Q + O) + "px");
+                _kissy.each(Z.subViews, function (a) { _dom.addClass(a, _str_hidden) });
+                _dom.removeClass(Y, _str_hidden);
+                var S = _dom.height(Y);
+                _dom.height(Z.viewer, (S + Q + O) + "px");
                 Z.resetPostion();
-                if (!Z.shadow) { Z.shadow = T.get(".shadow", Z.viewer) }
-                T.height(Z.shadow, (S + O) + "px")
+                if (!Z.shadow) { Z.shadow = _dom.get(".shadow", Z.viewer) }
+                _dom.height(Z.shadow, (S + O) + "px")
             }, show: function () {
                 var a = this, b = a.config;
                 var Z = a.subViews;
                 var S = b.idx;
                 var Y = a.isDataReady ? Z[S] : Z[0];
-                var c = T.width(a.viewer);
+                var c = _dom.width(a.viewer);
                 if (a.hideTimer) { clearTimeout(a.hideTimer) }
                 if (V && c == 0) {
                     if (a.expandTimer)
@@ -67,11 +67,11 @@ KISSY.add("2012/mods/category",function (C, U) {
                             V = false;
                             a.changeTrigger(S);
                             a.changeView(Y);
-                            if (!M) {
-                                new C.Anim(a.viewer, { width: J }, 0.2, "linear").run()
+                            if (!_is_ie6) {
+                                new _kissy.Anim(a.viewer, { width: J }, 0.2, "linear").run()
                             }
                             else
-                            { T.width(a.viewer, J) }
+                            { _dom.width(a.viewer, J) }
                         }
                         , b.showDelay * 500)
                 }
@@ -97,50 +97,51 @@ KISSY.add("2012/mods/category",function (C, U) {
                     if (Y.expandTimer) { clearTimeout(Y.expandTimer) }
                     if (Y.hideTimer) { clearTimeout(Y.hideTimer) }
                     Y.hideTimer = setTimeout(function () {
-                        C.each(b, function (c) { T.removeClass(c, F) });
-                        T.css(Y.viewer, { width: "0" })
+                        _kissy.each(b, function (c) { _dom.removeClass(c, _str_selected) });
+                        _dom.css(Y.viewer, { width: "0" })
                     }, a.hideDelay * 1000)
                 }
             }, resetPostion: function () {
-                var a = this.triggers[this.config.idx], i = T.offset(a).top, e = T.offset(this.container), g = T.height(a), b = T.height(this.viewer), k = T.width(a), f = T.viewportHeight(), Y = T.scrollTop(), j = i - Y, Z = f - b - j, l = f - j, S = i - e.top; if (Z <= 0) { Z = Math.abs(Z); var h = 20; if (l > g) { var d = l - g; if (d > h) { S = S - Z - h + 7 } else { S = S - Z } } else { S = S - Z + h + l + 20 } } if (S < 30) { S = 30 } var c = C.UA.ie ? 0 : Q;
-                if (!M && G) { new C.Anim(this.viewer, { top: (S - c) + "px" }, 0.3, "easeOutStrong").run() }
+                var a = this.triggers[this.config.idx], i = _dom.offset(a).top, e = _dom.offset(this.container), g = _dom.height(a), b = _dom.height(this.viewer), k = _dom.width(a), f = _dom.viewportHeight(), Y = _dom.scrollTop(), j = i - Y, Z = f - b - j, l = f - j, S = i - e.top; if (Z <= 0) { Z = Math.abs(Z); var h = 20; if (l > g) { var d = l - g; if (d > h) { S = S - Z - h + 7 } else { S = S - Z } } else { S = S - Z + h + l + 20 } } if (S < 30) { S = 30 } var c = _kissy.UA.ie ? 0 : Q;
+                if (!_is_ie6 && G) { new _kissy.Anim(this.viewer, { top: (S - c) + "px" }, 0.3, "easeOutStrong").run() }
                 else {
                     this.viewer.style.top = (S - c) + "px";
                     G = true
                 }
             }, _load: function (Z) {
-                var S = this, Y = S.config; C.IO.get(Z, M ? { t: +new Date} : {}, function (a) {
-                        if (!a) { return } newViewer = T.create(a); T.html(S.viewer, T.html(newViewer)); S.subViews = T.query(Y.subViews, S.viewer);
-                        S.shadow = T.get(".shadow", S.viewer);
+                var S = this, Y = S.config; _kissy.IO.get(Z, _is_ie6 ? { t: +new Date} : {}, function (a) {
+                        if (!a) { return } newViewer = _dom.create(a); _dom.html(S.viewer, _dom.html(newViewer)); S.subViews = _dom.query(Y.subViews, S.viewer);
+                        S.shadow = _dom.get(".shadow", S.viewer);
                         S.isDataReady = true;
                         if (S.status == "visible") {
                             V = false;
                             S.show()
                         }
+                        //2013-03-06 basiwang check direct-promo
                         //2013-02-03 TODO(basilwang) no direct-promo
-                        //U.render()
+                        _directpromo.render()
                     }
                     ,
                     "text")
             }
             , _init: function () {
                 var S = this, Y = S.config;
-                C.each(S.triggers, function (Z) {
-                    W.on(Z, "mouseenter tap", function (b) {
+                _kissy.each(S.triggers, function (Z) {
+                    _event.on(Z, "mouseenter tap", function (b) {
                             b.halt(); var a = A(S.triggers, Z);
                             Y.idx = a; S.status = "visible";
                             if (b.type === "tap" && a === S.triggerIdx)
                             { S.hide(Y.idx); return } if (!S.viewer) {
                                 if (!Y.viewer && Y.lazyload) {
-                                    S.viewer = T.create('<div id="J_SubCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
+                                    S.viewer = _dom.create('<div id="J_SubCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
                                     S.container.appendChild(S.viewer);
-                                    S.subViews = T.query(Y.subViews, S.viewer);
+                                    S.subViews = _dom.query(Y.subViews, S.viewer);
                                     S.isDataReady = false;
                                     S._load(Y.dataUrl)
                                 }
                                 else {
                                     S.viewer = Y.viewer;
-                                    S.subViews = T.query(Y.subViews, S.viewer);
+                                    S.subViews = _dom.query(Y.subViews, S.viewer);
                                     S.isDataReady = true
                                 }
                             }
@@ -148,20 +149,20 @@ KISSY.add("2012/mods/category",function (C, U) {
                         }
                     )
                     ;
-                    W.on(Z, H, function (a) { S.status = "triggerLeave" })
+                    _event.on(Z, _str_mouseleave, function (a) { S.status = "triggerLeave" })
                 });
-                W.on(S.container, H, function (Z) { S.hide(Y.idx) });
-                W.on(Y.bottomCl, "mouseenter mouseleave", function (Z) {
-                    T.toggleClass(Y.bottomCl, F);
+                _event.on(S.container, _str_mouseleave, function (Z) { S.hide(Y.idx) });
+                _event.on(Y.bottomCl, "mouseenter mouseleave", function (Z) {
+                    _dom.toggleClass(Y.bottomCl, _str_selected);
                     if (Z.type === "mouseenter") { S.hide(Y.idx) }
                 });
-                W.on(".categoryHd", P, function (Z) { S.hide(Y.idx) })
-            }, getRecData: function () { var S = this; C.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } S.renderRecData(Y); S.RecData = Y }) }, renderRecData: function (Z) {
-                if (!Z) { return } var Y = this; var S = T.query("p.subItem-brand", Y.subViews[Y.config.idx]); C.each(S, function (d) {
-                    var b = T.attr(d, "recommend-id");
-                    var a = ""; if (b && Z[b]) { for (var c = 0; c < Z[b].length; c++) { a += '<a href="' + Z[b][c].linkedUrl + '" target="_blank">' + Z[b][c].brandName + "</a>" } T.html(d, a) }
+                _event.on(".categoryHd", _str_mouseenter, function (Z) { S.hide(Y.idx) })
+            }, getRecData: function () { var S = this; _kissy.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } S.renderRecData(Y); S.RecData = Y }) }, renderRecData: function (Z) {
+                if (!Z) { return } var Y = this; var S = _dom.query("p.subItem-brand", Y.subViews[Y.config.idx]); _kissy.each(S, function (d) {
+                    var b = _dom.attr(d, "recommend-id");
+                    var a = ""; if (b && Z[b]) { for (var c = 0; c < Z[b].length; c++) { a += '<a href="' + Z[b][c].linkedUrl + '" target="_blank">' + Z[b][c].brandName + "</a>" } _dom.html(d, a) }
                 })
             }
         });
-        return N
+        return Category
     }, { requires: ["2012/mods/direct-promo"] });
