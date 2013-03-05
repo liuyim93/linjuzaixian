@@ -24,14 +24,10 @@
                 </td>
                 <td>
                     <label>
-                        起价:</label>
-                    <input id="StartPrice" type="text" name="StartPrice" value="<%=startprice %>" />
+                        商品名称:</label>
+                    <input id="GoodsName" type="text" name="StartPrice" value="<%=goodsName %>" />
                 </td>
-                <td>
-                    <label>
-                        截止价:</label>
-                    <input id="EndPrice" type="text" name="EndPrice" value="<%=endprice %>"/>
-                </td>
+              
                 </tr>
         </table>
         <div class="subBar">

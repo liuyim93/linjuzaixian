@@ -18,7 +18,7 @@ namespace Friday.mvc.weblogin
         protected int numPerPageValue;
 
         protected string name;
-        protected string startprice;
+        protected string goodsName;
         protected string endprice;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -50,23 +50,23 @@ namespace Friday.mvc.weblogin
                 dfl.Add(new DataFilter() { type = "Restaurant", value = restaurant_id });
             }
 
-            if (!string.IsNullOrEmpty(Request.Form["Name"]))
+            if (!string.IsNullOrEmpty(Request.Form["goodsName"]))
                 dfl.Add(new DataFilter()
                 {
                     type = "Name",
-                    value = name = Request.Form["Name"]
+                    value = goodsName = Request.Form["Name"]
 
                 });
 
-            startprice = Request.Form["StartPrice"];
-            endprice = Request.Form["EndPrice"];
-            if (!string.IsNullOrEmpty(startprice))
-            {
-                if (!string.IsNullOrEmpty(endprice))
-                {
-                    dfl.Add(new DataFilter() { type = "Price", value = startprice, valueForCompare = endprice });
-                }
-            }
+            //startprice = Request.Form["StartPrice"];
+            //endprice = Request.Form["EndPrice"];
+            //if (!string.IsNullOrEmpty(startprice))
+            //{
+            //    if (!string.IsNullOrEmpty(endprice))
+            //    {
+            //        dfl.Add(new DataFilter() { type = "Price", value = startprice, valueForCompare = endprice });
+            //    }
+            //}
 
             dfl.Add(new DataFilter() { type = "IsDelete"});
 
