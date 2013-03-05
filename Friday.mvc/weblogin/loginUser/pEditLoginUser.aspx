@@ -13,7 +13,7 @@
             </p>
                 <p>
                     <label>管理员:</label>
-                    <select name="IsAdminV" id="IsAdminV" runat="server">
+                    <select name="IsAdminV" id="IsAdminV" class="required" runat="server">
                     <option value="">请选择</option>
                     <option value="是">是</option>
                     <option value="否">否</option>

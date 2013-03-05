@@ -32,7 +32,7 @@
             <p>
                 <label>
                     订单状态：</label>
-                <select name="OrderStatus" id="OrderStatus" runat="server">
+                <select name="OrderStatus" id="OrderStatus" class="required" runat="server">
                 <option value="">请选择</option>
                 <option value="配送中">进行中</option>
                 <option value="成功">成功</option>
