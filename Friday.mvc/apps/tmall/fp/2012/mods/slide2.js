@@ -1,159 +1,160 @@
 // JScript source code
-KISSY.add("2012/mods/slide2",function (E, C) {
-        var T = E.DOM, Y = E.Event; var D = window; var M = E.UA.ie == 6;
-        var I = E.UA.ie && E.UA.ie < 9;
-        var O = !D.g_config.closeSlideAutoPlay;
-        var Q = D.g_config.closeTriggerAnim;
-        var N = D.MFP;
-        var A = "J_MfpSlide";
-        var G = "j_SlideTanxAd";
-        var P = "j_MSDirect_";
-        var L = "J_DirectPromo";
-        var U = "j_MaskBanner";
+KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
+        var _dom = _kissy.DOM, _event = _kissy.Event; var _window = window; var _is_ie6 = _kissy.UA.ie == 6;
+        var _is_under_ie9 = _kissy.UA.ie && _kissy.UA.ie < 9;
+        var _closeSlideAutoPlay = !_window.g_config.closeSlideAutoPlay;
+        var _closeTriggerAnim = _window.g_config.closeTriggerAnim;
+        var _mfp = _window.MFP;
+        var _str_J_MfpSlide = "J_MfpSlide";
+        var _str_j_SlideTanxAd = "j_SlideTanxAd";
+        var _str_j_MSDirect_ = "j_MSDirect_";
+        var _str_J_DirectPromo = "J_DirectPromo";
+        var _str_j_MaskBanner = "j_MaskBanner";
         var X = [285, 333, 337];
         var K = ["mm_12852562_1778064_10953677", "mm_12852562_1778064_10953701"];
-        var W = "data-text-src";
-        var B = "data-image";
+        var _str_data_text_src = "data-text-src";
+        var _str_data_image = "data-image";
         var V = /^https?:\/\/\S+$/i;
         var H = /^https?:\/\/\S+(png|jpg|gif)$/i;
         var R = /^#[0-9a-fA-F]{6}$/;
-        var J = { contentCls: "mfpSlide-con", navCls: "mfpSlide-nav", activeTriggerCls: "selected", effect: "fade", easing: "easeOut", lazyDataType: "img-src", duration: 0.5, triggerType: "mouse", autoplay: O, pauseOnScroll: true, delay: 0.2 };
-        function F() {
-            var S = this;
-            S.mfpSlide = null;
-            if (!(this instanceof F))
-            { return new F() }
-            S._init()
+        var _config = { contentCls: "mfpSlide-con", navCls: "mfpSlide-nav", activeTriggerCls: "selected", effect: "fade", easing: "easeOut", lazyDataType: "img-src", duration: 0.5, triggerType: "mouse", autoplay: _closeSlideAutoPlay, pauseOnScroll: true, delay: 0.2 };
+        function Slide2() {
+            var _slide2 = this;
+            _slide2.mfpSlide = null;
+            if (!(this instanceof Slide2))
+            { return new Slide2() }
+            _slide2._init()
         }
-        E.augment(F, E.EventTarget,
+        _kissy.augment(Slide2, _kissy.EventTarget,
             { _init: function () {
-                var Z = this; if (!E.get("#" + A))
+                var _slide2 = this; if (!_kissy.get("#" + _str_J_MfpSlide))
                 { return }
-                var S = Z.slide = new C.Slide("#" + A, J);
-                D.g_config.Slide = S;
-                M && E.ready(function () { Z._fixPng24() });
-                S.on("beforeSwitch", function (a) {
-                    Z._textAnim(a);
-                    Z._lazyLoad(a)
+                var _slide = _slide2.slide = new _switchable.Slide("#" + _str_J_MfpSlide, _config);
+                _window.g_config.Slide = _slide;
+                _is_ie6 && _kissy.ready(function () { _slide2._fixPng24() });
+                _slide.on("beforeSwitch", function (_event) {
+                    _slide2._textAnim(_event);
+                    _slide2._lazyLoad(_event)
                 });
-                N.on("directSuccess", function (a) { Z._directImg(a.data) });
-                T.show(S.nav);
+                _mfp.on("directSuccess", function (_event) { _slide2._directImg(_event.data) });
+                _dom.show(_slide.nav);
                 //2013-02-19 basilwang remove tanx
                 //E.ready(function () { Z._tanxAd() });
-                ; Z._hoverMask();
-                !O && S.switchTo(parseInt(Math.random() * S.triggers.length))
-            }, _lazyLoad: function (b) {
-                var S = this.slide;
-                var c = S.panels[b.toIndex];
-                var a = E.get("b", c);
-                var Z = E.get("img", a);
-                if (T.hasAttr(c, B) && Z) {
-                    T.css(c, "background-image", "url(" + T.attr(c, B) + ")"); !M && T.attr(Z, "src", T.attr(Z, W));
-                    T.removeAttr(c, B);
-                    T.removeAttr(Z, W)
+                ; _slide2._hoverMask();
+                !_closeSlideAutoPlay && _slide.switchTo(parseInt(Math.random() * _slide.triggers.length))
+            }, _lazyLoad: function (_event) {
+                var _slide = this.slide;
+                var _panel_to_Index = _slide.panels[_event.toIndex];
+                var _b_on_panel_to_Index = _kissy.get("b", _panel_to_Index);
+                var _img_on_panel_to_Index = _kissy.get("img", _b_on_panel_to_Index);
+                if (_dom.hasAttr(_panel_to_Index, _str_data_image) && _img_on_panel_to_Index) {
+                    _dom.css(_panel_to_Index, "background-image", "url(" + _dom.attr(_panel_to_Index, _str_data_image) + ")");
+                    !_is_ie6 && _dom.attr(_img_on_panel_to_Index, "src", _dom.attr(_img_on_panel_to_Index, _str_data_text_src));
+                    _dom.removeAttr(_panel_to_Index, _str_data_image);
+                    _dom.removeAttr(_img_on_panel_to_Index, _str_data_text_src)
                 }
             },
-                _textAnim: function (c) {
-                    var S = this.slide;
-                    var e = S.panels[S.activeIndex];
-                    var d = S.panels[c.toIndex];
-                    var b = E.get("b", e);
-                    var a = E.get("b", d);
-                    var Z = E.get("img", a);
-                    !!b && new E.Anim(b, { top: "-40px", opacity: I ? 1 : 0 }, 0.8, "easeOutStrong").run();
-                    !!a && new E.Anim(a, { top: "-10px", opacity: 1 }, 0.8, "easeOutStrong").run()
+                _textAnim: function (_event) {
+                    var _slide = this.slide;
+                    var _panel_activeIndex = _slide.panels[_slide.activeIndex];
+                    var _panel_to_Index = _slide.panels[_event.toIndex];
+                    var _b_on_panel_activeIndex = _kissy.get("_b_on_panel_activeIndex", _panel_activeIndex);
+                    var _b_on_panel_to_Index = _kissy.get("_b_on_panel_activeIndex", _panel_to_Index);
+                    var _img_on_panel_to_Index = _kissy.get("img", _b_on_panel_to_Index);
+                    !!_b_on_panel_activeIndex && new _kissy.Anim(_b_on_panel_activeIndex, { top: "-40px", opacity: _is_under_ie9 ? 1 : 0 }, 0.8, "easeOutStrong").run();
+                    !!_b_on_panel_to_Index && new _kissy.Anim(_b_on_panel_to_Index, { top: "-10px", opacity: 1 }, 0.8, "easeOutStrong").run()
                 },
                 _directImg: function (a) {
-                    if (!(a && E.isArray(a)))
+                    if (!(a && _kissy.isArray(a)))
                     { return }
-                    var Z = this;
-                    var S = Z.slide;
-                    E.later(function () {
-                            E.each(E.query("." + L, S.content),
-                                function (b) {
-                                    var c = E.get("a", b);
-                                    !E.get("s", c) && T.append(T.create("<s>"), c)
+                    var _slide2 = this;
+                    var _slide = _slide2.slide;
+                    _kissy.later(function () {
+                            _kissy.each(_kissy.query("." + _str_J_DirectPromo, _slide.content),
+                                function (_direct_promo) {
+                                    var _a_on_direct_promo = _kissy.get("a", _direct_promo);
+                                    !_kissy.get("s", _a_on_direct_promo) && _dom.append(_dom.create("<s>"), _a_on_direct_promo)
                                 })
                         },
                         10);
-                    E.each(a,
+                    _kissy.each(a,
                         function (g) {
-                            if (E.inArray(g.id, X)) {
+                            if (_kissy.inArray(g.id, X)) {
                                 var f = g.content.split(";;");
                                 var d = g.link.split(";;");
-                                var b = E.get("." + P + g.id);
+                                var b = _kissy.get("." + _str_j_MSDirect_ + g.id);
                                 if (!(b && V.test(d[0]) && H.test(f[0]) && H.test(f[1]) && R.test(f[3])))
                                 { return }
-                                var e = E.get("a", b);
-                                var c = E.get("img", E.get("b", b));
+                                var e = _kissy.get("a", b);
+                                var c = _kissy.get("img", _kissy.get("b", b));
                                 e.href = d[0];
-                                if (T.hasAttr(b, B)) {
-                                    T.css(b, "background-color", f[3]);
-                                    T.attr(b, B, Z._optimizeImg(f[0]));
-                                    M ? Z._fixPng24(c, f[1]) : T.attr(c, W, f[1])
+                                if (_dom.hasAttr(b, _str_data_image)) {
+                                    _dom.css(b, "background-color", f[3]);
+                                    _dom.attr(b, _str_data_image, _slide2._optimizeImg(f[0]));
+                                    _is_ie6 ? _slide2._fixPng24(c, f[1]) : _dom.attr(c, _str_data_text_src, f[1])
                                 }
                                 else {
-                                    T.css(b, { "background-color": f[3], "background-image": "url(" + Z._optimizeImg(f[0]) + ")" });
-                                    M ? Z._fixPng24(c, f[1]) : c.src = f[1]
+                                    _dom.css(b, { "background-color": f[3], "background-image": "url(" + _slide2._optimizeImg(f[0]) + ")" });
+                                    _is_ie6 ? _slide2._fixPng24(c, f[1]) : c.src = f[1]
                                 }
                             }
                         })
                 },
                 //2013-02-17 basilwang we don't need _tanxAdd
                 _tanxAd: function () {
-                    E.each(K, function (S) {
-                        E.getScript("http://p.tanx.com/ex?i=" + S,
+                    _kissy.each(K, function (S) {
+                        _kissy.getScript("http://p.tanx.com/ex?i=" + S,
                             function () {
-                                var b = E.get("#tanx-a-" + S),
+                                var b = _kissy.get("#tanx-a-" + S),
                                     Z, c, d = 0;
                                 if (!b) { return }
-                                Z = T.parent(b, "li");
-                                E.later(function () {
-                                    c = T.prev(b, "a");
+                                Z = _dom.parent(b, "li");
+                                _kissy.later(function () {
+                                    c = _dom.prev(b, "a");
                                     if (!c && d < 30) { setTimeout(arguments.callee, 100); d++ }
                                     else {
-                                        var a = E.get("img", c);
-                                        var e = E.get("a", Z);
-                                        T.css(Z, "background-image", "url(" + a.src + ")");
-                                        e.href = c.href; T.hide("." + G)
+                                        var a = _kissy.get("img", c);
+                                        var e = _kissy.get("a", Z);
+                                        _dom.css(Z, "background-image", "url(" + a.src + ")");
+                                        e.href = c.href; _dom.hide("." + _str_j_SlideTanxAd)
                                     }
                                 }, 20)
                             })
                     })
                 }
                 , _hoverMask: function () {
-                var S = this;
-                var Z = E.all("." + U, S.slide.container);
-                E.each(Z, function (b) {
-                    var a = E.query("li", b);
-                    Y.on(a, "mouseenter mouseleave", function (f) {
+                var _slide2 = this;
+                var Z = _kissy.all("." + _str_j_MaskBanner, _slide2.slide.container);
+                _kissy.each(Z, function (b) {
+                    var a = _kissy.query("li", b);
+                    _event.on(a, "mouseenter mouseleave", function (f) {
                         var c = this;
                         var d = f.type === "mouseenter" ? 0.3 : 0;
-                        E.each(a, function (e) {
-                            var h, g = E.get("a", e);
-                            if (!(h = E.get("i", g))) {
-                                h = T.create("<i>");
-                                T.append(h, g)
+                        _kissy.each(a, function (e) {
+                            var h, g = _kissy.get("a", e);
+                            if (!(h = _kissy.get("i", g))) {
+                                h = _dom.create("<i>");
+                                _dom.append(h, g)
                             }
-                            if (c === e) { T.css(h, "opacity", 0) }
+                            if (c === e) { _dom.css(h, "opacity", 0) }
                             else {
                                 if (h.timer)
                                 { clearTimeout(h.timer) }
                                 h.timer = setTimeout(function ()
-                                { new E.Anim(h, { opacity: d }, 0.5, "easeOutStrong").run() }, 200)
+                                { new _kissy.Anim(h, { opacity: d }, 0.5, "easeOutStrong").run() }, 200)
                             }
                         })
                     })
                 })
             },
                 _fixPng24: function (Z, a) {
-                    var S = this.slide;
+                    var _slide = this.slide;
                     var b = function (c) {
-                        T.css(c, { filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' + (a || T.attr(c, W) || c.src) + '",enabled="true", sizinMethod="scale");' });
+                        _dom.css(c, { filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' + (a || _dom.attr(c, _str_data_text_src) || c.src) + '",enabled="true", sizinMethod="scale");' });
                         c.src = "http://a.tbcdn.cn/kissy/1.0.0/build/imglazyload/spaceball.gif";
-                        T.show(c)
+                        _dom.show(c)
                     };
-                    Z ? b(Z) : E.each(S.panels, function (d) { var c = E.get("b", d), e; if (c) { if (e = E.get("img", c)) { b(e) } T.show(c) } })
+                    Z ? b(Z) : _kissy.each(_slide.panels, function (d) { var c = _kissy.get("b", d), e; if (c) { if (e = _kissy.get("img", c)) { b(e) } _dom.show(c) } })
                 },
                 _optimizeImg: function (S) {
                     var Z = "_q90.jpg";
@@ -176,25 +177,25 @@ KISSY.add("2012/mods/slide2",function (E, C) {
                 }
                 function b(n) {
                     var o = -336 + (14 + 8) * n;
-                    T.css(Z, { "margin-left": o + "px" })
+                    _dom.css(Z, { "margin-left": o + "px" })
                 }
                 function l() {
                     if (!Z) {
                         var n = '<div class="timer"><span class="gray"></span><span class="mask"><span class="rotator"></span></span></div>';
-                        Z = T.create(n);
-                        T.append(Z, h.container);
-                        Z = E.one(".timer");
-                        k = E.one(".gray");
-                        a = E.one(".rotator");
-                        m = E.one(".mask")
+                        Z = _dom.create(n);
+                        _dom.append(Z, h.container);
+                        Z = _kissy.one(".timer");
+                        k = _kissy.one(".gray");
+                        a = _kissy.one(".rotator");
+                        m = _kissy.one(".mask")
                     } i();
                     h.on("beforeSwitch", function (o) {
                         f();
                         b(o.toIndex);
                         i()
                     });
-                    Y.on(h.container, "mouseenter", function () { g = true; c() });
-                    Y.on(h.container, "mouseleave", function () {
+                    _event.on(h.container, "mouseenter", function () { g = true; c() });
+                    _event.on(h.container, "mouseleave", function () {
                         g = false; if (j) { clearTimeout(j) }
                         j = setTimeout(
                             function ()
@@ -205,5 +206,5 @@ KISSY.add("2012/mods/slide2",function (E, C) {
 
             }
 
-            }); return F
+            }); return Slide2
     }, { requires: ["switchable"]});
