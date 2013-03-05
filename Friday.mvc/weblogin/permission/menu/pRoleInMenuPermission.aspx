@@ -50,7 +50,7 @@
     border: solid 1px #CCC; line-height: 21px; background: #fff">
     <div class="panel" defh="450">
         <h1>
-            功能模块</h1>
+            （<%=Request.Params["roleName"]%>）菜单权限模块</h1>
         <div id="divTree">
         </div>
     </div>

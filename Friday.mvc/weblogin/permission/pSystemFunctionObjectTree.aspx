@@ -46,7 +46,7 @@
 </div>
 <div class="panel" defh="600" style="float:left; display:block; overflow:auto; width:200px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
     <h1>
-        功能模块</h1>
+        （<%=Request.Params["roleName"]%>）功能模块</h1>
     <div id="tree">
     </div>
 </div>
@@ -59,6 +59,7 @@
         var prefix = '<%=Request.Params["prefix"]%>';
         var rawurl = '<%=Request.Path%>';
         var query = '<%=Request.Url.Query%>';
+        var roleName = '<%=Request.Params["roleName"]%>';
         debugger
         var node_click_url = "permission/pSystemFunctionObjectDetail.aspx";
         query = query.replace(/\?/, "&").replace(/uid/i,"rid");
