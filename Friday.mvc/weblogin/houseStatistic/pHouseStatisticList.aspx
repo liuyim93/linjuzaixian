@@ -18,16 +18,16 @@
                <td>                   
                          <p>
                 <label>
-                    准确食品名称：</label>
-                <input type="text" id="House" size="30" class="required textInput gray"
+                    准确房屋名称：</label>
+                <input type="text" id="Commodity" size="30" class="required textInput gray"
                     runat="server" readonly="true"  />
-                 <input type="hidden" id="HouseID"  runat="server" />
-                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=0" rel="" lookupgroup="" style=" float:right">选择食品</a>
+                 <input type="hidden" id="CommodityID"  runat="server" />
+                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=1" rel="" lookupgroup="" style=" float:right">选择房屋</a>
               </p>
                 </td> 
                 <td>
                         <label>
-                            模糊食品名称:</label>
+                            模糊房屋名称:</label>
                         <input id="Name" type="text" name="Name" value="<%=name%>" />
                 </td>
                 <td>
@@ -94,8 +94,8 @@
                           <th width="10%" align="center">销量</th>
                         <th width="10%" align="center">评价次数</th>  
                         <th width="10%" align="center">平均分</th>
-                          <th width="10%" align="center">食物名称</th>
-                       <th width="10%" align="center">所属餐馆</th> <%-- --%>
+                          <th width="10%" align="center">房屋名称</th>
+                       <th width="10%" align="center">所属租房公司</th> <%-- --%>
                 </tr>
                 </thead>
                 <tbody> 
@@ -116,7 +116,7 @@
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ValuingCount")%></td> 
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "AverageValuing")%></td> 
                              <td align="center"><%#DataBinder.Eval(Container.DataItem, "House.Name")%></td>  
-                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "House.Restaurant.Name")%></td>   <%--    --%>                   
+                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "House.Rent.Name")%></td>   <%--    --%>                   
 				</tr>
 			      
             </ItemTemplate>

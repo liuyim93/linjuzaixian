@@ -3853,15 +3853,7 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
                         continue;
                     }
-                    //if (df.type.Equals("FoodType"))
-                    //{
-                    //    if (isSelf)
-                    //    {
-                    //        query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
-                    //    }
-                    //    continue;
-                    //}
-
+                   
                     if (df.type.Equals("GoodsType"))
                     {
                         if (isSelf)
@@ -3870,13 +3862,7 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
-
-                    if (df.type.Equals("MerchantGoodsType_id"))
-                    {
-                        query.Add(Expression.Eq(notself + "MerchantGoodsType_id", df.value));
-                        continue;
-                    }
-
+                   
                     if (df.type.Equals("IsDiscount"))
                     {
                         query.Add(Restrictions.Eq(notself + "IsDiscount", Boolean.Parse(df.value)));

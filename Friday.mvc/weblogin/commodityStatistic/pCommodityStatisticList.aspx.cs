@@ -10,9 +10,9 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.services;
 
-namespace Friday.mvc.weblogin.foodStatistic
+namespace Friday.mvc.weblogin.commodityStatistic
 {
-    public partial class pFoodStatisticList : BasePage
+    public partial class pCommodityStatisticList : BasePage
     {
         protected long total;
         protected int pageNum;
@@ -23,9 +23,9 @@ namespace Friday.mvc.weblogin.foodStatistic
         protected string startDate;
         protected string endDate;
         protected string name;
-        protected string foodName;
+        protected string commodityName;
  
-       IFoodStatisticService iFoodStatisticService = UnityHelper.UnityToT<IFoodStatisticService>();
+       ICommodityStatisticService iCommodityStatisticService = UnityHelper.UnityToT<ICommodityStatisticService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -40,7 +40,7 @@ namespace Friday.mvc.weblogin.foodStatistic
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
-                    List<DataFilter> foodList = new List<DataFilter>();
+                    List<DataFilter> commodityList = new List<DataFilter>();
                     
 
                     if (!string.IsNullOrEmpty(Request.Form["Name"]))
@@ -53,18 +53,18 @@ namespace Friday.mvc.weblogin.foodStatistic
 
                     if (!string.IsNullOrEmpty(this.CommodityID.Value))
                       {
-                          foodList.Add(new DataFilter()
+                          commodityList.Add(new DataFilter()
                         {
-                            type = "Food",
+                            type = "Commodity",
                             value = Request.Form["CommodityID"]
 
                         });
                           filterList.Add(new DataFilter()
                           {
-                              type = "Food",
-                              field = foodList
+                              type = "Commodity",
+                              field = commodityList
                           });
-                          foodName = Request.Form["Commodity"];
+                          commodityName = Request.Form["Commodity"];
                       }                                 
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
@@ -78,9 +78,9 @@ namespace Friday.mvc.weblogin.foodStatistic
                         filterList.Add(filter);
                     }
 
-                    IList<FoodStatistic> foodStatisticList = iFoodStatisticService.Search(filterList, start, limit, out total);
+                    IList<CommodityStatistic> commodityStatisticList = iCommodityStatisticService.Search(filterList, start, limit, out total);
 
-                    repeater.DataSource = foodStatisticList;
+                    repeater.DataSource = commodityStatisticList;
                     repeater.DataBind();
 
                     numPerPage.Value = numPerPageValue.ToString();
@@ -90,7 +90,7 @@ namespace Friday.mvc.weblogin.foodStatistic
             else
             {               
 
-                DeleteFoodStatistic();
+                DeleteCommodityStatistic();
 
             }
 
@@ -99,11 +99,11 @@ namespace Friday.mvc.weblogin.foodStatistic
 
 
 
-        private void DeleteFoodStatistic()
+        private void DeleteCommodityStatistic()
         {
 
 
-            iFoodStatisticService.Delete(Request.Params["uid"]);
+            iCommodityStatisticService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pFoodStatisticList.aspx.cs" Inherits="Friday.mvc.weblogin.foodStatistic.pFoodStatisticList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pCommodityStatisticList.aspx.cs" Inherits="Friday.mvc.weblogin.commodityStatistic.pCommodityStatisticList" %>
 
 
 
@@ -18,16 +18,16 @@
                <td>                   
                          <p>
                 <label>
-                    准确食品名称：</label>
+                    准确房屋名称：</label>
                 <input type="text" id="Commodity" size="30" class="required textInput gray"
                     runat="server" readonly="true"  />
                  <input type="hidden" id="CommodityID"  runat="server" />
-                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=0" rel="" lookupgroup="" style=" float:right">选择食品</a>
+                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=1" rel="" lookupgroup="" style=" float:right">选择房屋</a>
               </p>
                 </td> 
                 <td>
                         <label>
-                            模糊食品名称:</label>
+                            模糊房屋名称:</label>
                         <input id="Name" type="text" name="Name" value="<%=name%>" />
                 </td>
                 <td>
@@ -79,7 +79,7 @@
         <li class="line">line</li>
     </ul>
 </div>
-<div id="foodStatisticList">
+<div id="commodityStatisticList">
     <table class="table" layouth="440">
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
@@ -94,8 +94,8 @@
                           <th width="10%" align="center">销量</th>
                         <th width="10%" align="center">评价次数</th>  
                         <th width="10%" align="center">平均分</th>
-                          <th width="10%" align="center">食物名称</th>
-                       <th width="10%" align="center">所属餐馆</th> <%-- --%>
+                          <th width="10%" align="center">商品名称</th>
+                       <th width="10%" align="center">所属超市</th> <%-- --%>
                 </tr>
                 </thead>
                 <tbody> 
@@ -104,7 +104,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="foodStatistic/pFoodStatisticDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="commodityStatistic/pCommodityStatisticDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Year")%></td>                
@@ -115,8 +115,8 @@
                       <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ValuingCount")%></td> 
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "AverageValuing")%></td> 
-                             <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Name")%></td>  
-                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Food.Restaurant.Name")%></td>   <%--    --%>                   
+                             <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Name")%></td>  
+                     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Shop.Name")%></td>   <%--    --%>                   
 				</tr>
 			      
             </ItemTemplate>
@@ -154,7 +154,7 @@
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             //debugger
-            o.find("#foodStatisticList table:eq(1) tr").click(function (e) {
+            o.find("#commodityStatisticList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
                 }

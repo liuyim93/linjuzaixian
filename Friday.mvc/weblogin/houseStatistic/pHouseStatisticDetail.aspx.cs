@@ -24,7 +24,7 @@ namespace Friday.mvc.weblogin.houseStatistic
             BindingHelper.ObjectToControl(houseStatistic, this);
 
             this.HouseName.Value = houseStatistic.House.Name;
-            this.RestaurantName.Value = houseStatistic.House.Rent.Name;
+            this.RentName.Value = houseStatistic.House.Rent.Name;
 
 
 

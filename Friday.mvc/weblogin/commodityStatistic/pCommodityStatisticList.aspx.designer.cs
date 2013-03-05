@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.houseStatistic {
+namespace Friday.mvc.weblogin.commodityStatistic {
     
     
-    public partial class pHouseStatisticList {
+    public partial class pCommodityStatisticList {
         
         /// <summary>
         /// form 控件。

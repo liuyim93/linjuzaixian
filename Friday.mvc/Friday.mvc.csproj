@@ -166,6 +166,20 @@
     <Compile Include="weblogin\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="weblogin\commodityStatistic\pCommodityStatisticDetail.aspx.cs">
+      <DependentUpon>pCommodityStatisticDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\commodityStatistic\pCommodityStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pCommodityStatisticDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\commodityStatistic\pCommodityStatisticList.aspx.cs">
+      <DependentUpon>pCommodityStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\commodityStatistic\pCommodityStatisticList.aspx.designer.cs">
+      <DependentUpon>pCommodityStatisticList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\commodity\pAddCommodity.aspx.cs">
       <DependentUpon>pAddCommodity.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1363,6 +1377,8 @@
     <Content Include="weblogin\chart\test\hbarchart.html" />
     <Content Include="weblogin\chart\test\linechart.html" />
     <Content Include="weblogin\chart\test\piechart.html" />
+    <Content Include="weblogin\commodityStatistic\pCommodityStatisticDetail.aspx" />
+    <Content Include="weblogin\commodityStatistic\pCommodityStatisticList.aspx" />
     <Content Include="weblogin\commodity\pAddCommodity.aspx" />
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />

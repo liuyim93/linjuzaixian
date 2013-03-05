@@ -51,12 +51,12 @@ namespace Friday.mvc.weblogin.houseStatistic
 
                         });
 
-                    if (!string.IsNullOrEmpty(this.HouseID.Value))
+                    if (!string.IsNullOrEmpty(this.CommodityID.Value))
                       {
                           houseList.Add(new DataFilter()
                         {
                             type = "House",
-                            value = Request.Form["HouseID"]
+                            value = Request.Form["CommodityID"]
 
                         });
                           filterList.Add(new DataFilter()
@@ -64,7 +64,7 @@ namespace Friday.mvc.weblogin.houseStatistic
                               type = "House",
                               field = houseList
                           });
-                        houseName = Request.Form["House"];
+                          houseName = Request.Form["Commodity"];
                       }                                 
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))

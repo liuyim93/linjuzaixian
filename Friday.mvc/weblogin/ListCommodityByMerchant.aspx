@@ -73,7 +73,7 @@
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
                      <td>
-					<a class="btnSelect" href=javascript:$.bringBack({FoodID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',Food:'<%#DataBinder.Eval(Container.DataItem,"Name")%>',Amount:'',Price:'',OnePrice:'<%#DataBinder.Eval(Container.DataItem,"Price")%>'}) title="查找带回">选择</a>
+					<a class="btnSelect" href=javascript:$.bringBack({CommodityID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',Commodity:'<%#DataBinder.Eval(Container.DataItem,"Name")%>',Amount:'',Price:'',OnePrice:'<%#DataBinder.Eval(Container.DataItem,"Price")%>'}) title="查找带回">选择</a>
 				</td>				
 		        </tr>
             </ItemTemplate>

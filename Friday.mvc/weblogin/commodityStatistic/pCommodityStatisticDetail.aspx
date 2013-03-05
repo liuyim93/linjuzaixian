@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pHouseStatisticDetail.aspx.cs" Inherits="Friday.mvc.weblogin.houseStatistic.pHouseStatisticDetail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pCommodityStatisticDetail.aspx.cs" Inherits="Friday.mvc.weblogin.commodityStatistic.pCommodityStatisticDetail" %>
 
 
 
@@ -17,13 +17,13 @@
              <input type="hidden" id="Hidden1" size="30" runat="server" />
             <p>
                 <label>
-                    房屋名称：</label>
-                <input type="text" id="HouseName" size="30" class="required textInput gray" runat="server" />
+                    商品品名称：</label>
+                <input type="text" id="CommodityName" size="30" class="required textInput gray" runat="server" />
             </p>
              <p>
                 <label>
-                    所属公司：</label>
-                <input type="text" id="RentName" size="30" class="required textInput gray" runat="server" />
+                    所属商店：</label>
+                <input type="text" id="ShopName" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>
