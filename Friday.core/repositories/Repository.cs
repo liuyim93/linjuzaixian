@@ -2948,58 +2948,51 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
-        protected ICriteria SearchByFood(ICriteria query, List<DataFilter> termList, bool isSelf, List<Restaurant> restaurantList)
+        protected ICriteria SearchByFood(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
-            IRestaurantRepository iRestaurantRepository = UnityHelper.UnityToT<IRestaurantRepository>();
+            return SearchByFood(query, termList);
+        }
+        protected ICriteria SearchByFood(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByFood(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByFood(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
-            {
-                query.CreateAlias("Food", "food");
-                notself = "food.";
-            }
 
-            if (restaurantList != null && restaurantList.Count != 0)
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.Add(Restrictions.In(notself + "Restaurant", restaurantList));
+                notself = "food.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Food";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".Food";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "food");
             }
-            if (termList != null && termList.Count != 0)
+            deepIndex++;
+            if (termList.Count != 0)
             {
 
                 foreach (DataFilter df in termList)
                 {
-
-                    if (df.type.Equals("Restaurant"))
+                    if (df.type.Equals("IsDelete"))
                     {
-                        if (!string.IsNullOrEmpty(df.value))
-                        {
-                            query.Add(Restrictions.Eq(notself + "Restaurant", iRestaurantRepository.Get(df.value)));
-                        }
-
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            SearchByRestaurant(query, df.field, false);
-                        }
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
                         continue;
                     }
-
-                    if (df.type.Equals("Order"))
+                    if (df.type.Equals("Restaurant"))
                     {
-                        if (df.field != null && df.field.Count != 0)
-                        {
-                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
-                            foreach (DataFilter indf in df.field)
-                            {
-                                //2013-02-17 basilwang we need set comparison to lower
-                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.ToLower().Equals("desc"))
-                                {
-                                    query.AddOrder(NHibernate.Criterion.Order.Desc(notself + indf.type));
-                                }
-                                else
-                                {
-                                    query.AddOrder(NHibernate.Criterion.Order.Asc(notself + indf.type));
-                                }
-                            }
-                        }
+                            SearchByRestaurant(query, df.field, false);
                         continue;
                     }
 
@@ -3008,27 +3001,10 @@ namespace friday.core.repositories
                         query.Add(Restrictions.Like(notself + "Name", df.value, MatchMode.Anywhere));
                         continue;
                     }
-                    //if (df.type.Equals("FoodType"))
-                    //{
-                    //    if (isSelf)
-                    //    {
-                    //        query.CreateAlias("FoodType", "foodType").Add(Restrictions.Eq("foodType.FoodType", df.value));//不支持嵌套
-                    //    }
-                    //    continue;
-                    //}
 
-                    if (df.type.Equals("GoodsType"))
+                    if (df.type.Equals("Remarks"))
                     {
-                        if (isSelf)
-                        {
-                            query.CreateAlias("MerchantGoodsType", "merchantGoodsType").Add(Restrictions.Eq("merchantGoodsType.Id", df.value));//不支持嵌套
-                        }
-                        continue;
-                    }
-                    
-                    if (df.type.Equals("MerchantGoodsType_id"))
-                    {
-                        query.Add(Expression.Eq(notself + "MerchantGoodsType_id", df.value));
+                        query.Add(Restrictions.Like(notself + "Remarks", df.value, MatchMode.Anywhere));
                         continue;
                     }
 
@@ -3046,12 +3022,6 @@ namespace friday.core.repositories
                     {
                         query.Add(Restrictions.Eq(notself + "IsLimited", Boolean.Parse(df.value)));
                         continue;
-                    }
-
-
-                    if (df.type.Equals("IsDelete"))
-                    {
-                        query.Add(Expression.Eq(notself + "IsDelete", false));
                     }
                     if (df.type.Equals("Image"))
                     {
@@ -3093,6 +3063,11 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
+                    if (df.type.Equals("Description"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Description", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
                     if (df.type.Equals("MonthAmount"))
                     {
                         Int32 value = Int32.Parse(df.value);
@@ -3126,11 +3101,35 @@ namespace friday.core.repositories
                         SearchByCreateTime(query, df, notself);
                         continue;
                     }
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                //2013-02-17 basilwang we need set comparison to lower
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.ToLower().Equals("desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(notself + indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(notself + indf.type));
+                                }
+                            }
+                        }
+                        continue;
+                    }
+
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
+        
         protected ICriteria SearchBySystemRole(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchBySystemRole(query, termList);

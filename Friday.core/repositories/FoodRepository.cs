@@ -20,11 +20,11 @@ namespace friday.core.repositories
         //对外获取方法
         public IList<Food> Search(List<DataFilter> termList)
         {
-            return SearchByFood(Query, termList, true,null).List<Food>();
+            return SearchByFood(Query, termList).List<Food>();
         }
         public IList<Food> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
-            ICriteria query = SearchByFood(Query, termList, true,null);
+            ICriteria query = SearchByFood(Query, termList);
             ICriteria countCriteria = CriteriaTransformer.Clone(query)
             .SetProjection(NHibernate.Criterion.Projections.RowCountInt64());
 
@@ -34,12 +34,6 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<Food>();
         }
-        public IList<Food> Search(List<DataFilter> termList, List<Restaurant> restaurantList, int start, int limit)
-        {
-            return SearchByFood(Query, termList, true, restaurantList)
-                .SetFirstResult(start)
-                .SetMaxResults(limit)
-                .List<Food>();
-        }
+   
     }
 }
