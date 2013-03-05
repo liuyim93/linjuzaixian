@@ -2992,7 +2992,7 @@ namespace friday.core.repositories
                     }
                     if (df.type.Equals("Restaurant"))
                     {
-                            SearchByRestaurant(query, df.field, false);
+                            SearchByRestaurant(query, df.field, ref deepIndex, ref parentSearch);
                         continue;
                     }
 

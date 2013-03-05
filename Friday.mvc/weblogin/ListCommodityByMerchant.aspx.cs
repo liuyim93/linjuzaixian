@@ -17,6 +17,7 @@ namespace Friday.mvc.weblogin
         protected int pageNum;
         protected int numPerPageValue;
         protected string merchantType;
+        protected string merchtId;
 
         protected string name;
         protected string startprice;
@@ -30,28 +31,43 @@ namespace Friday.mvc.weblogin
             int limit = numPerPageValue;
 
             IRepository<Restaurant> repoRestaurant = UnityHelper.UnityToT<IRepository<Restaurant>>();
+
+            IRepository<Merchant> repoMerchant = UnityHelper.UnityToT<IRepository<Merchant>>();
             IFoodRepository repoFood = UnityHelper.UnityToT<IFoodRepository>();
 
             IList<Food> foods = new List<Food>();
 
-           
-
-            if (Request.Form["MerchantType"] != null)
-            {
-                this.merchantType = Request.Form["MerchantType"];
-            }
-            
-
             List<DataFilter> dfl = new List<DataFilter>();
-           
+            List<DataFilter> merchantDfl = new List<DataFilter>();
 
             if (!string.IsNullOrEmpty(Request.Form["Name"]))
+            { 
                 dfl.Add(new DataFilter()
                 {
                     type = "Name",
                     value = name = Request.Form["Name"]
 
                 });
+             }
+
+            if (!string.IsNullOrEmpty(this.MerchantID.Value))
+            {
+                merchtId = this.MerchantID.Value;
+                merchantType = Convert.ToString((int)repoMerchant.Load(merchtId).MerchantType);
+              if(merchantType=="0")
+               {              
+                merchantDfl.Add(new DataFilter()
+                {
+                    type = "Restaurant",
+                    value = merchtId
+                });
+                dfl.Add(new DataFilter()
+                {
+                    type = "Restaurant",
+                    field = merchantDfl
+                });
+              }
+            } 
 
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];

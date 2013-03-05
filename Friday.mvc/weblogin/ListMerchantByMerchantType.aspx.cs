@@ -29,8 +29,8 @@ namespace Friday.mvc.weblogin
 
             IMerchantRepository repoMerchant = UnityHelper.UnityToT<IMerchantRepository>();
             IList<Merchant> merchants = new List<Merchant>();
+
             List<DataFilter> dfl = new List<DataFilter>();
-            //List<DataFilter> merchantCategoryFilter = new List<DataFilter>();
 
             dfl.Add(new DataFilter() { type = "IsDelete" });
 
@@ -64,8 +64,6 @@ namespace Friday.mvc.weblogin
                     value = owener = Request.Form["Owener"]
 
                 });
-
-            //dfl.Add(new DataFilter() { type = "MerchantCategory", field = merchantCategoryFilter });
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
