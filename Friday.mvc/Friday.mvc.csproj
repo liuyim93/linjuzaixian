@@ -648,6 +648,20 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\restaurantStatistic\pRestaurantStatisticDetail.aspx.cs">
+      <DependentUpon>pRestaurantStatisticDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurantStatistic\pRestaurantStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pRestaurantStatisticDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurantStatistic\pRestaurantStatisticList.aspx.cs">
+      <DependentUpon>pRestaurantStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurantStatistic\pRestaurantStatisticList.aspx.designer.cs">
+      <DependentUpon>pRestaurantStatisticList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\roleMenu\pAddMenuButton.aspx.cs">
       <DependentUpon>pAddMenuButton.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1504,6 +1518,8 @@
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
+    <Content Include="weblogin\restaurantStatistic\pRestaurantStatisticDetail.aspx" />
+    <Content Include="weblogin\restaurantStatistic\pRestaurantStatisticList.aspx" />
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />

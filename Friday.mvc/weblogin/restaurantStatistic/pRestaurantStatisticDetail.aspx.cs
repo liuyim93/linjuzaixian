@@ -23,8 +23,7 @@ namespace Friday.mvc.weblogin.restaurantStatistic
             restaurantStatistic = iRestaurantStatisticService.Load(uid);
             BindingHelper.ObjectToControl(restaurantStatistic, this);
 
-            this.RestaurantName.Value = restaurantStatistic.Restaurant.Name;
-            this.RestaurantName.Value = restaurantStatistic.Restaurant.Restaurant.Name;
+            this.Name.Value = restaurantStatistic.Restaurant.Name;
 
 
 

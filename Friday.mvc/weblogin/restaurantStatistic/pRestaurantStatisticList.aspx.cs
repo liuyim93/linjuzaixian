@@ -39,15 +39,13 @@ namespace Friday.mvc.weblogin.restaurantStatistic
                     int start = (pageNum - 1) * numPerPageValue;
                     int limit = numPerPageValue;
 
-                    List<DataFilter> filterList = new List<DataFilter>();
-                    List<DataFilter> restaurantList = new List<DataFilter>();
-                    
+                    List<DataFilter> filterList = new List<DataFilter>();                   
 
-                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                    if (!string.IsNullOrEmpty(this.MerchantID.Value))
                         filterList.Add(new DataFilter()
                         {
-                            type = "Name",
-                            value = name = Request.Form["Name"]
+                            type = "Restaurant",
+                            value = this.MerchantID.Value
 
                         });
                           
