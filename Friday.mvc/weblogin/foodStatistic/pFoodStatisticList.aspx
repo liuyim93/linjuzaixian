@@ -16,28 +16,7 @@
         <table class="searchContent">
            <tr>
                <td>                   
-                        <p>
-                <label>
-                    商铺名称：</label>
-                <input type="text" id="Merchant" size="30" class="required textInput gray"
-                    runat="server" readonly="true" />
-                 <input type="hidden" id="MerchantID"  runat="server" />
-                <a class="btnLook" href="ListMerchantByMerchantType.aspx?MerchantType=餐馆" rel="" lookupgroup="">选择商铺</a>
-            </p>
-                </td> 
-                <td>
-                      <p>
-                <label>
-                    食品名称：</label>
-                <input type="text" id="Food" size="30" class="required textInput gray"
-                    runat="server" readonly="true" />
-                 <input type="hidden" id="FoodID"  runat="server" />
-                <a class="btnLook" href="ListFoodByRestaurant.aspx?restaurant_id=<%=Request.Params["restaurant_id"]%>" rel="" lookupgroup="">选择食品</a>
-            </p>
-                    
-                </td>
-                <td>
-                      <p>
+                            <p>
                 <label>
                     食品名称：</label>
                 <input type="text" id="FoodRest" size="30" class="required textInput gray"
@@ -45,6 +24,19 @@
                  <input type="hidden" id="FoodRestID"  runat="server" />
                 <a class="btnLook" href="ListFoodInRestaurant.aspx" rel="" lookupgroup="">选择食品</a>
             </p>
+                </td> 
+                <td>
+                          <p>
+                <label>
+                    商品名称：</label>
+                <input type="text" id="Food" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                 <input type="hidden" id="FoodID"  runat="server" />
+                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=餐馆" rel="" lookupgroup="">选择商品</a>
+            </p>
+                </td>
+                <td>
+                
                 </td>
             
             </tr>
