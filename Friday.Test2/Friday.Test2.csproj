@@ -81,6 +81,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
@@ -101,7 +102,7 @@
     <Compile Include="PopulateRealPermissionDataTest.cs" />
     <Compile Include="Test_Shop.cs" />
     <Compile Include="Test_SchoolOfMerchant.cs" />
-    <Compile Include="Test_SystemFunctionObject.cs" />
+    <Compile Include="Test_Permission.cs" />
     <Compile Include="User_Service_Test.cs" />
     <Compile Include="Test_Activity.cs" />
     <Compile Include="Test_MerchantCategory.cs" />

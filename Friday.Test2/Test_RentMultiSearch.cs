@@ -8,12 +8,25 @@ using friday.core;
 using friday.core.EnumType;
 using friday.core.components;
 using System.Linq;
+using System.Transactions;
 
 namespace Friday.Test2
 {
     [TestFixture]
     public class Test_RentMultiSearch
     {
+        private TransactionScope scope;
+        [SetUp]
+        public void SetUp()
+        {
+            scope = new TransactionScope();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            scope.Dispose();
+        }
         [Test]
         public void Test()
         {

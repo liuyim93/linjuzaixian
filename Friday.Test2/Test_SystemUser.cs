@@ -6,12 +6,25 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.EnumType;
+using System.Transactions;
 
 namespace Friday.Test2
 {
     [TestFixture]
     public class Test_SystemUser
     {
+        private TransactionScope scope;
+        [SetUp]
+        public void SetUp()
+        {
+            scope = new TransactionScope();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            scope.Dispose();
+        }
         [Test]
         public void Test()
         {

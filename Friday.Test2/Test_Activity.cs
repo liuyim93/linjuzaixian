@@ -5,12 +5,25 @@ using NUnit.Framework;
 using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using System.Transactions;
 
 namespace Friday.Test2
 {
     [TestFixture]
     public class Test_Activity
     {
+        private TransactionScope scope;
+        [SetUp]
+        public void SetUp()
+        {
+            scope = new TransactionScope();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            scope.Dispose();
+        }
         [Test]
         public void Test()
         {
