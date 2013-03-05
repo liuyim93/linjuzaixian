@@ -16,6 +16,7 @@ namespace Friday.mvc.weblogin
         protected long total;
         protected int pageNum;
         protected int numPerPageValue;
+        protected string merchantType;
 
         protected string name;
         protected string startprice;
@@ -33,19 +34,16 @@ namespace Friday.mvc.weblogin
 
             IList<Food> foods = new List<Food>();
 
-            string merchantType;
+           
 
             if (Request.Form["MerchantType"] != null)
             {
-                merchantType = Request.Form["MerchantType"];
+                this.merchantType = Request.Form["MerchantType"];
             }
             
 
             List<DataFilter> dfl = new List<DataFilter>();
-            if (!string.IsNullOrEmpty(restaurant_id))
-            {
-                dfl.Add(new DataFilter() { type = "Restaurant", value = restaurant_id });
-            }
+           
 
             if (!string.IsNullOrEmpty(Request.Form["Name"]))
                 dfl.Add(new DataFilter()

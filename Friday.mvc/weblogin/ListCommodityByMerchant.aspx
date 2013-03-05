@@ -13,7 +13,14 @@
         <table class="searchContent">
              <tr>
                 <td>
-                    
+                     <p>
+                <label>
+                    商铺名称：</label>
+                <input type="text" id="Merchant" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                 <input type="hidden" id="MerchantID"  runat="server" />
+                <a class="btnLook" href="ListMerchantByMerchantType.aspx?MerchantType=<%=Request.Params["MerchantType"]%>" rel="" lookupgroup="">选择商铺</a>
+            </p>
                 </td>
                 <td>
                     <label>商品名称:</label>

@@ -1082,6 +1082,7 @@
     <Compile Include="weblogin\ListSystemRole.aspx.designer.cs">
       <DependentUpon>ListSystemRole.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="weblogin\ListFoodInRestaurant.aspx.cs">
       <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1089,13 +1090,20 @@
     <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
       <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
+    </Compile>
+=======
+>>>>>>> Delay Value  Through Two Dialog
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.designer.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.cs">
       <DependentUpon>pEditValuingComments.aspx</DependentUpon>
@@ -1257,14 +1265,6 @@
     </Compile>
     <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyHouseOrderList.aspx</DependentUpon>
-=======
-    <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
-      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
-      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
->>>>>>> Update
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -2297,7 +2297,6 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
-    <Content Include="weblogin\ListFoodInRestaurant.aspx" />
     <Content Include="weblogin\ListCommodityByMerchant.aspx" />
   </ItemGroup>
   <ItemGroup>

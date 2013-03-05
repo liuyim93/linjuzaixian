@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin
 
         protected string name;
         protected string owener;
+        protected string merchantType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,13 +34,21 @@ namespace Friday.mvc.weblogin
 
             dfl.Add(new DataFilter() { type = "IsDelete" });
 
-            dfl.Add(new DataFilter()
+            if (Request.Form["MerchantType"] != null)
             {
-                type = "MerchantType",
-                value = Request.Params["MerchantType"]
+                merchantType = Request.Form["MerchantType"];
+            }
+            else
+            {
+                merchantType = Request.Params["MerchantType"];
+            }
 
-            });
-
+                dfl.Add(new DataFilter()
+                 {
+                     type = "MerchantType",
+                     value = merchantType
+                 });
+           
             if (!string.IsNullOrEmpty(Request.Form["Name"]))
                 dfl.Add(new DataFilter()
                 {
