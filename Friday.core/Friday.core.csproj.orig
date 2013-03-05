@@ -150,8 +150,13 @@
     <Compile Include="repositories\ValuingOfMyCommodityOrderRepository.cs" />
     <Compile Include="repositories\HouseStatisticRepository.cs" />
     <Compile Include="repositories\IHouseStatisticRepository.cs" />
+<<<<<<< HEAD
     <Compile Include="repositories\ValuingOfMyFoodOrderRepository.cs" />
     <Compile Include="repositories\ValuingOfMyHouseOrderRepository.cs" />
+=======
+    <Compile Include="repositories\ICommodityStatisticRepository.cs" />
+    <Compile Include="repositories\CommodityStatisticRepository.cs" />
+>>>>>>> Add  Service
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -443,15 +448,17 @@
     <Compile Include="services\IOrderOfCommodityService.cs" />
     <Compile Include="services\FoodStatisticService.cs" />
     <Compile Include="services\IFoodStatisticService.cs" />
-<<<<<<< HEAD
     <Compile Include="services\ValuingCommentsService.cs" />
     <Compile Include="services\ValuingOfMyCommodityOrderService.cs" />
+    <Compile Include="services\HouseStatisticService.cs" />
+    <Compile Include="services\IHouseStatisticService.cs" />
+<<<<<<< HEAD
     <Compile Include="services\ValuingOfMyFoodOrderService.cs" />
     <Compile Include="services\ValuingOfMyHouseOrderService.cs" />
 =======
-    <Compile Include="services\HouseStatisticService.cs" />
-    <Compile Include="services\IHouseStatisticService.cs" />
->>>>>>> Add  HouseStatisticService
+    <Compile Include="services\CommodityStatisticService.cs" />
+    <Compile Include="services\ICommodityStatisticService.cs" />
+>>>>>>> Add  Service
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

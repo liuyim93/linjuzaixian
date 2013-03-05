@@ -152,6 +152,8 @@
     <Compile Include="repositories\IHouseStatisticRepository.cs" />
     <Compile Include="repositories\ValuingOfMyFoodOrderRepository.cs" />
     <Compile Include="repositories\ValuingOfMyHouseOrderRepository.cs" />
+    <Compile Include="repositories\ICommodityStatisticRepository.cs" />
+    <Compile Include="repositories\CommodityStatisticRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -449,6 +451,8 @@
     <Compile Include="services\IHouseStatisticService.cs" />
     <Compile Include="services\ValuingOfMyFoodOrderService.cs" />
     <Compile Include="services\ValuingOfMyHouseOrderService.cs" />
+    <Compile Include="services\CommodityStatisticService.cs" />
+    <Compile Include="services\ICommodityStatisticService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
