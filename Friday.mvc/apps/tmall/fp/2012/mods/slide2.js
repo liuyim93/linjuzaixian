@@ -126,22 +126,22 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                 var _slide2 = this;
                 var _node_ul_class_j_MaskBanner = _kissy.all("." + _str_j_MaskBanner, _slide2.slide.container);
                 _kissy.each(_node_ul_class_j_MaskBanner, function (_node) {
-                    var _li = _kissy.query("li", _node);
-                    _event.on(_li, "mouseenter mouseleave", function (_event) {
-                        var c = this;
-                        var d = _event.type === "mouseenter" ? 0.3 : 0;
-                        _kissy.each(_li, function (e) {
-                            var h, g = _kissy.get("_li", e);
-                            if (!(h = _kissy.get("i", g))) {
-                                h = _dom.create("<i>");
-                                _dom.append(h, g)
+                    var _lis = _kissy.query("li", _node);
+                    _event.on(_lis, "mouseenter mouseleave", function (f) {
+                        var _li_mouse_related = this;
+                        var _opacity = f.type === "mouseenter" ? 0.3 : 0;
+                        _kissy.each(_lis, function (_li) {
+                            var _dom_i_on_a, _dom_a_on_li = _kissy.get("a", _li);
+                            if (!(_dom_i_on_a = _kissy.get("i", _dom_a_on_li))) {
+                                _dom_i_on_a = _dom.create("<i>");
+                                _dom.append(_dom_i_on_a, _dom_a_on_li)
                             }
-                            if (c === e) { _dom.css(h, "opacity", 0) }
+                            if (_li_mouse_related === _li) { _dom.css(_dom_i_on_a, "opacity", 0) }
                             else {
-                                if (h.timer)
-                                { clearTimeout(h.timer) }
-                                h.timer = setTimeout(function ()
-                                { new _kissy.Anim(h, { opacity: d }, 0.5, "easeOutStrong").run() }, 200)
+                                if (_dom_i_on_a.timer)
+                                { clearTimeout(_dom_i_on_a.timer) }
+                                _dom_i_on_a.timer = setTimeout(function ()
+                                { new _kissy.Anim(_dom_i_on_a, { opacity: _opacity }, 0.5, "easeOutStrong").run() }, 200)
                             }
                         })
                     })

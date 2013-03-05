@@ -6,9 +6,9 @@
  * To change this template use File | Settings | File Templates.
  */
 /*pub-1|2013-01-15 17:19:40*/
-KISSY.add("2012/mods/direct-promo",function (E, O) {
-        var E = KISSY,
-            Q = E.DOM,
+KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
+        var _kissy = KISSY,
+            Q = _kissy.DOM,
             N = "http://delta.taobao.com/home/delivery/AllContentByPage.do?resourceIds=",
             G = "J_DirectPromo",
             H = "J_DirectPromo_",
@@ -25,16 +25,16 @@ KISSY.add("2012/mods/direct-promo",function (E, O) {
             var R = U.length, T;
             while (R--) {
                 T = U[R];
-                if (!E.inArray(T, S))
+                if (!_kissy.inArray(T, S))
                 { S.push(T) }
             }
             return S
         }
         var K = { init: function (U) {
-            var R = E.query("." + G),
+            var R = _kissy.query("." + G),
                 S = [],
                 T; if (!R || R.length === 0) { return }
-            E.each(R, function (V) {
+            _kissy.each(R, function (V) {
                 T = V.getAttribute("data-resid");
                 if (T) { S.push(T); M[T] = V }
             });
@@ -45,11 +45,11 @@ KISSY.add("2012/mods/direct-promo",function (E, O) {
                 var U = this;
                 var R = N + W.join(",") + "&t=" + +new Date;
                 var X = window.location.href.split("?")[1] || "";
-                var S = E.unparam(X);
+                var S = _kissy.unparam(X);
                 if (S && S.preview && S.preview == "preview") {
                     R += "&preview=preview"
                 }
-                E.getScript(R, function () {
+                _kissy.getScript(R, function () {
                     var Y = J[F], a, Z = 0; if (!Y || Y.length === 0) { return }
                     if (V && V > 0) {
                         for (; Z < V; Z++) {
@@ -66,15 +66,15 @@ KISSY.add("2012/mods/direct-promo",function (E, O) {
             }, render: function (T) {
                 var S = P.length, U, R, V; while (S--) {
                     U = P[S]; V = U.id;
-                    if (!M[V]) { R = E.get("#" + (V === T ? L : H + V)); if (R) { M[V] = R } else { continue } } P.splice(S, 1); this._fill(U)
+                    if (!M[V]) { R = _kissy.get("#" + (V === T ? L : H + V)); if (R) { M[V] = R } else { continue } } P.splice(S, 1); this._fill(U)
                 }
             }, detect: function (S) {
                 var R = 100, V = 50, U = 0, T = this; if (D) { return } D = true;
                 (function () {
-                    var X, W; E.each(P, function (Z, Y) {
+                    var X, W; _kissy.each(P, function (Z, Y) {
                             X = Z.id;
                             if (!M[X]) {
-                                W = E.get("#" + (X === S ? L : H + X));
+                                W = _kissy.get("#" + (X === S ? L : H + X));
                                 if (W) { M[X] = W }
                             }
                             if (M[X]) {
@@ -109,10 +109,10 @@ KISSY.add("2012/mods/direct-promo",function (E, O) {
                             else {
                                 if (W.id == 396) {
                                     var T = Q.create(V);
-                                    if (E.get("#J_Category")) {
+                                    if (_kissy.get("#J_Category")) {
                                         Q.attr("#J_Category", "data-spm", Q.attr(T, "data-spm"));
-                                        E.one("#j_Menu").html(E.one("#j_Menu", T).html());
-                                        E.use("2012/mods/category", function (X, Y) {
+                                        _kissy.one("#j_Menu").html(_kissy.one("#j_Menu", T).html());
+                                        _kissy.use("2012/mods/category", function (X, Y) {
                                             new Y("#J_Category",
                                                 { viewId: "#J_SubCategory", subViews: ".j_SubView", triggers: ".j_MenuItem", bottomCl: ".j_BottomMenu", dataUrl: "http://" + location.host + "/go/rgn/mfp2012/all-cat-asyn.php"
                                                 })
