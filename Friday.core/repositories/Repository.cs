@@ -4523,6 +4523,42 @@ namespace friday.core.repositories
             }
             return query;
         }
+        protected ICriteria SearchByRestaurantStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("RestaurantStatistic", "restaurantStatistic");
+                notself = "restaurantStatistic.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("RestaurantStatistic"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        continue;
+                    }
+                    
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            return query;
+        }
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
         {
             DateTime value = DateTime.Parse(df.value);
