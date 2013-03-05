@@ -298,6 +298,20 @@
     <Compile Include="weblogin\food\pFoodList.aspx.designer.cs">
       <DependentUpon>pFoodList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\houseStatistic\pHouseStatisticDetail.aspx.cs">
+      <DependentUpon>pHouseStatisticDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\houseStatistic\pHouseStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pHouseStatisticDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\houseStatistic\pHouseStatisticList.aspx.cs">
+      <DependentUpon>pHouseStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\houseStatistic\pHouseStatisticList.aspx.designer.cs">
+      <DependentUpon>pHouseStatisticList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\house\pAddHouse.aspx.cs">
       <DependentUpon>pAddHouse.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1366,6 +1380,8 @@
     <Content Include="weblogin\food\pFoodList.aspx" />
     <Content Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
+    <Content Include="weblogin\houseStatistic\pHouseStatisticDetail.aspx" />
+    <Content Include="weblogin\houseStatistic\pHouseStatisticList.aspx" />
     <Content Include="weblogin\house\pAddHouse.aspx" />
     <Content Include="weblogin\house\pEditHouse.aspx" />
     <Content Include="weblogin\house\pHouseList.aspx" />
