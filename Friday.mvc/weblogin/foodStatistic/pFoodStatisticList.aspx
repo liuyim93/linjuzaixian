@@ -22,8 +22,8 @@
                 <input type="text" id="Food" size="30" class="required textInput gray"
                     runat="server" readonly="true" />
                  <input type="hidden" id="FoodID"  runat="server" />
-                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=0" rel="" lookupgroup="">选择食品</a>
-            </p>   
+                <a class="btnLook" href="ListCommodityByMerchant.aspx?MerchantType=0" rel="" lookupgroup="" style=" float:right">选择食品</a>
+              </p>
                 </td> 
                 <td>
                         
