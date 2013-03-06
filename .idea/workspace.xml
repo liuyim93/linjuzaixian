@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="" />
+    <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/bin/Newtonsoft.Json.dll" afterPath="$PROJECT_DIR$/Friday.mvc/bin/Newtonsoft.Json.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.core/repositories/MerchantCategoryRepository.cs" afterPath="$PROJECT_DIR$/Friday.core/repositories/MerchantCategoryRepository.cs" />
+    </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />

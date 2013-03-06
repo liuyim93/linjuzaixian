@@ -46,7 +46,7 @@ namespace friday.core.repositories
         }
         public IList<MerchantCategory> SearchByMerchantType(MerchantTypeEnum type)
         {
-            var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantType == type && o.IsDelete == false).ToList() ;
+            var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantType == type && o.IsDelete == false).OrderBy(o=>o.EntityIndex).ToList() ;
             return m;
         }
 
