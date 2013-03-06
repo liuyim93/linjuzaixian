@@ -991,6 +991,13 @@
     <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>pAddValuingItemOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pEditValuingItemOfMyCommodityOrder.aspx.cs">
+      <DependentUpon>pEditValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pEditValuingItemOfMyCommodityOrder.aspx.designer.cs">
+      <DependentUpon>pEditValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx.cs">
       <DependentUpon>pValuingItemOfMyCommodityOrderList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1705,6 +1712,7 @@
     <Content Include="weblogin\users\nSystemUserList.aspx" />
     <Content Include="weblogin\login.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx" />
+    <Content Include="weblogin\valuingItemOfMyCommodityOrder\pEditValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
