@@ -4611,6 +4611,94 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchByRentStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByRentStatistic(query, termList);
+        }
+        protected ICriteria SearchByRentStatistic(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByRentStatistic(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByRentStatistic(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "rentStatistic.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "RentStatistic";
+
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".RentStatistic";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "rentStatistic");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Rent"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByRent(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected void SearchByCreateTime(ICriteria query, DataFilter df, string notself)
         {
             DateTime value = DateTime.Parse(df.value);
