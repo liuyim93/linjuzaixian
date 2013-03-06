@@ -358,6 +358,13 @@
     <Compile Include="weblogin\ListSystemUser.aspx.designer.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.cs">
+      <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
+      <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\loginUser\pLoginUserDetail.aspx.cs">
       <DependentUpon>pLoginUserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -605,6 +612,13 @@
     </Compile>
     <Compile Include="weblogin\roleMenu\pMenuButtonList.aspx.designer.cs">
       <DependentUpon>pMenuButtonList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx.cs">
+      <DependentUpon>pScoreOfItemInCommodityOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx.designer.cs">
+      <DependentUpon>pScoreOfItemInCommodityOrderList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
@@ -1068,6 +1082,13 @@
     <Compile Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>pEditValuingOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderDetail.aspx.cs">
+      <DependentUpon>pValuingOfMyCommodityOrderDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderDetail.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyCommodityOrderDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx.cs">
       <DependentUpon>pValuingOfMyCommodityOrderList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1255,6 +1276,7 @@
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
+    <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />
     <Content Include="weblogin\log\pLogDetail.aspx" />
     <Content Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx" />
@@ -1289,6 +1311,7 @@
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />
+    <Content Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
@@ -1793,6 +1816,7 @@
     <Content Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pAddValuingOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
@@ -2092,7 +2116,6 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
-    <Folder Include="weblogin\scoreOfItemInCommodityOrder\" />
     <Folder Include="weblogin\scoreOfItemInFoodOrder\" />
     <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
     <Folder Include="weblogin\themes\img\Expert\" />

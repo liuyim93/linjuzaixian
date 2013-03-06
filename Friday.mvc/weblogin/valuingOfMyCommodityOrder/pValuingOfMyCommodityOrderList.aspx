@@ -92,7 +92,7 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="myFoodOrder/pMyFoodOrderDetail.aspx?uid=<%#Eval("MyCommodityOrder.Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox3"><%#Eval("MyCommodityOrder.OrderNumber")%>
+                        <td><a href="valuingOfMyCommodityOrder/pValuingOfMyCommodityOrderDetail.aspx?uid=<%#Eval("Id")%>&MyCommodityOrderId=<%#Eval("MyCommodityOrder.Id")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox3"><%#Eval("MyCommodityOrder.OrderNumber")%>
                             </a>
                         </td>
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td> 
