@@ -20,8 +20,8 @@
         temai: ".temai"
     };
     var _config;
-    var N = false;
-    var M = "";
+    var _isLogin = false;
+    var _nickname = "";
     var F = [];
     var K = false;
     var L = "http://" + (_is_test_env ? "ald.taobao.com" : "ald.taobao.com") + "/recommend.htm?appId=12002";
@@ -84,7 +84,7 @@
                     _dom.attr(j[3], "offset-brandfly", "17,0");
                     _dom.html(j[1], "[" + o.brandName + "]");
                     _dom.html(j[2], i);
-                    if (o.isCol && N) {
+                    if (o.isCol && _isLogin) {
                         _dom.removeClass(j[3], "mark j_CollectBrand");
                         _dom.html(_dom.get("b", j[3]), "\u60a8\u5df2\u5173\u6ce8\u8be5\u54c1\u724c")
                     } else {
@@ -144,7 +144,7 @@
             Z()
         },
         brandHover: function () {
-            var S = this;
+            var _brand = this;
             _kissy.each(_dom.query(_config.brands), function (Z) {
                 _event.on(Z, "mouseenter mouseleave", function (b) {
                     var a = b.type === "mouseenter" ? 0.9 : 0;
@@ -249,11 +249,11 @@
             })
         },
         _getLogin: function () {
-            TB.Global.loginStatusReady(function (S) {
-                N = S.isLogin;
-                M = S.nick;
-                if (M != "") {
-                    _dom.html(".j_UserName", M)
+            TB.Global.loginStatusReady(function (_userinfo) {
+                _isLogin = _userinfo.isLogin;
+                _nickname = _userinfo.nick;
+                if (_nickname != "") {
+                    _dom.html(".j_UserName", _nickname)
                 }
             })
         },
