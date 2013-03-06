@@ -11,7 +11,7 @@ using friday.core;
 
 namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
 {
-    public partial class pAddValuingItemOfMyCommodityOrder : System.Web.UI.Page
+    public partial class pAddValuingItemOfMyCommodityOrder : BasePage
     {
         IRepository<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyCommodityOrder>>();
 

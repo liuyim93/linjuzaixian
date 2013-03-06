@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
 {
-    public partial class pValuingItemOfMyCommodityOrderList : System.Web.UI.Page
+    public partial class pValuingItemOfMyCommodityOrderList : BasePage
     {
         protected long total;
         protected int pageNum;

@@ -11,7 +11,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 {
-    public partial class pScoreOfItemInCommodityOrderList : System.Web.UI.Page
+    public partial class pScoreOfItemInCommodityOrderList : BasePage
     {
         protected long total;
         protected int pageNum;

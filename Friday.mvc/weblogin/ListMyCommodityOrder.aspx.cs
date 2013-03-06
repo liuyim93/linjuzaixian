@@ -11,7 +11,7 @@ using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListMyCommodityOrder : System.Web.UI.Page
+    public partial class ListMyCommodityOrder : BasePage
     {
         protected long total;
         protected int pageNum;

@@ -11,7 +11,7 @@ using friday.core.components;
 
 namespace Friday.mvc.weblogin.valuingComments
 {
-    public partial class pValuingCommentsList : System.Web.UI.Page
+    public partial class pValuingCommentsList : BasePage
     {
         protected long total;
         protected int pageNum;

@@ -9,7 +9,7 @@ using friday.core.repositories;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class ListValuingItemOfMyCommodityOrder : System.Web.UI.Page
+    public partial class ListValuingItemOfMyCommodityOrder : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

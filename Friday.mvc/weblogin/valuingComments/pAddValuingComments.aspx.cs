@@ -11,7 +11,7 @@ using friday.core;
 
 namespace Friday.mvc.weblogin.valuingComments
 {
-    public partial class pAddValuingComments : System.Web.UI.Page
+    public partial class pAddValuingComments : BasePage
     {
         IValuingCommentsRepository iValuingCommentsRepository = UnityHelper.UnityToT<IValuingCommentsRepository>();
         IRepository<Valuing> iValuingRepository = UnityHelper.UnityToT<IRepository<Valuing>>();
