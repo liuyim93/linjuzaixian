@@ -108,9 +108,13 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     this.viewer.style.top = (S - c) + "px";
                     G = true
                 }
-            }, _load: function (Z) {
-                var _category = this, _config = _category.config; _kissy.IO.get(Z, _is_ie6 ? { t: +new Date} : {}, function (a) {
-                        if (!a) { return } newViewer = _dom.create(a); _dom.html(_category.viewer, _dom.html(newViewer)); _category.subViews = _dom.query(_config.subViews, _category.viewer);
+            }, _load: function (_url) {
+                var _category = this, _config = _category.config; _kissy.IO.get(_url, _is_ie6 ? { t: +new Date} : {}, function (_html_snippet) {
+                        if (!_html_snippet)
+                          { return }
+                        newViewer = _dom.create(_html_snippet);
+                        _dom.html(_category.viewer, _dom.html(newViewer));
+                        _category.subViews = _dom.query(_config.subViews, _category.viewer);
                         _category.shadow = _dom.get(".shadow", _category.viewer);
                         _category.isDataReady = true;
                         if (_category.status == "visible") {
@@ -131,7 +135,8 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                             _event.halt(); var _index = _indexOf(_category.triggers, _trigger);
                             _config.idx = _index; _category.status = "visible";
                             if (_event.type === "tap" && _index === _category.triggerIdx)
-                            { _category.hide(_config.idx); return } if (!_category.viewer) {
+                            { _category.hide(_config.idx); return }
+                            if (!_category.viewer) {
                                 if (!_config.viewer && _config.lazyload) {
                                     _category.viewer = _dom.create('<div id="J_SubCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
                                     _category.container.appendChild(_category.viewer);
