@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.log
 {
@@ -26,8 +27,7 @@ namespace Friday.mvc.weblogin.log
         protected string categoryName;
         protected string title;
 
-        //IRepository<Log> iRepositoryLog = UnityHelper.UnityToT<IRepository<Log>>();
-         ILogRepository iRepositoryLog = UnityHelper.UnityToT<ILogRepository>();
+        ILogService iLogService = UnityHelper.UnityToT<ILogService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -85,7 +85,7 @@ namespace Friday.mvc.weblogin.log
                         filterList.Add(filter);
                     }
 
-                    IList<Log> logList = iRepositoryLog.Search(filterList, start, limit, out total);
+                    IList<Log> logList = iLogService.Search(filterList, start, limit, out total);
 
                     repeater.DataSource = logList;
                     repeater.DataBind();
@@ -94,32 +94,13 @@ namespace Friday.mvc.weblogin.log
                 }
             }
 
-            else
-            {
-
-                DeleteLog();
-
-            }
 
         }
 
 
 
 
-        private void DeleteLog()
-        {
-
-
-            iRepositoryLog.PhysicsDelete(Request.Params["uid"]);
-
-            AjaxResult result = new AjaxResult();
-            result.statusCode = "200";
-            result.message = "删除成功";
-            FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = result;
-            Response.Write(jsonResult.FormatResult());
-            Response.End();
-        }
+    
 
     }
 }

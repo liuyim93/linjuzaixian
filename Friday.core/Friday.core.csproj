@@ -465,6 +465,8 @@
     <Compile Include="services\IRentStatisticService.cs" />
     <Compile Include="services\ShopStatisticService.cs" />
     <Compile Include="services\IShopStatisticService.cs" />
+    <Compile Include="services\LogService.cs" />
+    <Compile Include="services\ILogService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
