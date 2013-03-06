@@ -11,22 +11,36 @@
                 <h3 class="item-hd item-hd1">
                     <s></s>租赁
                 </h3>
-                <p class="item-col  itemCol1 ">
-                    <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.1&amp;&amp;pic_detail=1&amp;cat=50025135&amp;sort=s&amp;style=g&amp;vmarket=0&amp;active=1&amp;q="
-                        target="_blank" class="item-col1">女装</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.2&amp;start_price=200&amp;end_price=&amp;zk_type=0&amp;pic_detail=1&amp;search_condition=23&amp;cat=50025174&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_rightnav&amp;active=1&amp;q="
-                            target="_blank">男装</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.3&amp;&amp;pic_detail=1&amp;cat=50025983&amp;sort=s&amp;style=g&amp;vmarket=0&amp;active=1&amp;q="
-                                target="_blank">内衣</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.4&amp;cat=50048628&amp;sort=s&amp;style=g&amp;vmarket=0&amp;active=1&amp;q="
-                                    target="_blank">女羽绒</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.5&amp;active=1&amp;from=sn_1_cat&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50047160#J_crumbs"
-                                        target="_blank">呢大衣</a> <b class="overlay even"></b>
-                </p>
-                <p class="item-col ">
-                    <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.6&amp;cat=50025783&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                        target="_blank" class="item-col1">毛衣</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.7&amp;active=1&amp;from=sn_1_cat&amp;area_code=310000&amp;pic_detail=1&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50044809"
-                            target="_blank">保暖</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.8&amp;active=1&amp;from=sn_1_cat&amp;area_code=310000&amp;pic_detail=1&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50095660"
-                                target="_blank">睡衣</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.9&amp;zk_type=0&amp;pic_detail=1&amp;cat=50037917&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                                    target="_blank">男羽绒</a> <a href="http://list.tmall.com/search_product.htm?spm=3.356818.294515.10&amp;&amp;zk_type=0&amp;pic_detail=1&amp;cat=50108599&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                                        target="_blank">男毛衣</a> <b class="overlay odd"></b>
-                </p>
+                    @for (var index = 0; index < Model.MerchantRentCategories.Count(); index++)
+                    {
+                        
+                            
+                        if (index%5==0)
+                        {
+                            if (index == 0)
+                            {
+                              @:<p class="item-col  itemCol1 ">
+                            }
+                            else
+                            {
+                               @:<b class="overlay even"></b></p>
+                               @:<p class="item-col">
+                            }
+                        }
+                        var item = Model.MerchantRentCategories.ElementAt(index);
+                        if (index % 5 == 0)
+                        {
+                        @:<a href="" target="_blank" class="item-col1">@Html.Encode(item.MerchantCategoryName)</a>
+                        }
+                        else
+                        {
+                         @:<a href="" target="_blank" >@Html.Encode(item.MerchantCategoryName)</a>
+                        }
+              
+                    }
+                    <b class="overlay even"></b>
+                    </p>
+                   
                 <s class="menuIcon"></s></li>
             <li class="item item2 j_MenuItem">
                 <h3 class="item-hd item-hd2">
