@@ -145,29 +145,29 @@
         },
         brandHover: function () {
             var _brand = this;
-            _kissy.each(_dom.query(_config.brands), function (Z) {
-                _event.on(Z, "mouseenter mouseleave", function (b) {
-                    var a = b.type === "mouseenter" ? 0.9 : 0;
-                    var d = _dom.get("span", Z);
-                    if (_dom.hasClass(d, "mark") && !d.isMarking && !_g_config.closeExtra) {
-                        b.halt();
-                        if (d.hoverTimer) {
-                            clearTimeout(d.hoverTimer)
+            _kissy.each(_dom.query(_config.brands), function (_dom_a_brand) {
+                _event.on(_dom_a_brand, "mouseenter mouseleave", function (_event) {
+                    var _opacity = _event.type === "mouseenter" ? 0.9 : 0;
+                    var _span = _dom.get("span", _dom_a_brand);
+                    if (_dom.hasClass(_span, "mark") && !_span.isMarking && !_g_config.closeExtra) {
+                        _event.halt();
+                        if (_span.hoverTimer) {
+                            clearTimeout(_span.hoverTimer)
                         }
-                        d.hoverTimer = setTimeout(function () {
-                            new _kissy.Anim(d, {
-                                opacity: a
+                        _span.hoverTimer = setTimeout(function () {
+                            new _kissy.Anim(_span, {
+                                opacity: _opacity
                             }, 0.5, "easeOutStrong").run()
                         }, 200)
                     }
                     if (_kissy.UA.ie) {
-                        var c = b.type === "mouseenter" ? "#BD0000" : "#999";
-                        if (Z.hoverTimer) {
-                            clearTimeout(Z.hoverTimer)
+                        var _color = _event.type === "mouseenter" ? "#BD0000" : "#999";
+                        if (_dom_a_brand.hoverTimer) {
+                            clearTimeout(_dom_a_brand.hoverTimer)
                         }
-                        Z.hoverTimer = setTimeout(function () {
-                            new _kissy.Anim(Z, {
-                                color: c
+                        _dom_a_brand.hoverTimer = setTimeout(function () {
+                            new _kissy.Anim(_dom_a_brand, {
+                                color: _color
                             }, 0.5, "easeOutStrong").run()
                         }, 200)
                     }
