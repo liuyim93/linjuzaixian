@@ -158,6 +158,8 @@
     <Compile Include="repositories\IRestaurantStatisticRepository.cs" />
     <Compile Include="repositories\RentStatisticRepository.cs" />
     <Compile Include="repositories\IRentStatisticRepository.cs" />
+    <Compile Include="repositories\IShopStatisticRepository.cs" />
+    <Compile Include="repositories\ShopStatisticRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
