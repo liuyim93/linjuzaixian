@@ -18,5 +18,11 @@ namespace friday.core.domain
             get;
             set;
         }
+
+        public virtual float Score
+        {
+            get;
+            set;
+        }
     }
 }

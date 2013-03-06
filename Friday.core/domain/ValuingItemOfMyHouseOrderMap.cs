@@ -13,7 +13,7 @@ namespace friday.core.domain
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o => o.ValuingItemName);
+            Map(o => o.ValuingItemName).Not.Nullable();
             Map(o => o.EntityIndex);
 
             HasMany<ScoreOfItemInHouseOrder>(o => o.ScoreOfItemInHouseOrders).Inverse().Cascade.All();

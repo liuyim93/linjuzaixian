@@ -16,6 +16,7 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.Version);
             Map(o => o.EntityIndex);
+            Map(o => o.Score).Not.Nullable();
 
             References<ValuingOfMyCommodityOrder>(o => o.ValuingOfMyCommodityOrder).Not.Nullable();
             References<ValuingItemOfMyCommodityOrder>(o => o.ValuingItemOfMyCommodityOrder).Fetch.Join().Not.Nullable();

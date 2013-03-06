@@ -17,9 +17,9 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.EntityIndex);
 
-            Map(o => o.Direction);
-            Map(o => o.TrackIndex);
-            Map(o => o.Comments);
+            Map(o => o.Direction).Not.Nullable();
+            Map(o => o.TrackIndex).Not.Nullable();
+            Map(o => o.Comments).Not.Nullable();
 
             References<Valuing>(o => o.Valuing).Not.Nullable();
 

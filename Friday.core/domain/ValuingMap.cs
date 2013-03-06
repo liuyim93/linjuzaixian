@@ -16,8 +16,8 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.EntityIndex);
 
-            Map(o => o.AverageScore);
-            Map(o => o.ValuingContent);
+            Map(o => o.AverageScore).Default("0").Not.Nullable();
+            Map(o => o.ValuingContent).Not.Nullable(); ;
 
             /* test not keynullable*/
             HasMany<ValuingComments>(o => o.ValuingComments).Inverse().Cascade.All();
