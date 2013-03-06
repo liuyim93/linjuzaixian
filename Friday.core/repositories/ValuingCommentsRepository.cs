@@ -5,11 +5,21 @@ using System.Text;
 using friday.core.domain;
 using NHibernate;
 using friday.core.components;
+using NHibernate.Linq;
 
 namespace friday.core.repositories
 {
     public class ValuingCommentsRepository : Repository<ValuingComments>, IValuingCommentsRepository
     {
+        public virtual int GetValuingCommentsCount(string valuingID)
+        {
+            var query = (from valuingComments in this.Session.Query<ValuingComments>()
+                         where valuingComments.Valuing.Id == valuingID
+                         select valuingComments
+                            ).LongCount();
+            return Convert.ToInt16(query);
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(ValuingComments)); }

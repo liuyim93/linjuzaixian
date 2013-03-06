@@ -1019,6 +1019,13 @@
     <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
       <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.cs">
+      <DependentUpon>pAddValuingComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.designer.cs">
+      <DependentUpon>pAddValuingComments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.cs">
       <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1828,6 +1835,7 @@
     <Content Include="weblogin\uploadify\scripts\uploadify.swf" />
     <Content Include="weblogin\users\nSystemUserList.aspx" />
     <Content Include="weblogin\login.aspx" />
+    <Content Include="weblogin\valuingComments\pAddValuingComments.aspx" />
     <Content Include="weblogin\valuingComments\pValuingCommentsList.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pEditValuingItemOfMyCommodityOrder.aspx" />

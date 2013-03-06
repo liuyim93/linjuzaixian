@@ -10,7 +10,7 @@
                 target="ajax"><span>订单明细</span></a></li>
                 <li><a href='scoreOfItemInCommodityOrder/pScoreOfItemInCommodityOrderList.aspx?valuingOfMyCommodityOrder_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBoxScoreOfItem"
                 target="ajax"><span>评价项评分管理</span></a></li>
-                <li><a href='valuingComments/pValuingCommentsList.aspx?valuingOfMyCommodityOrder_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBoxValuingComments"
+                <li><a href='valuingComments/pValuingCommentsList.aspx?valuing_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBoxValuingComments"
                 target="ajax"><span>评论回复管理</span></a></li>
            </ul>
         </div>

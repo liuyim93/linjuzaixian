@@ -9,6 +9,7 @@ namespace friday.core.repositories
 {
     public interface IValuingCommentsRepository : IRepository<ValuingComments>
     {
+        int GetValuingCommentsCount(string valuingID);
         IList<ValuingComments> Search(List<DataFilter> termList);
         IList<ValuingComments> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

@@ -17,26 +17,26 @@ namespace Friday.mvc.weblogin.valuingComments
         protected int pageNum;
         protected int numPerPageValue;
 
-        protected string valuingOfMyCommodityOrderID;
+        protected string valuingID;
 
         IValuingCommentsRepository iValuingCommentsRepository = UnityHelper.UnityToT<IValuingCommentsRepository>();
-        IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
+        IRepository<Valuing> iValuingRepository = UnityHelper.UnityToT<IRepository<Valuing>>();
 
-        private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
+        private Valuing valuing;
         private ValuingComments valuingComments;
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            if (Request.Form["valuingOfMyCommodityOrder_id"] != null)
+            if (Request.Form["valuing_id"] != null)
             {
-                valuingOfMyCommodityOrderID = Request.Form["valuingOfMyCommodityOrder_id"];
+                valuingID = Request.Form["valuing_id"];
             }
             else
             {
-                valuingOfMyCommodityOrderID = Request.Params["valuingOfMyCommodityOrder_id"];
+                valuingID = Request.Params["valuing_id"];
             }
-            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderRepository.Load(valuingOfMyCommodityOrderID);
+            valuing = iValuingRepository.Load(valuingID);
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -52,9 +52,6 @@ namespace Friday.mvc.weblogin.valuingComments
 
             valuingComments = iValuingCommentsRepository.Load(Request.Params["uid"]);
 
-            //myCommodityOrder.Price = myCommodityOrder.Price - valuingComments.Price;
-
-            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
             iValuingCommentsRepository.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
@@ -75,7 +72,7 @@ namespace Friday.mvc.weblogin.valuingComments
             List<DataFilter> dfl = new List<DataFilter>();
             List<DataFilter> ValuingFilter = new List<DataFilter>();
 
-            ValuingFilter.Add(new DataFilter() { type = "Valuing", value = valuingOfMyCommodityOrderID });
+            ValuingFilter.Add(new DataFilter() { type = "Valuing", value = valuingID });
             dfl.Add(new DataFilter() { type = "Valuing", field = ValuingFilter });
 
             dfl.Add(new DataFilter()
