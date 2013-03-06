@@ -4,7 +4,7 @@
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
     <div class="panel collapse" defh="95">
         <h1>
-            商品评价项信息</h1>
+            食品评价项信息</h1>
         <div>
             <p>
                 <label>

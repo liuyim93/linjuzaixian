@@ -1026,6 +1026,13 @@
     <Compile Include="weblogin\valuingItemOfMyFoodOrder\pValuingItemOfMyFoodOrderList.aspx.designer.cs">
       <DependentUpon>pValuingItemOfMyFoodOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx.cs">
+      <DependentUpon>pValuingItemOfMyHouseOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingItemOfMyHouseOrderList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1738,6 +1745,7 @@
     <Content Include="weblogin\valuingItemOfMyFoodOrder\pAddValuingItemOfMyFoodOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyFoodOrder\pEditValuingItemOfMyFoodOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyFoodOrder\pValuingItemOfMyFoodOrderList.aspx" />
+    <Content Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
@@ -2041,7 +2049,6 @@
     <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
-    <Folder Include="weblogin\valuingItemOfMyHouseOrder\" />
     <Folder Include="weblogin\valuingOfMyCommodityOrder\" />
     <Folder Include="weblogin\valuingOfMyFoodOrder\" />
     <Folder Include="weblogin\valuingOfMyHouseOrder\" />
