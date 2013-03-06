@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Views/Shared/_MfpSlide.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Views/Shared/_MfpSlide.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js" />
     </list>
@@ -48,7 +50,7 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1065" column="18" selection-start="53191" selection-end="53194" vertical-scroll-proportion="0.0">
+            <state line="12" column="19" selection-start="347" selection-end="347" vertical-scroll-proportion="-8.035714">
               <folding />
             </state>
           </provider>
@@ -82,15 +84,17 @@
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/css/core.css">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
+              <folding>
+                <marker date="1362445668550" expanded="true" signature="1055:1154" placeholder="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="slide2.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="slide2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="88" selection-start="714" selection-end="714" vertical-scroll-proportion="-1.8916914">
+            <state line="155" column="29" selection-start="9779" selection-end="9779" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -99,16 +103,16 @@
       <file leaf-file-name="direct-promo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="134" selection-start="5284" selection-end="5284" vertical-scroll-proportion="0.0">
+            <state line="37" column="27" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="brand.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.53418803">
               <folding />
             </state>
           </provider>
@@ -117,7 +121,7 @@
       <file leaf-file-name="fp.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="43" column="25" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0">
+            <state line="50" column="36" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -143,8 +147,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/category.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/slide2.html" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js" />
       </list>
     </option>
@@ -500,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/css/core.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/overlay/css/overlay.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="29" column="0" selection-start="2847" selection-end="2847" vertical-scroll-proportion="1.3425926" />
@@ -515,13 +512,6 @@
     <entry file="file://$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1022" column="22" selection-start="50141" selection-end="50141" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1065" column="18" selection-start="53191" selection-end="53194" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js">
@@ -548,6 +538,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/category.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="36" selection-start="7030" selection-end="7042" vertical-scroll-proportion="0.24928775">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/Views/Home/Index.cshtml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="196" column="27" selection-start="31373" selection-end="31373" vertical-scroll-proportion="0.0">
@@ -555,37 +552,46 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/category.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="36" selection-start="7030" selection-end="7042" vertical-scroll-proportion="-32.107143">
+        <state line="12" column="19" selection-start="347" selection-end="347" vertical-scroll-proportion="-8.035714">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/css/core.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <marker date="1362445668550" expanded="true" signature="1055:1154" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="25" selection-start="1546" selection-end="1546" vertical-scroll-proportion="0.0">
+        <state line="155" column="29" selection-start="9779" selection-end="9779" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="134" selection-start="5284" selection-end="5284" vertical-scroll-proportion="0.0">
+        <state line="37" column="27" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="88" selection-start="714" selection-end="714" vertical-scroll-proportion="-1.8916914">
+        <state line="50" column="36" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.53418803">
           <folding />
         </state>
       </provider>

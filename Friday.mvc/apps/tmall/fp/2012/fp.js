@@ -45,7 +45,8 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 mod: "manual",
                 diff: 50
             });
-            !_g_config.closeDirect && _directpromo.init([285, 333, 337, 315]);
+            //2013-02-19 basilwang don't use direct-promo
+            //!_g_config.closeDirect && _directpromo.init([285, 333, 337, 315]);
             new _act();
             this._initQuickSearch();
             MFP.POC.add("extra")

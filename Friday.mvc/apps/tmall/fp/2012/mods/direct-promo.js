@@ -33,7 +33,8 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
         var DirectPromo = { init: function (_init_resid_array) {
             var _node_class_J_DirectPromo = _kissy.query("." + _str_J_DirectPromo),
                 _resids = [],
-                _resid; if (!_node_class_J_DirectPromo || _node_class_J_DirectPromo.length === 0) { return }
+                _resid;
+            if (!_node_class_J_DirectPromo || _node_class_J_DirectPromo.length === 0) { return }
             _kissy.each(_node_class_J_DirectPromo, function (_node) {
                 _resid = _node.getAttribute("data-resid");
                 if (_resid) { _resids.push(_resid); _resid_dict[_resid] = _node }

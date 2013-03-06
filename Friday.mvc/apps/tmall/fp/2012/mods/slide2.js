@@ -11,6 +11,7 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
     var _str_J_DirectPromo = "J_DirectPromo";
     var _str_j_MaskBanner = "j_MaskBanner";
     var _origin_content_result = [285, 333, 337];  /*2013-03-06 basilwang what the fuck?*/
+
     var K = ["mm_12852562_1778064_10953677", "mm_12852562_1778064_10953701"];
     var _str_data_text_src = "data-text-src";
     var _str_data_image = "data-image";
@@ -32,11 +33,12 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                 var _slide = _slide2.slide = new _switchable.Slide("#" + _str_J_MfpSlide, _config);
                 _window.g_config.Slide = _slide;
                 _is_ie6 && _kissy.ready(function () { _slide2._fixPng24() });
-                _slide.on("beforeSwitch", function (_op /*_op includes fromIndex and toIndex*/) {
+                _slide.on("beforeSwitch", function(_op){
                     _slide2._textAnim(_op);
                     _slide2._lazyLoad(_op)
                 });
-                _mfp.on("directSuccess", function (_event) { _slide2._directImg(_event.data) });
+                //2013-02-19 basilwang don't use direct-promo
+                //_mfp.on("directSuccess", function (_event) { _slide2._directImg(_event.data) });
                 _dom.show(_slide.nav);
                 //2013-02-19 basilwang remove tanx
                 //E.ready(function () { Z._tanxAd() });
