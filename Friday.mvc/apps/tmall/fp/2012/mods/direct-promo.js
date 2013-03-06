@@ -21,25 +21,25 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
             M = {},
             P = [];
         var _config = _window.g_config;
-        function C(U, S) {
-            var R = U.length, T;
-            while (R--) {
-                T = U[R];
-                if (!_kissy.inArray(T, S))
-                { S.push(T) }
+        function _add_array(_array_to_be_added, _container_array) {
+            var _index = _array_to_be_added.length, item;
+            while (_index--) {
+                item = _array_to_be_added[_index];
+                if (!_kissy.inArray(item, _container_array))
+                { _container_array.push(item) }
             }
-            return S
+            return _container_array
         }
-        var DirectPromo = { init: function (U) {
+        var DirectPromo = { init: function (_init_resid_array) {
             var _node_class_J_DirectPromo = _kissy.query("." + _str_J_DirectPromo),
-                S = [],
+                _resids = [],
                 _resid; if (!_node_class_J_DirectPromo || _node_class_J_DirectPromo.length === 0) { return }
             _kissy.each(_node_class_J_DirectPromo, function (_node) {
                 _resid = _node.getAttribute("data-resid");
-                if (_resid) { S.push(_resid); M[_resid] = _node }
+                if (_resid) { _resids.push(_resid); M[_resid] = _node }
             });
-            U && (S = C(U, S));
-            this.request(S)
+            _init_resid_array && (_resids = _add_array(_init_resid_array, _resids));
+            this.request(_resids)
         }
             , request: function (W, V, T) {
                 var _directpromo = this;
