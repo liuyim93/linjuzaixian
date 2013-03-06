@@ -129,6 +129,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="repositories\ISystemMenuRepository.cs" />
+    <Compile Include="repositories\IValuingOfMyCommodityOrderRepository.cs" />
     <Compile Include="repositories\LogRepository.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -136,6 +137,7 @@
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="repositories\MessageContentRepository.cs" />
     <Compile Include="repositories\IMessageContentRepository.cs" />
+    <Compile Include="repositories\ValuingOfMyCommodityOrderRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
