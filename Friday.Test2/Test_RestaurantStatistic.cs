@@ -5,6 +5,9 @@ using NUnit.Framework;
 using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using friday.core.EnumType;
+using friday.core.components;
+using System.Linq;
 using System.Transactions;
 
 namespace Friday.Test2
@@ -28,7 +31,7 @@ namespace Friday.Test2
         public void Test()
         {
             IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
-            IRepository<RestaurantStatistic> iRestaurantStatisticRepository = UnityHelper.UnityToT<IRepository<RestaurantStatistic>>();
+            IRestaurantStatisticRepository iRestaurantStatisticRepository = UnityHelper.UnityToT<IRestaurantStatisticRepository>();
 
             IList<RestaurantStatistic> iRestaurantStatistics = new List<RestaurantStatistic>();
 
@@ -51,14 +54,53 @@ namespace Friday.Test2
 
             for (int i = 0; i<10;i++ )
             {
-                RestaurantStatistic rstSta = new RestaurantStatistic()
+                RestaurantStatistic rstSta1 = new RestaurantStatistic()
                 {
                       Amount=i,
                       ValuingCount=i,
-                    AverageValuing=i,
+                      AverageValuing=i,
+                      Year=2013,
+                      Month=3,
+                      Day=i,
+                      Restaurant=rst1
+
 
                 };
+                iRestaurantStatisticRepository.SaveOrUpdate(rstSta1);
+
+                RestaurantStatistic rstSta2 = new RestaurantStatistic()
+                {
+                    Amount = i,
+                    ValuingCount = i,
+                    AverageValuing = i,
+                    Year = 2013,
+                    Month = 3,
+                    Day = i,
+                    Restaurant = rst2
+
+
+                };
+                iRestaurantStatisticRepository.SaveOrUpdate(rstSta2);
             }
+
+            List<DataFilter> filterList = new List<DataFilter>();
+            List<DataFilter> RestfList = new List<DataFilter>();
+
+            RestfList.Add(new DataFilter()
+            {
+                type = "Restaurant",
+                value =rst1.Id
+            });
+            filterList.Add(new DataFilter() 
+            {
+                type = "Restaurant",
+                field=RestfList
+            });
+
+            RestaurantStatistic  rstc=iRestaurantStatisticRepository.Search(filterList).FirstOrDefault();
+
+            Assert.IsTrue(rstc.Restaurant.Name == rstName1, string.Format("实际结果：{0}与期望结果{1}不一致", rstc.Restaurant.Name, rstName1));
+        
 
         
                         
