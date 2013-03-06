@@ -12,18 +12,18 @@ namespace Friday.Test2
     [TestFixture]
     public class Test_FoodStatistic
     {
-        //private TransactionScope scope;
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    scope = new TransactionScope();
-        //}
+        private TransactionScope scope;
+        [SetUp]
+        public void SetUp()
+        {
+            scope = new TransactionScope();
+        }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    scope.Dispose();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            scope.Dispose();
+        }
         [Test]
         public void Test()
         {
