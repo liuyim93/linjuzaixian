@@ -24,7 +24,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
             if (Request.Params["flag"] == "alldelete")
             {
 
-                DeleteMerchantCategory();
+                DeleteValuingItemOfMyCommodityOrder();
 
             }
             else
@@ -43,7 +43,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
             }
         }
 
-        private void DeleteMerchantCategory()
+        private void DeleteValuingItemOfMyCommodityOrder()
         {
             iValuingItemOfMyCommodityOrderRepository.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();

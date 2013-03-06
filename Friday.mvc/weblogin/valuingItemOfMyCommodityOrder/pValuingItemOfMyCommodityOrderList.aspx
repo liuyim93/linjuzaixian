@@ -31,7 +31,7 @@
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                    <th width="10%" align="center">评价项</th>
+                    <th width="10%" align="center">评价项名称</th>
 
                 </tr>
                 </thead>
