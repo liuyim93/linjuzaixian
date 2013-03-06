@@ -122,6 +122,8 @@
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Areas\Cart\CartAreaRegistration.cs" />
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
+    <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1975,6 +1977,8 @@
     <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\Cart\Models\" />
     <Folder Include="Areas\Cart\Views\Shared\" />
+    <Folder Include="Areas\Category\Models\" />
+    <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
     <Folder Include="Views\Home\" />
@@ -1993,6 +1997,8 @@
     <Content Include="Areas\Cart\Views\Web.config" />
     <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
     <Content Include="Areas\Account\Views\Home\miniLoginProxy.cshtml" />
+    <Content Include="Areas\Category\Views\Web.config" />
+    <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

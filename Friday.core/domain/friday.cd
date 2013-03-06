@@ -114,11 +114,11 @@
       <Path>
         <Point X="7.5" Y="9.237" />
         <Point X="3.844" Y="9.237" />
-        <Point X="3.844" Y="12.75" />
+        <Point X="3.844" Y="12.5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAACQggIAAAAAAIAQAAAAAAIBCAAIAAEAACAA=</HashCode>
+      <HashCode>QAAAAUAAACQggIAAAAAAIAQAAAAAAIBDAAIAAEAACAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -143,7 +143,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.MerchantCategory">
-    <Position X="3.75" Y="12.75" Width="1.5" />
+    <Position X="3.75" Y="12.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAACAA=</HashCode>
       <FileName>domain\MerchantCategory.cs</FileName>
@@ -304,7 +304,7 @@
   <Class Name="friday.core.Message">
     <Position X="17.25" Y="23.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAABABAEAAAAAAAIAAAAAAAAAAAEgEAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAABABAEAAAAACAAAAAAAAAAgAAEAEAAAAAAAAE=</HashCode>
       <FileName>domain\Message.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -314,7 +314,7 @@
   <Class Name="friday.core.LoginUser">
     <Position X="7.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AEAAAQAAAAAAAAAAAAAAAAAACAAACAASAACAAAAAAAA=</HashCode>
+      <HashCode>AEAAAQAAAAAAAAAAAAAAIAAACAAAAAASAACAAAAAAAA=</HashCode>
       <FileName>domain\LoginUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -457,43 +457,41 @@
   <Class Name="friday.core.SystemRole">
     <Position X="12.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAIAgAAAAAAAAAAQACAAAAAAIAAAQAAAAAAA=</HashCode>
+      <HashCode>AAAACAIAAIAgAAAAAAAAAAQACAAAAAAYAAAQAAAAAAA=</HashCode>
       <FileName>domain\SystemRole.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.UserInRole">
     <Position X="10.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAE=</HashCode>
       <FileName>domain\UserInRole.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Role" />
       <Property Name="LoginUser" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.SystemFunctionObjectInRole">
     <Position X="10.25" Y="1" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAEAAAIAAEAAAAAAAAAAAAAAAAIACAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAEAAAIAAAAAAIAAAAAAAAAAAAIACAAAAAAA=</HashCode>
       <FileName>domain\SystemFunctionObjectInRole.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Role" />
       <Property Name="SystemFunctionObject" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.Category">
     <Position X="19.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAAAAAAAAAAAAAAAAACAAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>domain\Category.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.Log">
     <Position X="15" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>YCAAEAEgAAQAEEAEAAACAAAAAAAAEAAAAAAAIAQAAAA=</HashCode>
+      <HashCode>YCAAEAEgAAQAEEAEAAACAAAAAAAAEAAAAIAAIAQAAAA=</HashCode>
       <FileName>domain\Log.cs</FileName>
     </TypeIdentifier>
   </Class>
