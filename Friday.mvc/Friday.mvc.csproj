@@ -129,6 +129,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="mvcunity\BootStrapper.cs" />
     <Compile Include="mvcunity\ControllerFactory.cs" />
     <Compile Include="mvcunity\ModelBinder.cs" />
@@ -1996,6 +1997,7 @@
     <Content Include="Areas\Category\Views\Web.config" />
     <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Category.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

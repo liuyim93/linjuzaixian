@@ -44,6 +44,12 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<MerchantCategory>();
         }
+        public IList<MerchantCategory> SearchByMerchantType(MerchantTypeEnum type)
+        {
+            var m = (from x in this.Session.Query<MerchantCategory>() select x).Where(o => o.MerchantType == type && o.IsDelete == false).ToList() ;
+            return m;
+        }
+
 
 
     }
