@@ -118,11 +118,18 @@
   <ItemGroup>
     <Compile Include="App_Start\FormRewriterControlAdapter.cs" />
     <Compile Include="App_Start\RewriteFormHtmlTextWriter.cs" />
+    <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
+    <Compile Include="Areas\Account\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Cart\CartAreaRegistration.cs" />
+    <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
+    <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AccountModel.cs" />
+    <Compile Include="Models\MainModel.cs" />
     <Compile Include="mvcunity\BootStrapper.cs" />
     <Compile Include="mvcunity\ControllerFactory.cs" />
     <Compile Include="mvcunity\ModelBinder.cs" />
@@ -154,6 +161,9 @@
     </Compile>
     <Compile Include="weblogin\address\pAddAddress.aspx.cs">
       <DependentUpon>pAddAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\commodity\pAddCommodity.aspx.cs">
@@ -205,6 +215,20 @@
     <Compile Include="weblogin\feedBack\pReplyFeedBack.aspx.designer.cs">
       <DependentUpon>pReplyFeedBack.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\foodStatistic\pFoodStatisticDetail.aspx.cs">
+      <DependentUpon>pFoodStatisticDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\foodStatistic\pFoodStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pFoodStatisticDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\foodStatistic\pFoodStatisticList.aspx.cs">
+      <DependentUpon>pFoodStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\foodStatistic\pFoodStatisticList.aspx.designer.cs">
+      <DependentUpon>pFoodStatisticList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\food\pAddFood.aspx.cs">
       <DependentUpon>pAddFood.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,6 +259,13 @@
     </Compile>
     <Compile Include="weblogin\food\pEditFood.aspx.designer.cs">
       <DependentUpon>pEditFood.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx.cs">
+      <DependentUpon>MultiListGlobalGoodsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>MultiListGlobalGoodsType.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx.cs">
       <DependentUpon>pGlobalGoodsTypeDetail.aspx</DependentUpon>
@@ -320,10 +351,17 @@
     <Compile Include="weblogin\ListSystemUser.aspx.designer.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
+    <Compile Include="weblogin\loginUser\pLoginUserDetail.aspx.cs">
+      <DependentUpon>pLoginUserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\loginUser\pLoginUserDetail.aspx.designer.cs">
+      <DependentUpon>pLoginUserDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\log\pLogDetail.aspx.cs">
       <DependentUpon>pLogDetail.aspx</DependentUpon>
-=======
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx.cs">
       <DependentUpon>pAddMerchantEmployee.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -337,7 +375,6 @@
     </Compile>
     <Compile Include="weblogin\merchantEmployee\pEditMerchantEmployee.aspx.designer.cs">
       <DependentUpon>pEditMerchantEmployee.aspx</DependentUpon>
->>>>>>> Update mEmployee
     </Compile>
     <Compile Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx.cs">
       <DependentUpon>pMerchantEmployeeList.aspx</DependentUpon>
@@ -370,12 +407,12 @@
     <Compile Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx.designer.cs">
       <DependentUpon>pEditMerchantGoodsType.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx.cs">
-      <DependentUpon>pRestaurantGoodsTypeList.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantGoodsType\pSelectGlobalGoodsType.aspx.cs">
+      <DependentUpon>pSelectGlobalGoodsType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx.designer.cs">
-      <DependentUpon>pRestaurantGoodsTypeList.aspx</DependentUpon>
+    <Compile Include="weblogin\merchantGoodsType\pSelectGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>pSelectGlobalGoodsType.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
@@ -414,6 +451,13 @@
     </Compile>
     <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
       <DependentUpon>pEditMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\MultiListMerchant.aspx.cs">
+      <DependentUpon>MultiListMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\MultiListMerchant.aspx.designer.cs">
+      <DependentUpon>MultiListMerchant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\MultiListSystemRole.aspx.cs">
       <DependentUpon>MultiListSystemRole.aspx</DependentUpon>
@@ -554,13 +598,6 @@
     </Compile>
     <Compile Include="weblogin\roleMenu\pMenuButtonList.aspx.designer.cs">
       <DependentUpon>pMenuButtonList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\roleMenu\pRoleMenuList.aspx.cs">
-      <DependentUpon>pRoleMenuList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\roleMenu\pRoleMenuList.aspx.designer.cs">
-      <DependentUpon>pRoleMenuList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
@@ -926,16 +963,99 @@
     <Compile Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx.designer.cs">
       <DependentUpon>pMerchantGoodsTypeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListSystemRole.aspx.cs">
+      <DependentUpon>ListSystemRole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSystemRole.aspx.designer.cs">
+      <DependentUpon>ListSystemRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListFoodInRestaurant.aspx.cs">
+      <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
+      <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx.cs">
+      <DependentUpon>pValuingItemOfMyCommodityOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingItemOfMyCommodityOrderList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\common\brandbar.js" />
+    <Content Include="apps\mods\login\asynchavana.js" />
+    <Content Include="apps\mods\login\AudioCheckCode.js" />
+    <Content Include="apps\mods\login\capslocktip.js" />
+    <Content Include="apps\mods\login\checkcode.js" />
+    <Content Include="apps\mods\login\checkusername.js" />
+    <Content Include="apps\mods\login\css\full-pkg.css" />
+    <Content Include="apps\mods\login\css\mini-pkg.css" />
+    <Content Include="apps\mods\login\images\c.png" />
+    <Content Include="apps\mods\login\longlogin.js" />
+    <Content Include="apps\mods\login\message.js" />
+    <Content Include="apps\mods\login\moduleswitch.js" />
+    <Content Include="apps\mods\login\nickclear.js" />
+    <Content Include="apps\mods\login\page-pkg.js" />
+    <Content Include="apps\mods\login\page.js" />
+    <Content Include="apps\mods\login\placeholder.js" />
+    <Content Include="apps\mods\login\pluginpop.js" />
+    <Content Include="apps\mods\login\safeedit.js" />
+    <Content Include="apps\mods\login\SafeEditTab.js" />
+    <Content Include="apps\mods\login\safemode.js" />
+    <Content Include="apps\mods\login\submitbutton.js" />
+    <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\tmall\common\bottombar.js" />
+    <Content Include="apps\tmall\common\tgallery.js" />
+    <Content Include="apps\tmall\fp\2012\core.js" />
+    <Content Include="apps\tmall\fp\2012\css\core.css" />
+    <Content Include="apps\tmall\fp\2012\css\fp.css" />
+    <Content Include="apps\tmall\fp\2012\fp.js" />
+    <Content Include="apps\tmall\fp\2012\mods\act.js" />
+    <Content Include="apps\tmall\fp\2012\mods\brand.js" />
+    <Content Include="apps\tmall\fp\2012\mods\cate-fold.js" />
+    <Content Include="apps\tmall\fp\2012\mods\category.js" />
+    <Content Include="apps\tmall\fp\2012\mods\direct-promo.js" />
+    <Content Include="apps\tmall\fp\2012\mods\floor.js" />
+    <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
+    <Content Include="apps\tmall\fp\2012\util\util.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Images\146-77.png" />
+    <Content Include="Images\194-382.png" />
+    <Content Include="Images\adminLogin\user_all_bg.gif" />
+    <Content Include="Images\adminLogin\user_bottom_c.gif" />
+    <Content Include="Images\adminLogin\user_bottom_l.gif" />
+    <Content Include="Images\adminLogin\user_bottom_r.gif" />
+    <Content Include="Images\adminLogin\user_botton.gif" />
+    <Content Include="Images\adminLogin\user_login_name.gif" />
+    <Content Include="Images\adminLogin\user_login_password.gif" />
+    <Content Include="Images\adminLogin\user_login_re.gif" />
+    <Content Include="Images\adminLogin\user_main_c.gif" />
+    <Content Include="Images\adminLogin\user_main_l.gif" />
+    <Content Include="Images\adminLogin\user_main_r.gif" />
+    <Content Include="Images\adminLogin\user_top_c.gif" />
+    <Content Include="Images\adminLogin\user_top_l.gif" />
+    <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="slide2.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -967,15 +1087,19 @@
     <Content Include="weblogin\commodity\pAddCommodity.aspx" />
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
+    <Content Include="Content\adminLogin.css" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\feedBack\pAddFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pFeedBackList.aspx" />
     <Content Include="weblogin\feedBack\pFeedBackDetail.aspx" />
     <Content Include="weblogin\feedBack\pReplyFeedBack.aspx" />
+    <Content Include="weblogin\foodStatistic\pFoodStatisticDetail.aspx" />
+    <Content Include="weblogin\foodStatistic\pFoodStatisticList.aspx" />
     <Content Include="weblogin\food\pAddFood.aspx" />
     <Content Include="weblogin\food\pEditFood.aspx" />
     <Content Include="weblogin\food\pFoodList.aspx" />
+    <Content Include="weblogin\globalGoodsType\MultiListGlobalGoodsType.aspx" />
     <Content Include="weblogin\globalGoodsType\pGlobalGoodsTypeDetail.aspx" />
     <Content Include="weblogin\house\pAddHouse.aspx" />
     <Content Include="weblogin\house\pEditHouse.aspx" />
@@ -1046,21 +1170,20 @@
     <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
-<<<<<<< HEAD
+    <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />
     <Content Include="weblogin\log\pLogDetail.aspx" />
-=======
     <Content Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx" />
     <Content Include="weblogin\merchantEmployee\pEditMerchantEmployee.aspx" />
->>>>>>> Update mEmployee
     <Content Include="weblogin\merchantEmployee\pMerchantEmployeeList.aspx" />
     <Content Include="weblogin\log\pLogList.aspx" />
     <Content Include="weblogin\merchantGoodsType\pAddMerchantGoodsType.aspx" />
     <Content Include="weblogin\merchantGoodsType\pEditMerchantGoodsType.aspx" />
-    <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />
+    <Content Include="weblogin\merchantGoodsType\pSelectGlobalGoodsType.aspx" />
     <Content Include="weblogin\message\pMessageDetail.aspx" />
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
     <Content Include="weblogin\message\pEditMessage.aspx" />
+    <Content Include="weblogin\MultiListMerchant.aspx" />
     <Content Include="weblogin\MultiListSystemRole.aspx" />
     <Content Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx" />
     <Content Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx" />
@@ -1081,7 +1204,6 @@
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />
-    <Content Include="weblogin\roleMenu\pRoleMenuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
@@ -1574,6 +1696,8 @@
     <Content Include="weblogin\uploadify\scripts\swfobject.js" />
     <Content Include="weblogin\uploadify\scripts\uploadify.swf" />
     <Content Include="weblogin\users\nSystemUserList.aspx" />
+    <Content Include="weblogin\login.aspx" />
+    <Content Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
@@ -1859,22 +1983,51 @@
     <Content Include="weblogin\orderOfCommodity\pOrderOfCommodityList.aspx" />
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
+    <Content Include="weblogin\ListSystemRole.aspx" />
+    <Content Include="weblogin\ListFoodInRestaurant.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+    <Folder Include="Areas\Account\Models\" />
+    <Folder Include="Areas\Account\Views\Shared\" />
+    <Folder Include="Areas\Cart\Models\" />
+    <Folder Include="Areas\Cart\Views\Shared\" />
+    <Folder Include="Areas\Category\Models\" />
+    <Folder Include="Areas\Category\Views\Shared\" />
+    <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
+<<<<<<< HEAD
+=======
     <Folder Include="Views\Home\" />
+    <Folder Include="weblogin\scoreOfItemInCommodityOrder\" />
+    <Folder Include="weblogin\scoreOfItemInFoodOrder\" />
+    <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
+>>>>>>> Add pValuingItemOfMyCommodityOrderList.aspx
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
+    <Folder Include="weblogin\valuingItemOfMyFoodOrder\" />
+    <Folder Include="weblogin\valuingItemOfMyHouseOrder\" />
+    <Folder Include="weblogin\valuingOfMyCommodityOrder\" />
+    <Folder Include="weblogin\valuingOfMyFoodOrder\" />
+    <Folder Include="weblogin\valuingOfMyHouseOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="unity.di.infrastructure.config" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="App_Browsers\Form.browser" />
+    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Home\login.cshtml" />
+    <Content Include="Areas\Cart\Views\Web.config" />
+    <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
+    <Content Include="Areas\Account\Views\Home\miniLoginProxy.cshtml" />
+    <Content Include="Areas\Category\Views\Web.config" />
+    <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Category.cshtml" />
+    <Content Include="Views\Shared\_MfpSlide.cshtml" />
+    <Content Include="Views\Shared\_Brand.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

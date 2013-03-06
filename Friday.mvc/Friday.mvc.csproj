@@ -984,6 +984,13 @@
     <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
       <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx.cs">
+      <DependentUpon>pValuingItemOfMyCommodityOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingItemOfMyCommodityOrderList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1690,6 +1697,7 @@
     <Content Include="weblogin\uploadify\scripts\uploadify.swf" />
     <Content Include="weblogin\users\nSystemUserList.aspx" />
     <Content Include="weblogin\login.aspx" />
+    <Content Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
@@ -1988,8 +1996,16 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
+    <Folder Include="weblogin\scoreOfItemInCommodityOrder\" />
+    <Folder Include="weblogin\scoreOfItemInFoodOrder\" />
+    <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
+    <Folder Include="weblogin\valuingItemOfMyFoodOrder\" />
+    <Folder Include="weblogin\valuingItemOfMyHouseOrder\" />
+    <Folder Include="weblogin\valuingOfMyCommodityOrder\" />
+    <Folder Include="weblogin\valuingOfMyFoodOrder\" />
+    <Folder Include="weblogin\valuingOfMyHouseOrder\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
