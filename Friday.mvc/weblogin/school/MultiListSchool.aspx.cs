@@ -24,17 +24,7 @@ namespace Friday.mvc.weblogin
         ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.PermissionValidate(PermissionTag.Enable))
-            {
-                AjaxResult result = new AjaxResult();
-                result.statusCode = "300";
-                result.message = "没有选择School权限";
-                FormatJsonResult jsonResult = new FormatJsonResult();
-                jsonResult.Data = result;
-                Response.Write(jsonResult.FormatResult());
-                Response.End();
-            }
-
+          
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
@@ -63,7 +53,7 @@ namespace Friday.mvc.weblogin
 
                 });
 
-            IList<School> schoolList = iSchoolService.Search(filterList, start, limit, out total);
+            IList<School> schoolList = iSchoolService.GetAll();
 
             repeater.DataSource = schoolList;
             repeater.DataBind();

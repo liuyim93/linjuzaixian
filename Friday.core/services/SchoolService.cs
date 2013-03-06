@@ -55,5 +55,9 @@ namespace friday.core.services
         {
             return iSchoolRepository.Search(termList, start, limit, out total);
         }
+        public IList<School> GetAll()
+        {
+            return iSchoolRepository.GetAll();
+        }
     }
 }

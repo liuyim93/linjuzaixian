@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -15,20 +16,10 @@ namespace Friday.mvc.weblogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.PermissionValidate(PermissionTag.Enable))
-            {
-                AjaxResult result = new AjaxResult();
-                result.statusCode = "300";
-                result.message = "没有选择School权限";
-                FormatJsonResult jsonResult = new FormatJsonResult();
-                jsonResult.Data = result;
-                Response.Write(jsonResult.FormatResult());
-                Response.End();
-            }
-
-            IRepository<School> reposch = UnityHelper.UnityToT<IRepository<School>>();
+         
+            ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
             IList<School> schs = new List<School>();
-            schs = reposch.GetAll();
+            schs = iSchoolService.GetAll();
             //if (parentDataDictionary != null)
             //{
             //    IList<DataDictionary> DataDictionarys = DataDictionaryRep.GetDataDictionaryFromParentID(parentDataDictionary.TreeCode);
