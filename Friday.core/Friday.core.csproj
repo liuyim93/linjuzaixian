@@ -128,12 +128,14 @@
     <Compile Include="repositories\ILogRepository.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="repositories\IScoreOfItemInCommodityOrderRepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\IValuingOfMyCommodityOrderRepository.cs" />
     <Compile Include="repositories\LogRepository.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="repositories\RoleInMenuRepository.cs" />
+    <Compile Include="repositories\ScoreOfItemInCommodityOrderRepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="repositories\MessageContentRepository.cs" />
     <Compile Include="repositories\IMessageContentRepository.cs" />

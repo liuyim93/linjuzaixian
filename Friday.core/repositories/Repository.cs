@@ -1068,6 +1068,14 @@ namespace friday.core.repositories
                         continue;
                     }
 
+
+                    if (df.type.Equals("ValuingOfMyCommodityOrder"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        continue;
+                    }
+
+
                     if (df.type.Equals("LoginUser"))
                     {
                         //根据loginUser的属性进行嵌套筛选
@@ -1097,6 +1105,94 @@ namespace friday.core.repositories
                         }
                         continue;
                     }
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+
+
+        protected ICriteria SearchByScoreOfItemInCommodityOrder(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByScoreOfItemInCommodityOrder(query, termList);
+        }
+        protected ICriteria SearchByScoreOfItemInCommodityOrder(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByScoreOfItemInCommodityOrder(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByScoreOfItemInCommodityOrder(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "scoreOfItemInCommodityOrder.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "ScoreOfItemInCommodityOrder";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".ScoreOfItemInCommodityOrder";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "scoreOfItemInCommodityOrder");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("ValuingOfMyCommodityOrder"))
+                    {
+                        //根据loginUser的属性进行嵌套筛选
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByValuingOfMyCommodityOrder(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
 
                     if (df.type.Equals("Order"))
                     {
