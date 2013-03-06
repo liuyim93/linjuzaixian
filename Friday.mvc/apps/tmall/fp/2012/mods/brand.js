@@ -125,7 +125,7 @@
                         _dom.css(d, {
                             "background-color": "#b90000"
                         });
-                        _dom.html(e, "\u60a8\u5df2\u5173\u6ce8\u8be5\u54c1\u724c");
+                        _dom.html(e, "您已关注该品牌");
                         _dom.removeClass(f, "mark");
                         _event.detach(d, "click")
                     };

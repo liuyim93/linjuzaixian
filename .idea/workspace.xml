@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
     </list>
     <ignored path="Friday.iws" />
@@ -44,10 +46,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="555" column="18" selection-start="29904" selection-end="29904" vertical-scroll-proportion="-24.107143">
+            <state line="289" column="53" selection-start="15077" selection-end="15077" vertical-scroll-proportion="-1.2180451">
               <folding />
             </state>
           </provider>
@@ -106,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brand.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="brand.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="85" column="73" selection-start="4441" selection-end="4441" vertical-scroll-proportion="-0.6917293">
+            <state line="127" column="45" selection-start="6252" selection-end="6252" vertical-scroll-proportion="-10.964286">
               <folding />
             </state>
           </provider>
@@ -140,7 +142,6 @@
       <list>
         <option value="$PROJECT_DIR$/Friday.mvc/tb.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/overlay/css/overlay.css" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/tml/1.0/tml/minilogin.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/category.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/slide2.html" />
@@ -148,6 +149,7 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
       </list>
     </option>
   </component>
@@ -363,6 +365,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -525,17 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/slide2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="292" column="9" selection-start="39348" selection-end="39348" vertical-scroll-proportion="-40.588234">
-          <folding>
-            <element signature="tag#div#1;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="tag#div#2;tag#body#0;tag#html#0" expanded="false" />
-            <element signature="tag#ul#0;tag#div#0;tag#div#3;tag#body#0;tag#html#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/category.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="125" column="36" selection-start="7030" selection-end="7042" vertical-scroll-proportion="0.24928775">
@@ -573,13 +582,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="555" column="18" selection-start="29904" selection-end="29904" vertical-scroll-proportion="-24.107143">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="50" column="36" selection-start="1840" selection-end="1840" vertical-scroll-proportion="0.0">
@@ -589,7 +591,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="85" column="73" selection-start="4441" selection-end="4441" vertical-scroll-proportion="-0.6917293">
+        <state line="127" column="45" selection-start="6252" selection-end="6252" vertical-scroll-proportion="-10.964286">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/slide2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="292" column="9" selection-start="39348" selection-end="39348" vertical-scroll-proportion="-40.588234">
+          <folding>
+            <element signature="tag#div#1;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#div#2;tag#body#0;tag#html#0" expanded="false" />
+            <element signature="tag#ul#0;tag#div#0;tag#div#3;tag#body#0;tag#html#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="289" column="53" selection-start="15077" selection-end="15077" vertical-scroll-proportion="-1.2180451">
           <folding />
         </state>
       </provider>

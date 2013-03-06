@@ -25,9 +25,16 @@ TB.add("mod~global", function() {
     //2013-02-21 basilwang seems ie  TODO still don't know why?
         _is_ie_may_need_fix = !!window.ActiveXObject;
     var _window = window, _document = document, _domain = _document.domain, _div_named_site_nav;
-    //2013-02-17 basilwang local env    a is false, k is true  X is .daily.taobao.net g is assets.daily.taobao.net   Q is 2000
-    var a = _domain.indexOf("tmall.com") > -1, k = !(_domain.indexOf("taobao.com") > -1 || a), X = k ? ".daily.taobao.net" : ".taobao.com";
-    var g = k ? "assets.daily.taobao.net" : "a.tbcdn.cn", N = _kissy.unparam(location.search.substring(1)), Q = "g_config" in _window ? ("appId" in _window.g_config ? parseInt(_window.g_config["appId"]) : undefined) : undefined;
+    //2013-02-17 basilwang local env    _is_tmall is false, _is_own is true  X is .daily.taobao.net g is assets.daily.taobao.net   _appid is 2000
+    var _is_tmall = _domain.indexOf("tmall.com") > -1,
+        _is_own = !(_domain.indexOf("taobao.com") > -1 || _is_tmall),
+    //2013-03-06 basilwang use our own
+        //_own_domain = _is_own ? ".daily.taobao.net" : ".taobao.com";
+        _own_domain = _is_own ? "localhost:7525" : ".taobao.com";
+    //var g = _is_own ? "assets.daily.taobao.net" : "a.tbcdn.cn",
+    var _own_domain_1 = _is_own ? "localhost:7525" : "a.tbcdn.cn",
+        _param_array = _kissy.unparam(location.search.substring(1)),
+        _appid = "g_config" in _window ? ("appId" in _window.g_config ? parseInt(_window.g_config["appId"]) : undefined) : undefined;
     //2013-02-20 basilwang is Https or not
     var _is_https = (_document.location.href.indexOf("https://") === 0);
     var _space_char = " ", _event_constant_hover = "hover", F = "", _event_constant_mini_cart = "mini-cart";
@@ -133,8 +140,8 @@ TB.add("mod~global", function() {
             window.g_config = window.g_config || {};
             window.g_config.toolbar = false;
             window.g_config.webww = true;
-            if ((Q && Q != -1 && Q != 2000) || "tstart" in N || "tdog" in N) {
-                var S = "http://" + g + "/p/header/webww-min.js?t=" + _tmall_config.commonJS.tDog.timestamp, i = 0;
+            if ((_appid && _appid != -1 && _appid != 2000) || "tstart" in _param_array || "tdog" in _param_array) {
+                var S = "http://" + _own_domain_1 + "/p/header/webww-min.js?t=" + _tmall_config.commonJS.tDog.timestamp, i = 0;
                 _kissy.ready(function() {
                     if (_kissy.DOM) {
                         _kissy.getScript(S)
@@ -159,7 +166,7 @@ TB.add("mod~global", function() {
             if (location.href.indexOf("tms.taobao.com") !== -1) {
                 return
             }
-            var i = "http://" + g + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp, S = H("_nk_") || H("tracknick");
+            var i = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp, S = H("_nk_") || H("tracknick");
             S = encodeURIComponent(A(unescape(S.replace(/\\u/g, "%u"))));
             _kissy.getScript(i, function() {
                 if (typeof TLabs !== "undefined") {
@@ -245,13 +252,13 @@ TB.add("mod~global", function() {
             if (window.g_config.closeMpp && _tmall_config.commonJS.mpp.off) {
                 return
             }
-            _kissy.getScript("http://" + g + "/p/tstart/1.0/build/tb-mpp-min.js?t=" + _tmall_config.commonJS.mpp.timestamp, {success: function() {
+            _kissy.getScript("http://" + _own_domain_1 + "/p/tstart/1.0/build/tb-mpp-min.js?t=" + _tmall_config.commonJS.mpp.timestamp, {success: function() {
                 _kissy.ready(function() {
                     if (!TB.Global.isLogin()) {
                         return
                     }
                     Mpp.Notify.register({appId: 1010,type: 1,callback: function() {
-                        _kissy.getScript("http://" + (k ? "webww.daily.taobao.net:8080" : "webwangwang.taobao.com") + "/getOtherSystem.do?callback=TB.Global.setUserMsg&t=" + _kissy.now())
+                        _kissy.getScript("http://" + (_is_own ? "webww.daily.taobao.net:8080" : "webwangwang.taobao.com") + "/getOtherSystem.do?callback=TB.Global.setUserMsg&t=" + _kissy.now())
                     }})
                 })
             }})
@@ -280,7 +287,9 @@ TB.add("mod~global", function() {
             r.className = "tml-ext-mask tml-mask-b2b";
             r.innerHTML = "<!--[if lte IE 6.5]><iframe></iframe><![endif]-->";
             document.body.appendChild(r);
-            var s = "http://member1" + X + "/member/changeNick2B.jhtml?t=" + _kissy.now() + "&from=tmall&url=" + encodeURIComponent(window.location.href);
+            //2013-03-06 basilwang use our own domain
+            //var s = "http://member1" + _own_domain + "/member/changeNick2B.jhtml?t=" + _kissy.now() + "&from=tmall&url=" + encodeURIComponent(window.location.href);
+            var s = "http://" + _own_domain + "/member/changeNick2B.jhtml?t=" + _kissy.now() + "&from=tmall&url=" + encodeURIComponent(window.location.href);
             var p = ['<div class="tml-contentbox">', '   <div class="tml-stdmod-header"></div>', '   <div class="tml-stdmod-body">', '       <iframe height="335" width="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" allowtransparency="true" scrolling="no" src="' + s + '"></iframe>', "   </div>", '   <div class="tml-stdmod-footer"></div>', "</div>", '<div class="tml-dialog-skin"></div>', '<i class="tml-dialog-cat"></i>'].join("");
             var q = document.createElement("div");
             q.className = "tml-dialog-hasmask tml-dialog tml-ext-position tml-dialog-b2b";
@@ -316,7 +325,7 @@ TB.add("mod~global", function() {
                 function p() {
                     _kissy.onTgalleryReady(i, q)
                 }
-                _kissy.configTgallery = {tag: _tmall_config.commonJS.brandBar.timestamp,path: "http://" + g + "/apps/"};
+                _kissy.configTgallery = {tag: _tmall_config.commonJS.brandBar.timestamp,path: "http://" + _own_domain_1 + "/apps/"};
                 _kissy.onTgalleryReady ? p() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, p)
             }
             S("tgallery/department/common/brandbar", function(p, i) {
@@ -330,7 +339,7 @@ TB.add("mod~global", function() {
             if (window.g_config.closeShareFB && _tmall_config.commonJS.shareFB.off) {
                 return
             }
-            var S = "http://" + g + "/apps/matrix-mission/feedback/feedback.js?t=" + _tmall_config.commonJS.shareFB.timestamp;
+            var S = "http://" + _own_domain_1 + "/apps/matrix-mission/feedback/feedback.js?t=" + _tmall_config.commonJS.shareFB.timestamp;
             _kissy.getScript(S)
         })
     }};
@@ -721,7 +730,7 @@ TB.add("mod~global", function() {
             TB.Global.initMiniCart();
             return
         }
-        var S = "http://" + g + "/apps/tmallbuy/razer/mini/core.js";
+        var S = "http://" + _own_domain_1 + "/apps/tmallbuy/razer/mini/core.js";
         _kissy.getScript(S + "?t=" + _tmall_config.commonJS.miniBag.timestamp)
     },initMiniCart: function() {
         if (window.g_config.closeMiniCart || _tmall_config.commonJS.miniCart.off || !TB.Global.getCartElem()) {
@@ -876,7 +885,7 @@ TB.add("mod~global", function() {
                 return true
             }
         }
-        return N.frm && N.frm == "tmalltiyan"
+        return _param_array.frm && _param_array.frm == "tmalltiyan"
     }
     function H(i) {
         if (_window.userCookie && !_kissy.isUndefined(_window.userCookie[i])) {
