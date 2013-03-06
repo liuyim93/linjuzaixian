@@ -127,10 +127,10 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
             , _init: function () {
                 var _category = this, _config = _category.config;
                 _kissy.each(_category.triggers, function (_trigger) {
-                    _event.on(_trigger, "mouseenter tap", function (b) {
-                            b.halt(); var a = _indexOf(_category.triggers, _trigger);
-                            _config.idx = a; _category.status = "visible";
-                            if (b.type === "tap" && a === _category.triggerIdx)
+                    _event.on(_trigger, "mouseenter tap", function (_event) {
+                            _event.halt(); var _index = _indexOf(_category.triggers, _trigger);
+                            _config.idx = _index; _category.status = "visible";
+                            if (_event.type === "tap" && _index === _category.triggerIdx)
                             { _category.hide(_config.idx); return } if (!_category.viewer) {
                                 if (!_config.viewer && _config.lazyload) {
                                     _category.viewer = _dom.create('<div id="J_SubCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
@@ -149,15 +149,16 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                         }
                     )
                     ;
-                    _event.on(_trigger, _str_mouseleave, function (a) { _category.status = "triggerLeave" })
+                    _event.on(_trigger, _str_mouseleave, function (_event) { _category.status = "triggerLeave" })
                 });
                 _event.on(_category.container, _str_mouseleave, function (Z) { _category.hide(_config.idx) });
                 _event.on(_config.bottomCl, "mouseenter mouseleave", function (Z) {
                     _dom.toggleClass(_config.bottomCl, _str_selected);
                     if (Z.type === "mouseenter") { _category.hide(_config.idx) }
                 });
-                _event.on(".categoryHd", _str_mouseenter, function (Z) { _category.hide(_config.idx) })
-            }, getRecData: function () { var S = this; _kissy.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } S.renderRecData(Y); S.RecData = Y }) }, renderRecData: function (Z) {
+                /*2013-03-07 basilwang 所有商品分类*/
+                _event.on(".categoryHd", _str_mouseenter, function (_event) { _category.hide(_config.idx) })
+            }, getRecData: function () { var _category = this; _kissy.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } _category.renderRecData(Y); _category.RecData = Y }) }, renderRecData: function (Z) {
                 if (!Z) { return } var Y = this; var S = _dom.query("p.subItem-brand", Y.subViews[Y.config.idx]); _kissy.each(S, function (d) {
                     var b = _dom.attr(d, "recommend-id");
                     var a = ""; if (b && Z[b]) { for (var c = 0; c < Z[b].length; c++) { a += '<a href="' + Z[b][c].linkedUrl + '" target="_blank">' + Z[b][c].brandName + "</a>" } _dom.html(d, a) }
