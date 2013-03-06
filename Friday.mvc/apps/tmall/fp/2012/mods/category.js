@@ -53,39 +53,39 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                 if (!_category.shadow) { _category.shadow = _dom.get(".shadow", _category.viewer) }
                 _dom.height(_category.shadow, (S + O) + "px")
             }, show: function () {
-                var a = this, b = a.config;
-                var Z = a.subViews;
-                var S = b.idx;
-                var Y = a.isDataReady ? Z[S] : Z[0];
-                var c = _dom.width(a.viewer);
-                if (a.hideTimer) { clearTimeout(a.hideTimer) }
+                var _category = this, _config = _category.config;
+                var _subViews = _category.subViews;
+                var _idx = _config.idx;
+                var Y = _category.isDataReady ? _subViews[_idx] : _subViews[0];
+                var c = _dom.width(_category.viewer);
+                if (_category.hideTimer) { clearTimeout(_category.hideTimer) }
                 if (V && c == 0) {
-                    if (a.expandTimer)
-                    { clearTimeout(a.expandTimer) }
-                    a.expandTimer = setTimeout(function () {
+                    if (_category.expandTimer)
+                    { clearTimeout(_category.expandTimer) }
+                    _category.expandTimer = setTimeout(function () {
                             G = false;
                             V = false;
-                            a.changeTrigger(S);
-                            a.changeView(Y);
+                            _category.changeTrigger(_idx);
+                            _category.changeView(Y);
                             if (!_is_ie6) {
-                                new _kissy.Anim(a.viewer, { width: J }, 0.2, "linear").run()
+                                new _kissy.Anim(_category.viewer, { width: J }, 0.2, "linear").run()
                             }
                             else
-                            { _dom.width(a.viewer, J) }
+                            { _dom.width(_category.viewer, J) }
                         }
-                        , b.showDelay * 500)
+                        , _config.showDelay * 500)
                 }
                 else {
-                    if (a.resetTimer) {
-                        clearTimeout(a.resetTimer)
+                    if (_category.resetTimer) {
+                        clearTimeout(_category.resetTimer)
                     }
-                    a.resetTimer = setTimeout(function () {
-                            if (a.status == "visible") {
-                                a.changeTrigger(S);
-                                a.changeView(Y)
+                    _category.resetTimer = setTimeout(function () {
+                            if (_category.status == "visible") {
+                                _category.changeTrigger(_idx);
+                                _category.changeView(Y)
                             }
                         }
-                        , b.showDelay * 1000)
+                        , _config.showDelay * 1000)
                 }
             },
             hide: function (_index) {
