@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class RentSatisticMap : ClassMap<RentSatistic>
+    public class RentStatisticMap : ClassMap<RentStatistic>
     {
-        public RentSatisticMap()
+        public RentStatisticMap()
         {
 
             Id(o => o.Id);

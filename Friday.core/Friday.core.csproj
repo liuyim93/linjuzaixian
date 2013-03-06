@@ -156,6 +156,8 @@
     <Compile Include="repositories\CommodityStatisticRepository.cs" />
     <Compile Include="repositories\RestaurantStatisticRepository.cs" />
     <Compile Include="repositories\IRestaurantStatisticRepository.cs" />
+    <Compile Include="repositories\RentStatisticRepository.cs" />
+    <Compile Include="repositories\IRentStatisticRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -303,7 +305,7 @@
     <Compile Include="domain\CommodityStatisticMap.cs" />
     <Compile Include="domain\ShopStatisticMap.cs" />
     <Compile Include="domain\RestaurantStatisticMap.cs" />
-    <Compile Include="domain\RentSatisticMap.cs" />
+    <Compile Include="domain\RentStatisticMap.cs" />
     <Compile Include="domain\ValuingOfMyCommodityOrderMap.cs" />
     <Compile Include="domain\ValuingOfMyFoodOrderMap.cs" />
     <Compile Include="domain\ValuingOfMyHouseOrderMap.cs" />
@@ -333,7 +335,7 @@
     <Compile Include="domain\SystemFunctionObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="domain\RentCart.cs" />
-    <Compile Include="domain\RentSatistic.cs" />
+    <Compile Include="domain\RentStatistic.cs" />
     <Compile Include="repositories\ActivityRepository.cs" />
     <Compile Include="repositories\AddressRepository.cs" />
     <Compile Include="repositories\FoodRepository.cs" />

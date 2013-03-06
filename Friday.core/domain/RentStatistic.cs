@@ -5,7 +5,7 @@ using System.Text;
 
 namespace friday.core
 {
-    public class RentSatistic:MerchantStatistic
+    public class RentStatistic:MerchantStatistic
     {
         public virtual Rent Rent
         {
