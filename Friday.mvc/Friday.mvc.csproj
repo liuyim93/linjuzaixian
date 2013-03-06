@@ -1019,6 +1019,13 @@
     <Compile Include="weblogin\ListFoodInRestaurant.aspx.designer.cs">
       <DependentUpon>ListFoodInRestaurant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.cs">
+      <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.designer.cs">
+      <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx.cs">
       <DependentUpon>pAddValuingItemOfMyCommodityOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1821,6 +1828,7 @@
     <Content Include="weblogin\uploadify\scripts\uploadify.swf" />
     <Content Include="weblogin\users\nSystemUserList.aspx" />
     <Content Include="weblogin\login.aspx" />
+    <Content Include="weblogin\valuingComments\pValuingCommentsList.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pEditValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pValuingItemOfMyCommodityOrderList.aspx" />
@@ -2136,7 +2144,6 @@
     <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
-    <Folder Include="weblogin\valuingComments\" />
     <Folder Include="weblogin\valuingOfMyFoodOrder\" />
     <Folder Include="weblogin\valuingOfMyHouseOrder\" />
   </ItemGroup>
