@@ -31,27 +31,27 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
             _category.triggers = _dom.query(_op.triggers, _category.container);
             _category._init()
         }
-        function A(S, Z) {
-            for (var Y = 0; Y < S.length; Y = Y + 1)
-            { if (S[Y] === Z) { return Y } } return -1
+        function _indexOf(_array, _item) {
+            for (var i = 0; i < _array.length; i = i + 1)
+            { if (_array[i] === _item) { return i } } return -1
         }
         _kissy.mix(Category.prototype, { changeTrigger:
-            function (S) {
-                var Y = this;
-                var a = Y.triggers, Z = a[S];
-                _kissy.each(a, function (b) { _dom.removeClass(b, _str_selected) });
-                _dom.addClass(Z, _str_selected);
-                Y.triggerIdx = S
+            function (_index) {
+                var _category = this;
+                var _triggers = _category.triggers, _trigger_changed = _triggers[_index];
+                _kissy.each(_triggers, function (_trigger) { _dom.removeClass(_trigger, _str_selected) });
+                _dom.addClass(_trigger_changed, _str_selected);
+                _category.triggerIdx = _index
             },
             changeView: function (Y) {
-                var Z = this;
-                _kissy.each(Z.subViews, function (a) { _dom.addClass(a, _str_hidden) });
+                var _category = this;
+                _kissy.each(_category.subViews, function (a) { _dom.addClass(a, _str_hidden) });
                 _dom.removeClass(Y, _str_hidden);
                 var S = _dom.height(Y);
-                _dom.height(Z.viewer, (S + Q + O) + "px");
-                Z.resetPostion();
-                if (!Z.shadow) { Z.shadow = _dom.get(".shadow", Z.viewer) }
-                _dom.height(Z.shadow, (S + O) + "px")
+                _dom.height(_category.viewer, (S + Q + O) + "px");
+                _category.resetPostion();
+                if (!_category.shadow) { _category.shadow = _dom.get(".shadow", _category.viewer) }
+                _dom.height(_category.shadow, (S + O) + "px")
             }, show: function () {
                 var a = this, b = a.config;
                 var Z = a.subViews;
@@ -88,18 +88,18 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                         , b.showDelay * 1000)
                 }
             },
-            hide: function (S) {
-                var Y = this, a = Y.config, b = Y.triggers, Z = b[S];
-                Y.status = "hidden";
+            hide: function (_index) {
+                var _category = this, _config = _category.config, _triggers = _category.triggers, _trigger_to_hide = _triggers[_index];
+                _category.status = "hidden";
                 V = true;
-                Y.triggerIdx = null;
-                if (Y.viewer) {
-                    if (Y.expandTimer) { clearTimeout(Y.expandTimer) }
-                    if (Y.hideTimer) { clearTimeout(Y.hideTimer) }
-                    Y.hideTimer = setTimeout(function () {
-                        _kissy.each(b, function (c) { _dom.removeClass(c, _str_selected) });
-                        _dom.css(Y.viewer, { width: "0" })
-                    }, a.hideDelay * 1000)
+                _category.triggerIdx = null;
+                if (_category.viewer) {
+                    if (_category.expandTimer) { clearTimeout(_category.expandTimer) }
+                    if (_category.hideTimer) { clearTimeout(_category.hideTimer) }
+                    _category.hideTimer = setTimeout(function () {
+                        _kissy.each(_triggers, function (_trigger) { _dom.removeClass(_trigger, _str_selected) });
+                        _dom.css(_category.viewer, { width: "0" })
+                    }, _config.hideDelay * 1000)
                 }
             }, resetPostion: function () {
                 var a = this.triggers[this.config.idx], i = _dom.offset(a).top, e = _dom.offset(this.container), g = _dom.height(a), b = _dom.height(this.viewer), k = _dom.width(a), f = _dom.viewportHeight(), Y = _dom.scrollTop(), j = i - Y, Z = f - b - j, l = f - j, S = i - e.top; if (Z <= 0) { Z = Math.abs(Z); var h = 20; if (l > g) { var d = l - g; if (d > h) { S = S - Z - h + 7 } else { S = S - Z } } else { S = S - Z + h + l + 20 } } if (S < 30) { S = 30 } var c = _kissy.UA.ie ? 0 : Q;
@@ -109,13 +109,13 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     G = true
                 }
             }, _load: function (Z) {
-                var S = this, Y = S.config; _kissy.IO.get(Z, _is_ie6 ? { t: +new Date} : {}, function (a) {
-                        if (!a) { return } newViewer = _dom.create(a); _dom.html(S.viewer, _dom.html(newViewer)); S.subViews = _dom.query(Y.subViews, S.viewer);
-                        S.shadow = _dom.get(".shadow", S.viewer);
-                        S.isDataReady = true;
-                        if (S.status == "visible") {
+                var _category = this, _config = _category.config; _kissy.IO.get(Z, _is_ie6 ? { t: +new Date} : {}, function (a) {
+                        if (!a) { return } newViewer = _dom.create(a); _dom.html(_category.viewer, _dom.html(newViewer)); _category.subViews = _dom.query(_config.subViews, _category.viewer);
+                        _category.shadow = _dom.get(".shadow", _category.viewer);
+                        _category.isDataReady = true;
+                        if (_category.status == "visible") {
                             V = false;
-                            S.show()
+                            _category.show()
                         }
                         //2013-03-06 basiwang check direct-promo
                         //2013-02-03 TODO(basilwang) no direct-promo
@@ -125,38 +125,38 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     "text")
             }
             , _init: function () {
-                var S = this, Y = S.config;
-                _kissy.each(S.triggers, function (Z) {
-                    _event.on(Z, "mouseenter tap", function (b) {
-                            b.halt(); var a = A(S.triggers, Z);
-                            Y.idx = a; S.status = "visible";
-                            if (b.type === "tap" && a === S.triggerIdx)
-                            { S.hide(Y.idx); return } if (!S.viewer) {
-                                if (!Y.viewer && Y.lazyload) {
-                                    S.viewer = _dom.create('<div id="J_SubCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
-                                    S.container.appendChild(S.viewer);
-                                    S.subViews = _dom.query(Y.subViews, S.viewer);
-                                    S.isDataReady = false;
-                                    S._load(Y.dataUrl)
+                var _category = this, _config = _category.config;
+                _kissy.each(_category.triggers, function (_trigger) {
+                    _event.on(_trigger, "mouseenter tap", function (b) {
+                            b.halt(); var a = _indexOf(_category.triggers, _trigger);
+                            _config.idx = a; _category.status = "visible";
+                            if (b.type === "tap" && a === _category.triggerIdx)
+                            { _category.hide(_config.idx); return } if (!_category.viewer) {
+                                if (!_config.viewer && _config.lazyload) {
+                                    _category.viewer = _dom.create('<div id="J_SubCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
+                                    _category.container.appendChild(_category.viewer);
+                                    _category.subViews = _dom.query(_config.subViews, _category.viewer);
+                                    _category.isDataReady = false;
+                                    _category._load(_config.dataUrl)
                                 }
                                 else {
-                                    S.viewer = Y.viewer;
-                                    S.subViews = _dom.query(Y.subViews, S.viewer);
-                                    S.isDataReady = true
+                                    _category.viewer = _config.viewer;
+                                    _category.subViews = _dom.query(_config.subViews, _category.viewer);
+                                    _category.isDataReady = true
                                 }
                             }
-                            S.show()
+                            _category.show()
                         }
                     )
                     ;
-                    _event.on(Z, _str_mouseleave, function (a) { S.status = "triggerLeave" })
+                    _event.on(_trigger, _str_mouseleave, function (a) { _category.status = "triggerLeave" })
                 });
-                _event.on(S.container, _str_mouseleave, function (Z) { S.hide(Y.idx) });
-                _event.on(Y.bottomCl, "mouseenter mouseleave", function (Z) {
-                    _dom.toggleClass(Y.bottomCl, _str_selected);
-                    if (Z.type === "mouseenter") { S.hide(Y.idx) }
+                _event.on(_category.container, _str_mouseleave, function (Z) { _category.hide(_config.idx) });
+                _event.on(_config.bottomCl, "mouseenter mouseleave", function (Z) {
+                    _dom.toggleClass(_config.bottomCl, _str_selected);
+                    if (Z.type === "mouseenter") { _category.hide(_config.idx) }
                 });
-                _event.on(".categoryHd", _str_mouseenter, function (Z) { S.hide(Y.idx) })
+                _event.on(".categoryHd", _str_mouseenter, function (Z) { _category.hide(_config.idx) })
             }, getRecData: function () { var S = this; _kissy.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } S.renderRecData(Y); S.RecData = Y }) }, renderRecData: function (Z) {
                 if (!Z) { return } var Y = this; var S = _dom.query("p.subItem-brand", Y.subViews[Y.config.idx]); _kissy.each(S, function (d) {
                     var b = _dom.attr(d, "recommend-id");
