@@ -74,49 +74,49 @@ TB.add("mod~global", function() {
         _kissy.ready(function() {
             _kissy.use("event", function(_kissy_imp, _event) {
                 _event = _event || _kissy_imp.Event;
-                var p = "http://www.tmall.com/go/rgn/tmall/cat-nav-asyn.php";
+                var _url = "http://localhost:7525/category/home/cat_nav_asyn";
                 var _j_mall_cate = document.getElementById("J_MallCate");
                 var _div_named_sn_menu = _findChildElementByClassName("sn-menu", _j_mall_cate);
                 if (_j_mall_cate && _div_named_sn_menu) {
-                    var _div_load_failure = document.createElement("div");
-                    _div_load_failure.className = "sn-mcate-bd sn-mcate-unready j_MallCateHoverTrigger";
-                    document.body.insertBefore(_div_load_failure, document.body.lastChild);
-                    _div_load_failure.innerHTML = "\u52aa\u529b\u52a0\u8f7d\u4e2d...";
-                    _div_load_failure.style.top = (T(_div_named_site_nav) + 30) + "px";
-                    var t, w = false, v = false;
+                    var _div_load = document.createElement("div");
+                    _div_load.className = "sn-mcate-bd sn-mcate-unready j_MallCateHoverTrigger";
+                    document.body.insertBefore(_div_load, document.body.lastChild);
+                    _div_load.innerHTML = "努力加载中...";
+                    _div_load.style.top = (T(_div_named_site_nav) + 30) + "px";
+                    var _later_fn, _is_entered = false, _is_later_fn_excuted = false;
                     _event.on(_j_mall_cate, "mouseenter", function() {
-                        w = true;
-                        t = _kissy_imp.later(function() {
+                        _is_entered = true;
+                        _later_fn = _kissy_imp.later(function() {
                             _addClassName(_div_named_sn_menu, "hover");
-                            _div_load_failure.style.display = "block";
-                            v = true
+                            _div_load.style.display = "block";
+                            _is_later_fn_excuted = true
                         }, 300)
                     });
                     _event.on(_j_mall_cate, "mouseleave", function(x) {
-                        w = false;
-                        if (v) {
+                        _is_entered = false;
+                        if (_is_later_fn_excuted) {
                             _removeClassName(_div_named_sn_menu, "hover");
-                            _div_load_failure.style.display = "none";
-                            v = false
+                            _div_load.style.display = "none";
+                            _is_later_fn_excuted = false
                         } else {
-                            t && t.cancel()
+                            _later_fn && _later_fn.cancel()
                         }
                     });
-                    _event.on(_div_load_failure, "mouseenter", function() {
+                    _event.on(_div_load, "mouseenter", function() {
                         _addClassName(_div_named_sn_menu, "hover");
-                        _div_load_failure.style.display = "block"
+                        _div_load.style.display = "block"
                     });
-                    _event.on(_div_load_failure, "mouseleave", function() {
+                    _event.on(_div_load, "mouseleave", function() {
                         _kissy_imp.later(function() {
-                            if (!w) {
+                            if (!_is_entered) {
                                 _removeClassName(_div_named_sn_menu, "hover");
-                                _div_load_failure.style.display = "none"
+                                _div_load.style.display = "none"
                             }
                         }, 100)
                     });
                     window._mallCateCtnHandler = function(x) {
-                        _div_load_failure.innerHTML = x;
-                        _removeClassName(_div_load_failure, "sn-mcate-unready");
+                        _div_load.innerHTML = x;
+                        _removeClassName(_div_load, "sn-mcate-unready");
                         _kissy_imp.getScript("http://a.tbcdn.cn/p/mall/2.0/js/direct-promo.js")
                     };
                     _addEventCombo(_j_mall_cate, "mouseover", function() {
@@ -124,9 +124,9 @@ TB.add("mod~global", function() {
                         if (x) {
                             return
                         }
-                        _kissy_imp.getScript(p + "?callback=window._mallCateCtnHandler&t=" + _kissy_imp.now(), {timeout: 5,error: function() {
-                            _div_load_failure.innerHTML = "\u55b5~\u52a0\u8f7d\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff01";
-                            _addClassName(_div_load_failure, "sn-mcate-unready")
+                        _kissy_imp.getScript(_url + "?callback=window._mallCateCtnHandler&t=" + _kissy_imp.now(), {timeout: 5,error: function() {
+                            _div_load.innerHTML = "\u55b5~\u52a0\u8f7d\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff01";
+                            _addClassName(_div_load, "sn-mcate-unready")
                         }})
                     })
                 }
