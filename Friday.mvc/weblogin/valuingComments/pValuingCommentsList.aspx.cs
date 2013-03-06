@@ -23,7 +23,6 @@ namespace Friday.mvc.weblogin.valuingComments
         IRepository<Valuing> iValuingRepository = UnityHelper.UnityToT<IRepository<Valuing>>();
 
         private Valuing valuing;
-        private ValuingComments valuingComments;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,13 +49,15 @@ namespace Friday.mvc.weblogin.valuingComments
         private void DeleteValuingComments()
         {
 
-            valuingComments = iValuingCommentsRepository.Load(Request.Params["uid"]);
-
             iValuingCommentsRepository.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
+            if (Request.Params["rel_hook"] != null)
+            {
+                result.panelId = Request.Params["rel_hook"];
+            }
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

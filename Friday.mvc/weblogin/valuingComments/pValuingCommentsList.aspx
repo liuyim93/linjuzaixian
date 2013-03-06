@@ -13,7 +13,7 @@
             rel="" width="600" height="400"><span>增加评论</span></a></li>
         <li><a class="edit" href="ValuingComments/pEditValuingComments.aspx?uid={scoreOfItemInCommodityOrderid}&valuing_id=<%=Request.Params["valuing_id"]%>" title="修改评论" rel="" target="dialog"
             height="480"><span>修改评论</span></a></li>
-        <li><a class="delete" href="ValuingComments/pValuingCommentsList.aspx?flag=alldelete&uid={scoreOfItemInCommodityOrderid}" target="ajaxTodo"
+        <li><a class="delete" href="ValuingComments/pValuingCommentsList.aspx?flag=alldelete&uid={scoreOfItemInCommodityOrderid}&valuing_id=<%=Request.Params["valuing_id"]%>" target="ajaxTodo"
             title="确定要删除吗?"><span>删除评论</span></a></li>
         <li class="line">line</li>
     </ul>
