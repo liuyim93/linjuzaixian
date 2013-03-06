@@ -52,7 +52,7 @@ TB.add("mod~global", function() {
     var _is_https = (_document.location.href.indexOf("https://") === 0);
     var _space_char = " ", _event_constant_hover = "hover", F = "", _event_constant_mini_cart = "mini-cart";
     var P = {};
-    var J = {siteNav: function() {
+    var CommonJS = {siteNav: function() {
         if (!_div_named_site_nav) {
             return
         }
@@ -356,20 +356,20 @@ TB.add("mod~global", function() {
             _kissy.getScript(S)
         })
     }};
-    var _name_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
-    for (var _name_index = 0; _name_index < _name_array.length; _name_index++) {
+    var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
+    for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
         (function(_name) {
-            var _selected_function = J[_name];
-            J[_name] = function() {
+            var _selected_function = CommonJS[_name];
+            CommonJS[_name] = function() {
                 setTimeout(_selected_function, 1000)
             }
-        })(_name_array[_name_index])
+        })(_commonjs_array[_name_index])
     }
     TB.Global = {init: function() {
         _div_named_site_nav = _document.getElementById("site-nav");
         this._subMenus = [];
-        for (var S in J) {
-            J[S]()
+        for (var S in CommonJS) {
+            CommonJS[S]()
         }
     },writeLoginInfo: function(_options) {
         _div_named_site_nav = _document.getElementById("site-nav");
