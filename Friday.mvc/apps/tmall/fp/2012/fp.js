@@ -34,7 +34,7 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 subViews: ".j_SubView",
                 triggers: ".j_MenuItem",
                 bottomCl: ".j_BottomMenu",
-                dataUrl: "http://" + location.host + "/go/rgn/mfp2012/all-cat-asyn.php"
+                dataUrl: "http://" + location.host + "/category/home/all_cat_asyn"
             });
             this._bindViewChange();
             MFP.POC.add("main")
