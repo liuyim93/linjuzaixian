@@ -91,7 +91,7 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
                     myCommodityOrderFilter.Add(new DataFilter()
                     {
                         type = "OrderNumber",
-                        value = loginName = Request.Form["OrderNumber"]
+                        value = orderNumber = Request.Form["OrderNumber"]
 
                     });
 

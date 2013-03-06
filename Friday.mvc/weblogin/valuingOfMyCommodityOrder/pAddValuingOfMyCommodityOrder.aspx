@@ -17,12 +17,6 @@
 
             <p>
                 <label>
-                    下单时间：</label>
-                <input type="text" id="OrderCreateTime" size="30" readonly="true" class="required  textInput gray" runat="server" />
-            </p>
-
-            <p>
-                <label>
                     订单价格：</label>
                 <input type="text" id="Price" size="30" readonly="true" class="required  textInput gray" runat="server" />
             </p>

@@ -10,6 +10,7 @@
         查询条件</h1>
     <div class="searchBar">
         <form id="form" rel="pagerForm" method="post" runat="server">
+        <table>
              <tr>
                 <td>
                     <label>订单编号:</label>
@@ -24,6 +25,7 @@
                     <input type="text" name="ShopName" class="textInput" value="<%=shopName %>" />
                 </td>
              </tr>
+        </table>
         <div class="subBar">
             <ul>
                 <li>
@@ -72,7 +74,7 @@
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "SystemUser.LoginUser.LoginName")%></td>
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Shop.Name")%></td> 
                         <td>
-				    <a class="btnSelect" href=javascript:$.bringBack({OrderID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',OrderNumber:'<%#DataBinder.Eval(Container.DataItem,"OrderNumber")%>',OrderCreateTime:'<%#DataBinder.Eval(Container.DataItem,"CreateTime")%>',Price:'<%#DataBinder.Eval(Container.DataItem,"Price")%>',LoginName:'<%#DataBinder.Eval(Container.DataItem,"SystemUser.LoginUser.LoginName")%>',MerchantName:'<%#DataBinder.Eval(Container.DataItem,"Shop.Name")%>'}) title="查找带回">选择</a>
+				    <a class="btnSelect" href=javascript:$.bringBack({OrderID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',OrderNumber:'<%#DataBinder.Eval(Container.DataItem,"OrderNumber")%>',Price:'<%#DataBinder.Eval(Container.DataItem,"Price")%>',LoginName:'<%#DataBinder.Eval(Container.DataItem,"SystemUser.LoginUser.LoginName")%>',MerchantName:'<%#DataBinder.Eval(Container.DataItem,"Shop.Name")%>'}) title="查找带回">选择</a>
 				        </td>				
 			        </tr>
             </ItemTemplate>

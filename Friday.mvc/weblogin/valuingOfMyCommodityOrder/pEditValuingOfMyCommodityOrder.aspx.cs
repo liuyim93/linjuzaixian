@@ -36,7 +36,6 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
                 BindingHelper.ObjectToControl(valuingOfMyCommodityOrder, this);
 
                 OrderID.Value = myCommodityOrder.Id;
-                OrderCreateTime.Value = myCommodityOrder.CreateTime.ToString();
                 LoginName.Value = valuingOfMyCommodityOrder.LoginUser.LoginName;
                 MerchantName.Value = valuingOfMyCommodityOrder.Merchant.Name;
 
@@ -48,6 +47,7 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
             myCommodityOrder = iMyCommodityOrderRepository.Get(OrderID.Value);
             valuingOfMyCommodityOrder.LoginUser = myCommodityOrder.SystemUser.LoginUser;
             valuingOfMyCommodityOrder.Merchant = myCommodityOrder.Shop;
+            valuingOfMyCommodityOrder.MyCommodityOrder = myCommodityOrder;
 
             BindingHelper.RequestToObject(valuingOfMyCommodityOrder);
             iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
