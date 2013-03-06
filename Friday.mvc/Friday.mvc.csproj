@@ -1026,6 +1026,13 @@
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.designer.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.cs">
+      <DependentUpon>pEditValuingComments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.designer.cs">
+      <DependentUpon>pEditValuingComments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.cs">
       <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1836,6 +1843,7 @@
     <Content Include="weblogin\users\nSystemUserList.aspx" />
     <Content Include="weblogin\login.aspx" />
     <Content Include="weblogin\valuingComments\pAddValuingComments.aspx" />
+    <Content Include="weblogin\valuingComments\pEditValuingComments.aspx" />
     <Content Include="weblogin\valuingComments\pValuingCommentsList.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyCommodityOrder\pEditValuingItemOfMyCommodityOrder.aspx" />
