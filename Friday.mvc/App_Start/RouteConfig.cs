@@ -13,7 +13,13 @@ namespace Friday.mvc
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-
+            routes.MapRoute(
+               name: "Index",
+               url: "Index.html",
+               defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+               namespaces: new string[] { "Friday.mvc.Controllers" }
+               
+           );
 
             routes.MapRoute(
                 name: "Default",

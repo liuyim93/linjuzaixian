@@ -125,7 +125,6 @@
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1041,7 +1040,6 @@
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
     <Content Include="slide2.html" />
-    <Content Include="core.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1981,7 +1979,6 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
-    <Folder Include="Views\Home\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
@@ -1990,7 +1987,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="unity.di.infrastructure.config" />
-    <Content Include="Views\Test\Index.cshtml" />
     <Content Include="App_Browsers\Form.browser" />
     <Content Include="Areas\Account\Views\Web.config" />
     <Content Include="Areas\Account\Views\Home\login.cshtml" />
@@ -1999,6 +1995,7 @@
     <Content Include="Areas\Account\Views\Home\miniLoginProxy.cshtml" />
     <Content Include="Areas\Category\Views\Web.config" />
     <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
