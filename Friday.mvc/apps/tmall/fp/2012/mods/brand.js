@@ -19,7 +19,7 @@
         bigBrand: ".greatBrand",
         temai: ".temai"
     };
-    var V;
+    var _config;
     var N = false;
     var M = "";
     var F = [];
@@ -29,12 +29,12 @@
     var J = "http://" + (_is_test_env ? "brand.daily.tmall.net" : "brand.tmall.com") + "/ajax/homePageGetBrand.htm";
     var A = "http://" + (~location.host.indexOf(".net") ? "login.daily.taobao.net" : "login.taobao.com") + "/member/logout.jhtml";
 
-    function R(Z) {
-        var S = this;
-        S.config = _kissy.merge(_options, Z || {});
-        S._init()
+    function Brand(_op) {
+        var _brand = this;
+        _brand.config = _kissy.merge(_options, _op || {});
+        _brand._init()
     }
-    _kissy.mix(R.prototype, {
+    _kissy.mix(Brand.prototype, {
         brandRecommend: function () {
             var Z = _kissy.unparam(_document.location.search.substring(1));
             var S = Z.uid || "";
@@ -54,7 +54,7 @@
                 var a = c.sBrands;
                 var e = 50,
 					d = 50;
-                _kissy.each(_dom.query(V.brands), function (g) {
+                _kissy.each(_dom.query(_config.brands), function (g) {
                     var o, k;
                     var j = _dom.children(g);
                     if (_dom.attr(g, "keep") == "true") {
@@ -145,7 +145,7 @@
         },
         brandHover: function () {
             var S = this;
-            _kissy.each(_dom.query(V.brands), function (Z) {
+            _kissy.each(_dom.query(_config.brands), function (Z) {
                 _event.on(Z, "mouseenter mouseleave", function (b) {
                     var a = b.type === "mouseenter" ? 0.9 : 0;
                     var d = _dom.get("span", Z);
@@ -176,7 +176,7 @@
         },
         brandMark: function () {
             var S = this;
-            _kissy.each(_dom.query(V.marks), function (a) {
+            _kissy.each(_dom.query(_config.marks), function (a) {
                 var Z = _dom.get("s", a);
                 _event.on(a, "mouseenter mouseleave", function (b) {
                     var c = b.type === "mouseenter" ? "#b90000" : "#C3C3C3";
@@ -209,8 +209,8 @@
             })
         },
         bigBrandHover: function () {
-            _event.on(V.bigBrand, "mouseenter mouseleave", function (Z) {
-                var b = _dom.get("p", V.bigBrand);
+            _event.on(_config.bigBrand, "mouseenter mouseleave", function (Z) {
+                var b = _dom.get("p", _config.bigBrand);
                 if (!_kissy.UA.ie) {
                     _dom.toggleClass(b, "hovered")
                 } else {
@@ -231,8 +231,8 @@
             })
         },
         temaiHover: function () {
-            _event.on(V.temai, "mouseenter mouseleave", function (a) {
-                var S = _dom.get("p", V.temai);
+            _event.on(_config.temai, "mouseenter mouseleave", function (a) {
+                var S = _dom.get("p", _config.temai);
                 if (!_kissy.UA.ie) {
                     _dom.toggleClass(S, "hovered")
                 } else {
@@ -258,22 +258,22 @@
             })
         },
         _init: function () {
-            var S = this;
-            V = S.config;
+            var _brand = this;
+            _config = _brand.config;
             _kissy.ready(function () {
                 if (!_g_config.closeExtra) {
-                    S.brandRecommend()
+                    _brand.brandRecommend()
                 }
-                S._getLogin();
-                S.brandHover();
-                S.initBrandBar();
-                S.brandMark();
-                S.bigBrandHover();
-                S.temaiHover()
+                _brand._getLogin();
+                _brand.brandHover();
+                _brand.initBrandBar();
+                _brand.brandMark();
+                _brand.bigBrandHover();
+                _brand.temaiHover()
             })
         }
     });
-    return R
+    return Brand
 }, {
     requires: ["template", "2012/util/util"]
 });
