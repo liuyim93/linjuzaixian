@@ -18,6 +18,7 @@ namespace Friday.mvc.weblogin.activity
         private Activity activity;
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();
