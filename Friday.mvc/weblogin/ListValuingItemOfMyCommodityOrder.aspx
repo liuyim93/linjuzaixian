@@ -1,16 +1,62 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ListValuingItemOfMyCommodityOrder.aspx.cs" Inherits="Friday.mvc.weblogin.ListValuingItemOfMyCommodityOrder" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-    
+<div class="page">
+    <div class="pageContent">
+        <form id="Form2" method="post" runat="server" class="pageForm required-validate">
+        <div class="panelBar">
+            <ul class="toolBar">
+            </ul>
+        </div>
+        <table class="table" layouth="140">
+            <asp:repeater id="repeater" runat="server">
+                 <HeaderTemplate>
+                 <thead>
+                     <tr>
+                       <th width="40">序号</th> 
+					    <th width="200">评价项名称</th> 
+                      </tr>
+                 </thead>
+                 <tbody> 
+                 </HeaderTemplate>
+                 <ItemTemplate> 
+                    <tr target="userid" rel="<%#Eval("Id")%>">
+                     <td><%#Container.ItemIndex+1%></td>
+					 <td><%#DataBinder.Eval(Container.DataItem, "ValuingItemName")%></td>
+                     <td>
+					<a class="btnSelect" href=javascript:$.bringBack({ItemID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',ItemName:'<%#DataBinder.Eval(Container.DataItem,"ValuingItemName")%>'}) title="查找带回">选择</a>
+				</td>				
+			</tr>
+                </ItemTemplate>
+         </asp:repeater>
+            </tbody>
+        </table>
+        <div class="formBar">
+            <ul>
+                <li>
+                    <div class="buttonActive">
+                        <div class="buttonContent">
+                            <button id="btnSave" type="button">
+                                保存</button></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="button">
+                        <div class="buttonContent">
+                            <button class="close" value="关闭">
+                                取消</button></div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </form>
     </div>
-    </form>
-</body>
-</html>
+</div>
+<script   type="text/javascript">
+    $(function () {
+        var page_prefix = '<%=Request.Params["prefix"] %>';
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
+        $(document).one("panelloaded", function (e, o) {
+        });
+    });
+ </script>

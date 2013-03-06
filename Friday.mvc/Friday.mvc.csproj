@@ -613,6 +613,13 @@
     <Compile Include="weblogin\roleMenu\pMenuButtonList.aspx.designer.cs">
       <DependentUpon>pMenuButtonList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\scoreOfItemInCommodityOrder\pAddScoreOfItemInCommodityOrder.aspx.cs">
+      <DependentUpon>pAddScoreOfItemInCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInCommodityOrder\pAddScoreOfItemInCommodityOrder.aspx.designer.cs">
+      <DependentUpon>pAddScoreOfItemInCommodityOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx.cs">
       <DependentUpon>pScoreOfItemInCommodityOrderList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1311,6 +1318,7 @@
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pEditMenuButton.aspx" />
     <Content Include="weblogin\roleMenu\pMenuButtonList.aspx" />
+    <Content Include="weblogin\scoreOfItemInCommodityOrder\pAddScoreOfItemInCommodityOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
