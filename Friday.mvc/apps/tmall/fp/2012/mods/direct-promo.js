@@ -9,7 +9,7 @@
 KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
         var _kissy = KISSY,
             _dom = _kissy.DOM,
-            N = "http://delta.taobao.com/home/delivery/AllContentByPage.do?resourceIds=",
+            _delivery_url = "http://delta.taobao.com/home/delivery/AllContentByPage.do?resourceIds=",
             _str_J_DirectPromo = "J_DirectPromo",
             _str_J_DirectPromo_ = "J_DirectPromo_",
             _str_J_DirectPromoFloatBox = "J_DirectPromoFloatBox",
@@ -18,8 +18,8 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
             _reg_for_image = /^https?:\/\/\S+(png|jpg|gif)$/i,
             _window = window,
             D = false,
-            M = {},
-            P = [];
+            _resid_dict = {},
+            __content_results_array = [];
         var _config = _window.g_config;
         function _add_array(_array_to_be_added, _container_array) {
             var _index = _array_to_be_added.length, item;
@@ -36,72 +36,72 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                 _resid; if (!_node_class_J_DirectPromo || _node_class_J_DirectPromo.length === 0) { return }
             _kissy.each(_node_class_J_DirectPromo, function (_node) {
                 _resid = _node.getAttribute("data-resid");
-                if (_resid) { _resids.push(_resid); M[_resid] = _node }
+                if (_resid) { _resids.push(_resid); _resid_dict[_resid] = _node }
             });
             _init_resid_array && (_resids = _add_array(_init_resid_array, _resids));
             this.request(_resids)
         }
-            , request: function (W, V, T) {
+            , request: function (_resids, V, T) {
                 var _directpromo = this;
-                var R = N + W.join(",") + "&t=" + +new Date;
-                var X = window.location.href.split("?")[1] || "";
-                var S = _kissy.unparam(X);
-                if (S && S.preview && S.preview == "preview") {
-                    R += "&preview=preview"
+                var _url = _delivery_url + _resids.join(",") + "&t=" + +new Date;
+                var _params = window.location.href.split("?")[1] || "";
+                var _param_array = _kissy.unparam(_params);
+                if (_param_array && _param_array.preview && _param_array.preview == "preview") {
+                    _url += "&preview=preview"
                 }
-                _kissy.getScript(R, function () {
-                    var Y = _window[_str_content_results], a, Z = 0; if (!Y || Y.length === 0) { return }
+                _kissy.getScript(_url, function () {
+                    var __content_result_object = _window[_str_content_results], _content, _index = 0; if (!__content_result_object || __content_result_object.length === 0) { return }
                     if (V && V > 0) {
-                        for (; Z < V; Z++) {
-                            a = Y[Z].content;
-                            if (a && _reg_for_image.test(a)) {
-                                new Image().src = a
+                        for (; _index < V; _index++) {
+                            _content = __content_result_object[_index].content;
+                            if (_content && _reg_for_image.test(_content)) {
+                                new Image().src = _content
                             }
                         }
                     }
-                    P = P.concat(Y);
+                    __content_results_array = __content_results_array.concat(__content_result_object);
                     _directpromo.render(T);
                     MFP.fire("directSuccess", { data: _window[_str_content_results] })
                 })
             }, render: function (T) {
-                var S = P.length, U, R, V;
-                while (S--) {
-                    U = P[S];
-                    V = U.id;
-                    if (!M[V])
+                var _len = __content_results_array.length, __content_result, _dom_res, _id;
+                while (_len--) {
+                    __content_result = __content_results_array[_len];
+                    _id = __content_result.id;
+                    if (!_resid_dict[_id])
                     {
-                        R = _kissy.get("#" + (V === T ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + V));
-                        if (R)
+                        _dom_res = _kissy.get("#" + (_id === T ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + _id));
+                        if (_dom_res)
                         {
-                            M[V] = R
+                            _resid_dict[_id] = _dom_res
                         }
                         else
                         {
                             continue
                         }
                     }
-                    P.splice(S, 1);
-                    this._fill(U)
+                    __content_results_array.splice(_len, 1);
+                    this._fill(__content_result)
                 }
             }, detect: function (S) {
                 var R = 100, V = 50, U = 0, T = this; if (D) { return } D = true;
                 (function () {
-                    var X, W; _kissy.each(P, function (Z, Y) {
+                    var X, W; _kissy.each(__content_results_array, function (Z, Y) {
                             X = Z.id;
-                            if (!M[X]) {
+                            if (!_resid_dict[X]) {
                                 W = _kissy.get("#" + (X === S ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + X));
-                                if (W) { M[X] = W }
+                                if (W) { _resid_dict[X] = W }
                             }
-                            if (M[X]) {
-                                T._fill(P.splice(Y, 1)[0]);
+                            if (_resid_dict[X]) {
+                                T._fill(__content_results_array.splice(Y, 1)[0]);
                                 return false
                             }
                         }
                     );
-                    if (P.length > 0 && ++U < V) { setTimeout(arguments.callee, R) } else { D = false }
+                    if (__content_results_array.length > 0 && ++U < V) { setTimeout(arguments.callee, R) } else { D = false }
                 })()
             }, _fill: function (W) {
-                var R = M[W.id], V = W.content, U = W.link, S;
+                var R = _resid_dict[W.id], V = W.content, U = W.link, S;
                 if (!R || !V)
                 { return }
                 if (_reg_for_image.test(V)) { S = '<img src="' + V + '" />' }
