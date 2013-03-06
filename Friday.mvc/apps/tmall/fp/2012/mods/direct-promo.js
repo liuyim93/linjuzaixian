@@ -100,30 +100,30 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                     );
                     if (__content_results_array.length > 0 && ++U < V) { setTimeout(arguments.callee, R) } else { D = false }
                 })()
-            }, _fill: function (W) {
-                var R = _resid_dict[W.id], V = W.content, U = W.link, S;
-                if (!R || !V)
+            }, _fill: function (_content_result) {
+                var _id = _resid_dict[_content_result.id], _content = _content_result.content, _link = _content_result.link, _str_html_snippet;
+                if (!_id || !_content)
                 { return }
-                if (_reg_for_image.test(V)) { S = '<img src="' + V + '" />' }
+                if (_reg_for_image.test(_content)) { _str_html_snippet = '<img src="' + _content + '" />' }
                 else {
-                    if (V == "http://tms.tms.tms")
+                    if (_content == "http://tms.tms.tms")
                     { return }
                     else {
-                        if (_reg_for_http.test(V)) {
-                            S = '<iframe src="' + V + '" scrolling="no" frameborder="0" width="330" height="200"></iframe>';
-                            U = ""
+                        if (_reg_for_http.test(_content)) {
+                            _str_html_snippet = '<iframe src="' + _content + '" scrolling="no" frameborder="0" width="330" height="200"></iframe>';
+                            _link = ""
                         }
                         else {
-                            if (W.id == 395) {
-                                if (V && V == "chaoshi")
-                                { _dom.show(R) }
+                            if (_content_result.id == 395) {
+                                if (_content && _content == "chaoshi")
+                                { _dom.show(_id) }
                                 else
-                                { _dom.remove(R) }
+                                { _dom.remove(_id) }
                                 return
                             }
                             else {
-                                if (W.id == 396) {
-                                    var T = _dom.create(V);
+                                if (_content_result.id == 396) {
+                                    var T = _dom.create(_content);
                                     if (_kissy.get("#J_Category")) {
                                         _dom.attr("#J_Category", "data-spm", _dom.attr(T, "data-spm"));
                                         _kissy.one("#j_Menu").html(_kissy.one("#j_Menu", T).html());
@@ -135,12 +135,12 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                                     }
                                     return
                                 }
-                                else { S = V }
+                                else { _str_html_snippet = _content }
                             }
                         }
                     }
                 }
-                R.innerHTML = U ? '<a target="_blank" href="' + U + '">' + S + "</a>" : S
+                _id.innerHTML = _link ? '<a target="_blank" href="' + _link + '">' + _str_html_snippet + "</a>" : _str_html_snippet
             }
         };
         return DirectPromo

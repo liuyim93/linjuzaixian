@@ -10,7 +10,7 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
     var _str_j_MSDirect_ = "j_MSDirect_";
     var _str_J_DirectPromo = "J_DirectPromo";
     var _str_j_MaskBanner = "j_MaskBanner";
-    var X = [285, 333, 337];
+    var _origin_content_result = [285, 333, 337];  /*2013-03-06 basilwang what the fuck?*/
     var K = ["mm_12852562_1778064_10953677", "mm_12852562_1778064_10953701"];
     var _str_data_text_src = "data-text-src";
     var _str_data_image = "data-image";
@@ -64,8 +64,8 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                     !!_b_on_panel_activeIndex && new _kissy.Anim(_b_on_panel_activeIndex, { top: "-40px", opacity: _is_under_ie9 ? 1 : 0 }, 0.8, "easeOutStrong").run();
                     !!_b_on_panel_to_Index && new _kissy.Anim(_b_on_panel_to_Index, { top: "-10px", opacity: 1 }, 0.8, "easeOutStrong").run()
                 },
-                _directImg: function (a) {
-                    if (!(a && _kissy.isArray(a)))
+                _directImg: function (_content_result_array) {
+                    if (!(_content_result_array && _kissy.isArray(_content_result_array)))
                     { return }
                     var _slide2 = this;
                     var _slide = _slide2.slide;
@@ -77,12 +77,12 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                                 })
                     },
                         10);
-                    _kissy.each(a,
-                        function (g) {
-                            if (_kissy.inArray(g.id, X)) {
-                                var f = g.content.split(";;");
-                                var d = g.link.split(";;");
-                                var b = _kissy.get("." + _str_j_MSDirect_ + g.id);
+                    _kissy.each(_content_result_array,
+                        function (_content_result) {
+                            if (_kissy.inArray(_content_result.id, _origin_content_result)) {
+                                var f = _content_result.content.split(";;");
+                                var d = _content_result.link.split(";;");
+                                var b = _kissy.get("." + _str_j_MSDirect_ + _content_result.id);
                                 if (!(b && V.test(d[0]) && H.test(f[0]) && H.test(f[1]) && R.test(f[3])))
                                 { return }
                                 var e = _kissy.get("a", b);
