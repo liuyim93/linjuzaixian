@@ -1139,17 +1139,29 @@
     </Compile>
     <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.cs">
       <DependentUpon>pEditValuingComments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.cs">
+      <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.designer.cs">
       <DependentUpon>pEditValuingComments.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.cs">
       <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticList.aspx.cs">
+      <DependentUpon>pRentStatisticList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.designer.cs">
       <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticList.aspx.designer.cs">
+      <DependentUpon>pRentStatisticList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx.cs">
       <DependentUpon>pAddValuingItemOfMyCommodityOrder.aspx</DependentUpon>
@@ -2336,6 +2348,8 @@
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
     <Content Include="weblogin\ListCommodityByMerchant.aspx" />
+    <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
+    <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
