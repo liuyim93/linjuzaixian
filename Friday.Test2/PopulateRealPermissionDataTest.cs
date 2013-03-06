@@ -655,6 +655,79 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(dealBusiness);
             adminMenuCheckList.Add(dealBusiness);
 
+            SystemMenu restaurantStatistic = new SystemMenu()
+            {
+                Name = "餐馆统计",
+                Leaf = true,
+                ParentID = statisticModel.Id,
+                MenuRoute = "restaurantStatistic/pRestaurantStatisticList.aspx",
+                TLevel = 1,
+                ColIndex = 3
+            };
+            iSystemMenuRepository.SaveOrUpdate(restaurantStatistic);
+            adminMenuCheckList.Add(restaurantStatistic);
+
+            SystemMenu foodStatistic = new SystemMenu()
+            {
+                Name = "食品统计",
+                Leaf = true,
+                ParentID = statisticModel.Id,
+                MenuRoute = "foodStatistic/pFoodStatisticList.aspx",
+                TLevel = 1,
+                ColIndex = 4
+            };
+            iSystemMenuRepository.SaveOrUpdate(foodStatistic);
+            adminMenuCheckList.Add(foodStatistic);
+
+            SystemMenu rentStatistic = new SystemMenu()
+            {
+                Name = "租房统计",
+                Leaf = true,
+                ParentID = statisticModel.Id,
+                MenuRoute = "rentStatistic/pRentStatisticList.aspx",
+                TLevel = 1,
+                ColIndex = 5
+            };
+            iSystemMenuRepository.SaveOrUpdate(rentStatistic);
+            adminMenuCheckList.Add(rentStatistic);
+
+            SystemMenu houseStatistic = new SystemMenu()
+            {
+                Name = "房屋统计",
+                Leaf = true,
+                ParentID = statisticModel.Id,
+                MenuRoute = "houseStatistic/pHouseStatisticList.aspx",
+                TLevel = 1,
+                ColIndex = 6
+            };
+            iSystemMenuRepository.SaveOrUpdate(houseStatistic);
+            adminMenuCheckList.Add(houseStatistic);
+
+            SystemMenu shopStatistic = new SystemMenu()
+            {
+                Name = "商店统计",
+                Leaf = true,
+                ParentID = statisticModel.Id,
+                MenuRoute = "shopStatistic/pShopStatisticList.aspx",
+                TLevel = 1,
+                ColIndex = 7
+            };
+            iSystemMenuRepository.SaveOrUpdate(shopStatistic);
+            adminMenuCheckList.Add(shopStatistic);
+
+            SystemMenu commodityStatistic = new SystemMenu()
+            {
+                Name = "商品统计",
+                Leaf = true,
+                ParentID = statisticModel.Id,
+                MenuRoute = "commodityStatistic/pCommodityStatisticList.aspx",
+                TLevel = 1,
+                ColIndex = 8
+            };
+            iSystemMenuRepository.SaveOrUpdate(commodityStatistic);
+            adminMenuCheckList.Add(commodityStatistic);
+        
+
             //日志模块
             SystemMenu logModel = new SystemMenu()
             {

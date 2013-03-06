@@ -92,7 +92,7 @@
                           <th width="10%" align="center">销量</th>
                         <th width="10%" align="center">评价次数</th>  
                         <th width="10%" align="center">平均分</th>
-                          <th width="10%" align="center">餐馆名称</th>
+                          <th width="10%" align="center">商店名称</th>
                     <%--   <th width="10%" align="center">所属餐馆</th>--%>
                 </tr>
                 </thead>
