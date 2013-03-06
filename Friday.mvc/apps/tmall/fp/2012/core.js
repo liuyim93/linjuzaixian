@@ -16,7 +16,20 @@ TB.add("mod~global", function() {
     TB.userInfo = {memberInfo: {}};
     TB.environment = {isTmall: window.location.hostname.indexOf("tmall.com") > -1 || window.location.hostname.indexOf("tmall.net") > -1,isDaily: window.location.hostname.indexOf(".net") > -1,isHttps: window.location.href.indexOf("https://") === 0};
     window.g_config = window.g_config || {};
-    window.g_config.tmallConfig = {commonJS: {tDog: {off: false,timestamp: "20120608"},tLabs: {off: false,timestamp: "20120608"},mpp: {off: false,timestamp: "20120608"},miniCart: {off: false},brandBar: {off: false,timestamp: "20121106"},miniBag: {off: false,timestamp: "20130109",blacklist: ["taohua.com", "chaoshi.tmall.com", "buy.tmall.com", "cart.tmall.com", "refund.tmall.com", "rights.tmall.com", "obuy.tmall.com", "taobao.com", "daily.taohua.net", "chaoshi.daily.tmall.net", "buy.daily.tmall.net", "cart.daily.tmall.net", "refund.daily.tmall.net", "rights.daily.tmall.net", "obuy.daily.tmall.net", "daily.taobao.net"]},checkB2BUser: {off: false},shareFB: {off: false,timestamp: "20121116"}}};
+    window.g_config.tmallConfig =
+    {  commonJS:
+        {tDog: {off: false,timestamp: "20120608"},
+         tLabs: {off: false,timestamp: "20120608"},
+         mpp: {off: false,timestamp: "20120608"},
+         miniCart: {off: false},
+         brandBar: {off: false,timestamp: "20121106"},
+         miniBag: {off: false,timestamp: "20130109",
+         blacklist: ["taohua.com", "chaoshi.tmall.com", "buy.tmall.com", "cart.tmall.com", "refund.tmall.com", "rights.tmall.com", "obuy.tmall.com", "taobao.com", "daily.taohua.net", "chaoshi.daily.tmall.net", "buy.daily.tmall.net", "cart.daily.tmall.net", "refund.daily.tmall.net", "rights.daily.tmall.net", "obuy.daily.tmall.net", "daily.taobao.net"]
+         },
+         checkB2BUser: {off: false},
+         shareFB: {off: false,timestamp: "20121116"}
+        }
+    };
     var _tmall_config = window.g_config.tmallConfig;
     //2013-02-19 basilwang !"0"[0] is false  in chrome   K is false, m is false  O is false
     var _ie6_hack_judgement = !"0"[0],
@@ -322,11 +335,11 @@ TB.add("mod~global", function() {
                 return
             }
             function _use(_namespace, _fn) {
-                function p() {
+                function _onReady() {
                     _kissy.onTgalleryReady(_namespace, _fn)
                 }
                 _kissy.configTgallery = {tag: _tmall_config.commonJS.brandBar.timestamp,path: "http://" + _own_domain_1 + "/apps/"};
-                _kissy.onTgalleryReady ? p() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, p)
+                _kissy.onTgalleryReady ? _onReady() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, _onReady)
             }
             _use("tgallery/department/common/brandbar", function(_kissy_tmp, _brandbar) {
                 var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
