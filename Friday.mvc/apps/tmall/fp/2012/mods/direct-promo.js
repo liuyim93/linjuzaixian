@@ -64,9 +64,24 @@ KISSY.add("2012/mods/direct-promo",function (_kissy_t, O) {
                     MFP.fire("directSuccess", { data: _window[_str_content_results] })
                 })
             }, render: function (T) {
-                var S = P.length, U, R, V; while (S--) {
-                    U = P[S]; V = U.id;
-                    if (!M[V]) { R = _kissy.get("#" + (V === T ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + V)); if (R) { M[V] = R } else { continue } } P.splice(S, 1); this._fill(U)
+                var S = P.length, U, R, V;
+                while (S--) {
+                    U = P[S];
+                    V = U.id;
+                    if (!M[V])
+                    {
+                        R = _kissy.get("#" + (V === T ? _str_J_DirectPromoFloatBox : _str_J_DirectPromo_ + V));
+                        if (R)
+                        {
+                            M[V] = R
+                        }
+                        else
+                        {
+                            continue
+                        }
+                    }
+                    P.splice(S, 1);
+                    this._fill(U)
                 }
             }, detect: function (S) {
                 var R = 100, V = 50, U = 0, T = this; if (D) { return } D = true;

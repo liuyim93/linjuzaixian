@@ -1,31 +1,31 @@
 // JScript source code
-KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
-        var _dom = _kissy.DOM, _event = _kissy.Event; var _window = window; var _is_ie6 = _kissy.UA.ie == 6;
-        var _is_under_ie9 = _kissy.UA.ie && _kissy.UA.ie < 9;
-        var _closeSlideAutoPlay = !_window.g_config.closeSlideAutoPlay;
-        var _closeTriggerAnim = _window.g_config.closeTriggerAnim;
-        var _mfp = _window.MFP;
-        var _str_J_MfpSlide = "J_MfpSlide";
-        var _str_j_SlideTanxAd = "j_SlideTanxAd";
-        var _str_j_MSDirect_ = "j_MSDirect_";
-        var _str_J_DirectPromo = "J_DirectPromo";
-        var _str_j_MaskBanner = "j_MaskBanner";
-        var X = [285, 333, 337];
-        var K = ["mm_12852562_1778064_10953677", "mm_12852562_1778064_10953701"];
-        var _str_data_text_src = "data-text-src";
-        var _str_data_image = "data-image";
-        var V = /^https?:\/\/\S+$/i;
-        var H = /^https?:\/\/\S+(png|jpg|gif)$/i;
-        var R = /^#[0-9a-fA-F]{6}$/;
-        var _config = { contentCls: "mfpSlide-con", navCls: "mfpSlide-nav", activeTriggerCls: "selected", effect: "fade", easing: "easeOut", lazyDataType: "img-src", duration: 0.5, triggerType: "mouse", autoplay: _closeSlideAutoPlay, pauseOnScroll: true, delay: 0.2 };
-        function Slide2() {
-            var _slide2 = this;
-            _slide2.mfpSlide = null;
-            if (!(this instanceof Slide2))
-            { return new Slide2() }
-            _slide2._init()
-        }
-        _kissy.augment(Slide2, _kissy.EventTarget,
+KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
+    var _dom = _kissy.DOM, _event = _kissy.Event; var _window = window; var _is_ie6 = _kissy.UA.ie == 6;
+    var _is_under_ie9 = _kissy.UA.ie && _kissy.UA.ie < 9;
+    var _closeSlideAutoPlay = !_window.g_config.closeSlideAutoPlay;
+    var _closeTriggerAnim = _window.g_config.closeTriggerAnim;
+    var _mfp = _window.MFP;
+    var _str_J_MfpSlide = "J_MfpSlide";
+    var _str_j_SlideTanxAd = "j_SlideTanxAd";
+    var _str_j_MSDirect_ = "j_MSDirect_";
+    var _str_J_DirectPromo = "J_DirectPromo";
+    var _str_j_MaskBanner = "j_MaskBanner";
+    var X = [285, 333, 337];
+    var K = ["mm_12852562_1778064_10953677", "mm_12852562_1778064_10953701"];
+    var _str_data_text_src = "data-text-src";
+    var _str_data_image = "data-image";
+    var V = /^https?:\/\/\S+$/i;
+    var H = /^https?:\/\/\S+(png|jpg|gif)$/i;
+    var R = /^#[0-9a-fA-F]{6}$/;
+    var _config = { contentCls: "mfpSlide-con", navCls: "mfpSlide-nav", activeTriggerCls: "selected", effect: "fade", easing: "easeOut", lazyDataType: "img-src", duration: 0.5, triggerType: "mouse", autoplay: _closeSlideAutoPlay, pauseOnScroll: true, delay: 0.2 };
+    function Slide2() {
+        var _slide2 = this;
+        _slide2.mfpSlide = null;
+        if (!(this instanceof Slide2))
+        { return new Slide2() }
+        _slide2._init()
+    }
+    _kissy.augment(Slide2, _kissy.EventTarget,
             { _init: function () {
                 var _slide2 = this; if (!_kissy.get("#" + _str_J_MfpSlide))
                 { return }
@@ -70,12 +70,12 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                     var _slide2 = this;
                     var _slide = _slide2.slide;
                     _kissy.later(function () {
-                            _kissy.each(_kissy.query("." + _str_J_DirectPromo, _slide.content),
+                        _kissy.each(_kissy.query("." + _str_J_DirectPromo, _slide.content),
                                 function (_direct_promo) {
                                     var _a_on_direct_promo = _kissy.get("a", _direct_promo);
                                     !_kissy.get("s", _a_on_direct_promo) && _dom.append(_dom.create("<s>"), _a_on_direct_promo)
                                 })
-                        },
+                    },
                         10);
                     _kissy.each(a,
                         function (g) {
@@ -123,30 +123,30 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                     })
                 }
                 , _hoverMask: function () {
-                var _slide2 = this;
-                var _node_ul_class_j_MaskBanner = _kissy.all("." + _str_j_MaskBanner, _slide2.slide.container);
-                _kissy.each(_node_ul_class_j_MaskBanner, function (_node) {
-                    var _lis = _kissy.query("li", _node);
-                    _event.on(_lis, "mouseenter mouseleave", function (f) {
-                        var _li_mouse_related = this;
-                        var _opacity = f.type === "mouseenter" ? 0.3 : 0;
-                        _kissy.each(_lis, function (_li) {
-                            var _dom_i_on_a, _dom_a_on_li = _kissy.get("a", _li);
-                            if (!(_dom_i_on_a = _kissy.get("i", _dom_a_on_li))) {
-                                _dom_i_on_a = _dom.create("<i>");
-                                _dom.append(_dom_i_on_a, _dom_a_on_li)
-                            }
-                            if (_li_mouse_related === _li) { _dom.css(_dom_i_on_a, "opacity", 0) }
-                            else {
-                                if (_dom_i_on_a.timer)
-                                { clearTimeout(_dom_i_on_a.timer) }
-                                _dom_i_on_a.timer = setTimeout(function ()
-                                { new _kissy.Anim(_dom_i_on_a, { opacity: _opacity }, 0.5, "easeOutStrong").run() }, 200)
-                            }
+                    var _slide2 = this;
+                    var _node_ul_class_j_MaskBanner = _kissy.all("." + _str_j_MaskBanner, _slide2.slide.container);
+                    _kissy.each(_node_ul_class_j_MaskBanner, function (_node) {
+                        var _lis = _kissy.query("li", _node);
+                        _event.on(_lis, "mouseenter mouseleave", function (f) {
+                            var _li_mouse_related = this;
+                            var _opacity = f.type === "mouseenter" ? 0.3 : 0;
+                            _kissy.each(_lis, function (_li) {
+                                var _dom_i_on_a, _dom_a_on_li = _kissy.get("a", _li);
+                                if (!(_dom_i_on_a = _kissy.get("i", _dom_a_on_li))) {
+                                    _dom_i_on_a = _dom.create("<i>");
+                                    _dom.append(_dom_i_on_a, _dom_a_on_li)
+                                }
+                                if (_li_mouse_related === _li) { _dom.css(_dom_i_on_a, "opacity", 0) }
+                                else {
+                                    if (_dom_i_on_a.timer)
+                                    { clearTimeout(_dom_i_on_a.timer) }
+                                    _dom_i_on_a.timer = setTimeout(function ()
+                                    { new _kissy.Anim(_dom_i_on_a, { opacity: _opacity }, 0.5, "easeOutStrong").run() }, 200)
+                                }
+                            })
                         })
                     })
-                })
-            },
+                },
                 _fixPng24: function (Z, a) {
                     var _slide = this.slide;
                     var b = function (c) {
@@ -159,52 +159,58 @@ KISSY.add("2012/mods/slide2",function (_kissy, _switchable) {
                 _optimizeImg: function (S) {
                     var Z = "_q90.jpg";
                     if (!g_config.closeOptSlideImg) { S += Z } return S
-                }, _triggerAnim: function () {
-                var h = this.slide; var Z; var k; var a; var m; var d, j; var e = 0; var g;
-                function S(o) { var n = "rotate(" + o + "deg)"; a.css({ "-webkit-transform": n, "-moz-transform": n, "-o-transform": n }) }
-                function i(o) {
-                    if (g) { return } var n = o || (5000 / 180); clearInterval(d); d = setInterval(function (p) {
-                        if (e < 360) { e += 2; S(e) } if (e > 180)
-                        { k.addClass("move"); a.addClass("move"); m.addClass("move") } if (e > 359) { c() }
-                    }, n)
-                }
-                function c() { clearInterval(d) }
-                function f() {
-                    k.removeClass("move");
-                    a.removeClass("move");
-                    m.removeClass("move");
-                    clearInterval(d); e = 0; S(e)
-                }
-                function b(n) {
-                    var o = -336 + (14 + 8) * n;
-                    _dom.css(Z, { "margin-left": o + "px" })
-                }
-                function l() {
-                    if (!Z) {
-                        var n = '<div class="timer"><span class="gray"></span><span class="mask"><span class="rotator"></span></span></div>';
-                        Z = _dom.create(n);
-                        _dom.append(Z, h.container);
-                        Z = _kissy.one(".timer");
-                        k = _kissy.one(".gray");
-                        a = _kissy.one(".rotator");
-                        m = _kissy.one(".mask")
-                    } i();
-                    h.on("beforeSwitch", function (o) {
-                        f();
-                        b(o.toIndex);
-                        i()
-                    });
-                    _event.on(h.container, "mouseenter", function () { g = true; c() });
-                    _event.on(h.container, "mouseleave", function () {
-                        g = false; if (j) { clearTimeout(j) }
-                        j = setTimeout(
+                },
+                 _triggerAnim: function () {
+                    var h = this.slide; var Z; var k; var a; var m; var d, j; var e = 0; var g;
+                    function S(o) {
+                        var n = "rotate(" + o + "deg)";
+                        a.css({ "-webkit-transform": n, "-moz-transform": n, "-o-transform": n })
+                     }
+                    function i(o) {
+                        if (g) { return } var n = o || (5000 / 180); clearInterval(d); d = setInterval(function (p) {
+                            if (e < 360) { e += 2; S(e) } if (e > 180)
+                            { k.addClass("move"); a.addClass("move"); m.addClass("move") } if (e > 359) { c() }
+                        }, n)
+                    }
+                    function c() {
+                        clearInterval(d)
+                     }
+                    function f() {
+                        k.removeClass("move");
+                        a.removeClass("move");
+                        m.removeClass("move");
+                        clearInterval(d); e = 0; S(e)
+                    }
+                    function b(n) {
+                        var o = -336 + (14 + 8) * n;
+                        _dom.css(Z, { "margin-left": o + "px" })
+                    }
+                    function l() {
+                        if (!Z) {
+                            var n = '<div class="timer"><span class="gray"></span><span class="mask"><span class="rotator"></span></span></div>';
+                            Z = _dom.create(n);
+                            _dom.append(Z, h.container);
+                            Z = _kissy.one(".timer");
+                            k = _kissy.one(".gray");
+                            a = _kissy.one(".rotator");
+                            m = _kissy.one(".mask")
+                        } i();
+                        h.on("beforeSwitch", function (o) {
+                            f();
+                            b(o.toIndex);
+                            i()
+                        });
+                        _event.on(h.container, "mouseenter", function () { g = true; c() });
+                        _event.on(h.container, "mouseleave", function () {
+                            g = false; if (j) { clearTimeout(j) }
+                            j = setTimeout(
                             function ()
                             { i(10000 / (360 - e)) }, 200)
-                    })
-                }
-                l()
+                        })
+                    }
+                    l()
 
-            }
+                }
 
             }); return Slide2
-    }, { requires: ["switchable"]});
+}, { requires: ["switchable"] });
