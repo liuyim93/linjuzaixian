@@ -16,7 +16,7 @@
             <p>
                 <label>
                     菜单路径：</label>
-                <input type="text" id="MenuRoute" name="MenuRoute" runat="server" class="textInput gray"></asp:textbox>
+                <input type="text" id="MenuRoute" name="MenuRoute" runat="server" class="textInput gray"  style=" width:230px;"></asp:textbox>
             
             </p>
             <p>
