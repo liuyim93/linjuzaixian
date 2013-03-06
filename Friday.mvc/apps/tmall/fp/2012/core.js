@@ -82,7 +82,7 @@ TB.add("mod~global", function() {
                     _div_load.className = "sn-mcate-bd sn-mcate-unready j_MallCateHoverTrigger";
                     document.body.insertBefore(_div_load, document.body.lastChild);
                     _div_load.innerHTML = "努力加载中...";
-                    _div_load.style.top = (T(_div_named_site_nav) + 30) + "px";
+                    _div_load.style.top = (_getOffsetTotal(_div_named_site_nav) + 30) + "px";
                     var _later_fn, _is_entered = false, _is_later_fn_excuted = false;
                     _event.on(_j_mall_cate, "mouseenter", function() {
                         _is_entered = true;
@@ -318,20 +318,20 @@ TB.add("mod~global", function() {
         })
     },brandBar: function() {
         _kissy.ready(function() {
-            if (window.g_config.closeBrandBar || U() || _tmall_config.commonJS.brandBar.off) {
+            if (window.g_config.closeBrandBar || _if_we_can_try() || _tmall_config.commonJS.brandBar.off) {
                 return
             }
-            function S(i, q) {
+            function _use(_namespace, _fn) {
                 function p() {
-                    _kissy.onTgalleryReady(i, q)
+                    _kissy.onTgalleryReady(_namespace, _fn)
                 }
                 _kissy.configTgallery = {tag: _tmall_config.commonJS.brandBar.timestamp,path: "http://" + _own_domain_1 + "/apps/"};
                 _kissy.onTgalleryReady ? p() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, p)
             }
-            S("tgallery/department/common/brandbar", function(p, i) {
+            _use("tgallery/department/common/brandbar", function(_kissy_tmp, _brandbar) {
                 var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
-                i.show({urlMyBrand: "http://" + q + "/myBrandsIndex.htm",newWindow: true});
-                i.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
+                _brandbar.show({urlMyBrand: "http://" + q + "/myBrandsIndex.htm",newWindow: true});
+                _brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
             })
         })
     },shareFB: function() {
@@ -426,7 +426,7 @@ TB.add("mod~global", function() {
                         if (AI.activeStatus >= 1) {
                             _addClassName(AE, "sn-vip" + AI.activeStatus);
                             AE.href = "http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2";
-                            AE.title = "T" + AI.activeStatus + "\u5929\u732b\u8fbe\u4eba"
+                            AE.title = "_getOffsetTotal" + AI.activeStatus + "\u5929\u732b\u8fbe\u4eba"
                         } else {
                             _addClassName(AE, "sn-vip-unactivated");
                             AE.href = "http://vip.tmall.com/vip/index.htm?layer=activation&from=top&scm=1027.1.1.3";
@@ -726,7 +726,7 @@ TB.add("mod~global", function() {
             }
         })
     },initMiniBag: function() {
-        if (window.g_config.closeMiniBag || U() || _tmall_config.commonJS.miniBag.off) {
+        if (window.g_config.closeMiniBag || _if_we_can_try() || _tmall_config.commonJS.miniBag.off) {
             TB.Global.initMiniCart();
             return
         }
@@ -875,13 +875,13 @@ TB.add("mod~global", function() {
         _kissy.Event.on("#g-cartlogin-close", "click", this.hidePopup, this);
         this.showPopup()
     }});
-    function U() {
-        var S = _tmall_config.commonJS.miniBag.blacklist;
-        if (!S) {
+    function _if_we_can_try() {
+        var _blacklist = _tmall_config.commonJS.miniBag.blacklist;
+        if (!_blacklist) {
             return false
         }
-        for (var p = 0; p < S.length; p++) {
-            if (document.location.href.indexOf(S[p]) > -1) {
+        for (var p = 0; p < _blacklist.length; p++) {
+            if (document.location.href.indexOf(_blacklist[p]) > -1) {
                 return true
             }
         }
@@ -1009,11 +1009,11 @@ TB.add("mod~global", function() {
             _event.returnValue = false
         }
     }
-    function T(p, S) {
+    function _getOffsetTotal(_elem, _direction) {
         var i = 0;
-        while (p != null) {
-            i += p["offset" + (S ? "Left" : "Top")];
-            p = p.offsetParent
+        while (_elem != null) {
+            i += _elem["offset" + (_direction ? "Left" : "Top")];
+            _elem = _elem.offsetParent
         }
         return i
     }

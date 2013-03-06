@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
     </list>
     <ignored path="Friday.iws" />
@@ -44,10 +45,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="33" selection-start="5316" selection-end="5316" vertical-scroll-proportion="-1.3501873">
+            <state line="330" column="86" selection-start="17534" selection-end="17534" vertical-scroll-proportion="-10.785714">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="brandbar.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="19" selection-start="1938" selection-end="1938" vertical-scroll-proportion="0.625">
               <folding />
             </state>
           </provider>
@@ -97,15 +107,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="direct-promo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="27" selection-start="1616" selection-end="1616" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="brand.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -148,6 +149,7 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js" />
       </list>
     </option>
   </component>
@@ -380,6 +382,14 @@
               <option name="myItemId" value="apps" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="department" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -492,13 +502,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/category.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="166" column="43" selection-start="8305" selection-end="8327" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="9" selection-start="388" selection-end="388" vertical-scroll-proportion="0.0">
@@ -607,7 +610,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="33" selection-start="5316" selection-end="5316" vertical-scroll-proportion="-1.3501873">
+        <state line="330" column="86" selection-start="17534" selection-end="17534" vertical-scroll-proportion="-10.785714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="19" selection-start="1938" selection-end="1938" vertical-scroll-proportion="0.625">
           <folding />
         </state>
       </provider>
