@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using friday.core;
 using friday.core.repositories;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -27,8 +28,8 @@ namespace Friday.mvc.weblogin
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IRepository<Rent> repoRent = UnityHelper.UnityToT<IRepository<Rent>>();
-            IHouseRepository repoHouse = UnityHelper.UnityToT<IHouseRepository>();
+            IRentService iRentService = UnityHelper.UnityToT<IRentService>();
+            IHouseService iHouseService = UnityHelper.UnityToT<IHouseService>();
 
             IList<House> houses = new List<House>();
 
@@ -76,7 +77,7 @@ namespace Friday.mvc.weblogin
             dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            houses = repoHouse.Search(dfl, start, limit, out total);
+            houses = iHouseService.Search(dfl, start, limit, out total);
             repeater.DataSource = houses;
             repeater.DataBind();
 

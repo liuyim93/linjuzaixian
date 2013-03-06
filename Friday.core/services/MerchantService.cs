@@ -5,6 +5,13 @@ using System.Text;
 using friday.core.utils;
 using friday.core.repositories;
 using friday.core.components;
+using System.Text.RegularExpressions;
+using NHibernate;
+using NHibernate.Criterion;
+using System.Web.UI.WebControls;
+using friday.core.domain;
+using friday.core.EnumType;
+using Iesi.Collections.Generic;
 
 namespace friday.core.services
 {
@@ -48,6 +55,10 @@ namespace friday.core.services
         public IList<Merchant> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
             return iMerchantRepository.Search(termList, start, limit, out total);
+        }
+        public IList<Merchant> GetAll()
+        {
+            return iMerchantRepository.GetAll();
         }
     }
 }

@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -28,8 +29,8 @@ namespace Friday.mvc.weblogin
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IRepository<Restaurant> repoRestaurant = UnityHelper.UnityToT<IRepository<Restaurant>>();
-            IFoodRepository repoFood = UnityHelper.UnityToT<IFoodRepository>();
+            IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
+            IFoodService iFoodService = UnityHelper.UnityToT<IFoodService>();
 
             IList<Food> foods = new List<Food>();
 
@@ -76,7 +77,7 @@ namespace Friday.mvc.weblogin
             dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            foods = repoFood.Search(dfl, start, limit, out total);
+            foods = iFoodService.Search(dfl, start, limit, out total);
             repeater.DataSource = foods;
             repeater.DataBind();
         }

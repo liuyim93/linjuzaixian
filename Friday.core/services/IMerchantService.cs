@@ -11,8 +11,8 @@ namespace friday.core.services
         Merchant Load(string id);
         void Save(Merchant merchant);
         void Update(Merchant merchant);
-        void Delete(string id);     
-        
+        void Delete(string id);
+        IList<Merchant> GetAll();
         IList<Merchant> Search(List<DataFilter> termList);
         IList<Merchant> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

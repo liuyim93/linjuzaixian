@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -20,7 +21,7 @@ namespace Friday.mvc.weblogin
         protected string name;
         protected string merchantType;
         protected string address;
-        IMerchantRepository iMerchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
         protected void Page_Load(object sender, EventArgs e)
         {
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
@@ -51,7 +52,7 @@ namespace Friday.mvc.weblogin
 
             //    });
             
-            IList<Merchant> merchantList = iMerchantRepository.Search(filterList, start, limit, out total);
+            IList<Merchant> merchantList = iMerchantService.Search(filterList, start, limit, out total);
 
             repeater.DataSource = merchantList;
             repeater.DataBind();

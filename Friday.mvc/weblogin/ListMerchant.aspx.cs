@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -14,9 +15,9 @@ namespace Friday.mvc.weblogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRepository<Merchant> repoMerchant = UnityHelper.UnityToT<IRepository<Merchant>>();
+            IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
             IList<Merchant> merchants = new List<Merchant>();
-            merchants = repoMerchant.GetAll();
+            merchants = iMerchantService.GetAll();
             repeater.DataSource = merchants;
             repeater.DataBind();
         }

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -27,7 +28,7 @@ namespace Friday.mvc.weblogin
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IMerchantRepository repoMerchant = UnityHelper.UnityToT<IMerchantRepository>();
+            IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
             IList<Merchant> merchants = new List<Merchant>();
 
             List<DataFilter> dfl = new List<DataFilter>();
@@ -72,7 +73,7 @@ namespace Friday.mvc.weblogin
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
 
-            merchants = repoMerchant.Search(dfl, start, limit, out total);
+            merchants = iMerchantService.Search(dfl, start, limit, out total);
             repeater.DataSource = merchants;
             repeater.DataBind();
 

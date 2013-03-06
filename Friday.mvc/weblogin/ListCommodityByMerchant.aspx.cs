@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -39,17 +40,17 @@ namespace Friday.mvc.weblogin
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IRepository<Restaurant> repoRestaurant = UnityHelper.UnityToT<IRepository<Restaurant>>();     
-            IFoodRepository repoFood = UnityHelper.UnityToT<IFoodRepository>();
-            IList<Food> foods = new List<Food>();
+            IRestaurantStatisticService iRestaurantStatisticService = UnityHelper.UnityToT<IRestaurantStatisticService>();
+            IFoodStatisticService iFoodStatisticService = UnityHelper.UnityToT<IFoodStatisticService>();
+            IList<FoodStatistic> foods = new List<FoodStatistic>();
 
-            IRepository<Rent> repoRent = UnityHelper.UnityToT<IRepository<Rent>>();
-            IHouseRepository repoHouse = UnityHelper.UnityToT<IHouseRepository>();
-            IList<House> houses = new List<House>();
+            IRentStatisticService iRentStatisticService = UnityHelper.UnityToT<IRentStatisticService>();
+            IHouseStatisticService iHouseStatisticService = UnityHelper.UnityToT<IHouseStatisticService>();
+            IList<HouseStatistic> houses = new List<HouseStatistic>();
 
-            IRepository<Shop> repoShop = UnityHelper.UnityToT<IRepository<Shop>>();
-            ICommodityRepository repoCommodity = UnityHelper.UnityToT<ICommodityRepository>();
-            IList<Commodity> commoditys = new List<Commodity>();
+            IShopStatisticService iShopStatisticService = UnityHelper.UnityToT<IShopStatisticService>();
+            ICommodityStatisticService iCommodityStatisticService = UnityHelper.UnityToT<ICommodityStatisticService>();
+            IList<CommodityStatistic> commoditys = new List<CommodityStatistic>();
 
             List<DataFilter> dfl = new List<DataFilter>();
             List<DataFilter> merchantDfl = new List<DataFilter>();
@@ -120,17 +121,17 @@ namespace Friday.mvc.weblogin
 
             if (merchantType == "0")
             {
-                foods = repoFood.Search(dfl, start, limit, out total);
+                foods = iFoodStatisticService.Search(dfl, start, limit, out total);
                 repeater.DataSource = foods;
             }
             if (merchantType == "1")
             {
-                houses = repoHouse.Search(dfl, start, limit, out total);
+                houses = iHouseStatisticService.Search(dfl, start, limit, out total);
                 repeater.DataSource = houses;
             }
             if (merchantType == "2")
             {
-                commoditys = repoCommodity.Search(dfl, start, limit, out total);
+                commoditys = iCommodityStatisticService.Search(dfl, start, limit, out total);
                 repeater.DataSource = commoditys;
             }        
             
