@@ -171,11 +171,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Valuing">
-    <Position X="4.75" Y="28.25" Width="1.5" />
+    <Position X="4.75" Y="29" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAABAAAIACAAAAAAAAACgAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAACAAAAAAgAACAAAAAAAAAAE=</HashCode>
       <FileName>domain\Valuing.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="ValuingComments" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.SnapShotCommodity">
     <Position X="13.25" Y="26.25" Width="2" />
@@ -343,69 +346,64 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.ValuingOfMyCommodityOrder">
-    <Position X="0.75" Y="31.25" Width="2.5" />
+    <Position X="1" Y="31.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfMyCommodityOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="ValuingItemOfMyCommodityOrders" />
+      <Property Name="ScoreOfItemInCommodityOrders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.ValuingOfMyFoodOrder">
-    <Position X="5.25" Y="31.25" Width="1.75" />
+    <Position X="4.25" Y="31.25" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfMyFoodOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="ValuingItemOfMyFoodOrders" />
+      <Property Name="ScoreOfItemInFoodOrders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.ValuingOfMyHouseOrder">
-    <Position X="8.75" Y="31.5" Width="2" />
+    <Position X="7.5" Y="31.25" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAQgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ValuingOfMyHouseOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
-      <Property Name="ValuingItemOfMyHouseOrders" />
+      <Property Name="ScoreOfItemInHouseOrders" />
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.ValuingItemOfMyHouseOrder">
-    <Position X="8.25" Y="34.25" Width="3" />
-    <AssociationLine Name="ValuingOfMyHouseOrder" Type="friday.core.ValuingOfMyHouseOrder">
-      <MemberNameLabel ManuallyPlaced="true">
-        <Position X="0.11" Y="0.112" />
-      </MemberNameLabel>
-    </AssociationLine>
+    <Position X="7.25" Y="34.25" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>domain\ValuingItemOfMyHouseOrder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ValuingOfMyHouseOrder" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ScoreOfItemInHouseOrders" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.ValuingItemOfMyCommodityOrder">
-    <Position X="0.5" Y="34.25" Width="2.75" />
+    <Position X="1" Y="34.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>domain\ValuingItemOfMyCommodityOrder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ValuingOfMyCommodityOrder" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ScoreOfItemInCommodityOrders" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.ValuingItemOfMyFoodOrder">
-    <Position X="5.5" Y="34.5" Width="1.5" />
+    <Position X="4.25" Y="34.25" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAACAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>domain\ValuingItemOfMyFoodOrder.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Property Name="ValuingOfMyFoodOrder" />
-    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="ScoreOfItemInFoodOrders" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.RestaurantCart">
     <Position X="15.25" Y="8.75" Width="1.5" />
@@ -504,6 +502,46 @@
     <ShowAsAssociation>
       <Property Name="Category" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.domain.ScoreOfItemInCommodityOrder" Collapsed="true">
+    <Position X="1" Y="33" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ScoreOfItemInCommodityOrder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ValuingItemOfMyCommodityOrder" />
+      <Property Name="ValuingOfMyCommodityOrder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.domain.ScoreOfItemInHouseOrder" Collapsed="true">
+    <Position X="7.5" Y="33" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ScoreOfItemInHouseOrder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ValuingItemOfMyHouseOrder" />
+      <Property Name="ValuingOfMyHouseOrder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.domain.ScoreOfItemInFoodOrder" Collapsed="true">
+    <Position X="4.25" Y="33" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAggAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\ScoreOfItemInFoodOrder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ValuingItemOfMyFoodOrder" />
+      <Property Name="ValuingOfMyFoodOrder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.domain.ValuingComments">
+    <Position X="7.75" Y="29" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>domain\ValuingComments.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>

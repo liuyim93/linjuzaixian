@@ -15,11 +15,8 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.ValuingItemName);
             Map(o => o.EntityIndex);
-            Map(o => o.Score);
-            
-            References<OrderOfCommodity>(o => o.OrderOfCommodity);
-            References<ValuingOfMyCommodityOrder>(o => o.ValuingOfMyCommodityOrder).Not.Nullable();
-            //HasMany<ValuingItem>(o=>o.ValuingItems).Inverse().Cascade.All();
+
+            HasMany<ScoreOfItemInCommodityOrder>(o => o.ScoreOfItemInCommodityOrders).Inverse().Cascade.All();
         }
     }
 }

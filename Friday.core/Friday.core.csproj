@@ -111,10 +111,18 @@
     <Compile Include="domain\Log.cs" />
     <Compile Include="domain\RoleInMenu.cs" />
     <Compile Include="domain\RoleInMenuMap.cs" />
+    <Compile Include="domain\ScoreOfItemInCommodityOrder.cs" />
+    <Compile Include="domain\ScoreOfItemInCommodityOrderMap.cs" />
+    <Compile Include="domain\ScoreOfItemInFoodOrder.cs" />
+    <Compile Include="domain\ScoreOfItemInFoodOrderMap.cs" />
+    <Compile Include="domain\ScoreOfItemInHouseOrder.cs" />
+    <Compile Include="domain\ScoreOfItemInHouseOrderMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
     <Compile Include="domain\SystemMenuMap.cs" />
     <Compile Include="domain\TreeNode.cs" />
     <Compile Include="domain\CategoryLogMap.cs" />
+    <Compile Include="domain\ValuingComments.cs" />
+    <Compile Include="domain\ValuingCommentsMap.cs" />
     <Compile Include="repositories\IRoleInMenuRepository.cs" />
     <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ILogRepository.cs">
@@ -245,7 +253,6 @@
     <Compile Include="domain\UserInRole.cs" />
     <Compile Include="domain\UserInRoleMap.cs" />
     <Compile Include="domain\Valuing.cs" />
-    <Compile Include="domain\ValuingItem.cs" />
     <Compile Include="domain\ValuingMap.cs" />
     <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />

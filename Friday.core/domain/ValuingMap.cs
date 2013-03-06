@@ -9,17 +9,21 @@ namespace friday.core.domain
     {
         public ValuingMap()
         {
+          
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o => o.AverageScore);
             Map(o => o.EntityIndex);
-            Map(o => o.IsShownAnonymous);
+
+            Map(o => o.AverageScore);
             Map(o => o.ValuingContent);
-            References<LoginUser>(o => o.FromLoginUser).Not.Nullable();
-            References<LoginUser>(o => o.ToLoginUser).Not.Nullable();
-            //HasMany<ValuingItem>(o=>o.ValuingItems).Inverse().Cascade.All();
+
+            /* test not keynullable*/
+            HasMany<ValuingComments>(o => o.ValuingComments).Inverse().Cascade.All();
+            References<Merchant>(o => o.Merchant).Not.Nullable();
+            References<LoginUser>(o => o.LoginUser).Not.Nullable();
+
         }
     }
 }

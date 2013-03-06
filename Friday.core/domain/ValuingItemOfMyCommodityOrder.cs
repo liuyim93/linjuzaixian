@@ -2,20 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using friday.core.domain;
 
 namespace friday.core
 {
-    public class ValuingItemOfMyCommodityOrder:ValuingItem
+    public class ValuingItemOfMyCommodityOrder:Entity
     {
-        public virtual ValuingOfMyCommodityOrder ValuingOfMyCommodityOrder
+        public ValuingItemOfMyCommodityOrder()
+        {
+            ScoreOfItemInCommodityOrders = new Iesi.Collections.Generic.HashedSet<ScoreOfItemInCommodityOrder>();
+        }
+
+        public virtual Iesi.Collections.Generic.ISet<ScoreOfItemInCommodityOrder> ScoreOfItemInCommodityOrders
+        {
+            get;
+            set;
+        }
+
+        public virtual string ValuingItemName
         {
             get;
 
-            set;
-        }
-        public virtual OrderOfCommodity OrderOfCommodity
-        {
-            get;
             set;
         }
     }

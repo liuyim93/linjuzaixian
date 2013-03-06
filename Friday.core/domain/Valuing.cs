@@ -8,6 +8,11 @@ namespace friday.core
 {
     public class Valuing:Entity
     {
+        public Valuing()
+        {
+            ValuingComments = new Iesi.Collections.Generic.HashedSet<ValuingComments>();
+        }
+
         public virtual int AverageScore
         {
             get;
@@ -16,7 +21,7 @@ namespace friday.core
         }
 
 
-        public virtual bool IsShownAnonymous
+        public virtual Merchant Merchant
         {
             get;
 
@@ -30,12 +35,13 @@ namespace friday.core
             get;
             set;
         }
-        public virtual LoginUser FromLoginUser
+        public virtual LoginUser LoginUser
         {
             get;
             set;
         }
-        public virtual LoginUser ToLoginUser
+
+        public virtual Iesi.Collections.Generic.ISet<ValuingComments> ValuingComments
         {
             get;
             set;

@@ -10,7 +10,7 @@ namespace friday.core.domain
         public ValuingOfMyHouseOrderMap()
         {
 
-            HasMany<ValuingItemOfMyHouseOrder>(o => o.ValuingItemOfMyHouseOrders).Inverse().Cascade.All();
+            HasMany<ScoreOfItemInHouseOrder>(o => o.ScoreOfItemInHouseOrders).Inverse().Cascade.All();
             References<MyHouseOrder>(o => o.MyHouseOrder).Not.Nullable();
            
         }

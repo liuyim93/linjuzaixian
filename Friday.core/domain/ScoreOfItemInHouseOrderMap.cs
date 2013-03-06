@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
+
 namespace friday.core.domain
 {
-    public class ValuingItemOfMyHouseOrderMap : ClassMap<ValuingItemOfMyHouseOrder>
+    public class ScoreOfItemInHouseOrderMap : ClassMap<ScoreOfItemInHouseOrder>
     {
-        public ValuingItemOfMyHouseOrderMap()
+        public ScoreOfItemInHouseOrderMap()
         {
+           
             Id(o => o.Id);
             Map(o => o.CreateTime);
             Map(o => o.IsDelete);
             Map(o => o.Version);
-            Map(o => o.ValuingItemName);
             Map(o => o.EntityIndex);
 
-            HasMany<ScoreOfItemInHouseOrder>(o => o.ScoreOfItemInHouseOrders).Inverse().Cascade.All();
+            References<ValuingOfMyHouseOrder>(o => o.ValuingOfMyHouseOrder).Not.Nullable();
+            References<ValuingItemOfMyHouseOrder>(o => o.ValuingItemOfMyHouseOrder).Fetch.Join().Not.Nullable();
         }
     }
 }

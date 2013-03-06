@@ -6,17 +6,23 @@ using friday.core.domain;
 
 namespace friday.core
 {
-    public class ValuingItemOfMyFoodOrder : ValuingItem
+    public class ValuingItemOfMyFoodOrder : Entity
     {
-        public virtual ValuingOfMyFoodOrder ValuingOfMyFoodOrder
+        public ValuingItemOfMyFoodOrder()
+        {
+            ScoreOfItemInFoodOrders = new Iesi.Collections.Generic.HashedSet<ScoreOfItemInFoodOrder>();
+        }
+
+        public virtual Iesi.Collections.Generic.ISet<ScoreOfItemInFoodOrder> ScoreOfItemInFoodOrders
+        {
+            get;
+            set;
+        }
+
+        public virtual string ValuingItemName
         {
             get;
 
-            set;
-        }
-        public virtual OrderOfFood OrderOfFood
-        {
-            get;
             set;
         }
     }
