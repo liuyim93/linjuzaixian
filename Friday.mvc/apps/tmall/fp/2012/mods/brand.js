@@ -52,11 +52,11 @@
                 }
                 var _bBrands = _data.bBrands;
                 var _sBrands = _data.sBrands;
-                var e = 50,
-					d = 50;
+                var _elapse_time = 50,
+					_timespan = 50;
                 _kissy.each(_dom.query(_config.brands), function (_bnd) {
                     var _brand_to_be_applied, _str_img_snippet;
-                    var j = _dom.children(_bnd);
+                    var _children_of_brand = _dom.children(_bnd);  /*2013-03-06 basilwang img img p p span*/
                     if (_dom.attr(_bnd, "keep") == "true") {
                         return
                     }
@@ -76,31 +76,31 @@
                             return
                         }
                     }
-                    var i = _brand_to_be_applied.actDesc !== "" ? _brand_to_be_applied.actDesc : _brand_to_be_applied.brandDesc;
-                    var l = i !== "" ? i : _brand_to_be_applied.brandName;
+                    var _temp_title = _brand_to_be_applied.actDesc !== "" ? _brand_to_be_applied.actDesc : _brand_to_be_applied.brandDesc;
+                    var _title = _temp_title !== "" ? _temp_title : _brand_to_be_applied.brandName;
                     _dom.attr(_bnd, "href", _brand_to_be_applied.linkedUrl);
-                    _dom.attr(_bnd, "title", l);
-                    _dom.attr(j[3], "data-brandid", _brand_to_be_applied.brandId);
-                    _dom.attr(j[3], "offset-brandfly", "17,0");
-                    _dom.html(j[1], "[" + _brand_to_be_applied.brandName + "]");
-                    _dom.html(j[2], i);
+                    _dom.attr(_bnd, "title", _title);
+                    _dom.attr(_children_of_brand[3], "data-brandid", _brand_to_be_applied.brandId);  //<p>
+                    _dom.attr(_children_of_brand[3], "offset-brandfly", "17,0");        //<p>
+                    _dom.html(_children_of_brand[1], "[" + _brand_to_be_applied.brandName + "]"); //<img>
+                    _dom.html(_children_of_brand[2], _temp_title);  //<p>
                     if (_brand_to_be_applied.isCol && _isLogin) {
-                        _dom.removeClass(j[3], "mark j_CollectBrand");
-                        _dom.html(_dom.get("b", j[3]), "\u60a8\u5df2\u5173\u6ce8\u8be5\u54c1\u724c")
+                        _dom.removeClass(_children_of_brand[3], "mark j_CollectBrand");
+                        _dom.html(_dom.get("b", _children_of_brand[3]), "您已关注该品牌")
                     } else {
-                        _dom.addClass(j[3], "mark");
-                        if (!_dom.get("b", j[3])) {
-                            _dom.append(_dom.create("<b>\u5173\u6ce8</b>"), j[3])
+                        _dom.addClass(_children_of_brand[3], "mark");
+                        if (!_dom.get("b", _children_of_brand[3])) {
+                            _dom.append(_dom.create("<b>关注</b>"), _children_of_brand[3])
                         }
                     }
-                    var h = _dom.create(_str_img_snippet);
-                    _dom.prepend(h, _bnd);
-                    _dom.hide(h);
+                    var _dom_img = _dom.create(_str_img_snippet);
+                    _dom.prepend(_dom_img, _bnd);
+                    _dom.hide(_dom_img);
                     setTimeout(function () {
-                        _kissy.one(j[0]).fadeOut(0.5);
-                        _kissy.one(h).fadeIn(0.8)
-                    }, e);
-                    e += d
+                        _kissy.one(_children_of_brand[0]).fadeOut(0.5);
+                        _kissy.one(_dom_img).fadeIn(0.8)
+                    }, _elapse_time);
+                    _elapse_time += _timespan
                 })
             })
         },
