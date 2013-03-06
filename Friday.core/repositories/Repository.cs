@@ -4611,6 +4611,92 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchByShopStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByShopStatistic(query, termList);
+        }
+        protected ICriteria SearchByShopStatistic(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByShopStatistic(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByShopStatistic(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "shopStatistic.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "ShopStatistic";
+
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".ShopStatistic";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "shopStatistic");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Shop"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByShop(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+
+
+                    if (df.type.Equals("Order"))
+                    {
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            foreach (DataFilter indf in df.field)
+                            {
+                                if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+                                }
+                                else
+                                {
+                                    query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+                                }
+                                continue;
+                            }
+                        }
+                    }
+
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected ICriteria SearchByRentStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchByRentStatistic(query, termList);
