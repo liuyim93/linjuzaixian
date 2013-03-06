@@ -15,12 +15,12 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="valuingItemOfMyHouseOrder/pAddValuingItemOfMyHouseOrder.aspx" title="添加商品评价项" target="navTab" rel=""><span>
-            添加商品评价项</span></a></li>
-        <li  id="liEdit" runat="server"><a class="edit" href="valuingItemOfMyHouseOrder/pEditValuingItemOfMyHouseOrder.aspx?uid={id}" title="修改商品评价项" rel="" target="navTab">
-            <span>修改商品评价项</span></a></li>
+        <li><a class="add" href="valuingItemOfMyHouseOrder/pAddValuingItemOfMyHouseOrder.aspx" title="添加房屋评价项" target="navTab" rel=""><span>
+            添加房屋评价项</span></a></li>
+        <li  id="liEdit" runat="server"><a class="edit" href="valuingItemOfMyHouseOrder/pEditValuingItemOfMyHouseOrder.aspx?uid={id}" title="修改房屋评价项" rel="" target="navTab">
+            <span>修改房屋评价项</span></a></li>
         <li id="liDelete" runat="server"><a class="delete" href="valuingItemOfMyHouseOrder/pValuingItemOfMyHouseOrderList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除商品评价项</span></a></li>
+            target="ajaxTodo" title="确定要删除吗?"><span>删除房屋评价项</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
