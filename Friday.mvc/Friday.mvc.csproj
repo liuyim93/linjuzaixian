@@ -1035,18 +1035,21 @@
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pAddValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>pAddValuingItemOfMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pAddValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>pAddValuingItemOfMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pEditValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>pEditValuingItemOfMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pEditValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>pEditValuingItemOfMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx.cs">
       <DependentUpon>pValuingItemOfMyHouseOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pValuingItemOfMyHouseOrderList.aspx</DependentUpon>
@@ -1058,12 +1061,19 @@
     <Compile Include="weblogin\valuingOfMyCommodityOrder\pAddValuingOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>pAddValuingOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrder.aspx.cs">
-      <DependentUpon>pValuingOfMyCommodityOrder.aspx</DependentUpon>
+    <Compile Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx.cs">
+      <DependentUpon>pEditValuingOfMyCommodityOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrder.aspx.designer.cs">
-      <DependentUpon>pValuingOfMyCommodityOrder.aspx</DependentUpon>
+    <Compile Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx.designer.cs">
+      <DependentUpon>pEditValuingOfMyCommodityOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx.cs">
+      <DependentUpon>pValuingOfMyCommodityOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyCommodityOrderList.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1782,7 +1792,8 @@
     <Content Include="weblogin\valuingItemOfMyHouseOrder\pEditValuingItemOfMyHouseOrder.aspx" />
     <Content Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pAddValuingOfMyCommodityOrder.aspx" />
-    <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx" />
+    <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />

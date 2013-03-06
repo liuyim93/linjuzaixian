@@ -10,7 +10,7 @@
 namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder {
     
     
-    public partial class pValuingOfMyCommodityOrder {
+    public partial class pEditValuingOfMyCommodityOrder {
         
         /// <summary>
         /// form 控件。
@@ -22,48 +22,66 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// liAdd 控件。
+        /// OrderNumber 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liAdd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText OrderNumber;
         
         /// <summary>
-        /// liEdit 控件。
+        /// OrderID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liEdit;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden OrderID;
         
         /// <summary>
-        /// liDelete 控件。
+        /// OrderCreateTime 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liDelete;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText OrderCreateTime;
         
         /// <summary>
-        /// repeater 控件。
+        /// Price 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeater;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Price;
         
         /// <summary>
-        /// numPerPage 控件。
+        /// LoginName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect numPerPage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText LoginName;
+        
+        /// <summary>
+        /// MerchantName 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MerchantName;
+        
+        /// <summary>
+        /// ValuingContent 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText ValuingContent;
     }
 }

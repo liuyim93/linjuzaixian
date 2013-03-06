@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddValuingOfMyCommodityOrder.aspx.cs" Inherits="Friday.mvc.weblogin.valuingOfMyCommodityOrder.pAddValuingOfMyCommodityOrder" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditValuingOfMyCommodityOrder.aspx.cs" Inherits="Friday.mvc.weblogin.valuingOfMyCommodityOrder.pEditValuingOfMyCommodityOrder" %>
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
