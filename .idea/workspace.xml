@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Category/Controllers/HomeController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Category/Controllers/HomeController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
     </list>
     <ignored path="Friday.iws" />
@@ -47,7 +50,7 @@
       <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="358" column="23" selection-start="18410" selection-end="18410" vertical-scroll-proportion="-21.2406">
+            <state line="135" column="58" selection-start="7879" selection-end="7879" vertical-scroll-proportion="0.6616541">
               <folding />
             </state>
           </provider>
@@ -616,7 +619,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="23" selection-start="18410" selection-end="18410" vertical-scroll-proportion="-21.2406">
+        <state line="135" column="58" selection-start="7879" selection-end="7879" vertical-scroll-proportion="0.6616541">
           <folding />
         </state>
       </provider>

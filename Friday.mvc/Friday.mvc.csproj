@@ -989,6 +989,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\common\brandbar.js" />
     <Content Include="apps\mods\login\asynchavana.js" />
     <Content Include="apps\mods\login\AudioCheckCode.js" />
     <Content Include="apps\mods\login\capslocktip.js" />
@@ -1010,13 +1011,20 @@
     <Content Include="apps\mods\login\safemode.js" />
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\tmall\common\bottombar.js" />
+    <Content Include="apps\tmall\common\tgallery.js" />
     <Content Include="apps\tmall\fp\2012\core.js" />
     <Content Include="apps\tmall\fp\2012\css\core.css" />
     <Content Include="apps\tmall\fp\2012\css\fp.css" />
     <Content Include="apps\tmall\fp\2012\fp.js" />
+    <Content Include="apps\tmall\fp\2012\mods\act.js" />
+    <Content Include="apps\tmall\fp\2012\mods\brand.js" />
+    <Content Include="apps\tmall\fp\2012\mods\cate-fold.js" />
     <Content Include="apps\tmall\fp\2012\mods\category.js" />
     <Content Include="apps\tmall\fp\2012\mods\direct-promo.js" />
+    <Content Include="apps\tmall\fp\2012\mods\floor.js" />
     <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
+    <Content Include="apps\tmall\fp\2012\util\util.js" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
     <Content Include="Global.asax" />
@@ -1998,6 +2006,8 @@
     <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Category.cshtml" />
+    <Content Include="Views\Shared\_MfpSlide.cshtml" />
+    <Content Include="Views\Shared\_Brand.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

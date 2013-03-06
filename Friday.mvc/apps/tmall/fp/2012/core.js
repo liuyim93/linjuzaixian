@@ -133,12 +133,12 @@ TB.add("mod~global", function() {
                         _kissy_imp.getScript("http://a.tbcdn.cn/p/mall/2.0/js/direct-promo.js")
                     };
                     _addEventCombo(_j_mall_cate, "mouseover", function() {
-                        var x = document.getElementById("J_MallCateCtnCon");
-                        if (x) {
+                        var _dom_id_J_MallCateCtnCon = document.getElementById("J_MallCateCtnCon");
+                        if (_dom_id_J_MallCateCtnCon) {
                             return
                         }
                         _kissy_imp.getScript(_url + "?callback=window._mallCateCtnHandler&t=" + _kissy_imp.now(), {timeout: 5,error: function() {
-                            _div_load.innerHTML = "\u55b5~\u52a0\u8f7d\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5\uff01";
+                            _div_load.innerHTML = "加载失败，请稍后重试！";
                             _addClassName(_div_load, "sn-mcate-unready")
                         }})
                     })
@@ -179,7 +179,7 @@ TB.add("mod~global", function() {
             if (location.href.indexOf("tms.taobao.com") !== -1) {
                 return
             }
-            var i = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp, S = H("_nk_") || H("tracknick");
+            var i = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp, S = _get_user_cookie_value("_nk_") || _get_user_cookie_value("tracknick");
             S = encodeURIComponent(A(unescape(S.replace(/\\u/g, "%u"))));
             _kissy.getScript(i, function() {
                 if (typeof TLabs !== "undefined") {
@@ -248,7 +248,7 @@ TB.add("mod~global", function() {
         _kissy.ready(i);
         setTimeout(i, 4000)
     },assist: function() {
-        if (H("test_accouts") && document.domain.indexOf("taobao.net") > -1) {
+        if (_get_user_cookie_value("test_accouts") && document.domain.indexOf("taobao.net") > -1) {
             _kissy.ready(function() {
                 _kissy.getScript("http://assets.daily.taobao.net/p/assist/login/login.js")
             })
@@ -545,10 +545,10 @@ TB.add("mod~global", function() {
     },_initLoginStatus: function() {
         var _tb_global = TB.Global;
         if (TB.environment.isApp && TB.environment.passCookie) {
-            TB.userInfo.nick = A(unescape(H("_nk_").replace(/\\u/g, "%u")));
-            TB.userInfo.tracknick = A(unescape(H("tracknick").replace(/\\u/g, "%u")));
-            TB.userInfo.isLogin = !!((H("login") == "true" || H("_l_g_")) && TB.userInfo.nick);
-            TB.userInfo.trackId = H("t");
+            TB.userInfo.nick = A(unescape(_get_user_cookie_value("_nk_").replace(/\\u/g, "%u")));
+            TB.userInfo.tracknick = A(unescape(_get_user_cookie_value("tracknick").replace(/\\u/g, "%u")));
+            TB.userInfo.isLogin = !!((_get_user_cookie_value("login") == "true" || _get_user_cookie_value("_l_g_")) && TB.userInfo.nick);
+            TB.userInfo.trackId = _get_user_cookie_value("t");
             _tb_global._fireLoginStatusReadyFnList()
         } else {
             var S = "http://www.taobao.com/go/app/tmall/login-api.php";
@@ -708,13 +708,13 @@ TB.add("mod~global", function() {
         }, !_is_ie_may_need_fix)
     },run: function() {
     },isLogin: function() {
-        var i = H("tracknick"), S = H("_nk_") || i;
-        return !!(H("_l_g_") && S || H("ck1") && i)
+        var i = _get_user_cookie_value("tracknick"), S = _get_user_cookie_value("_nk_") || i;
+        return !!(_get_user_cookie_value("_l_g_") && S || _get_user_cookie_value("ck1") && i)
     },getCartElem: function() {
         return _div_named_site_nav && _findChildElementsByClassNameAndType("cart", "li", _div_named_site_nav)[0]
     },miniBag: function() {
         TB.Global.loginStatusReady(function(S) {
-            var i = _kissy.unparam(H("cq"));
+            var i = _kissy.unparam(_get_user_cookie_value("cq"));
             if (!S.isLogin) {
                 i.ccp = "1";
                 R("cq", _kissy.param(i), 365);
@@ -900,15 +900,15 @@ TB.add("mod~global", function() {
         }
         return _param_array.frm && _param_array.frm == "tmalltiyan"
     }
-    function H(i) {
-        if (_window.userCookie && !_kissy.isUndefined(_window.userCookie[i])) {
-            return _window.userCookie[i]
+    function _get_user_cookie_value(_key) {
+        if (_window.userCookie && !_kissy.isUndefined(_window.userCookie[_key])) {
+            return _window.userCookie[_key]
         }
-        if (_kissy.isUndefined(P[i])) {
-            var S = _document.cookie.match("(?:^|;)\\s*" + i + "=([^;]*)");
-            P[i] = (S && S[1]) ? decodeURIComponent(S[1]) : F
+        if (_kissy.isUndefined(P[_key])) {
+            var S = _document.cookie.match("(?:^|;)\\s*" + _key + "=([^;]*)");
+            P[_key] = (S && S[1]) ? decodeURIComponent(S[1]) : F
         }
-        return P[i]
+        return P[_key]
     }
     function R(i, q, p, s, v, S) {
         var t = 24 * 60 * 60 * 1000;
