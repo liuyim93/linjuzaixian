@@ -1035,21 +1035,18 @@
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pAddValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>pAddValuingItemOfMyHouseOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pAddValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>pAddValuingItemOfMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pEditValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>pEditValuingItemOfMyHouseOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pEditValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>pEditValuingItemOfMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx.cs">
       <DependentUpon>pValuingItemOfMyHouseOrderList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingItemOfMyHouseOrder\pValuingItemOfMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pValuingItemOfMyHouseOrderList.aspx</DependentUpon>
