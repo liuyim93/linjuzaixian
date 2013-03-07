@@ -206,6 +206,30 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(restaurantEditMange);
 
+            SystemMenu valuingOfMyFoodOrder = new SystemMenu()
+            {
+                Name = "餐馆订单评价管理",
+                Leaf = true,
+                ParentID = restaurantModel.Id,
+                MenuRoute = "valuingOfMyFoodOrder/pValuingOfMyFoodOrderList.aspx",
+                TLevel = 1,
+                ColIndex = 6
+            };
+            iSystemMenuRepository.SaveOrUpdate(valuingOfMyFoodOrder);
+            adminMenuCheckList.Add(valuingOfMyFoodOrder);
+
+            SystemMenu valuingItemOfMyFoodOrder = new SystemMenu()
+            {
+                Name = "食品评价项管理",
+                Leaf = true,
+                ParentID = restaurantModel.Id,
+                MenuRoute = "valuingItemOfMyFoodOrder/pValuingItemOfMyFoodOrderList.aspx",
+                TLevel = 1,
+                ColIndex = 7
+            };
+            iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyFoodOrder);
+            adminMenuCheckList.Add(valuingItemOfMyFoodOrder);
+
             //基本信息模块
             SystemMenu baseInfo = new SystemMenu()
             {
@@ -473,6 +497,30 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(rentEditManage);
 
+            SystemMenu valuingOfMyHouseOrder = new SystemMenu()
+            {
+                Name = "租房订单评价管理",
+                Leaf = true,
+                ParentID = rentModel.Id,
+                MenuRoute = "valuingOfMyHouseOrder/pValuingOfMyHouseOrderList.aspx",
+                TLevel = 1,
+                ColIndex = 6
+            };
+            iSystemMenuRepository.SaveOrUpdate(valuingOfMyHouseOrder);
+            adminMenuCheckList.Add(valuingOfMyHouseOrder);
+
+            SystemMenu valuingItemOfMyHouseOrder = new SystemMenu()
+            {
+                Name = "房屋评价项管理",
+                Leaf = true,
+                ParentID = rentModel.Id,
+                MenuRoute = "valuingItemOfMyHouseOrder/pValuingItemOfMyHouseOrderList.aspx",
+                TLevel = 1,
+                ColIndex = 7
+            };
+            iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyHouseOrder);
+            adminMenuCheckList.Add(valuingItemOfMyHouseOrder);
+
             //商店模块
             SystemMenu shopModel = new SystemMenu()
             {
@@ -544,6 +592,31 @@ namespace Friday.Test2
                 ColIndex = 5
             };
             iSystemMenuRepository.SaveOrUpdate(shopEditMange);
+
+            SystemMenu valuingOfMyCommodityOrder = new SystemMenu()
+            {
+                Name = "商店订单评价管理",
+                Leaf = true,
+                ParentID = shopModel.Id,
+                MenuRoute = "valuingOfMyCommodityOrder/pValuingOfMyCommodityOrderList.aspx",
+                TLevel = 1,
+                ColIndex = 6
+            };
+            iSystemMenuRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
+            adminMenuCheckList.Add(valuingOfMyCommodityOrder);
+
+            SystemMenu valuingItemOfMyCommodityOrder = new SystemMenu()
+            {
+                Name = "商品评价项管理",
+                Leaf = true,
+                ParentID = shopModel.Id,
+                MenuRoute = "valuingItemOfMyCommodityOrder/pValuingItemOfMyCommodityOrderList.aspx",
+                TLevel = 1,
+                ColIndex = 7
+            };
+            iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyCommodityOrder);
+            adminMenuCheckList.Add(valuingItemOfMyCommodityOrder);
+
 
             //统计模块
             SystemMenu statisticModel = new SystemMenu()
