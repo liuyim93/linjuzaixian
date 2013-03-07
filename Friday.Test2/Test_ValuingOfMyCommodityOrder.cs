@@ -13,7 +13,7 @@ using System.Transactions;
 namespace Friday.Test2
 {
     [TestFixture]
-    public class Test_ValuingOfMyHouseOrder
+    public class Test_ValuingOfMyCommodityOrder
     {
         private TransactionScope scope;
         [SetUp]
@@ -31,25 +31,25 @@ namespace Friday.Test2
         public void Test()
         {
 
-            IRentRepository iRentRepository = UnityHelper.UnityToT<IRentRepository>();
+            IShopRepository iShopRepository = UnityHelper.UnityToT<IShopRepository>();
             ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
             ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
 
             IRepository<SystemUser> iSystemUserRepository = UnityHelper.UnityToT<IRepository<SystemUser>>();
 
-            IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
+            IRepository<MyCommodityOrder> iMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<MyCommodityOrder>>();
 
-            IValuingOfMyHouseOrderRepository iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IValuingOfMyHouseOrderRepository>();
-            IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
-            IRepository<ScoreOfItemInHouseOrder> iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInHouseOrder>>();
+            IValuingOfMyCommodityOrderRepository iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IValuingOfMyCommodityOrderRepository>();
+            IRepository<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyCommodityOrder>>();
+            IRepository<ScoreOfItemInCommodityOrder> iScoreOfItemInCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInCommodityOrder>>();
 
-            IList<Rent> iRents = new List<Rent>();
-            IList<MyHouseOrder> iMyHouseOrders = new List<MyHouseOrder>();
-            IList<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderOrders = new List<ValuingItemOfMyHouseOrder>();
+            IList<Shop> iShops = new List<Shop>();
+            IList<MyCommodityOrder> iMyCommodityOrders = new List<MyCommodityOrder>();
+            IList<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderOrders = new List<ValuingItemOfMyCommodityOrder>();
 
-            string rtName = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string shpName = Guid.NewGuid().ToString().GetHashCode().ToString();
             string loginName = Guid.NewGuid().ToString().GetHashCode().ToString();
-            string rtName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
+            string shpName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
             string loginName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
             string ownerName = Guid.NewGuid().ToString().GetHashCode().ToString();
             string ownerName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
@@ -59,12 +59,12 @@ namespace Friday.Test2
             string sysLoginName = Guid.NewGuid().ToString().GetHashCode().ToString();
             string sysLoginName2 = Guid.NewGuid().ToString().GetHashCode().ToString();
 
-            Rent rest1 = new Rent()
+            Shop rest1 = new Shop()
             {
-                Name = rtName,
+                Name = shpName,
                 Owener = ownerName,
             };
-            iRentRepository.SaveOrUpdate(rest1);
+            iShopRepository.SaveOrUpdate(rest1);
 
             LoginUser lu1 = new LoginUser();
             lu1.LoginName = loginName;
@@ -76,12 +76,12 @@ namespace Friday.Test2
             lum.LoginUser = lu1;
             iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
 
-            Rent rest2 = new Rent()
+            Shop rest2 = new Shop()
             {
-                Name = rtName2,
+                Name = shpName2,
                 Owener = ownerName2,
             };
-            iRentRepository.SaveOrUpdate(rest2);
+            iShopRepository.SaveOrUpdate(rest2);
 
             LoginUser lu2 = new LoginUser();
             lu2.LoginName = loginName2;
@@ -126,88 +126,90 @@ namespace Friday.Test2
 
             for (int i = 0; i < 3; i++)
             {
-                MyHouseOrder mfdorder = new MyHouseOrder()
+                MyCommodityOrder mfdorder = new MyCommodityOrder()
                 {
                     Linkman = sysuser1.Name,
                     SystemUser = sysuser1,
-                    Rent = rest1,
+                    Shop = rest1,
                     EntityIndex = 1,
                     Tel = "111111111110",
                     OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),
                     OrderStatus = MyOrderStatusEnum.成功,
                     SendTime = "11:20",
+                    Description = "不要辣椒"
                 };
-                iMyHouseOrderRepository.SaveOrUpdate(mfdorder);
-                iMyHouseOrders.Add(mfdorder);
+                iMyCommodityOrderRepository.SaveOrUpdate(mfdorder);
+                iMyCommodityOrders.Add(mfdorder);
 
-                MyHouseOrder mfdorder2 = new MyHouseOrder()
+                MyCommodityOrder mfdorder2 = new MyCommodityOrder()
                 {
                     Linkman = sysuser2.Name,
                     SystemUser = sysuser2,
-                    Rent = rest2,
+                    Shop = rest2,
                     EntityIndex = 1,
                     Tel = "111111111110",
                     OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),
                     OrderStatus = MyOrderStatusEnum.成功,
                     SendTime = "11:20",
+                    Description = "不要辣椒"
                 };
-                iMyHouseOrderRepository.SaveOrUpdate(mfdorder2);
-                iMyHouseOrders.Add(mfdorder2);
+                iMyCommodityOrderRepository.SaveOrUpdate(mfdorder2);
+                iMyCommodityOrders.Add(mfdorder2);
             };
 
             string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
             foreach (var i in vItemArray)
             {
-                ValuingItemOfMyHouseOrder vluItemOfho = new ValuingItemOfMyHouseOrder()
+                ValuingItemOfMyCommodityOrder vluItemOfFd = new ValuingItemOfMyCommodityOrder()
                 {
                     ValuingItemName = i
                 };
-                iValuingItemOfMyHouseOrderRepository.SaveOrUpdate(vluItemOfho);
-                iValuingItemOfMyHouseOrderOrders.Add(vluItemOfho);
+                iValuingItemOfMyCommodityOrderRepository.SaveOrUpdate(vluItemOfFd);
+                iValuingItemOfMyCommodityOrderOrders.Add(vluItemOfFd);
             };
 
             for (int i = 0; i < 3; i++)
             {
-                ValuingOfMyHouseOrder vluOfHo = new ValuingOfMyHouseOrder()
+                ValuingOfMyCommodityOrder vluOfCmd = new ValuingOfMyCommodityOrder()
                 {
                     LoginUser = lgu1,
                     Merchant = rest1,
-                    MyHouseOrder = iMyHouseOrders[i],
+                    MyCommodityOrder = iMyCommodityOrders[i],
                     ValuingContent = i + "送货速度慢，产品质量差，服务态度恶劣",
                 };
                 for (int j = 0; j < 3; j++)
                 {
-                    ScoreOfItemInHouseOrder scoreOfItHo = new ScoreOfItemInHouseOrder()
+                    ScoreOfItemInCommodityOrder scoreOfItCmd = new ScoreOfItemInCommodityOrder()
                     {
                         Score = j,
-                        ValuingOfMyHouseOrder = vluOfHo,
-                        ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderOrders[j],
+                        ValuingOfMyCommodityOrder = vluOfCmd,
+                        ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderOrders[j],
                     };
-                    vluOfHo.ScoreOfItemInHouseOrders.Add(scoreOfItHo);
-                    iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItHo);
+                    vluOfCmd.ScoreOfItemInCommodityOrders.Add(scoreOfItCmd);
+                    iValuingItemOfMyCommodityOrderOrders[j].ScoreOfItemInCommodityOrders.Add(scoreOfItCmd);
                 };
-                iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfHo);
+                iValuingOfMyCommodityOrderRepository.SaveOrUpdate(vluOfCmd);
 
-                ValuingOfMyHouseOrder vluOfHo2 = new ValuingOfMyHouseOrder()
+                ValuingOfMyCommodityOrder vluOfCmd2 = new ValuingOfMyCommodityOrder()
                 {
                     LoginUser = lgu2,
                     Merchant = rest2,
-                    MyHouseOrder = iMyHouseOrders[i],
+                    MyCommodityOrder = iMyCommodityOrders[i],
                     ValuingContent = i + "送货速度快，产品质量好，服务态度亲切",
 
                 };
                 for (int j = 0; j < 3; j++)
                 {
-                    ScoreOfItemInHouseOrder scoreOfItHo2 = new ScoreOfItemInHouseOrder()
+                    ScoreOfItemInCommodityOrder scoreOfItCmd2 = new ScoreOfItemInCommodityOrder()
                     {
                         Score = j,
-                        ValuingOfMyHouseOrder = vluOfHo2,
-                        ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderOrders[j],
+                        ValuingOfMyCommodityOrder = vluOfCmd2,
+                        ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderOrders[j],
                     };
-                    vluOfHo.ScoreOfItemInHouseOrders.Add(scoreOfItHo2);
-                    iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItHo2);
+                    vluOfCmd.ScoreOfItemInCommodityOrders.Add(scoreOfItCmd2);
+                    iValuingItemOfMyCommodityOrderOrders[j].ScoreOfItemInCommodityOrders.Add(scoreOfItCmd2);
                 };
-                iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfHo2);
+                iValuingOfMyCommodityOrderRepository.SaveOrUpdate(vluOfCmd2);
             };
 
 
@@ -228,9 +230,9 @@ namespace Friday.Test2
                 field = loginUserList
             });
 
-            ValuingOfMyHouseOrder vmho = iValuingOfMyHouseOrderRepository.Search(filterList).FirstOrDefault();
+            ValuingOfMyCommodityOrder vmCmd = iValuingOfMyCommodityOrderRepository.Search(filterList).FirstOrDefault();
 
-            Assert.IsTrue(vmho.LoginUser.LoginName == sysLoginName2, string.Format("实际结果：{0}与期望结果{1}不一致", vmho.LoginUser.LoginName, sysLoginName2));
+            Assert.IsTrue(vmCmd.LoginUser.LoginName == sysLoginName2, string.Format("实际结果：{0}与期望结果{1}不一致", vmCmd.LoginUser.LoginName, sysLoginName2));
 
 
             List<DataFilter> filterList2 = new List<DataFilter>();
@@ -238,16 +240,16 @@ namespace Friday.Test2
             mechentList.Add(new DataFilter()
             {
                 type = "Name",
-                value = rtName
+                value = shpName
             });
             filterList2.Add(new DataFilter()
             {
                 type = "Merchant",
                 field = mechentList
             });
-            ValuingOfMyHouseOrder vmho2 = iValuingOfMyHouseOrderRepository.Search(filterList2).FirstOrDefault();
+            ValuingOfMyCommodityOrder vmCmd2 = iValuingOfMyCommodityOrderRepository.Search(filterList2).FirstOrDefault();
 
-            Assert.IsTrue(vmho2.Merchant.Name == rtName, string.Format("实际结果：{0}与期望结果{1}不一致", vmho2.Merchant.Name, rtName));
+            Assert.IsTrue(vmCmd2.Merchant.Name == shpName, string.Format("实际结果：{0}与期望结果{1}不一致", vmCmd2.Merchant.Name, shpName));
 
 
         }
