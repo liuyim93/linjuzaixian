@@ -1173,6 +1173,13 @@
     <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyCommodityOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pAddValuingOfMyFoodOrder.aspx.cs">
+      <DependentUpon>pAddValuingOfMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pAddValuingOfMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>pAddValuingOfMyFoodOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx.cs">
       <DependentUpon>pValuingOfMyFoodOrderList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1913,6 +1920,7 @@
     <Content Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx" />
+    <Content Include="weblogin\valuingOfMyFoodOrder\pAddValuingOfMyFoodOrder.aspx" />
     <Content Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
