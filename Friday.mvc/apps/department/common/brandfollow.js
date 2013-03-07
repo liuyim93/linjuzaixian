@@ -38,12 +38,12 @@
             var _brandfollow = this;
             I(function (_token) {
                 var N = !!_token ? { brandId: _brandid, _tb_token_: _token} : { brandId: _brandid };
-                _ajax.jsonp(_opts.addServer || "http://brand.tmall.com/ajax/brandAddToFav.htm", N, function (O) {
-                    O = O || {};
-                    if (O.is_success == "T") {
+                _ajax.jsonp(_opts.addServer || "http://brand.tmall.com/ajax/brandAddToFav.htm", N, function (_data) {
+                    _data = _data || {};
+                    if (_data.is_success == "T") {
                         _opts.success && _opts.success()
                     } else {
-                        if (O.is_success == "O" && _opts.reLogin !== false) {
+                        if (_data.is_success == "O" && _opts.reLogin !== false) {
                             _opts.reLogin = false;
                             _opts.isLogin = false;
                             E(function () {
@@ -51,7 +51,7 @@
                             });
                             return
                         }
-                        _opts.error && _opts.error((O.is_success == "E") ? { code: -1, message: "您已经关注过该品牌！"} : { code: -2, message: "关注失败，请稍后再试！" })
+                        _opts.error && _opts.error((_data.is_success == "E") ? { code: -1, message: "您已经关注过该品牌！"} : { code: -2, message: "关注失败，请稍后再试！" })
                     }
                 })
             }, _opts)

@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,10 +55,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tbuser.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tbuser.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="21" selection-start="5132" selection-end="5132" vertical-scroll-proportion="0.7076023">
+            <state line="109" column="21" selection-start="5132" selection-end="5132" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -89,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="brandfollow.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="brandfollow.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="35" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0">
+            <state line="40" column="114" selection-start="1885" selection-end="1885" vertical-scroll-proportion="0.36549708">
               <folding />
             </state>
           </provider>
@@ -151,8 +150,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/bottombar.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
       </list>
     </option>
   </component>
@@ -700,16 +699,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="35" selection-start="999" selection-end="999" vertical-scroll-proportion="0.0">
+        <state line="109" column="21" selection-start="5132" selection-end="5132" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="21" selection-start="5132" selection-end="5132" vertical-scroll-proportion="0.7076023">
+        <state line="40" column="114" selection-start="1885" selection-end="1885" vertical-scroll-proportion="0.36549708">
           <folding />
         </state>
       </provider>
