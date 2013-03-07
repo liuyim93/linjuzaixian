@@ -169,6 +169,7 @@
     <Compile Include="services\ISystemRoleService.cs" />
     <Compile Include="services\ISystemUserService.cs" />
     <Compile Include="services\IUserInRoleService.cs" />
+    <Compile Include="services\IValuingCommentsService.cs" />
     <Compile Include="services\LoginUserService.cs" />
     <Compile Include="services\MenuService.cs" />
     <Compile Include="services\MerchantCategoryService.cs" />
@@ -431,6 +432,7 @@
     <Compile Include="services\IOrderOfCommodityService.cs" />
     <Compile Include="services\FoodStatisticService.cs" />
     <Compile Include="services\IFoodStatisticService.cs" />
+    <Compile Include="services\ValuingCommentsService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
