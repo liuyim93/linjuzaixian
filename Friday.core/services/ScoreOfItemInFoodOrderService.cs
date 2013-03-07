@@ -23,6 +23,12 @@ namespace friday.core.services
             return iScoreOfItemInFoodOrderRepository.Load(id);
         }
 
+
+        public int GetScoreOfItemInFoodOrdersCount(string valuingOfMyFoodOrderID)
+        {
+            return iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersCount(valuingOfMyFoodOrderID);
+        }
+
         public void Save(ScoreOfItemInFoodOrder scoreOfItemInFoodOrder)
         {
             iLogger.LogMessage("插入ScoreOfItemInFoodOrder数据，ID：" + scoreOfItemInFoodOrder.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);

@@ -9,6 +9,7 @@ namespace friday.core.repositories
 {
     public interface IScoreOfItemInFoodOrderRepository : IRepository<ScoreOfItemInFoodOrder>
     {
+        int GetScoreOfItemInFoodOrdersCount(string valuingOfMyFoodOrderID);
         IList<ScoreOfItemInFoodOrder> Search(List<DataFilter> termList);
         IList<ScoreOfItemInFoodOrder> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

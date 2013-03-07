@@ -5,11 +5,20 @@ using System.Text;
 using friday.core.domain;
 using NHibernate;
 using friday.core.components;
+using NHibernate.Linq;
 
 namespace friday.core.repositories
 {
     public class ScoreOfItemInFoodOrderRepository : Repository<ScoreOfItemInFoodOrder>, IScoreOfItemInFoodOrderRepository
     {
+        public virtual int GetScoreOfItemInFoodOrdersCount(string valuingOfMyFoodOrderID)
+        {
+            var query = (from scoreOfItemInFoodOrder in this.Session.Query<ScoreOfItemInFoodOrder>()
+                         where scoreOfItemInFoodOrder.ValuingOfMyFoodOrder.Id == valuingOfMyFoodOrderID && scoreOfItemInFoodOrder.IsDelete == false
+                         select scoreOfItemInFoodOrder
+                            ).LongCount();
+            return Convert.ToInt16(query);
+        }
 
         protected virtual ICriteria Query
         {

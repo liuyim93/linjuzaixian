@@ -10,6 +10,7 @@ namespace friday.core.services
     public interface IScoreOfItemInHouseOrderService
     {
         ScoreOfItemInHouseOrder Load(string id);
+        int GetScoreOfItemInHouseOrdersCount(string valuingOfMyHouseOrderID);
         void Save(ScoreOfItemInHouseOrder scoreOfItemInHouseOrder);
         void Update(ScoreOfItemInHouseOrder scoreOfItemInHouseOrder);
         void Delete(string id);
