@@ -641,6 +641,13 @@
     <Compile Include="weblogin\scoreOfItemInFoodOrder\pAddScoreOfItemInFoodOrder.aspx.designer.cs">
       <DependentUpon>pAddScoreOfItemInFoodOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\scoreOfItemInFoodOrder\pEditScoreOfItemInFoodOrder.aspx.cs">
+      <DependentUpon>pEditScoreOfItemInFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInFoodOrder\pEditScoreOfItemInFoodOrder.aspx.designer.cs">
+      <DependentUpon>pEditScoreOfItemInFoodOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\scoreOfItemInFoodOrder\pScoreOfItemInFoodOrderList.aspx.cs">
       <DependentUpon>pScoreOfItemInFoodOrderList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1364,6 +1371,7 @@
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pEditScoreOfItemInCommodityOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx" />
     <Content Include="weblogin\scoreOfItemInFoodOrder\pAddScoreOfItemInFoodOrder.aspx" />
+    <Content Include="weblogin\scoreOfItemInFoodOrder\pEditScoreOfItemInFoodOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInFoodOrder\pScoreOfItemInFoodOrderList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
