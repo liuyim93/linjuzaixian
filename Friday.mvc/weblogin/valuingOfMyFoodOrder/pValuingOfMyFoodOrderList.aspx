@@ -62,12 +62,12 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li id="liAdd" runat="server"><a class="add" href="valuingOfMyFoodOrder/pAddValuingOfMyFoodOrder.aspx" title="添加商品订单评价" target="navTab" rel=""><span>
-            添加商品订单评价</span></a></li>
-        <li  id="liEdit" runat="server"><a class="edit" href="valuingOfMyFoodOrder/pEditValuingOfMyFoodOrder.aspx?uid={id}" title="修改商品订单评价" rel="" target="navTab">
-            <span>修改商品订单评价</span></a></li>
+        <li id="liAdd" runat="server"><a class="add" href="valuingOfMyFoodOrder/pAddValuingOfMyFoodOrder.aspx" title="添加食品订单评价" target="navTab" rel=""><span>
+            添加食品订单评价</span></a></li>
+        <li  id="liEdit" runat="server"><a class="edit" href="valuingOfMyFoodOrder/pEditValuingOfMyFoodOrder.aspx?uid={id}" title="修改食品订单评价" rel="" target="navTab">
+            <span>修改食品订单评价</span></a></li>
         <li id="liDelete" runat="server"><a class="delete" href="valuingOfMyFoodOrder/pValuingOfMyFoodOrderList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除商品订单评价</span></a></li>
+            target="ajaxTodo" title="确定要删除吗?"><span>删除食品订单评价</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
