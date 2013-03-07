@@ -532,7 +532,7 @@ namespace Friday.Test2
 
             };
             iSystemMenuRepository.SaveOrUpdate(shopModel);
-            adminMenuCheckList.Add(restaurantMange);
+            adminMenuCheckList.Add(shopModel);
 
             SystemMenu shopMange = new SystemMenu()
             {
