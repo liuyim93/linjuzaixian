@@ -655,6 +655,13 @@
     <Compile Include="weblogin\scoreOfItemInFoodOrder\pScoreOfItemInFoodOrderList.aspx.designer.cs">
       <DependentUpon>pScoreOfItemInFoodOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx.cs">
+      <DependentUpon>pScoreOfItemInHouseOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx.designer.cs">
+      <DependentUpon>pScoreOfItemInHouseOrderList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1373,6 +1380,7 @@
     <Content Include="weblogin\scoreOfItemInFoodOrder\pAddScoreOfItemInFoodOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInFoodOrder\pEditScoreOfItemInFoodOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInFoodOrder\pScoreOfItemInFoodOrderList.aspx" />
+    <Content Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
@@ -2180,7 +2188,6 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
-    <Folder Include="weblogin\scoreOfItemInHouseOrder\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
     <Folder Include="weblogin\valuingOfMyFoodOrder\" />
