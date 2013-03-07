@@ -8,13 +8,14 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
 {
     public partial class pAddValuingOfMyFoodOrder : BasePage
     {
-        IRepository<ValuingOfMyFoodOrder> iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyFoodOrder>>();
-        IRepository<MyFoodOrder> iMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
+        IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService = UnityHelper.UnityToT<IValuingOfMyFoodOrderService>();
+        IMyFoodOrderService iMyFoodOrderService = UnityHelper.UnityToT<IMyFoodOrderService>();
 
         private ValuingOfMyFoodOrder valuingOfMyFoodOrder = new ValuingOfMyFoodOrder();
         private MyFoodOrder myFoodOrder;
@@ -29,13 +30,13 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
 
         private void SaveValuingOfMyFoodOrder()
         {
-            myFoodOrder = iMyFoodOrderRepository.Get(OrderID.Value);
+            myFoodOrder = iMyFoodOrderService.Load(OrderID.Value);
             valuingOfMyFoodOrder.LoginUser = myFoodOrder.SystemUser.LoginUser;
             valuingOfMyFoodOrder.Merchant = myFoodOrder.Restaurant;
             valuingOfMyFoodOrder.MyFoodOrder = myFoodOrder;
 
             BindingHelper.RequestToObject(valuingOfMyFoodOrder);
-            iValuingOfMyFoodOrderRepository.SaveOrUpdate(valuingOfMyFoodOrder);
+            iValuingOfMyFoodOrderService.Save(valuingOfMyFoodOrder);
 
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
