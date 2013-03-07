@@ -379,6 +379,13 @@
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.cs">
+      <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.designer.cs">
+      <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\loginUser\pLoginUserDetail.aspx.cs">
       <DependentUpon>pLoginUserDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1426,6 +1433,7 @@
     <Content Include="weblogin\ListMyHouseOrder.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
+    <Content Include="weblogin\ListValuingItemOfMyFoodOrder.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />
     <Content Include="weblogin\log\pLogDetail.aspx" />
     <Content Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx" />
