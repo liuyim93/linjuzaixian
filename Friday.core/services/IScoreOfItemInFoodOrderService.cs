@@ -11,6 +11,7 @@ namespace friday.core.services
     {
         ScoreOfItemInFoodOrder Load(string id);
         int GetScoreOfItemInFoodOrdersCount(string valuingOfMyFoodOrderID);
+        double GetScoreOfItemInFoodOrdersSum(string valuingOfMyFoodOrderID);
         void Save(ScoreOfItemInFoodOrder scoreOfItemInFoodOrder);
         void Update(ScoreOfItemInFoodOrder scoreOfItemInFoodOrder);
         void Delete(string id);

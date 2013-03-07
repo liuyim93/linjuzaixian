@@ -20,6 +20,15 @@ namespace friday.core.repositories
             return Convert.ToInt16(query);
         }
 
+        public virtual double GetScoreOfItemInFoodOrdersSum(string valuingOfMyFoodOrderID)
+        {
+            var query = (from scoreOfItemInFoodOrder in this.Session.Query<ScoreOfItemInFoodOrder>()
+                         where scoreOfItemInFoodOrder.ValuingOfMyFoodOrder.Id == valuingOfMyFoodOrderID && scoreOfItemInFoodOrder.IsDelete == false
+                         select scoreOfItemInFoodOrder
+                            ).Sum(o=>o.Score);
+            return Convert.ToDouble(query);
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(ScoreOfItemInFoodOrder)); }

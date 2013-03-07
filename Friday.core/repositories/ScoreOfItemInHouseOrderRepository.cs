@@ -19,6 +19,16 @@ namespace friday.core.repositories
                             ).LongCount();
             return Convert.ToInt16(query);
         }
+
+        public virtual double GetScoreOfItemInHouseOrdersSum(string valuingOfMyHouseOrderID)
+        {
+            var query = (from scoreOfItemInHouseOrder in this.Session.Query<ScoreOfItemInHouseOrder>()
+                         where scoreOfItemInHouseOrder.ValuingOfMyHouseOrder.Id == valuingOfMyHouseOrderID && scoreOfItemInHouseOrder.IsDelete == false
+                         select scoreOfItemInHouseOrder
+                            ).Sum(o=>o.Score);
+            return Convert.ToDouble(query);
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(ScoreOfItemInHouseOrder)); }

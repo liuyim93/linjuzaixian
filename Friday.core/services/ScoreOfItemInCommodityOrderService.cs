@@ -29,6 +29,11 @@ namespace friday.core.services
             return iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersCount(valuingOfMyCommodityOrderID);
         }
 
+        public double GetScoreOfItemInCommodityOrdersSum(string valuingOfMyCommodityOrderID)
+        {
+            return iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersSum(valuingOfMyCommodityOrderID);
+        }
+
         public void Save(ScoreOfItemInCommodityOrder scoreOfItemInCommodityOrder)
         {
             iLogger.LogMessage("插入ScoreOfItemInCommodityOrder数据，ID：" + scoreOfItemInCommodityOrder.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
