@@ -5,39 +5,39 @@
         var D;
         _dom = _dom || _kissy_imp.DOM;
         _ajax = _ajax || _kissy_imp.IO;
-        function G(K, J) {
-            J = J || {};
-            if (J.isLogin) {
-                K && K();
+        function G(_fn, _opts) {
+            _opts = _opts || {};
+            if (_opts.isLogin) {
+                _fn && _fn();
                 return
             }
-            _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
-                L.onLogin(K, J)
+            _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (_kissy, _tbuser) {
+                _tbuser.onLogin(_fn, _opts)
             })
         }
-        function E(K, J) {
-            _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
-                L.onLogout(K, J)
+        function E(_fn, _opts) {
+            _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (_kissy, _tbuser) {
+                _tbuser.onLogout(_fn, _opts)
             })
         }
-        function I(K, J) {
+        function I(_fn_on_token_ready, _opts) {
             G(function () {
-                J = J || {};
-                token = J.tbToke || _dom.val("#J_TbToken");
+                _opts = _opts || {};
+                token = _opts.tbToke || _dom.val("#J_TbToken");
                 if (token) {
-                    K && K(token)
+                    _fn_on_token_ready && _fn_on_token_ready(token)
                 } else {
-                    _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
-                        L.onTokenReady(K, J)
+                    _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (_kissy, _tbuser) {
+                        _tbuser.onTokenReady(_fn_on_token_ready, _opts)
                     })
                 }
-            }, J)
+            }, _opts)
         }
-        return _kissy_imp[_namespace_brandfollow] = _kissy_imp[_namespace_brandfollow] || { add: function (L, _opts) {
+        return _kissy_imp[_namespace_brandfollow] = _kissy_imp[_namespace_brandfollow] || { add: function (_brandid, _opts) {
             _opts = _opts || {};
             var _brandfollow = this;
-            I(function (M) {
-                var N = !!M ? { brandId: L, _tb_token_: M} : { brandId: L };
+            I(function (_token) {
+                var N = !!_token ? { brandId: _brandid, _tb_token_: _token} : { brandId: _brandid };
                 _ajax.jsonp(_opts.addServer || "http://brand.tmall.com/ajax/brandAddToFav.htm", N, function (O) {
                     O = O || {};
                     if (O.is_success == "T") {
@@ -47,11 +47,11 @@
                             _opts.reLogin = false;
                             _opts.isLogin = false;
                             E(function () {
-                                _brandfollow.add(L, _opts)
+                                _brandfollow.add(_brandid, _opts)
                             });
                             return
                         }
-                        _opts.error && _opts.error((O.is_success == "E") ? { code: -1, message: "\u60a8\u5df2\u7ecf\u5173\u6ce8\u8fc7\u8be5\u54c1\u724c\uff01"} : { code: -2, message: "\u5173\u6ce8\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff01" })
+                        _opts.error && _opts.error((O.is_success == "E") ? { code: -1, message: "您已经关注过该品牌！"} : { code: -2, message: "关注失败，请稍后再试！" })
                     }
                 })
             }, _opts)

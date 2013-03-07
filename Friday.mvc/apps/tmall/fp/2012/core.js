@@ -1034,6 +1034,7 @@ TB.add("mod~global", function() {
     }
 });
 TB.use("mod~global");
+//2013-03-07 basilwang understood
 //2013-02-19 basilwang still don't know what's this
 (function() {
     var _str_tml = "tml", _str_kissy = "kissy";
