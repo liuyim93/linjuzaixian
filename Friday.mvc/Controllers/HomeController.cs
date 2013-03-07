@@ -12,9 +12,12 @@ namespace Friday.mvc.Controllers
     public class HomeController : Controller
     {
         IMerchantCategoryRepository iMerchantCategoryRepository;
-        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository)
+        IActivityRepository iActivityRepository;
+
+        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IActivityRepository iActivityRepository)
         {
             this.iMerchantCategoryRepository = iMerchantCategoryRepository;
+            this.iActivityRepository = iActivityRepository;
         }
         public ActionResult Index()
         {
@@ -23,6 +26,7 @@ namespace Friday.mvc.Controllers
             mainModel.MerchantRestaurantCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
             mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
 
+            mainModel.Activities = this.iActivityRepository.GetAll();
             return View(mainModel);
         }
 
