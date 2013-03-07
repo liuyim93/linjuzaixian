@@ -8,13 +8,14 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
 {
     public partial class pEditValuingOfMyHouseOrder : BasePage
     {
-        IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
-        IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
+        IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService = UnityHelper.UnityToT<IValuingOfMyHouseOrderService>();
+        IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
 
         private ValuingOfMyHouseOrder valuingOfMyHouseOrder;
         private MyHouseOrder myHouseOrder;
@@ -23,7 +24,7 @@ namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
         {
 
             string uid = Request.Params["uid"].ToString();
-            valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Load(uid);
+            valuingOfMyHouseOrder = iValuingOfMyHouseOrderService.Load(uid);
             myHouseOrder = valuingOfMyHouseOrder.MyHouseOrder;
 
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -44,13 +45,13 @@ namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
 
         private void SaveValuingOfMyHouseOrder()
         {
-            myHouseOrder = iMyHouseOrderRepository.Get(OrderID.Value);
+            myHouseOrder = iMyHouseOrderService.Load(OrderID.Value);
             valuingOfMyHouseOrder.LoginUser = myHouseOrder.SystemUser.LoginUser;
             valuingOfMyHouseOrder.Merchant = myHouseOrder.Rent;
             valuingOfMyHouseOrder.MyHouseOrder = myHouseOrder;
 
             BindingHelper.RequestToObject(valuingOfMyHouseOrder);
-            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
+            iValuingOfMyHouseOrderService.Update(valuingOfMyHouseOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -8,13 +8,14 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
 {
     public partial class pAddValuingOfMyHouseOrder : BasePage
     {
-        IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
-        IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
+        IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService = UnityHelper.UnityToT<IValuingOfMyHouseOrderService>();
+        IMyHouseOrderService iMyHouseOrderService = UnityHelper.UnityToT<IMyHouseOrderService>();
 
         private ValuingOfMyHouseOrder valuingOfMyHouseOrder = new ValuingOfMyHouseOrder();
         private MyHouseOrder myHouseOrder;
@@ -29,13 +30,13 @@ namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
 
         private void SaveValuingOfMyHouseOrder()
         {
-            myHouseOrder = iMyHouseOrderRepository.Get(OrderID.Value);
+            myHouseOrder = iMyHouseOrderService.Load(OrderID.Value);
             valuingOfMyHouseOrder.LoginUser = myHouseOrder.SystemUser.LoginUser;
             valuingOfMyHouseOrder.Merchant = myHouseOrder.Rent;
             valuingOfMyHouseOrder.MyHouseOrder = myHouseOrder;
 
             BindingHelper.RequestToObject(valuingOfMyHouseOrder);
-            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
+            iValuingOfMyHouseOrderService.Save(valuingOfMyHouseOrder);
 
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
