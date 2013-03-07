@@ -13,15 +13,17 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 {
     public partial class pEditScoreOfItemInCommodityOrder : BasePage
     {
-        IRepository<ScoreOfItemInCommodityOrder> iScoreOfItemInCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInCommodityOrder>>();
+        IScoreOfItemInCommodityOrderRepository iScoreOfItemInCommodityOrderRepository = UnityHelper.UnityToT<IScoreOfItemInCommodityOrderRepository>();
         IRepository<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyCommodityOrder>>();
         IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
 
         private ScoreOfItemInCommodityOrder scoreOfItemInCommodityOrder;
+        private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             scoreOfItemInCommodityOrder = iScoreOfItemInCommodityOrderRepository.Load(Request.Params["uid"].ToString());
+            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderRepository.Get(Request.Params["valuingOfMyCommodityOrder_id"]);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -42,6 +44,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
             scoreOfItemInCommodityOrder.ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderRepository.Get(ItemID.Value);
 
             iScoreOfItemInCommodityOrderRepository.SaveOrUpdate(scoreOfItemInCommodityOrder);
+
+            int count = iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersCount(Request.Params["valuingOfMyCommodityOrder_id"]);
+            double Sum = iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersSum(Request.Params["valuingOfMyCommodityOrder_id"]);
+
+            valuingOfMyCommodityOrder.AverageScore = Sum / count;
+            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

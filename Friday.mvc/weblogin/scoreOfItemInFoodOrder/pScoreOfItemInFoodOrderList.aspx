@@ -11,7 +11,7 @@
     <ul class="toolBar">
         <li><a class="add" href="ScoreOfItemInFoodOrder/pAddScoreOfItemInFoodOrder.aspx?valuingOfMyFoodOrder_id=<%=Request.Params["valuingOfMyFoodOrder_id"]%>" title="增加评价项评分" target="dialog"
             rel="" width="600" height="400"><span>增加评价项评分</span></a></li>
-        <li><a class="edit" href="ScoreOfItemInFoodOrder/pEditScoreOfItemInFoodOrder.aspx?uid={scoreOfItemInFoodOrderid}" title="修改评价项评分" rel="" target="dialog"
+        <li><a class="edit" href="ScoreOfItemInFoodOrder/pEditScoreOfItemInFoodOrder.aspx?uid={scoreOfItemInFoodOrderid}&valuingOfMyFoodOrder_id=<%=Request.Params["valuingOfMyFoodOrder_id"]%>" title="修改评价项评分" rel="" target="dialog"
             height="480"><span>修改评价项评分</span></a></li>
         <li><a class="delete" href="ScoreOfItemInFoodOrder/pScoreOfItemInFoodOrderList.aspx?flag=alldelete&uid={scoreOfItemInFoodOrderid}&valuingOfMyFoodOrder_id=<%=Request.Params["valuingOfMyFoodOrder_id"]%>" target="ajaxTodo"
             title="确定要删除吗?"><span>删除评价项评分</span></a></li>

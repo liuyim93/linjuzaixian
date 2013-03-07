@@ -13,15 +13,17 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 {
     public partial class pEditScoreOfItemInHouseOrder : BasePage
     {
-        IRepository<ScoreOfItemInHouseOrder> iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInHouseOrder>>();
+        IScoreOfItemInHouseOrderRepository iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IScoreOfItemInHouseOrderRepository>();
         IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
         IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
 
         private ScoreOfItemInHouseOrder scoreOfItemInHouseOrder;
+        private ValuingOfMyHouseOrder valuingOfMyHouseOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderRepository.Load(Request.Params["uid"].ToString());
+            valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Get(Request.Params["valuingOfMyHouseOrder_id"]);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -43,6 +45,11 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
             iScoreOfItemInHouseOrderRepository.SaveOrUpdate(scoreOfItemInHouseOrder);
 
+            int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
+            double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);
+
+            valuingOfMyHouseOrder.AverageScore = Sum / count;
+            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

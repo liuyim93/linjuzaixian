@@ -13,7 +13,7 @@ namespace friday.core
             ValuingComments = new Iesi.Collections.Generic.HashedSet<ValuingComments>();
         }
 
-        public virtual int AverageScore
+        public virtual double AverageScore
         {
             get;
 

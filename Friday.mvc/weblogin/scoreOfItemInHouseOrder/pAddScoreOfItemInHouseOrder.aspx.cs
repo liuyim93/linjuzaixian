@@ -13,11 +13,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 {
     public partial class pAddScoreOfItemInHouseOrder : BasePage
     {
-        IRepository<ScoreOfItemInHouseOrder> iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInHouseOrder>>();
+        IScoreOfItemInHouseOrderRepository iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IScoreOfItemInHouseOrderRepository>();
         IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
         IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
 
         private ScoreOfItemInHouseOrder scoreOfItemInHouseOrder;
+        private ValuingOfMyHouseOrder valuingOfMyHouseOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,9 +36,17 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
             scoreOfItemInHouseOrder = new ScoreOfItemInHouseOrder();
             BindingHelper.RequestToObject(scoreOfItemInHouseOrder);
             scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderRepository.Get(ItemID.Value);
-            scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Get(Request.Params["valuingOfMyHouseOrder_id"]);
+            valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Get(Request.Params["valuingOfMyHouseOrder_id"]);
+            scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = valuingOfMyHouseOrder;
 
             iScoreOfItemInHouseOrderRepository.SaveOrUpdate(scoreOfItemInHouseOrder);
+
+
+            int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
+            double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);
+
+            valuingOfMyHouseOrder.AverageScore = Sum / count;
+            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";

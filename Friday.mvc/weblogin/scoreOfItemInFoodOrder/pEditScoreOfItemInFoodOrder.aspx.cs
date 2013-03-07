@@ -13,15 +13,17 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
 {
     public partial class pEditScoreOfItemInFoodOrder : BasePage
     {
-        IRepository<ScoreOfItemInFoodOrder> iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInFoodOrder>>();
+        IScoreOfItemInFoodOrderRepository iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IScoreOfItemInFoodOrderRepository>();
         IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
         IRepository<ValuingOfMyFoodOrder> iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyFoodOrder>>();
 
         private ScoreOfItemInFoodOrder scoreOfItemInFoodOrder;
+        private ValuingOfMyFoodOrder valuingOfMyFoodOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderRepository.Load(Request.Params["uid"].ToString());
+            valuingOfMyFoodOrder = iValuingOfMyFoodOrderRepository.Get(Request.Params["valuingOfMyFoodOrder_id"]);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -42,6 +44,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
             scoreOfItemInFoodOrder.ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderRepository.Get(ItemID.Value);
 
             iScoreOfItemInFoodOrderRepository.SaveOrUpdate(scoreOfItemInFoodOrder);
+
+            int count = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersCount(Request.Params["valuingOfMyFoodOrder_id"]);
+            double Sum = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersSum(Request.Params["valuingOfMyFoodOrder_id"]);
+
+            valuingOfMyFoodOrder.AverageScore = Sum / count;
+            iValuingOfMyFoodOrderRepository.SaveOrUpdate(valuingOfMyFoodOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

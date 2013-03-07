@@ -11,7 +11,7 @@
     <ul class="toolBar">
         <li><a class="add" href="ScoreOfItemInHouseOrder/pAddScoreOfItemInHouseOrder.aspx?valuingOfMyHouseOrder_id=<%=Request.Params["valuingOfMyHouseOrder_id"]%>" title="增加评价项评分" target="dialog"
             rel="" width="600" height="400"><span>增加评价项评分</span></a></li>
-        <li><a class="edit" href="ScoreOfItemInHouseOrder/pEditScoreOfItemInHouseOrder.aspx?uid={scoreOfItemInHouseOrderid}" title="修改评价项评分" rel="" target="dialog"
+        <li><a class="edit" href="ScoreOfItemInHouseOrder/pEditScoreOfItemInHouseOrder.aspx?uid={scoreOfItemInHouseOrderid}&valuingOfMyHouseOrder_id=<%=Request.Params["valuingOfMyHouseOrder_id"]%>" title="修改评价项评分" rel="" target="dialog"
             height="480"><span>修改评价项评分</span></a></li>
         <li><a class="delete" href="ScoreOfItemInHouseOrder/pScoreOfItemInHouseOrderList.aspx?flag=alldelete&uid={scoreOfItemInHouseOrderid}&valuingOfMyHouseOrder_id=<%=Request.Params["valuingOfMyHouseOrder_id"]%>" target="ajaxTodo"
             title="确定要删除吗?"><span>删除评价项评分</span></a></li>

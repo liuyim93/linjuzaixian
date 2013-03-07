@@ -13,11 +13,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
 {
     public partial class pAddScoreOfItemInFoodOrder : BasePage
     {
-        IRepository<ScoreOfItemInFoodOrder> iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInFoodOrder>>();
+        IScoreOfItemInFoodOrderRepository iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IScoreOfItemInFoodOrderRepository>();
         IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
         IRepository<ValuingOfMyFoodOrder> iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyFoodOrder>>();
 
         private ScoreOfItemInFoodOrder scoreOfItemInFoodOrder;
+        private ValuingOfMyFoodOrder valuingOfMyFoodOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,9 +36,16 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
             scoreOfItemInFoodOrder = new ScoreOfItemInFoodOrder();
             BindingHelper.RequestToObject(scoreOfItemInFoodOrder);
             scoreOfItemInFoodOrder.ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderRepository.Get(ItemID.Value);
-            scoreOfItemInFoodOrder.ValuingOfMyFoodOrder = iValuingOfMyFoodOrderRepository.Get(Request.Params["valuingOfMyFoodOrder_id"]);
-
+            valuingOfMyFoodOrder = iValuingOfMyFoodOrderRepository.Get(Request.Params["valuingOfMyFoodOrder_id"]);
+            scoreOfItemInFoodOrder.ValuingOfMyFoodOrder = valuingOfMyFoodOrder;
             iScoreOfItemInFoodOrderRepository.SaveOrUpdate(scoreOfItemInFoodOrder);
+
+
+            int count = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersCount(Request.Params["valuingOfMyFoodOrder_id"]);
+            double Sum = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersSum(Request.Params["valuingOfMyFoodOrder_id"]);
+
+            valuingOfMyFoodOrder.AverageScore = Sum / count;
+            iValuingOfMyFoodOrderRepository.SaveOrUpdate(valuingOfMyFoodOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";
