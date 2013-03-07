@@ -1173,6 +1173,13 @@
     <Compile Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyCommodityOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx.cs">
+      <DependentUpon>pValuingOfMyFoodOrderList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx.designer.cs">
+      <DependentUpon>pValuingOfMyFoodOrderList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1906,6 +1913,7 @@
     <Content Include="weblogin\valuingOfMyCommodityOrder\pEditValuingOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\valuingOfMyCommodityOrder\pValuingOfMyCommodityOrderList.aspx" />
+    <Content Include="weblogin\valuingOfMyFoodOrder\pValuingOfMyFoodOrderList.aspx" />
     <Content Include="weblogin\xheditor\common.css" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-en.min.js" />
     <Content Include="weblogin\xheditor\xheditor-1.1.14-zh-cn.min.js" />
@@ -2206,7 +2214,6 @@
     <Folder Include="uploadimage\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
-    <Folder Include="weblogin\valuingOfMyFoodOrder\" />
     <Folder Include="weblogin\valuingOfMyHouseOrder\" />
   </ItemGroup>
   <ItemGroup>
