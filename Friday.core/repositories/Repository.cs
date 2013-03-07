@@ -1140,7 +1140,6 @@ namespace friday.core.repositories
             return query;
         }
 
-
         protected ICriteria SearchByValuingOfMyFoodOrder(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchByValuingOfMyFoodOrder(query, termList);
