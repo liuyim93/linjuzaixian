@@ -32,39 +32,40 @@
             var _brandbar = this;
             _kissy_tmp.mix(_options, _opts);
             _opts = _opts || {};
-            var K = _event.delegate || function (M, N, Q, P, O) {
-                _event.on(M, N, function (R) {
-                    var S = false;
-                    _kissy_tmp.each(_dom.query(Q, M), function (T) {
-                        if (!S && (T == R.target || _dom.contains(T, R.target))) {
-                            S = true
+            var _delegate = _event.delegate || function (_targets, _eventtype, _selector, _fn, _data) {
+                _event.on(_targets, _eventtype, function (_event) {
+                    var _is_find = false;
+                    _kissy_tmp.each(_dom.query(_selector, _targets), function (_item) {
+                        if (!_is_find && (_item == _event.target || _dom.contains(_item, _event.target))) {
+                            _is_find = true
                         }
                     });
-                    if (!S) {
+                    if (!_is_find) {
                         return
                     }
-                    P && P.apply(this, arguments)
-                }, O)
+                    //2013-03-07 basilwang  arguments contains _event  and this means _item
+                    _fn && _fn.apply(this, arguments)
+                }, _data)
             };
-            K(document, "click", _selector, function (N) {
-                N.halt();
-                if (N.brandCooked) {
+            _delegate(document, "click", _selector, function (_event) {
+                _event.halt();
+                if (_event.brandCooked) {
                     return
                 }
-                N.brandCooked = true;
-                var O = N.target, M = _opts.attrName || "data-brandid";
-                while (O && !(brandId = _dom.attr(O, M))) {
-                    O = _dom.parent(O)
+                _event.brandCooked = true;
+                var _target = _event.target, _brandid = _opts.attrName || "data-brandid";
+                while (_target && !(brandId = _dom.attr(_target, _brandid))) {
+                    _target = _dom.parent(_target)
                 }
-                if (!O) {
+                if (!_target) {
                     return
                 }
-                _brandbar.flyAdd(O, brandId, _opts)
+                _brandbar.flyAdd(_target, brandId, _opts)
             })
-        }, flyAdd: function (L, M, J) {
-            _kissy_tmp.mix(_options, J);
-            J = J || {};
-            var O = _dom.offset(L), I = this, K = _kissy_tmp.mix({}, J);
+        }, flyAdd: function (L, M, _opts) {
+            _kissy_tmp.mix(_options, _opts);
+            _opts = _opts || {};
+            var O = _dom.offset(L), I = this, K = _kissy_tmp.mix({}, _opts);
             O = { left: O.left + _dom.width(L) / 2, top: O.top + _dom.height(L) / 2 };
             var N = _dom.attr(L, "offset-brandfly");
             if (N && (/[\d-]+,[\d-]+/.test(N))) {
@@ -84,14 +85,14 @@
                 K.flyed = true;
                 Q = Q || {};
                 Q.flyNode = L;
-                var P = J.success && J.success(Q);
+                var P = _opts.success && _opts.success(Q);
                 if (I.fire("success", Q) === false || P === false) {
                     return
                 }
                 _kissy_tmp.onTgalleryReady("tgallery/department/common/brandbar-fly", function (T, R) {
                     T.mix(I, R);
                     I.fly(O, _dom.get(".BrandFlyer", _dom_div_id_J_BrandBar), { complete: function () {
-                        var S = J.flyComplete && J.flyComplete();
+                        var S = _opts.flyComplete && _opts.flyComplete();
                         if (I.fire("flyComplete", Q) === false || S === false) {
                             return
                         }
@@ -100,7 +101,7 @@
                 })
             };
             K.error = function (Q) {
-                var P = J.error && J.error(Q);
+                var P = _opts.error && _opts.error(Q);
                 Q.flyNode = L;
                 if (I.fire("error", Q) === false || P === false) {
                     return
