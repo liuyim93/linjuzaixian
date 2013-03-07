@@ -120,6 +120,8 @@
     <Compile Include="Test_RestaurantStatistic.cs" />
     <Compile Include="Test_HouseStatistic.cs" />
     <Compile Include="Test_CommodityStatistic.cs" />
+    <Compile Include="Test_ShopStatistic.cs" />
+    <Compile Include="Test_RentStatistic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
