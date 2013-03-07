@@ -8,6 +8,7 @@ using friday.core.components;
 using friday.core;
 using friday.core.domain;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 {
@@ -23,8 +24,8 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
         protected string startDate;
         protected string endDate;
 
-        IValuingOfMyCommodityOrderRepository iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IValuingOfMyCommodityOrderRepository>();
-
+        IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingOfMyCommodityOrderService>();
+      
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -122,7 +123,7 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<ValuingOfMyCommodityOrder> valuingOfMyCommodityOrderList = iValuingOfMyCommodityOrderRepository.Search(filterList, start, limit, out total);
+                IList<ValuingOfMyCommodityOrder> valuingOfMyCommodityOrderList = iValuingOfMyCommodityOrderService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = valuingOfMyCommodityOrderList;
                 repeater.DataBind();
@@ -133,7 +134,7 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 
         private void DeleteValuingOfMyCommodityOrder()
         {
-            iValuingOfMyCommodityOrderRepository.Delete(Request.Params["uid"]);
+            iValuingOfMyCommodityOrderService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

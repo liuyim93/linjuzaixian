@@ -7,13 +7,15 @@ using System.Web.UI.WebControls;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 {
     public partial class pValuingOfMyCommodityOrderDetail : BasePage
     {
-        IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
-        IRepository<MyCommodityOrder> iMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<MyCommodityOrder>>();
+        IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingOfMyCommodityOrderService>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
+
 
         private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
         private MyCommodityOrder myCommodityOrder = new MyCommodityOrder();
@@ -21,7 +23,7 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
         protected void Page_Load(object sender, EventArgs e)
         {
             string MyCommodityOrderId = Request.Params["MyCommodityOrderId"].ToString();
-            myCommodityOrder = iMyCommodityOrderRepository.Load(MyCommodityOrderId);
+            myCommodityOrder = iMyCommodityOrderService.Load(MyCommodityOrderId);
 
             BindingHelper.ObjectToControl(myCommodityOrder, this);
             LoginName.Value = myCommodityOrder.SystemUser.LoginUser.LoginName;

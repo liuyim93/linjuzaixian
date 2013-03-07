@@ -8,13 +8,14 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 {
     public partial class pEditValuingOfMyCommodityOrder : BasePage
     {
-        IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
-        IRepository<MyCommodityOrder> iMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<MyCommodityOrder>>();
+        IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingOfMyCommodityOrderService>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
 
         private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
         private MyCommodityOrder myCommodityOrder;
@@ -23,7 +24,7 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
         {
 
             string uid = Request.Params["uid"].ToString();
-            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderRepository.Load(uid);
+            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(uid);
             myCommodityOrder = valuingOfMyCommodityOrder.MyCommodityOrder;
 
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -44,13 +45,13 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 
         private void SaveValuingOfMyCommodityOrder()
         {
-            myCommodityOrder = iMyCommodityOrderRepository.Get(OrderID.Value);
+            myCommodityOrder = iMyCommodityOrderService.Load(OrderID.Value);
             valuingOfMyCommodityOrder.LoginUser = myCommodityOrder.SystemUser.LoginUser;
             valuingOfMyCommodityOrder.Merchant = myCommodityOrder.Shop;
             valuingOfMyCommodityOrder.MyCommodityOrder = myCommodityOrder;
 
             BindingHelper.RequestToObject(valuingOfMyCommodityOrder);
-            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
+            iValuingOfMyCommodityOrderService.Update(valuingOfMyCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

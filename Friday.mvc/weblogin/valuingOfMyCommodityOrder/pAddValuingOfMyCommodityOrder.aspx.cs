@@ -8,13 +8,14 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 {
     public partial class pAddValuingOfMyCommodityOrder : BasePage
     {
-        IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
-        IRepository<MyCommodityOrder> iMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<MyCommodityOrder>>();
+        IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingOfMyCommodityOrderService>();
+        IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
 
         private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder = new ValuingOfMyCommodityOrder();
         private MyCommodityOrder myCommodityOrder;
@@ -29,13 +30,13 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 
         private void SaveValuingOfMyCommodityOrder()
         {
-            myCommodityOrder = iMyCommodityOrderRepository.Get(OrderID.Value);
+            myCommodityOrder = iMyCommodityOrderService.Load(OrderID.Value);
             valuingOfMyCommodityOrder.LoginUser = myCommodityOrder.SystemUser.LoginUser;
             valuingOfMyCommodityOrder.Merchant = myCommodityOrder.Shop;
             valuingOfMyCommodityOrder.MyCommodityOrder = myCommodityOrder;
 
             BindingHelper.RequestToObject(valuingOfMyCommodityOrder);
-            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
+            iValuingOfMyCommodityOrderService.Save(valuingOfMyCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
