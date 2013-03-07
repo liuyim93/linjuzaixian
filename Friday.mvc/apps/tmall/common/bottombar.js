@@ -47,12 +47,12 @@
             var _order = _options.order || _dom.attr(_dom_div_id_J_BrandBar, "order") || 0,
                 _row0 = _table_snippet.rows[0],
                 _cells = _row0.cells, _new_cell;
-            for (var O = 0; O < _cells.length; O++) {
-                if (_dom.contains(_cells[O], _dom_div_id_J_BrandBar)) {
+            for (var index = 0; index < _cells.length; index++) {
+                if (_dom.contains(_cells[index], _dom_div_id_J_BrandBar)) {
                     return
                 }
-                if (_order < (_dom.attr(_cells[O], "order") || 0)) {
-                    _new_cell = _row0.insertCell(O);
+                if (_order < (_dom.attr(_cells[index], "order") || 0)) {
+                    _new_cell = _row0.insertCell(index);
                     break
                 }
             }
