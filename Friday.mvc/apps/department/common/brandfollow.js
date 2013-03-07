@@ -1,65 +1,65 @@
-﻿(function (B) {
-    var A = "tgallery/department/common/brandfollow";
-    (!B.config) && B.add(A, { requires: ["core"] });
-    B.add(A, function (F, H, C) {
+﻿(function (_kissy) {
+    var _namespace_brandfollow = "tgallery/department/common/brandfollow";
+    (!_kissy.config) && _kissy.add(_namespace_brandfollow, { requires: ["core"] });
+    _kissy.add(_namespace_brandfollow, function (_kissy_imp, _dom, _ajax) {
         var D;
-        H = H || F.DOM;
-        C = C || F.IO;
+        _dom = _dom || _kissy_imp.DOM;
+        _ajax = _ajax || _kissy_imp.IO;
         function G(K, J) {
             J = J || {};
             if (J.isLogin) {
                 K && K();
                 return
             }
-            F.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
+            _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
                 L.onLogin(K, J)
             })
         }
         function E(K, J) {
-            F.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
+            _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
                 L.onLogout(K, J)
             })
         }
         function I(K, J) {
             G(function () {
                 J = J || {};
-                token = J.tbToke || H.val("#J_TbToken");
+                token = J.tbToke || _dom.val("#J_TbToken");
                 if (token) {
                     K && K(token)
                 } else {
-                    F.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
+                    _kissy_imp.onTgalleryReady("tgallery/tmall/common/tbuser", function (M, L) {
                         L.onTokenReady(K, J)
                     })
                 }
             }, J)
         }
-        return F[A] = F[A] || { add: function (L, K) {
-            K = K || {};
-            var J = this;
+        return _kissy_imp[_namespace_brandfollow] = _kissy_imp[_namespace_brandfollow] || { add: function (L, _opts) {
+            _opts = _opts || {};
+            var _brandfollow = this;
             I(function (M) {
                 var N = !!M ? { brandId: L, _tb_token_: M} : { brandId: L };
-                C.jsonp(K.addServer || "http://brand.tmall.com/ajax/brandAddToFav.htm", N, function (O) {
+                _ajax.jsonp(_opts.addServer || "http://brand.tmall.com/ajax/brandAddToFav.htm", N, function (O) {
                     O = O || {};
                     if (O.is_success == "T") {
-                        K.success && K.success()
+                        _opts.success && _opts.success()
                     } else {
-                        if (O.is_success == "O" && K.reLogin !== false) {
-                            K.reLogin = false;
-                            K.isLogin = false;
+                        if (O.is_success == "O" && _opts.reLogin !== false) {
+                            _opts.reLogin = false;
+                            _opts.isLogin = false;
                             E(function () {
-                                J.add(L, K)
+                                _brandfollow.add(L, _opts)
                             });
                             return
                         }
-                        K.error && K.error((O.is_success == "E") ? { code: -1, message: "\u60a8\u5df2\u7ecf\u5173\u6ce8\u8fc7\u8be5\u54c1\u724c\uff01"} : { code: -2, message: "\u5173\u6ce8\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff01" })
+                        _opts.error && _opts.error((O.is_success == "E") ? { code: -1, message: "\u60a8\u5df2\u7ecf\u5173\u6ce8\u8fc7\u8be5\u54c1\u724c\uff01"} : { code: -2, message: "\u5173\u6ce8\u5931\u8d25\uff0c\u8bf7\u7a0d\u540e\u518d\u8bd5\uff01" })
                     }
                 })
-            }, K)
+            }, _opts)
         }, remove: function (K, J) {
             J = J || {};
             I(function (L) {
                 var M = !!L ? { brandId: K, _tb_token_: L} : { brandId: K };
-                C.jsonp(J.removeServer || "http://brand.tmall.com/ajax/brandDelFromFav.htm", M, function (N) {
+                _ajax.jsonp(J.removeServer || "http://brand.tmall.com/ajax/brandDelFromFav.htm", M, function (N) {
                     N = N || {};
                     if (N.is_success == "T") {
                         J.success && J.success()

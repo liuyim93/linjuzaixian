@@ -1,13 +1,13 @@
-﻿(function (B) {
-    var A = "tgallery/tmall/common/tbuser";
-    (!B.config) && B.add(A, { requires: ["core"] });
+﻿(function (_kissy) {
+    var _namespace_tbuser = "tgallery/tmall/common/tbuser";
+    (!_kissy.config) && _kissy.add(_namespace_tbuser, { requires: ["core"] });
     function C(E) {
         if (window.TML) {
-            E(B, window.TML);
+            E(_kissy, window.TML);
             return
         }
-        B.getScript(B.configTgallery.path + "tmall/tml/1.0/tml/tml-min.js", function () {
-            E(B, window.TML)
+        _kissy.getScript(_kissy.configTgallery.path + "tmall/tml/1.0/tml/tml-min.js", function () {
+            E(_kissy, window.TML)
         })
     }
     function D(F, G, E) {
@@ -30,13 +30,13 @@
             })
         })
     }
-    B.add(A, function (H, K) {
-        K = K || H.DOM;
+    _kissy.add(_namespace_tbuser, function (_kissy_imp, _dom) {
+        _dom = _dom || _kissy_imp.DOM;
         var G = false, J, I;
         function E(N, L) {
             L = L || {};
             var M = L.isDaily !== undefined ? L.isDaily : (window.location.hostname.indexOf(".net") > -1);
-            H.getScript("http://www." + (M ? "daily.taobao.net" : "tmall.com") + "/go/rgn/malldetail/interface/tb_token.php?v20121015", function () {
+            _kissy_imp.getScript("http://www." + (M ? "daily.taobao.net" : "tmall.com") + "/go/rgn/malldetail/interface/tb_token.php?v20121015", function () {
                 N && N(window.tmd_tb_token)
             })
         }
@@ -47,7 +47,7 @@
                 return
             }
             var O = M.isDaily !== undefined ? M.isDaily : (window.location.hostname.indexOf(".net") > -1), L = "http://www." + (O ? "daily.tmall.net" : "tmall.com") + "/go/rgn/mfp2012/token.php";
-            I = K.create("<iframe>");
+            I = _dom.create("<iframe>");
             I.src = L + "?t=" + +new Date;
             I.style.display = "none";
             if (O) {
@@ -68,15 +68,15 @@
             } else {
                 I.onload = N
             }
-            K.append(I, "body")
+            _dom.append(I, "body")
         }
-        return H[A] = H[A] || { onLogin: function (M, L) {
+        return _kissy_imp[_namespace_tbuser] = _kissy_imp[_namespace_tbuser] || { onLogin: function (M, L) {
             L = L || {};
             if (L.isLogin || G) {
                 M && M();
                 return
             }
-            H.use("ajax", function () {
+            _kissy_imp.use("ajax", function () {
                 D("minilogin", function (N, O) {
                     D("overlay/css/overlay.css");
                     O.show(function () {
