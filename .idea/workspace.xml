@@ -65,16 +65,12 @@
       <file leaf-file-name="brandbar.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="17" selection-start="3990" selection-end="3990" vertical-scroll-proportion="0.69664633">
+            <state line="74" column="32" selection-start="4728" selection-end="4728" vertical-scroll-proportion="0.047256097">
               <folding>
                 <element signature="e#3147#3218#0" expanded="false" />
-                <element signature="e#4528#4733#0" expanded="false" />
-                <element signature="e#4760#4854#0" expanded="false" />
-                <element signature="e#4892#5770#0" expanded="false" />
-                <element signature="e#5807#8685#0" expanded="false" />
-                <element signature="e#6037#6391#0" expanded="false" />
-                <element signature="e#6428#7172#0" expanded="false" />
-                <element signature="e#7218#8599#0" expanded="false" />
+                <element signature="e#5363#6338#0" expanded="false" />
+                <element signature="e#6382#9301#0" expanded="false" />
+                <element signature="e#7834#9215#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -708,16 +704,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="17" selection-start="3990" selection-end="3990" vertical-scroll-proportion="0.69664633">
+        <state line="74" column="32" selection-start="4728" selection-end="4728" vertical-scroll-proportion="0.047256097">
           <folding>
             <element signature="e#3147#3218#0" expanded="false" />
-            <element signature="e#4528#4733#0" expanded="false" />
-            <element signature="e#4760#4854#0" expanded="false" />
-            <element signature="e#4892#5770#0" expanded="false" />
-            <element signature="e#5807#8685#0" expanded="false" />
-            <element signature="e#6037#6391#0" expanded="false" />
-            <element signature="e#6428#7172#0" expanded="false" />
-            <element signature="e#7218#8599#0" expanded="false" />
+            <element signature="e#5363#6338#0" expanded="false" />
+            <element signature="e#6382#9301#0" expanded="false" />
+            <element signature="e#7834#9215#0" expanded="false" />
           </folding>
         </state>
       </provider>

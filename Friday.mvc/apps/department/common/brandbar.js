@@ -62,48 +62,53 @@
                 }
                 _brandbar.flyAdd(_target, brandId, _opts)
             })
-        }, flyAdd: function (L, M, _opts) {
+        }, flyAdd: function (_dom_span_class_j_CollectBrand, _brandid, _opts) {
             _kissy_tmp.mix(_options, _opts);
             _opts = _opts || {};
-            var O = _dom.offset(L), I = this, K = _kissy_tmp.mix({}, _opts);
-            O = { left: O.left + _dom.width(L) / 2, top: O.top + _dom.height(L) / 2 };
-            var N = _dom.attr(L, "offset-brandfly");
-            if (N && (/[\d-]+,[\d-]+/.test(N))) {
-                N = N.split(",");
-                K.offset = K.offset || { left: 0, top: 0 };
-                K.offset.left += parseInt(N[0]);
-                K.offset.top += parseInt(N[1])
+            var _offset = _dom.offset(_dom_span_class_j_CollectBrand),
+                _brandbar_imp = this,
+                _options = _kissy_tmp.mix({}, _opts);
+            _offset = {
+                        left: _offset.left + _dom.width(_dom_span_class_j_CollectBrand) / 2,
+                        top: _offset.top + _dom.height(_dom_span_class_j_CollectBrand) / 2
+                       };
+            var _offset_brandfly = _dom.attr(_dom_span_class_j_CollectBrand, "offset-brandfly");
+            if (_offset_brandfly && (/[\d-]+,[\d-]+/.test(_offset_brandfly))) {
+                _offset_brandfly = _offset_brandfly.split(",");
+                _options.offset = _options.offset || { left: 0, top: 0 };
+                _options.offset.left += parseInt(_offset_brandfly[0]);
+                _options.offset.top += parseInt(_offset_brandfly[1])
             }
-            if (K.offset) {
-                O.left += K.offset.left;
-                O.top += K.offset.top
+            if (_options.offset) {
+                _offset.left += _options.offset.left;
+                _offset.top += _options.offset.top
             }
-            K.success = function (Q) {
-                if (K.flyed) {
+            _options.success = function (Q) {
+                if (_options.flyed) {
                     return
                 }
-                K.flyed = true;
+                _options.flyed = true;
                 Q = Q || {};
-                Q.flyNode = L;
+                Q.flyNode = _dom_span_class_j_CollectBrand;
                 var P = _opts.success && _opts.success(Q);
-                if (I.fire("success", Q) === false || P === false) {
+                if (_brandbar_imp.fire("success", Q) === false || P === false) {
                     return
                 }
                 _kissy_tmp.onTgalleryReady("tgallery/department/common/brandbar-fly", function (T, R) {
-                    T.mix(I, R);
-                    I.fly(O, _dom.get(".BrandFlyer", _dom_div_id_J_BrandBar), { complete: function () {
+                    T.mix(_brandbar_imp, R);
+                    _brandbar_imp.fly(_offset, _dom.get(".BrandFlyer", _dom_div_id_J_BrandBar), { complete: function () {
                         var S = _opts.flyComplete && _opts.flyComplete();
-                        if (I.fire("flyComplete", Q) === false || S === false) {
+                        if (_brandbar_imp.fire("flyComplete", Q) === false || S === false) {
                             return
                         }
                     } 
                     })
                 })
             };
-            K.error = function (Q) {
+            _options.error = function (Q) {
                 var P = _opts.error && _opts.error(Q);
-                Q.flyNode = L;
-                if (I.fire("error", Q) === false || P === false) {
+                Q.flyNode = _dom_span_class_j_CollectBrand;
+                if (_brandbar_imp.fire("error", Q) === false || P === false) {
                     return
                 }
                 function R(T) {
@@ -148,7 +153,7 @@
                 })
             };
             _kissy_tmp.onTgalleryReady("tgallery/department/common/brandfollow", function (_kissy, _brandfollow) {
-                _brandfollow.add(M, K)
+                _brandfollow.add(_brandid, _options)
             })
         } 
         };
