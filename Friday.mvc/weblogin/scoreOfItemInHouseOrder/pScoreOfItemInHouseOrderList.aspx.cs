@@ -52,10 +52,13 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
             scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderRepository.Load(Request.Params["uid"]);
 
-            //myHouseOrder.Price = myHouseOrder.Price - scoreOfItemInHouseOrder.Price;
-
-            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
             iScoreOfItemInHouseOrderRepository.Delete(Request.Params["uid"]);
+
+            int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
+            double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);
+
+            valuingOfMyHouseOrder.AverageScore = Sum / count;
+            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
