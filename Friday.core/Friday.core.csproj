@@ -129,19 +129,27 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="repositories\IScoreOfItemInCommodityOrderRepository.cs" />
+    <Compile Include="repositories\IScoreOfItemInFoodOrderRepository.cs" />
+    <Compile Include="repositories\IScoreOfItemInHouseOrderRepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\IValuingCommentsRepository.cs" />
     <Compile Include="repositories\IValuingOfMyCommodityOrderRepository.cs" />
+    <Compile Include="repositories\IValuingOfMyFoodOrderRepository.cs" />
+    <Compile Include="repositories\IValuingOfMyHouseOrderRepository.cs" />
     <Compile Include="repositories\LogRepository.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="repositories\RoleInMenuRepository.cs" />
     <Compile Include="repositories\ScoreOfItemInCommodityOrderRepository.cs" />
+    <Compile Include="repositories\ScoreOfItemInFoodOrderRepository.cs" />
+    <Compile Include="repositories\ScoreOfItemInHouseOrderRepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="repositories\MessageContentRepository.cs" />
     <Compile Include="repositories\IMessageContentRepository.cs" />
     <Compile Include="repositories\ValuingCommentsRepository.cs" />
     <Compile Include="repositories\ValuingOfMyCommodityOrderRepository.cs" />
+    <Compile Include="repositories\ValuingOfMyFoodOrderRepository.cs" />
+    <Compile Include="repositories\ValuingOfMyHouseOrderRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
