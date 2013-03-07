@@ -165,6 +165,7 @@
     <Compile Include="services\IPermissionManager.cs" />
     <Compile Include="services\IRestaurantService.cs" />
     <Compile Include="services\IRoleInMenuService.cs" />
+    <Compile Include="services\IScoreOfItemInCommodityOrderService.cs" />
     <Compile Include="services\ISystemMenuService.cs" />
     <Compile Include="services\ISystemRoleService.cs" />
     <Compile Include="services\ISystemUserService.cs" />
@@ -392,6 +393,7 @@
     <Compile Include="services\IUserService.cs" />
     <Compile Include="services\RestaurantService.cs" />
     <Compile Include="services\RoleInMenuService.cs" />
+    <Compile Include="services\ScoreOfItemInCommodityOrderService.cs" />
     <Compile Include="services\SystemFunctionObjectService.cs" />
     <Compile Include="services\SystemMenuService.cs" />
     <Compile Include="services\SystemRoleService.cs" />
