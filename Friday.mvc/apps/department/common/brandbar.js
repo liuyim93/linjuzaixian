@@ -25,8 +25,8 @@
                     })
                 }
             }
-            _kissy_tmp.onTgalleryReady("tgallery/tmall/common/bottombar", function (K, L) {
-                L.add(_dom_div_id_J_BrandBar)
+            _kissy_tmp.onTgalleryReady("tgallery/tmall/common/bottombar", function (_kissy, _bottombar) {
+                _bottombar.add(_dom_div_id_J_BrandBar)
             })
         }, bindEl: function (L, J) {
             var I = this;
