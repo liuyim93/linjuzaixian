@@ -278,7 +278,7 @@ TB.add("mod~global", function() {
         })
     },checkB2BUser: function() {
         _kissy.ready(function() {
-            if (window.g_config.closeB2BUser || i() || _tmall_config.commonJS.checkB2BUser.off) {
+            if (window.g_config.closeB2BUser || _is_tmall_fn() || _tmall_config.commonJS.checkB2BUser.off) {
                 return
             }
             TB.Global.memberInfoReady(function(p) {
@@ -287,39 +287,41 @@ TB.add("mod~global", function() {
                         var q = _kissy.unparam(p.memberInfo.cookies.uc1.value);
                         if (q && q.cbu) {
                             _kissy.ready(function() {
-                                S()
+                                _create_panel_for_B2B_user()
                             })
                         }
                     }
                 }
             })
         });
-        function S() {
-            _kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/overlay/css/overlay-min.css?t=20120903");
-            var r = document.createElement("div");
-            r.className = "tml-ext-mask tml-mask-b2b";
-            r.innerHTML = "<!--[if lte IE 6.5]><iframe></iframe><![endif]-->";
-            document.body.appendChild(r);
+        function _create_panel_for_B2B_user() {
+            //2013-03-07 basilwang use our own domain
+            //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/overlay/css/overlay-min.css?t=20120903");
+            _kissy.getScript("http://" + _own_domain + "apps/tmall/tml/1.0/tml/overlay/css/overlay.css");
+            var _div_for_mask = document.createElement("div");
+            _div_for_mask.className = "tml-ext-mask tml-mask-b2b";
+            _div_for_mask.innerHTML = "<!--[if lte IE 6.5]><iframe></iframe><![endif]-->";
+            document.body.appendChild(_div_for_mask);
             //2013-03-06 basilwang use our own domain
             //var s = "http://member1" + _own_domain + "/member/changeNick2B.jhtml?t=" + _kissy.now() + "&from=tmall&url=" + encodeURIComponent(window.location.href);
-            var s = "http://" + _own_domain + "/member/changeNick2B.jhtml?t=" + _kissy.now() + "&from=tmall&url=" + encodeURIComponent(window.location.href);
-            var p = ['<div class="tml-contentbox">', '   <div class="tml-stdmod-header"></div>', '   <div class="tml-stdmod-body">', '       <iframe height="335" width="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" allowtransparency="true" scrolling="no" src="' + s + '"></iframe>', "   </div>", '   <div class="tml-stdmod-footer"></div>', "</div>", '<div class="tml-dialog-skin"></div>', '<i class="tml-dialog-cat"></i>'].join("");
-            var q = document.createElement("div");
-            q.className = "tml-dialog-hasmask tml-dialog tml-ext-position tml-dialog-b2b";
-            q.innerHTML = p;
-            document.body.appendChild(q);
+            var _b2b_url = "http://" + _own_domain + "/member/changeNick2B.jhtml?t=" + _kissy.now() + "&from=tmall&url=" + encodeURIComponent(window.location.href);
+            var _div_snippet = ['<div class="tml-contentbox">', '   <div class="tml-stdmod-header"></div>', '   <div class="tml-stdmod-body">', '       <iframe height="335" width="100%" marginwidth="0" framespacing="0" marginheight="0" frameborder="0" allowtransparency="true" scrolling="no" src="' + _b2b_url + '"></iframe>', "   </div>", '   <div class="tml-stdmod-footer"></div>', "</div>", '<div class="tml-dialog-skin"></div>', '<i class="tml-dialog-cat"></i>'].join("");
+            var _div = document.createElement("div");
+            _div.className = "tml-dialog-hasmask tml-dialog tml-ext-position tml-dialog-b2b";
+            _div.innerHTML = _div_snippet;
+            document.body.appendChild(_div);
             document.documentElement.style.overflow = "hidden"
         }
-        function i() {
+        function _is_tmall_fn() {
             if ((document.location.host + document.location.pathname) === "www.tmall.com/") {
                 return true
             }
-            var p = ["/go/act/", "list.tmall.com", "list.daily.tmall.net"];
-            if (!p) {
+            var _array = ["/go/act/", "list.tmall.com", "list.daily.tmall.net"];
+            if (!_array) {
                 return false
             }
-            for (var q = 0; q < p.length; q++) {
-                if (window.location.href.indexOf(p[q]) > -1) {
+            for (var index = 0; index < _array.length; index++) {
+                if (window.location.href.indexOf(_array[index]) > -1) {
                     return true
                 }
             }
