@@ -30,35 +30,38 @@
             }
             _set_bottombar_top = setTimeout(function () {
                 var _scrollTop = document.body.scrollTop || document.documentElement.scrollTop || 0;
+                //2013-03-07 basilwang don't know what does this mean
                 var M = (document.body.scrollWidth - document.body.clientWidth > 0 ? 20 : 0);
                 var _bottombar_top = (_scrollTop + _dom.viewportHeight(document)) - _dom.height(_table_snippet) - M;
                 _dom.css(_table_snippet, "top", _bottombar_top);
                 _set_bottombar_top = null
             }, 64)
         }
-        return _kissy_imp[_namespace_bottombar] = _kissy_imp[_namespace_bottombar] || { add: function (P, N) {
+        return _kissy_imp[_namespace_bottombar] = _kissy_imp[_namespace_bottombar] || { add: function (_dom_div_id_J_BrandBar, _options) {
             if (!_table_snippet) {
                 _create_bottom_bar()
             }
-            N = N || {};
-            P = _dom.get(P);
-            _dom.addClass(P, "tm_cmbar_clearfix");
-            var L = N.order || _dom.attr(P, "order") || 0, Q = _table_snippet.rows[0], M = Q.cells, K;
-            for (var O = 0; O < M.length; O++) {
-                if (_dom.contains(M[O], P)) {
+            _options = _options || {};
+            _dom_div_id_J_BrandBar = _dom.get(_dom_div_id_J_BrandBar);
+            _dom.addClass(_dom_div_id_J_BrandBar, "tm_cmbar_clearfix");
+            var _order = _options.order || _dom.attr(_dom_div_id_J_BrandBar, "order") || 0,
+                _row0 = _table_snippet.rows[0],
+                _cells = _row0.cells, _new_cell;
+            for (var O = 0; O < _cells.length; O++) {
+                if (_dom.contains(_cells[O], _dom_div_id_J_BrandBar)) {
                     return
                 }
-                if (L < (_dom.attr(M[O], "order") || 0)) {
-                    K = Q.insertCell(O);
+                if (_order < (_dom.attr(_cells[O], "order") || 0)) {
+                    _new_cell = _row0.insertCell(O);
                     break
                 }
             }
-            if (!K) {
-                K = Q.insertCell(-1)
+            if (!_new_cell) {
+                _new_cell = _row0.insertCell(-1)
             }
-            _dom.attr(K, "order", L);
-            _dom.addClass(P, "tm_cmbar");
-            _dom.append(P, K);
+            _dom.attr(_new_cell, "order", _order);
+            _dom.addClass(_dom_div_id_J_BrandBar, "tm_cmbar");
+            _dom.append(_dom_div_id_J_BrandBar, _new_cell);
             this.refresh()
         }, remove: function (K) {
             _dom.remove(K);

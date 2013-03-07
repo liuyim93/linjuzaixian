@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/bottombar.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/bottombar.js" />
     </list>
     <ignored path="Friday.iws" />
@@ -57,7 +56,7 @@
       <file leaf-file-name="brandbar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="17" selection-start="2511" selection-end="2511" vertical-scroll-proportion="0.0">
+            <state line="28" column="53" selection-start="2525" selection-end="2547" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -66,7 +65,7 @@
       <file leaf-file-name="bottombar.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/bottombar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="34" selection-start="1494" selection-end="1494" vertical-scroll-proportion="-0.40204677">
+            <state line="29" column="13" selection-start="1657" selection-end="1657" vertical-scroll-proportion="0.29239765">
               <folding />
             </state>
           </provider>
@@ -621,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="230" column="27" selection-start="11866" selection-end="11866" vertical-scroll-proportion="87.42857">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="127" column="45" selection-start="6252" selection-end="6252" vertical-scroll-proportion="100.67857">
@@ -635,16 +627,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="230" column="27" selection-start="11866" selection-end="11866" vertical-scroll-proportion="87.42857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="17" selection-start="2511" selection-end="2511" vertical-scroll-proportion="0.0">
+        <state line="28" column="53" selection-start="2525" selection-end="2547" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/bottombar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="34" selection-start="1494" selection-end="1494" vertical-scroll-proportion="-0.40204677">
+        <state line="29" column="13" selection-start="1657" selection-end="1657" vertical-scroll-proportion="0.29239765">
           <folding />
         </state>
       </provider>
