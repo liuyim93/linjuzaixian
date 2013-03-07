@@ -60,8 +60,8 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                     var _slide = this.slide;
                     var _panel_activeIndex = _slide.panels[_slide.activeIndex];
                     var _panel_to_Index = _slide.panels[_op.toIndex];
-                    var _b_on_panel_activeIndex = _kissy.get("_b_on_panel_activeIndex", _panel_activeIndex);
-                    var _b_on_panel_to_Index = _kissy.get("_b_on_panel_activeIndex", _panel_to_Index);
+                    var _b_on_panel_activeIndex = _kissy.get("b", _panel_activeIndex);
+                    var _b_on_panel_to_Index = _kissy.get("b", _panel_to_Index);
                     var _img_on_panel_to_Index = _kissy.get("img", _b_on_panel_to_Index);
                     !!_b_on_panel_activeIndex && new _kissy.Anim(_b_on_panel_activeIndex, { top: "-40px", opacity: _is_under_ie9 ? 1 : 0 }, 0.8, "easeOutStrong").run();
                     !!_b_on_panel_to_Index && new _kissy.Anim(_b_on_panel_to_Index, { top: "-10px", opacity: 1 }, 0.8, "easeOutStrong").run()

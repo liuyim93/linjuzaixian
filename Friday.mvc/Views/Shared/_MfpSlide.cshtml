@@ -2,16 +2,30 @@
 @model MainModel
 <div class="mfpSlide" id="J_MfpSlide" data-spm="3.362490.296814">
     <ul class="mfpSlide-con">
-    
-        <li class="j_MSDirect_285 ks-switchable-panel-internal13" style="background-color: rgb(219, 3, 58);
+        @for (var index = 0; index < Model.Activities.Count(); index++)
+        {
+
+            var item = Model.Activities.ElementAt(index);
+            <li data-image="@item.Image">
+                <div class="mSc-main">
+                    <b class="mScm-text1">
+                        <img src="http://img01.taobaocdn.com/tps/i1/T197pXXuNcXXc98u3P-760-210.png" width="760" height="210">
+                    </b> 
+                    <a class="mScm-link" href="http://www.tmall.com/go/act/tmall/lmmw.php?spm=3.384881.306644.1&amp;ad_id=&amp;am_id=&amp;cm_id=1401047978d798e7d75e&amp;pm_id="
+                            title="@item.Name)" data-spm="d1"></a>
+                </div>
+            </li>
+              
+        }
+        @*<li class="j_MSDirect_285 ks-switchable-panel-internal13" style="background-color: rgb(219, 3, 58);
             background-image: url(@Html.Encode(Model.Activities.ElementAt(0).Image));
             display: block; opacity: 0; position: absolute; z-index: 1;">
             <div class="mSc-main">
                 <b class="mScm-text1" style="top: -40px; opacity: 0;">
                     <img src="http://img01.taobaocdn.com/tps/i1/T197pXXuNcXXc98u3P-760-210.png" width="760"
                         height="210"></b> <a class="mScm-link" href="http://www.tmall.com/go/act/tmall/lmmw.php?spm=3.384881.306644.1&amp;ad_id=&amp;am_id=&amp;cm_id=1401047978d798e7d75e&amp;pm_id="
-                            title="@Html.Encode(Model.Activities.ElementAt(0).Name)" data-spm="d1"></a>
-              
+                            title="@Html.Encode(Model.Activities.ElementAt(0).Name)" data-spm="d1">
+                </a>
             </div>
         </li>
         <li class="ks-switchable-panel-internal13" style="display: block; opacity: 1; position: absolute;
@@ -25,17 +39,15 @@
                         <img border="0" src="http://i.mmcdn.cn/simba/img/T1_9paXuRXXXb1upjX.jpg?noq=y" width="1600px"
                             height="420px"></a><a style="display: none!important" id="tanx-a-mm_12852562_1778064_10953677"></a>
                 </div>
-              
             </div>
         </li>
         <li class="j_MSDirect_333 ks-switchable-panel-internal13" style="background-color: rgb(222, 174, 145);
             display: block; opacity: 0; position: absolute; z-index: 1; background-image: url(@Html.Encode(Model.Activities.ElementAt(2).Image));">
             <div class="mSc-main">
-                <b style="top: -40px; opacity: 0;">
+                <b>
                     <img width="760" height="210" src="http://img04.taobaocdn.com/tps/i4/T16x3.XlXiXXc98u3P-760-210.png"></b>
                 <a class="mScm-link" href="http://www.tmall.com/go/act/tmall/gnbdyzcjy.php?spm=3.384881.306644.4&amp;ad_id=&amp;am_id=1301048177c392f644c3&amp;cm_id=&amp;pm_id="
                     title="@Html.Encode(Model.Activities.ElementAt(2).Name)" data-spm="d10"></a>
-               
             </div>
         </li>
         <li class="ks-switchable-panel-internal13" style="display: block; opacity: 0; position: absolute;
@@ -43,31 +55,22 @@
             <div class="mSc-main">
                 <a class="mScm-link" href="http://click.mz.simba.taobao.com/ecpm?e=PXZ19xjI6ZcwkC6KrEvY%2FadJt7%2FUHFGYcznijxxWocpJHUp9SmEPzYUUrDglCtUA7lXaodDDwrwF3zFRaGt2lg74eZSxNsAd0nI99kpswyRJRquFCodOOePblg%2B%2Bj9VqY9k%2BvrQRckSTd2s0ZNqzDZ8xD3FAirLV&amp;u=http%3A%2F%2Fdu.tmall.com%2F%3Fscm%3D1005.18.1.2699%26spm%3D141.422114.323243.4&amp;k=161">
                 </a>
-                <div class="j_SlideTanxAd" style="display: none;">
-                    <a href="http://click.mz.simba.taobao.com/ecpm?e=PXZ19xjI6ZcwkC6KrEvY%2FadJt7%2FUHFGYcznijxxWocpJHUp9SmEPzYUUrDglCtUA7lXaodDDwrwF3zFRaGt2lg74eZSxNsAd0nI99kpswyRJRquFCodOOePblg%2B%2Bj9VqY9k%2BvrQRckSTd2s0ZNqzDZ8xD3FAirLV&amp;u=http%3A%2F%2Fdu.tmall.com%2F%3Fscm%3D1005.18.1.2699%26spm%3D141.422114.323243.4&amp;k=161"
-                        target="_blank">
-                        <img border="0" src="http://i.mmcdn.cn/simba/img/T1oLXXXztdXXb1upjX.jpg?noq=y" width="1600px"
-                            height="420px"></a><a style="display: none!important" id="tanx-a-mm_12852562_1778064_10953701"></a>
-                </div>
-               
             </div>
         </li>
         <li class="j_MSDirect_337 ks-switchable-panel-internal13" style="background-color: rgb(202, 182, 157);
             display: block; opacity: 0; position: absolute; z-index: 1; background-image: url(@Html.Encode(Model.Activities.ElementAt(4).Image));">
             <div class="mSc-main">
-                <b style="top: -40px; opacity: 0;">
+                <b>
                     <img width="760" height="210" src="http://img04.taobaocdn.com/tps/i4/T10ss.XildXXc98u3P-760-210.png"></b>
                 <a class="mScm-link" href="http://www.tmall.com/go/act/tmyc/pure-beauty.php?spm=3.384881.306644.7&amp;ad_id=&amp;am_id=&amp;cm_id=14010480113fec13e12d&amp;pm_id="
                     title="@Html.Encode(Model.Activities.ElementAt(4).Name)" data-spm="d19"></a>
-               
             </div>
-        </li>
+        </li>*@
     </ul>
     <ul class="mfpSlide-nav" style="">
-        <li class="ks-switchable-trigger-internal12"></li>
-        <li class="ks-switchable-trigger-internal12 selected"></li>
-        <li class="ks-switchable-trigger-internal12"></li>
-        <li class="ks-switchable-trigger-internal12"></li>
-        <li class="ks-switchable-trigger-internal12"></li>
+        @for (var index = 0; index < Model.Activities.Count(); index++)
+        {
+            <li></li>
+        }
     </ul>
 </div>
