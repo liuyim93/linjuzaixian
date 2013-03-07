@@ -124,6 +124,7 @@
     <Compile Include="Test_ShopStatistic.cs" />
     <Compile Include="Test_RentStatistic.cs" />
     <Compile Include="Test_ValuingOfMyFoodOrder.cs" />
+    <Compile Include="Test_ValuingOfMyHouseOrder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="uploadImage\activityImage\jpeg1.jpg" />
