@@ -175,6 +175,7 @@
     <Compile Include="services\IValuingCommentsService.cs" />
     <Compile Include="services\IValuingOfMyCommodityOrderService.cs" />
     <Compile Include="services\IValuingOfMyFoodOrderService.cs" />
+    <Compile Include="services\IValuingOfMyHouseOrderService.cs" />
     <Compile Include="services\LoginUserService.cs" />
     <Compile Include="services\MenuService.cs" />
     <Compile Include="services\MerchantCategoryService.cs" />
@@ -443,6 +444,7 @@
     <Compile Include="services\ValuingCommentsService.cs" />
     <Compile Include="services\ValuingOfMyCommodityOrderService.cs" />
     <Compile Include="services\ValuingOfMyFoodOrderService.cs" />
+    <Compile Include="services\ValuingOfMyHouseOrderService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
