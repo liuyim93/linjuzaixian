@@ -46,9 +46,12 @@ namespace Friday.mvc.weblogin
             }
 
             List<DataFilter> dfl = new List<DataFilter>();
+            List<DataFilter> RestaurantFilter = new List<DataFilter>();
+
             if (!string.IsNullOrEmpty(restaurant_id))
             {
-                dfl.Add(new DataFilter() { type = "Restaurant", value = restaurant_id });
+                RestaurantFilter.Add(new DataFilter() { type = "Restaurant", value = restaurant_id });
+                dfl.Add(new DataFilter() { type = "Restaurant", field = RestaurantFilter });
             }
 
             if (!string.IsNullOrEmpty(Request.Form["Name"]))

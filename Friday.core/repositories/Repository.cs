@@ -2436,8 +2436,8 @@ namespace friday.core.repositories
                     //}   
                 }
                 else
-                {                                     
-                      parentSearch = parentSearch + ".Merchant";
+                {
+                    parentSearch = parentSearch + ".Restaurant";
                    
                 }
                 alias = parentSearch;
