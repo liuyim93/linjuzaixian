@@ -354,6 +354,12 @@
     <Compile Include="weblogin\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
+      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
       <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -374,21 +380,30 @@
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMyFoodOrder.aspx.cs">
       <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListMyFoodOrder.aspx.designer.cs">
       <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
@@ -402,21 +417,30 @@
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
+<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
+=======
+>>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
@@ -648,6 +672,27 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.cs">
+      <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticList.aspx.cs">
+      <DependentUpon>pRentStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\rentStatistic\pRentStatisticList.aspx.designer.cs">
+      <DependentUpon>pRentStatisticList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx.cs">
+      <DependentUpon>pRestaurantGoodsTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx.designer.cs">
+      <DependentUpon>pRestaurantGoodsTypeList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\restaurantStatistic\pRestaurantStatisticDetail.aspx.cs">
       <DependentUpon>pRestaurantStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -746,6 +791,23 @@
     <Compile Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx.designer.cs">
       <DependentUpon>pScoreOfItemInHouseOrderList.aspx</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+    <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.cs">
+      <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.designer.cs">
+      <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.cs">
+      <DependentUpon>pShopStatisticList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.designer.cs">
+      <DependentUpon>pShopStatisticList.aspx</DependentUpon>
+    </Compile>
+>>>>>>> Add
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1126,44 +1188,25 @@
     </Compile>
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
-      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pAddValuingComments.aspx.designer.cs">
       <DependentUpon>pAddValuingComments.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
-      <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.cs">
       <DependentUpon>pEditValuingComments.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.cs">
-      <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pEditValuingComments.aspx.designer.cs">
       <DependentUpon>pEditValuingComments.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.designer.cs">
-      <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.cs">
       <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rentStatistic\pRentStatisticList.aspx.cs">
-      <DependentUpon>pRentStatisticList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\valuingComments\pValuingCommentsList.aspx.designer.cs">
       <DependentUpon>pValuingCommentsList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\rentStatistic\pRentStatisticList.aspx.designer.cs">
-      <DependentUpon>pRentStatisticList.aspx</DependentUpon>
-    </Compile>
-<<<<<<< HEAD
     <Compile Include="weblogin\valuingItemOfMyCommodityOrder\pAddValuingItemOfMyCommodityOrder.aspx.cs">
       <DependentUpon>pAddValuingItemOfMyCommodityOrder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1310,28 +1353,15 @@
     </Compile>
     <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyHouseOrderList.aspx</DependentUpon>
-=======
-    <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.cs">
-      <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.designer.cs">
-      <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.cs">
-      <DependentUpon>pShopStatisticList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.designer.cs">
-      <DependentUpon>pShopStatisticList.aspx</DependentUpon>
->>>>>>> Add  shopStatistic
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\common\brandbar-fly.js" />
     <Content Include="apps\department\common\brandbar.js" />
+    <Content Include="apps\department\common\brandfollow.js" />
     <Content Include="apps\mods\login\asynchavana.js" />
     <Content Include="apps\mods\login\AudioCheckCode.js" />
     <Content Include="apps\mods\login\capslocktip.js" />
@@ -1354,6 +1384,7 @@
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
     <Content Include="apps\tmall\common\bottombar.js" />
+    <Content Include="apps\tmall\common\tbuser.js" />
     <Content Include="apps\tmall\common\tgallery.js" />
     <Content Include="apps\tmall\fp\2012\core.js" />
     <Content Include="apps\tmall\fp\2012\css\core.css" />
@@ -1505,6 +1536,7 @@
     <Content Include="weblogin\js\jquery.validate.min.js" />
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
+    <Content Include="weblogin\ListCommodityByMerchant.aspx" />
     <Content Include="weblogin\ListFoodByRestaurant.aspx" />
     <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
@@ -1546,6 +1578,9 @@
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
+    <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
+    <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />
+    <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />
     <Content Include="weblogin\restaurantStatistic\pRestaurantStatisticDetail.aspx" />
     <Content Include="weblogin\restaurantStatistic\pRestaurantStatisticList.aspx" />
     <Content Include="weblogin\roleMenu\pAddMenuButton.aspx" />
@@ -1560,6 +1595,11 @@
     <Content Include="weblogin\scoreOfItemInHouseOrder\pAddScoreOfItemInHouseOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInHouseOrder\pEditScoreOfItemInHouseOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx" />
+<<<<<<< HEAD
+=======
+    <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
+    <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
+>>>>>>> Add
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
@@ -2363,11 +2403,6 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
-    <Content Include="weblogin\ListCommodityByMerchant.aspx" />
-    <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
-    <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />
-    <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
-    <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2393,7 +2428,9 @@
     <Content Include="Areas\Cart\Views\Web.config" />
     <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
     <Content Include="Areas\Account\Views\Home\miniLoginProxy.cshtml" />
-    <Content Include="Areas\Category\Views\Web.config" />
+    <Content Include="Areas\Category\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Category.cshtml" />
