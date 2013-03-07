@@ -356,6 +356,7 @@
     </Compile>
     <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
       <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
       <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
@@ -380,18 +381,21 @@
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMyFoodOrder.aspx.cs">
       <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListMyFoodOrder.aspx.designer.cs">
       <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
@@ -405,18 +409,21 @@
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
