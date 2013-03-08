@@ -67,10 +67,13 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 
             scoreOfItemInCommodityOrder = iScoreOfItemInCommodityOrderService.Load(Request.Params["uid"]);
 
-            //myCommodityOrder.Price = myCommodityOrder.Price - scoreOfItemInCommodityOrder.Price;
-
-            iValuingOfMyCommodityOrderService.Update(valuingOfMyCommodityOrder);
             iScoreOfItemInCommodityOrderService.Delete(Request.Params["uid"]);
+
+            int count = iScoreOfItemInCommodityOrderService.GetScoreOfItemInCommodityOrdersCount(Request.Params["valuingOfMyCommodityOrder_id"]);
+            double Sum = iScoreOfItemInCommodityOrderService.GetScoreOfItemInCommodityOrdersSum(Request.Params["valuingOfMyCommodityOrder_id"]);
+
+            valuingOfMyCommodityOrder.AverageScore = Sum / count;
+            iValuingOfMyCommodityOrderService.Update(valuingOfMyCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

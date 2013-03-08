@@ -20,6 +20,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 
 
         private ScoreOfItemInCommodityOrder scoreOfItemInCommodityOrder;
+        private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,9 +49,17 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
             scoreOfItemInCommodityOrder = new ScoreOfItemInCommodityOrder();
             BindingHelper.RequestToObject(scoreOfItemInCommodityOrder);
             scoreOfItemInCommodityOrder.ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderService.Load(ItemID.Value);
-            scoreOfItemInCommodityOrder.ValuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(Request.Params["valuingOfMyCommodityOrder_id"]);
             
+
+            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(Request.Params["valuingOfMyCommodityOrder_id"]);
+            scoreOfItemInCommodityOrder.ValuingOfMyCommodityOrder = valuingOfMyCommodityOrder;
             iScoreOfItemInCommodityOrderService.Save(scoreOfItemInCommodityOrder);
+
+            int count = iScoreOfItemInCommodityOrderService.GetScoreOfItemInCommodityOrdersCount(Request.Params["valuingOfMyCommodityOrder_id"]);
+            double Sum = iScoreOfItemInCommodityOrderService.GetScoreOfItemInCommodityOrdersSum(Request.Params["valuingOfMyCommodityOrder_id"]);
+
+            valuingOfMyCommodityOrder.AverageScore = Sum / count;
+            iValuingOfMyCommodityOrderService.Update(valuingOfMyCommodityOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";

@@ -26,38 +26,42 @@ namespace Friday.mvc.weblogin.valuingComments
 
             this.tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
             this.PermissionCheck(PermissionTag.Edit);
+            
+            if (CurrentUser.IsAdmin != true)
+            {
+                if (valuingComments.Direction == 0)
+                {
+                    AjaxResult result = new AjaxResult();
+                    result.statusCode = "300";
+                    result.message = "不能修改用户的评价";
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+            }
 
-            //    {
-            //        AjaxResult result = new AjaxResult();
-            //        result.statusCode = "300";
-            //        result.message = "不能修改用户的评价";
-            //        FormatJsonResult jsonResult = new FormatJsonResult();
-            //        jsonResult.Data = result;
-            //        Response.Write(jsonResult.FormatResult());
-            //        Response.End();
-            //    }
-            //}
-
-            //if (Request.Params["__EVENTVALIDATION"] != null)
-            //{
-            //    SaveValuingComments();
-            //}
-            //else
-            //{
-            //    TrackIndex.Value = valuingComments.TrackIndex.ToString();
-            //    LoginName.Value = valuing.LoginUser.LoginName;
-            //    MerchantName.Value = valuing.Merchant.Name;
-            //    Comments.Value = valuingComments.Comments;
-            //    if (CurrentUser.IsAdmin != true)
-            //    {
-            //        DirectionSelect.Visible = false;
-            //    }
-            //    else
-            //    {
-            //        DirectionSelect.SelectedIndex = valuingComments.Direction + 1;
-            //    }
-            //}
+            if (Request.Params["__EVENTVALIDATION"] != null)
+            {
+                SaveValuingComments();
+            }
+            else
+            {
+                TrackIndex.Value = valuingComments.TrackIndex.ToString();
+                LoginName.Value = valuing.LoginUser.LoginName;
+                MerchantName.Value = valuing.Merchant.Name;
+                Comments.Value = valuingComments.Comments;
+                if (CurrentUser.IsAdmin != true)
+                {
+                    DirectionSelect.Visible = false;
+                }
+                else
+                {
+                    DirectionSelect.SelectedIndex = valuingComments.Direction + 1;
+                }
+            }
         }
+            
 
         private void SaveValuingComments()
         {

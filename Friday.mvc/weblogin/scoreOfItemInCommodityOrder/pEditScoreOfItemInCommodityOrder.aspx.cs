@@ -19,10 +19,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
         IValuingItemOfMyCommodityOrderService iValuingItemOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingItemOfMyCommodityOrderService>();
 
         private ScoreOfItemInCommodityOrder scoreOfItemInCommodityOrder;
+        private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             scoreOfItemInCommodityOrder = iScoreOfItemInCommodityOrderService.Load(Request.Params["uid"].ToString());
+            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(Request.Params["valuingOfMyCommodityOrder_id"]);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -45,6 +47,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
             scoreOfItemInCommodityOrder.ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderService.Load(ItemID.Value);
 
             iScoreOfItemInCommodityOrderService.Update(scoreOfItemInCommodityOrder);
+
+            int count = iScoreOfItemInCommodityOrderService.GetScoreOfItemInCommodityOrdersCount(Request.Params["valuingOfMyCommodityOrder_id"]);
+            double Sum = iScoreOfItemInCommodityOrderService.GetScoreOfItemInCommodityOrdersSum(Request.Params["valuingOfMyCommodityOrder_id"]);
+
+            valuingOfMyCommodityOrder.AverageScore = Sum / count;
+            iValuingOfMyCommodityOrderService.Update(valuingOfMyCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

@@ -19,6 +19,8 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
         IValuingItemOfMyFoodOrderService iValuingItemOfMyFoodOrderService = UnityHelper.UnityToT<IValuingItemOfMyFoodOrderService>();
 
         private ScoreOfItemInFoodOrder scoreOfItemInFoodOrder;
+        private ValuingOfMyFoodOrder valuingOfMyFoodOrder;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,9 +50,17 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
             scoreOfItemInFoodOrder = new ScoreOfItemInFoodOrder();
             BindingHelper.RequestToObject(scoreOfItemInFoodOrder);
             scoreOfItemInFoodOrder.ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderService.Load(ItemID.Value);
-            scoreOfItemInFoodOrder.ValuingOfMyFoodOrder = iValuingOfMyFoodOrderService.Load(Request.Params["valuingOfMyFoodOrder_id"]);
 
+
+            valuingOfMyFoodOrder = iValuingOfMyFoodOrderService.Load(Request.Params["valuingOfMyFoodOrder_id"]);
+            scoreOfItemInFoodOrder.ValuingOfMyFoodOrder = valuingOfMyFoodOrder;
             iScoreOfItemInFoodOrderService.Save(scoreOfItemInFoodOrder);
+
+            int count = iScoreOfItemInFoodOrderService.GetScoreOfItemInFoodOrdersCount(Request.Params["valuingOfMyFoodOrder_id"]);
+            double Sum = iScoreOfItemInFoodOrderService.GetScoreOfItemInFoodOrdersSum(Request.Params["valuingOfMyFoodOrder_id"]);
+
+            valuingOfMyFoodOrder.AverageScore = Sum / count;
+            iValuingOfMyFoodOrderService.Update(valuingOfMyFoodOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";
