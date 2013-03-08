@@ -4,6 +4,7 @@
 @using Friday.mvc.Models
 @model MainModel
 <div class="floor-loading" id="floorLink1">
+    <textarea class="floor-area ks-datalazyload">
     <div>
         <div class="floor" id="floor1" data-spm="3.359242.295813">
             <h2>
@@ -135,12 +136,13 @@
             </div>
         </div>
     </div>
-</div>
-<script>
-    KISSY.use('2012/mods/floor', function (S, F) {
-        new F('#floor1')
-    })
+    <script>
+        KISSY.use('2012/mods/floor', function (S, F) {
+            new F('#floor1')
+        })
 </script>
+</textarea>
+</div>
 <div class="floor-loading" id="floorLink2">
     <div>
         <div class="floor" id="floor2" data-spm="3.359253.295827">
@@ -289,7 +291,7 @@
             <div class="floorCon clearfix">
                 <div class="floorCon-logo j_aldLogo">
                     <ul class="fCl-slide">
-                         @{
+                        @{
                             count = Model.Restaurants.Count();
                             num_per_page = 5;
                             page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
@@ -310,7 +312,7 @@
                         }
                     </ul>
                     <ul class="fCl-nav ui-slide-nav-mini">
-                       @{
+                        @{
                             for (var i = 0; i < page_num; i++)
                             {
                             @:<li>•</li>
