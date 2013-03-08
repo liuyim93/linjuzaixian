@@ -21,6 +21,11 @@ namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
         protected void Page_Load(object sender, EventArgs e)
         {
             valuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderService.Load(Request.Params["uid"].ToString());
+
+            this.tagName = systemFunctionObjectService.租房模块.房屋评价项管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 

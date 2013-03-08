@@ -23,6 +23,17 @@ namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                tagName = systemFunctionObjectService.租房模块.房屋评价项管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Enable))
+                {
+                    AjaxResult result = new AjaxResult();
+                    result.statusCode = "300";
+                    result.message = "没有ValuingItemOfMyHouseOrder增加权限";
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
 
                 SaveValuingItemOfMyHouseOrder();
             }

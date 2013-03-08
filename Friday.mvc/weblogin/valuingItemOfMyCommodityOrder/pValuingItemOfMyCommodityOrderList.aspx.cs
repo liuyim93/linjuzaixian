@@ -34,7 +34,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
                 if (!this.PermissionValidate(PermissionTag.Delete))
                 {
                     result.statusCode = "300";
-                    result.message = "没有ValuingItemOfMyFood删除权限";
+                    result.message = "没有ValuingItemOfMyCommodityOrder删除权限";
                     jsonResult.Data = result;
                     Response.Write(jsonResult.FormatResult());
                     Response.End();
