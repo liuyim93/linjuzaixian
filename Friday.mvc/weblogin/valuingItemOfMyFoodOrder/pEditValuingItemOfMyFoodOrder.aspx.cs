@@ -8,18 +8,19 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
 {
     public partial class pEditValuingItemOfMyFoodOrder : BasePage
     {
-        IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
+        IValuingItemOfMyFoodOrderService iValuingItemOfMyFoodOrderService = UnityHelper.UnityToT<IValuingItemOfMyFoodOrderService>();
 
         private ValuingItemOfMyFoodOrder valuingItemOfMyFoodOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            valuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderRepository.Get(Request.Params["uid"].ToString());
+            valuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderService.Load(Request.Params["uid"].ToString());
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -35,7 +36,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
         {
 
             BindingHelper.RequestToObject(valuingItemOfMyFoodOrder);
-            iValuingItemOfMyFoodOrderRepository.SaveOrUpdate(valuingItemOfMyFoodOrder);
+            iValuingItemOfMyFoodOrderService.Update(valuingItemOfMyFoodOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

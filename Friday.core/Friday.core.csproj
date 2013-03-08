@@ -160,6 +160,11 @@
     <Compile Include="repositories\IRentStatisticRepository.cs" />
     <Compile Include="repositories\IShopStatisticRepository.cs" />
     <Compile Include="repositories\ShopStatisticRepository.cs" />
+    <Compile Include="repositories\ValuingItemOfMyFoodOrderRepository.cs" />
+    <Compile Include="repositories\IValuingItemOfMyFoodOrderRepository.cs" />
+    <Compile Include="repositories\ValuingItemOfMyCommodityOrderRepository.cs" />
+    <Compile Include="repositories\ValuingItemOfMyHouseOrderRepository.cs" />
+    <Compile Include="repositories\IValuingItemOfMyHouseOrderRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -467,6 +472,8 @@
     <Compile Include="services\IShopStatisticService.cs" />
     <Compile Include="services\LogService.cs" />
     <Compile Include="services\ILogService.cs" />
+    <Compile Include="services\ValuingItemOfMyFoodOrderService.cs" />
+    <Compile Include="services\IValuingItemOfMyFoodOrderService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
@@ -479,6 +486,7 @@
   <ItemGroup>
     <None Include="domain\friday.cd" />
     <None Include="packages.config" />
+    <Compile Include="repositories\IValuingItemOfMyCommodityOrderRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

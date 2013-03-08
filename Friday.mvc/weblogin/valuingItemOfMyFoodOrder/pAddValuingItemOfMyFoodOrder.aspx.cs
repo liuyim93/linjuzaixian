@@ -8,12 +8,13 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
 {
     public partial class pAddValuingItemOfMyFoodOrder : BasePage
     {
-        IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
+       IValuingItemOfMyFoodOrderService iValuingItemOfMyFoodOrderService = UnityHelper.UnityToT<IValuingItemOfMyFoodOrderService>();
 
         private ValuingItemOfMyFoodOrder valuingItemOfMyFoodOrder;
 
@@ -33,7 +34,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
 
             valuingItemOfMyFoodOrder = new ValuingItemOfMyFoodOrder();
             BindingHelper.RequestToObject(valuingItemOfMyFoodOrder);
-            iValuingItemOfMyFoodOrderRepository.SaveOrUpdate(valuingItemOfMyFoodOrder);
+            iValuingItemOfMyFoodOrderService.Save(valuingItemOfMyFoodOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";
