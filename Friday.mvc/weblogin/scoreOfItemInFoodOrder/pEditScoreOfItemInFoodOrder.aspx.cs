@@ -8,21 +8,22 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
 {
     public partial class pEditScoreOfItemInFoodOrder : BasePage
     {
-        IScoreOfItemInFoodOrderRepository iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IScoreOfItemInFoodOrderRepository>();
-        IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
-        IRepository<ValuingOfMyFoodOrder> iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyFoodOrder>>();
-
+        IScoreOfItemInFoodOrderService iScoreOfItemInFoodOrderService = UnityHelper.UnityToT<IScoreOfItemInFoodOrderService>();
+        IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService = UnityHelper.UnityToT<IValuingOfMyFoodOrderService>();
+        IValuingItemOfMyFoodOrderService iValuingItemOfMyFoodOrderService = UnityHelper.UnityToT<IValuingItemOfMyFoodOrderService>();
+      
         private ScoreOfItemInFoodOrder scoreOfItemInFoodOrder;
         private ValuingOfMyFoodOrder valuingOfMyFoodOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderRepository.Load(Request.Params["uid"].ToString());
+            scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderService.Load(Request.Params["uid"].ToString());
             valuingOfMyFoodOrder = iValuingOfMyFoodOrderRepository.Get(Request.Params["valuingOfMyFoodOrder_id"]);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -41,9 +42,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
         private void SaveScoreOfItemInFoodOrder()
         {
             BindingHelper.RequestToObject(scoreOfItemInFoodOrder);
-            scoreOfItemInFoodOrder.ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderRepository.Get(ItemID.Value);
+            scoreOfItemInFoodOrder.ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderService.Load(ItemID.Value);
 
-            iScoreOfItemInFoodOrderRepository.SaveOrUpdate(scoreOfItemInFoodOrder);
+            iScoreOfItemInFoodOrderService.Update(scoreOfItemInFoodOrder);
 
             int count = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersCount(Request.Params["valuingOfMyFoodOrder_id"]);
             double Sum = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersSum(Request.Params["valuingOfMyFoodOrder_id"]);

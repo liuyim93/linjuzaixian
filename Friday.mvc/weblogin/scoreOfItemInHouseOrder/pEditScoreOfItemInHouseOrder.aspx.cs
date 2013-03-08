@@ -8,21 +8,22 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 {
     public partial class pEditScoreOfItemInHouseOrder : BasePage
     {
-        IScoreOfItemInHouseOrderRepository iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IScoreOfItemInHouseOrderRepository>();
-        IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
-        IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
+        IScoreOfItemInHouseOrderService iScoreOfItemInHouseOrderService = UnityHelper.UnityToT<IScoreOfItemInHouseOrderService>();
+        IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService = UnityHelper.UnityToT<IValuingOfMyHouseOrderService>();
+        IValuingItemOfMyHouseOrderService iValuingItemOfMyHouseOrderService = UnityHelper.UnityToT<IValuingItemOfMyHouseOrderService>();
 
         private ScoreOfItemInHouseOrder scoreOfItemInHouseOrder;
         private ValuingOfMyHouseOrder valuingOfMyHouseOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderRepository.Load(Request.Params["uid"].ToString());
+            scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderService.Load(Request.Params["uid"].ToString());
             valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Get(Request.Params["valuingOfMyHouseOrder_id"]);
 
             if (Request.Params["__EVENTVALIDATION"] != null)
@@ -41,9 +42,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
         private void SaveScoreOfItemInHouseOrder()
         {
             BindingHelper.RequestToObject(scoreOfItemInHouseOrder);
-            scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderRepository.Get(ItemID.Value);
+            scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderService.Load(ItemID.Value);
 
-            iScoreOfItemInHouseOrderRepository.SaveOrUpdate(scoreOfItemInHouseOrder);
+            iScoreOfItemInHouseOrderService.Update(scoreOfItemInHouseOrder);
 
             int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
             double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);

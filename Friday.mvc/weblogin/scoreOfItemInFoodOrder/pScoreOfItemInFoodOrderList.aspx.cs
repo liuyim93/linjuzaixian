@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
 {
@@ -19,8 +20,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
 
         protected string valuingOfMyFoodOrderID;
 
-        IScoreOfItemInFoodOrderRepository iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IScoreOfItemInFoodOrderRepository>();
-        IRepository<ValuingOfMyFoodOrder> iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyFoodOrder>>();
+        IScoreOfItemInFoodOrderService iScoreOfItemInFoodOrderService = UnityHelper.UnityToT<IScoreOfItemInFoodOrderService>();
+        IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService = UnityHelper.UnityToT<IValuingOfMyFoodOrderService>();
+ 
 
         private ValuingOfMyFoodOrder valuingOfMyFoodOrder;
         private ScoreOfItemInFoodOrder scoreOfItemInFoodOrder;
@@ -36,7 +38,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
             {
                 valuingOfMyFoodOrderID = Request.Params["valuingOfMyFoodOrder_id"];
             }
-            valuingOfMyFoodOrder = iValuingOfMyFoodOrderRepository.Load(valuingOfMyFoodOrderID);
+            valuingOfMyFoodOrder = iValuingOfMyFoodOrderService.Load(valuingOfMyFoodOrderID);
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -50,15 +52,14 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
         private void DeleteScoreOfItemInFoodOrder()
         {
 
-            scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderRepository.Load(Request.Params["uid"]);
+            scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderService.Load(Request.Params["uid"]);
 
             iScoreOfItemInFoodOrderRepository.Delete(Request.Params["uid"]);
 
-            int count = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersCount(Request.Params["valuingOfMyFoodOrder_id"]);
-            double Sum = iScoreOfItemInFoodOrderRepository.GetScoreOfItemInFoodOrdersSum(Request.Params["valuingOfMyFoodOrder_id"]);
+            iValuingOfMyFoodOrderService.Update(valuingOfMyFoodOrder);
+            iScoreOfItemInFoodOrderService.Delete(Request.Params["uid"]);
 
             valuingOfMyFoodOrder.AverageScore = Sum / count;
-            iValuingOfMyFoodOrderRepository.SaveOrUpdate(valuingOfMyFoodOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -93,7 +94,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            scoreOfItemInFoodOrderList = iScoreOfItemInFoodOrderRepository.Search(dfl, start, limit, out total);
+            scoreOfItemInFoodOrderList = iScoreOfItemInFoodOrderService.Search(dfl, start, limit, out total);
             repeater.DataSource = scoreOfItemInFoodOrderList;
             repeater.DataBind();
 

@@ -8,14 +8,15 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 {
     public partial class pAddScoreOfItemInHouseOrder : BasePage
     {
-        IScoreOfItemInHouseOrderRepository iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IScoreOfItemInHouseOrderRepository>();
-        IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
-        IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
+        IScoreOfItemInHouseOrderService iScoreOfItemInHouseOrderService = UnityHelper.UnityToT<IScoreOfItemInHouseOrderService>();
+        IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService = UnityHelper.UnityToT<IValuingOfMyHouseOrderService>();
+        IValuingItemOfMyHouseOrderService iValuingItemOfMyHouseOrderService = UnityHelper.UnityToT<IValuingItemOfMyHouseOrderService>();
 
         private ScoreOfItemInHouseOrder scoreOfItemInHouseOrder;
         private ValuingOfMyHouseOrder valuingOfMyHouseOrder;
@@ -35,11 +36,11 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
             scoreOfItemInHouseOrder = new ScoreOfItemInHouseOrder();
             BindingHelper.RequestToObject(scoreOfItemInHouseOrder);
-            scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderRepository.Get(ItemID.Value);
-            valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Get(Request.Params["valuingOfMyHouseOrder_id"]);
+            scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderService.Load(ItemID.Value);
+            scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = iValuingOfMyHouseOrderService.Load(Request.Params["valuingOfMyHouseOrder_id"]);
             scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = valuingOfMyHouseOrder;
 
-            iScoreOfItemInHouseOrderRepository.SaveOrUpdate(scoreOfItemInHouseOrder);
+            iScoreOfItemInHouseOrderService.Save(scoreOfItemInHouseOrder);
 
 
             int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);

@@ -8,6 +8,7 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 {
@@ -19,9 +20,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
         protected string valuingOfMyHouseOrderID;
 
-        IScoreOfItemInHouseOrderRepository iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IScoreOfItemInHouseOrderRepository>();
-        IRepository<ValuingOfMyHouseOrder> iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyHouseOrder>>();
-
+        IScoreOfItemInHouseOrderService iScoreOfItemInHouseOrderService = UnityHelper.UnityToT<IScoreOfItemInHouseOrderService>();
+        IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService = UnityHelper.UnityToT<IValuingOfMyHouseOrderService>();
+       
         private ValuingOfMyHouseOrder valuingOfMyHouseOrder;
         private ScoreOfItemInHouseOrder scoreOfItemInHouseOrder;
 
@@ -36,7 +37,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
             {
                 valuingOfMyHouseOrderID = Request.Params["valuingOfMyHouseOrder_id"];
             }
-            valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Load(valuingOfMyHouseOrderID);
+            valuingOfMyHouseOrder = iValuingOfMyHouseOrderService.Load(valuingOfMyHouseOrderID);
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -50,15 +51,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
         private void DeleteScoreOfItemInHouseOrder()
         {
 
-            scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderRepository.Load(Request.Params["uid"]);
+            scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderService.Load(Request.Params["uid"]);
 
-            iScoreOfItemInHouseOrderRepository.Delete(Request.Params["uid"]);
+            //myHouseOrder.Price = myHouseOrder.Price - scoreOfItemInHouseOrder.Price;
 
-            int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
-            double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);
-
-            valuingOfMyHouseOrder.AverageScore = Sum / count;
-            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
+            iValuingOfMyHouseOrderService.Update(valuingOfMyHouseOrder);
+            iScoreOfItemInHouseOrderService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -93,7 +91,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            scoreOfItemInHouseOrderList = iScoreOfItemInHouseOrderRepository.Search(dfl, start, limit, out total);
+            scoreOfItemInHouseOrderList = iScoreOfItemInHouseOrderService.Search(dfl, start, limit, out total);
             repeater.DataSource = scoreOfItemInHouseOrderList;
             repeater.DataBind();
 
