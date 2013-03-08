@@ -501,33 +501,33 @@ TB.add("mod~global", function() {
                             AM = AL
                         } else {
                             if (AL == 10000) {
-                                AM = "1\u4e07"
+                                AM = "1万"
                             } else {
                                 if (AL < 100000) {
-                                    AM = parseInt(AL / 1000) / 10 + "\u4e07";
+                                    AM = parseInt(AL / 1000) / 10 + "万";
                                     if (AL % 1000 > 0) {
                                         AM += "+"
                                     }
                                 } else {
                                     if (AL < 1000000) {
-                                        AM = parseInt(AL / 10000) + "\u4e07";
+                                        AM = parseInt(AL / 10000) + "万";
                                         if (AL % 10000 > 0) {
                                             AM += "+"
                                         }
                                     } else {
                                         if (AL < 10000000) {
-                                            AM = parseInt(AL / 1000000) + "\u767e\u4e07";
+                                            AM = parseInt(AL / 1000000) + "百万";
                                             if (AL % 1000000 > 0) {
                                                 AM += "+"
                                             }
                                         } else {
                                             if (AL < 100000000) {
-                                                AM = parseInt(AL / 10000000) + "\u5343\u4e07";
+                                                AM = parseInt(AL / 10000000) + "千万";
                                                 if (AL % 10000000 > 0) {
                                                     AM += "+"
                                                 }
                                             } else {
-                                                AM = parseInt(AL / 100000000) + "\u4ebf";
+                                                AM = parseInt(AL / 100000000) + "亿";
                                                 if (AL % 100000000 > 0) {
                                                     AM += "+"
                                                 }
@@ -1107,7 +1107,7 @@ TB.use("mod~global");
            , [/.+?(switchable|suggest|datalazyload|sizzle|template)-min\.js(\?[^?]+)?$/, "http://a.tbcdn.cn/s/kissy/" + _version + "/??switchable-min.js,suggest-min.js,datalazyload-min.js,template-min.js"],
              [/(.+tmall\/fp\/.+)-min.js(\?[^?]+)?$/, "$1.js$2"],
              [/(.+tmall\/fp\/.+)-min.css(\?[^?]+)?$/, "$1.css$2"]
-           ], 
+           ],
                 packages: [{ name: "2012", charset: "gbk", path: "./apps/tmall/fp/", tag: _timestamp}]
          }
          );
