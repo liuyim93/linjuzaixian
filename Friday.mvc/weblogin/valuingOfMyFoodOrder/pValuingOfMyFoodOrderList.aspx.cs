@@ -28,6 +28,8 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.餐馆模块.餐馆订单评价管理.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] == "alldelete")
             {
@@ -57,6 +59,16 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
                     {
                         type = "Name",
                         value = merchantName = Request.Form["MerchantName"]
+
+                    });
+                }
+
+                if (CurrentUser.IsAdmin != true)
+                {
+                    merchantFilter.Add(new DataFilter()
+                    {
+                        type = "Merchant",
+                        value = CurrentUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id
 
                     });
                 }

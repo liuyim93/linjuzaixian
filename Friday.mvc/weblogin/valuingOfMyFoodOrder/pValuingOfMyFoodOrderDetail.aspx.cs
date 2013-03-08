@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.services;
+using friday.core.domain;
 
 namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
 {
@@ -21,6 +22,17 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.餐馆模块.餐馆订单评价管理.TagName;
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有ValuingOfMyFoodOrder浏览权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
             string MyFoodOrderId = Request.Params["MyFoodOrderId"].ToString();
             myFoodOrder = iMyFoodOrderService.Load(MyFoodOrderId);
 

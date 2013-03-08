@@ -24,6 +24,18 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                tagName = systemFunctionObjectService.餐馆模块.餐馆订单评价管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Enable))
+                {
+                    AjaxResult result = new AjaxResult();
+                    result.statusCode = "300";
+                    result.message = "没有ValuingOfMyFoodOrder添加权限";
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+
                 SaveValuingOfMyFoodOrder();
             }
         }

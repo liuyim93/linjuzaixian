@@ -22,8 +22,12 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             string uid = Request.Params["uid"].ToString();
+
+            this.tagName = systemFunctionObjectService.餐馆模块.餐馆订单评价管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+
             valuingOfMyFoodOrder = iValuingOfMyFoodOrderService.Load(uid);
             myFoodOrder = valuingOfMyFoodOrder.MyFoodOrder;
 

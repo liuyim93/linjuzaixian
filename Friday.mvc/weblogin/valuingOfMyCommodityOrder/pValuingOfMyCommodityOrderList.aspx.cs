@@ -61,6 +61,17 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
                     });
                 }
 
+
+                if (CurrentUser.IsAdmin != true)
+                {
+                    merchantFilter.Add(new DataFilter()
+                    {
+                        type = "Merchant",
+                        value = CurrentUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id
+
+                    });
+                }
+
                 filterList.Add(new DataFilter()
                 {
                     type = "Merchant",
