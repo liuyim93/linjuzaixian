@@ -5,12 +5,12 @@
     var _recommend_url = "http://ald.taobao.com/recommend.htm?appId=12003";
     var _str_data_src = "data-src";
 
-    function Floor(M) {
-        if (!M) {
+    function Floor(_dom_selector) {
+        if (!_dom_selector) {
             return
         }
-        this.floor = _kissy.get(M);
-        this.floorID = M.split("#floor")[1];
+        this.floor = _kissy.get(_dom_selector);
+        this.floorID = _dom_selector.split("#floor")[1];
         this._init()
     }
     _kissy.augment(Floor, _kissy.EventTarget, {

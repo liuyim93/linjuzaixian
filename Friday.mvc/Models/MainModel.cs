@@ -12,6 +12,9 @@ namespace Friday.mvc.Models
         public IEnumerable<MerchantCategory> MerchantRestaurantCategories { get; set; }
         public IEnumerable<MerchantCategory> MerchantRentCategories { get; set; }
         public IEnumerable<MerchantCategory> MerchantShopCategories { get; set; }
+        public IEnumerable<Merchant> Rents { get; set; }
+        public IEnumerable<Merchant> Shops { get; set; }
+        public IEnumerable<Merchant> Restaurants { get; set; }
 
         public IEnumerable<Activity> Activities { get; set; }
     }

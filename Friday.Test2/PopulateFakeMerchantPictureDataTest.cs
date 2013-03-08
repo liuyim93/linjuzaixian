@@ -27,7 +27,33 @@ namespace Friday.Test2
 
             for (int i = 0, j = 0; i < 13; i++, j++)
             {
-                Merchant mcht = new Merchant()
+                Shop mcht = new Shop()
+                {
+                    Name = mctName[j],
+                    Logo = "/uploadimage/l" + i + ".png",
+                    sBrand = "/uploadimage/s" + i + ".jpg",
+                    bBrand = "/uploadimage/b" + i + ".jpg"
+                };
+                iMerchants.Add(mcht);
+                iMerchantRepository.SaveOrUpdate(mcht);
+            }
+
+            for (int i = 0, j = 0; i < 13; i++, j++)
+            {
+                Rent mcht = new Rent()
+                {
+                    Name = mctName[j],
+                    Logo = "/uploadimage/l" + i + ".png",
+                    sBrand = "/uploadimage/s" + i + ".jpg",
+                    bBrand = "/uploadimage/b" + i + ".jpg"
+                };
+                iMerchants.Add(mcht);
+                iMerchantRepository.SaveOrUpdate(mcht);
+            }
+
+            for (int i = 0, j = 0; i < 13; i++, j++)
+            {
+                Restaurant mcht = new Restaurant()
                 {
                     Name = mctName[j],
                     Logo = "/uploadimage/l" + i + ".png",

@@ -2420,6 +2420,7 @@
     <Content Include="Views\Shared\_MfpSlide.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />
     <Content Include="Areas\Merchant\Views\Web.config" />
+    <Content Include="Views\Shared\_Floor.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
