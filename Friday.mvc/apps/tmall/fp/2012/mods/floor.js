@@ -17,8 +17,8 @@
         _init: function () {
             var _floor = this;
             _floor._initSlide();
-            _kissy.each(_kissy.query(".j_SlideBanner", _floor.floor), function (N) {
-                _floor._slideBanner(N)
+            _kissy.each(_kissy.query(".j_SlideBanner", _floor.floor), function (_dom_div_class_j_SlideBanner) {
+                _floor._slideBanner(_dom_div_class_j_SlideBanner)
             });
             _floor._imgSlide();
             _directpromo.render();
@@ -125,30 +125,30 @@
                 })
             })
         },
-        _slideNav: function (N) {
-            var P = _kissy.get(".fCs-nav", N);
-            var O = 50;
-            var M = 0;
-            _kissy.each(P.childNodes, function (Q) {
-                if (Q.nodeType === 1) {
+        _slideNav: function (_dom_div_j_SlideBanner) {
+            var _doms_li_class_fCs_nav = _kissy.get(".fCs-nav", _dom_div_j_SlideBanner);
+            var _init_speed = 50;
+            var _load_times = 0;
+            _kissy.each(_doms_li_class_fCs_nav.childNodes, function (_dom_li_class_fCs_nav) {
+                if (_dom_li_class_fCs_nav.nodeType === 1) {
                     setTimeout(function () {
-                        _kissy.Anim(Q, {
+                        _kissy.Anim(_dom_li_class_fCs_nav, {
                             left: "220px"
                         }, 0.5, "easeOutStrong").run()
-                    }, O);
-                    O += 80
+                    }, _init_speed);
+                    _init_speed += 80
                 }
-                if (_kissy.UA.ie && M == 0) {
-                    _dom.css(Q, {
+                if (_kissy.UA.ie && _load_times == 0) {
+                    _dom.css(_dom_li_class_fCs_nav, {
                         width: "160px"
                     });
-                    M++
+                    _load_times++
                 }
             })
         },
-        _slideBanner: function (N) {
-            this._slideNav(N);
-            var P = {
+        _slideBanner: function (_dom_div_j_SlideBanner) {
+            this._slideNav(_dom_div_j_SlideBanner);
+            var _options = {
                 contentCls: "fCs-con",
                 navCls: "fCs-nav",
                 activeTriggerCls: "active",
@@ -160,39 +160,39 @@
                 duration: 0.5,
                 triggerType: "mouse"
             };
-            this.slide = new _switchable.Slide(N, P);
+            this.slide = new _switchable.Slide(_dom_div_j_SlideBanner, _options);
             if (_kissy.UA.ie) {
-                var M = 0;
-                var O = _dom.children(_kissy.get(".fCs-nav", N));
-                this.slide.on("beforeSwitch", function (Q) {
-                    var R = O[Q.toIndex];
-                    if (R.hoverTimer) {
-                        clearTimeout(R.hoverTimer)
+                var _old_index = 0;
+                var _doms_li_parent_class_fCs_nav = _dom.children(_kissy.get(".fCs-nav", _dom_div_j_SlideBanner));
+                this.slide.on("beforeSwitch", function (_data) {
+                    var _dom_li = _doms_li_parent_class_fCs_nav[_data.toIndex];
+                    if (_dom_li.hoverTimer) {
+                        clearTimeout(_dom_li.hoverTimer)
                     }
-                    R.hoverTimer = setTimeout(function () {
-                        _kissy.Anim(O[Q.toIndex], {
+                    _dom_li.hoverTimer = setTimeout(function () {
+                        _kissy.Anim(_doms_li_parent_class_fCs_nav[_data.toIndex], {
                             width: "160px"
                         }, 0.2, "linear").run();
-                        _kissy.Anim(O[M], {
+                        _kissy.Anim(_doms_li_parent_class_fCs_nav[_old_index], {
                             width: "140px"
                         }, 0.2, "linear").run();
-                        M = Q.toIndex
+                        _old_index = _data.toIndex
                     }, 100)
                 })
             }
         },
         _imgSlide: function () {
             if (_kissy.UA.ie) {
-                var M = _kissy.get(".j_HoverImg", this.floor);
-                _kissy.each(_dom.query(".floorPro-img", M), function (N) {
-                    _event.on(N, "mouseenter mouseleave", function (P) {
-                        var O = P.type === "mouseenter" ? "-50px" : "110px";
-                        if (N.hoverTimer) {
-                            clearTimeout(N.hoverTimer)
+                var _dom_div_class_j_HoverImg = _kissy.get(".j_HoverImg", this.floor);
+                _kissy.each(_dom.query(".floorPro-img", _dom_div_class_j_HoverImg), function (_dom_img_class_floorPro_img) {
+                    _event.on(_dom_img_class_floorPro_img, "mouseenter mouseleave", function (_event) {
+                        var _margin_left = _event.type === "mouseenter" ? "-50px" : "110px";
+                        if (_dom_img_class_floorPro_img.hoverTimer) {
+                            clearTimeout(_dom_img_class_floorPro_img.hoverTimer)
                         }
-                        N.hoverTimer = setTimeout(function () {
-                            _kissy.Anim(N, {
-                                "margin-left": O
+                        _dom_img_class_floorPro_img.hoverTimer = setTimeout(function () {
+                            _kissy.Anim(_dom_img_class_floorPro_img, {
+                                "margin-left": _margin_left
                             }, 0.3, "linear").run()
                         }, 100)
                     })
