@@ -8,17 +8,18 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 {
     public partial class pAddScoreOfItemInCommodityOrder : BasePage
     {
-        IScoreOfItemInCommodityOrderRepository iScoreOfItemInCommodityOrderRepository = UnityHelper.UnityToT<IScoreOfItemInCommodityOrderRepository>();
-        IRepository<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyCommodityOrder>>();
-        IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
+        IScoreOfItemInCommodityOrderService iScoreOfItemInCommodityOrderService = UnityHelper.UnityToT<IScoreOfItemInCommodityOrderService>();
+        IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingOfMyCommodityOrderService>();
+        IValuingItemOfMyCommodityOrderService iValuingItemOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingItemOfMyCommodityOrderService>();
+
 
         private ScoreOfItemInCommodityOrder scoreOfItemInCommodityOrder;
-        private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,16 +36,10 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 
             scoreOfItemInCommodityOrder = new ScoreOfItemInCommodityOrder();
             BindingHelper.RequestToObject(scoreOfItemInCommodityOrder);
-            scoreOfItemInCommodityOrder.ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderRepository.Get(ItemID.Value);
-            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderRepository.Get(Request.Params["valuingOfMyCommodityOrder_id"]);
-            scoreOfItemInCommodityOrder.ValuingOfMyCommodityOrder = valuingOfMyCommodityOrder;
-            iScoreOfItemInCommodityOrderRepository.SaveOrUpdate(scoreOfItemInCommodityOrder);
-
-            int count = iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersCount(Request.Params["valuingOfMyCommodityOrder_id"]);
-            double Sum = iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersSum(Request.Params["valuingOfMyCommodityOrder_id"]);
-
-            valuingOfMyCommodityOrder.AverageScore = Sum / count;
-            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
+            scoreOfItemInCommodityOrder.ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderService.Load(ItemID.Value);
+            scoreOfItemInCommodityOrder.ValuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(Request.Params["valuingOfMyCommodityOrder_id"]);
+            
+            iScoreOfItemInCommodityOrderService.Save(scoreOfItemInCommodityOrder);
 
             result.statusCode = "200";
             result.message = "添加成功";

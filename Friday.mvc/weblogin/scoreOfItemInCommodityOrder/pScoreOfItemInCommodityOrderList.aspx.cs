@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.components;
 using friday.core;
 using friday.core.repositories;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 {
@@ -19,9 +20,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 
         protected string valuingOfMyCommodityOrderID;
 
-        IScoreOfItemInCommodityOrderRepository iScoreOfItemInCommodityOrderRepository = UnityHelper.UnityToT<IScoreOfItemInCommodityOrderRepository>();
-        IRepository<ValuingOfMyCommodityOrder> iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingOfMyCommodityOrder>>();
-
+        IScoreOfItemInCommodityOrderService iScoreOfItemInCommodityOrderService = UnityHelper.UnityToT<IScoreOfItemInCommodityOrderService>();
+        IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingOfMyCommodityOrderService>();
+        
         private ValuingOfMyCommodityOrder valuingOfMyCommodityOrder;
         private ScoreOfItemInCommodityOrder scoreOfItemInCommodityOrder;
 
@@ -36,7 +37,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
             {
                 valuingOfMyCommodityOrderID = Request.Params["valuingOfMyCommodityOrder_id"];
             }
-            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderRepository.Load(valuingOfMyCommodityOrderID);
+            valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(valuingOfMyCommodityOrderID);
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -50,15 +51,12 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
         private void DeleteScoreOfItemInCommodityOrder()
         {
 
-            scoreOfItemInCommodityOrder = iScoreOfItemInCommodityOrderRepository.Load(Request.Params["uid"]);
+            scoreOfItemInCommodityOrder = iScoreOfItemInCommodityOrderService.Load(Request.Params["uid"]);
 
-            iScoreOfItemInCommodityOrderRepository.Delete(Request.Params["uid"]);
+            //myCommodityOrder.Price = myCommodityOrder.Price - scoreOfItemInCommodityOrder.Price;
 
-            int count = iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersCount(Request.Params["valuingOfMyCommodityOrder_id"]);
-            double Sum = iScoreOfItemInCommodityOrderRepository.GetScoreOfItemInCommodityOrdersSum(Request.Params["valuingOfMyCommodityOrder_id"]);
-
-            valuingOfMyCommodityOrder.AverageScore = Sum / count;
-            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
+            iValuingOfMyCommodityOrderService.Update(valuingOfMyCommodityOrder);
+            iScoreOfItemInCommodityOrderService.Delete(Request.Params["uid"]);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
@@ -93,7 +91,7 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            scoreOfItemInCommodityOrderList = iScoreOfItemInCommodityOrderRepository.Search(dfl, start, limit, out total);
+            scoreOfItemInCommodityOrderList = iScoreOfItemInCommodityOrderService.Search(dfl, start, limit, out total);
             repeater.DataSource = scoreOfItemInCommodityOrderList;
             repeater.DataBind();
 
