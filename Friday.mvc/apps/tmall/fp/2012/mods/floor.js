@@ -25,16 +25,16 @@
             _floor._renderDefData()
         },
         _requestAld: function () {
-            var M = this;
+            var _floor = this;
             if (_mfp.floorData) {
-                M._renderFloorLogo(_mfp.floorData)
+                _floor._renderFloorLogo(_mfp.floorData)
             } else {
                 if (_mfp.isFloorDataLoad) {
                     _mfp.on("floorDataLoad", function () {
-                        M._renderFloorLogo(_mfp.floorData)
+                        _floor._renderFloorLogo(_mfp.floorData)
                     });
                     setTimeout(function () {
-                        M._renderDefData()
+                        _floor._renderDefData()
                     }, 300)
                 } else {
                     _mfp.isFloorDataLoad = true;
@@ -44,7 +44,7 @@
                         if (!N) {
                             return
                         }
-                        M._renderFloorLogo(N);
+                        _floor._renderFloorLogo(N);
                         _mfp.floorData = N;
                         _mfp.fire("floorDataLoad");
                         if (N.atpanelUrl && N.atpanelUrl !== "") {
@@ -52,24 +52,24 @@
                         }
                     });
                     setTimeout(function () {
-                        M._renderDefData()
+                        _floor._renderDefData()
                     }, 300)
                 }
             }
         },
         _renderFloorLogo: function (O) {
-            var S = this;
-            var T = O[parseInt(S.floorID)];
+            var _floor = this;
+            var T = O[parseInt(_floor.floorID)];
             if (!(T && _kissy.isArray(T) && T.length >= 14)) {
-                S._renderDefData();
+                _floor._renderDefData();
                 return
             }
-            var U = _kissy.get(".j_aldLogo", S.floor);
+            var U = _kissy.get(".j_aldLogo", _floor.floor);
             var R = _dom.children(_kissy.get(".fCl-slide", U));
             var Q = T.slice(0, 5);
             var P = T.slice(5, 10);
             var N = T.slice(10, 14);
-            var M = S.logoSlide.activeIndex;
+            var M = _floor.logoSlide.activeIndex;
             _kissy.each([Q, P, N], function (Y, W) {
                 var V = R[W];
                 var Z = "";

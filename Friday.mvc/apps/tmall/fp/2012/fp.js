@@ -19,8 +19,8 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 _fp._loadBackTop();
                 if (~location.href.indexOf("__tms__")) {
                     _kissy.later(function() {
-                        _kissy.use("2012/tms/tms", function(E, T) {
-                            new T()
+                        _kissy.use("2012/tms/tms", function(_kissy_imp, _tms) {
+                            new _tms()
                         })
                     }, 500)
                 }
@@ -52,37 +52,37 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
             MFP.POC.add("extra")
         },
         _loadBackTop: function() {
-            var D = function() {
+            var _scroll_fn = function() {
                 if (_dom.scrollTop(_document) > 400) {
                     _kissy.log("load backtop ...");
                     _kissy.getScript("http://a.tbcdn.cn/apps/tmall/mui/backtop/js/backtop.js");
-                    _event.detach(_window, "scroll", D)
+                    _event.detach(_window, "scroll", _scroll_fn)
                 }
             };
-            _event.on(_window, "scroll", D)
+            _event.on(_window, "scroll", _scroll_fn)
         },
         _initHeader: function() {
-            var S = _kissy.get("#mallSearch");
-            var T = _kissy.get("#mq");
-            var E = _dom.prev(T);
+            var _dom_id_mallSearch = _kissy.get("#mallSearch");
+            var _dom_id_mq = _kissy.get("#mq");
+            var _pre_dom_id_mq = _dom.prev(_dom_id_mq);
             var D = function() {
                 setTimeout(function() {
-                    if (T.value == "") {
-                        E.style.visibility = "visible"
+                    if (_dom_id_mq.value == "") {
+                        _pre_dom_id_mq.style.visibility = "visible"
                     }
                 }, 100)
             };
             var U = function(V) {
                 _kissy.log("init extra ...");
-                _kissy.use("2012/mods/header", function(W, X) {
-                    X.init()
+                _kissy.use("2012/mods/header", function(_kissy_imp, _header) {
+                    _header.init()
                 });
-                _event.detach(S, "mouseenter", U);
-                _event.detach(T, "keydown", U)
+                _event.detach(_dom_id_mallSearch, "mouseenter", U);
+                _event.detach(_dom_id_mq, "keydown", U)
             };
             D();
-            _event.on(S, "mouseenter", U);
-            _event.on(T, "keydown", U)
+            _event.on(_dom_id_mallSearch, "mouseenter", U);
+            _event.on(_dom_id_mq, "keydown", U)
         },
         _initQuickSearch: function() {
             _kissy.log("init quick search ...");
@@ -113,9 +113,9 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 }
             });
             _ua.ie < 9 && MFP.on("viewChange", function(S) {
-                var E = _document.body;
-                _dom.removeClass(E, "w" + S.oldView);
-                _dom.addClass(E, "w" + S.newView)
+                var _body = _document.body;
+                _dom.removeClass(_body, "w" + S.oldView);
+                _dom.addClass(_body, "w" + S.newView)
             })
         }
     });
