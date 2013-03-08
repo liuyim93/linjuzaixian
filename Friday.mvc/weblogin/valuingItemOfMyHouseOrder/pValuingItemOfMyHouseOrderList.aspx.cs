@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
 {
@@ -17,7 +18,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
         protected int pageNum;
         protected int numPerPageValue;
 
-        IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
+        IValuingItemOfMyHouseOrderService iValuingItemOfMyHouseOrderService = UnityHelper.UnityToT<IValuingItemOfMyHouseOrderService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,7 +35,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
 
-                IList<ValuingItemOfMyHouseOrder> merchantCategoryList = iValuingItemOfMyHouseOrderRepository.GetAll();
+                IList<ValuingItemOfMyHouseOrder> merchantCategoryList = iValuingItemOfMyHouseOrderService.GetAll();
 
                 repeater.DataSource = merchantCategoryList;
                 repeater.DataBind();
@@ -45,7 +46,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
 
         private void DeleteValuingItemOfMyHouseOrder()
         {
-            iValuingItemOfMyHouseOrderRepository.Delete(Request.Params["uid"]);
+            iValuingItemOfMyHouseOrderService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
