@@ -12,6 +12,7 @@ using System.Web.UI.WebControls;
 using friday.core.domain;
 using friday.core.EnumType;
 using Iesi.Collections.Generic;
+using Friday.core.Models;
 
 namespace friday.core.services
 {
@@ -24,6 +25,63 @@ namespace friday.core.services
             this.iMerchantRepository = iMerchantRepository;
             this.iLogger = iLogger;
         }
+
+        public string GetMerchantsJson()
+        {
+            IList<MerchantModel> merchantModels = new List<MerchantModel>();
+            IList<Merchant> Merchants = GetAll();
+            Merchant Merchant;
+            int index;
+
+            Random rand = new Random();
+
+            //Logo
+            for (int i = 0; i < 6; i++)
+            {
+                index = rand.Next(Merchants.Count);
+                Merchant = Merchants.ElementAt(index);
+                MerchantModel a = new MerchantModel();
+                a.logoPicType = "logo";
+                a.logo = Merchant.Logo;
+                a.source = "sBrands";
+                a.isCol = "False";
+                merchantModels.Add(a);
+                Merchants.RemoveAt(index);
+            }
+
+            //sBrand 
+            for (int i = 0; i < 3; i++)
+            {
+                index = rand.Next(Merchants.Count);
+                Merchant = Merchants.ElementAt(index);
+                MerchantModel a = new MerchantModel();
+                a.logoPicType = "logo";
+                a.logo = Merchant.sBrand;
+                a.source = "sBrands";
+                a.isCol = "False";
+                merchantModels.Add(a);
+                Merchants.RemoveAt(index);
+            }
+
+            //bBrand
+            for (int i = 0; i < 3; i++)
+            {
+                index = rand.Next(Merchants.Count);
+                Merchant = Merchants.ElementAt(index);
+                MerchantModel a = new MerchantModel();
+                a.logoPicType = "bBrand";
+                a.logo = Merchant.bBrand;
+                a.source = "bBrands";
+                a.isCol = "False";
+                merchantModels.Add(a);
+                Merchants.RemoveAt(index);
+            }
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = merchantModels;
+            return jsonResult.FormatResult();
+        }
+
         public Merchant Load(string id)
         {
             return iMerchantRepository.Load(id);

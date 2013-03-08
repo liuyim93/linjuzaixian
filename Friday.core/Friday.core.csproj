@@ -123,6 +123,7 @@
     <Compile Include="domain\CategoryLogMap.cs" />
     <Compile Include="domain\ValuingComments.cs" />
     <Compile Include="domain\ValuingCommentsMap.cs" />
+    <Compile Include="Models\MerchantModel.cs" />
     <Compile Include="repositories\IRoleInMenuRepository.cs" />
     <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ILogRepository.cs">

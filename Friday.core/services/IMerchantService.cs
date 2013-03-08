@@ -8,6 +8,7 @@ namespace friday.core.services
 {
     public interface IMerchantService
     {
+        string GetMerchantsJson();
         Merchant Load(string id);
         void Save(Merchant merchant);
         void Update(Merchant merchant);

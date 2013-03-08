@@ -132,6 +132,7 @@
     </Compile>
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\MerchantModel.cs" />
     <Compile Include="mvcunity\BootStrapper.cs" />
     <Compile Include="mvcunity\ControllerFactory.cs" />
     <Compile Include="mvcunity\ModelBinder.cs" />
