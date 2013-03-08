@@ -113,7 +113,7 @@
                       <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "ValuingCount")%></td> 
                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "AverageValuing")%></td> 
-                             <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>  
+                             <td align="center"><%#DataBinder.Eval(Container.DataItem, "Shop.Name")%></td>  
                   <%--   <td align="center"><%#DataBinder.Eval(Container.DataItem, "Shop.Shop.Name")%></td>--%>                 
 				</tr>
 			      
