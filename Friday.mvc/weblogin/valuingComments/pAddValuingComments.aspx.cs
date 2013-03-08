@@ -32,6 +32,10 @@ namespace Friday.mvc.weblogin.valuingComments
                 TrackIndex.Value = (iValuingCommentsRepository.GetValuingCommentsCount(Request.Params["valuing_id"]) + 1).ToString();
                 LoginName.Value = valuing.LoginUser.LoginName;
                 MerchantName.Value = valuing.Merchant.Name;
+                if (CurrentUser.IsAdmin != true)
+                {
+                    DirectionSelect.Visible = false;
+                }
             }
         }
 
@@ -42,7 +46,14 @@ namespace Friday.mvc.weblogin.valuingComments
 
             valuingComments = new ValuingComments();
             BindingHelper.RequestToObject(valuingComments);
-            valuingComments.Direction = Convert.ToInt16(DirectionSelect.Value);
+            if (CurrentUser.IsAdmin != true)
+            {
+                valuingComments.Direction = 1;
+            }
+            else
+            {
+                valuingComments.Direction = Convert.ToInt16(DirectionSelect.Value);
+            }
             valuingComments.TrackIndex = Convert.ToInt16(TrackIndex.Value);
 
             valuingComments.Valuing = valuing;

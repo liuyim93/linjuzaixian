@@ -43,6 +43,20 @@ namespace Friday.mvc.weblogin.valuingComments
             }
             else
             {
+                if (CurrentUser.IsAdmin != true)
+                {
+                    if (iValuingCommentsRepository.Get(Request.Params["uid"]).Direction == 0)
+                    {
+                        AjaxResult result = new AjaxResult();
+                        result.statusCode = "300";
+                        result.message = "不能删除用户的评价";
+                        FormatJsonResult jsonResult = new FormatJsonResult();
+                        jsonResult.Data = result;
+                        Response.Write(jsonResult.FormatResult());
+                        Response.End();
+                    }
+                }
+
                 DeleteValuingComments();
             }
         }

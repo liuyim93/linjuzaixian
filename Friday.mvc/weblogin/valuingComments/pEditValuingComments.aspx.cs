@@ -24,6 +24,20 @@ namespace Friday.mvc.weblogin.valuingComments
             valuing = iValuingRepository.Get(Request.Params["valuing_id"]);
             valuingComments = iValuingCommentsRepository.Get(Request.Params["uid"]);
 
+            if (CurrentUser.IsAdmin != true)
+            {
+                if (valuingComments.Direction == 0)
+                {
+                    AjaxResult result = new AjaxResult();
+                    result.statusCode = "300";
+                    result.message = "不能修改用户的评价";
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveValuingComments();
@@ -34,7 +48,14 @@ namespace Friday.mvc.weblogin.valuingComments
                 LoginName.Value = valuing.LoginUser.LoginName;
                 MerchantName.Value = valuing.Merchant.Name;
                 Comments.Value = valuingComments.Comments;
-                DirectionSelect.SelectedIndex = valuingComments.Direction+1;
+                if (CurrentUser.IsAdmin != true)
+                {
+                    DirectionSelect.Visible = false;
+                }
+                else
+                {
+                    DirectionSelect.SelectedIndex = valuingComments.Direction + 1;
+                }
             }
         }
 
@@ -44,7 +65,14 @@ namespace Friday.mvc.weblogin.valuingComments
             FormatJsonResult jsonResult = new FormatJsonResult();
 
             BindingHelper.RequestToObject(valuingComments);
-            valuingComments.Direction = Convert.ToInt16(DirectionSelect.Value);
+            if (CurrentUser.IsAdmin != true)
+            {
+                valuingComments.Direction = 1;
+            }
+            else
+            {
+                valuingComments.Direction = Convert.ToInt16(DirectionSelect.Value);
+            }
 
             iValuingCommentsRepository.SaveOrUpdate(valuingComments);
 
