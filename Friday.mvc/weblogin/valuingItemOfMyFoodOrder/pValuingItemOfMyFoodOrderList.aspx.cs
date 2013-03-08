@@ -23,8 +23,23 @@ namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.餐馆模块.食品评价项管理.TagName;
+            this.PermissionCheck();
+
             if (Request.Params["flag"] == "alldelete")
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.餐馆模块.食品评价项管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有ValuingItemOfMyFood删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
 
                 DeleteValuingItemOfMyFoodOrder();
 

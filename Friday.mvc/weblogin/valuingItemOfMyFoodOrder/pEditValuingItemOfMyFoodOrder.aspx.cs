@@ -20,6 +20,9 @@ namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.餐馆模块.食品评价项管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
             valuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderService.Load(Request.Params["uid"].ToString());
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
