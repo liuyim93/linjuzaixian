@@ -25,14 +25,14 @@ namespace Friday.Test2
             IList<Merchant> iMerchants = new List<Merchant>();
             string[] mctName = { "山东大厦", "南郊宾馆", "东郊宾馆", "中豪大酒店", "贵和皇冠酒店", "银座泉城酒店", "金马丽晶大酒店", "大润发", "银座商城", "沃尔玛", "全聚德", "安泰置业", "润华置业", "明德置业", "金汉斯", "苏宁","国美" };
 
-            for (int i = 0, j = 0; i < 38; i++, j++)
+            for (int i = 0, j = 0; i < 13; i++, j++)
             {
                 Merchant mcht = new Merchant()
                 {
                     Name = mctName[j],
-                    Logo = "/uploadimage/" + i + ".jpg",
-                    sBrand = "/uploadimage/" + (++i) + ".jpg",
-                    bBrand = "/uploadimage/" + (++i) + ".jpg"
+                    Logo = "/uploadimage/l" + i + ".png",
+                    sBrand = "/uploadimage/s" + i + ".jpg",
+                    bBrand = "/uploadimage/b" + i + ".jpg"
                 };
                 iMerchants.Add(mcht);
                 iMerchantRepository.SaveOrUpdate(mcht);
