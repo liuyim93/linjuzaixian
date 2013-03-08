@@ -48,7 +48,7 @@
 </div>
 <div style="float: left; display: block; overflow: auto; width: 100%; margin: 2px;
     border: solid 1px #CCC; line-height: 21px; background: #fff">
-    <div class="panel" defh="450">
+    <div class="panel" defh="400">
         <h1>
             （<%=Request.Params["roleName"]%>）菜单权限模块</h1>
         <div id="divTree">

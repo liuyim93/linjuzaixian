@@ -44,7 +44,7 @@
 
 <div class="divider">
 </div>
-<div class="panel" defh="600" style="float:left; display:block; overflow:auto; width:200px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
+<div class="panel" defh="400" style="float:left; display:block; overflow:auto; width:200px;margin:2px; border:solid 1px #CCC; line-height:21px; background:#fff">
     <h1>
         （<%=Request.Params["roleName"]%>）功能模块</h1>
     <div id="tree">
