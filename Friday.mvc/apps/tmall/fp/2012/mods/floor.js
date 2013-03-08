@@ -1,54 +1,54 @@
-﻿KISSY.add("2012/mods/floor", function (D, K, I, L, H, G) {
-    var F = window,
-		J = F.MFP;
-    var B = F.g_config;
-    var C = "http://ald.taobao.com/recommend.htm?appId=12003";
-    var E = "data-src";
+﻿KISSY.add("2012/mods/floor", function (_kissy, _dom, _event, _switchable, _util, _directpromo) {
+    var _window = window,
+		_mfp = _window.MFP;
+    var _g_config = _window.g_config;
+    var _recommend_url = "http://ald.taobao.com/recommend.htm?appId=12003";
+    var _str_data_src = "data-src";
 
-    function A(M) {
+    function Floor(M) {
         if (!M) {
             return
         }
-        this.floor = D.get(M);
+        this.floor = _kissy.get(M);
         this.floorID = M.split("#floor")[1];
         this._init()
     }
-    D.augment(A, D.EventTarget, {
+    _kissy.augment(Floor, _kissy.EventTarget, {
         _init: function () {
-            var M = this;
-            M._initSlide();
-            D.each(D.query(".j_SlideBanner", M.floor), function (N) {
-                M._slideBanner(N)
+            var _floor = this;
+            _floor._initSlide();
+            _kissy.each(_kissy.query(".j_SlideBanner", _floor.floor), function (N) {
+                _floor._slideBanner(N)
             });
-            M._imgSlide();
-            G.render();
-            M._renderDefData()
+            _floor._imgSlide();
+            _directpromo.render();
+            _floor._renderDefData()
         },
         _requestAld: function () {
             var M = this;
-            if (J.floorData) {
-                M._renderFloorLogo(J.floorData)
+            if (_mfp.floorData) {
+                M._renderFloorLogo(_mfp.floorData)
             } else {
-                if (J.isFloorDataLoad) {
-                    J.on("floorDataLoad", function () {
-                        M._renderFloorLogo(J.floorData)
+                if (_mfp.isFloorDataLoad) {
+                    _mfp.on("floorDataLoad", function () {
+                        M._renderFloorLogo(_mfp.floorData)
                     });
                     setTimeout(function () {
                         M._renderDefData()
                     }, 300)
                 } else {
-                    J.isFloorDataLoad = true;
-                    D.jsonp(C, {
+                    _mfp.isFloorDataLoad = true;
+                    _kissy.jsonp(_recommend_url, {
                         t: +new Date
                     }, function (N) {
                         if (!N) {
                             return
                         }
                         M._renderFloorLogo(N);
-                        J.floorData = N;
-                        J.fire("floorDataLoad");
+                        _mfp.floorData = N;
+                        _mfp.fire("floorDataLoad");
                         if (N.atpanelUrl && N.atpanelUrl !== "") {
-                            J.ATP.aldAc(N.atpanelUrl)
+                            _mfp.ATP.aldAc(N.atpanelUrl)
                         }
                     });
                     setTimeout(function () {
@@ -60,46 +60,46 @@
         _renderFloorLogo: function (O) {
             var S = this;
             var T = O[parseInt(S.floorID)];
-            if (!(T && D.isArray(T) && T.length >= 14)) {
+            if (!(T && _kissy.isArray(T) && T.length >= 14)) {
                 S._renderDefData();
                 return
             }
-            var U = D.get(".j_aldLogo", S.floor);
-            var R = K.children(D.get(".fCl-slide", U));
+            var U = _kissy.get(".j_aldLogo", S.floor);
+            var R = _dom.children(_kissy.get(".fCl-slide", U));
             var Q = T.slice(0, 5);
             var P = T.slice(5, 10);
             var N = T.slice(10, 14);
             var M = S.logoSlide.activeIndex;
-            D.each([Q, P, N], function (Y, W) {
+            _kissy.each([Q, P, N], function (Y, W) {
                 var V = R[W];
                 var Z = "";
-                D.each(Y, function (a) {
-                    Z += '<a href="' + a.linkedUrl + '" title="' + a.brandName + '" target="_blank"><img width="90" height="45" ' + (M == W ? "src" : "data-src") + '="' + H.randomImgUrl(a.logo) + '" /></a>'
+                _kissy.each(Y, function (a) {
+                    Z += '<a href="' + a.linkedUrl + '" title="' + a.brandName + '" target="_blank"><img width="90" height="45" ' + (M == W ? "src" : "data-src") + '="' + _util.randomImgUrl(a.logo) + '" /></a>'
                 });
                 if (W == 2) {
-                    var X = K.children(V)[4];
-                    Z += '<a href="' + K.attr(X, "href") + '" title="" target="_blank">\u66f4\u591a\u54c1\u724c>></a>'
+                    var X = _dom.children(V)[4];
+                    Z += '<a href="' + _dom.attr(X, "href") + '" title="" target="_blank">\u66f4\u591a\u54c1\u724c>></a>'
                 }
-                K.html(V, Z)
+                _dom.html(V, Z)
             })
         },
         _renderDefData: function () {
-            var M = this.logoSlide;
-            if (!M) {
+            var _logoSlide = this.logoSlide;
+            if (!_logoSlide) {
                 return
             }
-            var N = M.panels[M.activeIndex];
-            D.each(D.query("img", N), function (O) {
-                if (K.hasAttr(O, E)) {
-                    O.src = K.attr(O, E);
-                    K.removeAttr(O, E)
+            var _panel = _logoSlide.panels[_logoSlide.activeIndex];
+            _kissy.each(_kissy.query("img", _panel), function (_dom_img) {
+                if (_dom.hasAttr(_dom_img, _str_data_src)) {
+                    _dom_img.src = _dom.attr(_dom_img, _str_data_src);
+                    _dom.removeAttr(_dom_img, _str_data_src)
                 }
             })
         },
         _initSlide: function () {
-            var M = this;
-            var N = D.get(".j_aldLogo", M.floor);
-            M.logoSlide = new L.Slide(N, {
+            var _floor = this;
+            var _dom_class_j_aldLogo = _kissy.get(".j_aldLogo", _floor.floor);
+            _floor.logoSlide = new _switchable.Slide(_dom_class_j_aldLogo, {
                 contentCls: "fCl-slide",
                 navCls: "fCl-nav",
                 activeTriggerCls: "active",
@@ -110,36 +110,36 @@
                 duration: 0.3,
                 triggerType: "mouse"
             });
-            M.logoSlide.switchTo(parseInt(Math.random() * 3));
-            M._slideLazyLoad()
+            _floor.logoSlide.switchTo(parseInt(Math.random() * 3));
+            _floor._slideLazyLoad()
         },
         _slideLazyLoad: function () {
-            var M = this.logoSlide;
-            M.on("beforeSwitch", function (N) {
-                var O = M.panels[N.toIndex];
-                D.each(D.query("img", O), function (P) {
-                    if (K.hasAttr(P, E)) {
-                        P.src = K.attr(P, E);
-                        K.removeAttr(P, E)
+            var _logoSlide = this.logoSlide;
+            _logoSlide.on("beforeSwitch", function (_op) {
+                var _panel = _logoSlide.panels[_op.toIndex];
+                _kissy.each(_kissy.query("img", _panel), function (_dom_img) {
+                    if (_dom.hasAttr(_dom_img, _str_data_src)) {
+                        _dom_img.src = _dom.attr(_dom_img, _str_data_src);
+                        _dom.removeAttr(_dom_img, _str_data_src)
                     }
                 })
             })
         },
         _slideNav: function (N) {
-            var P = D.get(".fCs-nav", N);
+            var P = _kissy.get(".fCs-nav", N);
             var O = 50;
             var M = 0;
-            D.each(P.childNodes, function (Q) {
+            _kissy.each(P.childNodes, function (Q) {
                 if (Q.nodeType === 1) {
                     setTimeout(function () {
-                        D.Anim(Q, {
+                        _kissy.Anim(Q, {
                             left: "220px"
                         }, 0.5, "easeOutStrong").run()
                     }, O);
                     O += 80
                 }
-                if (D.UA.ie && M == 0) {
-                    K.css(Q, {
+                if (_kissy.UA.ie && M == 0) {
+                    _dom.css(Q, {
                         width: "160px"
                     });
                     M++
@@ -160,20 +160,20 @@
                 duration: 0.5,
                 triggerType: "mouse"
             };
-            this.slide = new L.Slide(N, P);
-            if (D.UA.ie) {
+            this.slide = new _switchable.Slide(N, P);
+            if (_kissy.UA.ie) {
                 var M = 0;
-                var O = K.children(D.get(".fCs-nav", N));
+                var O = _dom.children(_kissy.get(".fCs-nav", N));
                 this.slide.on("beforeSwitch", function (Q) {
                     var R = O[Q.toIndex];
                     if (R.hoverTimer) {
                         clearTimeout(R.hoverTimer)
                     }
                     R.hoverTimer = setTimeout(function () {
-                        D.Anim(O[Q.toIndex], {
+                        _kissy.Anim(O[Q.toIndex], {
                             width: "160px"
                         }, 0.2, "linear").run();
-                        D.Anim(O[M], {
+                        _kissy.Anim(O[M], {
                             width: "140px"
                         }, 0.2, "linear").run();
                         M = Q.toIndex
@@ -182,16 +182,16 @@
             }
         },
         _imgSlide: function () {
-            if (D.UA.ie) {
-                var M = D.get(".j_HoverImg", this.floor);
-                D.each(K.query(".floorPro-img", M), function (N) {
-                    I.on(N, "mouseenter mouseleave", function (P) {
+            if (_kissy.UA.ie) {
+                var M = _kissy.get(".j_HoverImg", this.floor);
+                _kissy.each(_dom.query(".floorPro-img", M), function (N) {
+                    _event.on(N, "mouseenter mouseleave", function (P) {
                         var O = P.type === "mouseenter" ? "-50px" : "110px";
                         if (N.hoverTimer) {
                             clearTimeout(N.hoverTimer)
                         }
                         N.hoverTimer = setTimeout(function () {
-                            D.Anim(N, {
+                            _kissy.Anim(N, {
                                 "margin-left": O
                             }, 0.3, "linear").run()
                         }, 100)
@@ -200,7 +200,7 @@
             }
         }
     });
-    return A
+    return Floor
 }, {
     requires: ["dom", "event", "switchable", "2012/util/util", "2012/mods/direct-promo"]
 });
