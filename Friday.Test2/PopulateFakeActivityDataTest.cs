@@ -82,15 +82,18 @@ namespace Friday.Test2
             string filePath = System.AppDomain.CurrentDomain.BaseDirectory;
             int strLength = filePath.Length;
 
-            if (!Directory.Exists(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage"))
-                Directory.CreateDirectory(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage");
-
-            //先来移动文件
-            DirectoryInfo info = new DirectoryInfo(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage");
-            FileInfo[] files = info.GetFiles();
-            foreach (FileInfo file in files)
+            if (Directory.Exists(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage"))
             {
-                File.Copy(Path.Combine(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage", file.Name), Path.Combine(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\weblogin\UploadImage", file.Name), true); //复制文件
+                if (!Directory.Exists(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\uploadimage"))
+                    Directory.CreateDirectory(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\uploadimage");
+
+                //先来移动文件
+                DirectoryInfo info = new DirectoryInfo(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage");
+                FileInfo[] files = info.GetFiles();
+                foreach (FileInfo file in files)
+                {
+                    File.Copy(Path.Combine(filePath.Substring(0, strLength - 10) + @"\uploadImage\activityImage", file.Name), Path.Combine(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\uploadimage", file.Name), true); //复制文件
+                }
             }
         }
     }
