@@ -21,6 +21,11 @@ namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
         protected void Page_Load(object sender, EventArgs e)
         {
             valuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderService.Load(Request.Params["uid"].ToString());
+
+            this.tagName = systemFunctionObjectService.商店模块.商品评价项管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
