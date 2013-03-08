@@ -94,6 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopulateFakeActivityDataTest.cs" />
     <Compile Include="PopulateFakeRestaurantDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs" />
@@ -124,6 +125,11 @@
     <Compile Include="Test_RentStatistic.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="uploadImage\activityImage\jpeg5.jpg" />
+    <Content Include="uploadImage\activityImage\jpeg1.jpg" />
+    <Content Include="uploadImage\activityImage\jpeg2.jpg" />
+    <Content Include="uploadImage\activityImage\jpeg3.jpg" />
+    <Content Include="uploadImage\activityImage\jpeg4.jpg" />
     <None Include="App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
