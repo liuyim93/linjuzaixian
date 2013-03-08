@@ -374,8 +374,8 @@ TB.add("mod~global", function() {
     TB.Global = {init: function() {
         _div_named_site_nav = _document.getElementById("site-nav");
         this._subMenus = [];
-        for (var S in CommonJS) {
-            CommonJS[S]()
+        for (var _single_commonjs in CommonJS) {
+            CommonJS[_single_commonjs]()
         }
     },writeLoginInfo: function(_options) {
         _div_named_site_nav = _document.getElementById("site-nav");
@@ -401,34 +401,34 @@ TB.add("mod~global", function() {
         TB.environment.isApp = _options.isApp;
         TB.environment.passCookie = _options.passCookie;
         var _tb_global = TB.Global;
-        _tb_global.loginStatusReady(function(z) {
-            var w = _options.loginServer;
+        _tb_global.loginStatusReady(function(_user_info) {
+            var _loginserver = _options.loginServer;
             var r = window.location.href;
             if (/^http.*(\/member\/login\.jhtml)$/i.test(r)) {
                 r = ""
             }
             var q = _options.redirectUrl || r;
             if (q) {
-                w += "?redirect_url=" + encodeURIComponent(q)
+                _loginserver += "?redirect_url=" + encodeURIComponent(q)
             }
             var y = _options.spaceServer;
             var s = _options.registerServer;
             var v = _options.logoutServer + "?f=top&redirectURL=http://login.tmall.com/?redirect_url=" + encodeURIComponent("" + encodeURIComponent(q));
             if (TB.environment.isDaily) {
-                w = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(q);
+                _loginserver = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(q);
                 y = "http://jianghu.daily.taobao.net/admin/home.htm";
                 s += "?isDaily=1";
                 v = "http://login.daily.taobao.net/member/logout.jhtml?f=top&redirectURL=http://login.daily.taobao.net/member/login.jhtml?redirect_url%3D" + encodeURIComponent("" + encodeURIComponent(q))
             }
             y += "?t=" + _kissy.now();
-            var t = document.getElementById("login-info");
-            if (!t) {
+            var _dom_id_login_info = document.getElementById("login-info");
+            if (!_dom_id_login_info) {
                 return
             }
-            var u = "";
-            if (z.isLogin) {
-                u = 'HI\uff0c<a target="_top" href="' + y + '" class="j_UserNick sn-user-nick">' + z.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href="http://jifen.tmall.com/?from=top&scm=1027.1.1.4">\u79ef\u5206<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="http://vip.tmall.com/vip/message_box.htm?from=messagebox&scm=1027.1.1.5" class="j_MessageText">\u6d88\u606f<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">\u52a0\u5165Tmall\u4ff1\u4e50\u90e8</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + v + '" id="J_Logout">\u9000\u51fa</a><i class="sn-separator"></i>';
-                t.innerHTML = u;
+            var _user_info_snippet = "";
+            if (_user_info.isLogin) {
+                _user_info_snippet = 'HI,<a target="_top" href="' + y + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href="http://jifen.tmall.com/?from=top&scm=1027.1.1.4">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="http://vip.tmall.com/vip/message_box.htm?from=messagebox&scm=1027.1.1.5" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + v + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
+                _dom_id_login_info.innerHTML = _user_info_snippet;
                 if (_is_ie6) {
                     var x = _findChildElementByClassName("j_UserNick", _div_named_site_nav);
                     if (x.offsetWidth > 90) {
@@ -542,8 +542,8 @@ TB.add("mod~global", function() {
                 });
                 _tb_global._initMemberInfo()
             } else {
-                u = '欢迎来邻居网<a class="sn-login" href="' + w + '" target="_top">请登录</a><a class="sn-register" href="' + s + '" target="_top">免费注册</a><i class="sn-separator"></i>';
-                t.innerHTML = u;
+                _user_info_snippet = '欢迎来邻居网<a class="sn-login" href="' + _loginserver + '" target="_top">请登录</a><a class="sn-register" href="' + s + '" target="_top">免费注册</a><i class="sn-separator"></i>';
+                _dom_id_login_info.innerHTML = _user_info_snippet;
                 _tb_global._fireMemberInfoReadyFnList()
             }
         });
@@ -557,12 +557,12 @@ TB.add("mod~global", function() {
             TB.userInfo.trackId = _get_user_cookie_value("t");
             _tb_global._fireLoginStatusReadyFnList()
         } else {
-            var S = "http://www.taobao.com/go/app/tmall/login-api.php";
+            var _login_url = "http://www.taobao.com/go/app/tmall/login-api.php";
             if (TB.environment.isDaily) {
-                S = "http://www.daily.taobao.net/go/app/tmall/login-api.php"
+                _login_url = "http://www.daily.taobao.net/go/app/tmall/login-api.php"
             }
-            S += "?" + Math.random();
-            _kissy.getScript(S, function() {
+            _login_url += "?" + Math.random();
+            _kissy.getScript(_login_url, function() {
                 TB.userInfo.nick = A(unescape((userCookie._nk_).replace(/\\u/g, "%u")));
                 //2013-02-16 basilwang TODO  temporiaily comment this which can cause problem . VERY IMPORTANT!!
                 // TB.userInfo.tracknick = A(unescape((userCookie.tracknick).replace(/\\u/g, "%u")));
@@ -571,12 +571,12 @@ TB.add("mod~global", function() {
                 _tb_global._fireLoginStatusReadyFnList()
             })
         }
-    },loginStatusReady: function(S) {
+    },loginStatusReady: function(_fn_login_status_ready) {
         if (TB._isLoginStatusReady) {
-            S.call(window, TB.userInfo)
+            _fn_login_status_ready.call(window, TB.userInfo)
         } else {
             if (TB._loginStatusReadyFnList) {
-                TB._loginStatusReadyFnList.push(S)
+                TB._loginStatusReadyFnList.push(_fn_login_status_ready)
             }
         }
     },_fireLoginStatusReadyFnList: function() {
@@ -585,8 +585,8 @@ TB.add("mod~global", function() {
         }
         TB._isLoginStatusReady = true;
         if (TB._loginStatusReadyFnList) {
-            for (var S = 0; S < TB._loginStatusReadyFnList.length; S++) {
-                TB._loginStatusReadyFnList[S].call(window, TB.userInfo)
+            for (var index = 0; index < TB._loginStatusReadyFnList.length; index++) {
+                TB._loginStatusReadyFnList[index].call(window, TB.userInfo)
             }
         }
     },_initMemberInfo: function() {
@@ -601,12 +601,12 @@ TB.add("mod~global", function() {
             _tb_global._fireMemberInfoReadyFnList()
         };
         _kissy.getScript(i)
-    },memberInfoReady: function(S) {
+    },memberInfoReady: function(_fn_member_info_ready) {
         if (TB._isMemberInfoReady) {
-            S.call(window, TB.userInfo)
+            _fn_member_info_ready.call(window, TB.userInfo)
         } else {
             if (TB._memberInfoReadyFnList) {
-                TB._memberInfoReadyFnList.push(S)
+                TB._memberInfoReadyFnList.push(_fn_member_info_ready)
             }
         }
     },_fireMemberInfoReadyFnList: function() {
