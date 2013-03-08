@@ -28,7 +28,7 @@ namespace Friday.Test2
             scope.Dispose();
         }
         [Test]
-        public void Test()
+        public void Test_ValuingOfMyFoodOrder()
         {
 
             IRestaurantRepository iRestaurantRepository = UnityHelper.UnityToT<IRestaurantRepository>();
