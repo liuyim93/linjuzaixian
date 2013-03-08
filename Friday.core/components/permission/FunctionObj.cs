@@ -54,8 +54,8 @@ namespace friday.core.services
         public FunctionTag 食品评价项管理 { get; set; }
         [PermissionSetting(PermissionTag.Enable)]
         public FunctionTag 食品评价项评分管理 { get; set; }
-        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
-        public FunctionTag 食品评论回复管理 { get; set; }
+        //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
+        //public FunctionTag 食品评论回复管理 { get; set; }
 
     }
     public class 商店管理 : BaseModel
@@ -74,8 +74,8 @@ namespace friday.core.services
         public FunctionTag 商品评价项管理 { get; set; }
         [PermissionSetting(PermissionTag.Enable)]
         public FunctionTag 商品评价项评分管理 { get; set; }
-        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
-        public FunctionTag 商品评论回复管理 { get; set; }
+        //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
+        //public FunctionTag 商品评论回复管理 { get; set; }
     }
     public class 租房管理 : BaseModel
     {
@@ -93,8 +93,8 @@ namespace friday.core.services
         public FunctionTag 房屋评价项管理 { get; set; }
         [PermissionSetting(PermissionTag.Enable)]
         public FunctionTag 房屋评价项评分管理 { get; set; }
-        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
-        public FunctionTag 房屋评论回复管理 { get; set; }
+        //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
+        //public FunctionTag 房屋评论回复管理 { get; set; }
     }
     //public class 顾客账号管理 : BaseModel
     //{
@@ -134,6 +134,8 @@ namespace friday.core.services
         public FunctionTag 顾客账号维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 菜单管理 { get; set; }
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
+        public FunctionTag 评论回复管理 { get; set; }
     }
     //public class 自定义商品类型管理 : BaseModel
     //{

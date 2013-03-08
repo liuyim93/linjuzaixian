@@ -26,6 +26,8 @@ namespace Friday.mvc.weblogin.valuingComments
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
+            this.PermissionCheck();
 
             if (Request.Form["valuing_id"] != null)
             {
@@ -43,6 +45,18 @@ namespace Friday.mvc.weblogin.valuingComments
             }
             else
             {
+
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
+
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有评论删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
                 if (CurrentUser.IsAdmin != true)
                 {
                     if (iValuingCommentsRepository.Get(Request.Params["uid"]).Direction == 0)

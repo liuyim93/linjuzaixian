@@ -23,6 +23,18 @@ namespace Friday.mvc.weblogin.valuingComments
         {
             valuing = iValuingRepository.Get(Request.Params["valuing_id"]);
 
+            tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有评论增加权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveValuingComments();

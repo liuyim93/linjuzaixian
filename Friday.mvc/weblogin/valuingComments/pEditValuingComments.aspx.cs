@@ -24,9 +24,9 @@ namespace Friday.mvc.weblogin.valuingComments
             valuing = iValuingRepository.Get(Request.Params["valuing_id"]);
             valuingComments = iValuingCommentsRepository.Get(Request.Params["uid"]);
 
-            if (CurrentUser.IsAdmin != true)
-            {
-                if (valuingComments.Direction == 0)
+            this.tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
                 {
                     AjaxResult result = new AjaxResult();
                     result.statusCode = "300";
