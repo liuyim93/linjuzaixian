@@ -26,6 +26,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
             scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderService.Load(Request.Params["uid"].ToString());
             valuingOfMyFoodOrder = iValuingOfMyFoodOrderRepository.Get(Request.Params["valuingOfMyFoodOrder_id"]);
 
+            this.tagName = systemFunctionObjectService.餐馆模块.食品评价项评分管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
