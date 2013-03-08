@@ -28,6 +28,8 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.租房模块.房屋评价项评分管理.TagName;
+            this.PermissionCheck();
 
             if (Request.Form["valuingOfMyHouseOrder_id"] != null)
             {
@@ -45,6 +47,18 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
             }
             else
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.租房模块.房屋评价项评分管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有ScoreOfItemInHouseOrder删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
                 DeleteScoreOfItemInHouseOrder();
             }
         }

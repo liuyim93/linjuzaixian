@@ -26,6 +26,9 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
             scoreOfItemInHouseOrder = iScoreOfItemInHouseOrderService.Load(Request.Params["uid"].ToString());
             valuingOfMyHouseOrder = iValuingOfMyHouseOrderRepository.Get(Request.Params["valuingOfMyHouseOrder_id"]);
 
+            tagName = systemFunctionObjectService.租房模块.房屋评价项评分管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 

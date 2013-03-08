@@ -25,6 +25,18 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                tagName = systemFunctionObjectService.租房模块.房屋评价项评分管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Enable))
+                {
+                    AjaxResult result = new AjaxResult();
+                    result.statusCode = "300";
+                    result.message = "没有ScoreOfItemInHouseOrder增加权限";
+                    FormatJsonResult jsonResult = new FormatJsonResult();
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+
                 SaveScoreOfItemInHouseOrder();
             }
         }
