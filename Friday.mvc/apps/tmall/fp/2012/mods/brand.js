@@ -106,17 +106,17 @@
             })
         },
         initBrandBar: function () {
-            var S = 32;
+            var _try_times = 32;
 
-            function Z() {
+            function _ensure_TgalleryReady() {
                 if (!_kissy.onTgalleryReady) {
-                    if (S > 0) {
-                        setTimeout(Z, 512)
+                    if (_try_times > 0) {
+                        setTimeout(_ensure_TgalleryReady, 512)
                     }
-                    S--;
+                    _try_times--;
                     return
                 }
-                _kissy.use("tgallery/department/common/brandbar", function (a, c) {
+                _kissy.use("tgallery/department/common/brandbar", function (_kissy_imp, _brandbar) {
                     var b = function (f) {
                         var d = _dom.get("s", f);
                         var e = _dom.get("b", f);
@@ -130,19 +130,19 @@
                         _dom.removeClass(f, "mark");
                         _event.detach(d, "click")
                     };
-                    c.on("success", function (d) {
+                    _brandbar.on("success", function (d) {
                         if (d.flyNode) {
                             b(d.flyNode)
                         }
                     });
-                    c.on("error", function (d) {
+                    _brandbar.on("error", function (d) {
                         if (d.code && d.code == "-1" && d.flyNode) {
                             b(d.flyNode)
                         }
                     })
                 })
             }
-            Z()
+            _ensure_TgalleryReady()
         },
         brandHover: function () {
             var _brand = this;
@@ -176,7 +176,7 @@
             })
         },
         brandMark: function () {
-            var S = this;
+            var _brand = this;
             _kissy.each(_dom.query(_config.marks), function (a) {
                 var Z = _dom.get("s", a);
                 _event.on(a, "mouseenter mouseleave", function (b) {
