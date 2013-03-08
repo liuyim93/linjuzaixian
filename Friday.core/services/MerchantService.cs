@@ -46,6 +46,9 @@ namespace friday.core.services
                 a.logo = Merchant.Logo;
                 a.source = "sBrands";
                 a.isCol = "False";
+                a.brandId = Merchant.Id;
+                a.brandName = Merchant.Name;
+                a.brandDesc = Merchant.Description;
                 sBrandModels.Add(a);
                 Merchants.RemoveAt(index);
             }
@@ -60,6 +63,9 @@ namespace friday.core.services
                 a.logo = Merchant.sBrand;
                 a.source = "sBrands";
                 a.isCol = "False";
+                a.brandId = Merchant.Id;
+                a.brandName = Merchant.Name;
+                a.brandDesc = Merchant.Description;
                 sBrandModels.Add(a);
                 Merchants.RemoveAt(index);
             }
@@ -74,6 +80,9 @@ namespace friday.core.services
                 a.logo = Merchant.bBrand;
                 a.source = "bBrands";
                 a.isCol = "False";
+                a.brandId = Merchant.Id;
+                a.brandName = Merchant.Name;
+                a.brandDesc = Merchant.Description;
                 bBrandModels.Add(a);
                 Merchants.RemoveAt(index);
             }
