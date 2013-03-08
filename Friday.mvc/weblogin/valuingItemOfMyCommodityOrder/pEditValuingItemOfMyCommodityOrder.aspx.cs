@@ -8,18 +8,19 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
 {
     public partial class pEditValuingItemOfMyCommodityOrder : BasePage
     {
-        IRepository<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyCommodityOrder>>();
+       IValuingItemOfMyCommodityOrderService iValuingItemOfMyCommodityOrderService = UnityHelper.UnityToT<IValuingItemOfMyCommodityOrderService>();
 
         private ValuingItemOfMyCommodityOrder valuingItemOfMyCommodityOrder;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            valuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderRepository.Get(Request.Params["uid"].ToString());
+            valuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderService.Load(Request.Params["uid"].ToString());
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -35,7 +36,7 @@ namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
         {
 
             BindingHelper.RequestToObject(valuingItemOfMyCommodityOrder);
-            iValuingItemOfMyCommodityOrderRepository.SaveOrUpdate(valuingItemOfMyCommodityOrder);
+            iValuingItemOfMyCommodityOrderService.Update(valuingItemOfMyCommodityOrder);
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
