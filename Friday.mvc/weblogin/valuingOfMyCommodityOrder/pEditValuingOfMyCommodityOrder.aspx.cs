@@ -22,6 +22,8 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.商店模块.商店订单评价管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
 
             string uid = Request.Params["uid"].ToString();
             valuingOfMyCommodityOrder = iValuingOfMyCommodityOrderService.Load(uid);

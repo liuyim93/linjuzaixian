@@ -28,6 +28,8 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
       
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.商店模块.商店订单评价管理.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] == "alldelete")
             {
