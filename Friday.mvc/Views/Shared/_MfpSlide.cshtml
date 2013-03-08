@@ -2,7 +2,7 @@
 @model MainModel
 <div class="mfpSlide" id="J_MfpSlide" data-spm="3.362490.296814">
     <ul class="mfpSlide-con">
-        @for (var index = 0; index < Model.Activities.Count(); index++)
+        @for (var index = 0; index < (Model.Activities.Count() > 5 ? 5 : Model.Activities.Count()); index++)
         {
 
             var item = Model.Activities.ElementAt(index);
