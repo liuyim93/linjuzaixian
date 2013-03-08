@@ -24,7 +24,9 @@
     var _nickname = "";
     var F = [];
     var K = false;
-    var _recommend_url = "http://" + (_is_test_env ? "ald.taobao.com" : "ald.taobao.com") + "/recommend.htm?appId=12002";
+    //2013-03-08 basilwang use our own
+    //var _recommend_url = "http://" + (_is_test_env ? "ald.taobao.com" : "ald.taobao.com") + "/recommend.htm?appId=12002";
+    var _recommend_url = "http://" + (_is_test_env ? "localhost:7525" : "localhost:7525") + "/Merchant/Favorite/Recommend";
     //2013-03-08 basilwang seems no use
     //var O = "http://" + (_is_test_env ? "brand.daily.tmall.net" : "brand.tmall.com") + "/ajax/brandAddToFav.htm";
     //var J = "http://" + (_is_test_env ? "brand.daily.tmall.net" : "brand.tmall.com") + "/ajax/homePageGetBrand.htm";
@@ -63,7 +65,9 @@
                     }
                     if (_dom.hasClass(_bnd, "brandAd-b")) {
                         _brand_to_be_applied = _bBrands[0];
-                        _str_img_snippet = '<img width="130" height="225" src="' + _util.randomImgUrl(_brand_to_be_applied.logo) + '" alt="" />';
+                        //2013-03-08 basilwang use our own
+                        //_str_img_snippet = '<img width="130" height="225" src="' + _util.randomImgUrl(_brand_to_be_applied.logo) + '" alt="" />';
+                        _str_img_snippet = '<img width="130" height="225" src="' + _brand_to_be_applied.logo + '" alt="" />';
                         _bBrands.splice(0, 1)
                     } else {
                         if (_dom.hasClass(_bnd, "brandAd-s")) {
@@ -71,7 +75,9 @@
                             var _width = _brand_to_be_applied.logoPicType == "sBrand" ? "130" : "90";
                             var _height = _brand_to_be_applied.logoPicType == "sBrand" ? "82" : "45";
                             var _class = _brand_to_be_applied.logoPicType == "sBrand" ? "" : 'class="logo"';
-                            _str_img_snippet = "<img " + _class + ' width="' + _width + '" height="' + _height + '" src="' + _util.randomImgUrl(_brand_to_be_applied.logo) + '" alt="" />';
+                            //2013-03-08 basilwang use our own
+                            //_str_img_snippet = "<img " + _class + ' width="' + _width + '" height="' + _height + '" src="' + _util.randomImgUrl(_brand_to_be_applied.logo) + '" alt="" />';
+                            _str_img_snippet = "<img " + _class + ' width="' + _width + '" height="' + _height + '" src="' + _brand_to_be_applied.logo + '" alt="" />';
                             _sBrands.splice(0, 1)
                         } else {
                             return

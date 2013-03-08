@@ -28,7 +28,8 @@ namespace friday.core.services
 
         public string GetMerchantsJson()
         {
-            IList<MerchantModel> merchantModels = new List<MerchantModel>();
+            IList<MerchantModel> bBrandModels = new List<MerchantModel>();
+            IList<MerchantModel> sBrandModels = new List<MerchantModel>();
             IList<Merchant> Merchants = GetAll();
             Merchant Merchant;
             int index;
@@ -45,7 +46,7 @@ namespace friday.core.services
                 a.logo = Merchant.Logo;
                 a.source = "sBrands";
                 a.isCol = "False";
-                merchantModels.Add(a);
+                sBrandModels.Add(a);
                 Merchants.RemoveAt(index);
             }
 
@@ -59,7 +60,7 @@ namespace friday.core.services
                 a.logo = Merchant.sBrand;
                 a.source = "sBrands";
                 a.isCol = "False";
-                merchantModels.Add(a);
+                sBrandModels.Add(a);
                 Merchants.RemoveAt(index);
             }
 
@@ -73,12 +74,15 @@ namespace friday.core.services
                 a.logo = Merchant.bBrand;
                 a.source = "bBrands";
                 a.isCol = "False";
-                merchantModels.Add(a);
+                bBrandModels.Add(a);
                 Merchants.RemoveAt(index);
             }
 
             FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = merchantModels;
+            jsonResult.Data = new { 
+              sBrands=sBrandModels,
+              bBrands=bBrandModels
+            };
             return jsonResult.FormatResult();
         }
 
