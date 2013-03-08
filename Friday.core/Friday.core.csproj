@@ -474,6 +474,10 @@
     <Compile Include="services\ILogService.cs" />
     <Compile Include="services\ValuingItemOfMyFoodOrderService.cs" />
     <Compile Include="services\IValuingItemOfMyFoodOrderService.cs" />
+    <Compile Include="services\IValuingItemOfMyHouseOrderService.cs" />
+    <Compile Include="services\IValuingItemOfMyCommodityOrderService.cs" />
+    <Compile Include="services\ValuingItemOfMyHouseOrderService.cs" />
+    <Compile Include="services\ValuingItemOfMyCommodityOrderService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
