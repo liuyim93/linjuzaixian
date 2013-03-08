@@ -1,9 +1,9 @@
-﻿(function (B) {
-    var A = "tgallery/department/common/brandbar-fly";
-    (!B.config) && B.add(A, { requires: ["core"] });
-    B.add(A, function (E, F) {
-        var D, C, G, F = F || E.DOM;
-        return E[A] = E[A] || { fly: function (M, I, J) {
+﻿(function (_kissy) {
+    var _namespace_brandbar_fly = "tgallery/department/common/brandbar-fly";
+    (!_kissy.config) && _kissy.add(_namespace_brandbar_fly, { requires: ["core"] });
+    _kissy.add(_namespace_brandbar_fly, function (_kissy_imp, _dom) {
+        var D, C, G, F = _dom || _kissy_imp.DOM;
+        return _kissy_imp[_namespace_brandbar_fly] = _kissy_imp[_namespace_brandbar_fly] || { fly: function (M, I, J) {
             J = J || {};
             if (!D) {
                 D = I.cloneNode(true);
@@ -21,7 +21,7 @@
             H = { left: H.left - L, top: H.top - L };
             F.show(D);
             F.offset(D, M);
-            E.UA.ie == 6 && (F.css(D, { opacity: 0 }));
+            _kissy_imp.UA.ie == 6 && (F.css(D, { opacity: 0 }));
             KISSY.use("anim", function (O, N) {
                 N = N || O.Anim;
                 C = N(D, { opacity: (O.UA.ie == 6 ? undefined : 1), top: M.top - 32 + "px" }, 0.5, "easeOut", function () {

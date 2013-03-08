@@ -344,9 +344,13 @@ TB.add("mod~global", function() {
                 _kissy.onTgalleryReady ? _onReady() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, _onReady)
             }
             _use("tgallery/department/common/brandbar", function(_kissy_tmp, _brandbar) {
-                var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
+                //2013-03-08 basilwang use our own
+                //var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
+                var q = "localhost:7525";
                 _brandbar.show({urlMyBrand: "http://" + q + "/myBrandsIndex.htm",newWindow: true});
-                _brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
+                //2013-03-08 basilwang use our own
+                //_brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
+                _brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/Favorite/AddToFav"})
             })
         })
     },shareFB: function() {

@@ -6,7 +6,7 @@
 * To change this template use File | Settings | File Templates.
 */
 TML.add("minilogin", function (_tml) {
-    function p(b) {
+    function _get_minilogin_dialog(b) {
         function _set_center() {
             var _documentElement = document.documentElement;
             _div.style.top = _documentElement.offsetHeight / 2 + _documentElement.scrollTop + "px"
@@ -112,7 +112,7 @@ TML.add("minilogin", function (_tml) {
         if (_dom_div_id_tml_mLogin)
             _kissy.get("iframe", _dom_div_id_tml_mLogin).src = _show_url;
         else
-            _dom_div_id_tml_mLogin = p(_show_url);
+            _dom_div_id_tml_mLogin = _get_minilogin_dialog(_show_url);
         _dom_div_id_tml_mLogin.style.display = ""
     }, config: function (b) {
         if (b && b.proxyUrl && b.proxyUrl.indexOf(".tmall.") == -1)
