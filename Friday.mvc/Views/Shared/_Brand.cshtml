@@ -2,16 +2,70 @@
     <h2>
         Hi，<span class="j_UserName">你好</span>！你可能感兴趣的品牌：</h2>
     <div class="brandMain" id="J_BrandAd">
-        <div class="brandAd">
+         @{
+             var rnd = new Random();
+             var divisions_raw = new List<int> { 0, 1, 2, 3, 4 };
+             var divisions = new List<int>();
+             var division_count = 0;
+             while (division_count <= 2)
+             {
+                 var i = rnd.Next(divisions_raw.Count);
+@*                 @Html.Raw("count is" + divisions_raw.Count);
+                 @Html.Raw("i is"+i.ToString()); *@
+                 divisions.Add(divisions_raw.ElementAt(i));
+@*                 @Html.Raw(divisions_raw.IndexOf(i));*@
+                 divisions_raw.Remove(divisions_raw.ElementAt(i));
+                 division_count++;
+             }
+             var brand_template = "<a class=\"brandAd-{0}\" target=\"_blank\"><img/><p></p><p></p><span class=\"mark  j_CollectBrand\"><s></s></span></a>";
+             var b_brand = string.Format(brand_template, "b");
+             var s_brand = string.Format(brand_template, "s");
+          
+         }
+         @for (var index = 0; index <= 4; index++)
+         {
+             var snippet = string.Empty;
+             if (index == 4)
+             {
+               @:<div class="brandAd lastBrandAd">
+             }
+             else
+             {
+               @:<div class="brandAd">
+             }
+             if (divisions.Contains(index))
+             {
+                 var count = 2;
+                 var position = rnd.Next(count);
+                 for (var i = 0; i < count; i++)
+                 {
+                     if (i == position)
+                     {
+                         snippet += b_brand;
+                     }
+                     else
+                     {
+                         snippet += s_brand;
+                     }
+                 }
+             }
+             else
+             {
+                 snippet += s_brand + s_brand + s_brand;
+             }  
+             @Html.Raw(snippet)                  
+             @:</div>
+         }
+       @* <div class="brandAd">
             <a class="brandAd-b" target="_blank">
-                <img>
+                <img/>
                 <p>
                 </p>
                 <p>
                 </p>
                 <span class="mark  j_CollectBrand"><s></s></span></a><a class="brandAd-s"
                     target="_blank">
-                    <img>
+                    <img/>
                     <p>
                     </p>
                     <p>
@@ -20,14 +74,14 @@
         </div>
         <div class="brandAd">
             <a class="brandAd-s" target="_blank">
-                <img>
+                <img/>
                 <p>
                 </p>
                 <p>
                 </p>
                 <span class="mark  j_CollectBrand"><s></s><b style="width: 10px; opacity: 0;">
                     您已关注该品牌</b> </span></a><a class="brandAd-b" target="_blank">
-                        <img>
+                        <img/>
                         <p>
                         </p>
                         <p>
@@ -36,21 +90,21 @@
         </div>
         <div class="brandAd">
             <a class="brandAd-s" target="_blank">
-                <img>
+                <img/>
                 <p>
                 </p>
                 <p>
                 </p>
                 <span class="mark  j_CollectBrand"><s></s><b style="width: 10px; opacity: 0;">
                     您已关注该品牌</b> </span></a><a class="brandAd-s" target="_blank">
-                        <img>
+                        <img/>
                         <p>
                         </p>
                         <p>
                         </p>
                         <span class="mark  j_CollectBrand"><s></s><b style="width: 10px; opacity: 0;">
                             您已关注该品牌</b> </span></a><a class="brandAd-s" target="_blank">
-                                <img>
+                                <img/>
                                 <p>
                                 </p>
                                 <p>
@@ -60,20 +114,20 @@
         </div>
         <div class="brandAd">
             <a class="brandAd-s" target="_blank">
-                <img>
+                <img/>
                 <p>
                 </p>
                 <p>
                 </p>
                 <span class="mark  j_CollectBrand"><s></s><b style="width: 10px; opacity: 0;">
                     您已关注该品牌</b> </span></a><a class="brandAd-s" target="_blank">
-                        <img>
+                        <img/>
                         <p>
                         </p>
                         <p>
                         </p>
                         <span class="mark  j_CollectBrand"><s></s></span></a><a class="brandAd-s" target="_blank">
-                            <img>
+                            <img/>
                             <p>
                             </p>
                             <p>
@@ -83,19 +137,19 @@
         </div>
         <div class="brandAd lastBrandAd">
             <a class="brandAd-b" target="_blank">
-                <img>
+                <img/>
                 <p>
                 </p>
                 <p>
                 </p>
                 <span class="mark  j_CollectBrand"><s></s><b>关注</b></span> </a><a class="brandAd-s" target="_blank">
-                    <img>
+                    <img/>
                     <p>
                     </p>
                     <p>
                     </p>
                     <span class="mark  j_CollectBrand"><s></s><b>关注</b></span> </a>
-        </div>
+        </div>*@
         <div class="brandRight">
             <s class="brandShadow"></s>
             <div class="J_DirectPromo" id="J_DirectPromo_430" data-resid="430">
