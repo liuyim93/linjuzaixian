@@ -28,7 +28,7 @@ namespace Friday.Test2
             scope.Dispose();
         }
         [Test]
-        public void Test_ValuingOfMyCommodityOrder()
+        public void Test()
         {
 
             IShopRepository iShopRepository = UnityHelper.UnityToT<IShopRepository>();

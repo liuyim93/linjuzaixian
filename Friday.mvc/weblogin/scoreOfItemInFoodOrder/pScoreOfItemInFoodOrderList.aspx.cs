@@ -66,22 +66,22 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
         private void DeleteScoreOfItemInFoodOrder()
         {
 
-            scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderService.Load(Request.Params["uid"]);
+            //scoreOfItemInFoodOrder = iScoreOfItemInFoodOrderService.Load(Request.Params["uid"]);
 
-            iScoreOfItemInFoodOrderRepository.Delete(Request.Params["uid"]);
+            //iScoreOfItemInFoodOrderRepository.Delete(Request.Params["uid"]);
 
-            iValuingOfMyFoodOrderService.Update(valuingOfMyFoodOrder);
-            iScoreOfItemInFoodOrderService.Delete(Request.Params["uid"]);
+            //iValuingOfMyFoodOrderService.Update(valuingOfMyFoodOrder);
+            //iScoreOfItemInFoodOrderService.Delete(Request.Params["uid"]);
 
-            valuingOfMyFoodOrder.AverageScore = Sum / count;
+            //valuingOfMyFoodOrder.AverageScore = Sum / count;
 
-            AjaxResult result = new AjaxResult();
-            result.statusCode = "200";
-            result.message = "操作成功";
-            FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = result;
-            Response.Write(jsonResult.FormatResult());
-            Response.End();
+            //AjaxResult result = new AjaxResult();
+            //result.statusCode = "200";
+            //result.message = "操作成功";
+            //FormatJsonResult jsonResult = new FormatJsonResult();
+            //jsonResult.Data = result;
+            //Response.Write(jsonResult.FormatResult());
+            //Response.End();
         }
         private void SearchScoreOfItemInFoodOrder()
         {

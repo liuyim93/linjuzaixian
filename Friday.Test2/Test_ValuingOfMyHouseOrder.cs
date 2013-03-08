@@ -28,7 +28,7 @@ namespace Friday.Test2
             scope.Dispose();
         }
         [Test]
-        public void Test_ValuingOfMyHouseOrder()
+        public void Test()
         {
 
             IRentRepository iRentRepository = UnityHelper.UnityToT<IRentRepository>();

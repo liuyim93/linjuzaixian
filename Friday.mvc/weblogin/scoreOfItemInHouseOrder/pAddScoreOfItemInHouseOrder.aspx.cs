@@ -43,31 +43,31 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
 
         private void SaveScoreOfItemInHouseOrder()
         {
-            AjaxResult result = new AjaxResult();
-            FormatJsonResult jsonResult = new FormatJsonResult();
+            //AjaxResult result = new AjaxResult();
+            //FormatJsonResult jsonResult = new FormatJsonResult();
 
-            scoreOfItemInHouseOrder = new ScoreOfItemInHouseOrder();
-            BindingHelper.RequestToObject(scoreOfItemInHouseOrder);
-            scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderService.Load(ItemID.Value);
-            scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = iValuingOfMyHouseOrderService.Load(Request.Params["valuingOfMyHouseOrder_id"]);
-            scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = valuingOfMyHouseOrder;
+            //scoreOfItemInHouseOrder = new ScoreOfItemInHouseOrder();
+            //BindingHelper.RequestToObject(scoreOfItemInHouseOrder);
+            //scoreOfItemInHouseOrder.ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderService.Load(ItemID.Value);
+            //scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = iValuingOfMyHouseOrderService.Load(Request.Params["valuingOfMyHouseOrder_id"]);
+            //scoreOfItemInHouseOrder.ValuingOfMyHouseOrder = valuingOfMyHouseOrder;
 
-            iScoreOfItemInHouseOrderService.Save(scoreOfItemInHouseOrder);
+            //iScoreOfItemInHouseOrderService.Save(scoreOfItemInHouseOrder);
 
 
-            int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
-            double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);
+            //int count = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersCount(Request.Params["valuingOfMyHouseOrder_id"]);
+            //double Sum = iScoreOfItemInHouseOrderRepository.GetScoreOfItemInHouseOrdersSum(Request.Params["valuingOfMyHouseOrder_id"]);
 
-            valuingOfMyHouseOrder.AverageScore = Sum / count;
-            iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
+            //valuingOfMyHouseOrder.AverageScore = Sum / count;
+            //iValuingOfMyHouseOrderRepository.SaveOrUpdate(valuingOfMyHouseOrder);
 
-            result.statusCode = "200";
-            result.message = "添加成功";
-            result.navTabId = "referer";
-            result.callbackType = "closeCurrent";
-            jsonResult.Data = result;
-            Response.Write(jsonResult.FormatResult());
-            Response.End();
+            //result.statusCode = "200";
+            //result.message = "添加成功";
+            //result.navTabId = "referer";
+            //result.callbackType = "closeCurrent";
+            //jsonResult.Data = result;
+            //Response.Write(jsonResult.FormatResult());
+            //Response.End();
 
         }
 
