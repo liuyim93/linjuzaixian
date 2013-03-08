@@ -8,6 +8,7 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.services;
+using friday.core.domain;
 
 namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
 {
@@ -22,6 +23,18 @@ namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.租房模块.租房订单评价管理.TagName;
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有ValuingOfMyHouseOrder浏览权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+
             string MyHouseOrderId = Request.Params["MyHouseOrderId"].ToString();
             myHouseOrder = iMyHouseOrderService.Load(MyHouseOrderId);
 

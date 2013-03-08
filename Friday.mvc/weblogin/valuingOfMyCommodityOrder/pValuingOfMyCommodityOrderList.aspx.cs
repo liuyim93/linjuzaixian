@@ -33,6 +33,19 @@ namespace Friday.mvc.weblogin.valuingOfMyCommodityOrder
 
             if (Request.Params["flag"] == "alldelete")
             {
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.商店模块.商店订单评价管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有ValuingOfMyCommodityOrder删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+
                 DeleteValuingOfMyCommodityOrder();
             }
             else

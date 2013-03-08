@@ -24,6 +24,11 @@ namespace Friday.mvc.weblogin.valuingOfMyHouseOrder
         {
 
             string uid = Request.Params["uid"].ToString();
+
+            this.tagName = systemFunctionObjectService.租房模块.租房订单评价管理.TagName;
+            this.PermissionCheck(PermissionTag.Edit);
+
+
             valuingOfMyHouseOrder = iValuingOfMyHouseOrderService.Load(uid);
             myHouseOrder = valuingOfMyHouseOrder.MyHouseOrder;
 

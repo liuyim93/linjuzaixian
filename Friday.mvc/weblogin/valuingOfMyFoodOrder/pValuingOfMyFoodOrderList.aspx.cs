@@ -33,6 +33,20 @@ namespace Friday.mvc.weblogin.valuingOfMyFoodOrder
 
             if (Request.Params["flag"] == "alldelete")
             {
+
+                AjaxResult result = new AjaxResult();
+                FormatJsonResult jsonResult = new FormatJsonResult();
+
+                tagName = systemFunctionObjectService.餐馆模块.餐馆订单评价管理.TagName;
+                if (!this.PermissionValidate(PermissionTag.Delete))
+                {
+                    result.statusCode = "300";
+                    result.message = "没有ValuingOfMyFoodOrder删除权限";
+                    jsonResult.Data = result;
+                    Response.Write(jsonResult.FormatResult());
+                    Response.End();
+                }
+
                 DeleteValuingOfMyFoodOrder();
             }
             else
