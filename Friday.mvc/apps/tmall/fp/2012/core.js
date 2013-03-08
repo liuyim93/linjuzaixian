@@ -403,49 +403,50 @@ TB.add("mod~global", function() {
         var _tb_global = TB.Global;
         _tb_global.loginStatusReady(function(_user_info) {
             var _loginserver = _options.loginServer;
-            var r = window.location.href;
-            if (/^http.*(\/member\/login\.jhtml)$/i.test(r)) {
-                r = ""
+            var _url_redirect = window.location.href;
+            /*2013-03-09 basilwang if member or login , we don't need redirect*/
+            if (/^http.*(\/member\/login\.jhtml)$/i.test(_url_redirect)) {
+                _url_redirect = ""
             }
-            var q = _options.redirectUrl || r;
-            if (q) {
-                _loginserver += "?redirect_url=" + encodeURIComponent(q)
+            var _real_url_redirect = _options.redirectUrl || _url_redirect;
+            if (_real_url_redirect) {
+                _loginserver += "?redirect_url=" + encodeURIComponent(_real_url_redirect)
             }
-            var y = _options.spaceServer;
-            var s = _options.registerServer;
-            var v = _options.logoutServer + "?f=top&redirectURL=http://login.tmall.com/?redirect_url=" + encodeURIComponent("" + encodeURIComponent(q));
+            var _spaceserver = _options.spaceServer;
+            var _registerserver = _options.registerServer;
+            var _logoutserver = _options.logoutServer + "?f=top&redirectURL=http://login.tmall.com/?redirect_url=" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect));
             if (TB.environment.isDaily) {
-                _loginserver = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(q);
-                y = "http://jianghu.daily.taobao.net/admin/home.htm";
-                s += "?isDaily=1";
-                v = "http://login.daily.taobao.net/member/logout.jhtml?f=top&redirectURL=http://login.daily.taobao.net/member/login.jhtml?redirect_url%3D" + encodeURIComponent("" + encodeURIComponent(q))
+                _loginserver = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(_real_url_redirect);
+                _spaceserver = "http://jianghu.daily.taobao.net/admin/home.htm";
+                _registerserver += "?isDaily=1";
+                _logoutserver = "http://login.daily.taobao.net/member/logout.jhtml?f=top&redirectURL=http://login.daily.taobao.net/member/login.jhtml?redirect_url%3D" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect))
             }
-            y += "?t=" + _kissy.now();
+            _spaceserver += "?t=" + _kissy.now();
             var _dom_id_login_info = document.getElementById("login-info");
             if (!_dom_id_login_info) {
                 return
             }
             var _user_info_snippet = "";
             if (_user_info.isLogin) {
-                _user_info_snippet = 'HI,<a target="_top" href="' + y + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href="http://jifen.tmall.com/?from=top&scm=1027.1.1.4">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="http://vip.tmall.com/vip/message_box.htm?from=messagebox&scm=1027.1.1.5" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + v + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
+                _user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href="http://jifen.tmall.com/?from=top&scm=1027.1.1.4">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="http://vip.tmall.com/vip/message_box.htm?from=messagebox&scm=1027.1.1.5" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
                 _dom_id_login_info.innerHTML = _user_info_snippet;
                 if (_is_ie6) {
-                    var x = _findChildElementByClassName("j_UserNick", _div_named_site_nav);
-                    if (x.offsetWidth > 90) {
-                        x.style.width = 90
+                    var _elem = _findChildElementByClassName("j_UserNick", _div_named_site_nav);
+                    if (_elem.offsetWidth > 90) {
+                        _elem.style.width = 90
                     }
                 }
                 _tb_global.memberInfoReady(function(AK) {
-                    var AI = AK.memberInfo;
-                    if (!AI || !AI.login) {
+                    var _memberInfo = AK.memberInfo;
+                    if (!_memberInfo || !_memberInfo.login) {
                         return
                     }
-                    if (AI.activeStatus != -99) {
+                    if (_memberInfo.activeStatus != -99) {
                         var AE = _findChildElementByClassName("j_Identity", _div_named_site_nav);
-                        if (AI.activeStatus >= 1) {
-                            _addClassName(AE, "sn-vip" + AI.activeStatus);
+                        if (_memberInfo.activeStatus >= 1) {
+                            _addClassName(AE, "sn-vip" + _memberInfo.activeStatus);
                             AE.href = "http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2";
-                            AE.title = "_getOffsetTotal" + AI.activeStatus + "\u5929\u732b\u8fbe\u4eba"
+                            AE.title = "_getOffsetTotal" + _memberInfo.activeStatus + "\u5929\u732b\u8fbe\u4eba"
                         } else {
                             _addClassName(AE, "sn-vip-unactivated");
                             AE.href = "http://vip.tmall.com/vip/index.htm?layer=activation&from=top&scm=1027.1.1.3";
@@ -453,32 +454,32 @@ TB.add("mod~global", function() {
                         }
                         _removeClassName(AE, "hidden")
                     }
-                    if (AI.availablePoints != -99) {
+                    if (_memberInfo.availablePoints != -99) {
                         var AJ = _findChildElementByClassName("j_PointValue", _div_named_site_nav);
-                        AJ.innerHTML = AD(AI.availablePoints);
+                        AJ.innerHTML = AD(_memberInfo.availablePoints);
                         var AH = _findChildElementByClassName("j_Point", _div_named_site_nav);
                         _removeClassName(AH, "hidden")
                     }
-                    if (AI.newMessage > 0 && AI.lastMessage && AI.lastMessageUrl) {
-                        _findChildElementByClassName("j_MessageText", _div_named_site_nav).href = AI.lastMessageUrl + "&spm=2001.1.6.1";
-                        _findChildElementByClassName("j_MessageNum", _div_named_site_nav).href = AI.lastMessageUrl + "&spm=2001.1.6.1"
+                    if (_memberInfo.newMessage > 0 && _memberInfo.lastMessage && _memberInfo.lastMessageUrl) {
+                        _findChildElementByClassName("j_MessageText", _div_named_site_nav).href = _memberInfo.lastMessageUrl + "&spm=2001.1.6.1";
+                        _findChildElementByClassName("j_MessageNum", _div_named_site_nav).href = _memberInfo.lastMessageUrl + "&spm=2001.1.6.1"
                     }
-                    if ((AI.newMessage || AI.newMessage == 0) && AI.newMessage != -99) {
+                    if ((_memberInfo.newMessage || _memberInfo.newMessage == 0) && _memberInfo.newMessage != -99) {
                         var AF = _findChildElementByClassName("j_MessageNum", _div_named_site_nav);
-                        if (AI.newMessage <= 99) {
-                            AF.innerHTML = AI.newMessage
+                        if (_memberInfo.newMessage <= 99) {
+                            AF.innerHTML = _memberInfo.newMessage
                         } else {
                             AF.innerHTML = "99+"
                         }
                         var AA = _findChildElementByClassName("j_Message", _div_named_site_nav);
                         _removeClassName(AA, "hidden")
                     }
-                    if (AI.newMessage > 0 && AI.messagePopup && AI.lastMessage) {
+                    if (_memberInfo.newMessage > 0 && _memberInfo.messagePopup && _memberInfo.lastMessage) {
                         var AC = _findChildElementByClassName("j_MesssageBox", _div_named_site_nav);
                         var AB = _findChildElementByClassName("j_MessageTitle", _div_named_site_nav);
                         var AG = _findChildElementByClassName("j_CloseMessage", _div_named_site_nav);
-                        AB.innerHTML = AI.lastMessage;
-                        AB.href = AI.lastMessageUrl;
+                        AB.innerHTML = _memberInfo.lastMessage;
+                        AB.href = _memberInfo.lastMessageUrl;
                         _addEventCombo(AG, "click", function(AM) {
                             var AL = "http://tmm.taobao.com/member/close_message_popup.do";
                             if (TB.environment.isDaily) {
@@ -490,8 +491,8 @@ TB.add("mod~global", function() {
                             };
                             _kissy.getScript(AL)
                         });
-                        if (AI.taskId) {
-                            h("http://log.mmstat.com/messagebox.1.1?taskid=" + AI.taskId)
+                        if (_memberInfo.taskId) {
+                            h("http://log.mmstat.com/messagebox.1.1?taskid=" + _memberInfo.taskId)
                         }
                         _removeClassName(AC, "hidden")
                     }
@@ -542,7 +543,7 @@ TB.add("mod~global", function() {
                 });
                 _tb_global._initMemberInfo()
             } else {
-                _user_info_snippet = '欢迎来邻居网<a class="sn-login" href="' + _loginserver + '" target="_top">请登录</a><a class="sn-register" href="' + s + '" target="_top">免费注册</a><i class="sn-separator"></i>';
+                _user_info_snippet = '欢迎来邻居网<a class="sn-login" href="' + _loginserver + '" target="_top">请登录</a><a class="sn-register" href="' + _registerserver + '" target="_top">免费注册</a><i class="sn-separator"></i>';
                 _dom_id_login_info.innerHTML = _user_info_snippet;
                 _tb_global._fireMemberInfoReadyFnList()
             }
@@ -870,15 +871,15 @@ TB.add("mod~global", function() {
         S && S.preventDefault && S.preventDefault();
         _kissy.DOM.css(this.popup, "display", "none")
     },showPopup: function() {
-        var S = new Date();
-        S.setDate(S.getDate() - 1);
-        document.cookie = "cookie2=;expires=" + S.toGMTString() + ";path=/;domain=.tmall.com";
+        var _date = new Date();
+        _date.setDate(_date.getDate() - 1);
+        document.cookie = "cookie2=;expires=" + _date.toGMTString() + ";path=/;domain=.tmall.com";
         this._centerPopup();
         _kissy.DOM.css(this.popup, "display", "block")
     },_centerPopup: function() {
-        var S = (_kissy.DOM.viewportHeight() - parseInt(_kissy.DOM.css(this.popup, "height"), 10)) / 2;
-        S = S < 0 ? 0 : S;
-        _kissy.DOM.css(this.popup, "top", S)
+        var _top = (_kissy.DOM.viewportHeight() - parseInt(_kissy.DOM.css(this.popup, "height"), 10)) / 2;
+        _top = _top < 0 ? 0 : _top;
+        _kissy.DOM.css(this.popup, "top", _top)
     },_addStyleSheetOnce: function() {
         if (!this._stylesheetAdded) {
             _kissy.DOM.addStyleSheet("#g-cartlogin{position:fixed;_position:absolute;border:1px solid #aaa;left:50%;top:120px;margin-left:-206px;width:412px;height:272px;z-index:90010;background:#fafafa;-moz-box-shadow:rgba(0,0,0,0.2) 3px 3px 3px;-webkit-box-shadow:3px 3px 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3,OffY=3,Color=#16000000,Positive=true);} #g_minicart_login_close{position:absolute;right:5px;top:5px;width:17px;height:17px;background:url(images/194-382.png) no-repeat -100px -69px;text-indent:-999em;overflow:hidden;}#g-cartlogin-close{cursor:pointer;position:absolute;right:5px;top:5px;width:17px;height:17px;line-height:0;overflow:hidden;background:url(images/146-77.png) no-repeat -132px 0;text-indent:-999em;}");
