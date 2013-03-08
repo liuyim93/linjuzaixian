@@ -26,6 +26,8 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                this.tagName = systemFunctionObjectService.商店模块.商品评价项评分管理.TagName;
+                this.PermissionCheck(PermissionTag.Edit);
 
                 SaveScoreOfItemInCommodityOrder();
             }
