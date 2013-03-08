@@ -48,37 +48,47 @@ namespace Friday.mvc.weblogin.activity
             string fileoldName = "";
             string fileExtension;
             string filesnewName = "";
+            string[] fileInput = { "Image", "SubImage" };
             Random R = new Random();//创建产生随机数
             HttpFileCollection files = HttpContext.Current.Request.Files;
             try
             {
-                for (int iFile = 0; iFile < files.Count; iFile++)
+                for (int num = 0; num < fileInput.Length; num++)
                 {
-                    HttpPostedFile postedFile = files[iFile];
-                    fileoldName = System.IO.Path.GetFileName(postedFile.FileName);
-                    if (!string.IsNullOrEmpty(fileoldName))
+                    HttpPostedFile postedFile = files[fileInput[num]];
+                    if (postedFile != null)
                     {
-                        fileExtension = System.IO.Path.GetExtension(fileoldName).ToLower();
-
-                        int val = 10 + R.Next(999);//产生随机数为99以内任意
-                        int val1 = 10 + R.Next(999);//产生随机数为999以内任意
-                        filesnewName = DateTime.Now.ToString("yyyyMMddHHmmss") + val.ToString() + val1.ToString() + fileExtension;
-                        if (!string.IsNullOrEmpty(filesnewName))
+                        fileoldName = System.IO.Path.GetFileName(postedFile.FileName);
+                        if (!string.IsNullOrEmpty(fileoldName))
                         {
-                            File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+                            fileExtension = System.IO.Path.GetExtension(fileoldName).ToLower();
+
+                            int val = 10 + R.Next(999);//产生随机数为99以内任意
+                            int val1 = 10 + R.Next(999);//产生随机数为999以内任意
+                            filesnewName = DateTime.Now.ToString("yyyyMMddHHmmss") + val.ToString() + val1.ToString() + fileExtension;
+                            if (!string.IsNullOrEmpty(filesnewName))
+                            {
+                                File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+                            }
+                            postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
                         }
-                        postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
+
+                        if (fileInput[num] == "Image")
+                        {
+                            act.Image = "/uploadimage/" + filesnewName;
+                            this.ImagePreview.Src = act.Image;
+                        }
+
+                        if (fileInput[num] == "SubImage")
+                        {
+                            act.SubImage = "/uploadimage/" + filesnewName;
+                            this.SubImagePreview.Src = act.SubImage;
+                        }
                     }
                 }
             }
             catch (System.Exception Ex)
             {
-            }
-            if (!string.IsNullOrEmpty(filesnewName))
-            {
-                
-                act.Image = "/uploadimage/" + filesnewName;
-                this.ImagePreview.Src = act.Image;
             }
             
 

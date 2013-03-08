@@ -125,11 +125,13 @@
     <Compile Include="Test_RentStatistic.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="uploadImage\activityImage\jpeg5.jpg" />
     <Content Include="uploadImage\activityImage\jpeg1.jpg" />
     <Content Include="uploadImage\activityImage\jpeg2.jpg" />
     <Content Include="uploadImage\activityImage\jpeg3.jpg" />
     <Content Include="uploadImage\activityImage\jpeg4.jpg" />
+    <Content Include="uploadImage\activityImage\jpeg5.jpg" />
+    <Content Include="uploadImage\activityImage\Sbujpeg4.png" />
+    <Content Include="uploadImage\activityImage\SubJpeg2.png" />
     <None Include="App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>

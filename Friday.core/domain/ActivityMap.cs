@@ -18,6 +18,7 @@ namespace friday.core.domain
             Map(o=>o.Name);
             Map(o=>o.Matters);
             Map(o=>o.Image);
+            Map(o => o.SubImage).Default("");
             Map(o=>o.Description);
         }
     }

@@ -29,27 +29,31 @@ namespace Friday.Test2
                   Name="甜美公主风",
                   Matters="10",
                   Description = "甜美公主风",
-                  Image = "/uploadimage/jpeg1.jpg"
+                  Image = "/uploadimage/jpeg1.jpg",
+                  SubImage=""
 
             };
             iActivitys.Add(act1);
 
             Activity act2 = new Activity()
             {
-                Name = "相宜本草最红女生节",
+                Name = "数码家电风暴",
                 Matters = "10",
-                Description = "相宜本草最红女生节",
-                Image = "/uploadimage/jpeg2.jpg"
+                Description = "数码家电风暴",
+                Image = "/uploadimage/jpeg2.jpg",
+                SubImage = "/uploadimage/SubJpeg2.png"
+
             };
+
             iActivitys.Add(act2);
 
             Activity act3 = new Activity()
             {
-                Name = "数码家电风暴",
+                Name = "相宜本草最红女生节",
                 Matters = "10",
-                Description = "数码家电风暴",
-                Image = "/uploadimage/jpeg3.jpg"
-
+                Description = "相宜本草最红女生节",
+                Image = "/uploadimage/jpeg3.jpg",
+                SubImage = ""
             };
             iActivitys.Add(act3);
 
@@ -58,7 +62,8 @@ namespace Friday.Test2
                 Name = "2013最浪漫情人节",
                 Matters = "10",
                 Description = "2013最浪漫情人节",
-                Image = "/uploadimage/jpeg4.jpg"
+                Image = "/uploadimage/jpeg4.jpg",
+                SubImage = "/uploadimage/SubJpeg4.png"
 
             };
             iActivitys.Add(act4);
@@ -68,8 +73,8 @@ namespace Friday.Test2
                 Name = "爱在一起，全民来电",
                 Matters = "10",
                 Description = "爱在一起，全民来电",
-                Image = "/uploadimage/jpeg5.jpg"
-
+                Image = "/uploadimage/jpeg5.jpg",
+                SubImage = ""
             };
             iActivitys.Add(act5);
 
