@@ -60,6 +60,20 @@ namespace friday.core
             set;
 
         }
+        public virtual string sBrand
+        {
+            get;
+
+            set;
+
+        }
+        public virtual string bBrand
+        {
+            get;
+
+            set;
+
+        }
         public virtual string Bulletins
         {
             get;

@@ -24,6 +24,8 @@ namespace friday.core.domain
             Map(o => o.ShortName);
             Map(o => o.Owener);
             Map(o => o.Logo);
+            Map(o => o.sBrand);
+            Map(o => o.bBrand);
             Map(o => o.Bulletins);
             Map(o => o.Address);
             Map(o => o.Tel);
