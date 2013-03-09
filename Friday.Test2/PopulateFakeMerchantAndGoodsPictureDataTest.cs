@@ -58,7 +58,7 @@ namespace Friday.Test2
                 Commodity commodity = new Commodity()
                 {
                     Name = commodityName[i],
-                    Image = "/uploadimage/c" + i+1 + "jpg",
+                    Image = "/uploadimage/c" + (i+1) + ".jpg",
                     Shop = mcht,
                     MerchantGoodsType = merchantGoodsType
                 };
@@ -88,7 +88,7 @@ namespace Friday.Test2
                     House house = new House()
                     {
                         Name = houseName[i],
-                        Image = "/uploadimage/h" + i + 1 + "jpg",
+                        Image = "/uploadimage/h" + (i + 1) + ".jpg",
                         Rent = mcht,
                         MerchantGoodsType = merchantGoodsType,
                         TimeOfRentFrom = DateTime.Now,
@@ -121,7 +121,7 @@ namespace Friday.Test2
                     Food food = new Food()
                     {
                         Name = foodName[i],
-                        Image = "/uploadimage/f" + i + 1 + "jpg",
+                        Image = "/uploadimage/f" + (i + 1) + ".jpg",
                         Restaurant = mcht,
                         MerchantGoodsType = merchantGoodsType
                     };
@@ -132,6 +132,20 @@ namespace Friday.Test2
             //检查是否存在目的目录
             string filePath = System.AppDomain.CurrentDomain.BaseDirectory;
             int strLength = filePath.Length;
+
+            if (Directory.Exists(filePath.Substring(0, strLength - 10) + @"\uploadImage\merchantPic"))
+            {
+                if (!Directory.Exists(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\uploadimage"))
+                    Directory.CreateDirectory(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\uploadimage");
+
+                //先来移动文件
+                DirectoryInfo info = new DirectoryInfo(filePath.Substring(0, strLength - 10) + @"\uploadImage\merchantPic");
+                FileInfo[] files = info.GetFiles();
+                foreach (FileInfo file in files)
+                {
+                    File.Copy(Path.Combine(filePath.Substring(0, strLength - 10) + @"\uploadImage\merchantPic", file.Name), Path.Combine(filePath.Substring(0, strLength - 22) + @"\Friday.mvc\uploadimage", file.Name), true); //复制文件
+                }
+            }
 
             if (Directory.Exists(filePath.Substring(0, strLength - 10) + @"\uploadImage\commodityPic"))
             {

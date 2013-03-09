@@ -64,19 +64,13 @@
                 </div>
                 <div class="floorCon-slide j_SlideBanner">
                     <ul class="fCs-con" style="position: absolute; width: 999999px; left: -400px;">
-                        <li class="ks-switchable-panel-internal204" style="display: block; float: left;"><a
-                            href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.9&amp;cat=50029230&amp;acm=08223.1003.1.50029230_6&amp;scm=1003.3.08223.1"
-                            target="_blank" title="肌肤细滑紧致的美感">
-                            <img src="http://img01.taobaocdn.com/tps/i1/T11LdBXqtaXXad1GY4-200-320.jpg_q90.jpg"
-                                width="200" height="320" alt="肌肤细滑紧致的美感"></a></li>
-                        <li class="ks-switchable-panel-internal204" style="display: block; float: left;"><a
-                            href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.10&amp;start_price=&amp;end_price=&amp;post_fee=-1&amp;zk_type=0&amp;search_condition=16&amp;cat=50103163&amp;sort=s&amp;style=g&amp;vmarket=0&amp;active=1&amp;q="
-                            target="_blank" title="爱自己的女人更美丽">
-                            <img width="200" height="320" alt="爱自己的女人更美丽" src="http://img03.taobaocdn.com/tps/i3/T1UJtBXuBbXXad1GY4-200-320.jpg_q90.jpg"></a></li>
-                        <li class="ks-switchable-panel-internal204" style="display: block; float: left;"><a
-                            href="http://www.tmall.com/go/act/sale/sanba2013.php?spm=3.359242.295813.11&amp;ad_id=&amp;am_id=1301048823679b00c3b1&amp;cm_id=&amp;pm_id#f4"
-                            target="_blank" title="最华丽女人节6折起！">
-                            <img width="200" height="320" alt="最华丽女人节6折起！" src="http://img02.taobaocdn.com/tps/i2/T1cBNxXq4gXXad1GY4-200-320.jpg_q90.jpg"></a></li>
+                            @for (var index = 0; index < (Model.Commoditys.Count() > 3 ? 3 : Model.Commoditys.Count()); index++)
+                            {
+                                var item = Model.Commoditys.ElementAt(index);
+                                <li class="ks-switchable-panel-internal204" style="display: block; float: left;">
+                                <a href="http://list.tmall.com?id=@item.Id" target="_blank" title="@item.Name">
+                                <img src="@item.Image"></a></li>
+                            }
                     </ul>
                     <ul class="fCs-nav fCs-nav-num3">
                         <li class="fCs-nav1 ks-switchable-trigger-internal203" style="left: 220px;"><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.12&amp;cat=50029230&amp;acm=08223.1003.1.50029230_6&amp;scm=1003.3.08223.1"
@@ -144,7 +138,7 @@
 </textarea>
 </div>
 <div class="floor-loading" id="floorLink2">
- <textarea class="floor-area ks-datalazyload">
+    <textarea class="floor-area ks-datalazyload">
     <div>
         <div class="floor" id="floor2" data-spm="3.359253.295827">
             <h2>
@@ -261,9 +255,8 @@
 </script>
  </textarea>
 </div>
-
 <div class="floor-loading" id="floorLink3">
- <textarea class="floor-area ks-datalazyload">
+    <textarea class="floor-area ks-datalazyload">
     <div>
         <div class="floor" id="floor3" data-spm="3.359254.295828">
             <h2>
@@ -375,4 +368,3 @@
 </script>
  </textarea>
 </div>
-

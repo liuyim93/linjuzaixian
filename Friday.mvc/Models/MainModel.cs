@@ -17,5 +17,8 @@ namespace Friday.mvc.Models
         public IEnumerable<Merchant> Restaurants { get; set; }
 
         public IEnumerable<Activity> Activities { get; set; }
+        public IEnumerable<Food> Foods { get; set; }
+        public IEnumerable<House> Houses { get; set; }
+        public IEnumerable<Commodity> Commoditys { get; set; }
     }
 }
