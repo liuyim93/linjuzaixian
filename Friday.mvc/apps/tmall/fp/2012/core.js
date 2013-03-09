@@ -222,16 +222,17 @@ TB.add("mod~global", function() {
             }
         }
     },initLogout: function() {
-        var S = _document.getElementById("#J_Logout");
-        if (!S) {
+        var _dom_id_J_Logout = _document.getElementById("#J_Logout");
+        if (!_dom_id_J_Logout) {
             return
         }
-        _addEventCombo(S, "click", function(p) {
-            p.halt();
-            var i = S.href;
+        _addEventCombo(_dom_id_J_Logout, "click", function(_event) {
+            _event.halt();
+            var _logout_url = _dom_id_J_Logout.href;
+            /*2013-03-09 basilwang what does this main?*/
             new Image().src = "//taobao.alipay.com/user/logout.htm";
             setTimeout(function() {
-                location.href = i
+                location.href = _logout_url
             }, 20)
         })
     },test: function() {
@@ -592,16 +593,16 @@ TB.add("mod~global", function() {
         }
     },_initMemberInfo: function() {
         var _tb_global = TB.Global;
-        var i = "http://tmm.taobao.com/member/query_member_top.do";
+        var _member_url = "http://tmm.taobao.com/member/query_member_top.do";
         if (TB.environment.isDaily) {
-            i = "http://tmm.daily.taobao.net/member/query_member_top.do"
+            _member_url = "http://tmm.daily.taobao.net/member/query_member_top.do"
         }
-        i += "?callback=_initMemberInfoCallback&t=" + _kissy.now();
+        _member_url += "?callback=_initMemberInfoCallback&t=" + _kissy.now();
         window._initMemberInfoCallback = function(p) {
             TB.userInfo.memberInfo = p;
             _tb_global._fireMemberInfoReadyFnList()
         };
-        _kissy.getScript(i)
+        _kissy.getScript(_member_url)
     },memberInfoReady: function(_fn_member_info_ready) {
         if (TB._isMemberInfoReady) {
             _fn_member_info_ready.call(window, TB.userInfo)
@@ -616,8 +617,8 @@ TB.add("mod~global", function() {
         }
         TB._isMemberInfoReady = true;
         if (TB._memberInfoReadyFnList) {
-            for (var S = 0; S < TB._memberInfoReadyFnList.length; S++) {
-                TB._memberInfoReadyFnList[S].call(window, TB.userInfo)
+            for (var _index = 0; _index < TB._memberInfoReadyFnList.length; _index++) {
+                TB._memberInfoReadyFnList[_index].call(window, TB.userInfo)
             }
         }
     },_addMenu: function(_div_named_sn_menu) {
@@ -720,14 +721,14 @@ TB.add("mod~global", function() {
     },getCartElem: function() {
         return _div_named_site_nav && _findChildElementsByClassNameAndType("cart", "li", _div_named_site_nav)[0]
     },miniBag: function() {
-        TB.Global.loginStatusReady(function(S) {
+        TB.Global.loginStatusReady(function(_userinfo) {
             var i = _kissy.unparam(_get_user_cookie_value("cq"));
-            if (!S.isLogin) {
+            if (!_userinfo.isLogin) {
                 i.ccp = "1";
                 R("cq", _kissy.param(i), 365);
                 TB.Global.initMiniBag()
             } else {
-                if (S.isLogin && i && i.ccp === "1") {
+                if (_userinfo.isLogin && i && i.ccp === "1") {
                     window._syncCallback = function(q) {
                         TB.Global.initMiniBag();
                         i.ccp = "0";
@@ -750,25 +751,25 @@ TB.add("mod~global", function() {
             TB.Global.initMiniCart();
             return
         }
-        var S = "http://" + _own_domain_1 + "/apps/tmallbuy/razer/mini/core.js";
-        _kissy.getScript(S + "?t=" + _tmall_config.commonJS.miniBag.timestamp)
+        var _corejs_url = "http://" + _own_domain_1 + "/apps/tmallbuy/razer/mini/core.js";
+        _kissy.getScript(_corejs_url + "?t=" + _tmall_config.commonJS.miniBag.timestamp)
     },initMiniCart: function() {
         if (window.g_config.closeMiniCart || _tmall_config.commonJS.miniCart.off || !TB.Global.getCartElem()) {
             return
         }
-        var S, i = "http://" + (TB.environment.isDaily ? "count.config-vip.taobao.net:8888" : "count.tbcdn.cn") + "/counter3";
-        TB.Global.memberInfoReady(function(p) {
-            if (p.isLogin) {
-                S = (p.memberInfo.cookies && p.memberInfo.cookies.unb) ? p.memberInfo.cookies.unb.value : p.trackId
+        var _trackid, _count_url = "http://" + (TB.environment.isDaily ? "count.config-vip.taobao.net:8888" : "count.tbcdn.cn") + "/counter3";
+        TB.Global.memberInfoReady(function(_userinfo) {
+            if (_userinfo.isLogin) {
+                _trackid = (_userinfo.memberInfo.cookies && _userinfo.memberInfo.cookies.unb) ? _userinfo.memberInfo.cookies.unb.value : _userinfo.trackId
             } else {
-                S = p.trackId
+                _trackid = _userinfo.trackId
             }
-            i += "?keys=TCART_234_" + S + "_q&callback=_loadCartNumCallback&t=" + _kissy.now();
+            _count_url += "?keys=TCART_234_" + _trackid + "_q&callback=_loadCartNumCallback&t=" + _kissy.now();
             window._loadCartNumCallback = function(r) {
-                var q = r["TCART_234_" + S + "_q"] || 0;
+                var q = r["TCART_234_" + _trackid + "_q"] || 0;
                 TB.Global.setCartNum(q)
             };
-            _kissy.getScript(i)
+            _kissy.getScript(_count_url)
         })
     },setCartNum: function(i) {
         if (!_kissy.isNumber(i)) {
