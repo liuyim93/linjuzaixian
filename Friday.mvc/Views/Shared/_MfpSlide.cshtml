@@ -71,7 +71,7 @@
         </li>*@
     </ul>
     <ul class="mfpSlide-nav" style="">
-        @for (var index = 0; index < Model.Activities.Count(); index++)
+        @for (var index = 0; index < (Model.Activities.Count() > 5 ? 5 : Model.Activities.Count()); index++)
         {
             <li></li>
         }
