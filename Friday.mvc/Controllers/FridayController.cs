@@ -7,33 +7,47 @@ using friday.core.services;
 using System.Web.Security;
 using friday.core;
 using friday.core.domain;
+using friday.core.repositories;
 
 namespace Friday.mvc.Controllers
 {
     public class FridayController : Controller
     {
         protected IUserService iUserService;
-        public FridayController(IUserService iUserService)
+        protected ISystemUserRepository iSystemUserRepository;
+        public FridayController(IUserService iUserService, ISystemUserRepository iSystemUserRepository)
         {
             this.iUserService = iUserService;
+            this.iSystemUserRepository = iSystemUserRepository;
 
         }
         protected bool isAuthenticated()
         {
-            return this.HttpContext.User.Identity.IsAuthenticated;
+            //2013-03-09 basilwang if have logged to backward admin, and then view index.html, the IsAuthenticated is true, but we
+            //need to exclude this situation
+            System.Security.Principal.IIdentity identity=this.HttpContext.User.Identity;
+            SystemUser user;
+            try
+            {
+
+                user = iSystemUserRepository.Get(identity.Name);
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+            return (user!=null)&&identity.IsAuthenticated;
         }
         protected string getUserID()
         {
             if (isAuthenticated())
             {
-                //2012-12-31 basilwang can't user HttpContextBase for cookie , weird!!
                 HttpCookie authCookie = this.HttpContext.Request.Cookies[".friday"];
                 FormsAuthenticationTicket authTicket = FormsAuthentication.Decrypt(authCookie.Value);
                 return authTicket.Name;
             }
             else
             {
-                //2012-12-31 basilwang can't user HttpContextBase for cookie , weird!!
                 HttpCookie cookie = this.HttpContext.Request.Cookies["friday_anonymous"];
                 return cookie.Values["userID"];
             }

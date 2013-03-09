@@ -8,13 +8,14 @@ using Friday.mvc.Controllers;
 using friday.core;
 using friday.core.services;
 using friday.core.domain;
+using friday.core.repositories;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
     public class HomeController : FridayController
     {
-        public HomeController(IUserService iUserService)
-            : base(iUserService)
+        public HomeController(IUserService iUserService, ISystemUserRepository iSystemUserRepository)
+            : base(iUserService, iSystemUserRepository)
         {
 
         }
