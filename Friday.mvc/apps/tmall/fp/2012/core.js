@@ -180,7 +180,7 @@ TB.add("mod~global", function() {
                 return
             }
             var i = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp, S = _get_user_cookie_value("_nk_") || _get_user_cookie_value("tracknick");
-            S = encodeURIComponent(A(unescape(S.replace(/\\u/g, "%u"))));
+            S = encodeURIComponent(_get_newly_created_div_innerHTML(unescape(S.replace(/\\u/g, "%u"))));
             _kissy.getScript(i, function() {
                 if (typeof TLabs !== "undefined") {
                     TLabs.init({nick: S})
@@ -563,8 +563,8 @@ TB.add("mod~global", function() {
     },_initLoginStatus: function() {
         var _tb_global = TB.Global;
         if (TB.environment.isApp && TB.environment.passCookie) {
-            TB.userInfo.nick = A(unescape(_get_user_cookie_value("_nk_").replace(/\\u/g, "%u")));
-            TB.userInfo.tracknick = A(unescape(_get_user_cookie_value("tracknick").replace(/\\u/g, "%u")));
+            TB.userInfo.nick = _get_newly_created_div_innerHTML(unescape(_get_user_cookie_value("_nk_").replace(/\\u/g, "%u")));
+            TB.userInfo.tracknick = _get_newly_created_div_innerHTML(unescape(_get_user_cookie_value("tracknick").replace(/\\u/g, "%u")));
             TB.userInfo.isLogin = !!((_get_user_cookie_value("login") == "true" || _get_user_cookie_value("_l_g_")) && TB.userInfo.nick);
             TB.userInfo.trackId = _get_user_cookie_value("t");
             _tb_global._fireLoginStatusReadyFnList()
@@ -575,7 +575,7 @@ TB.add("mod~global", function() {
             }
             _login_url += "?" + Math.random();
             _kissy.getScript(_login_url, function() {
-                TB.userInfo.nick = A(unescape((userCookie._nk_).replace(/\\u/g, "%u")));
+                TB.userInfo.nick = _get_newly_created_div_innerHTML(unescape((userCookie._nk_).replace(/\\u/g, "%u")));
                 //2013-02-16 basilwang TODO  temporiaily comment this which can cause problem . VERY IMPORTANT!!
                 // TB.userInfo.tracknick = A(unescape((userCookie.tracknick).replace(/\\u/g, "%u")));
                 TB.userInfo.isLogin = !!(userCookie._l_g_ && TB.userInfo.nick);
@@ -865,6 +865,8 @@ TB.add("mod~global", function() {
                            }, {needRedirect: false,check: true})
                        })
                    }
+                   //2013-03-09 basilwang we don't think we need this
+                   /*
                    ,redirectCallback: function(p) {
         var _guid = p.guid;
         var _mycart_url = _kissy.trim(this.cache[_guid][1]);
@@ -906,7 +908,9 @@ TB.add("mod~global", function() {
         this.popup.innerHTML = '<iframe src="' + _url + '" width="410" height="270" frameborder="0" scrolling="0"></iframe><span title="关闭" id="g-cartlogin-close">关闭</span>';
         _kissy.Event.on("#g-cartlogin-close", "click", this.hidePopup, this);
         this.showPopup()
-    }});
+    }
+    */
+               });
     function _if_we_can_try() {
         var _blacklist = _tmall_config.commonJS.miniBag.blacklist;
         if (!_blacklist) {
