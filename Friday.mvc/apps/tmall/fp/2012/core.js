@@ -284,7 +284,7 @@ TB.add("mod~global", function() {
             if (window.g_config.closeMpp && _tmall_config.commonJS.mpp.off) {
                 return
             }
-            _kissy.getScript("http://" + _own_domain_1 + "/p/tstart/1.0/build/tb-mpp-min.js?t=" + _tmall_config.commonJS.mpp.timestamp, {success: function() {
+            _kissy.getScript("http://" + _own_domain_1 + "/p/tstart/1.0/build/tb-mpp.js?t=" + _tmall_config.commonJS.mpp.timestamp, {success: function() {
                 _kissy.ready(function() {
                     if (!TB.Global.isLogin()) {
                         return

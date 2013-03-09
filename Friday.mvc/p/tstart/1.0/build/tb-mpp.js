@@ -478,7 +478,7 @@
                 isLongConnectionRuning = true;
                 heartErrorTimes = 0;
                 __self.__checkHeart();
-                Mpp.log("\u767b\u5f55\u5b8c\u6210\uff0c\u5f00\u59cb\u957f\u8fde\u63a5.")
+                Mpp.log("登录完成，开始长连接.")
             },
             restart: function () {
                 var __self = this;
@@ -489,7 +489,7 @@
             stop: function () {
                 var __self = this;
                 if (isLongConnectionRuning) {
-                    Mpp.log("\u505c\u6b62\u5916\u90e8\u957f\u94fe\u63a5\u68c0\u67e5\u3002");
+                    Mpp.log("停止外部长链接检查。");
                     if (__self.heartTimeoutTimer) {
                         clearTimeout(__self.heartTimeoutTimer)
                     }
@@ -508,7 +508,7 @@
                     var body = document.getElementsByTagName("body")[0];
                     body.appendChild(__connection, body.lastChild)
                 } catch (e) {
-                    Mpp.log("\u8fdc\u7a0b\u8fde\u63a5\u5f02\u5e38\u4e86\u2026\u2026" + e)
+                    Mpp.log("远程连接异常了……" + e)
                 }
             },
             __checkHeart: function () {
@@ -519,16 +519,16 @@
                 if (isLongConnectionRuning && __self.__isLogin()) {
                     __self.heartTimeoutTimer = setTimeout(function () {
                         var heart = Data.getData();
-                        Mpp.log("\u68c0\u67e5\u957f\u94fe\u63a5\uff0c\u91cd\u65b0\u5f00\u59cb:" + (new Date().getTime() - heart.h > LONG_REQUEST_HEART_TIMEOUT) + "," + (new Date().getTime() - heart.h) + "," + new Date().getTime() + "," + heart.h);
+                        Mpp.log("检查长链接，重新开始:" + (new Date().getTime() - heart.h > LONG_REQUEST_HEART_TIMEOUT) + "," + (new Date().getTime() - heart.h) + "," + new Date().getTime() + "," + heart.h);
                         if (heart.h == Data.CREATE_CONNECTION_STATUS || (new Date().getTime() - heart.h > LONG_REQUEST_HEART_TIMEOUT && heart.h !== Data.CREATE_CONNECTION_STATUS && heart.t !== Data.NOTIFY_STATUS.LOGOUT)) {
                             if (heartErrorTimes < WAIT_CREATE_LONG_CONNECTION_TIMES) {
                                 heartErrorTimes++;
                                 if (__connection) {
-                                    Mpp.log("\u957f\u94fe\u63a5\u7684frame\u5df2\u7ecf\u5b58\u5728\u3002");
+                                    Mpp.log("长链接的frame已经存在。");
                                     __connection.src = Config.notifyURL
                                 } else {
                                     __self.__createConnection();
-                                    Mpp.log("\u957f\u94fe\u63a5\u7684frame\u4e0d\u5df2\u7ecf\u5b58\u5728\u3002")
+                                    Mpp.log("长链接的frame不已经存在。")
                                 }
                                 heart.h = new Date().getTime();
                                 Data.setData(heart);
@@ -550,11 +550,11 @@
                     setTimeout(function () {
                         if (Data.isCreatingConnection(Data.getData().h)) {
                             if (__connection) {
-                                Mpp.log("\u957f\u94fe\u63a5\u7684frame\u5df2\u7ecf\u5b58\u5728\u3002");
+                                Mpp.log("长链接的frame已经存在。");
                                 __connection.src = Config.notifyURL
                             } else {
                                 __self.__createConnection();
-                                Mpp.log("\u957f\u94fe\u63a5\u7684frame\u4e0d\u5df2\u7ecf\u5b58\u5728\u3002")
+                                Mpp.log("长链接的frame不已经存在。")
                             }
                         }
                     }, errorRetryConnection)
@@ -645,7 +645,7 @@
             __bindEvent: function () {
                 var __self = this;
                 var __focus = function () {
-                    Mpp.log("\u5f53\u524d\u7a97\u53e3\u83b7\u5f97\u7126\u70b9");
+                    Mpp.log("当前窗口获得焦点");
                     isFocused = true;
                     if (__self.__isLogin()) {
                         var d = Data.getData();
@@ -663,7 +663,7 @@
                     }
                 };
                 var __blur = function () {
-                    Mpp.log("\u5f53\u524d\u7a97\u53e3\u5931\u53bb\u7126\u70b9\u3002");
+                    Mpp.log("当前窗口失去焦点。");
                     isFocused = false
                 };
                 if (Mpp.UA.ie) {
@@ -710,7 +710,7 @@
                     var body = document.getElementsByTagName("body")[0];
                     body.appendChild(connection, body.lastChild)
                 } catch (e) {
-                    Mpp.log("\u8fdc\u7a0b\u8fde\u63a5\u5f02\u5e38\u4e86\u2026\u2026" + e)
+                    Mpp.log("远程连接异常了……" + e)
                 }
             },
             notify: function (appId, type, data) {
