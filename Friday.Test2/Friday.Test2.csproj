@@ -94,7 +94,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PopulateFakeMerchantPictureDataTest.cs" />
+    <Compile Include="PopulateFakeMerchantAndGoodsPictureDataTest.cs" />
     <Compile Include="PopulateFakeRestaurantDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs" />
@@ -137,6 +137,33 @@
     <Content Include="uploadImage\activityImage\Sbujpeg4.png" />
     <Content Include="uploadImage\activityImage\SubJpeg2.png" />
     <Content Include="uploadImage\activityImage\SubJpeg4.png" />
+    <Content Include="uploadImage\commodityPic\c1.jpg" />
+    <Content Include="uploadImage\commodityPic\c10.jpg" />
+    <Content Include="uploadImage\commodityPic\c11.jpg" />
+    <Content Include="uploadImage\commodityPic\c12.jpg" />
+    <Content Include="uploadImage\commodityPic\c13.jpg" />
+    <Content Include="uploadImage\commodityPic\c2.jpg" />
+    <Content Include="uploadImage\commodityPic\c3.jpg" />
+    <Content Include="uploadImage\commodityPic\c4.jpg" />
+    <Content Include="uploadImage\commodityPic\c5.jpg" />
+    <Content Include="uploadImage\commodityPic\c6.jpg" />
+    <Content Include="uploadImage\commodityPic\c7.jpg" />
+    <Content Include="uploadImage\commodityPic\c8.jpg" />
+    <Content Include="uploadImage\commodityPic\c9.jpg" />
+    <Content Include="uploadImage\foodPic\f1.jpg" />
+    <Content Include="uploadImage\foodPic\f2.jpg" />
+    <Content Include="uploadImage\foodPic\f3.jpg" />
+    <Content Include="uploadImage\foodPic\f4.jpg" />
+    <Content Include="uploadImage\foodPic\f5.jpg" />
+    <Content Include="uploadImage\foodPic\f6.jpg" />
+    <Content Include="uploadImage\foodPic\f7.jpg" />
+    <Content Include="uploadImage\housePic\h1.jpg" />
+    <Content Include="uploadImage\housePic\h2.jpg" />
+    <Content Include="uploadImage\housePic\h3.jpg" />
+    <Content Include="uploadImage\housePic\h4.jpg" />
+    <Content Include="uploadImage\housePic\h5.jpg" />
+    <Content Include="uploadImage\housePic\h6.jpg" />
+    <Content Include="uploadImage\housePic\h7.jpg" />
     <Content Include="uploadImage\merchantPic\b0.jpg" />
     <Content Include="uploadImage\merchantPic\b1.jpg" />
     <Content Include="uploadImage\merchantPic\b10.jpg" />
