@@ -42,7 +42,7 @@ namespace Friday.mvc.Areas.Account.Controllers
                 SystemUser systemUser = this.iUserService.GetOrCreateUser(this.HttpContext);
                 _nk_  = getGracefulName(systemUser);
             }
-            string script = "var userCookie={_nk_:'" +  _nk_ + "',uc1:'',mt:'',l:'',version:''};TB && TB.Global && TB.Global.run && TB.Global.run();";
+            string script = "var userCookie={_nk_:'" +  _nk_ + "',_l_g_:'" + (loginStatus?"1":"") +"',uc1:'',mt:'',l:'',version:''};TB && TB.Global && TB.Global.run && TB.Global.run();";
             return JavaScript(script);
         }
         [AcceptVerbs(HttpVerbs.Get)]
