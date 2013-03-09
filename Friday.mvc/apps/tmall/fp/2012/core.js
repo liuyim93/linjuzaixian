@@ -898,12 +898,12 @@ TB.add("mod~global", function() {
             this._stylesheetAdded = true
         }
     },_initPopup: function() {
-        var S = _kissy.DOM.create('<div id="g-cartlogin"></div>');
-        _kissy.DOM.append(S, _kissy.DOM.get("body"));
-        return S
-    },_initLoginIframe: function(S) {
-        var i = "http://" + this.domain + "/member/login.jhtml?from=globalcart&style=mini&redirectURL=" + encodeURIComponent(S) + "&full_redirect=true";
-        this.popup.innerHTML = '<iframe src="' + i + '" width="410" height="270" frameborder="0" scrolling="0"></iframe><span title="\u5173\u95ed" id="g-cartlogin-close">\u5173\u95ed</span>';
+        var _dom_div_id_g_cartlogin = _kissy.DOM.create('<div id="g-cartlogin"></div>');
+        _kissy.DOM.append(_dom_div_id_g_cartlogin, _kissy.DOM.get("body"));
+        return _dom_div_id_g_cartlogin
+    },_initLoginIframe: function(_mycart_url) {
+        var _url = "http://" + this.domain + "/member/login.jhtml?from=globalcart&style=mini&redirectURL=" + encodeURIComponent(_mycart_url) + "&full_redirect=true";
+        this.popup.innerHTML = '<iframe src="' + _url + '" width="410" height="270" frameborder="0" scrolling="0"></iframe><span title="关闭" id="g-cartlogin-close">关闭</span>';
         _kissy.Event.on("#g-cartlogin-close", "click", this.hidePopup, this);
         this.showPopup()
     }});
@@ -939,10 +939,10 @@ TB.add("mod~global", function() {
         if (r instanceof Date) {
             u += "; expires=" + r.toUTCString()
         }
-        if (E(s)) {
+        if (_is_empty_string(s)) {
             u += "; domain=" + s
         }
-        if (E(v)) {
+        if (_is_empty_string(v)) {
             u += "; path=" + v
         }
         if (S) {
@@ -956,13 +956,13 @@ TB.add("mod~global", function() {
         }
         new Image().src = S
     }
-    function E(S) {
-        return _kissy.isString(S) && S !== ""
+    function _is_empty_string(_str) {
+        return _kissy.isString(_str) && _str !== ""
     }
-    function A(i) {
-        var p = _document.createElement("div"), S = _document.createTextNode(i);
-        p.appendChild(S);
-        return p.innerHTML
+    function _get_newly_created_div_innerHTML(_text) {
+        var _dom_div = _document.createElement("div"), _dom_text_node = _document.createTextNode(_text);
+        _dom_div.appendChild(_dom_text_node);
+        return _dom_div.innerHTML
     }
     function _findChildElementsByClassNameAndType(_selected_class_name, _type_selector, _parent_element) {
         var _elems = _parent_element.getElementsByTagName(_type_selector || "*"), _filtered_elems = [], _index = 0, r = 0, _elems_length = _elems.length, _element, _class_name;

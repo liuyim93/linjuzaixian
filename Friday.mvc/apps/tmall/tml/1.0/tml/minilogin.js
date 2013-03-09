@@ -6,7 +6,7 @@
 * To change this template use File | Settings | File Templates.
 */
 TML.add("minilogin", function (_tml) {
-    function _get_minilogin_dialog(b) {
+    function _get_minilogin_dialog(_show_url) {
         function _set_center() {
             var _documentElement = document.documentElement;
             _div.style.top = _documentElement.offsetHeight / 2 + _documentElement.scrollTop + "px"
@@ -16,8 +16,20 @@ TML.add("minilogin", function (_tml) {
         _div.id = "tml-mLogin";
         _div.className = "tml-dialog";
         _dom.addStyleSheet("#tml-mLogin{height:360px;width: 396px;z-index:99000;position: fixed;_position: absolute;left: 50%;top: 50%;margin: -190px 0 0 -208px;}");
-        _div.innerHTML = '<div class="tml-contentbox"><div class="tml-stdmod-header" style="position: relative;z-index: 2"></div> <div class="tml-stdmod-body" style="background: #FAFAFA;">   <div class="tml-mLogin-mask" style="position: absolute;width: 50px;background: #FAFAFA;height: 100%;"></div>   <iframe style="margin:20px 0 0 40px;" width="310" scrolling="no" height="304" frameborder="no" src="' +
-            b + '   " onload="var c=document.getElementById(\'tml-mLogin\');if(c){c.style.height = \'349px\';c.style.height = \'360px\';}"></iframe></div></div><a id="TML_Login_MLogin_Close" href="#" class="tml-ext-close">X</a><div class="tml-dialog-skin" style="height:382px;"></div><i class="tml-dialog-cat"></i>';
+        _div.innerHTML =
+            '<div class="tml-contentbox">' +
+              '  <div class="tml-stdmod-header" style="position: relative;z-index: 2"></div>' +
+              ' <div class="tml-stdmod-body" style="background: #FAFAFA;">  ' +
+                    '<div class="tml-mLogin-mask" style="position: absolute;width: 50px;background: #FAFAFA;height: 100%;"></div>' +
+                    '<iframe style="margin:20px 0 0 40px;" ' +
+                      'width="310" scrolling="no" height="304" frameborder="no" ' +
+                      'src="' + _show_url +
+                      '" onload="var c=document.getElementById(\'tml-mLogin\');if(c){c.style.height = \'349px\';c.style.height = \'360px\';}"></iframe>' +
+              '</div>' +
+            '</div>' +
+            '<a id="TML_Login_MLogin_Close" href="#" class="tml-ext-close">X</a>' +
+            '<div class="tml-dialog-skin" style="height:382px;"></div>' +
+            '<i class="tml-dialog-cat"></i>';
         document.body.appendChild(_div);
         _event.on(_kissy.get("#TML_Login_MLogin_Close"), "click", function (_event) {
             _event.preventDefault();
