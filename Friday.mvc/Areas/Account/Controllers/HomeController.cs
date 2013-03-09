@@ -23,6 +23,11 @@ namespace Friday.mvc.Areas.Account.Controllers
             string script = callback + "({\"login\":false,\"nick\":\"\",\"uid\":0})";
             return JavaScript(script);
         }
+        public ActionResult query_cookie_info()
+        {
+            string script = "var userCookie={_nk_:'',uc1:'',mt:'',l:'',version:''};TB && TB.Global && TB.Global.run && TB.Global.run();";
+            return JavaScript(script);
+        }
         [AcceptVerbs(HttpVerbs.Get)]
         public ActionResult login(string from, string style, string redirectURL, bool? full_redirect)
         {
@@ -56,6 +61,7 @@ namespace Friday.mvc.Areas.Account.Controllers
         {
             return View();
         }
+
 
     }
 }

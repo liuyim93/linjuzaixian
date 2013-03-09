@@ -51,7 +51,7 @@ TB.add("mod~global", function() {
     //2013-02-20 basilwang is Https or not
     var _is_https = (_document.location.href.indexOf("https://") === 0);
     var _space_char = " ", _event_constant_hover = "hover", _no_class = "", _str_class_mini_cart = "mini-cart";
-    var P = {};
+    var _user_info_bag = {};
     var CommonJS = {siteNav: function() {
         if (!_div_named_site_nav) {
             return
@@ -76,6 +76,7 @@ TB.add("mod~global", function() {
             }
         });
         TB.Global.memberInfoReady(function(_userinfo) {
+            //2013-03-09 basilwnag if it's mallSeller  show SellerCenter, but we should let seller login in another entrance
             if (_userinfo.isLogin && _userinfo.memberInfo.mallSeller) {
                 var _dom_class_j_MyTaobao = _findChildElementByClassName("j_MyTaobao", _div_named_site_nav);
                 var _dom_class_j_SellerCenter = _findChildElementByClassName("j_SellerCenter", _div_named_site_nav);
@@ -179,11 +180,18 @@ TB.add("mod~global", function() {
             if (location.href.indexOf("tms.taobao.com") !== -1) {
                 return
             }
-            var i = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp, S = _get_user_cookie_value("_nk_") || _get_user_cookie_value("tracknick");
-            S = encodeURIComponent(_get_newly_created_div_innerHTML(unescape(S.replace(/\\u/g, "%u"))));
-            _kissy.getScript(i, function() {
+            /* 2013-03-09 basilwang  _get_user_cookie_value use regex  i.e.  document.cookie is
+             "guid=e25096ef-0d12-4b1c-b730-55efb51a6e0b; V5ShopUserTemp=0aSdh2/ZTt2eFIdgRWWDSWQMI2cDtfGc9Bu66/QaPE4=; VerifyCodeArticle=5857; V5ShopLoginID=l8xdI386HMEGGWe2SEZhm0NGFIBI5hqXamBWHyYgl0E=; cq=ccp%3D1"
+             _document.cookie.match("(?:^|;)\\s*cq=([^;]*)")
+             match results are ["; cq=ccp%3D1", "ccp%3D1"]
+
+             */
+            var _tlab_url = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp,
+                _nick = _get_user_cookie_value("_nk_") || _get_user_cookie_value("tracknick");
+            _nick = encodeURIComponent(_get_newly_created_div_innerHTML(unescape(_nick.replace(/\\u/g, "%u"))));
+            _kissy.getScript(_tlab_url, function() {
                 if (typeof TLabs !== "undefined") {
-                    TLabs.init({nick: S})
+                    TLabs.init({nick: _nick})
                 }
             })
         })
@@ -373,10 +381,13 @@ TB.add("mod~global", function() {
             _kissy.getScript(S)
         })
     }};
+    //2013-03-09 element in _commonjs_array will be replaced by setTimeout function wrapper
     var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
     for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
         (function(_name) {
             var _selected_function = CommonJS[_name];
+            //2013-03-09 basilwang just set the setTimeout function to CommonJS element. the setTimeout function will
+            //be excuted when TB.Global.init()
             CommonJS[_name] = function() {
                 setTimeout(_selected_function, 1000)
             }
@@ -569,15 +580,22 @@ TB.add("mod~global", function() {
             TB.userInfo.trackId = _get_user_cookie_value("t");
             _tb_global._fireLoginStatusReadyFnList()
         } else {
+            //2013-03-09 basilwang use our own domain
+            // after call query_cookie_info  , below is return
+            // var userCookie={_nk_:'',uc1:'',mt:'',l:'',version:''};TB && TB.Global && TB.Global.run && TB.Global.run();
+            var _login_url = "http://localhost:7525/Account/Home/query_cookie_info";
+            /*
             var _login_url = "http://www.taobao.com/go/app/tmall/login-api.php";
             if (TB.environment.isDaily) {
                 _login_url = "http://www.daily.taobao.net/go/app/tmall/login-api.php"
             }
+            */
             _login_url += "?" + Math.random();
             _kissy.getScript(_login_url, function() {
                 TB.userInfo.nick = _get_newly_created_div_innerHTML(unescape((userCookie._nk_).replace(/\\u/g, "%u")));
                 //2013-02-16 basilwang TODO  temporiaily comment this which can cause problem . VERY IMPORTANT!!
                 // TB.userInfo.tracknick = A(unescape((userCookie.tracknick).replace(/\\u/g, "%u")));
+                //2013-03-09 basilwang maybe we can get user status from form authenticaton when calling query_cookie_info
                 TB.userInfo.isLogin = !!(userCookie._l_g_ && TB.userInfo.nick);
                 TB.userInfo.trackId = userCookie.t;
                 _tb_global._fireLoginStatusReadyFnList()
@@ -923,15 +941,21 @@ TB.add("mod~global", function() {
         }
         return _param_array.frm && _param_array.frm == "tmalltiyan"
     }
+    /* 2013-03-09 basilwang  _get_user_cookie_value use regex  i.e.  document.cookie is
+     "guid=e25096ef-0d12-4b1c-b730-55efb51a6e0b; V5ShopUserTemp=0aSdh2/ZTt2eFIdgRWWDSWQMI2cDtfGc9Bu66/QaPE4=; VerifyCodeArticle=5857; V5ShopLoginID=l8xdI386HMEGGWe2SEZhm0NGFIBI5hqXamBWHyYgl0E=; cq=ccp%3D1"
+     _document.cookie.match("(?:^|;)\\s*cq=([^;]*)")
+     match results are ["; cq=ccp%3D1", "ccp%3D1"]
+
+     */
     function _get_user_cookie_value(_key) {
         if (_window.userCookie && !_kissy.isUndefined(_window.userCookie[_key])) {
             return _window.userCookie[_key]
         }
-        if (_kissy.isUndefined(P[_key])) {
-            var S = _document.cookie.match("(?:^|;)\\s*" + _key + "=([^;]*)");
-            P[_key] = (S && S[1]) ? decodeURIComponent(S[1]) : _no_class
+        if (_kissy.isUndefined(_user_info_bag[_key])) {
+            var _match_results = _document.cookie.match("(?:^|;)\\s*" + _key + "=([^;]*)");
+            _user_info_bag[_key] = (_match_results && _match_results[1]) ? decodeURIComponent(_match_results[1]) : _no_class
         }
-        return P[_key]
+        return _user_info_bag[_key]
     }
     function R(i, q, p, s, v, S) {
         var t = 24 * 60 * 60 * 1000;
