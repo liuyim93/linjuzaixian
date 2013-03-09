@@ -50,7 +50,7 @@ TB.add("mod~global", function() {
         _appid = "g_config" in _window ? ("appId" in _window.g_config ? parseInt(_window.g_config["appId"]) : undefined) : undefined;
     //2013-02-20 basilwang is Https or not
     var _is_https = (_document.location.href.indexOf("https://") === 0);
-    var _space_char = " ", _event_constant_hover = "hover", F = "", _event_constant_mini_cart = "mini-cart";
+    var _space_char = " ", _event_constant_hover = "hover", _no_class = "", _str_class_mini_cart = "mini-cart";
     var P = {};
     var CommonJS = {siteNav: function() {
         if (!_div_named_site_nav) {
@@ -776,31 +776,32 @@ TB.add("mod~global", function() {
             }
             _count_url += "?keys=TCART_234_" + _trackid + "_q&callback=_loadCartNumCallback&t=" + _kissy.now();
             window._loadCartNumCallback = function(r) {
-                var q = r["TCART_234_" + _trackid + "_q"] || 0;
-                TB.Global.setCartNum(q)
+                var _cart_num = r["TCART_234_" + _trackid + "_q"] || 0;
+                TB.Global.setCartNum(_cart_num)
             };
             _kissy.getScript(_count_url)
         })
-    },setCartNum: function(i) {
-        if (!_kissy.isNumber(i)) {
+    },setCartNum: function(_cart_num) {
+        if (!_kissy.isNumber(_cart_num)) {
             return
         }
-        var S = TB.Global.getCartElem();
-        if (!S) {
+        /* 2013-03-09 basilwang for now _cart_elem is  li.cart mini-cart menu */
+        var _cart_elem = TB.Global.getCartElem();
+        if (!_cart_elem) {
             return
         }
-        var p = S.getElementsByTagName("a")[0], q = '<span class="mini-cart-line"></span><s></s>\u8d2d\u7269\u8f66';
-        if (i < 0) {
-            p.innerHTML = q;
-            _removeClassName(S, _event_constant_mini_cart);
+        var _dom_a = _cart_elem.getElementsByTagName("a")[0], _snippet = '<span class="mini-cart-line"></span><s></s>购物车';
+        if (_cart_num < 0) {
+            _dom_a.innerHTML = _snippet;
+            _removeClassName(_cart_elem, _str_class_mini_cart);
             return
         }
-        p.innerHTML = q + '<span class="mc-count' + (i < 10 ? " mc-pt3" : F) + '">' + i + "</span>\u4ef6";
-        p.href = "http://" + (TB.environment.isDaily ? "cart.daily.tmall.net" : "cart.tmall.com") + "/cart/myCart.htm?from=btop";
-        _addClassName(S, _event_constant_mini_cart);
-        _addClassName(S, "menu");
-        _addClassName(p, "menu-hd");
-        p.id = "mc-menu-hd"
+        _dom_a.innerHTML = _snippet + '<span class="mc-count' + (_cart_num < 10 ? " mc-pt3" : _no_class) + '">' + _cart_num + "</span>件";
+        _dom_a.href = "http://" + (TB.environment.isDaily ? "cart.daily.tmall.net" : "cart.tmall.com") + "/cart/myCart.htm?from=btop";
+        _addClassName(_cart_elem, _str_class_mini_cart);
+        _addClassName(_cart_elem, "menu");
+        _addClassName(_dom_a, "menu-hd");
+        _dom_a.id = "mc-menu-hd"
     },updateLoginInfo: function() {
         TB._isLoginStatusReady = false;
         TB._isMemberInfoReady = false;
@@ -924,7 +925,7 @@ TB.add("mod~global", function() {
         }
         if (_kissy.isUndefined(P[_key])) {
             var S = _document.cookie.match("(?:^|;)\\s*" + _key + "=([^;]*)");
-            P[_key] = (S && S[1]) ? decodeURIComponent(S[1]) : F
+            P[_key] = (S && S[1]) ? decodeURIComponent(S[1]) : _no_class
         }
         return P[_key]
     }
