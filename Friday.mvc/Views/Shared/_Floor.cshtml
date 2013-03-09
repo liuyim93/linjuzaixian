@@ -11,22 +11,12 @@
                 1F 租赁<s></s></h2>
             <div class="floorTop">
                 <ul class="floorTop-nav">
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.1&amp;cat=50031564&amp;acm=08227.1003.1.50031564_6&amp;scm=1003.3.08227.1"
-                        target="_blank">BB霜</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.2&amp;active=1&amp;from=sn_1_rightnav&amp;area_code=330100&amp;search_condition=7&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50043479"
-                        target="_blank">洗护</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.3&amp;active=1&amp;area_code=330100&amp;vmarket=0&amp;wwonline=1&amp;style=g&amp;sort=s&amp;start_price=20&amp;n=60&amp;s=0&amp;cat=50026506"
-                        target="_blank">男士</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.4&amp;cat=50031575&amp;acm=08227.1003.1.50031575_6&amp;scm=1003.3.08227.1"
-                        target="_blank">隔离</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.5&amp;start_price=&amp;end_price=&amp;post_fee=-1&amp;zk_type=0&amp;search_condition=19&amp;cat=50029231&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                        target="_blank">面膜</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.6&amp;cat=50031563&amp;acm=08227.1003.1.50031563_6&amp;scm=1003.3.08227.1"
-                        target="_blank">睫毛膏</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.7&amp;from=sn_1_prop-qp&amp;area_code=330100&amp;style=g&amp;sort=s&amp;prop=33510:31533293&amp;q=%D7%E3%BD%F0&amp;n=60&amp;s=0&amp;cat=50094058#J_crumbs"
-                        target="_blank">黄金</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.8&amp;start_price=29&amp;end_price=&amp;search_condition=16&amp;cat=50041309&amp;sort=s&amp;style=g&amp;vmarket=0&amp;q=%C3%AB%D2%C2%C1%B4"
-                        target="_blank">毛衣链</a></li>
+                    @for (var index = 0; index < (Model.MerchantRentCategories.Count() > 8 ? 8 : Model.MerchantRentCategories.Count()); index++)
+                    {
+                        var item = Model.MerchantRentCategories.ElementAt(index);
+                        <li><a href="http://list.tmall.com?id=@item.Id"
+                        target="_blank">@item.MerchantCategoryName</a></li>
+                    }
                 </ul>
             </div>
             <div class="floorCon clearfix">
@@ -63,33 +53,34 @@
                     </ul>
                 </div>
                 <div class="floorCon-slide j_SlideBanner">
-                    <ul class="fCs-con" style="position: absolute; width: 999999px; left: -400px;">
-                            @for (var index = 0; index < (Model.Commoditys.Count() > 3 ? 3 : Model.Commoditys.Count()); index++)
+                    <ul class="fCs-con" >
+                            @for (var index = 0; index < (Model.Houses.Count() > 3 ? 3 : Model.Houses.Count()); index++)
                             {
-                                var item = Model.Commoditys.ElementAt(index);
-                                <li class="ks-switchable-panel-internal204" style="display: block; float: left;">
-                                <a href="http://list.tmall.com?id=@item.Id" target="_blank" title="@item.Name">
+                                var item = Model.Houses.ElementAt(index);
+                                <li class="ks-switchable-panel-internal219"><a href="http://list.tmall.com?id=@item.Id" target="_blank" title="@item.Name">
                                 <img src="@item.Image"></a></li>
                             }
                     </ul>
                     <ul class="fCs-nav fCs-nav-num3">
-                        <li class="fCs-nav1 ks-switchable-trigger-internal203" style="left: 220px;"><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.12&amp;cat=50029230&amp;acm=08223.1003.1.50029230_6&amp;scm=1003.3.08223.1"
-                            target="_blank" title="肌肤细滑紧致的美感">肌肤细滑紧致的美感</a><s></s></li>
-                        <li class="fCs-nav2 ks-switchable-trigger-internal203" style="left: 220px;"><a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.13&amp;start_price=&amp;end_price=&amp;post_fee=-1&amp;zk_type=0&amp;search_condition=16&amp;cat=50103163&amp;sort=s&amp;style=g&amp;vmarket=0&amp;active=1&amp;q="
-                            target="_blank" title="爱自己的女人更美丽">爱自己的女人更美丽</a><s></s></li>
-                        <li class="fCs-nav3 ks-switchable-trigger-internal203 active" style="left: 220px;"><a
-                            href="http://www.tmall.com/go/act/sale/sanba2013.php?spm=3.359242.295813.14&amp;ad_id=&amp;am_id=1301048823679b00c3b1&amp;cm_id=&amp;pm_id#f4"
-                            target="_blank" title="最华丽女人节6折起！">最华丽女人节6折起！</a><s></s></li>
+
+                            @for (var index = 0; index < (Model.Houses.Count() > 3 ? 3 : Model.Houses.Count()); index++)
+                            {
+                                var classBeforeFormat = "fCs-nav{0} ks-switchable-trigger-internal203";
+                                var classAfterFormat = string.Format(classBeforeFormat, index+1);
+
+                                var item = Model.Houses.ElementAt(index);
+                                <li class="@Html.Raw(classAfterFormat)"><a href="http://list.tmall.com?id=@item.Id"
+                                    target="_blank" title="@item.Name">@item.Name</a><s></s></li>
+                            }
                     </ul>
                 </div>
-                <a href="http://list.tmall.com/search_product.htm?spm=3.359242.295813.15&amp;active=1&amp;from=sn_1_rightnav&amp;area_code=310000&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50026393"
-                    class="floorCon-banner j_floorBanner" title="香水" target="_blank">
-                    <img src="http://img04.taobaocdn.com/tps/i4/T12fJBXuhfXXXHoWL4-200-300.jpg_q90.jpg"
-                        width="200" height="300" alt="香水">
-                </a><a href="http://www.tmall.com/go/act/sale/zhenzhu.php?spm=3.359242.295813.16&amp;ad_id=&amp;am_id=1301049307fd26dd4952&amp;cm_id=&amp;pm_id="
-                    class="floorCon-banner j_floorBanner" title="3.8女人节珍珠专题" target="_blank">
-                    <img src="http://img04.taobaocdn.com/tps/i4/T1V2luXq0fXXXHoWL4-200-300.jpg_q90.jpg"
-                        width="200" height="300" alt="3.8女人节珍珠专题">
+                            @for (var index = 3; index < (Model.Houses.Count() > 5 ? 5 : Model.Houses.Count()); index++)
+                            {
+                                var item = Model.Houses.ElementAt(index);
+                                <a href="http://list.tmall.com?id=@item.Id"
+                            class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
+                            <img src="@item.Image"></a>
+                            }
                 </a>
                 <div class="floorCon-img j_HoverImg">
                     <div class="floorPro">
@@ -145,26 +136,12 @@
                 2F 商铺<s></s></h2>
             <div class="floorTop">
                 <ul class="floorTop-nav">
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.1&amp;cat=50025145&amp;scm=1003.5.08193.0&amp;acm=1241.1026.0.2065.50025145_8"
-                        target="_blank">连衣裙</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.2&amp;cat=50025783&amp;scm=1003.5.08193.0&amp;acm=1241.1026.0.2065.50025783_8"
-                        target="_blank">针织衫</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.3&amp;acm=1241.1026.0.2065.50025263_8&amp;active=1&amp;from=sn_1_cat&amp;area_code=330100&amp;search_condition=31&amp;vmarket=0&amp;zk_type=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50025263#J_crumbs"
-                        target="_blank">小西装</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.4&amp;active=1&amp;from=sn_1_cat&amp;area_code=330100&amp;pic_detail=1&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50029627#J_crumbs"
-                        target="_blank">T恤</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.5&amp;active=1&amp;from=sn_1_cat&amp;area_code=310000&amp;pic_detail=1&amp;search_condition=23&amp;vmarket=0&amp;zk_type=0&amp;style=g&amp;sort=d&amp;start_price=120&amp;n=60&amp;s=0&amp;cat=50037921#J_Filter"
-                        target="_blank">衬衫</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.6&amp;start_price=120&amp;end_price=&amp;zk_type=0&amp;pic_detail=1&amp;search_condition=23&amp;cat=50026245&amp;sort=d&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                        target="_blank">牛仔裤</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.7&amp;start_price=150&amp;end_price=&amp;zk_type=0&amp;pic_detail=1&amp;search_condition=23&amp;cat=50026329&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                        target="_blank">夹克</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.8&amp;start_price=150&amp;end_price=&amp;zk_type=0&amp;pic_detail=1&amp;search_condition=23&amp;cat=50095659&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                        target="_blank">文胸</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.9&amp;area_code=310000&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q=&amp;cat=50095660&amp;brand=&amp;prop=2098004%3A29937%2C29457&amp;search_condition=23"
-                        target="_blank">睡衣</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359253.295827.10&amp;start_price=&amp;end_price=&amp;zk_type=0&amp;pic_detail=1&amp;search_condition=23&amp;cat=50026190&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_rightnav&amp;active=1&amp;q="
-                        target="_blank">内裤</a></li>
+                    @for (var index = 0; index < (Model.MerchantShopCategories.Count() > 10 ? 10 : Model.MerchantShopCategories.Count()); index++)
+                    {
+                        var item = Model.MerchantShopCategories.ElementAt(index);
+                        <li><a href="http://list.tmall.com?id=@item.Id"
+                        target="_blank">@item.MerchantCategoryName</a></li>
+                    }
                 </ul>
             </div>
             <div class="floorCon clearfix">
@@ -203,45 +180,35 @@
                 <div class="floorCon-tab">
                     <div class="fCt-con">
                         <div class="floorCon-slide j_SlideBanner">
-                            <ul class="fCs-con" style="position: absolute; width: 999999px;">
-                                <li class="ks-switchable-panel-internal219" style="display: block; float: left;"><a
-                                    href="http://www.tmall.com/go/act/sale/fushizu2.php?spm=3.359253.295827.11&amp;ad_id=&amp;am_id=1301048678de32d59649&amp;cm_id=&amp;pm_id="
-                                    target="_blank" title="疯狂周末购 5折封顶">
-                                    <img src="http://img01.taobaocdn.com/tps/i1/T1nupfXBNfXXad1GY4-200-320.jpg_q90.jpg"
-                                        width="200" height="320" alt="疯狂周末购 5折封顶"></a></li>
-                                <li class="ks-switchable-panel-internal219" style="display: block; float: left;"><a
-                                    href="http://www.tmall.com/go/act/sale/popupmall.php?spm=3.359253.295827.12&amp;ad_id=&amp;am_id=1301048564db4d3c90d8&amp;cm_id=&amp;pm_id"
-                                    target="_blank" title="一周精选 优质店铺">
-                                    <img data-ks-lazyload-custom="http://img02.taobaocdn.com/tps/i2/T14LNBXv4eXXad1GY4-200-320.jpg_q90.jpg"
-                                        width="200" height="320" alt="一周精选 优质店铺"></a></li>
-                                <li class="ks-switchable-panel-internal219" style="display: block; float: left;"><a
-                                    href="http://subject.tmall.com/subject/subject.htm?spm=3.359253.295827.13&amp;id=2759"
-                                    target="_blank" title="潮男春季时尚穿搭">
-                                    <img data-ks-lazyload-custom="http://img01.taobaocdn.com/tps/i1/T1OnhvXs4aXXad1GY4-200-320.jpg_q90.jpg"
-                                        width="200" height="320" alt="潮男春季时尚穿搭"></a></li>
-                            </ul>
+                    <ul class="fCs-con" >
+                            @for (var index = 0; index < (Model.Commoditys.Count() > 3 ? 3 : Model.Commoditys.Count()); index++)
+                            {
+                                var item = Model.Commoditys.ElementAt(index);
+                                <li class="ks-switchable-panel-internal219"><a href="http://list.tmall.com?id=@item.Id" target="_blank" title="@item.Name">
+                                <img src="@item.Image"></a></li>
+                            }
+                    </ul>
                             <ul class="fCs-nav fCs-nav-even fCs-nav-num3">
-                                <li class="active fCs-nav1 ks-switchable-trigger-internal218" style="left: 220px;"><a
-                                    href="http://www.tmall.com/go/act/sale/fushizu2.php?spm=3.359253.295827.14&amp;ad_id=&amp;am_id=1301048678de32d59649&amp;cm_id=&amp;pm_id="
-                                    target="_blank" title="疯狂周末购 5折封顶">疯狂周末购 5折封顶</a><s></s></li>
-                                <li class="fCs-nav2 ks-switchable-trigger-internal218" style="left: 220px;"><a href="http://www.tmall.com/go/act/sale/popupmall.php?spm=3.359253.295827.15&amp;ad_id=&amp;am_id=1301048564db4d3c90d8&amp;cm_id=&amp;pm_id"
-                                    target="_blank" title="一周精选 优质店铺">一周精选 优质店铺</a><s></s></li>
-                                <li class="fCs-nav3 ks-switchable-trigger-internal218" style="left: 220px;"><a href="http://subject.tmall.com/subject/subject.htm?spm=3.359253.295827.16&amp;id=2759"
-                                    target="_blank" title="潮男春季时尚穿搭">潮男春季时尚穿搭</a><s></s></li>
+                            @for (var index = 0; index < (Model.Commoditys.Count() > 3 ? 3 : Model.Commoditys.Count()); index++)
+                            {
+                                var classBeforeFormat = "fCs-nav{0} ks-switchable-trigger-internal203";
+                                var classAfterFormat = string.Format(classBeforeFormat, index+1);
+
+                                var item = Model.Commoditys.ElementAt(index);
+                                <li class="@Html.Raw(classAfterFormat)"><a href="http://list.tmall.com?id=@item.Id"
+                                    target="_blank" title="@item.Name">@item.Name</a><s></s></li>
+                            }
                             </ul>
                         </div>
-                        <a href="http://www.tmall.com/go/act/sale/fushizu.php?spm=3.359253.295827.17&amp;scm=1005.10.1.3933&amp;showtab=first&amp;ad_id=&amp;am_id=130104797952f0ee0d9d&amp;cm_id=&amp;pm_id="
-                            class="floorCon-banner j_floorBanner" title="女装" target="_blank">
-                            <img src="http://img03.taobaocdn.com/tps/i3/T1WjxnXu0jXXXHoWL4-200-300.jpg_q90.jpg"
-                                width="200" height="300" alt="女装">
-                        </a><a href="http://www.tmall.com/go/act/discount/zcxszmcx.php?spm=3.359253.295827.18&amp;ad_id=&amp;am_id=&amp;cm_id=140021970172b04f949d&amp;pm_id"
-                            class="floorCon-banner j_floorBanner" title="男装" target="_blank">
-                            <img src="http://img01.taobaocdn.com/tps/i1/T1NbpCXBFeXXXHoWL4-200-300.jpg_q90.jpg"
-                                width="200" height="300" alt="男装">
-                        </a><a href="http://subject.tmall.com/subject/subject.htm?spm=3.359253.295827.19&amp;id=3458"
-                            class="floorCon-banner j_floorBanner" title="内衣" target="_blank">
-                            <img src="http://img01.taobaocdn.com/tps/i1/T1PBRBXqRfXXXHoWL4-200-300.jpg_q90.jpg"
-                                width="200" height="300" alt="内衣">
+                            
+                            @for (var index = 3; index < (Model.Commoditys.Count() > 6 ? 6 : Model.Commoditys.Count()); index++)
+                            {
+                                var item = Model.Commoditys.ElementAt(index);
+                                <a href="http://list.tmall.com?id=@item.Id"
+                            class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
+                            <img src="@item.Image"></a>
+                            }
+
                         </a>
                     </div>
                 </div>
@@ -260,29 +227,15 @@
     <div>
         <div class="floor" id="floor3" data-spm="3.359254.295828">
             <h2>
-                3F 鞋包运动<s></s></h2>
+                3F 美食<s></s></h2>
             <div class="floorTop">
                 <ul class="floorTop-nav">
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.1&amp;start_price=90&amp;end_price=&amp;post_fee=-1&amp;pic_detail=1&amp;search_condition=16&amp;cat=50025829&amp;sort=s&amp;style=g&amp;vmarket=0&amp;active=1&amp;q="
-                        target="_blank">女鞋</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.2&amp;start_price=&amp;end_price=&amp;post_fee=-1&amp;pic_detail=1&amp;search_condition=23&amp;cat=50026637&amp;sort=s&amp;style=g&amp;vmarket=0&amp;from=sn_1_leftnav&amp;hotsale=0&amp;active=1&amp;q="
-                        target="_blank">男鞋</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.3&amp;active=1&amp;from=sn_1_cat&amp;area_code=310000&amp;pic_detail=1&amp;search_condition=23&amp;vmarket=0&amp;post_fee=-1&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50036330#J_crumbs"
-                        target="_blank">单鞋</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.4&amp;cat=50106425&amp;acm=08205.1003.1.50106425_6&amp;scm=1003.3.08205.1"
-                        target="_blank">低帮鞋</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.5&amp;cat=50023743&amp;search_condition=16&amp;sort=s&amp;style=g&amp;vmarket=0&amp;nav=spu-cat&amp;navlog=4&amp;from=sn_1_cat&amp;active=1&amp;prt=1340263457208&amp;prc=1"
-                        target="_blank">跑步</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.6&amp;active=1&amp;from=sn_1_cat&amp;area_code=330100&amp;search_condition=23&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50105051#J_crumbs"
-                        target="_blank">骑行</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.7&amp;active=1&amp;from=sn_1_cat&amp;area_code=330100&amp;search_condition=23&amp;vmarket=0&amp;style=g&amp;sort=s&amp;n=60&amp;s=0&amp;cat=50106524#J_crumbs"
-                        target="_blank">游泳</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.8&amp;q=&amp;start_price=&amp;end_price=&amp;cat=50095656&amp;catName=&amp;search_condition=1&amp;sort=s&amp;style=g&amp;vmarket=0&amp;nav=spu-cat&amp;navlog=2&amp;hotsale=0&amp;active=1"
-                        target="_blank">女包</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.9&amp;q=&amp;start_price=&amp;end_price=&amp;cat=50095657&amp;catName=&amp;search_condition=1&amp;sort=s&amp;style=g&amp;vmarket=0&amp;nav=spu-cat&amp;navlog=3&amp;hotsale=0&amp;active=1"
-                        target="_blank">男包</a></li>
-                    <li><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.10&amp;q=%C0%AD%B8%CB%CF%E4&amp;type=p&amp;cat=all&amp;userBucket=2&amp;userBucketCell=2"
-                        target="_blank">旅行箱</a></li>
+                    @for (var index = 0; index < (Model.MerchantRestaurantCategories.Count() > 10 ? 10 : Model.MerchantRestaurantCategories.Count()); index++)
+                    {
+                        var item = Model.MerchantRestaurantCategories.ElementAt(index);
+                        <li><a href="http://list.tmall.com?id=@item.Id"
+                        target="_blank">@item.MerchantCategoryName</a></li>
+                    }
                 </ul>
             </div>
             <div class="floorCon clearfix">
@@ -319,45 +272,33 @@
                     </ul>
                 </div>
                 <div class="floorCon-slide j_SlideBanner">
-                    <ul class="fCs-con" style="position: absolute; width: 999999px; left: -400px;">
-                        <li class="ks-switchable-panel-internal257" style="display: block; float: left;"><a
-                            href="http://www.tmall.com/go/act/tmall/nrhxb.php?spm=3.359254.295828.11&amp;ad_id=&amp;am_id=1301049099a6159e73f8&amp;cm_id=&amp;pm_id="
-                            target="_blank" title="【女王节】箱包6折包邮">
-                            <img src="http://img04.taobaocdn.com/tps/i4/T1aatmXC8gXXad1GY4-200-320.jpg_q90.jpg"
-                                width="200" height="320" alt="【女王节】箱包6折包邮"></a></li>
-                        <li class="ks-switchable-panel-internal257" style="display: block; float: left;"><a
-                            href="http://subject.tmall.com/subject/subject.htm?spm=3.359254.295828.12&amp;id=3277"
-                            target="_blank" title="运动时尚">
-                            <img data-ks-lazyload-custom="http://img02.taobaocdn.com/tps/i2/T1_mBBXvVcXXad1GY4-200-320.jpg_q90.jpg"
-                                width="200" height="320" alt="运动时尚"></a></li>
-                        <li class="ks-switchable-panel-internal257" style="display: block; float: left;"><a
-                            href="http://www.tmall.com/go/act/sale/springshoes.php?spm=3.359254.295828.13&amp;ad_id=&amp;am_id=&amp;cm_id=14010482761cef96570e&amp;pm_id="
-                            target="_blank" title="新品上市 性价首选">
-                            <img width="200" height="320" alt="新品上市 性价首选" src="http://img04.taobaocdn.com/tps/i4/T1HM4oXuphXXad1GY4-200-320.jpg_q90.jpg"></a></li>
+                    <ul class="fCs-con" >
+                            @for (var index = 0; index < (Model.Foods.Count() > 3 ? 3 : Model.Foods.Count()); index++)
+                            {
+                                var item = Model.Foods.ElementAt(index);
+                                <li class="ks-switchable-panel-internal219"><a href="http://list.tmall.com?id=@item.Id" target="_blank" title="@item.Name">
+                                <img src="@item.Image"></a></li>
+                            }
                     </ul>
                     <ul class="fCs-nav fCs-nav-num3">
-                        <li class="fCs-nav1 ks-switchable-trigger-internal256" style="left: 220px;"><a href="http://www.tmall.com/go/act/tmall/nrhxb.php?spm=3.359254.295828.14&amp;ad_id=&amp;am_id=1301049099a6159e73f8&amp;cm_id=&amp;pm_id="
-                            target="_blank" title="【女王节】箱包6折包邮">【女王节】箱包6折包邮</a><s></s></li>
-                        <li class="fCs-nav2 ks-switchable-trigger-internal256" style="left: 220px;"><a href="http://subject.tmall.com/subject/subject.htm?spm=3.359254.295828.15&amp;id=3277"
-                            target="_blank" title="运动时尚">运动时尚</a><s></s></li>
-                        <li class="fCs-nav3 ks-switchable-trigger-internal256 active" style="left: 220px;"><a
-                            href="http://www.tmall.com/go/act/sale/springshoes.php?spm=3.359254.295828.16&amp;ad_id=&amp;am_id=&amp;cm_id=14010482761cef96570e&amp;pm_id="
-                            target="_blank" title="新品上市 性价首选">新品上市 性价首选</a><s></s></li>
+                            @for (var index = 0; index < (Model.Foods.Count() > 3 ? 3 : Model.Foods.Count()); index++)
+                            {
+                                var classBeforeFormat = "fCs-nav{0} ks-switchable-trigger-internal203";
+                                var classAfterFormat = string.Format(classBeforeFormat, index+1);
+
+                                var item = Model.Foods.ElementAt(index);
+                                <li class="@Html.Raw(classAfterFormat)"><a href="http://list.tmall.com?id=@item.Id"
+                                    target="_blank" title="@item.Name">@item.Name</a><s></s></li>
+                            }
                     </ul>
                 </div>
-                <a href="http://www.tmall.com/go/act/tmall/nrhxb.php?spm=3.359254.295828.17&amp;ad_id=&amp;am_id=1301049099a6159e73f8&amp;cm_id=&amp;pm_id="
-                    class="floorCon-banner j_floorBanner" title="38节女鞋" target="_blank">
-                    <img src="http://img04.taobaocdn.com/tps/i4/T1F.tyXwRbXXXHoWL4-200-300.jpg_q90.jpg"
-                        width="200" height="300" alt="38节女鞋">
-                </a><a href="http://ju.mmstat.com/?url=http://www.tmall.com/go/act/sale/sports-czzf.php?spm=3.359254.295828.18&amp;ad_id=&amp;am_id=&amp;cm_id=&amp;pm_id=150104971363f6351e63"
-                    class="floorCon-banner j_floorBanner" title="春季专辑导购" target="_blank">
-                    <img src="http://img04.taobaocdn.com/tps/i4/T1JU8CXBXXXXXHoWL4-200-300.jpg_q90.jpg"
-                        width="200" height="300" alt="春季专辑导购">
-                </a><a href="http://list.tmall.com/search_product.htm?spm=3.359254.295828.19&amp;start_price=&amp;end_price=&amp;post_fee=-1&amp;zk_type=0&amp;search_condition=23&amp;cat=50095656&amp;sort=d&amp;style=g&amp;vmarket=0&amp;from=sn_1_cat&amp;active=1&amp;q="
-                    class="floorCon-banner j_floorBanner" title="箱包" target="_blank">
-                    <img src="http://img04.taobaocdn.com/tps/i4/T1.ZhyXx8fXXXHoWL4-200-300.jpg_q90.jpg"
-                        width="200" height="300" alt="箱包">
-                </a>
+                            @for (var index = 3; index < (Model.Foods.Count() > 6 ? 6 : Model.Foods.Count()); index++)
+                            {
+                                var item = Model.Foods.ElementAt(index);
+                                <a href="http://list.tmall.com?id=@item.Id"
+                            class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
+                            <img src="@item.Image"></a>
+                            }
             </div>
         </div>
     </div>
