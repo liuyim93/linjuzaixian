@@ -22,7 +22,11 @@ namespace friday.core.repositories
             var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.LoginName == LoginName).SingleOrDefault();
             return q;
         }
-
+        public LoginUser GetLoginUserByEmail(string email)
+        {
+            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.SystemUser.Email == email).SingleOrDefault();
+            return q;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(LoginUser)); }

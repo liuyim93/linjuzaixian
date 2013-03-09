@@ -12,8 +12,8 @@ namespace friday.core.services
     public class UserService:IUserService
     {
         ISystemUserRepository iSystemUserRepository;
-        IRepository<LoginUser> iLoginUserRepository;
-        public UserService(ISystemUserRepository iSystemUserRepository, IRepository<LoginUser> iLoginUserRepository)
+        ILoginUserRepository iLoginUserRepository;
+        public UserService(ISystemUserRepository iSystemUserRepository, ILoginUserRepository iLoginUserRepository)
         {
             this.iSystemUserRepository = iSystemUserRepository;
             this.iLoginUserRepository = iLoginUserRepository;
@@ -59,6 +59,23 @@ namespace friday.core.services
                 bag.remove();
             }
             return loginUser;
+        }
+        public LoginUser getLoginUserByLoginName(string loginName)
+        {
+            if (!string.IsNullOrEmpty(loginName))
+            {
+                return iLoginUserRepository.GetLoginUserByLoginName(loginName);
+            }
+            return null;
+
+        }
+        public LoginUser getLoginUserByEmail(string emai)
+        {
+            if (!string.IsNullOrEmpty(emai))
+            {
+                return iLoginUserRepository.GetLoginUserByEmail(emai);
+            }
+            return null;
         }
       
     }

@@ -12,6 +12,6 @@ namespace friday.core.repositories
         LoginUser GetLoginUserByLoginName(string LoginName);
         IList<LoginUser> Search(List<DataFilter> termList);
         IList<LoginUser> Search(List<DataFilter> termList, int start, int limit, out long total);
-       
+        LoginUser GetLoginUserByEmail(string email);    
     }
 }

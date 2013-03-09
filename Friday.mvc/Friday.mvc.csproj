@@ -126,6 +126,7 @@
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
+    <Compile Include="Controllers\FridayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
