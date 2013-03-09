@@ -121,6 +121,7 @@ TML.add("minilogin", function (_tml) {
                 _proxy_url += "&nsdomain=true";
             _show_url += encodeURIComponent(_proxy_url) + "&full_redirect=false"
         }
+        /*2013-03-09 basilwang to judge if iframe exists */
         if (_dom_div_id_tml_mLogin)
             _kissy.get("iframe", _dom_div_id_tml_mLogin).src = _show_url;
         else
