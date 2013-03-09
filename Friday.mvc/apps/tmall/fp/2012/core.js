@@ -75,12 +75,12 @@ TB.add("mod~global", function() {
                 }
             }
         });
-        TB.Global.memberInfoReady(function(p) {
-            if (p.isLogin && p.memberInfo.mallSeller) {
-                var i = _findChildElementByClassName("j_MyTaobao", _div_named_site_nav);
-                var q = _findChildElementByClassName("j_SellerCenter", _div_named_site_nav);
-                _addClassName(i, "hidden");
-                _removeClassName(q, "hidden")
+        TB.Global.memberInfoReady(function(_userinfo) {
+            if (_userinfo.isLogin && _userinfo.memberInfo.mallSeller) {
+                var _dom_class_j_MyTaobao = _findChildElementByClassName("j_MyTaobao", _div_named_site_nav);
+                var _dom_class_j_SellerCenter = _findChildElementByClassName("j_SellerCenter", _div_named_site_nav);
+                _addClassName(_dom_class_j_MyTaobao, "hidden");
+                _removeClassName(_dom_class_j_SellerCenter, "hidden")
             }
         });
         //2013-02-19 basilwang asyn add  j_MallCateHoverTrigger
@@ -215,10 +215,10 @@ TB.add("mod~global", function() {
         if (!TB.environment.isDaily) {
             return
         }
-        var p = _div_named_site_nav ? _div_named_site_nav.getElementsByTagName("a") : [];
-        for (var S = 0; S < p.length; S++) {
-            if (p[S].href.indexOf("register") === -1 && p[S].href.indexOf(".php")) {
-                p[S].href = p[S].href.replace("taobao.com", "daily.taobao.net").replace("tmall.com", "daily.tmall.net")
+        var _doms_a = _div_named_site_nav ? _div_named_site_nav.getElementsByTagName("a") : [];
+        for (var _index = 0; _index < _doms_a.length; _index++) {
+            if (_doms_a[_index].href.indexOf("register") === -1 && _doms_a[_index].href.indexOf(".php")) {
+                _doms_a[_index].href = _doms_a[_index].href.replace("taobao.com", "daily.taobao.net").replace("tmall.com", "daily.tmall.net")
             }
         }
     },initLogout: function() {
@@ -235,7 +235,10 @@ TB.add("mod~global", function() {
                 location.href = _logout_url
             }, 20)
         })
-    },test: function() {
+    },
+        //2013-03-09 basilwang don't think we need this
+        /*
+        test: function() {
         var S = false;
         var i = function() {
             if (S) {
@@ -248,20 +251,27 @@ TB.add("mod~global", function() {
         };
         _kissy.ready(i);
         setTimeout(i, 4000)
-    },assist: function() {
+    },
+    */
+        /*
+        assist: function() {
         if (_get_user_cookie_value("test_accouts") && document.domain.indexOf("taobao.net") > -1) {
             _kissy.ready(function() {
                 _kissy.getScript("http://assets.daily.taobao.net/p/assist/login/login.js")
             })
         }
-    },collect: function() {
+    },*/
+        /*
+    collect: function() {
         !~location.host.indexOf(".net") && !~location.host.indexOf("tms.taobao.com") && Math.random() * 1000 < 1 && _kissy.ready(function() {
             _kissy.later(function() {
                 var S = document.getElementById("server-num");
                 _window.goldlog && _window.goldlog.emit && _window.goldlog.emit("mall_app", {kissy: _kissy.version,host: location.host,url: location.host + location.pathname,tbra: !!_window.YAHOO,back: 0,appname: S && S.innerHTML ? S.innerHTML.split(".")[0].replace(/\d+/g, "") : "php"})
             }, 2000)
         })
-    },mpp: function() {
+    },
+    */
+    mpp: function() {
         _kissy.ready(function() {
             if (window.g_config.closeMpp && _tmall_config.commonJS.mpp.off) {
                 return
