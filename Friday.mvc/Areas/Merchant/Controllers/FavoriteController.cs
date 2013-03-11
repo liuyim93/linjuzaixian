@@ -45,5 +45,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
+        public ActionResult myBrandsIndex()
+        {
+            return View();
+        }
     }
 }
