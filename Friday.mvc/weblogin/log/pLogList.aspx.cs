@@ -31,6 +31,8 @@ namespace Friday.mvc.weblogin.log
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            tagName = systemFunctionObjectService.日志模块.日志管理.TagName;
+            this.PermissionCheck();
 
             if (Request.Params["flag"] != "alldelete")
             {
