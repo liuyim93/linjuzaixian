@@ -407,7 +407,7 @@ namespace Friday.Test2
             //    ParentID = baseInfo.Id,
             //    MenuRoute = "valuingComments/pValuingCommentsList.aspx",
             //    TLevel = 1,
-                ColIndex = 12
+            //    ColIndex = 12
             //};
             //iSystemMenuRepository.SaveOrUpdate(valuingComments);
             //adminMenuCheckList.Add(valuingComments);
@@ -1425,8 +1425,8 @@ namespace Friday.Test2
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("川菜"),
                MerchantType = MerchantTypeEnum.餐馆
            };
-           MerchantGoodsType restaurantFoodTye_12 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "蛋糕" };
-           MerchantGoodsType restaurantFoodTye_22 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "水果" };
+           MerchantGoodsType restaurantFoodTye_12 = new MerchantGoodsType() { Merchant = restaurant2, GoodsType = "蛋糕" };
+           MerchantGoodsType restaurantFoodTye_22 = new MerchantGoodsType() { Merchant = restaurant2, GoodsType = "水果" };
            restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_12);
            restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_22);
            new RestaurantRepository().SaveOrUpdate(restaurant2);

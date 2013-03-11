@@ -44,16 +44,24 @@ namespace Friday.mvc.weblogin
                 this.liAdd.Visible = false;
             }
 
-            if (Request.Form["myFoodOrder_id"] != null)
+            if (!this.CurrentUser.IsAdmin)
             {
-                MyFoodOrderID = Request.Form["myFoodOrder_id"];
+                restaurant_id = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
             else
             {
-                MyFoodOrderID = Request.Params["myFoodOrder_id"];
+                //if (Request.Form["myFoodOrder_id"] != null)
+                //{
+                //    MyFoodOrderID = Request.Form["myFoodOrder_id"];
+                //}
+                ////else
+                //if (Request.Params["myFoodOrder_id"] != null)
+                //{
+                //    MyFoodOrderID = Request.Params["myFoodOrder_id"];
+                //}
+                //myFoodOrder = iMyFoodOrderService.Load(MyFoodOrderID);
+                //restaurant_id = myFoodOrder.Restaurant.Id;
             }
-            myFoodOrder = iMyFoodOrderService.Load(MyFoodOrderID);
-            restaurant_id = myFoodOrder.Restaurant.Id;
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -103,6 +111,20 @@ namespace Friday.mvc.weblogin
             int limit = numPerPageValue;
             IList<OrderOfFood> orderOfFoodList = null;
             List<DataFilter> dfl = new List<DataFilter>();
+            List<DataFilter> myFoodOrderDfl = new List<DataFilter>();
+            List<DataFilter> MerchantDfl = new List<DataFilter>();
+
+            if (!this.CurrentUser.IsAdmin)
+            {
+                restaurant_id = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+                MerchantDfl.Add(new DataFilter() { type = "Restaurant", value = restaurant_id });
+                myFoodOrderDfl.Add(new DataFilter() { type = "Restaurant", field = MerchantDfl });
+                dfl.Add(new DataFilter() { type = "MyFoodOrder", field = myFoodOrderDfl });
+            }
+            else 
+            {
+            
+            }
 
             if (!string.IsNullOrEmpty(MyFoodOrderID))
             {

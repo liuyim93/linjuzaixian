@@ -40,7 +40,7 @@ namespace Friday.mvc.weblogin
 
             if (!this.CurrentUser.IsAdmin)
             {
-                merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+                restaurantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
                 if (Request.Params["flag"] != "alldelete")
                 {
@@ -99,34 +99,39 @@ namespace Friday.mvc.weblogin
             IList<Food> foodList = null;
             List<DataFilter> dfl = new List<DataFilter>();
             List<DataFilter> Restaurantdfl = new List<DataFilter>();
-            
+
             if (!this.CurrentUser.IsAdmin)
             {
                 Restaurantdfl.Add(new DataFilter()
                 {
                     type = "Restaurant",
-                    value = merchantID
+                    value = restaurantId
 
                 });
-                dfl.Add(new DataFilter() 
+                dfl.Add(new DataFilter()
                 {
-                    type = "Restaurant", 
-                    field = Restaurantdfl 
-                });
-            }
-            if (!string.IsNullOrEmpty(restaurantId))
-            {
-                Restaurantdfl.Add(new DataFilter() 
-                { 
                     type = "Restaurant",
-                    value = restaurantId 
-                });
-                dfl.Add(new DataFilter() 
-                { 
-                    type = "Restaurant", 
-                    field = Restaurantdfl 
+                    field = Restaurantdfl
                 });
             }
+            else 
+            {
+               
+            
+            }
+            //if (!string.IsNullOrEmpty(restaurantId))
+            //{
+            //    Restaurantdfl.Add(new DataFilter() 
+            //    { 
+            //        type = "Restaurant",
+            //        value = restaurantId 
+            //    });
+            //    dfl.Add(new DataFilter() 
+            //    { 
+            //        type = "Restaurant", 
+            //        field = Restaurantdfl 
+            //    });
+            //}
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];
             if (!string.IsNullOrEmpty(startprice))
@@ -170,16 +175,17 @@ namespace Friday.mvc.weblogin
             if (Request.Params["__EVENTVALIDATION"] == null)
            {
                Restaurant rst=new Restaurant();
+                    IList<MerchantGoodsType> goodsTypes=new List<MerchantGoodsType>();
                if (!this.CurrentUser.IsAdmin)
                {
-                   rst = iRestaurantService.Load(merchantID);
+                   goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID( this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
                }
                else 
                {
-                  rst = iRestaurantService.Load(restaurantId);               
+                    goodsTypes = iMerchantGoodsTypeService.GetAll();            
                }
               
-            IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
+         
             foreach (var i in goodsTypes)
             {
                 this.mGoodsType.Items.Add(i.GoodsType);

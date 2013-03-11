@@ -18,5 +18,6 @@ namespace friday.core.services
         IList<MerchantGoodsType> GetGoodsTypeByMerchantID(string mid);
         MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid);
         bool IsHaveTheSameName(string name);
+        IList<MerchantGoodsType> GetAll();
     }
 }

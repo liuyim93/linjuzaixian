@@ -828,16 +828,104 @@ namespace friday.core.repositories
             return query;
         }
 
+        //protected ICriteria SearchByOrderOfFood(ICriteria query, List<DataFilter> termList, bool isSelf)
+        //{
+        //    IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+        //    string notself = null;
+        //    if (!isSelf)
+        //    {
+        //        query.CreateAlias("OrderOfFood", "orderOfFood");
+        //        notself = "orderOfFood.";
+        //    }
+        //    if (termList.Count != 0)
+        //    {
 
+        //        foreach (DataFilter df in termList)
+        //        {
+        //            if (df.type.Equals("IsDelete"))
+        //            {
+        //                query.Add(Expression.Eq(notself + "IsDelete", false));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("MyFoodOrder"))
+        //            {
+        //                if (!string.IsNullOrEmpty(df.value))
+        //                {
+        //                    query.Add(Restrictions.Eq(notself + "MyFoodOrder", iMyFoodOrderRepository.Get(df.value)));
+        //                }
+
+        //                if (df.field != null && df.field.Count != 0)
+        //                {
+        //                    SearchByMyFoodOrder(query, df.field, false);
+        //                }
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("Order"))
+        //            {
+        //                if (df.field != null && df.field.Count != 0)
+        //                {
+        //                    //query.AddOrder(NHibernate.Criterion.Order.Desc("FoodType"))
+        //                    foreach (DataFilter indf in df.field)
+        //                    {
+        //                        if (!string.IsNullOrEmpty(indf.comparison) && indf.comparison.Equals("Desc"))
+        //                        {
+        //                            query.AddOrder(NHibernate.Criterion.Order.Desc(indf.type));
+        //                        }
+        //                        else
+        //                        {
+        //                            query.AddOrder(NHibernate.Criterion.Order.Asc(indf.type));
+        //                        }
+        //                        continue;
+        //                    }
+        //                }
+        //            }
+
+        //            //时间
+        //            if (df.type.Equals("CreateTime"))
+        //            {
+        //                SearchByCreateTime(query, df, notself);
+        //                continue;
+        //            }
+
+        //        }
+        //    }
+        //    return query;
+        //}
         protected ICriteria SearchByOrderOfFood(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
-            IMyFoodOrderRepository iMyFoodOrderRepository = UnityHelper.UnityToT<IMyFoodOrderRepository>();
+            return SearchByOrderOfFood(query, termList);
+        }
+        protected ICriteria SearchByOrderOfFood(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByOrderOfFood(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByOrderOfFood(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("OrderOfFood", "orderOfFood");
                 notself = "orderOfFood.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "OrderOfFood";
+
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".OrderOfFood";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "orderOfFood");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
@@ -848,20 +936,15 @@ namespace friday.core.repositories
                         query.Add(Expression.Eq(notself + "IsDelete", false));
                         continue;
                     }
-
                     if (df.type.Equals("MyFoodOrder"))
                     {
-                        if (!string.IsNullOrEmpty(df.value))
-                        {
-                            query.Add(Restrictions.Eq(notself + "MyFoodOrder", iMyFoodOrderRepository.Get(df.value)));
-                        }
-
                         if (df.field != null && df.field.Count != 0)
                         {
-                            SearchByMyFoodOrder(query, df.field, false);
+                            SearchByMyFoodOrder(query, df.field, ref deepIndex, ref parentSearch);
                         }
                         continue;
                     }
+
 
                     if (df.type.Equals("Order"))
                     {
@@ -892,6 +975,8 @@ namespace friday.core.repositories
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
         protected ICriteria SearchByOrderOfCommodity(ICriteria query, List<DataFilter> termList, bool isSelf)
