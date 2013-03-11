@@ -23,6 +23,7 @@ namespace Friday.mvc.weblogin.rent
         {
             string uid = Request.Params["uid"].ToString();
             rent = iRentService.Load(uid);
+            tagName = systemFunctionObjectService.租房模块.租房维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();
