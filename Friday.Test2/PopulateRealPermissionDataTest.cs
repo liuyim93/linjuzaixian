@@ -9,6 +9,7 @@ using NUnit.Framework;
 using friday.core.services;
 using friday.core.repositories;
 using friday.core.components;
+using friday.core.EnumType;
 
 namespace Friday.Test2
 {
@@ -55,6 +56,8 @@ namespace Friday.Test2
             iSystemFunctionObjectService.Generate();
             //添加关联
             add_ObjectInRole();
+            //添加商店分类
+            add_MerchantCategory();
             
         }
 
@@ -1120,6 +1123,43 @@ namespace Friday.Test2
                 }
             }
         }
+        //商店商品目录添加
+        private void add_MerchantCategory()
+         {
+             IMerchantCategoryService iMerchantCategoryService = UnityHelper.UnityToT<IMerchantCategoryService>();
+             string[] restCatg = {"中餐","西餐","清真","自助餐","火锅","鲁菜","川菜","粤菜","闽菜","苏菜","湘菜","徽菜" };
+            foreach(var i in restCatg)
+            {
+                MerchantCategory restMC = new MerchantCategory()
+                {
+                    MerchantCategoryName = i,
+                    MerchantType = MerchantTypeEnum.餐馆
+                };
+                iMerchantCategoryService.Save(restMC);            
+            }
+            string[] rentCatg = { "学区房", "海景房", "洋房", "独栋别墅", "复式楼房", "筒子楼", "集体宿舍"};
+            foreach (var i in rentCatg)
+            {
+                MerchantCategory restMC = new MerchantCategory()
+                {
+                    MerchantCategoryName = i,
+                    MerchantType = MerchantTypeEnum.租房
+                };
+                iMerchantCategoryService.Save(restMC);
+            }
+
+            string[] shopCatg = { "烟酒", "炒货", "果木", "熟食", "家电", "家具", "蔬菜","家纺","图书影音","电子产品" };
+            foreach (var i in shopCatg)
+            {
+                MerchantCategory shopMC = new MerchantCategory()
+                {
+                    MerchantCategoryName = i,
+                    MerchantType = MerchantTypeEnum.百货
+                };
+                iMerchantCategoryService.Save(shopMC);
+            }
+
+         }
 
     }
 }
