@@ -33,11 +33,12 @@ namespace Friday.mvc.weblogin
         {
             AjaxResult result = new AjaxResult();
             FormatJsonResult jsonResult = new FormatJsonResult();
-            loginUser = new LoginUser();
+            LoginUser loginUser = new LoginUser();
+            LoginUser loginUserExist = new LoginUser();
 
-            loginUser = iLoginUserRepository.GetLoginUserByLoginName(Request.Params["LoginName"]);
+            loginUserExist = iLoginUserRepository.GetLoginUserByLoginName(Request.Params["LoginName"]);
 
-            if (loginUser != null)
+            if (loginUserExist != null)
             {
                 result.statusCode = "300";
                 result.message = "您填写的登录名已被使用！";
