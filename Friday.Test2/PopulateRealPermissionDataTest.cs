@@ -203,7 +203,7 @@ namespace Friday.Test2
                 Name = "菜品管理",
                 Leaf = true,
                 ParentID = restaurantModel.Id,
-                MenuRoute = "restaurant/pFoodList.aspx",
+                MenuRoute = "food/pFoodList.aspx",
                 TLevel = 1,
                 ColIndex = 4
             };
@@ -1399,8 +1399,8 @@ namespace Friday.Test2
            };
            MerchantGoodsType restaurantFoodTye_12 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "蛋糕" };
            MerchantGoodsType restaurantFoodTye_22 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "水果" };
-           restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_12);
-           restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_22);
+           restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_12);
+           restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_22);
            new RestaurantRepository().SaveOrUpdate(restaurant2);
 
            LoginUser lu2 = new LoginUser();

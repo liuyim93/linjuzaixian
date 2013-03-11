@@ -31,6 +31,7 @@ namespace Friday.mvc.weblogin.restaurant
         protected string shopStatus;
         protected string tel;
         protected string loginName;
+        protected string merchantID;
 
         IRestaurantService iRestaurantService = UnityHelper.UnityToT<IRestaurantService>();
 
@@ -48,7 +49,10 @@ namespace Friday.mvc.weblogin.restaurant
            //{
            //    this.liEdit.Visible = false;
            //}
-
+            if (!this.CurrentUser.IsAdmin)
+            {
+                merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            }
 
            if (Request.Params["flag"] != "alldelete")
            {
@@ -63,6 +67,16 @@ namespace Friday.mvc.weblogin.restaurant
                    List<DataFilter> loginUserOfMechentList = new List<DataFilter>();
                    List<DataFilter> loginUserList = new List<DataFilter>();
 
+
+                   if (!this.CurrentUser.IsAdmin)
+                   {
+                       filterList.Add(new DataFilter()
+                       {
+                           type = "Restaurant",
+                           value = merchantID
+
+                       });
+                   }
                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
                        filterList.Add(new DataFilter()
                        {
