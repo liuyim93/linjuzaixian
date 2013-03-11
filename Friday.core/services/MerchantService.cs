@@ -45,7 +45,7 @@ namespace friday.core.services
                 a.logoPicType = "logo";
                 a.logo = Merchant.Logo;
                 a.source = "sBrands";
-                a.isCol = "False";
+                a.isCol = "";
                 a.brandId = Merchant.Id;
                 a.brandName = Merchant.Name;
                 a.brandDesc = Merchant.Description;
@@ -62,7 +62,7 @@ namespace friday.core.services
                 a.logoPicType = "logo";
                 a.logo = Merchant.sBrand;
                 a.source = "sBrands";
-                a.isCol = "False";
+                a.isCol = "1";
                 a.brandId = Merchant.Id;
                 a.brandName = Merchant.Name;
                 a.brandDesc = Merchant.Description;
