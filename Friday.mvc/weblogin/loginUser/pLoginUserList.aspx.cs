@@ -9,6 +9,7 @@ using friday.core;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
@@ -21,9 +22,9 @@ namespace Friday.mvc.weblogin
         protected string loginName;
         protected string merchantType;
 
-        ILoginUserRepository iRepositoryLoginUser = UnityHelper.UnityToT<ILoginUserRepository>();
-        IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
-        IMerchantRepository iRepositoryMerchant= UnityHelper.UnityToT<IMerchantRepository>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        IUserInRoleService iUserInRoleService = UnityHelper.UnityToT<IUserInRoleService>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -69,7 +70,7 @@ namespace Friday.mvc.weblogin
 
                 if (!string.IsNullOrEmpty(Request.Form["IDSet"]))
                    {
-                      merchant = iRepositoryMerchant.Get(Request.Form["IDSet"]);
+                      merchant = iMerchantService.Load(Request.Form["IDSet"]);
                       //merchantType=EnumDescription.GetFieldText(merchant.MerchantType);
                       if (merchant.MerchantType == MerchantTypeEnum.餐馆)
                     {
@@ -109,7 +110,7 @@ namespace Friday.mvc.weblogin
                 dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-                IList<LoginUser> loginUserList = iRepositoryLoginUser.Search(filterList, start, limit, out total);
+                IList<LoginUser> loginUserList = iLoginUserService.Search(filterList, start, limit, out total);
 
                 repeater.DataSource = loginUserList;
                 repeater.DataBind();
@@ -120,8 +121,8 @@ namespace Friday.mvc.weblogin
 
         private void DeleteLoginUser()
         {
-            iRepositoryLoginUser.PhysicsDelete(Request.Params["uid"]);
-            iUserInRoleRepository.DeleteUserInRoleByLoginUserID(Request.Params["uid"]);
+            iLoginUserService.Delete(Request.Params["uid"]);
+            iUserInRoleService.DeleteUserInRoleByLoginUserID(Request.Params["uid"]);
             iPermissionManager.RefreshUserInRole();
 
             AjaxResult result = new AjaxResult();

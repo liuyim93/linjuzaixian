@@ -9,14 +9,17 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.loginUser
 {
     public partial class pLoginUserDetail : BasePage
     {
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+
         IList<LoginUserOfMerchant> loginUserOfMerchants = new List<LoginUserOfMerchant>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
+
         public LoginUser loginuser;
         private Merchant merchant;
         private string belgMerchant;
@@ -25,7 +28,7 @@ namespace Friday.mvc.weblogin.loginUser
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            loginuser = iLoginUserRepository.Load(uid);
+            loginuser = iLoginUserService.Load(uid);
 
             BindingHelper.ObjectToControl(loginuser, this);
 

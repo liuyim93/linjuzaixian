@@ -8,15 +8,16 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pEditLoginUser : BasePage
     {
-        IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-        IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
-        IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
-        IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        IUserInRoleService iUserInRoleService = UnityHelper.UnityToT<IUserInRoleService>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
+        ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
 
         private LoginUser loginUser;
         private string uid;
@@ -24,7 +25,7 @@ namespace Friday.mvc.weblogin
         protected void Page_Load(object sender, EventArgs e)
         {
             uid = Request.Params["uid"].ToString();
-            loginUser = iLoginUserRepository.Load(uid);
+            loginUser = iLoginUserService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
@@ -35,7 +36,7 @@ namespace Friday.mvc.weblogin
                 BindingHelper.ObjectToControl(loginUser, this);
                 IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
 
-                string[] info = iUserInRoleRepository.GetRoleNamesAndIDByLoginUserID(uid);
+                string[] info = iUserInRoleService.GetRoleNamesAndIDByLoginUserID(uid);
                 if (info.Length!= 0)
                 {
                     this.SystemRole.Value = info[0];
@@ -55,9 +56,9 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
-            iLoginUserRepository.SaveOrUpdate(loginUser);
+            iLoginUserService.Update(loginUser);
 
-            iUserInRoleRepository.DeleteUserInRoleByLoginUserID(uid);
+            iUserInRoleService.DeleteUserInRoleByLoginUserID(uid);
             string roleID = "";
             if (this.SystemRoleID.Value != null && this.SystemRoleID.Value != "")
             {
@@ -67,9 +68,9 @@ namespace Friday.mvc.weblogin
                 foreach (string aid in sArray)
                 {
                     UserInRole userInRole = new UserInRole();
-                    userInRole.SystemRole = iSystemRoleRepository.Get(aid);
+                    userInRole.SystemRole = iSystemRoleService.Load(aid);
                     userInRole.LoginUser = loginUser;
-                    iUserInRoleRepository.SaveOrUpdate(userInRole);
+                    iUserInRoleService.Update(userInRole);
                 }
             }
             iPermissionManager.RefreshUserInRole();

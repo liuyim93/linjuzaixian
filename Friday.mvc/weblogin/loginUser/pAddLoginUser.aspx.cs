@@ -8,16 +8,17 @@ using friday.core;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pAddLoginUser : BasePage
     {
-        ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
-        IRepository<UserInRole> iUserInRoleRepository = UnityHelper.UnityToT<IRepository<UserInRole>>();
-        IRepository<SystemRole> iSystemRoleRepository = UnityHelper.UnityToT<IRepository<SystemRole>>();
-        IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
-        IRepository<LoginUserOfMerchant> iLoginUserOfMerchantRepository = UnityHelper.UnityToT<IRepository<LoginUserOfMerchant>>();
+        ILoginUserOfMerchantService iLoginUserOfMerchantService = UnityHelper.UnityToT<ILoginUserOfMerchantService>();
+        ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        IUserInRoleService iUserInRoleService = UnityHelper.UnityToT<IUserInRoleService>();
+        IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
+        ISystemRoleService iSystemRoleService = UnityHelper.UnityToT<ISystemRoleService>();
 
         private LoginUser loginUser;
 
@@ -36,7 +37,7 @@ namespace Friday.mvc.weblogin
             LoginUser loginUser = new LoginUser();
             LoginUser loginUserExist = new LoginUser();
 
-            loginUserExist = iLoginUserRepository.GetLoginUserByLoginName(Request.Params["LoginName"]);
+            loginUserExist = iLoginUserService.GetLoginUserByLoginName(Request.Params["LoginName"]);
 
             if (loginUserExist != null)
             {
@@ -51,7 +52,7 @@ namespace Friday.mvc.weblogin
                 
             BindingHelper.RequestToObject(loginUser);
             loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
-            iLoginUserRepository.SaveOrUpdate(loginUser);
+            iLoginUserService.Save(loginUser);
 
 
         
@@ -60,17 +61,17 @@ namespace Friday.mvc.weblogin
             {
                 roleID = this.SystemRoleID.Value;
                UserInRole userinrole = new UserInRole();
-               userinrole.SystemRole=iSystemRoleRepository.Get(roleID);
+               userinrole.SystemRole=iSystemRoleService.Load(roleID);
                userinrole.LoginUser = loginUser;
-               iUserInRoleRepository.SaveOrUpdate(userinrole);
+               iUserInRoleService.Save(userinrole);
                iPermissionManager.RefreshUserInRole();
                 //string[] sArray = roleID.Split(',');
                 //foreach (string aid in sArray)
                 //{
                 //    UserInRole userInRole = new UserInRole();
-                //    userInRole.SystemRole = iSystemRoleRepository.Get(aid);
+                //    userInRole.SystemRole = iSystemRoleService.Get(aid);
                 //    userInRole.LoginUser = loginUser;
-                //    iUserInRoleRepository.SaveOrUpdate(userInRole);
+                //    iUserInRoleService.SaveOrUpdate(userInRole);
                 //}
             }
 
@@ -80,8 +81,8 @@ namespace Friday.mvc.weblogin
                 merchantiID = this.IDSet.Value;
                 LoginUserOfMerchant loginuserofmerchant = new LoginUserOfMerchant();
                 loginuserofmerchant.LoginUser = loginUser;
-                loginuserofmerchant.Merchant = iMerchantRepository.Get(merchantiID);
-                iLoginUserOfMerchantRepository.SaveOrUpdate(loginuserofmerchant);              
+                loginuserofmerchant.Merchant = iMerchantService.Load(merchantiID);
+                iLoginUserOfMerchantService.Save(loginuserofmerchant);              
             }             
          
            
