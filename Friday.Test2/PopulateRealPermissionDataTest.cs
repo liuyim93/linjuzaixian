@@ -173,7 +173,7 @@ namespace Friday.Test2
                 Name = "订单明细管理",
                 Leaf = true,
                 ParentID = restaurantModel.Id,
-                MenuRoute = "myFoodOrder/pMyFoodOrderList.aspx",
+                MenuRoute = "orderOfFood/pOrderOfFoodList.aspx",
                 TLevel = 1,
                 ColIndex = 2
             };
@@ -214,7 +214,7 @@ namespace Friday.Test2
 
             SystemMenu restaurantEditMange = new SystemMenu()
             {
-                Name = "餐馆编辑管理",
+                Name = "餐馆编辑",
                 Leaf = true,
                 ParentID = restaurantModel.Id,
                 MenuRoute = "restaurant/pEditRestaurant.aspx",
@@ -330,7 +330,7 @@ namespace Friday.Test2
                 Name = "员工管理",
                 Leaf = true,
                 ParentID = baseInfo.Id,
-                MenuRoute = "loginUser/pLoginUserList.aspx",
+                MenuRoute = "merchantEmployee/pMerchantEmployeeList.aspx",
                 TLevel = 1,
                 ColIndex = 6
             };
@@ -351,6 +351,19 @@ namespace Friday.Test2
             adminMenuCheckList.Add(loginUser);
             restaruantOwnerMenuCheckList.Add(loginUser);
 
+            SystemMenu logUser = new SystemMenu()
+            {
+                Name = "商家账号编辑",
+                Leaf = true,
+                ParentID = baseInfo.Id,
+                MenuRoute = "loginUser/pEditLoginUser.aspx",
+                TLevel = 1,
+                ColIndex = 8
+            };
+            iSystemMenuRepository.SaveOrUpdate(logUser);
+            adminMenuCheckList.Add(logUser);
+            restaruantOwnerMenuCheckList.Add(logUser);
+
             SystemMenu systemRole = new SystemMenu()
             {
                 Name = "角色权限管理",
@@ -358,7 +371,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "systemRole/pSystemRoleList.aspx",
                 TLevel = 1,
-                ColIndex = 8
+                ColIndex = 9
             };
             iSystemMenuRepository.SaveOrUpdate(systemRole);
             adminMenuCheckList.Add(systemRole);
@@ -370,7 +383,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "merchantCategory/pMerchantCategoryList.aspx",
                 TLevel = 1,
-                ColIndex = 9
+                ColIndex = 10
             };
             iSystemMenuRepository.SaveOrUpdate(merchantCategory);
             adminMenuCheckList.Add(merchantCategory);
@@ -382,7 +395,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "school/pSchoolList.aspx",
                 TLevel = 1,
-                ColIndex = 10
+                ColIndex = 11
             };
             iSystemMenuRepository.SaveOrUpdate(school);
             adminMenuCheckList.Add(school);
@@ -394,12 +407,13 @@ namespace Friday.Test2
             //    ParentID = baseInfo.Id,
             //    MenuRoute = "valuingComments/pValuingCommentsList.aspx",
             //    TLevel = 1,
-            //    ColIndex = 11
+                ColIndex = 12
             //};
             //iSystemMenuRepository.SaveOrUpdate(valuingComments);
             //adminMenuCheckList.Add(valuingComments);
             restaruantOwnerMenuCheckList.Add(valuingComments);
             customerMenuCheckList.Add(valuingComments);
+
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
@@ -498,14 +512,26 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(rentMange);
             adminMenuCheckList.Add(rentMange);
 
-            SystemMenu houseOrderDetail = new SystemMenu()
+            SystemMenu rentEdit = new SystemMenu()
             {
-                Name = "订单明细管理",
+                Name = "租房编辑",
                 Leaf = true,
                 ParentID = rentModel.Id,
-                MenuRoute = "myHouseOrder/pMyHouseOrderList.aspx",
+                MenuRoute = "rent/pEditRent.aspx",
                 TLevel = 1,
                 ColIndex = 2
+            };
+            iSystemMenuRepository.SaveOrUpdate(rentEdit);
+            adminMenuCheckList.Add(rentEdit);
+
+            SystemMenu houseOrderDetail = new SystemMenu()
+            {
+                Name = "租房订单明细管理",
+                Leaf = true,
+                ParentID = rentModel.Id,
+                MenuRoute = "orderOfHouse/pOrderOfHouseList.aspx",
+                TLevel = 1,
+                ColIndex = 3
             };
             iSystemMenuRepository.SaveOrUpdate(houseOrderDetail);
             adminMenuCheckList.Add(houseOrderDetail);
@@ -517,7 +543,7 @@ namespace Friday.Test2
                 ParentID = rentModel.Id,
                 MenuRoute = "myHouseOrder/pMyHouseOrderList.aspx",
                 TLevel = 1,
-                ColIndex = 3
+                ColIndex = 4
             };
             iSystemMenuRepository.SaveOrUpdate(houseOrder);
             adminMenuCheckList.Add(houseOrder);
@@ -527,23 +553,23 @@ namespace Friday.Test2
                 Name = "房屋管理",
                 Leaf = true,
                 ParentID = rentModel.Id,
-                MenuRoute = "rent/pRentList.aspx",
+                MenuRoute = "house/pHouseList.aspx",
                 TLevel = 1,
-                ColIndex = 4
+                ColIndex = 5
             };
             iSystemMenuRepository.SaveOrUpdate(house);
             adminMenuCheckList.Add(house);
 
-            SystemMenu rentEditManage = new SystemMenu()
-            {
-                Name = "租房编辑管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "rent/pRentList.aspx",
-                TLevel = 1,
-                ColIndex = 5
-            };
-            iSystemMenuRepository.SaveOrUpdate(rentEditManage);
+            //SystemMenu rentEditManage = new SystemMenu()
+            //{
+            //    Name = "租房编辑管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "rent/pRentList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 6
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(rentEditManage);
 
             SystemMenu valuingOfMyHouseOrder = new SystemMenu()
             {
@@ -594,14 +620,38 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(shopMange);
             adminMenuCheckList.Add(shopMange);
 
+            SystemMenu shopEditMange = new SystemMenu()
+            {
+                Name = "商店编辑管理",
+                Leaf = true,
+                ParentID = shopModel.Id,
+                MenuRoute = "shop/pEditShop.aspx",
+                TLevel = 1,
+                ColIndex = 2
+            };
+            iSystemMenuRepository.SaveOrUpdate(shopEditMange);
+
+            SystemMenu commodity = new SystemMenu()
+            {
+                Name = "商品管理",
+                Leaf = true,
+                ParentID = shopModel.Id,
+                MenuRoute = "commodity/pCommodityList.aspx",
+                TLevel = 1,
+                ColIndex = 3
+            };
+            iSystemMenuRepository.SaveOrUpdate(commodity);
+            adminMenuCheckList.Add(commodity);
+
+
             SystemMenu commodityOrderDetail = new SystemMenu()
             {
                 Name = "订单明细管理",
                 Leaf = true,
                 ParentID = shopModel.Id,
-                MenuRoute = "myCommodityOrder/pMyCommodityOrderList.aspx",
+                MenuRoute = "orderOfCommodity/pOrderOfCommodityList.aspx",
                 TLevel = 1,
-                ColIndex = 2
+                ColIndex = 4
             };
             iSystemMenuRepository.SaveOrUpdate(commodityOrderDetail);
             adminMenuCheckList.Add(commodityOrderDetail);
@@ -613,33 +663,11 @@ namespace Friday.Test2
                 ParentID = shopModel.Id,
                 MenuRoute = "myCommodityOrder/pMyCommodityOrderList.aspx",
                 TLevel = 1,
-                ColIndex = 3
+                ColIndex = 5
             };
             iSystemMenuRepository.SaveOrUpdate(commodityOrder);
             adminMenuCheckList.Add(commodityOrder);
-
-            SystemMenu commodity = new SystemMenu()
-            {
-                Name = "商品管理",
-                Leaf = true,
-                ParentID = shopModel.Id,
-                MenuRoute = "shop/pShopList.aspx",
-                TLevel = 1,
-                ColIndex = 4
-            };
-            iSystemMenuRepository.SaveOrUpdate(commodity);
-            adminMenuCheckList.Add(commodity);
-
-            SystemMenu shopEditMange = new SystemMenu()
-            {
-                Name = "商店编辑管理",
-                Leaf = true,
-                ParentID = shopModel.Id,
-                MenuRoute = "shop/pShopList.aspx",
-                TLevel = 1,
-                ColIndex = 5
-            };
-            iSystemMenuRepository.SaveOrUpdate(shopEditMange);
+           
 
             SystemMenu valuingOfMyCommodityOrder = new SystemMenu()
             {
