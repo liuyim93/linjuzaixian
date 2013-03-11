@@ -22,13 +22,15 @@ namespace Friday.Test2
        private List<School> schoolList = new List<School>();
        private List<Commodity> commodityOfShop1List = new List<Commodity>();
        private List<Commodity> commodityOfShop2List = new List<Commodity>();
+       private IList<MerchantCategory> merchantCategoryList = new List<MerchantCategory>();
+       IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_SHOP_COUNT = 5;
        private readonly int SHOP_COUNT = 10;  //we double SHOP_COUNT  eg  10*2
        private readonly int FOOD_COUNT_OF_SHOP = 10;
        private readonly int ORDER_COUNT = 500;
        private readonly int SHCOOL_COUNT = 10;
-       string[] mCategory = {"烟酒", "副食品", "超市", "军用品"};
+       //string[] mCategory = {"烟酒", "副食品", "超市", "军用品"};
 
        [SetUp]
         public void init()
@@ -38,14 +40,15 @@ namespace Friday.Test2
                 add_SystemUser_Address_LoginUser();
             }
 
-            add_MerchantCategory();
+            //add_MerchantCategory();
                     
             for (int i = 0; i < SHOP_COUNT; i++)
             {
-                int mCRnd = new Random().Next(4);//mCategory.Length
-                string mCategoryName = mCategory[mCRnd];
-                MerchantCategory merchantCategory;
-                merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
+                merchantCategoryList = iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+                int mCRnd = new Random().Next(merchantCategoryList.Count);//mCategory.Length
+                //string mCategoryName = mCategory[mCRnd];
+                MerchantCategory merchantCategory = merchantCategoryList[mCRnd];
+                //merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
                 add_Shop_Commodity_ShopCommodityType(i, merchantCategory);
             }
             add_School_Shop();
@@ -54,20 +57,20 @@ namespace Friday.Test2
             add_Random_MyOrder();
         }
        //2013-02-17  pangfuxing  add MerchantCategory
-       private void add_MerchantCategory() 
-       {
-           for (int i = 0; i < mCategory.Length; i++)
-           {
-               string merchantcategoryid = Guid.NewGuid().ToString();
-               MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
-               {
-                   MerchantCategoryName = mCategory[i],
-                   MerchantType = MerchantTypeEnum.百货
-               };
-               new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
-           }
+       //private void add_MerchantCategory() 
+       //{
+       //    for (int i = 0; i < mCategory.Length; i++)
+       //    {
+       //        string merchantcategoryid = Guid.NewGuid().ToString();
+       //        MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
+       //        {
+       //            MerchantCategoryName = mCategory[i],
+       //            MerchantType = MerchantTypeEnum.百货
+       //        };
+       //        new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
+       //    }
                  
-       }
+       //}
 
        private void add_SystemUser_Address_LoginUser()
        {

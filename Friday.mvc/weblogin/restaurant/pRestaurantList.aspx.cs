@@ -36,8 +36,8 @@ namespace Friday.mvc.weblogin.restaurant
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        //   tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
-        //   this.PermissionCheck();
+            tagName = systemFunctionObjectService.餐馆模块.餐馆维护.TagName;
+            this.PermissionCheck();
             //2013-02-28 basilwang you can use this to block button
            //if (!this.PermissionValidate(PermissionTag.Delete))
            //{
