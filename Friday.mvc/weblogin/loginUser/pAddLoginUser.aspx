@@ -33,9 +33,9 @@
                  <p>
                     <label>
                         用户角色：</label>
-                    <input type="text" id="SystemRole" size="35"  
+                    <input type="text" id="SystemRole" size="35"   class="required"
                         runat="server" readonly="true" />
-                    <input type="hidden" id="SystemRoleID" size="35"  
+                    <input type="hidden" id="SystemRoleID" size="35"   
                     runat="server" readonly="true" />
                     <a class="btnLook" href="ListSystemRole.aspx"  rel=""  lookupgroup="">选择角色</a>
                 </p>          

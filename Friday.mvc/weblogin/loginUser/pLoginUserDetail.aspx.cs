@@ -16,8 +16,11 @@ namespace Friday.mvc.weblogin.loginUser
     {
         IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
         ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        IList<LoginUserOfMerchant> loginUserOfMerchants = new List<LoginUserOfMerchant>();
         public LoginUser loginuser;
         private Merchant merchant;
+        private string belgMerchant;
+        private string belgSystemRole;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,8 +29,16 @@ namespace Friday.mvc.weblogin.loginUser
 
             BindingHelper.ObjectToControl(loginuser, this);
 
-            this.BelongMerchant.Value = loginuser.LoginUserOfMerchants.FirstOrDefault().Merchant.Name;
-            this.BelongSystemRole.Value = loginuser.UserInRoles.First().SystemRole.Name;
+
+            if (loginuser.LoginUserOfMerchants.Count!=0)
+            {
+                this.BelongMerchant.Value = loginuser.LoginUserOfMerchants.FirstOrDefault().Merchant.Name;
+            }
+            if (loginuser.UserInRoles.Count!=0)
+            {
+                this.BelongSystemRole.Value = loginuser.UserInRoles.First().SystemRole.Name;
+            }
+            
 
 
         }
