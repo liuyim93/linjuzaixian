@@ -21,12 +21,14 @@ namespace Friday.Test2
        private List<Rent> rentList = new List<Rent>();
        private List<House> houseOfRent1List = new List<House>();
        private List<House> houseOfRent2List = new List<House>();
+       private IList<MerchantCategory> merchantCategoryList = new List<MerchantCategory>();
+       IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_RENT_COUNT = 5;
        private readonly int RENT_COUNT = 10;  //we double RENT_COUNT  eg  10*2
        private readonly int HOUSE_COUNT_OF_RENT = 10;
        private readonly int ORDER_COUNT = 500;
-       string[] mCategory = {"个人出租", "房屋中介"};
+       //string[] mCategory = {"个人出租", "房屋中介"};
 
        [SetUp]
         public void init()
@@ -36,14 +38,15 @@ namespace Friday.Test2
                 add_SystemUser_Address_LoginUser();
             }
 
-            add_MerchantCategory();
+            //add_MerchantCategory();
                     
             for (int i = 0; i < RENT_COUNT; i++)
             {
-                int mCRnd = new Random().Next(2);//mCategory.Length
-                string mCategoryName = mCategory[mCRnd];
-                MerchantCategory merchantCategory;
-                merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
+                merchantCategoryList = iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.租房);
+                int mCRnd = new Random().Next(merchantCategoryList.Count);//mCategory.Length
+                //string mCategoryName = mCategory[mCRnd];
+                MerchantCategory merchantCategory = merchantCategoryList[mCRnd];
+                //merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
                 add_Rent_House_RentHouseType(i, merchantCategory);
             }
             add_School_Rent();
@@ -52,20 +55,20 @@ namespace Friday.Test2
             add_Random_MyOrder();
         }
        //2013-02-17  pangfuxing  add MerchantCategory
-       private void add_MerchantCategory() 
-       {
-           for (int i = 0; i < mCategory.Length; i++)
-           {
-               string merchantcategoryid = Guid.NewGuid().ToString();
-               MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
-               {
-                   MerchantCategoryName = mCategory[i],
-                   MerchantType = MerchantTypeEnum.租房
-               };
-               new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
-           }
+       //private void add_MerchantCategory() 
+       //{
+       //    for (int i = 0; i < mCategory.Length; i++)
+       //    {
+       //        string merchantcategoryid = Guid.NewGuid().ToString();
+       //        MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
+       //        {
+       //            MerchantCategoryName = mCategory[i],
+       //            MerchantType = MerchantTypeEnum.租房
+       //        };
+       //        new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
+       //    }
                  
-       }
+       //}
 
        private void add_SystemUser_Address_LoginUser()
        {
