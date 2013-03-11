@@ -38,10 +38,7 @@ namespace Friday.mvc.weblogin
             tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
             this.PermissionCheck();
 
-            if (!this.CurrentUser.IsAdmin)
-            {
-                restaurantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
-            }
+        
                 if (Request.Params["flag"] != "alldelete")
                 {
                     SearchFood();
@@ -84,14 +81,19 @@ namespace Friday.mvc.weblogin
 
             //在这里初始化ShopId
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            if (Request.Form["restaurant_id"] != null)
+
+            if (!this.CurrentUser.IsAdmin)
             {
-                restaurantId = Request.Form["restaurant_id"];
+                restaurantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            else
-            {
-                restaurantId = Request.Params["restaurant_id"];
-            }
+            //if (Request.Form["restaurant_id"] != null)
+            //{
+            //    restaurantId = Request.Form["restaurant_id"];
+            //}
+            //else
+            //{
+            //    restaurantId = Request.Params["restaurant_id"];
+            //}
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
