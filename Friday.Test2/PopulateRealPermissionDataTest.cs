@@ -60,7 +60,7 @@ namespace Friday.Test2
             add_MerchantCategory();
             //添加商铺的相关信息
             add_RestaurantInfo();
-            
+            add_RentInfo();            
         }
 
         //添加角色
@@ -1579,11 +1579,364 @@ namespace Friday.Test2
                EntityIndex = 1
            };
            myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
-           new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder2);
-
-
-
-        
+           new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder2);        
         }
+         public void add_RentInfo()
+        {
+            IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+            IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
+
+            Rent rent1 = new Rent()
+            {
+                Activity = "五一大促销",
+                Address = "二环东路7366号",
+                Bulletins = "9折促销",
+                Description = "just come",
+                Distance = "100",
+                Email = "7366@qq.com",
+                Logo = "image/7366.jpg",
+                Name = "济南安泰置业有限公司",
+                Owener = "任贤齐",
+                ShortName = "安泰",
+                Tel = "18799999992",
+                Rate = 0.8,
+                ShopStatus = ShopStatusEnum.营业时间,
+                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("学区房"),
+                MerchantType = MerchantTypeEnum.租房
+            };
+            MerchantGoodsType rentHouseTye_1 = new MerchantGoodsType() { Merchant = rent1, GoodsType = "高校学区房" };
+            MerchantGoodsType rentHouseTye_2 = new MerchantGoodsType() { Merchant = rent1, GoodsType = "中学学区房" };
+            rent1.MerchantGoodsTypes.Add(rentHouseTye_1);
+            rent1.MerchantGoodsTypes.Add(rentHouseTye_2);
+            new RentRepository().SaveOrUpdate(rent1);
+
+            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+
+            LoginUser lu1 = new LoginUser();
+            lu1.LoginName = "antai";
+            lu1.Password = "000000";
+            iLoginUserRepository.SaveOrUpdate(lu1);
+            
+            LoginUserOfMerchant lum = new LoginUserOfMerchant();
+            lum.Merchant = rent1;
+            lum.LoginUser = lu1;
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+            UserInRole uir = new UserInRole();
+            uir.LoginUser = lu1;
+            uir.SystemRole = iSystemRoleRepository.GetRoleByName("租房店主");
+            iUserInRoleRepository.SaveOrUpdate(uir);
+
+            LoginUser lu1_1 = new LoginUser();
+            lu1_1.LoginName = "antaixiaoer";
+            lu1_1.Password = "1111111";
+            iLoginUserRepository.SaveOrUpdate(lu1_1);
+
+            LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
+            lum1_1.Merchant = rent1;
+            lum1_1.LoginUser = lu1_1;
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
+
+            UserInRole uir1_1 = new UserInRole();
+            uir1_1.LoginUser = lu1_1;
+            uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("租房店小二");
+            iUserInRoleRepository.SaveOrUpdate(uir1_1);
+
+                House house_1 = new House()
+                {
+                    Name = "财大学区房",
+                    Price = 10,
+                    Image = "image/1212.jpg",
+                    IsDiscount = false,
+                    InventoryCount = 100,
+                    MerchantGoodsType = rentHouseTye_1,
+                    Rent = rent1,
+                   TimeOfRentFrom=DateTime.Now,
+                   TimeOfRentTO=DateTime.Now
+
+                };
+                rent1.Houses.Add(house_1);
+
+                House house_2 = new House()
+                {
+                    Name = "甸柳一小学区房",
+                    Price = 15,
+                    Image = "image/121.png",
+                    IsDiscount = true,
+                    InventoryCount = 200,
+                    DiscountInventoryCount = 100,
+                    MerchantGoodsType = rentHouseTye_2,
+                    DiscountPrice = 10,
+                    Rent = rent1,
+                    IsLimited = true,
+                    TimeOfRentFrom = DateTime.Now,
+                    TimeOfRentTO = DateTime.Now
+                };
+                rent1.Houses.Add(house_2);
+            new RentRepository().SaveOrUpdate(rent1);
+
+            //添加顾客李自成
+            string systemuserid = Guid.NewGuid().ToString();
+            string loginuserid = Guid.NewGuid().ToString();
+            SystemUser s1 = new SystemUser(systemuserid)
+            {
+                Tel = "13988888888",
+                Description = "erhuan10",
+                Email = "ocam10@163.com",
+                EntityIndex = 10,
+                Name = "李自成",                 
+                IsAnonymous = false,
+            };
+            new SystemUserRepository().SaveOrUpdate(s1);          
+            Address address = new Address()
+            {
+                AddressName = "济南市历下区燕子山小区9#116",
+                BackupTel = "187000000000",
+                Email ="23423@163.com",
+                Linkman = "john",
+                QQ ="3333333333",
+                Tel ="18668668686",
+                Weixin ="5862414855",
+                SystemUser=s1
+            };
+            //s1.Addresses.Add(address);
+            new AddressRepository().SaveOrUpdate(address);
+            Address address2 = new Address()
+            {
+                AddressName = "济南市市中区军安和平山庄9#116",
+                BackupTel = "18711111111111",
+                Email = "23423@163.com",
+                Linkman = "john",
+                QQ = "66666666",
+                Tel = "18668668686",
+                Weixin = "5862414855",
+                SystemUser=s1
+            };
+            //s1.Addresses.Add(address2);
+            new AddressRepository().SaveOrUpdate(address2);
+
+            LoginUser sysLoginUser = new LoginUser(loginuserid)
+            {
+                SystemUser = s1,
+                IsAdmin = false,
+                LoginName = "lizicheng",
+                Password = "lzc000000",
+                 
+            };
+            //s1.LoginUser = sysLoginUser;
+            new LoginUserRepository().SaveOrUpdate(sysLoginUser);
+
+            UserInRole uir1 = new UserInRole();
+            uir1.LoginUser = sysLoginUser;
+            uir1.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+            iUserInRoleRepository.SaveOrUpdate(uir1);
+
+            var add = s1.Addresses.FirstOrDefault();
+            MyHouseOrder myHouseOrder = new MyHouseOrder()
+            {
+                Address = address.AddressName,
+                Linkman = address.Linkman,
+                SystemUser = s1,
+                EntityIndex = 1,
+                Tel = address.Tel,
+                Rent = rent1,
+                OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+                OrderStatus = MyOrderStatusEnum.成功,
+                SendTime = "11:20",
+                Description = "价格不能超过3000"
+            };
+
+                OrderOfHouse orderOfHouse_1 = new OrderOfHouse()
+               {
+                   Amount = 2,
+                   MyHouseOrder = myHouseOrder,
+                   Price = house_1.Price,
+                   House = house_1,
+                   EntityIndex = 1
+               };
+               myHouseOrder.OrderOfHouses.Add(orderOfHouse_1);
+           new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder);
+
+
+           Rent rent2 = new Rent()
+           {
+               Activity = "优质房源",
+               Address = "济南市市中区舜耕路30号",
+               Bulletins = "9折优惠",
+               Description = "just come",
+               Distance = "100",
+               Email = "222@qq.com",
+               Logo = "image/21222.jpg",
+               Name = "济南润华置业公司",
+               Owener = "杨千嬅",
+               ShortName = "润华",
+               Tel = "18799999992",
+               Rate = 0.8,
+               ShopStatus = ShopStatusEnum.营业时间,
+               MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("海景房"),
+               MerchantType = MerchantTypeEnum.租房
+           };
+           MerchantGoodsType rentHouseTye_12 = new MerchantGoodsType() { Merchant = rent2, GoodsType = "烟台海景房" };
+           MerchantGoodsType rentHouseTye_22 = new MerchantGoodsType() { Merchant = rent2, GoodsType = "威海海景房" };
+           rent2.MerchantGoodsTypes.Add(rentHouseTye_12);
+           rent2.MerchantGoodsTypes.Add(rentHouseTye_22);
+           new RentRepository().SaveOrUpdate(rent2);
+
+           LoginUser lu2 = new LoginUser();
+           lu2.LoginName = "yangqianhua";
+           lu2.Password = "000000";
+           iLoginUserRepository.SaveOrUpdate(lu2);
+
+           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+           lum2.Merchant = rent2;
+           lum2.LoginUser = lu2;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+
+           UserInRole uir2 = new UserInRole();
+           uir2.LoginUser = lu2;
+           uir2.SystemRole = iSystemRoleRepository.GetRoleByName("租房店主");
+           iUserInRoleRepository.SaveOrUpdate(uir2);
+
+           LoginUser lu1_2 = new LoginUser();
+           lu1_2.LoginName = "runhuaxiaoer";
+           lu1_2.Password = "111111";
+           iLoginUserRepository.SaveOrUpdate(lu1_2);
+
+           LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
+           lum1_2.Merchant = rent2;
+           lum1_2.LoginUser = lu1_2;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
+
+           UserInRole uir1_2 = new UserInRole();
+           uir1_2.LoginUser = lu1_2;
+           uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("租房店小二");
+           iUserInRoleRepository.SaveOrUpdate(uir1_2);
+
+           House house_12 = new House()
+           {
+               Name = "烟大海景房",
+               Price = 10,
+               Image = "image/1212.jpg",
+               IsDiscount = false,
+               InventoryCount = 100,
+               MerchantGoodsType = rentHouseTye_12,
+               Rent = rent2,
+               TimeOfRentFrom = DateTime.Now,
+               TimeOfRentTO = DateTime.Now
+           };
+           rent1.Houses.Add(house_12);
+
+           House house_22 = new House()
+           {
+               Name = "山大威海校区海景房",
+               Price = 15,
+               Image = "image/121.png",
+               IsDiscount = true,
+               InventoryCount = 200,
+               DiscountInventoryCount = 100,
+               MerchantGoodsType = rentHouseTye_22,
+               DiscountPrice = 10,
+               Rent = rent2,
+               IsLimited = true,
+               TimeOfRentFrom = DateTime.Now,
+               TimeOfRentTO = DateTime.Now
+           };
+           rent2.Houses.Add(house_22);
+           new RentRepository().SaveOrUpdate(rent2);
+
+           //添加顾客王志文
+           SystemUser s2 = new SystemUser()
+           {
+               Tel = "13988888888",
+               Description = "erhuan10",
+               Email = "ocam10@163.com",
+               EntityIndex = 10,
+               Name = "王志文",
+               IsAnonymous = false,
+           };
+           new SystemUserRepository().SaveOrUpdate(s2);
+           Address address12 = new Address()
+           {
+               AddressName = "北京市海淀区和平校区3220",
+               BackupTel = "187000000000",
+               Email = "23423@163.com",
+               Linkman = "john",
+               QQ = "3333333333",
+               Tel = "18668668686",
+               Weixin = "5862414855",
+               SystemUser = s2
+           };
+           //s1.Addresses.Add(address);
+           new AddressRepository().SaveOrUpdate(address12);
+           Address address22 = new Address()
+           {
+               AddressName = "青岛市四方区贵和校区4112",
+               BackupTel = "18711111111111",
+               Email = "23423@163.com",
+               Linkman = "john",
+               QQ = "66666666",
+               Tel = "18668668686",
+               Weixin = "5862414855",
+               SystemUser = s2
+           };
+           //s1.Addresses.Add(address2);
+           new AddressRepository().SaveOrUpdate(address22);
+
+           LoginUser sysLoginUser2 = new LoginUser()
+           {
+               SystemUser = s2,
+               IsAdmin = false,
+               LoginName = "wangzhiwen",
+               Password = "wzw000000",
+
+           };
+           //s1.LoginUser = sysLoginUser;
+           new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
+
+           UserInRole uir12 = new UserInRole();
+           uir12.LoginUser = sysLoginUser2;
+           uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+           iUserInRoleRepository.SaveOrUpdate(uir12);
+
+           var add2 = s2.Addresses.FirstOrDefault();
+           MyHouseOrder myHouseOrder2 = new MyHouseOrder()
+           {
+               Address = address22.AddressName,
+               Linkman = address22.Linkman,
+               SystemUser = s2,
+               EntityIndex = 1,
+               Tel = address22.Tel,
+               Rent = rent2,
+               OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+               OrderStatus = MyOrderStatusEnum.成功,
+               SendTime = "11:20",
+               Description = ""
+           };
+
+           OrderOfHouse orderOfHouse_12 = new OrderOfHouse()
+           {
+               Amount = 2,
+               MyHouseOrder = myHouseOrder2,
+               Price = house_12.Price,
+               House = house_12,
+               EntityIndex = 1
+           };
+           myHouseOrder2.OrderOfHouses.Add(orderOfHouse_12);
+
+           OrderOfHouse orderOfHouse_22 = new OrderOfHouse()
+           {
+               Amount = 2,
+               MyHouseOrder = myHouseOrder2,
+               Price = house_22.Price,
+               House = house_22,
+               EntityIndex = 1
+           };
+           myHouseOrder2.OrderOfHouses.Add(orderOfHouse_12);
+           new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder2);
+       
+        }
+
     }
 }
+
