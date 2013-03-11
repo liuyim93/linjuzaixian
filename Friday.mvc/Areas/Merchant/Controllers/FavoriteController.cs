@@ -40,7 +40,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult Recommend(string callback)
         {
-            string json = this.iMerchantService.GetMerchantsJson();
+            string json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext));
             string script = callback + "("+ json  +")";
 
             return JavaScript(script);

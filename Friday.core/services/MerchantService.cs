@@ -19,17 +19,32 @@ namespace friday.core.services
     public class MerchantService:IMerchantService
     {
         private IMerchantRepository iMerchantRepository;
+        private IMyFavoriteService iMyFavoriteService;
         private ILogger iLogger;
-        public MerchantService(IMerchantRepository iMerchantRepository, ILogger iLogger)
+
+        public MerchantService(IMerchantRepository iMerchantRepository, ILogger iLogger, IMyFavoriteService iMyFavoriteService)
         {
             this.iMerchantRepository = iMerchantRepository;
+            this.iMyFavoriteService = iMyFavoriteService;
             this.iLogger = iLogger;
         }
 
-        public string GetMerchantsJson()
+        public string GetMerchantsJson(SystemUser systemUser)
         {
             IList<MerchantModel> bBrandModels = new List<MerchantModel>();
             IList<MerchantModel> sBrandModels = new List<MerchantModel>();
+
+            IList<Merchant> myFavoriteMerchant = new List<Merchant>();
+            IList<MyFavorite> myFavorites = new List<MyFavorite>();
+
+            if (systemUser != null)
+            {
+                myFavorites = iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser);
+                foreach (MyFavorite m in myFavorites)
+                {
+                    myFavoriteMerchant.Add(m.Merchant);
+                }
+            }
             IList<Merchant> Merchants = GetAll();
             Merchant Merchant;
             int index;
@@ -45,7 +60,14 @@ namespace friday.core.services
                 a.logoPicType = "logo";
                 a.logo = Merchant.Logo;
                 a.source = "sBrands";
-                a.isCol = "";
+                if (myFavoriteMerchant.Contains(Merchant))
+                {
+                    a.isCol = "True";
+                }
+                else
+                {
+                    a.isCol = "";
+                }
                 a.brandId = Merchant.Id;
                 a.brandName = Merchant.Name;
                 a.brandDesc = Merchant.Description;
@@ -62,7 +84,14 @@ namespace friday.core.services
                 a.logoPicType = "logo";
                 a.logo = Merchant.sBrand;
                 a.source = "sBrands";
-                a.isCol = "1";
+                if (myFavoriteMerchant.Contains(Merchant))
+                {
+                    a.isCol = "True";
+                }
+                else
+                {
+                    a.isCol = "";
+                }
                 a.brandId = Merchant.Id;
                 a.brandName = Merchant.Name;
                 a.brandDesc = Merchant.Description;
@@ -79,7 +108,14 @@ namespace friday.core.services
                 a.logoPicType = "bBrand";
                 a.logo = Merchant.bBrand;
                 a.source = "bBrands";
-                a.isCol = "False";
+                if (myFavoriteMerchant.Contains(Merchant))
+                {
+                    a.isCol = "True";
+                }
+                else
+                {
+                    a.isCol = "";
+                }
                 a.brandId = Merchant.Id;
                 a.brandName = Merchant.Name;
                 a.brandDesc = Merchant.Description;

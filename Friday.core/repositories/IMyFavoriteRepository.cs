@@ -9,6 +9,7 @@ namespace friday.core.repositories
 {
     public interface IMyFavoriteRepository : IRepository<MyFavorite>
     {
+        IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser);
         System.Collections.Generic.IList<MyFavorite> Search(System.Collections.Generic.List<DataFilter> termList);
         System.Collections.Generic.IList<MyFavorite> Search(System.Collections.Generic.List<DataFilter> termList, System.Collections.Generic.List<SystemUser> systemUserList, int start, int limit);
         System.Collections.Generic.IList<MyFavorite> Search(System.Collections.Generic.List<DataFilter> termList, int start, int limit, out long total);
