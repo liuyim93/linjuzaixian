@@ -45,6 +45,10 @@ namespace Friday.Test2
             for (int i = 0; i < SHOP_COUNT; i++)
             {
                 merchantCategoryList = iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+                if (merchantCategoryList.Count==0)
+                {
+                    throw new Exception("You must run PopulateRealPermissionDataTest.cs  First");
+                }
                 int mCRnd = new Random().Next(merchantCategoryList.Count);//mCategory.Length
                 //string mCategoryName = mCategory[mCRnd];
                 MerchantCategory merchantCategory = merchantCategoryList[mCRnd];
