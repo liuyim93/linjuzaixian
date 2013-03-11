@@ -59,7 +59,7 @@ namespace Friday.Test2
             //添加商店分类
             add_MerchantCategory();
             //添加商铺的相关信息
-            add_MerchantInfo();
+            add_RestaurantInfo();
             
         }
 
@@ -154,8 +154,7 @@ namespace Friday.Test2
             adminMenuCheckList.Add(restaurantModel);
             restaruantOwnerMenuCheckList.Add(restaurantModel);
             restaurantMemberMenuCheckList.Add(restaurantModel);
-            customerMenuCheckList.Add(restaurantModel);
-
+           
             SystemMenu restaurantMange = new SystemMenu()
             {
                 Name = "餐馆管理",
@@ -182,7 +181,7 @@ namespace Friday.Test2
             adminMenuCheckList.Add(foodOrderDetail);
             restaruantOwnerMenuCheckList.Add(foodOrderDetail);
             restaurantMemberMenuCheckList.Add(foodOrderDetail);
-            customerMenuCheckList.Add(foodOrderDetail);
+         
 
             SystemMenu foodOrder = new SystemMenu()
             {
@@ -197,14 +196,14 @@ namespace Friday.Test2
             adminMenuCheckList.Add(foodOrder);
             restaruantOwnerMenuCheckList.Add(foodOrder);
             restaurantMemberMenuCheckList.Add(foodOrder);
-            customerMenuCheckList.Add(foodOrder);
+          
 
             SystemMenu food = new SystemMenu()
             {
                 Name = "菜品管理",
                 Leaf = true,
                 ParentID = restaurantModel.Id,
-                MenuRoute = "restaurant/pRestaurantList.aspx",
+                MenuRoute = "restaurant/pFoodList.aspx",
                 TLevel = 1,
                 ColIndex = 4
             };
@@ -1195,7 +1194,7 @@ namespace Friday.Test2
 
          }
         //添加 商铺、自定义商品类型、Admin、Xiaoer、Order、OrderDetail；顾客、地址、Order等信息
-        public void add_MerchantInfo()
+        public void add_RestaurantInfo()
         {
             IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
             IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
@@ -1375,7 +1374,184 @@ namespace Friday.Test2
            new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder);
 
 
+           Restaurant restaurant2 = new Restaurant()
+           {
+               Activity = "清仓大甩卖",
+               Address = "青岛大学崂山校区",
+               AfternoonBeginHour = "18:20",
+               AfternoonEndHour = "19:30",
+               Bulletins = "9折优惠",
+               Cost = 2,
+               Description = "just come",
+               Distance = "100",
+               Email = "222@qq.com",
+               Logo = "image/21222.jpg",
+               Name = "金汉斯自助餐连锁店",
+               Owener = "张学友",
+               ShortName = "金汉斯",
+               Tel = "18799999992",
+               SendTime = 30,
+               Rate = 0.8,
+               SendPrice = 10,
+               ShopStatus = ShopStatusEnum.营业时间,
+               MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("川菜"),
+               MerchantType = MerchantTypeEnum.餐馆
+           };
+           MerchantGoodsType restaurantFoodTye_12 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "蛋糕" };
+           MerchantGoodsType restaurantFoodTye_22 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "水果" };
+           restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_12);
+           restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_22);
+           new RestaurantRepository().SaveOrUpdate(restaurant2);
 
+           LoginUser lu2 = new LoginUser();
+           lu2.LoginName = "jinhansi";
+           lu2.Password = "000000";
+           iLoginUserRepository.SaveOrUpdate(lu2);
+
+           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+           lum2.Merchant = restaurant2;
+           lum2.LoginUser = lu2;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+
+           UserInRole uir2 = new UserInRole();
+           uir2.LoginUser = lu2;
+           uir2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
+           iUserInRoleRepository.SaveOrUpdate(uir2);
+
+           LoginUser lu1_2 = new LoginUser();
+           lu1_2.LoginName = "xiaoerjinhansi";
+           lu1_2.Password = "111111";
+           iLoginUserRepository.SaveOrUpdate(lu1_2);
+
+           LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
+           lum1_2.Merchant = restaurant2;
+           lum1_2.LoginUser = lu1_2;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
+
+           UserInRole uir1_2 = new UserInRole();
+           uir1_2.LoginUser = lu1_2;
+           uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
+           iUserInRoleRepository.SaveOrUpdate(uir1_2);
+
+           Food food_12 = new Food()
+           {
+               Name = "生日蛋糕",
+               Price = 10,
+               Image = "image/1212.jpg",
+               IsDiscount = false,
+               InventoryCount = 100,
+               MerchantGoodsType = restaurantFoodTye_12,
+               Restaurant = restaurant2,
+
+           };
+           restaurant1.Foods.Add(food_12);
+
+           Food food_22 = new Food()
+           {
+               Name = "香蕉",
+               Price = 15,
+               Image = "image/121.png",
+               IsDiscount = true,
+               InventoryCount = 200,
+               DiscountInventoryCount = 100,
+               MerchantGoodsType = restaurantFoodTye_22,
+               DiscountPrice = 10,
+               Restaurant = restaurant2,
+               IsLimited = true,
+
+           };
+           restaurant2.Foods.Add(food_22);
+           new RestaurantRepository().SaveOrUpdate(restaurant2);
+
+           //添加顾客张卫健
+           SystemUser s2 = new SystemUser()
+           {
+               Tel = "13988888888",
+               Description = "erhuan10",
+               Email = "ocam10@163.com",
+               EntityIndex = 10,
+               Name = "张卫健",
+               IsAnonymous = false,
+           };
+           new SystemUserRepository().SaveOrUpdate(s2);
+           Address address12 = new Address()
+           {
+               AddressName = "青岛大学崂山校区1号宿舍楼",
+               BackupTel = "187000000000",
+               Email = "23423@163.com",
+               Linkman = "john",
+               QQ = "3333333333",
+               Tel = "18668668686",
+               Weixin = "5862414855",
+               SystemUser = s2
+           };
+           //s1.Addresses.Add(address);
+           new AddressRepository().SaveOrUpdate(address12);
+           Address address22 = new Address()
+           {
+               AddressName = "中国海洋大学2号宿舍楼",
+               BackupTel = "18711111111111",
+               Email = "23423@163.com",
+               Linkman = "john",
+               QQ = "66666666",
+               Tel = "18668668686",
+               Weixin = "5862414855",
+               SystemUser = s2
+           };
+           //s1.Addresses.Add(address2);
+           new AddressRepository().SaveOrUpdate(address22);
+
+           LoginUser sysLoginUser2 = new LoginUser()
+           {
+               SystemUser = s2,
+               IsAdmin = false,
+               LoginName = "zhangweijian",
+               Password = "zwj000000",
+
+           };
+           //s1.LoginUser = sysLoginUser;
+           new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
+
+           UserInRole uir12 = new UserInRole();
+           uir12.LoginUser = sysLoginUser2;
+           uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+           iUserInRoleRepository.SaveOrUpdate(uir12);
+
+           var add2 = s2.Addresses.FirstOrDefault();
+           MyFoodOrder myFoodOrder2 = new MyFoodOrder()
+           {
+               Address = address22.AddressName,
+               Linkman = address22.Linkman,
+               SystemUser = s2,
+               EntityIndex = 1,
+               Tel = address22.Tel,
+               Restaurant = restaurant2,
+               OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+               OrderStatus = MyOrderStatusEnum.成功,
+               SendTime = "11:20",
+               Description = "不要辣椒"
+           };
+
+           OrderOfFood orderOfFood_12 = new OrderOfFood()
+           {
+               Amount = 2,
+               MyFoodOrder = myFoodOrder2,
+               Price = food_12.Price,
+               Food = food_12,
+               EntityIndex = 1
+           };
+           myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
+
+           OrderOfFood orderOfFood_22 = new OrderOfFood()
+           {
+               Amount = 2,
+               MyFoodOrder = myFoodOrder2,
+               Price = food_22.Price,
+               Food = food_22,
+               EntityIndex = 1
+           };
+           myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
+           new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder2);
 
 
 
