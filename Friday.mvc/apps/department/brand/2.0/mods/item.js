@@ -30,7 +30,7 @@ KISSY.add("2.0/mods/item", function (S, Anim, Switchable) {
                     marginRight: 0
                 });
 
-                new S.Carousel(item, {
+                new Switchable.Carousel(item, {
                     hasTriggers: false,
                     contentCls: 'bIc-slideList',
                     effect: 'scrollx',

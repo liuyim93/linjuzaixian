@@ -72,7 +72,7 @@
                     this.href = K;
                     this.title = O
                 } else {
-                    alert("\u7531\u4e8e\u60a8\u7684\u6d4f\u89c8\u5668\u4e0d\u652f\u6301\u81ea\u52a8\u8bbe\u7f6e\u529f\u80fd\n\u8bf7\u6309\u5feb\u6377\u952e" + (L ? "Cmd" : "Ctrl") + "+D)\u624b\u5de5\u6536\u85cf")
+                    alert("由于您的浏览器不支持自动设置功能 请按快捷键" + (L ? "Cmd" : "Ctrl") + "+D)\u624b\u5de5\u6536\u85cf")
                 }
             }
         })
