@@ -2395,7 +2395,6 @@
     <Folder Include="Areas\Category\Models\" />
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Areas\Merchant\Models\" />
-    <Folder Include="Areas\Merchant\Views\Favorite\" />
     <Folder Include="Areas\Merchant\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
@@ -2423,6 +2422,7 @@
     <Content Include="Views\Shared\_Brand.cshtml" />
     <Content Include="Areas\Merchant\Views\Web.config" />
     <Content Include="Views\Shared\_Floor.cshtml" />
+    <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
