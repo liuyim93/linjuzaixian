@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/MerchantAreaRegistration.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/MerchantAreaRegistration.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Web.config" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Web.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Views/Home/Index.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Views/Home/Index.cshtml" />
-    </list>
+    <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="" />
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,37 +29,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tb-mpp.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="tb-mpp.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="765" column="27" selection-start="29704" selection-end="29704" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fav.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/fav.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="16" selection-start="1038" selection-end="1039" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/item.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="37" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="collect.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/collect.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="6" selection-start="261" selection-end="261" vertical-scroll-proportion="0.38659793">
+            <state line="766" column="21" selection-start="29726" selection-end="29726" vertical-scroll-proportion="2.6875">
               <folding />
             </state>
           </provider>
@@ -281,7 +246,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="brands" />
+              <option name="myItemId" value="brand" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -480,28 +445,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="765" column="27" selection-start="29704" selection-end="29704" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/fav.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="16" selection-start="1038" selection-end="1039" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/item.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="37" selection-start="1202" selection-end="1202" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/collect.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="6" selection-start="261" selection-end="261" vertical-scroll-proportion="0.38659793">
+        <state line="766" column="21" selection-start="29726" selection-end="29726" vertical-scroll-proportion="2.6875">
           <folding />
         </state>
       </provider>
