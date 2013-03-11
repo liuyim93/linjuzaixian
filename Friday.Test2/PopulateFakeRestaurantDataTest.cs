@@ -25,15 +25,17 @@ namespace Friday.Test2
        private List<School> schoolList = new List<School>();
        private List<MessageContent> messageContentList = new List<MessageContent>();
        private IList<SystemRole> systemRoleList = new List<SystemRole>();
+       private IList<MerchantCategory> merchantCategoryList = new List<MerchantCategory>();
        ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
        IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
+       IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_RESTAURANT_COUNT = 5;
        private readonly int RESTAURANT_COUNT = 15;  //we double RESTAURANT_COUNT  eg  10*2
        private readonly int FOOD_COUNT_OF_RESTAURANT = 10;
        private readonly int ORDER_COUNT = 500;
        private readonly int SHCOOL_COUNT = 10;
-       string[] mCategory = { "中餐", "西餐", "清真"};
+       //string[] mCategory = { "中餐", "西餐", "清真"};
        string[] schname = { "山东轻工业学院", "山东农业大学", "山东工业大学", "山东师范大学", "潍坊学院", "聊城大学", "青岛科技大学", "青岛理工大学", "哈尔滨工业大学威海校区", "菏泽学院" };
        string[] schstname = { "sduq", "sdua", "sdug", "sdut", "wfu", "lcu", "qdkju", "qdlgu", "hgu", "hzu" };
        string[] schcity = { "济南", "泰安", "济南", "济南", "潍坊", "聊城", "青岛", "青岛", "威海", "菏泽" };
@@ -50,14 +52,15 @@ namespace Friday.Test2
                 add_SystemUser_Address_LoginUser();
             }
 
-            add_MerchantCategory();
+            //add_MerchantCategory();
                     
             for (int i = 0; i < RESTAURANT_COUNT; i++)
             {
-                int mCRnd = new Random().Next(3);//mCategory.Length
-                string mCategoryName = mCategory[mCRnd];
-                MerchantCategory merchantCategory;
-                merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
+                merchantCategoryList = iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
+                int mCRnd = new Random().Next(merchantCategoryList.Count);//mCategory.Length
+                //string mCategoryName = mCategory[mCRnd];
+                MerchantCategory merchantCategory = merchantCategoryList[mCRnd];
+                //merchantCategory = new MerchantCategoryRepository().SearchByMerchantCategoryName(mCategoryName);
                 add_Restaurant_Food_RestaurantFoodType(i, merchantCategory);
             }
             add_School_Restaurant();
@@ -160,20 +163,20 @@ namespace Friday.Test2
        
        //}
        //2013-02-17  pangfuxing  add MerchantCategory
-       private void add_MerchantCategory() 
-       {
-           for (int i = 0; i < mCategory.Length; i++)
-           {
-               string merchantcategoryid = Guid.NewGuid().ToString();
-               MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
-               {
-                   MerchantCategoryName = mCategory[i],
-                   MerchantType = MerchantTypeEnum.餐馆
-               };
-               new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
-           }
+       //private void add_MerchantCategory() 
+       //{
+       //    for (int i = 0; i < mCategory.Length; i++)
+       //    {
+       //        string merchantcategoryid = Guid.NewGuid().ToString();
+       //        MerchantCategory merchantCategory = new MerchantCategory(merchantcategoryid)
+       //        {
+       //            MerchantCategoryName = mCategory[i],
+       //            MerchantType = MerchantTypeEnum.餐馆
+       //        };
+       //        new MerchantCategoryRepository().SaveOrUpdate(merchantCategory);
+       //    }
                  
-       }
+       //}
 
        private void add_SystemUser_Address_LoginUser()
        {
