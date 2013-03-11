@@ -58,6 +58,8 @@ namespace Friday.Test2
             add_ObjectInRole();
             //添加商店分类
             add_MerchantCategory();
+            //添加商铺的相关信息
+            add_MerchantInfo();
             
         }
 
@@ -1160,6 +1162,136 @@ namespace Friday.Test2
             }
 
          }
+        public void add_MerchantInfo()
+        {
+            IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+            IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
 
+            Restaurant restaurant1 = new Restaurant()
+            {
+                Activity = "五一大促销",
+                Address = "山东财经大学燕山",
+                AfternoonBeginHour = "18:20",
+                AfternoonEndHour = "19:30",
+                Bulletins = "9折优惠",
+                Cost = 2,
+                Description = "just come",
+                Distance = "100",
+                Email = "222@qq.com",
+                Logo = "image/21222.jpg",
+                Name = "翠峰苑连锁火锅城",
+                Owener = "刘德华",
+                ShortName = "翠峰苑",
+                Tel = "18799999992",
+                SendTime = 30,
+                Rate = 0.8,
+                SendPrice = 10,
+                ShopStatus = ShopStatusEnum.营业时间,
+                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("鲁菜"),
+                MerchantType = MerchantTypeEnum.餐馆
+            };
+            MerchantGoodsType restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "汉堡" };
+            MerchantGoodsType restaurantFoodTye_2 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "小吃" };
+            restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_1);
+            restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_2);
+            new RestaurantRepository().SaveOrUpdate(restaurant1);
+
+            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+
+            LoginUser lu1 = new LoginUser();
+            lu1.LoginName = "tianwaicun";
+            lu1.Password = "000000";
+            iLoginUserRepository.SaveOrUpdate(lu1);
+            
+            LoginUserOfMerchant lum = new LoginUserOfMerchant();
+            lum.Merchant = restaurant1;
+            lum.LoginUser = lu1;
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+            UserInRole uir = new UserInRole();
+            uir.LoginUser = lu1;
+            uir.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
+            iUserInRoleRepository.SaveOrUpdate(uir);
+
+            LoginUser lu1_1 = new LoginUser();
+            lu1_1.LoginName = "tianwaicun_xiaoer1";
+            lu1_1.Password = "1111111";
+            iLoginUserRepository.SaveOrUpdate(lu1_1);
+
+            LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
+            lum1_1.Merchant = restaurant1;
+            lum1_1.LoginUser = lu1_1;
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
+
+            UserInRole uir1_1 = new UserInRole();
+            uir1_1.LoginUser = lu1_1;
+            uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
+            iUserInRoleRepository.SaveOrUpdate(uir1_1);
+
+                Food food_1 = new Food()
+                {
+                    Name = "鸡腿堡",
+                    Price = 10,
+                    Image = "image/1212.jpg",
+                    IsDiscount = false,
+                    InventoryCount = 100,
+                    MerchantGoodsType = restaurantFoodTye_1,
+                    Restaurant = restaurant1,
+
+                };
+                restaurant1.Foods.Add(food_1);
+
+                Food food_2 = new Food()
+                {
+                    Name = "薯条",
+                    Price = 15,
+                    Image = "image/121.png",
+                    IsDiscount = true,
+                    InventoryCount = 200,
+                    DiscountInventoryCount = 100,
+                    MerchantGoodsType = restaurantFoodTye_2,
+                    DiscountPrice = 10,
+                    Restaurant = restaurant1,
+                    IsLimited = true,
+
+                };
+                restaurant1.Foods.Add(food_2);
+            new RestaurantRepository().SaveOrUpdate(restaurant1);
+
+
+            SystemUser s1 = new SystemUser()
+            {
+                Tel = "13988888888",
+                Description = "erhuan10",
+                Email = "ocam10@163.com",
+                EntityIndex = 10,
+                Name = "张国荣",                 
+                IsAnonymous = false
+
+            };
+
+            var address = systemUser.Addresses.FirstOrDefault();
+            MyFoodOrder myFoodOrder = new MyFoodOrder()
+            {
+                Address = address.AddressName,
+                Linkman = address.Linkman,
+                SystemUser = systemUser,
+                EntityIndex = 1,
+                Tel = address.Tel,
+                Restaurant = restaurant,
+                OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+                OrderStatus = MyOrderStatusEnum.成功,
+                SendTime = "11:20",
+                Description = "不要辣椒"
+            };
+
+
+
+
+
+
+        
+        }
     }
 }
