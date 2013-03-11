@@ -363,17 +363,17 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(school);
             adminMenuCheckList.Add(school);
 
-            SystemMenu valuingComments = new SystemMenu()
-            {
-                Name = "评论回复管理",
-                Leaf = true,
-                ParentID = baseInfo.Id,
-                MenuRoute = "valuingComments/pValuingCommentsList.aspx",
-                TLevel = 1,
-                ColIndex = 11
-            };
-            iSystemMenuRepository.SaveOrUpdate(valuingComments);
-            adminMenuCheckList.Add(valuingComments);
+            //SystemMenu valuingComments = new SystemMenu()
+            //{
+            //    Name = "评论回复管理",
+            //    Leaf = true,
+            //    ParentID = baseInfo.Id,
+            //    MenuRoute = "valuingComments/pValuingCommentsList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 11
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(valuingComments);
+            //adminMenuCheckList.Add(valuingComments);
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
