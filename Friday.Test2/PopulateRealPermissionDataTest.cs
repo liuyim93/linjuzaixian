@@ -152,6 +152,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(restaurantModel);
             adminMenuCheckList.Add(restaurantModel);
+            restaruantOwnerMenuCheckList.Add(restaurantModel);
+
             SystemMenu restaurantMange = new SystemMenu()
             {
                 Name = "餐馆管理",
@@ -163,6 +165,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(restaurantMange);
             adminMenuCheckList.Add(restaurantMange);
+            restaruantOwnerMenuCheckList.Add(restaurantMange);
 
             SystemMenu foodOrderDetail = new SystemMenu()
             {
@@ -175,6 +178,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(foodOrderDetail);
             adminMenuCheckList.Add(foodOrderDetail);
+            restaruantOwnerMenuCheckList.Add(foodOrderDetail);
 
             SystemMenu foodOrder = new SystemMenu()
             {
@@ -187,6 +191,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(foodOrder);
             adminMenuCheckList.Add(foodOrder);
+            restaruantOwnerMenuCheckList.Add(foodOrder);
 
             SystemMenu food = new SystemMenu()
             {
@@ -199,6 +204,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(food);
             adminMenuCheckList.Add(food);
+            restaruantOwnerMenuCheckList.Add(food);
 
             SystemMenu restaurantEditMange = new SystemMenu()
             {
@@ -210,6 +216,7 @@ namespace Friday.Test2
                 ColIndex = 5
             };
             iSystemMenuRepository.SaveOrUpdate(restaurantEditMange);
+            restaruantOwnerMenuCheckList.Add(restaurantEditMange);
 
             SystemMenu valuingOfMyFoodOrder = new SystemMenu()
             {
@@ -247,6 +254,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(baseInfo);
             adminMenuCheckList.Add(baseInfo);
+            restaruantOwnerMenuCheckList.Add(baseInfo);
 
             SystemMenu activity = new SystemMenu()
             {
@@ -283,6 +291,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(merchantGoodsType);
             adminMenuCheckList.Add(merchantGoodsType);
+            restaruantOwnerMenuCheckList.Add(merchantGoodsType);
 
             SystemMenu roleMenu = new SystemMenu()
             {
@@ -319,6 +328,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(merchantMember);
             adminMenuCheckList.Add(merchantMember);
+            restaruantOwnerMenuCheckList.Add(merchantMember);
 
             SystemMenu loginUser = new SystemMenu()
             {
@@ -331,6 +341,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(loginUser);
             adminMenuCheckList.Add(loginUser);
+            restaruantOwnerMenuCheckList.Add(loginUser);
 
             SystemMenu systemRole = new SystemMenu()
             {
@@ -379,6 +390,7 @@ namespace Friday.Test2
             //};
             //iSystemMenuRepository.SaveOrUpdate(valuingComments);
             //adminMenuCheckList.Add(valuingComments);
+            restaruantOwnerMenuCheckList.Add(valuingComments);
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
@@ -392,6 +404,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(messageModel);
             adminMenuCheckList.Add(messageModel);
+            restaruantOwnerMenuCheckList.Add(messageModel);
 
             SystemMenu message = new SystemMenu()
             {
@@ -404,6 +417,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(message);
             adminMenuCheckList.Add(message);
+            restaruantOwnerMenuCheckList.Add(message);
 
             //反馈模块
             SystemMenu feedBackModel = new SystemMenu()
@@ -417,6 +431,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(feedBackModel);
             adminMenuCheckList.Add(feedBackModel);
+            restaruantOwnerMenuCheckList.Add(feedBackModel);
 
             SystemMenu feedBack = new SystemMenu()
             {
@@ -429,6 +444,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(feedBack);
             adminMenuCheckList.Add(feedBack);
+            restaruantOwnerMenuCheckList.Add(feedBack);
 
             SystemMenu feedBackReply = new SystemMenu()
             {
@@ -441,6 +457,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(feedBackReply);
             adminMenuCheckList.Add(feedBackReply);
+            restaruantOwnerMenuCheckList.Add(feedBackReply);
 
             //租房模块
             SystemMenu rentModel = new SystemMenu()
@@ -804,7 +821,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "商店":
+                    case "商店店主":
                         {
                             foreach (SystemMenu sm in shopOwnerMenuCheckList)
                             {
@@ -815,7 +832,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "餐馆":
+                    case "餐馆店主":
                         {
                             foreach (SystemMenu sm in restaruantOwnerMenuCheckList)
                             {
@@ -826,7 +843,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "租房":
+                    case "租房店主":
                         {
                             foreach (SystemMenu sm in rentOwnerMenuCheckList)
                             {
@@ -837,7 +854,7 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "商铺店小二":
+                    case "商店店小二":
                         {
                             foreach (SystemMenu sm in shopMemberMenuCheckList)
                             {
@@ -939,7 +956,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> restaurantList = new List<SystemFunctionObject>();
-            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护" };
+            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护", "员工维护", "自定义商品类型维护","商家账号维护","评论回复管理","消息模块","消息维护" ,"反馈模块","反馈维护","反馈管理"};
             foreach (var i in restaurantArr)
             {
                 List<DataFilter> restaurantFilterList = new List<DataFilter>();
@@ -1162,6 +1179,7 @@ namespace Friday.Test2
             }
 
          }
+        //添加 商铺、自定义商品类型、Admin、Xiaoer、Order、OrderDetail；顾客、地址、Order等信息
         public void add_MerchantInfo()
         {
             IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
@@ -1200,7 +1218,7 @@ namespace Friday.Test2
             ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
             LoginUser lu1 = new LoginUser();
-            lu1.LoginName = "tianwaicun";
+            lu1.LoginName = "cuifengyuan";
             lu1.Password = "000000";
             iLoginUserRepository.SaveOrUpdate(lu1);
             
@@ -1215,7 +1233,7 @@ namespace Friday.Test2
             iUserInRoleRepository.SaveOrUpdate(uir);
 
             LoginUser lu1_1 = new LoginUser();
-            lu1_1.LoginName = "tianwaicun_xiaoer1";
+            lu1_1.LoginName = "cuifengyuan_xiaoer1";
             lu1_1.Password = "1111111";
             iLoginUserRepository.SaveOrUpdate(lu1_1);
 
@@ -1259,32 +1277,82 @@ namespace Friday.Test2
                 restaurant1.Foods.Add(food_2);
             new RestaurantRepository().SaveOrUpdate(restaurant1);
 
-
-            SystemUser s1 = new SystemUser()
+            //添加顾客张国荣
+            string systemuserid = Guid.NewGuid().ToString();
+            string loginuserid = Guid.NewGuid().ToString();
+            SystemUser s1 = new SystemUser(systemuserid)
             {
                 Tel = "13988888888",
                 Description = "erhuan10",
                 Email = "ocam10@163.com",
                 EntityIndex = 10,
                 Name = "张国荣",                 
-                IsAnonymous = false
-
+                IsAnonymous = false,
             };
+            new SystemUserRepository().SaveOrUpdate(s1);
+            Address address = new Address()
+            {
+                AddressName = "山东财经大学9号宿舍楼",
+                BackupTel = "187000000000",
+                Email ="23423@163.com",
+                Linkman = "john",
+                QQ ="3333333333",
+                Tel ="18668668686",
+                Weixin ="5862414855",
+                SystemUser=s1
+            };
+            //s1.Addresses.Add(address);
+            new AddressRepository().SaveOrUpdate(address);
+            Address address2 = new Address()
+            {
+                AddressName = "青岛大学9号宿舍楼",
+                BackupTel = "18711111111111",
+                Email = "23423@163.com",
+                Linkman = "john",
+                QQ = "66666666",
+                Tel = "18668668686",
+                Weixin = "5862414855",
+                SystemUser=s1
+            };
+            //s1.Addresses.Add(address2);
+            new AddressRepository().SaveOrUpdate(address2);
 
-            var address = systemUser.Addresses.FirstOrDefault();
+            LoginUser sysLoginUser = new LoginUser(loginuserid)
+            {
+                SystemUser = s1,
+                IsAdmin = false,
+                LoginName = "zhangguorong",
+                Password = "zgr000000",
+                 
+            };
+            //s1.LoginUser = sysLoginUser;
+            new LoginUserRepository().SaveOrUpdate(sysLoginUser);
+
+            var add = s1.Addresses.FirstOrDefault();
             MyFoodOrder myFoodOrder = new MyFoodOrder()
             {
                 Address = address.AddressName,
                 Linkman = address.Linkman,
-                SystemUser = systemUser,
+                SystemUser = s1,
                 EntityIndex = 1,
                 Tel = address.Tel,
-                Restaurant = restaurant,
+                Restaurant = restaurant1,
                 OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
                 OrderStatus = MyOrderStatusEnum.成功,
                 SendTime = "11:20",
                 Description = "不要辣椒"
             };
+
+                OrderOfFood orderOfFood_1 = new OrderOfFood()
+               {
+                   Amount = 2,
+                   MyFoodOrder = myFoodOrder,
+                   Price = food_1.Price,
+                   Food = food_1,
+                   EntityIndex = 1
+               };
+               myFoodOrder.OrderOfFoods.Add(orderOfFood_1);
+           new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder);
 
 
 

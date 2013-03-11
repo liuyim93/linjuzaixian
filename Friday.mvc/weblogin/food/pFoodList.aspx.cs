@@ -93,6 +93,7 @@ namespace Friday.mvc.weblogin
             int limit = numPerPageValue;
             IList<Food> foodList = null;
             List<DataFilter> dfl = new List<DataFilter>();
+            List<DataFilter> Restaurantdfl = new List<DataFilter>();
 
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];
@@ -124,7 +125,8 @@ namespace Friday.mvc.weblogin
 
             if (!string.IsNullOrEmpty(restaurantId))
             {
-                dfl.Add(new DataFilter() { type = "Restaurant", value = restaurantId });
+                Restaurantdfl.Add(new DataFilter() { type = "Restaurant", value = restaurantId });
+                dfl.Add(new DataFilter() { type="Restaurant", field=Restaurantdfl});
             }
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
