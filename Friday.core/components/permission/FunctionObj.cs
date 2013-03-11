@@ -10,6 +10,7 @@ namespace friday.core.services
     {
  
         public 统计 统计模块 { get; set; }
+        public 日志模块 日志模块 { get; set; }
 
         public 餐馆管理 餐馆模块 { get; set; }
         public 商店管理 商店模块 { get; set; }
@@ -188,5 +189,10 @@ namespace friday.core.services
         public FunctionTag 数据导入 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Delete)]
         public FunctionTag 业务受理 { get; set; }
+    }
+    public class 日志模块 : BaseModel
+    {
+        [PermissionSetting(PermissionTag.Enable)]
+        public FunctionTag 日志管理 { get; set; }
     }
 }
