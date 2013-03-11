@@ -36,11 +36,17 @@ namespace Friday.mvc.weblogin
                 IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
 
                 string[] info = iUserInRoleRepository.GetRoleNamesAndIDByLoginUserID(uid);
-                this.SystemRole.Value = info[0];
-                this.SystemRoleID.Value = info[1];
+                if (info.Length!= 0)
+                {
+                    this.SystemRole.Value = info[0];
+                    this.SystemRoleID.Value = info[1];
+                }
 
-                this.NameSet.Value = loginUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Name;
-                this.IDSet.Value = loginUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id;
+                if (loginUser.LoginUserOfMerchants.Count!= 0)
+                {
+                    this.NameSet.Value = loginUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Name;
+                    this.IDSet.Value = loginUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id;
+                }
             }
         }
 
