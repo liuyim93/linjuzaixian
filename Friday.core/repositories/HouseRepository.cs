@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+
 namespace friday.core.repositories
 {
     public class HouseRepository : Repository<House>, friday.core.repositories.IHouseRepository
@@ -17,6 +19,13 @@ namespace friday.core.repositories
         {
             get { return Session.CreateCriteria(typeof(House)); }
         }
+
+        public IList<House> GetHouseByRentIDOrderByMonthAmountDesc(string rentID)
+        {
+            var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID).OrderByDescending(o => o.MonthAmount).ToList();
+            return s;
+        }
+
         //对外获取方法
         public IList<House> Search(List<DataFilter> termList)
         {
