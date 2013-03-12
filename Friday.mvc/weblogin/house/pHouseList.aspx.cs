@@ -184,8 +184,16 @@ namespace Friday.mvc.weblogin
 
             if (Request.Params["__EVENTVALIDATION"] == null)
             {
-                Rent rst = iRentService.Load(rentId);
+                Rent rst =new Rent();// iRentService.Load(rentId);
                 IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
+                if (!this.CurrentUser.IsAdmin)
+                {
+                    goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
+                }
+                else
+                {
+                    goodsTypes = iMerchantGoodsTypeService.GetAll();
+                }
                 foreach (var i in goodsTypes)
                 {
                     this.mGoodsType.Items.Add(i.GoodsType);

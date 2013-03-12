@@ -175,8 +175,16 @@ namespace Friday.mvc.weblogin.commodity
 
             if (Request.Params["__EVENTVALIDATION"] == null)
             {
-                Shop rst = iShopService.Load(shopId);
+                Shop rst =new Shop();// iShopService.Load(shopId);
                 IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
+                if (!this.CurrentUser.IsAdmin)
+                {
+                    goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
+                }
+                else
+                {
+                    goodsTypes = iMerchantGoodsTypeService.GetAll();
+                }
                 foreach (var i in goodsTypes)
                 {
                     this.mGoodsType.Items.Add(i.GoodsType);
