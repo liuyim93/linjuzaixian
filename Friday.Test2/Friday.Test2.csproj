@@ -177,6 +177,12 @@
     <Content Include="uploadImage\merchantPic\b7.jpg" />
     <Content Include="uploadImage\merchantPic\b8.jpg" />
     <Content Include="uploadImage\merchantPic\b9.jpg" />
+    <Content Include="uploadImage\merchantPic\brest1.jpg" />
+    <Content Include="uploadImage\merchantPic\brest2.jpg" />
+    <Content Include="uploadImage\merchantPic\bret1.jpg" />
+    <Content Include="uploadImage\merchantPic\bret2.jpg" />
+    <Content Include="uploadImage\merchantPic\bshop1.jpg" />
+    <Content Include="uploadImage\merchantPic\bshop2.jpg" />
     <Content Include="uploadImage\merchantPic\l0.png" />
     <Content Include="uploadImage\merchantPic\l1.png" />
     <Content Include="uploadImage\merchantPic\l10.png" />
@@ -186,10 +192,16 @@
     <Content Include="uploadImage\merchantPic\l3.png" />
     <Content Include="uploadImage\merchantPic\l4.png" />
     <Content Include="uploadImage\merchantPic\l5.png" />
+    <Content Include="uploadImage\merchantPic\lrest1.png" />
     <Content Include="uploadImage\merchantPic\l6.png" />
     <Content Include="uploadImage\merchantPic\l7.png" />
     <Content Include="uploadImage\merchantPic\l8.png" />
     <Content Include="uploadImage\merchantPic\l9.png" />
+    <Content Include="uploadImage\merchantPic\lrest2.png" />
+    <Content Include="uploadImage\merchantPic\lret1.png" />
+    <Content Include="uploadImage\merchantPic\lret2.png" />
+    <Content Include="uploadImage\merchantPic\lshop1.png" />
+    <Content Include="uploadImage\merchantPic\lshop2.png" />
     <Content Include="uploadImage\merchantPic\s0.jpg" />
     <Content Include="uploadImage\merchantPic\s1.jpg" />
     <Content Include="uploadImage\merchantPic\s10.jpg" />
@@ -202,6 +214,13 @@
     <Content Include="uploadImage\merchantPic\s6.jpg" />
     <Content Include="uploadImage\merchantPic\s7.jpg" />
     <Content Include="uploadImage\merchantPic\s8.jpg" />
+    <Content Include="uploadImage\merchantPic\s9.jpg" />
+    <Content Include="uploadImage\merchantPic\srest1.jpg" />
+    <Content Include="uploadImage\merchantPic\srest2.jpg" />
+    <Content Include="uploadImage\merchantPic\sret1.jpg" />
+    <Content Include="uploadImage\merchantPic\sret2.jpg" />
+    <Content Include="uploadImage\merchantPic\sshop1.jpg" />
+    <Content Include="uploadImage\merchantPic\sshop2.jpg" />
     <None Include="App.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
