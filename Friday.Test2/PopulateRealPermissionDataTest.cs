@@ -428,13 +428,13 @@ namespace Friday.Test2
             //};
             //iSystemMenuRepository.SaveOrUpdate(valuingComments);
             //adminMenuCheckList.Add(valuingComments);
-            restaruantOwnerMenuCheckList.Add(valuingComments);
-            customerMenuCheckList.Add(valuingComments);
-            restaurantMemberMenuCheckList.Add(valuingComments);
-            shopOwnerMenuCheckList.Add(valuingComments);
-            shopMemberMenuCheckList.Add(valuingComments);
-            rentOwnerMenuCheckList.Add(valuingComments);
-            rentMemberMenuCheckList.Add(valuingComments);
+            //restaruantOwnerMenuCheckList.Add(valuingComments);
+            //customerMenuCheckList.Add(valuingComments);
+            //restaurantMemberMenuCheckList.Add(valuingComments);
+            //shopOwnerMenuCheckList.Add(valuingComments);
+            //shopMemberMenuCheckList.Add(valuingComments);
+            //rentOwnerMenuCheckList.Add(valuingComments);
+            //rentMemberMenuCheckList.Add(valuingComments);
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
