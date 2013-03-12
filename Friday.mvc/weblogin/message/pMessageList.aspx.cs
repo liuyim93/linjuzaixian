@@ -53,7 +53,7 @@ namespace Friday.mvc.weblogin.message
                         merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
                         merchantList.Add(new DataFilter()
                         {
-                            type = "Id",
+                            type = "Merchant",
                             value = merchantID
 
                         });
