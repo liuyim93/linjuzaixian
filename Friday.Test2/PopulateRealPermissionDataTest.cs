@@ -60,7 +60,8 @@ namespace Friday.Test2
             add_MerchantCategory();
             //添加商铺的相关信息
             add_RestaurantInfo();
-            add_RentInfo();            
+            add_RentInfo();
+            add_ShopInfo();  
         }
 
         //添加角色
@@ -1209,7 +1210,7 @@ namespace Friday.Test2
                 iMerchantCategoryService.Save(restMC);
             }
 
-            string[] shopCatg = { "烟酒", "炒货", "果木", "熟食", "家电", "家具", "蔬菜","家纺","图书影音","电子产品" };
+            string[] shopCatg = { "烟酒", "炒货", "果木", "熟食", "家电", "家具", "蔬菜","家纺","图书影音","电子产品","综合购物中心" };
             foreach (var i in shopCatg)
             {
                 MerchantCategory shopMC = new MerchantCategory()
@@ -1936,7 +1937,354 @@ namespace Friday.Test2
            new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder2);
        
         }
+        public void add_ShopInfo()
+        {
+        
+         IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+            IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
 
+            Shop shop1 = new Shop()
+            {
+                Activity = "五一大促销",
+                Address = "山师东路66号",
+                Bulletins = "9折促销",
+                Description = "just come",
+                Distance = "100",
+                Email = "7366@qq.com",
+                Logo = "image/7366.jpg",
+                Name = "大润发购物中心",
+                Owener = "王力宏",
+                ShortName = "大润发",
+                Tel = "18799999992",
+                Rate = 0.8,
+                ShopStatus = ShopStatusEnum.营业时间,
+                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
+                MerchantType = MerchantTypeEnum.百货
+            };
+            MerchantGoodsType shopCommodityTye_1 = new MerchantGoodsType() { Merchant = shop1, GoodsType = "专供酒水" };
+            MerchantGoodsType shopCommodityTye_2 = new MerchantGoodsType() { Merchant = shop1, GoodsType = "特供蔬菜" };
+            shop1.MerchantGoodsTypes.Add(shopCommodityTye_1);
+            shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
+            new ShopRepository().SaveOrUpdate(shop1);
+
+            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+
+            LoginUser lu1 = new LoginUser();
+            lu1.LoginName = "darunfa";
+            lu1.Password = "000000";
+            iLoginUserRepository.SaveOrUpdate(lu1);
+            
+            LoginUserOfMerchant lum = new LoginUserOfMerchant();
+            lum.Merchant = shop1;
+            lum.LoginUser = lu1;
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+
+            UserInRole uir = new UserInRole();
+            uir.LoginUser = lu1;
+            uir.SystemRole = iSystemRoleRepository.GetRoleByName("商店店主");
+            iUserInRoleRepository.SaveOrUpdate(uir);
+
+            LoginUser lu1_1 = new LoginUser();
+            lu1_1.LoginName = "darunfaxiaoer";
+            lu1_1.Password = "1111111";
+            iLoginUserRepository.SaveOrUpdate(lu1_1);
+
+            LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
+            lum1_1.Merchant = shop1;
+            lum1_1.LoginUser = lu1_1;
+            iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
+
+            UserInRole uir1_1 = new UserInRole();
+            uir1_1.LoginUser = lu1_1;
+            uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("商店店小二");
+            iUserInRoleRepository.SaveOrUpdate(uir1_1);
+
+                Commodity commodity_1 = new Commodity()
+                {
+                    Name = "五粮液",
+                    Price = 10,
+                    Image = "image/1212.jpg",
+                    IsDiscount = false,
+                    InventoryCount = 100,
+                    MerchantGoodsType = shopCommodityTye_1,
+                    Shop= shop1,
+
+                };
+                shop1.Commodities.Add(commodity_1);
+
+                Commodity commodity_2 = new Commodity()
+                {
+                    Name = "章丘大村",
+                    Price = 15,
+                    Image = "image/121.png",
+                    IsDiscount = true,
+                    InventoryCount = 200,
+                    DiscountInventoryCount = 100,
+                    MerchantGoodsType = shopCommodityTye_2,
+                    DiscountPrice = 10,
+                    Shop= shop1,
+                    IsLimited = true,
+                };
+                shop1.Commodities.Add(commodity_2);
+            new ShopRepository().SaveOrUpdate(shop1);
+
+            //添加顾客成龙
+            string systemuserid = Guid.NewGuid().ToString();
+            string loginuserid = Guid.NewGuid().ToString();
+            SystemUser s1 = new SystemUser(systemuserid)
+            {
+                Tel = "13988888888",
+                Description = "erhuan10",
+                Email = "ocam10@163.com",
+                EntityIndex = 10,
+                Name = "成龙",                 
+                IsAnonymous = false,
+            };
+            new SystemUserRepository().SaveOrUpdate(s1);          
+            Address address = new Address()
+            {
+                AddressName = "济南市市中区环山小区9#116",
+                BackupTel = "187000000000",
+                Email ="23423@163.com",
+                Linkman = "john",
+                QQ ="3333333333",
+                Tel ="18668668686",
+                Weixin ="5862414855",
+                SystemUser=s1
+            };
+            //s1.Addresses.Add(address);
+            new AddressRepository().SaveOrUpdate(address);
+            Address address2 = new Address()
+            {
+                AddressName = "章丘市槐荫区和平山庄9#116",
+                BackupTel = "18711111111111",
+                Email = "23423@163.com",
+                Linkman = "john",
+                QQ = "66666666",
+                Tel = "18668668686",
+                Weixin = "5862414855",
+                SystemUser=s1
+            };
+            //s1.Addresses.Add(address2);
+            new AddressRepository().SaveOrUpdate(address2);
+
+            LoginUser sysLoginUser = new LoginUser(loginuserid)
+            {
+                SystemUser = s1,
+                IsAdmin = false,
+                LoginName = "chenglong",
+                Password = "cl000000",
+                 
+            };
+            //s1.LoginUser = sysLoginUser;
+            new LoginUserRepository().SaveOrUpdate(sysLoginUser);
+
+            UserInRole uir1 = new UserInRole();
+            uir1.LoginUser = sysLoginUser;
+            uir1.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+            iUserInRoleRepository.SaveOrUpdate(uir1);
+
+            var add = s1.Addresses.FirstOrDefault();
+            MyCommodityOrder myCommodityOrder = new MyCommodityOrder()
+            {
+                Address = address.AddressName,
+                Linkman = address.Linkman,
+                SystemUser = s1,
+                EntityIndex = 1,
+                Tel = address.Tel,
+                Shop= shop1,
+                OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+                OrderStatus = MyOrderStatusEnum.成功,
+                SendTime = "11:20",
+                Description = "价格不能超过3000"
+            };
+
+                OrderOfCommodity orderOfCommodity_1 = new OrderOfCommodity()
+               {
+                   Amount = 2,
+                   MyCommodityOrder = myCommodityOrder,
+                   Price = commodity_1.Price,
+                   Commodity = commodity_1,
+                   EntityIndex = 1
+               };
+               myCommodityOrder.OrderOfCommodities.Add(orderOfCommodity_1);
+           new MyCommodityOrderRepository().SaveOrUpdate(myCommodityOrder);
+
+
+           Shop shop2 = new Shop()
+           {
+               Activity = "清仓甩卖",
+               Address = "济南市历下区文化东路30号",
+               Bulletins = "9折优惠",
+               Description = "just come",
+               Distance = "100",
+               Email = "222@qq.com",
+               Logo = "image/21222.jpg",
+               Name = "银座连锁购物中心",
+               Owener = "姜文",
+               ShortName = "银座",
+               Tel = "18799999992",
+               Rate = 0.8,
+               ShopStatus = ShopStatusEnum.营业时间,
+               MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
+               MerchantType = MerchantTypeEnum.租房
+           };
+           MerchantGoodsType shopCommodityTye_12 = new MerchantGoodsType() { Merchant = shop2, GoodsType = "金制品" };
+           MerchantGoodsType shopCommodityTye_22 = new MerchantGoodsType() { Merchant = shop2, GoodsType = "茶叶" };
+           shop2.MerchantGoodsTypes.Add(shopCommodityTye_12);
+           shop2.MerchantGoodsTypes.Add(shopCommodityTye_22);
+           new ShopRepository().SaveOrUpdate(shop2);
+
+           LoginUser lu2 = new LoginUser();
+           lu2.LoginName = "jiangwen";
+           lu2.Password = "000000";
+           iLoginUserRepository.SaveOrUpdate(lu2);
+
+           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+           lum2.Merchant = shop2;
+           lum2.LoginUser = lu2;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+
+           UserInRole uir2 = new UserInRole();
+           uir2.LoginUser = lu2;
+           uir2.SystemRole = iSystemRoleRepository.GetRoleByName("商店店主");
+           iUserInRoleRepository.SaveOrUpdate(uir2);
+
+           LoginUser lu1_2 = new LoginUser();
+           lu1_2.LoginName = "yinzuoxiaoer";
+           lu1_2.Password = "111111";
+           iLoginUserRepository.SaveOrUpdate(lu1_2);
+
+           LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
+           lum1_2.Merchant = shop2;
+           lum1_2.LoginUser = lu1_2;
+           iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
+
+           UserInRole uir1_2 = new UserInRole();
+           uir1_2.LoginUser = lu1_2;
+           uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("商店店小二");
+           iUserInRoleRepository.SaveOrUpdate(uir1_2);
+
+           Commodity commodity_12 = new Commodity()
+           {
+               Name = "金戒指",
+               Price = 10,
+               Image = "image/1212.jpg",
+               IsDiscount = false,
+               InventoryCount = 100,
+               MerchantGoodsType = shopCommodityTye_12,
+               Shop= shop2,
+           };
+           shop1.Commodities.Add(commodity_12);
+
+           Commodity commodity_22 = new Commodity()
+           {
+               Name = "铁观音",
+               Price = 15,
+               Image = "image/121.png",
+               IsDiscount = true,
+               InventoryCount = 200,
+               DiscountInventoryCount = 100,
+               MerchantGoodsType = shopCommodityTye_22,
+               DiscountPrice = 10,
+               Shop= shop2,
+               IsLimited = true,
+           };
+           shop2.Commodities.Add(commodity_22);
+           new ShopRepository().SaveOrUpdate(shop2);
+
+           //添加顾客鲁豫
+           SystemUser s2 = new SystemUser()
+           {
+               Tel = "13988888888",
+               Description = "erhuan10",
+               Email = "ocam10@163.com",
+               EntityIndex = 10,
+               Name = "鲁豫",
+               IsAnonymous = false,
+           };
+           new SystemUserRepository().SaveOrUpdate(s2);
+           Address address12 = new Address()
+           {
+               AddressName = "青岛市四方区和平小区3220",
+               BackupTel = "187000000000",
+               Email = "23423@163.com",
+               Linkman = "john",
+               QQ = "3333333333",
+               Tel = "18668668686",
+               Weixin = "5862414855",
+               SystemUser = s2
+           };
+           //s1.Addresses.Add(address);
+           new AddressRepository().SaveOrUpdate(address12);
+           Address address22 = new Address()
+           {
+               AddressName = "青岛市市南区贵和小区4112",
+               BackupTel = "18711111111111",
+               Email = "23423@163.com",
+               Linkman = "john",
+               QQ = "66666666",
+               Tel = "18668668686",
+               Weixin = "5862414855",
+               SystemUser = s2
+           };
+           //s1.Addresses.Add(address2);
+           new AddressRepository().SaveOrUpdate(address22);
+
+           LoginUser sysLoginUser2 = new LoginUser()
+           {
+               SystemUser = s2,
+               IsAdmin = false,
+               LoginName = "luyu",
+               Password = "ly000000",
+
+           };
+           //s1.LoginUser = sysLoginUser;
+           new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
+
+           UserInRole uir12 = new UserInRole();
+           uir12.LoginUser = sysLoginUser2;
+           uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+           iUserInRoleRepository.SaveOrUpdate(uir12);
+
+           var add2 = s2.Addresses.FirstOrDefault();
+           MyCommodityOrder myCommodityOrder2 = new MyCommodityOrder()
+           {
+               Address = address22.AddressName,
+               Linkman = address22.Linkman,
+               SystemUser = s2,
+               EntityIndex = 1,
+               Tel = address22.Tel,
+               Shop= shop2,
+               OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+               OrderStatus = MyOrderStatusEnum.成功,
+               SendTime = "11:20",
+               Description = ""
+           };
+
+           OrderOfCommodity orderOfCommodity_12 = new OrderOfCommodity()
+           {
+               Amount = 2,
+               MyCommodityOrder = myCommodityOrder2,
+               Price = commodity_12.Price,
+               Commodity = commodity_12,
+               EntityIndex = 1
+           };
+           myCommodityOrder2.OrderOfCommodities.Add(orderOfCommodity_12);
+
+           OrderOfCommodity orderOfCommodity_22 = new OrderOfCommodity()
+           {
+               Amount = 2,
+               MyCommodityOrder = myCommodityOrder2,
+               Price = commodity_22.Price,
+               Commodity = commodity_22,
+               EntityIndex = 1
+           };
+           myCommodityOrder2.OrderOfCommodities.Add(orderOfCommodity_12);
+           new MyCommodityOrderRepository().SaveOrUpdate(myCommodityOrder2);
+       
+        }
     }
 }
 
