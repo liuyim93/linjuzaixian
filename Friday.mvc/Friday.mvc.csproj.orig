@@ -124,12 +124,23 @@
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
+    <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
+<<<<<<< HEAD
+    <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
+    <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
+=======
+    <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
+>>>>>>> Add MyBrandsIndexModel.cs
+    <Compile Include="Controllers\FridayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\JsonNetResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\MainModel.cs" />
+    <Compile Include="Models\MerchantModel.cs" />
     <Compile Include="mvcunity\BootStrapper.cs" />
     <Compile Include="mvcunity\ControllerFactory.cs" />
     <Compile Include="mvcunity\ModelBinder.cs" />
@@ -356,6 +367,7 @@
     </Compile>
     <Compile Include="weblogin\ListCommodityByMerchant.aspx.cs">
       <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
       <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
@@ -380,30 +392,21 @@
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMyFoodOrder.aspx.cs">
       <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListMyFoodOrder.aspx.designer.cs">
       <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
@@ -417,30 +420,21 @@
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.cs">
       <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
-<<<<<<< HEAD
       <SubType>ASPXCodeBehind</SubType>
-=======
->>>>>>> Add
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
@@ -791,8 +785,6 @@
     <Compile Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx.designer.cs">
       <DependentUpon>pScoreOfItemInHouseOrderList.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-=======
     <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.cs">
       <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -807,7 +799,6 @@
     <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.designer.cs">
       <DependentUpon>pShopStatisticList.aspx</DependentUpon>
     </Compile>
->>>>>>> Add
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1359,6 +1350,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\brand\2.0\mods\collect.js" />
+    <Content Include="apps\department\brand\2.0\core.js" />
+    <Content Include="apps\department\brand\2.0\dialog.js" />
+    <Content Include="apps\department\brand\2.0\fav.js" />
+    <Content Include="apps\department\brand\2.0\mods\item.js" />
     <Content Include="apps\department\common\brandbar-fly.js" />
     <Content Include="apps\department\common\brandbar.js" />
     <Content Include="apps\department\common\brandfollow.js" />
@@ -1400,6 +1396,7 @@
     <Content Include="apps\tmall\fp\2012\util\util.js" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="comet.htm" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1421,7 +1418,85 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
+<<<<<<< HEAD
+    <Content Include="socket.io\socket.io.js" />
+=======
+    <Content Include="uploadimage\b0.jpg" />
+    <Content Include="uploadimage\b1.jpg" />
+    <Content Include="uploadimage\b10.jpg" />
+    <Content Include="uploadimage\b11.jpg" />
+    <Content Include="uploadimage\b12.jpg" />
+    <Content Include="uploadimage\b2.jpg" />
+    <Content Include="uploadimage\b3.jpg" />
+    <Content Include="uploadimage\b4.jpg" />
+    <Content Include="uploadimage\b5.jpg" />
+    <Content Include="uploadimage\b6.jpg" />
+    <Content Include="uploadimage\b7.jpg" />
+    <Content Include="uploadimage\b8.jpg" />
+    <Content Include="uploadimage\b9.jpg" />
+    <Content Include="uploadimage\c1.jpg" />
+    <Content Include="uploadimage\c10.jpg" />
+    <Content Include="uploadimage\c11.jpg" />
+    <Content Include="uploadimage\c12.jpg" />
+    <Content Include="uploadimage\c13.jpg" />
+    <Content Include="uploadimage\c2.jpg" />
+    <Content Include="uploadimage\c3.jpg" />
+    <Content Include="uploadimage\c4.jpg" />
+    <Content Include="uploadimage\c5.jpg" />
+    <Content Include="uploadimage\c6.jpg" />
+    <Content Include="uploadimage\c7.jpg" />
+    <Content Include="uploadimage\c8.jpg" />
+    <Content Include="uploadimage\c9.jpg" />
+    <Content Include="uploadimage\f1.jpg" />
+    <Content Include="uploadimage\f2.jpg" />
+    <Content Include="uploadimage\f3.jpg" />
+    <Content Include="uploadimage\f4.jpg" />
+    <Content Include="uploadimage\f5.jpg" />
+    <Content Include="uploadimage\f6.jpg" />
+    <Content Include="uploadimage\f7.jpg" />
+    <Content Include="uploadimage\h1.jpg" />
+    <Content Include="uploadimage\h2.jpg" />
+    <Content Include="uploadimage\h3.jpg" />
+    <Content Include="uploadimage\h4.jpg" />
+    <Content Include="uploadimage\h5.jpg" />
+    <Content Include="uploadimage\h6.jpg" />
+    <Content Include="uploadimage\h7.jpg" />
+    <Content Include="uploadimage\jpeg1.jpg" />
+    <Content Include="uploadimage\jpeg2.jpg" />
+    <Content Include="uploadimage\jpeg3.jpg" />
+    <Content Include="uploadimage\jpeg4.jpg" />
+    <Content Include="uploadimage\jpeg5.jpg" />
+    <Content Include="uploadimage\l0.png" />
+    <Content Include="uploadimage\l1.png" />
+    <Content Include="uploadimage\l10.png" />
+    <Content Include="uploadimage\l11.png" />
+    <Content Include="uploadimage\l12.png" />
+    <Content Include="uploadimage\l2.png" />
+    <Content Include="uploadimage\l3.png" />
+    <Content Include="uploadimage\l4.png" />
+    <Content Include="uploadimage\l5.png" />
+    <Content Include="uploadimage\l6.png" />
+    <Content Include="uploadimage\l7.png" />
+    <Content Include="uploadimage\l8.png" />
+    <Content Include="uploadimage\l9.png" />
+    <Content Include="uploadimage\s0.jpg" />
+    <Content Include="uploadimage\s1.jpg" />
+    <Content Include="uploadimage\s10.jpg" />
+    <Content Include="uploadimage\s11.jpg" />
+    <Content Include="uploadimage\s12.jpg" />
+    <Content Include="uploadimage\s2.jpg" />
+    <Content Include="uploadimage\s3.jpg" />
+    <Content Include="uploadimage\s4.jpg" />
+    <Content Include="uploadimage\s5.jpg" />
+    <Content Include="uploadimage\s6.jpg" />
+    <Content Include="uploadimage\s7.jpg" />
+    <Content Include="uploadimage\s8.jpg" />
+    <Content Include="uploadimage\s9.jpg" />
+    <Content Include="uploadimage\SubJpeg2.png" />
+    <Content Include="uploadimage\SubJpeg4.png" />
+>>>>>>> Add MyBrandsIndexModel.cs
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1595,11 +1670,8 @@
     <Content Include="weblogin\scoreOfItemInHouseOrder\pAddScoreOfItemInHouseOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInHouseOrder\pEditScoreOfItemInHouseOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx" />
-<<<<<<< HEAD
-=======
     <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
->>>>>>> Add
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
@@ -2412,8 +2484,10 @@
     <Folder Include="Areas\Cart\Views\Shared\" />
     <Folder Include="Areas\Category\Models\" />
     <Folder Include="Areas\Category\Views\Shared\" />
+    <Folder Include="Areas\Merchant\Views\Shared\" />
+    <Folder Include="Areas\Message\Models\" />
+    <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Logs\" />
-    <Folder Include="uploadimage\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
@@ -2436,6 +2510,12 @@
     <Content Include="Views\Shared\_Category.cshtml" />
     <Content Include="Views\Shared\_MfpSlide.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />
+    <Content Include="Areas\Merchant\Views\Web.config" />
+    <Content Include="Views\Shared\_Floor.cshtml" />
+    <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Message\Views\Web.config" />
+    <None Include="notifymsg.json" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
