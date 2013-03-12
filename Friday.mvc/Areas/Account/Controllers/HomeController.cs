@@ -37,13 +37,15 @@ namespace Friday.mvc.Areas.Account.Controllers
         {
             bool loginStatus = false;
             string _nk_ = string.Empty;
+            string t = string.Empty;
             if (isAuthenticated())
             {
                 loginStatus = true;
                 SystemUser systemUser = this.iUserService.GetOrCreateUser(this.HttpContext);
                 _nk_  = getGracefulName(systemUser);
+                t = systemUser.LoginUser.Id;
             }
-            string script = "var userCookie={_nk_:'" +  _nk_ + "',_l_g_:'" + (loginStatus?"1":"") +"',uc1:'',mt:'',l:'',version:''};TB && TB.Global && TB.Global.run && TB.Global.run();";
+            string script = "var userCookie={_nk_:'" +  _nk_ + "',_l_g_:'" + (loginStatus?"1":"") +"',uc1:'',mt:'',l:'',version:'',t:'"+ t +"'};TB && TB.Global && TB.Global.run && TB.Global.run();";
             return JavaScript(script);
         }
         [AcceptVerbs(HttpVerbs.Get)]

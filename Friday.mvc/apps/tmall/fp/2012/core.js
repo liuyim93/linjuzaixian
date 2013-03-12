@@ -323,10 +323,10 @@ TB.add("mod~global", function () {
                                 __status_update("Connected to Server");
                             });
                             socket.on('register', function (data) {
-                                
                                 __status_update(data.sid);
-
+                                socket.emit('tran user info', { sid: data.sid, uid: TB.userInfo.trackId })
                             });
+
                             socket.on('notify', function (data)
                             { __status_update(data.notifymsg); });
                             socket.on('disconnect', function () {
