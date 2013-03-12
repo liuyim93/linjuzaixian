@@ -23,6 +23,7 @@ namespace Friday.mvc.weblogin
 
         public string merchantId;
         public string name;
+       // public string MerchantID;
 
 
         public string userType;
@@ -35,7 +36,7 @@ namespace Friday.mvc.weblogin
         {
             tagName = systemFunctionObjectService.基本信息模块.员工维护.TagName;
             this.PermissionCheck();
-
+          
                 if (Request.Params["flag"] != "alldelete")
                 {
                     SearchLoginUser();
@@ -82,8 +83,16 @@ namespace Friday.mvc.weblogin
         private void SearchLoginUser()
         {
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-          
-            merchantId = Request.Params["merchant_id"];
+
+
+            if (!this.CurrentUser.IsAdmin)
+            {
+                merchantId = this.CurrentUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id;
+            }
+            if (!string.IsNullOrEmpty(Request.Params["merchant_id"]))
+            {
+                merchantId = Request.Params["merchant_id"];
+            }
             mType = Request.Params["merchantType"];
 
 

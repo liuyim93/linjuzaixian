@@ -24,7 +24,26 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            uid = Request.Params["uid"].ToString();
+            tagName = systemFunctionObjectService.基本信息模块.商家账号维护.TagName;
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有LoginUser修改权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
+            if (!this.CurrentUser.IsAdmin)
+            {
+                uid = this.CurrentUser.Id;
+            }
+            if (!string.IsNullOrEmpty(Request.Params["uid"]))
+            {
+                uid = Request.Params["uid"].ToString();
+            }
+
             loginUser = iLoginUserService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
