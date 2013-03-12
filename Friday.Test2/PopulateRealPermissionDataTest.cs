@@ -169,19 +169,19 @@ namespace Friday.Test2
             adminMenuCheckList.Add(restaurantMange);
             //restaruantOwnerMenuCheckList.Add(restaurantMange);
 
-            SystemMenu foodOrderDetail = new SystemMenu()
-            {
-                Name = "订单明细管理",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "orderOfFood/pOrderOfFoodList.aspx",
-                TLevel = 1,
-                ColIndex = 2
-            };
-            iSystemMenuRepository.SaveOrUpdate(foodOrderDetail);
-            adminMenuCheckList.Add(foodOrderDetail);
-            restaruantOwnerMenuCheckList.Add(foodOrderDetail);
-            restaurantMemberMenuCheckList.Add(foodOrderDetail);
+            //SystemMenu foodOrderDetail = new SystemMenu()
+            //{
+            //    Name = "订单明细管理",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "orderOfFood/pOrderOfFoodList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 2
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(foodOrderDetail);
+            //adminMenuCheckList.Add(foodOrderDetail);
+            //restaruantOwnerMenuCheckList.Add(foodOrderDetail);
+            //restaurantMemberMenuCheckList.Add(foodOrderDetail);
          
 
             SystemMenu foodOrder = new SystemMenu()
@@ -570,19 +570,19 @@ namespace Friday.Test2
             adminMenuCheckList.Add(rentEdit);
             rentOwnerMenuCheckList.Add(rentEdit);
 
-            SystemMenu houseOrderDetail = new SystemMenu()
-            {
-                Name = "租房订单明细管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "orderOfHouse/pOrderOfHouseList.aspx",
-                TLevel = 1,
-                ColIndex = 3
-            };
-            iSystemMenuRepository.SaveOrUpdate(houseOrderDetail);
-            adminMenuCheckList.Add(houseOrderDetail);
-            rentOwnerMenuCheckList.Add(houseOrderDetail);
-            rentMemberMenuCheckList.Add(houseOrderDetail);
+            //SystemMenu houseOrderDetail = new SystemMenu()
+            //{
+            //    Name = "租房订单明细管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "orderOfHouse/pOrderOfHouseList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 3
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(houseOrderDetail);
+            //adminMenuCheckList.Add(houseOrderDetail);
+            //rentOwnerMenuCheckList.Add(houseOrderDetail);
+            //rentMemberMenuCheckList.Add(houseOrderDetail);
 
             SystemMenu houseOrder = new SystemMenu()
             {
@@ -703,19 +703,19 @@ namespace Friday.Test2
             shopOwnerMenuCheckList.Add(commodity);
             shopMemberMenuCheckList.Add(commodity);
 
-            SystemMenu commodityOrderDetail = new SystemMenu()
-            {
-                Name = "订单明细管理",
-                Leaf = true,
-                ParentID = shopModel.Id,
-                MenuRoute = "orderOfCommodity/pOrderOfCommodityList.aspx",
-                TLevel = 1,
-                ColIndex = 4
-            };
-            iSystemMenuRepository.SaveOrUpdate(commodityOrderDetail);
-            adminMenuCheckList.Add(commodityOrderDetail);
-            shopOwnerMenuCheckList.Add(commodityOrderDetail);
-            shopMemberMenuCheckList.Add(commodityOrderDetail);
+            //SystemMenu commodityOrderDetail = new SystemMenu()
+            //{
+            //    Name = "订单明细管理",
+            //    Leaf = true,
+            //    ParentID = shopModel.Id,
+            //    MenuRoute = "orderOfCommodity/pOrderOfCommodityList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 4
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(commodityOrderDetail);
+            //adminMenuCheckList.Add(commodityOrderDetail);
+            //shopOwnerMenuCheckList.Add(commodityOrderDetail);
+            //shopMemberMenuCheckList.Add(commodityOrderDetail);
 
             SystemMenu commodityOrder = new SystemMenu()
             {
@@ -1028,7 +1028,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopFilterList = new List<DataFilter>();
@@ -1062,7 +1062,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> restaurantList = new List<SystemFunctionObject>();
-            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in restaurantArr)
             {
                 List<DataFilter> restaurantFilterList = new List<DataFilter>();
@@ -1096,7 +1096,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> rentList = new List<SystemFunctionObject>();
-            string[] rentArr = { "基本信息模块", "租房模块", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] rentArr = { "基本信息模块", "租房模块", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in rentArr)
             {
                 List<DataFilter> rentFilterList = new List<DataFilter>();
