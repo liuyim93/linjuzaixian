@@ -65,7 +65,8 @@ namespace Friday.Test2
                 MessageContent=mc,
                 LoginUser=lu,
                  Merchant=s3,
-                 Direction=0
+                 Direction=0,
+                 IsNew=true
 
             };
             iMessages.Add(act1);
@@ -75,7 +76,8 @@ namespace Friday.Test2
                 MessageContent=mc,
                 LoginUser = lu,
                 Merchant = s3,
-                Direction = 0
+                Direction = 0,
+                IsNew = true
             };
             iMessages.Add(act2);
             Message act3 = new Message()
@@ -84,7 +86,8 @@ namespace Friday.Test2
                 MessageContent=mc,
                 LoginUser = lu,
                 Merchant = s3,
-                Direction=1
+                Direction = 1,
+                IsNew = true
 
             };
             iMessages.Add(act3);

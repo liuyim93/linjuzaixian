@@ -12,5 +12,6 @@ namespace friday.core.repositories
        
         IList<Message> Search(List<DataFilter> termList);
         IList<Message> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<Object> GetSystemUserNewMessageNum();
     }
 }
