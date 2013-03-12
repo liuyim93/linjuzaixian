@@ -68,6 +68,8 @@
             <span>修改食品订单评价</span></a></li>
         <li id="liDelete" runat="server"><a class="delete" href="valuingOfMyFoodOrder/pValuingOfMyFoodOrderList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除食品订单评价</span></a></li>
+<%--        <li  runat="server"><a class="add" href="valuingComments/pValuingCommentsList.aspx?uid={id}"
+             target="navTab" title="评论回复"><span>评论回复</span></a></li>--%>
         <li class="line">line</li>
     </ul>
 </div>
