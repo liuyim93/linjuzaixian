@@ -56,9 +56,5 @@ namespace friday.core.services
         {
             return iCommodityRepository.Search(termList, start, limit, out total);
         }
-        public IList<Commodity> Search(List<DataFilter> termList, List<Shop> shopList, int start, int limit) 
-        {
-            return iCommodityRepository.Search(termList, shopList, start, limit);
-        }
     }
 }

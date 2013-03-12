@@ -1028,7 +1028,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "餐馆订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商品订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopFilterList = new List<DataFilter>();

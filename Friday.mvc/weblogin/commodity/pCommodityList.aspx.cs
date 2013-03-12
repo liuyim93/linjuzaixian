@@ -73,21 +73,40 @@ namespace Friday.mvc.weblogin.commodity
         {
             //在这里初始化ShopId
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            if (Request.Form["shop_id"] != null)
+            if (!this.CurrentUser.IsAdmin)
             {
-                shopId = Request.Form["shop_id"];
+                shopId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            else
-            {
-                shopId = Request.Params["shop_id"];
-            }
+            //if (Request.Form["shop_id"] != null)
+            //{
+            //    shopId = Request.Form["shop_id"];
+            //}
+            //else
+            //{
+            //    shopId = Request.Params["shop_id"];
+            //}
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
             IList<Commodity> commodityList = null;
             List<DataFilter> dfl = new List<DataFilter>();
+            List<DataFilter> shopdfl = new List<DataFilter>();
 
+            if (!this.CurrentUser.IsAdmin)
+            {
+                shopdfl.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    value = shopId
+
+                });
+                dfl.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    field = shopdfl
+                });
+            }
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];
             if (!string.IsNullOrEmpty(startprice))
@@ -123,10 +142,10 @@ namespace Friday.mvc.weblogin.commodity
             //}
 
 
-            if (!string.IsNullOrEmpty(shopId))
-            {
-                dfl.Add(new DataFilter() { type = "Shop", value = shopId });
-            }
+            //if (!string.IsNullOrEmpty(shopId))
+            //{
+            //    dfl.Add(new DataFilter() { type = "Shop", value = shopId });
+            //}
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];

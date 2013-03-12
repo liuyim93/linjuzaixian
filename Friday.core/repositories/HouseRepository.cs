@@ -29,11 +29,11 @@ namespace friday.core.repositories
         //对外获取方法
         public IList<House> Search(List<DataFilter> termList)
         {
-            return SearchByHouse(Query, termList, true,null).List<House>();
+            return SearchByHouse(Query, termList, true).List<House>();
         }
         public IList<House> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
-            ICriteria query = SearchByHouse(Query, termList, true,null);
+            ICriteria query = SearchByHouse(Query, termList);
             ICriteria countCriteria = CriteriaTransformer.Clone(query)
             .SetProjection(NHibernate.Criterion.Projections.RowCountInt64());
 
@@ -43,12 +43,6 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<House>();
         }
-        public IList<House> Search(List<DataFilter> termList,List<Rent> shopList,int start, int limit)
-        {
-            return SearchByHouse(Query, termList, true, shopList)
-                .SetFirstResult(start)
-                .SetMaxResults(limit)
-                .List<House>();
-        }
+   
     }
 }

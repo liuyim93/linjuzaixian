@@ -56,9 +56,5 @@ namespace friday.core.services
         {
             return iHouseRepository.Search(termList, start, limit, out total);
         }
-        public IList<House> Search(List<DataFilter> termList, List<Rent> rentList, int start, int limit) 
-        {
-            return iHouseRepository.Search(termList, rentList, start, limit);
-        }
     }
 }

@@ -26,7 +26,7 @@ namespace Friday.mvc.weblogin.rent
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
+            string uid;
           
             //UserTypeEnum ust = UserTypeEnum.租房;
             //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);

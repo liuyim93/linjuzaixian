@@ -29,11 +29,11 @@ namespace friday.core.repositories
         //对外获取方法
         public IList<Commodity> Search(List<DataFilter> termList)
         {
-            return SearchByCommodity(Query, termList, true,null).List<Commodity>();
+            return SearchByCommodity(Query, termList, true).List<Commodity>();
         }
         public IList<Commodity> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
-            ICriteria query = SearchByCommodity(Query, termList, true,null);
+            ICriteria query = SearchByCommodity(Query, termList);
             ICriteria countCriteria = CriteriaTransformer.Clone(query)
             .SetProjection(NHibernate.Criterion.Projections.RowCountInt64());
 
@@ -42,13 +42,6 @@ namespace friday.core.repositories
             return query.SetFirstResult(start)
                  .SetMaxResults(limit)
                  .List<Commodity>();
-        }
-        public IList<Commodity> Search(List<DataFilter> termList, List<Shop> shopList, int start, int limit)
-        {
-            return SearchByCommodity(Query, termList, true, shopList)
-                .SetFirstResult(start)
-                .SetMaxResults(limit)
-                .List<Commodity>();
         }
     }
 }

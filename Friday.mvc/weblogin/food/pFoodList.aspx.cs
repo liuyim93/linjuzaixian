@@ -116,11 +116,7 @@ namespace Friday.mvc.weblogin
                     field = Restaurantdfl
                 });
             }
-            else 
-            {
-               
-            
-            }
+           
             //if (!string.IsNullOrEmpty(restaurantId))
             //{
             //    Restaurantdfl.Add(new DataFilter() 

@@ -22,7 +22,7 @@ namespace Friday.mvc.weblogin.shop
         private Shop shop;
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
+            string uid;
 
             this.tagName = systemFunctionObjectService.商店模块.商店维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);

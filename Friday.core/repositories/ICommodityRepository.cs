@@ -8,7 +8,6 @@ namespace friday.core.repositories
     {
         IList<Commodity> GetCommodityByShopIDOrderByMonthAmountDesc(string shopID);
         System.Collections.Generic.IList<Commodity> Search(System.Collections.Generic.List<DataFilter> termList);
-        System.Collections.Generic.IList<Commodity> Search(System.Collections.Generic.List<DataFilter> termList, System.Collections.Generic.List<Shop> shopList, int start, int limit);
         System.Collections.Generic.IList<Commodity> Search(System.Collections.Generic.List<DataFilter> termList, int start, int limit, out long total);
     }
 }
