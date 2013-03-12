@@ -14,6 +14,9 @@ TB.add("mod~global", function () {
     TB._isMemberInfoReady = false;
     TB._memberInfoReadyFnList = [];
     TB.userInfo = { memberInfo: {} };
+    //2013-03-12 basilwang add socket firstconnect
+    TB.socket = undefined;
+    TB.firstconnect = true;
     TB.environment = { isTmall: window.location.hostname.indexOf("tmall.com") > -1 || window.location.hostname.indexOf("tmall.net") > -1, isDaily: window.location.hostname.indexOf(".net") > -1, isHttps: window.location.href.indexOf("https://") === 0 };
     window.g_config = window.g_config || {};
     window.g_config.tmallConfig =
@@ -141,7 +144,7 @@ TB.add("mod~global", function () {
                         _kissy_imp.getScript(_url + "?callback=window._mallCateCtnHandler&t=" + _kissy_imp.now(), { timeout: 5, error: function () {
                             _div_load.innerHTML = "加载失败，请稍后重试！";
                             _addClassName(_div_load, "sn-mcate-unready")
-                        } 
+                        }
                         })
                     })
                 }
@@ -299,53 +302,52 @@ TB.add("mod~global", function () {
                 }})
                 */
                 //_kissy.ready(function () {
-//                    if (!TB.Global.isLogin()) {
-//                        return
-//                    }
-                    var socket;
-                    var firstconnect = true;
-                    window.__message=function(data) {
-                        document.getElementById('message').innerHTML = "Server says"+data ;
-                    }
-                    window.__status_update=function(txt){
+                //                    if (!TB.Global.isLogin()) {
+                //                        return
+                //                    }
+                var socket = TB.socket;
+                window.__message = function (data) {
+                    document.getElementById('message').innerHTML = "Server says" + data;
+                }
+                window.__status_update = function (txt) {
                     document.getElementById('status').innerHTML = txt;
-                    }
-                    
- 
-                    //(function () {
-                        if (firstconnect) {
-                            socket = io.connect("http://localhost:8080");
+                }
 
-                            socket.on('message', function (data) {
-                                __message(data);
-                             });
-                            socket.on('connect', function () {
-                                __status_update("Connected to Server");
-                            });
-                            socket.on('register', function (data) {
-                                __status_update(data.sid);
-                                socket.emit('tran user info', { sid: data.sid, uid: TB.userInfo.trackId })
-                            });
 
-                            socket.on('notify', function (data)
-                            { __status_update(data.notifymsg); });
-                            socket.on('disconnect', function () {
-                                __status_update("Disconnected from Server");
-                              });
-                            socket.on('reconnect', function () {
-                                __status_update("Reconnected to Server");
-                             });
-                            socket.on('reconnecting', function (nextRetry) {
-                                __status_update("Reconnecting in " + nextRetry + " seconds");
-                            });
-                            socket.on('reconnect_failed', function () { __message("Reconnect Failed"); });
-                            firstconnect = false;
-                        } else {
-                            socket.socket.reconnect();
-                        }
-                    //})();
+                //(function () {
+                if (TB.firstconnect) {
+                    TB.socket = io.connect("http://localhost:8080");
 
-               // })
+                    socket.on('message', function (data) {
+                        __message(data);
+                    });
+                    socket.on('connect', function () {
+                        __status_update("Connected to Server");
+                    });
+                    socket.on('register', function (data) {
+                        __status_update(data.sid);
+                        socket.emit('tran user info', { sid: data.sid, uid: TB.userInfo.trackId })
+                    });
+
+                    socket.on('notify', function (data)
+                    { __status_update(data.notifymsg); });
+                    socket.on('disconnect', function () {
+                        __status_update("Disconnected from Server");
+                    });
+                    socket.on('reconnect', function () {
+                        __status_update("Reconnected to Server");
+                    });
+                    socket.on('reconnecting', function (nextRetry) {
+                        __status_update("Reconnecting in " + nextRetry + " seconds");
+                    });
+                    socket.on('reconnect_failed', function () { __message("Reconnect Failed"); });
+                    TB.firstconnect = false;
+                } else {
+                    socket.socket.reconnect();
+                }
+                //})();
+
+                // })
             })
         }, checkB2BUser: function () {
             _kissy.ready(function () {
@@ -432,7 +434,7 @@ TB.add("mod~global", function () {
                 var S = "http://" + _own_domain_1 + "/apps/matrix-mission/feedback/feedback.js?t=" + _tmall_config.commonJS.shareFB.timestamp;
                 _kissy.getScript(S)
             })
-        } 
+        }
     };
     //2013-03-09 element in _commonjs_array will be replaced by setTimeout function wrapper
     var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
@@ -875,6 +877,7 @@ TB.add("mod~global", function () {
         _addClassName(_dom_a, "menu-hd");
         _dom_a.id = "mc-menu-hd"
     }, updateLoginInfo: function () {
+        TB.socket.socket.reconnect();
         TB._isLoginStatusReady = false;
         TB._isMemberInfoReady = false;
         TB.Global.writeLoginInfo({ isApp: false })
@@ -901,7 +904,7 @@ TB.add("mod~global", function () {
                 p.show(i)
             }
         }
-    } 
+    }
     };
     TB.Cart = _kissy.merge({},
                {
