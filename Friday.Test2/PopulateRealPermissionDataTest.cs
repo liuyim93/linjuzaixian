@@ -2276,6 +2276,82 @@ namespace Friday.Test2
                    iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItFd2_1);
                };
                iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfFd2_1);
+
+               //添加Message模块
+               IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
+               MessageContent mc1_1 = new MessageContent()
+               {
+                   Content = "选择家，选择专家。资深置业顾问毛建军为您解决烦恼。用专业的眼光来审视每一个优质的房源。心与心的沟通，一次成交一辈子的朋友"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc1_1);
+
+               Message mess1_1 = new Message()
+               {
+                   Direction = 0,
+                   Merchant = rent1,
+                   LoginUser = sysLoginUser,
+                   MessageContent = mc1_1,
+                   IsNew = true,
+                   ThreadIndex = "全套家具大户型出租",
+                   TrackIndex = "0"
+               };
+               new MessageRepository().SaveOrUpdate(mess1_1);
+
+               MessageContent mc1_2 = new MessageContent()
+               {
+                   Content = "超大客厅 约70平 非常适合公司老总等 高端人士居住，里有类似房源多套 可供选择",
+               };
+               new MessageContentRepository().SaveOrUpdate(mc1_2);
+
+               Message mess1_2 = new Message()
+               {
+                   Direction = 1,
+                   Merchant = rent1,
+                   LoginUser = sysLoginUser,
+                   MessageContent = mc1_2,
+                   IsNew = true,
+                   ThreadIndex = "全套家具大户型出租",
+                   TrackIndex = "1"
+               };
+               new MessageRepository().SaveOrUpdate(mess1_2);
+               //第二个人的消息模块
+               MessageContent mc2_1 = new MessageContent()
+               {
+                   Content = "高档社区规范物业 高层 带电梯，室内精装修 超大客厅适合商住两用，靠近山大路科技市场 解放路 历山路 交通方便"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc2_1);
+
+               Message mess2_1 = new Message()
+               {
+                   Direction = 0,
+                   Merchant = rent2,
+                   LoginUser = sysLoginUser2,
+                   MessageContent = mc2_1,
+                   IsNew = true,
+                   ThreadIndex = "绿景嘉园精装修出租房",
+                   TrackIndex = "0"
+               };
+               new MessageRepository().SaveOrUpdate(mess2_1);
+
+               MessageContent mc2_2 = new MessageContent()
+               {
+                   Content = "山大南路科技市场附近绿景嘉园双气精装超大客厅错层适合商住办公"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc2_2);
+
+               Message mess2_2 = new Message()
+               {
+                   Direction = 1,
+                   Merchant = rent2,
+                   LoginUser = sysLoginUser2,
+                   MessageContent = mc2_2,
+                   IsNew = true,
+                   ThreadIndex = "绿景嘉园精装修出租房",
+                   TrackIndex = "1"
+               };
+               new MessageRepository().SaveOrUpdate(mess2_2);
+
+
         }
         public void add_ShopInfo()
         {
@@ -2724,7 +2800,81 @@ namespace Friday.Test2
                iValuingItemOfMyCommodityOrderOrders[j].ScoreOfItemInCommodityOrders.Add(scoreOfItFd2_1);
            };
            iValuingOfMyCommodityOrderRepository.SaveOrUpdate(vluOfFd2_1);
-                        
+
+           //添加Message模块
+           IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
+           MessageContent mc1_1 = new MessageContent()
+           {
+               Content = "如何增强账户安全系数？"
+           };
+           new MessageContentRepository().SaveOrUpdate(mc1_1);
+
+           Message mess1_1 = new Message()
+           {
+               Direction = 0,
+               Merchant = shop1,
+               LoginUser = sysLoginUser,
+               MessageContent = mc1_1,
+               IsNew = true,
+               ThreadIndex = "京东商城店铺使用",
+               TrackIndex = "0"
+           };
+           new MessageRepository().SaveOrUpdate(mess1_1);
+
+           MessageContent mc1_2 = new MessageContent()
+           {
+               Content = "您可以登录京东商城账户， 在“我的京东-账户信息-账户安全”里，通过经常性修改密码、绑定账户到邮箱和手机、设置支付密码的方式增加账户安全系数，保证账户安全。",
+           };
+           new MessageContentRepository().SaveOrUpdate(mc1_2);
+
+           Message mess1_2 = new Message()
+           {
+               Direction = 1,
+               Merchant = shop1,
+               LoginUser = sysLoginUser,
+               MessageContent = mc1_2,
+               IsNew = true,
+               ThreadIndex = "京东商城店铺使用",
+               TrackIndex = "1"
+           };
+           new MessageRepository().SaveOrUpdate(mess1_2);
+           //第二个人的消息模块
+           MessageContent mc2_1 = new MessageContent()
+           {
+               Content = "京东自营商品售后服务运费规则有哪些？"
+           };
+           new MessageContentRepository().SaveOrUpdate(mc2_1);
+
+           Message mess2_1 = new Message()
+           {
+               Direction = 0,
+               Merchant = shop2,
+               LoginUser = sysLoginUser2,
+               MessageContent = mc2_1,
+               IsNew = true,
+               ThreadIndex = "运费规则",
+               TrackIndex = "0"
+           };
+           new MessageRepository().SaveOrUpdate(mess2_1);
+
+           MessageContent mc2_2 = new MessageContent()
+           {
+               Content = "A.双免：双向免费，即上门取件和寄还都免费。取（返）件包含两种形式：1）在京东取件范围内（含合作三方快递），可免费上门取件；2）客户也可采取自行发货（不含EMS、顺丰，拒收到付）寄回京东，运费以余额方式返还（余额可在京东直接消费或联系客服返还银行卡）。"
+           };
+           new MessageContentRepository().SaveOrUpdate(mc2_2);
+
+           Message mess2_2 = new Message()
+           {
+               Direction = 1,
+               Merchant = shop2,
+               LoginUser = sysLoginUser2,
+               MessageContent = mc2_2,
+               IsNew = true,
+               ThreadIndex = "运费规则",
+               TrackIndex = "1"
+           };
+           new MessageRepository().SaveOrUpdate(mess2_2);
+                           
         }
     }
 }
