@@ -1242,7 +1242,7 @@ namespace Friday.Test2
                 Logo = "image/21222.jpg",
                 Name = "翠峰苑连锁火锅城",
                 Owener = "刘德华",
-                ShortName = "翠峰苑",
+                ShortName = "翠峰苑",   
                 Tel = "18799999992",
                 SendTime = 30,
                 Rate = 0.8,
@@ -1261,7 +1261,7 @@ namespace Friday.Test2
             ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
             LoginUser lu1 = new LoginUser();
-            lu1.LoginName = "cuifengyuan";
+            lu1.LoginName = "restcuifengyuan";
             lu1.Password = "000000";
             iLoginUserRepository.SaveOrUpdate(lu1);
             
@@ -1276,8 +1276,8 @@ namespace Friday.Test2
             iUserInRoleRepository.SaveOrUpdate(uir);
 
             LoginUser lu1_1 = new LoginUser();
-            lu1_1.LoginName = "cuifengyuan_xiaoer1";
-            lu1_1.Password = "1111111";
+            lu1_1.LoginName = "restcuifengyuanxiaoer";
+            lu1_1.Password = "111111";
             iLoginUserRepository.SaveOrUpdate(lu1_1);
 
             LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
@@ -1364,8 +1364,8 @@ namespace Friday.Test2
             {
                 SystemUser = s1,
                 IsAdmin = false,
-                LoginName = "zhangguorong",
-                Password = "zgr000000",
+                LoginName = "restzhangguorong",
+                Password = "000000",
                  
             };
             //s1.LoginUser = sysLoginUser;
@@ -1433,7 +1433,7 @@ namespace Friday.Test2
            new RestaurantRepository().SaveOrUpdate(restaurant2);
 
            LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "jinhansi";
+           lu2.LoginName = "restjinhansi";
            lu2.Password = "000000";
            iLoginUserRepository.SaveOrUpdate(lu2);
 
@@ -1448,7 +1448,7 @@ namespace Friday.Test2
            iUserInRoleRepository.SaveOrUpdate(uir2);
 
            LoginUser lu1_2 = new LoginUser();
-           lu1_2.LoginName = "xiaoerjinhansi";
+           lu1_2.LoginName = "restxiaoerjinhansi";
            lu1_2.Password = "111111";
            iLoginUserRepository.SaveOrUpdate(lu1_2);
 
@@ -1534,8 +1534,8 @@ namespace Friday.Test2
            {
                SystemUser = s2,
                IsAdmin = false,
-               LoginName = "zhangweijian",
-               Password = "zwj000000",
+               LoginName = "restzhangweijian",
+               Password = "000000",
 
            };
            //s1.LoginUser = sysLoginUser;
@@ -1615,7 +1615,7 @@ namespace Friday.Test2
             ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
             LoginUser lu1 = new LoginUser();
-            lu1.LoginName = "antai";
+            lu1.LoginName = "rentantai";
             lu1.Password = "000000";
             iLoginUserRepository.SaveOrUpdate(lu1);
             
@@ -1630,8 +1630,8 @@ namespace Friday.Test2
             iUserInRoleRepository.SaveOrUpdate(uir);
 
             LoginUser lu1_1 = new LoginUser();
-            lu1_1.LoginName = "antaixiaoer";
-            lu1_1.Password = "1111111";
+            lu1_1.LoginName = "rentantaixiaoer";
+            lu1_1.Password = "111111";
             iLoginUserRepository.SaveOrUpdate(lu1_1);
 
             LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
@@ -1721,8 +1721,8 @@ namespace Friday.Test2
             {
                 SystemUser = s1,
                 IsAdmin = false,
-                LoginName = "lizicheng",
-                Password = "lzc000000",
+                LoginName = "rentlizicheng",
+                Password = "000000",
                  
             };
             //s1.LoginUser = sysLoginUser;
@@ -1785,7 +1785,7 @@ namespace Friday.Test2
            new RentRepository().SaveOrUpdate(rent2);
 
            LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "yangqianhua";
+           lu2.LoginName = "rentrunhua";
            lu2.Password = "000000";
            iLoginUserRepository.SaveOrUpdate(lu2);
 
@@ -1800,7 +1800,7 @@ namespace Friday.Test2
            iUserInRoleRepository.SaveOrUpdate(uir2);
 
            LoginUser lu1_2 = new LoginUser();
-           lu1_2.LoginName = "runhuaxiaoer";
+           lu1_2.LoginName = "rentrunhuaxiaoer";
            lu1_2.Password = "111111";
            iLoginUserRepository.SaveOrUpdate(lu1_2);
 
@@ -1888,8 +1888,8 @@ namespace Friday.Test2
            {
                SystemUser = s2,
                IsAdmin = false,
-               LoginName = "wangzhiwen",
-               Password = "wzw000000",
+               LoginName = "rentwangzhiwen",
+               Password = "000000",
 
            };
            //s1.LoginUser = sysLoginUser;
@@ -1971,7 +1971,7 @@ namespace Friday.Test2
             ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
             LoginUser lu1 = new LoginUser();
-            lu1.LoginName = "darunfa";
+            lu1.LoginName = "shopdarunfa";
             lu1.Password = "000000";
             iLoginUserRepository.SaveOrUpdate(lu1);
             
@@ -1986,8 +1986,8 @@ namespace Friday.Test2
             iUserInRoleRepository.SaveOrUpdate(uir);
 
             LoginUser lu1_1 = new LoginUser();
-            lu1_1.LoginName = "darunfaxiaoer";
-            lu1_1.Password = "1111111";
+            lu1_1.LoginName = "shopdarunfaxiaoer";
+            lu1_1.Password = "111111";
             iLoginUserRepository.SaveOrUpdate(lu1_1);
 
             LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
@@ -2073,8 +2073,8 @@ namespace Friday.Test2
             {
                 SystemUser = s1,
                 IsAdmin = false,
-                LoginName = "chenglong",
-                Password = "cl000000",
+                LoginName = "shopchenglong",
+                Password = "000000",
                  
             };
             //s1.LoginUser = sysLoginUser;
@@ -2137,7 +2137,7 @@ namespace Friday.Test2
            new ShopRepository().SaveOrUpdate(shop2);
 
            LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "jiangwen";
+           lu2.LoginName = "shopyinzuo";
            lu2.Password = "000000";
            iLoginUserRepository.SaveOrUpdate(lu2);
 
@@ -2152,7 +2152,7 @@ namespace Friday.Test2
            iUserInRoleRepository.SaveOrUpdate(uir2);
 
            LoginUser lu1_2 = new LoginUser();
-           lu1_2.LoginName = "yinzuoxiaoer";
+           lu1_2.LoginName = "shopyinzuoxiaoer";
            lu1_2.Password = "111111";
            iLoginUserRepository.SaveOrUpdate(lu1_2);
 
@@ -2236,8 +2236,8 @@ namespace Friday.Test2
            {
                SystemUser = s2,
                IsAdmin = false,
-               LoginName = "luyu",
-               Password = "ly000000",
+               LoginName = "shopluyu",
+               Password = "000000",
 
            };
            //s1.LoginUser = sysLoginUser;
