@@ -40,7 +40,15 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult Recommend(string callback)
         {
-            string json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext));
+            string json;
+            if (this.HttpContext.User.Identity.IsAuthenticated == true)
+            {
+                json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext));
+            }
+            else
+            {
+                json = this.iMerchantService.GetMerchantsJson(null);
+            }
             string script = callback + "("+ json  +")";
 
             return JavaScript(script);
