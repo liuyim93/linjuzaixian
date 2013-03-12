@@ -1343,6 +1343,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\brand\2.0\mods\collect.js" />
+    <Content Include="apps\department\brand\2.0\core.js" />
+    <Content Include="apps\department\brand\2.0\dialog.js" />
+    <Content Include="apps\department\brand\2.0\fav.js" />
+    <Content Include="apps\department\brand\2.0\mods\item.js" />
     <Content Include="apps\department\common\brandbar-fly.js" />
     <Content Include="apps\department\common\brandbar.js" />
     <Content Include="apps\department\common\brandfollow.js" />
@@ -2423,6 +2428,7 @@
     <Content Include="Areas\Merchant\Views\Web.config" />
     <Content Include="Views\Shared\_Floor.cshtml" />
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

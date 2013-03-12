@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Favorite/myBrandsIndex.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Favorite/myBrandsIndex.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj.user" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj.user" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Views/Home/Index.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Views/Home/Index.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,10 +26,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="35" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0">
+            <state line="11" column="35" selection-start="328" selection-end="328" vertical-scroll-proportion="-13.120857">
               <folding />
             </state>
           </provider>
@@ -36,7 +38,7 @@
       <file leaf-file-name="tb-mpp.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="766" column="21" selection-start="29726" selection-end="29726" vertical-scroll-proportion="0.0">
+            <state line="740" column="60" selection-start="29045" selection-end="29045" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -62,19 +64,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="item.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/item.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="25" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="core.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="54" column="26" selection-start="2443" selection-end="2443" vertical-scroll-proportion="2.7835052">
+            <state line="6" column="25" selection-start="402" selection-end="402" vertical-scroll-proportion="-5.357143">
               <folding />
             </state>
           </provider>
@@ -141,11 +134,11 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar-fly.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/fav.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/dialog.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
       </list>
     </option>
   </component>
@@ -487,13 +480,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1288" height="1000" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31235155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27729085" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27729085" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -621,13 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="766" column="21" selection-start="29726" selection-end="29726" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/css/core.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -651,23 +637,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/item.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="25" selection-start="617" selection-end="617" vertical-scroll-proportion="0.0">
+        <state line="6" column="25" selection-start="402" selection-end="402" vertical-scroll-proportion="-5.357143">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="740" column="60" selection-start="29045" selection-end="29045" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="35" selection-start="327" selection-end="327" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="54" column="26" selection-start="2443" selection-end="2443" vertical-scroll-proportion="2.7835052">
+        <state line="11" column="35" selection-start="328" selection-end="328" vertical-scroll-proportion="-13.120857">
           <folding />
         </state>
       </provider>
