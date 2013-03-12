@@ -90,7 +90,7 @@ namespace Friday.mvc.weblogin
             //{
             //    restaurantId = Request.Form["restaurant_id"];
             //}
-            //else
+            //if (Request.Params["restaurant_id"] != null)
             //{
             //    restaurantId = Request.Params["restaurant_id"];
             //}

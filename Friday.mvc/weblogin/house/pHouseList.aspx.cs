@@ -81,23 +81,44 @@ namespace Friday.mvc.weblogin
 
             //在这里初始化ShopId
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-            if (Request.Form["rent_id"] != null)
+            if (!this.CurrentUser.IsAdmin)
             {
-                rentId = Request.Form["rent_id"];
+                rentId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            else
-            {
-                rentId = Request.Params["rent_id"];
-            }
+            //if (Request.Form["rent_id"] != null)
+            //{
+            //    rentId = Request.Form["rent_id"];
+            //}
+            //if (Request.Params["rent_id"] != null)
+            //{
+            //    rentId = Request.Params["rent_id"];
+            //}
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
             IList<House> houseList = null;
             List<DataFilter> dfl = new List<DataFilter>();
+            List<DataFilter> Rentdfl = new List<DataFilter>();
 
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];
+
+            if (!this.CurrentUser.IsAdmin)
+            {
+                Rentdfl.Add(new DataFilter()
+                {
+                    type = "Rent",
+                    value = rentId
+
+                });
+                dfl.Add(new DataFilter()
+                {
+                    type = "Rent",
+                    field = Rentdfl
+                });
+            }
+
             if (!string.IsNullOrEmpty(startprice))
             {
                 if (!string.IsNullOrEmpty(endprice))
@@ -131,10 +152,10 @@ namespace Friday.mvc.weblogin
             //}
 
 
-            if (!string.IsNullOrEmpty(rentId))
-            {
-                dfl.Add(new DataFilter() { type = "Rent", value = rentId });
-            }
+            //if (!string.IsNullOrEmpty(rentId))
+            //{
+            //    dfl.Add(new DataFilter() { type = "Rent", value = rentId });
+            //}
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];

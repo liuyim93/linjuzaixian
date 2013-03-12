@@ -378,8 +378,8 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(logUser);
             //adminMenuCheckList.Add(logUser);
             restaruantOwnerMenuCheckList.Add(logUser);
-            shopOwnerMenuCheckList.Add(loginUser);
-            rentOwnerMenuCheckList.Add(loginUser);
+            shopOwnerMenuCheckList.Add(logUser);
+            rentOwnerMenuCheckList.Add(logUser);
 
             SystemMenu systemRole = new SystemMenu()
             {
@@ -555,7 +555,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(rentMange);
             adminMenuCheckList.Add(rentMange);
-            rentOwnerMenuCheckList.Add(rentMange);
+            //rentOwnerMenuCheckList.Add(rentMange);
 
             SystemMenu rentEdit = new SystemMenu()
             {

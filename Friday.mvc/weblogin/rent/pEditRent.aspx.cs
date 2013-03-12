@@ -27,7 +27,7 @@ namespace Friday.mvc.weblogin.rent
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            rent = iRentService.Load(uid);
+          
             //UserTypeEnum ust = UserTypeEnum.租房;
             //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(rent.Id, ust);
             this.tagName = systemFunctionObjectService.租房模块.租房维护.TagName;
@@ -41,7 +41,7 @@ namespace Friday.mvc.weblogin.rent
                 uid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
 
             }
-
+            rent = iRentService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";
