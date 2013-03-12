@@ -268,6 +268,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(baseInfo);
             shopOwnerMenuCheckList.Add(baseInfo);
             shopMemberMenuCheckList.Add(baseInfo);
+            rentOwnerMenuCheckList.Add(baseInfo);
+            rentMemberMenuCheckList.Add(baseInfo);
 
             SystemMenu activity = new SystemMenu()
             {
@@ -308,6 +310,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(merchantGoodsType);
             shopOwnerMenuCheckList.Add(merchantGoodsType);
             shopMemberMenuCheckList.Add(merchantGoodsType);
+            rentOwnerMenuCheckList.Add(merchantGoodsType);
+            rentMemberMenuCheckList.Add(merchantGoodsType);
 
             SystemMenu roleMenu = new SystemMenu()
             {
@@ -347,6 +351,7 @@ namespace Friday.Test2
             //adminMenuCheckList.Add(merchantMember);
             restaruantOwnerMenuCheckList.Add(merchantMember);
             shopOwnerMenuCheckList.Add(merchantMember);
+            rentOwnerMenuCheckList.Add(merchantMember);
 
             SystemMenu loginUser = new SystemMenu()
             {
@@ -374,6 +379,7 @@ namespace Friday.Test2
             //adminMenuCheckList.Add(logUser);
             restaruantOwnerMenuCheckList.Add(logUser);
             shopOwnerMenuCheckList.Add(loginUser);
+            rentOwnerMenuCheckList.Add(loginUser);
 
             SystemMenu systemRole = new SystemMenu()
             {
@@ -427,6 +433,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(valuingComments);
             shopOwnerMenuCheckList.Add(valuingComments);
             shopMemberMenuCheckList.Add(valuingComments);
+            rentOwnerMenuCheckList.Add(valuingComments);
+            rentMemberMenuCheckList.Add(valuingComments);
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
@@ -445,6 +453,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(messageModel);
             shopOwnerMenuCheckList.Add(messageModel);
             shopMemberMenuCheckList.Add(messageModel);
+            rentOwnerMenuCheckList.Add(messageModel);
+            rentMemberMenuCheckList.Add(messageModel);
 
             SystemMenu message = new SystemMenu()
             {
@@ -462,6 +472,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(message);
             shopOwnerMenuCheckList.Add(message);
             shopMemberMenuCheckList.Add(message);
+            rentOwnerMenuCheckList.Add(message);
+            rentMemberMenuCheckList.Add(message);
 
             //反馈模块
             SystemMenu feedBackModel = new SystemMenu()
@@ -480,6 +492,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(feedBackModel);
             shopOwnerMenuCheckList.Add(feedBackModel);
             shopMemberMenuCheckList.Add(feedBackModel);
+            rentOwnerMenuCheckList.Add(feedBackModel);
+            rentMemberMenuCheckList.Add(feedBackModel);
 
             SystemMenu feedBack = new SystemMenu()
             {
@@ -497,6 +511,8 @@ namespace Friday.Test2
             restaurantMemberMenuCheckList.Add(feedBack);
             shopOwnerMenuCheckList.Add(feedBack);
             shopMemberMenuCheckList.Add(feedBack);
+            rentOwnerMenuCheckList.Add(feedBack);
+            rentMemberMenuCheckList.Add(feedBack);
 
             //SystemMenu feedBackReply = new SystemMenu()
             //{
@@ -525,6 +541,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(rentModel);
             adminMenuCheckList.Add(rentModel);
+            rentOwnerMenuCheckList.Add(rentModel);
+            rentMemberMenuCheckList.Add(rentModel);
 
             SystemMenu rentMange = new SystemMenu()
             {
@@ -537,6 +555,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(rentMange);
             adminMenuCheckList.Add(rentMange);
+            rentOwnerMenuCheckList.Add(rentMange);
 
             SystemMenu rentEdit = new SystemMenu()
             {
@@ -549,6 +568,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(rentEdit);
             adminMenuCheckList.Add(rentEdit);
+            rentOwnerMenuCheckList.Add(rentEdit);
 
             SystemMenu houseOrderDetail = new SystemMenu()
             {
@@ -561,6 +581,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(houseOrderDetail);
             adminMenuCheckList.Add(houseOrderDetail);
+            rentOwnerMenuCheckList.Add(houseOrderDetail);
+            rentMemberMenuCheckList.Add(houseOrderDetail);
 
             SystemMenu houseOrder = new SystemMenu()
             {
@@ -573,6 +595,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(houseOrder);
             adminMenuCheckList.Add(houseOrder);
+            rentOwnerMenuCheckList.Add(houseOrder);
+            rentMemberMenuCheckList.Add(houseOrder);
 
             SystemMenu house = new SystemMenu()
             {
@@ -585,6 +609,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(house);
             adminMenuCheckList.Add(house);
+            rentOwnerMenuCheckList.Add(house);
+            rentMemberMenuCheckList.Add(house);
 
             //SystemMenu rentEditManage = new SystemMenu()
             //{
@@ -608,6 +634,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(valuingOfMyHouseOrder);
             adminMenuCheckList.Add(valuingOfMyHouseOrder);
+            rentOwnerMenuCheckList.Add(valuingOfMyHouseOrder);
+            rentMemberMenuCheckList.Add(valuingOfMyHouseOrder);
 
             SystemMenu valuingItemOfMyHouseOrder = new SystemMenu()
             {
@@ -620,6 +648,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyHouseOrder);
             adminMenuCheckList.Add(valuingItemOfMyHouseOrder);
+            
 
             //商店模块
             SystemMenu shopModel = new SystemMenu()
