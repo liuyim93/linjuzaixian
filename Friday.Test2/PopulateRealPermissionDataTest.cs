@@ -266,6 +266,8 @@ namespace Friday.Test2
             restaruantOwnerMenuCheckList.Add(baseInfo);
             customerMenuCheckList.Add(baseInfo);
             restaurantMemberMenuCheckList.Add(baseInfo);
+            shopOwnerMenuCheckList.Add(baseInfo);
+            shopMemberMenuCheckList.Add(baseInfo);
 
             SystemMenu activity = new SystemMenu()
             {
@@ -304,6 +306,8 @@ namespace Friday.Test2
             adminMenuCheckList.Add(merchantGoodsType);
             restaruantOwnerMenuCheckList.Add(merchantGoodsType);
             restaurantMemberMenuCheckList.Add(merchantGoodsType);
+            shopOwnerMenuCheckList.Add(merchantGoodsType);
+            shopMemberMenuCheckList.Add(merchantGoodsType);
 
             SystemMenu roleMenu = new SystemMenu()
             {
@@ -342,6 +346,7 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(merchantMember);
             //adminMenuCheckList.Add(merchantMember);
             restaruantOwnerMenuCheckList.Add(merchantMember);
+            shopOwnerMenuCheckList.Add(merchantMember);
 
             SystemMenu loginUser = new SystemMenu()
             {
@@ -368,6 +373,7 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(logUser);
             //adminMenuCheckList.Add(logUser);
             restaruantOwnerMenuCheckList.Add(logUser);
+            shopOwnerMenuCheckList.Add(loginUser);
 
             SystemMenu systemRole = new SystemMenu()
             {
@@ -419,6 +425,8 @@ namespace Friday.Test2
             restaruantOwnerMenuCheckList.Add(valuingComments);
             customerMenuCheckList.Add(valuingComments);
             restaurantMemberMenuCheckList.Add(valuingComments);
+            shopOwnerMenuCheckList.Add(valuingComments);
+            shopMemberMenuCheckList.Add(valuingComments);
 
             //消息模块
             SystemMenu messageModel = new SystemMenu()
@@ -435,6 +443,8 @@ namespace Friday.Test2
             restaruantOwnerMenuCheckList.Add(messageModel);
             customerMenuCheckList.Add(messageModel);
             restaurantMemberMenuCheckList.Add(messageModel);
+            shopOwnerMenuCheckList.Add(messageModel);
+            shopMemberMenuCheckList.Add(messageModel);
 
             SystemMenu message = new SystemMenu()
             {
@@ -450,6 +460,8 @@ namespace Friday.Test2
             restaruantOwnerMenuCheckList.Add(message);
             customerMenuCheckList.Add(message);
             restaurantMemberMenuCheckList.Add(message);
+            shopOwnerMenuCheckList.Add(message);
+            shopMemberMenuCheckList.Add(message);
 
             //反馈模块
             SystemMenu feedBackModel = new SystemMenu()
@@ -466,6 +478,8 @@ namespace Friday.Test2
             restaruantOwnerMenuCheckList.Add(feedBackModel);
             customerMenuCheckList.Add(feedBackModel);
             restaurantMemberMenuCheckList.Add(feedBackModel);
+            shopOwnerMenuCheckList.Add(feedBackModel);
+            shopMemberMenuCheckList.Add(feedBackModel);
 
             SystemMenu feedBack = new SystemMenu()
             {
@@ -481,6 +495,8 @@ namespace Friday.Test2
             restaruantOwnerMenuCheckList.Add(feedBack);
             customerMenuCheckList.Add(feedBack);
             restaurantMemberMenuCheckList.Add(feedBack);
+            shopOwnerMenuCheckList.Add(feedBack);
+            shopMemberMenuCheckList.Add(feedBack);
 
             //SystemMenu feedBackReply = new SystemMenu()
             //{
@@ -617,6 +633,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(shopModel);
             adminMenuCheckList.Add(shopModel);
+            shopOwnerMenuCheckList.Add(shopModel);
+            shopMemberMenuCheckList.Add(shopModel);
 
             SystemMenu shopMange = new SystemMenu()
             {
@@ -629,7 +647,7 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(shopMange);
             adminMenuCheckList.Add(shopMange);
-
+            
             SystemMenu shopEditMange = new SystemMenu()
             {
                 Name = "商店编辑管理",
@@ -640,6 +658,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(shopEditMange);
+            shopOwnerMenuCheckList.Add(shopEditMange);
 
             SystemMenu commodity = new SystemMenu()
             {
@@ -652,7 +671,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(commodity);
             adminMenuCheckList.Add(commodity);
-
+            shopOwnerMenuCheckList.Add(commodity);
+            shopMemberMenuCheckList.Add(commodity);
 
             SystemMenu commodityOrderDetail = new SystemMenu()
             {
@@ -665,6 +685,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(commodityOrderDetail);
             adminMenuCheckList.Add(commodityOrderDetail);
+            shopOwnerMenuCheckList.Add(commodityOrderDetail);
+            shopMemberMenuCheckList.Add(commodityOrderDetail);
 
             SystemMenu commodityOrder = new SystemMenu()
             {
@@ -677,7 +699,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(commodityOrder);
             adminMenuCheckList.Add(commodityOrder);
-           
+            shopOwnerMenuCheckList.Add(commodityOrder);
+            shopMemberMenuCheckList.Add(commodityOrder);
 
             SystemMenu valuingOfMyCommodityOrder = new SystemMenu()
             {
@@ -690,6 +713,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(valuingOfMyCommodityOrder);
             adminMenuCheckList.Add(valuingOfMyCommodityOrder);
+            shopOwnerMenuCheckList.Add(valuingOfMyCommodityOrder);
+            shopMemberMenuCheckList.Add(valuingOfMyCommodityOrder);
 
             SystemMenu valuingItemOfMyCommodityOrder = new SystemMenu()
             {
@@ -974,7 +999,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商家账号维护" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "餐馆订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopFilterList = new List<DataFilter>();
@@ -991,7 +1016,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopEmpList = new List<SystemFunctionObject>();
-            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护" };
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商品订单评价管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopEmpFilterList = new List<DataFilter>();
@@ -1042,7 +1067,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> rentList = new List<SystemFunctionObject>();
-            string[] rentArr = { "基本信息模块", "租房模块", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护" };
+            string[] rentArr = { "基本信息模块", "租房模块", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in rentArr)
             {
                 List<DataFilter> rentFilterList = new List<DataFilter>();
@@ -1059,7 +1084,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> rentEmpList = new List<SystemFunctionObject>();
-            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护" };
+            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理"  };
             foreach (var i in rentEmpArr)
             {
                 List<DataFilter> rentEmpFilterList = new List<DataFilter>();
