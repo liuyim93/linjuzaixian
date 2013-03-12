@@ -1644,6 +1644,109 @@ namespace Friday.Test2
            };
            myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
            new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder2);        
+
+          //添加评价数据Valuing、ValuingComments、Score、ValuingItem
+           IRepository<MyFoodOrder> iMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
+
+           IValuingOfMyFoodOrderRepository iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IValuingOfMyFoodOrderRepository>();
+           IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
+           IRepository<ScoreOfItemInFoodOrder> iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInFoodOrder>>();
+           IList<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderOrders = new List<ValuingItemOfMyFoodOrder>();
+
+           string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
+           foreach (var i in vItemArray)
+           {
+               ValuingItemOfMyFoodOrder vluItemOfFd = new ValuingItemOfMyFoodOrder()
+               {
+                   ValuingItemName = i
+               };
+               iValuingItemOfMyFoodOrderRepository.SaveOrUpdate(vluItemOfFd);
+               iValuingItemOfMyFoodOrderOrders.Add(vluItemOfFd);
+           };
+
+           ValuingComments valucmmt1_1 = new ValuingComments()
+           {
+               Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+               Direction = 0,
+               TrackIndex = 1,
+           };
+           ValuingComments valucmmt1_2 = new ValuingComments()
+           {
+               Comments = "能不能退货",
+               Direction = 0,
+               TrackIndex = 2,
+           };
+               ValuingOfMyFoodOrder vluOfFd1_1 = new ValuingOfMyFoodOrder()
+               {
+                   LoginUser = sysLoginUser,
+                   Merchant = restaurant1,
+                   MyFoodOrder =myFoodOrder ,
+                   ValuingContent =  "送货速度慢，产品质量差，服务态度恶劣",
+                   
+               };
+               new ValuingOfMyFoodOrderRepository().SaveOrUpdate(vluOfFd1_1);
+
+               valucmmt1_1.Valuing = vluOfFd1_1;
+               valucmmt1_2.Valuing = vluOfFd1_1;
+               new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_1);
+               new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_2);
+  
+               for (int j = 0; j < 3; j++)
+               {
+                   ScoreOfItemInFoodOrder scoreOfItFd1_1 = new ScoreOfItemInFoodOrder()
+                   {
+                       Score = j,
+                       ValuingOfMyFoodOrder = vluOfFd1_1,
+                       ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderOrders[j],
+                   };
+                   vluOfFd1_1.ScoreOfItemInFoodOrders.Add(scoreOfItFd1_1);
+                   iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd1_1);
+               };
+               iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd1_1);
+
+
+               //第二个用户对第二个餐馆的valuing
+               ValuingComments valucmmt2_1 = new ValuingComments()
+               {
+                   Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+                   Direction = 0,
+                   TrackIndex = 1,
+               };
+               ValuingComments valucmmt2_2 = new ValuingComments()
+               {
+                   Comments = "能不能退货",
+                   Direction = 0,
+                   TrackIndex = 2,
+               };
+               ValuingOfMyFoodOrder vluOfFd2_1 = new ValuingOfMyFoodOrder()
+               {
+                   LoginUser = sysLoginUser2,
+                   Merchant = restaurant2,
+                   MyFoodOrder = myFoodOrder2,
+                   ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
+
+               };
+               new ValuingOfMyFoodOrderRepository().SaveOrUpdate(vluOfFd2_1);
+
+               valucmmt2_1.Valuing = vluOfFd2_1;
+               valucmmt2_2.Valuing = vluOfFd2_1;
+               new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_1);
+               new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_2);
+
+               for (int j = 0; j < 3; j++)
+               {
+                   ScoreOfItemInFoodOrder scoreOfItFd2_1 = new ScoreOfItemInFoodOrder()
+                   {
+                       Score = j,
+                       ValuingOfMyFoodOrder = vluOfFd2_1,
+                       ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderOrders[j],
+                   };
+                   vluOfFd2_1.ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
+                   iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
+               };
+               iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd2_1);
+                        
+            
         }
          public void add_RentInfo()
         {
