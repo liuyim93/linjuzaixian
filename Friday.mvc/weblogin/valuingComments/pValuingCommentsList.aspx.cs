@@ -28,16 +28,16 @@ namespace Friday.mvc.weblogin.valuingComments
         {
             tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
             this.PermissionCheck();
-          
-            //if (Request.Form["valuing_id"] != null)
-            //{
-            //    valuingID = Request.Form["valuing_id"];
-            //}
-            //if (Request.Params["valuing_id"]!=null)
-            //{
-            //    valuingID = Request.Params["valuing_id"];
-            //}
-            //valuing = iValuingRepository.Load(valuingID);
+
+            if (Request.Form["valuing_id"] != null)
+            {
+                valuingID = Request.Form["valuing_id"];
+            }
+            if (Request.Params["valuing_id"] != null)
+            {
+                valuingID = Request.Params["valuing_id"];
+            }
+            //   valuing = iValuingRepository.Load(valuingID);
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -102,9 +102,11 @@ namespace Friday.mvc.weblogin.valuingComments
 
             if (!this.CurrentUser.IsAdmin)
             {
+            
+            }
               ValuingFilter.Add(new DataFilter() { type = "Valuing", value = valuingID });
               dfl.Add(new DataFilter() { type = "Valuing", field = ValuingFilter });
-            }
+           
 
             dfl.Add(new DataFilter()
             {
