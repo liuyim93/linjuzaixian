@@ -22,6 +22,8 @@
 </head>
 <body>
 @Html.Partial("_Header")
+@using Friday.mvc.Models
+@model MyBrandsIndexModel
 <div id="content">
     <input type="hidden" value="T6C62bS4Apux" id="J_TbToken">
     <div class="brandCon">
@@ -44,18 +46,26 @@
 
             <div class="userInfo-text"> <strong>basilwang</strong>
                 <p>
-                    您共关注了 <em>19</em>
+                    您共关注了 <em>@Model.FavMerchants.Count</em>
                     个品牌
                 </p>
             </div>
         </div>
 
-        <div class="brandItem">
+        @if (Model.FavMerchants != null)
+        {
+            var foodIndex = 0;
+            var houseIndex = 0;
+            var commodityIndex = 0;
+
+            foreach (friday.core.Merchant m in Model.FavMerchants)
+            {
+                <div class="brandItem">
             <div class="brandItem-info">
                 <div class="bIi-brand j_BrandItemInfo">
                     <p class="bIi-brand-logo">
-                        <a target="_blank" href="http://list.tmall.com/search_product.htm?style=w&amp;brand=10076545&amp;from=brandguide">
-                            <img height="45" width="90" alt="M.Latin/马拉丁" src="http://img02.taobaocdn.com/bao/uploaded/i2/T1ei_RXXJoXXXQXDnq-90-45.png_120x120.jpg"></a> <strong>M.Latin/马拉丁</strong>
+                        <a target="_blank" href="http://list.tmall.com/search_product.htm?id=@m.Id">
+                            <img height="45" width="90" alt="@m.Name" src="@m.Logo"></a> <strong>@m.Name</strong>
                     </p>
                 </div>
                 <p class="bIi-addBtn">
@@ -66,7 +76,7 @@
                 <div class="bIc-title">
                     <p class="bIc-title-notice">
                         <span>推荐:</span>
-                        <a target="_blank" class="bIc-title-notice-shop" href="http://mlatin.tmall.com">马拉丁官方旗舰店</a> <em>品牌直销</em>
+                        <a target="_blank" class="bIc-title-notice-shop" href="http://mlatin.tmall.com">@m.Name</a> <em>品牌直销</em>
                         <a target="_blank" href="http://mlatin.tmall.com"></a>
                     </p>
 
@@ -78,239 +88,96 @@
                 <a href="javascript:;" class="bIc-slide-prev">&lt;</a>
                 <div class="bIc-slide">
                     <ul class="bIc-slideList" style="position: absolute; width: 2160px;">
+                    @if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+                    {
+                        for (var index = 0; index < (Model.Foods[foodIndex].Count() > 12 ? 12 : Model.Foods[foodIndex].Count()); index++)
+                        {
+                            var item = Model.Foods[foodIndex].ElementAt(index);
                         <li class="j_BrandItemList" style="display: block; float: left;">
                             <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=18903959638">
-                                    <img height="160" width="160" src="http://img04.taobaocdn.com/bao/uploaded/i4/18031020068235263/T1nQdoXzdcXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
+                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=@item.Id">
+                                    <img height="160" width="160" src="@item.Image"></a>
                             </p>
                             <p class="bIc-slideList-sell">
                                 <span class="bIc-slideList-sell-price ui-price">
                                     <span class="ui-price-icon">¥</span>
-                                    129.00
+                                    @item.Price
                                 </span>
                                 <span class="bIc-slideList-sell-num">
                                     月销量：
-                                    <em>255</em>
+                                    <em>@item.MonthAmount</em>
                                 </span>
                             </p>
                             <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=18903959638">马拉丁童装正品 女童2013春装新款可爱纱裙连衣裙公主裙2313495</a>
+                                <a target="_blank" href="http://detail.tmall.com/item.htm?@item.Id">@item.Name</a>
                             </p>
                         </li>
+                        }
+                        foodIndex++;
+                    }
+                    else if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+                    {
+                        for (var index = 0; index < (Model.Commoditys[commodityIndex].Count() > 12 ? 12 : Model.Commoditys[commodityIndex].Count()); index++)
+                        {
+                            var item = Model.Commoditys[commodityIndex].ElementAt(index);
                         <li class="j_BrandItemList" style="display: block; float: left;">
                             <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=15554570498">
-                                    <img height="160" width="160" src="http://img01.taobaocdn.com/bao/uploaded/i1/18031032235480322/T10UBcXyheXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
+                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=@item.Id">
+                                    <img height="160" width="160" src="@item.Image"></a>
                             </p>
                             <p class="bIc-slideList-sell">
                                 <span class="bIc-slideList-sell-price ui-price">
                                     <span class="ui-price-icon">¥</span>
-                                    119.00
+                                    @item.Price
                                 </span>
                                 <span class="bIc-slideList-sell-num">
                                     月销量：
-                                    <em>141</em>
+                                    <em>@item.MonthAmount</em>
                                 </span>
                             </p>
                             <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=15554570498">马拉丁女童装2013春装新款衬衫2255098</a>
+                                <a target="_blank" href="http://detail.tmall.com/item.htm?@item.Id">@item.Name</a>
                             </p>
                         </li>
+                        }
+                        commodityIndex++;
+                    }
+                    else
+                    {
+                        for (var index = 0; index < (Model.Houses[houseIndex].Count() > 12 ? 12 : Model.Houses[houseIndex].Count()); index++)
+                        {
+                            var item = Model.Houses[houseIndex].ElementAt(index);
                         <li class="j_BrandItemList" style="display: block; float: left;">
                             <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=13640794824">
-                                    <img height="160" width="160" src="http://img01.taobaocdn.com/bao/uploaded/i1/18031032236240211/T1PJ4bXqljXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
+                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=@item.Id">
+                                    <img height="160" width="160" src="@item.Image"></a>
                             </p>
                             <p class="bIc-slideList-sell">
                                 <span class="bIc-slideList-sell-price ui-price">
                                     <span class="ui-price-icon">¥</span>
-                                    99.00
+                                    @item.Price
                                 </span>
                                 <span class="bIc-slideList-sell-num">
                                     月销量：
-                                    <em>136</em>
+                                    <em>@item.MonthAmount</em>
                                 </span>
                             </p>
                             <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=13640794824">马拉丁童装正品 2013新款春装女童靓妞针织衫开衫2219198</a>
+                                <a target="_blank" href="http://detail.tmall.com/item.htm?@item.Id">@item.Name</a>
                             </p>
                         </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=22575004316">
-                                    <img height="160" width="160" src="http://img02.taobaocdn.com/bao/uploaded/i2/18031021430515820/T1aaFfXEJaXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    99.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>136</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=22575004316">马拉丁童装女童2013春装糖果色休闲棉布长裤 2317399</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17214402766">
-                                    <img height="160" width="160" src="http://img03.taobaocdn.com/bao/uploaded/i3/18031019702371264/T1b5JnXCJdXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    99.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>133</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17214402766">马拉丁童装女童2013春装新品圆点淑女打底裤 2318099</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=18784719327">
-                                    <img height="160" width="160" src="http://img04.taobaocdn.com/bao/uploaded/i4/18031019528014134/T1oFQ_XbFbXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    139.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>95</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=18784719327">马拉丁童装正品2013春装新款男童棉布休闲儿童长裤 1257799</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17209794330">
-                                    <img height="160" width="160" src="http://img04.taobaocdn.com/bao/uploaded/i4/18031019621834708/T1otxdXElcXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    139.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>92</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17209794330">马拉丁童装正品 2013春装新款女童毛衣针织衫儿童开衫  2319198</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=20595168687">
-                                    <img height="160" width="160" src="http://img03.taobaocdn.com/bao/uploaded/i3/18031019614359107/T14y8bXzFgXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    119.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>90</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=20595168687">马拉丁童装正品 2013春装男童棉布儿童长裤 新年新款 quan1257398</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17288490926">
-                                    <img height="160" width="160" src="http://img02.taobaocdn.com/bao/uploaded/i2/18031019748438580/T1NvVdXuXeXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    139.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>90</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17288490926">马拉丁童装女童2013春装新款复古淑女长袖衬衫 2315089</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17214514245">
-                                    <img height="160" width="160" src="http://img01.taobaocdn.com/bao/uploaded/i1/18031021430595591/T1NGteXyleXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    159.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>83</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=17214514245">马拉丁童装2013女童春装木耳边淑女风长袖衬衫 2315099</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=19027531640">
-                                    <img height="160" width="160" src="http://img03.taobaocdn.com/bao/uploaded/i3/18031033120144391/T1oDdtXAVXXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    79.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>82</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=19027531640">马拉丁童装正品男童2013春款新品格子长袖衬衫 1215097</a>
-                            </p>
-                        </li>
-                        <li class="j_BrandItemList" style="margin-right: 0px; display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=22523420380">
-                                    <img height="160" width="160" src="http://img03.taobaocdn.com/bao/uploaded/i3/18031019621350814/T1.nBbXxRgXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    139.00
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>80</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://detail.tmall.com/item.htm?id=22523420380">马拉童装正品 2013新款春装女童长袖T恤打底衫 22116006B</a>
-                            </p>
-                        </li>
+                        }
+                        houseIndex++;
+                    }
+                        
                     </ul>
                 </div>
                 <a href="javascript:;" class="bIc-slide-next">&gt;</a>
             </div>
         </div>
+            }
+        }
+
         <div class="brandPagination">
             <div class="ui-page">
                 <div class="ui-page-wrap"> <b class="ui-page-num"><b class="ui-page-prev">&lt;&lt; 上一页</b>
