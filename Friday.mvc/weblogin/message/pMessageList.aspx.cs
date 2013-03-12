@@ -26,6 +26,7 @@ namespace Friday.mvc.weblogin.message
         protected string threadIndex;
         protected string loginUserName;
         protected string merchantName;
+        protected string merchantID;
        IMessageService iMessageService = UnityHelper.UnityToT<IMessageService>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -46,6 +47,22 @@ namespace Friday.mvc.weblogin.message
                     List<DataFilter> filterList = new List<DataFilter>();
                     List<DataFilter> loginUserList = new List<DataFilter>();
                     List<DataFilter> merchantList = new List<DataFilter>();
+
+                    if (!this.CurrentUser.IsAdmin)
+                    {
+                        merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+                        merchantList.Add(new DataFilter()
+                        {
+                            type = "Id",
+                            value = merchantID
+
+                        });
+                        filterList.Add(new DataFilter()
+                        {
+                            type = "Merchant",
+                            field = merchantList
+                        });
+                    }
 
                     if (!string.IsNullOrEmpty(Request.Form["Name"]))
                         filterList.Add(new DataFilter()

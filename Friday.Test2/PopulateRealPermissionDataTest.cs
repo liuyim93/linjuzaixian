@@ -1028,7 +1028,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商品订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopFilterList = new List<DataFilter>();
@@ -1045,7 +1045,7 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopEmpList = new List<SystemFunctionObject>();
-            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商品订单评价管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商品评价项评分管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
             foreach (var i in shopArr)
             {
                 List<DataFilter> shopEmpFilterList = new List<DataFilter>();
@@ -1745,7 +1745,80 @@ namespace Friday.Test2
                    iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
                };
                iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd2_1);
-                        
+             
+            //添加Message模块
+               IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
+               MessageContent mc1_1 = new MessageContent()
+               {
+                   Content = "阿里巴巴员工2013年初收到了史上最丰厚的年终大礼包。"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc1_1);
+
+               Message mess1_1 = new Message()
+               {
+                    Direction=0,
+                    Merchant = restaurant1,
+                    LoginUser = sysLoginUser,
+                    MessageContent=mc1_1,
+                    IsNew=true,
+                    ThreadIndex="年终大礼包",
+                    TrackIndex="0"
+               };
+               new MessageRepository().SaveOrUpdate(mess1_1);
+
+               MessageContent mc1_2 = new MessageContent()
+               {
+                   Content = "年终大礼包赠送的都有哪些东西？"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc1_2);
+
+               Message mess1_2 = new Message()
+               {
+                   Direction = 1,
+                   Merchant = restaurant1,
+                   LoginUser = sysLoginUser,
+                   MessageContent = mc1_2,
+                   IsNew = true,
+                   ThreadIndex = "年终大礼包",
+                   TrackIndex = "1"
+               };
+               new MessageRepository().SaveOrUpdate(mess1_2);
+              //第二个人的消息模块
+               MessageContent mc2_1 = new MessageContent()
+               {
+                   Content = "亲爱的天猫达人，今天是您的生日，天猫俱乐部祝您生日快乐。"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc2_1);
+
+               Message mess2_1 = new Message()
+               {
+                   Direction = 0,
+                   Merchant = restaurant2,
+                   LoginUser = sysLoginUser2,
+                   MessageContent = mc2_1,
+                   IsNew = true,
+                   ThreadIndex = "生日礼物",
+                   TrackIndex = "0"
+               };
+               new MessageRepository().SaveOrUpdate(mess2_1);
+
+               MessageContent mc2_2 = new MessageContent()
+               {
+                   Content = "感谢您一直以来对天猫的支持。今天是双倍积分卡有效期的最后一天，您的积分赚够了么？"
+               };
+               new MessageContentRepository().SaveOrUpdate(mc2_2);
+
+               Message mess2_2 = new Message()
+               {
+                   Direction = 1,
+                   Merchant = restaurant2,
+                   LoginUser = sysLoginUser2,
+                   MessageContent = mc2_2,
+                   IsNew = true,
+                   ThreadIndex = "生日礼物",
+                   TrackIndex = "1"
+               };
+               new MessageRepository().SaveOrUpdate(mess2_2);
             
         }
          public void add_RentInfo()
@@ -2550,7 +2623,108 @@ namespace Friday.Test2
            };
            myCommodityOrder2.OrderOfCommodities.Add(orderOfCommodity_12);
            new MyCommodityOrderRepository().SaveOrUpdate(myCommodityOrder2);
-       
+
+           //添加评价数据Valuing、ValuingComments、Score、ValuingItem
+           IRepository<MyCommodityOrder> iMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<MyCommodityOrder>>();
+
+           IValuingOfMyCommodityOrderRepository iValuingOfMyCommodityOrderRepository = UnityHelper.UnityToT<IValuingOfMyCommodityOrderRepository>();
+           IRepository<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyCommodityOrder>>();
+           IRepository<ScoreOfItemInCommodityOrder> iScoreOfItemInCommodityOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInCommodityOrder>>();
+           IList<ValuingItemOfMyCommodityOrder> iValuingItemOfMyCommodityOrderOrders = new List<ValuingItemOfMyCommodityOrder>();
+
+           string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
+           foreach (var i in vItemArray)
+           {
+               ValuingItemOfMyCommodityOrder vluItemOfFd = new ValuingItemOfMyCommodityOrder()
+               {
+                   ValuingItemName = i
+               };
+               iValuingItemOfMyCommodityOrderRepository.SaveOrUpdate(vluItemOfFd);
+               iValuingItemOfMyCommodityOrderOrders.Add(vluItemOfFd);
+           };
+
+           ValuingComments valucmmt1_1 = new ValuingComments()
+           {
+               Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+               Direction = 0,
+               TrackIndex = 1,
+           };
+           ValuingComments valucmmt1_2 = new ValuingComments()
+           {
+               Comments = "能不能退货",
+               Direction = 0,
+               TrackIndex = 2,
+           };
+           ValuingOfMyCommodityOrder vluOfFd1_1 = new ValuingOfMyCommodityOrder()
+           {
+               LoginUser = sysLoginUser,
+               Merchant = shop1,
+               MyCommodityOrder = myCommodityOrder,
+               ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
+
+           };
+           new ValuingOfMyCommodityOrderRepository().SaveOrUpdate(vluOfFd1_1);
+
+           valucmmt1_1.Valuing = vluOfFd1_1;
+           valucmmt1_2.Valuing = vluOfFd1_1;
+           new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_1);
+           new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_2);
+
+           for (int j = 0; j < 3; j++)
+           {
+               ScoreOfItemInCommodityOrder scoreOfItFd1_1 = new ScoreOfItemInCommodityOrder()
+               {
+                   Score = j,
+                   ValuingOfMyCommodityOrder = vluOfFd1_1,
+                   ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderOrders[j],
+               };
+               vluOfFd1_1.ScoreOfItemInCommodityOrders.Add(scoreOfItFd1_1);
+               iValuingItemOfMyCommodityOrderOrders[j].ScoreOfItemInCommodityOrders.Add(scoreOfItFd1_1);
+           };
+           iValuingOfMyCommodityOrderRepository.SaveOrUpdate(vluOfFd1_1);
+
+
+           //第二个用户对第二个shop的valuing
+           ValuingComments valucmmt2_1 = new ValuingComments()
+           {
+               Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+               Direction = 0,
+               TrackIndex = 1,
+           };
+           ValuingComments valucmmt2_2 = new ValuingComments()
+           {
+               Comments = "能不能退货",
+               Direction = 0,
+               TrackIndex = 2,
+           };
+           ValuingOfMyCommodityOrder vluOfFd2_1 = new ValuingOfMyCommodityOrder()
+           {
+               LoginUser = sysLoginUser2,
+               Merchant = shop2,
+               MyCommodityOrder = myCommodityOrder2,
+               ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
+
+           };
+           new ValuingOfMyCommodityOrderRepository().SaveOrUpdate(vluOfFd2_1);
+
+           valucmmt2_1.Valuing = vluOfFd2_1;
+           valucmmt2_2.Valuing = vluOfFd2_1;
+           new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_1);
+           new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_2);
+
+           for (int j = 0; j < 3; j++)
+           {
+               ScoreOfItemInCommodityOrder scoreOfItFd2_1 = new ScoreOfItemInCommodityOrder()
+               {
+                   Score = j,
+                   ValuingOfMyCommodityOrder = vluOfFd2_1,
+                   ValuingItemOfMyCommodityOrder = iValuingItemOfMyCommodityOrderOrders[j],
+               };
+               vluOfFd2_1.ScoreOfItemInCommodityOrders.Add(scoreOfItFd2_1);
+               iValuingItemOfMyCommodityOrderOrders[j].ScoreOfItemInCommodityOrders.Add(scoreOfItFd2_1);
+           };
+           iValuingOfMyCommodityOrderRepository.SaveOrUpdate(vluOfFd2_1);
+                        
         }
     }
 }
