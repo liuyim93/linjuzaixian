@@ -9,6 +9,7 @@ namespace friday.core.services
 {
     public interface IHouseService
     {
+        IList<House> GetHouseByRentIDOrderByMonthAmountDesc(string rentID);
         House Load(string id);
         void Save(House house);
         void Update(House house);

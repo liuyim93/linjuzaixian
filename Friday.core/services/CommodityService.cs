@@ -18,6 +18,12 @@ namespace friday.core.services
             this.iCommodityRepository = iCommodityRepository;
             this.iLogger = iLogger;
         }
+
+        public IList<Commodity> GetCommodityByShopIDOrderByMonthAmountDesc(string shopID)
+        {
+            return iCommodityRepository.GetCommodityByShopIDOrderByMonthAmountDesc(shopID);
+        }
+
         public Commodity Load(string id)
         {
             return iCommodityRepository.Load(id);

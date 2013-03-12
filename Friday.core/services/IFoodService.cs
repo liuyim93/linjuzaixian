@@ -9,6 +9,7 @@ namespace friday.core.services
 {
     public interface IFoodService
     {
+        IList<Food> GetFoodByRestaurantIDOrderByMonthAmountDesc(string restaurantID);
         Food Load(string id);
         void Save(Food food);
         void Update(Food food);

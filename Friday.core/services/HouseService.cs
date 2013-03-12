@@ -18,6 +18,12 @@ namespace friday.core.services
             this.iHouseRepository = iHouseRepository;
             this.iLogger = iLogger;
         }
+
+        public IList<House> GetHouseByRentIDOrderByMonthAmountDesc(string rentID)
+        {
+            return iHouseRepository.GetHouseByRentIDOrderByMonthAmountDesc(rentID);
+        }
+
         public House Load(string id)
         {
             return iHouseRepository.Load(id);

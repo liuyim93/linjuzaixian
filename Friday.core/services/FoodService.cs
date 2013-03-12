@@ -18,6 +18,12 @@ namespace friday.core.services
             this.iFoodRepository = iFoodRepository;
             this.iLogger = iLogger;
         }
+
+        public IList<Food> GetFoodByRestaurantIDOrderByMonthAmountDesc(string restaurantID)
+        {
+            return iFoodRepository.GetFoodByRestaurantIDOrderByMonthAmountDesc(restaurantID);
+        }
+
         public Food Load(string id)
         {
             return iFoodRepository.Load(id);

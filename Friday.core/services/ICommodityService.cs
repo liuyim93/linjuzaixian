@@ -9,6 +9,7 @@ namespace friday.core.services
 {
     public interface ICommodityService
     {
+        IList<Commodity> GetCommodityByShopIDOrderByMonthAmountDesc(string shopID);
         Commodity Load(string id);
         void Save(Commodity commodity);
         void Update(Commodity commodity);
