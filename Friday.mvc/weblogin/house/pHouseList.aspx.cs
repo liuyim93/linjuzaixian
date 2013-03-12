@@ -85,14 +85,14 @@ namespace Friday.mvc.weblogin
             {
                 rentId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            //if (Request.Form["rent_id"] != null)
-            //{
-            //    rentId = Request.Form["rent_id"];
-            //}
-            //if (Request.Params["rent_id"] != null)
-            //{
-            //    rentId = Request.Params["rent_id"];
-            //}
+            if (Request.Form["rent_id"] != null)
+            {
+                rentId = Request.Form["rent_id"];
+            }
+            if (Request.Params["rent_id"] != null)
+            {
+                rentId = Request.Params["rent_id"];
+            }
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
@@ -111,6 +111,19 @@ namespace Friday.mvc.weblogin
                     type = "Rent",
                     value = rentId
 
+                });
+                dfl.Add(new DataFilter()
+                {
+                    type = "Rent",
+                    field = Rentdfl
+                });
+            }
+            if (!string.IsNullOrEmpty(Request.Params["rent_id"]))
+            {
+                Rentdfl.Add(new DataFilter()
+                {
+                    type = "Rent",
+                    value = rentId
                 });
                 dfl.Add(new DataFilter()
                 {

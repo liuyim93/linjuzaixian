@@ -77,14 +77,14 @@ namespace Friday.mvc.weblogin.commodity
             {
                 shopId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            //if (Request.Form["shop_id"] != null)
-            //{
-            //    shopId = Request.Form["shop_id"];
-            //}
-            //else
-            //{
-            //    shopId = Request.Params["shop_id"];
-            //}
+            if (!string.IsNullOrEmpty(Request.Form["shop_id"]))
+            {
+                shopId = Request.Form["shop_id"];
+            }
+            if (!string.IsNullOrEmpty(Request.Params["shop_id"]))
+            {
+                shopId = Request.Params["shop_id"];
+            }
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
@@ -107,6 +107,20 @@ namespace Friday.mvc.weblogin.commodity
                     field = shopdfl
                 });
             }
+            if (!string.IsNullOrEmpty(Request.Params["shop_id"]))
+            {
+                shopdfl.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    value = shopId
+                });
+                dfl.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    field = shopdfl
+                });
+            }
+
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];
             if (!string.IsNullOrEmpty(startprice))

@@ -86,14 +86,14 @@ namespace Friday.mvc.weblogin
             {
                 restaurantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            //if (Request.Form["restaurant_id"] != null)
-            //{
-            //    restaurantId = Request.Form["restaurant_id"];
-            //}
-            //if (Request.Params["restaurant_id"] != null)
-            //{
-            //    restaurantId = Request.Params["restaurant_id"];
-            //}
+            if (!string.IsNullOrEmpty(Request.Form["restaurant_id"]))
+            {
+                restaurantId = Request.Form["restaurant_id"];
+            }
+            if(!string.IsNullOrEmpty(Request.Params["restaurant_id"]))
+            {
+                restaurantId = Request.Params["restaurant_id"];
+            }
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
@@ -116,20 +116,20 @@ namespace Friday.mvc.weblogin
                     field = Restaurantdfl
                 });
             }
-           
-            //if (!string.IsNullOrEmpty(restaurantId))
-            //{
-            //    Restaurantdfl.Add(new DataFilter() 
-            //    { 
-            //        type = "Restaurant",
-            //        value = restaurantId 
-            //    });
-            //    dfl.Add(new DataFilter() 
-            //    { 
-            //        type = "Restaurant", 
-            //        field = Restaurantdfl 
-            //    });
-            //}
+
+            if (!string.IsNullOrEmpty(Request.Params["restaurant_id"]))
+            {
+                Restaurantdfl.Add(new DataFilter()
+                {
+                    type = "Restaurant",
+                    value = restaurantId
+                });
+                dfl.Add(new DataFilter()
+                {
+                    type = "Restaurant",
+                    field = Restaurantdfl
+                });
+            }
             startprice = Request.Form["StartPrice"];
             endprice = Request.Form["EndPrice"];
             if (!string.IsNullOrEmpty(startprice))
