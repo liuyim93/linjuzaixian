@@ -1820,6 +1820,53 @@ namespace Friday.Test2
                };
                new MessageRepository().SaveOrUpdate(mess2_2);
             
+            //添加FeedBack
+               IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+               FeedBack fb1 = new FeedBack()
+               {
+                   Type = "1",
+                   Contents = "送货速度很慢啊！！！！！！",
+                   LoginUser = sysLoginUser
+               };
+               iFeedBackRepository.SaveOrUpdate(fb1);
+
+               FeedBack fb2 = new FeedBack()
+               {
+                   Type = "2",
+                   Contents = "面包质量有问题。。。",
+                   LoginUser = sysLoginUser2
+               };
+               FeedBack fb3 = new FeedBack()
+               {
+                   Type = "2",
+                   Contents = "面包质量有问题自己解决",
+                   ParentFeedBack = fb2,
+                   LoginUser = lu1_2
+               };
+              // iFeedBackRepository.SaveOrUpdate(fb3);
+               fb2.ChildFeedBacks.Add(fb3);
+               iFeedBackRepository.SaveOrUpdate(fb2);
+
+
+
+               FeedBack fb4 = new FeedBack()
+               {
+                   Type = "3",
+                   Contents = "有优惠活动吗？",
+                   LoginUser = sysLoginUser
+               };
+
+               FeedBack fb5 = new FeedBack()
+               {
+                   Type = "3",
+                   Contents = "没有有优惠活动",
+                   ParentFeedBack = fb4,
+                   LoginUser =lu1
+               };
+            //   iFeedBackRepository.SaveOrUpdate(fb4);
+               fb4.ChildFeedBacks.Add(fb5);
+               iFeedBackRepository.SaveOrUpdate(fb4);
+
         }
          public void add_RentInfo()
         {
@@ -2351,7 +2398,52 @@ namespace Friday.Test2
                };
                new MessageRepository().SaveOrUpdate(mess2_2);
 
+               //添加FeedBack
+               IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+               FeedBack fb1 = new FeedBack()
+               {
+                   Type = "1",
+                   Contents = "急寻月租在1200以下的100平房屋出租！",
+                   LoginUser = sysLoginUser
+               };
+               iFeedBackRepository.SaveOrUpdate(fb1);
 
+               FeedBack fb2 = new FeedBack()
+               {
+                   Type = "2",
+                   Contents = "房屋的实际装修与网上的图片效果差远了，店主坑人啊！",
+                   LoginUser = sysLoginUser2
+               };
+               FeedBack fb3 = new FeedBack()
+               {
+                   Type = "2",
+                   Contents = "网上的效果是PS的,这位顾客，您的期望太高了啊！",
+                   ParentFeedBack = fb2,
+                   LoginUser = lu1_2
+               };
+               // iFeedBackRepository.SaveOrUpdate(fb3);
+               fb2.ChildFeedBacks.Add(fb3);
+               iFeedBackRepository.SaveOrUpdate(fb2);
+
+
+
+               FeedBack fb4 = new FeedBack()
+               {
+                   Type = "3",
+                   Contents = "此房屋中介机构推荐的房源都是些优质房源，顶！",
+                   LoginUser = sysLoginUser
+               };
+
+               FeedBack fb5 = new FeedBack()
+               {
+                   Type = "3",
+                   Contents = "谢谢您的赞扬，我们会竭诚努力，精益求精！",
+                   ParentFeedBack = fb4,
+                   LoginUser = lu1
+               };
+               //   iFeedBackRepository.SaveOrUpdate(fb4);
+               fb4.ChildFeedBacks.Add(fb5);
+               iFeedBackRepository.SaveOrUpdate(fb4);
         }
         public void add_ShopInfo()
         {
@@ -2874,7 +2966,53 @@ namespace Friday.Test2
                TrackIndex = "1"
            };
            new MessageRepository().SaveOrUpdate(mess2_2);
-                           
+
+           //添加FeedBack
+           IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+           FeedBack fb1 = new FeedBack()
+           {
+               Type = "1",
+               Contents = "请问贵商店五一期间有什么促销活动吗？",
+               LoginUser = sysLoginUser
+           };
+           iFeedBackRepository.SaveOrUpdate(fb1);
+
+           FeedBack fb2 = new FeedBack()
+           {
+               Type = "2",
+               Contents = "从贵商店购买的物品出现了质量物品，可以更换吗？",
+               LoginUser = sysLoginUser2
+           };
+           FeedBack fb3 = new FeedBack()
+           {
+               Type = "2",
+               Contents = "可以，请到本店前台，凭发票审查",
+               ParentFeedBack = fb2,
+               LoginUser = lu1_2
+           };
+           // iFeedBackRepository.SaveOrUpdate(fb3);
+           fb2.ChildFeedBacks.Add(fb3);
+           iFeedBackRepository.SaveOrUpdate(fb2);
+
+
+
+           FeedBack fb4 = new FeedBack()
+           {
+               Type = "3",
+               Contents = "请问贵商店售后服务运费规则有哪些？",
+               LoginUser = sysLoginUser
+           };
+
+           FeedBack fb5 = new FeedBack()
+           {
+               Type = "3",
+               Contents = "向免费，即上门取件付费。取（返）件包含两种形式：1）京东自营上门取件收取费用收费标准>>，收费方式>>；2）客户通过第三方快递将商品寄回京东售后部，运费自付；",
+               ParentFeedBack = fb4,
+               LoginUser = lu1
+           };
+           //   iFeedBackRepository.SaveOrUpdate(fb4);
+           fb4.ChildFeedBacks.Add(fb5);
+           iFeedBackRepository.SaveOrUpdate(fb4);
         }
     }
 }
