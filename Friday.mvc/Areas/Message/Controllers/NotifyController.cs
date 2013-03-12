@@ -15,9 +15,9 @@ namespace Friday.mvc.Areas.Message.Controllers
         public ActionResult Index()
         {
             var list = CreateListFromSingle(
-            new { uid = "basil", msg_num = 2 }
+            new { uid = "basil", msg_num = 100 }
             );
-            list.Add(new { uid = "tom", msg_num = 3 });
+            list.Add(new { uid = "tom", msg_num = 200 });
            return new JsonNetResult() { Data = list };
         }
         private List<T> CreateListFromSingle<T>(T value)
