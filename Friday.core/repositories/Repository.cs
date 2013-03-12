@@ -203,25 +203,6 @@ namespace friday.core.repositories
                 {
                     parentSearch = parentSearch + ".LoginUser";
                 }
-
-                foreach(DataFilter df in termList)
-                {
-                  if (df.type.Equals("FromLoginUser"))
-                  {
-                      parentSearch = "FromLoginUser";
-                      df.type = "LoginName";
-                      ailisstring = "fLoginUser";
-                      notself = "fLoginUser.";
-                  }
-                  if (df.type.Equals("ToLoginUser"))
-                  {
-                      parentSearch = "ToLoginUser";
-                      df.type = "LoginName";
-                      ailisstring = "tLoginUser";
-                      notself = "tLoginUser.";
-                  }
-                }
-
                 alias = parentSearch;
                 query.CreateAlias(alias, ailisstring);
             }
@@ -231,6 +212,11 @@ namespace friday.core.repositories
 
                 foreach (DataFilter df in termList)
                 {
+                    if (df.type.Equals("LoginUser"))
+                    {
+                        query.Add(Expression.Eq(notself + "Id", df.value));
+                        continue;
+                    }
                     if (df.type.Equals("IsDelete"))
                     {
                         query.Add(Expression.Eq(notself + "IsDelete", false));

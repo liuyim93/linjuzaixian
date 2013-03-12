@@ -26,6 +26,9 @@ namespace Friday.mvc.weblogin.feedBack
         protected string content;
         protected string loginName;
         protected string name;
+        //protected string loginUser;
+        LoginUser loginUser = new LoginUser();
+     
         IFeedBackService iFeedBackService = UnityHelper.UnityToT<IFeedBackService>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,6 +48,22 @@ namespace Friday.mvc.weblogin.feedBack
                     List<DataFilter> filterList = new List<DataFilter>();
                     List<DataFilter> loginUserList = new List<DataFilter>();
                     List<DataFilter> systemUserList = new List<DataFilter>();
+
+                    //if (!this.CurrentUser.IsAdmin)
+                    //{
+                    //    loginUser = this.CurrentUser;
+                    //    loginUserList.Add(new DataFilter()
+                    //    {
+                    //        type = "LoginUser",
+                    //        value = loginUser.Id
+                    //    });
+                    //    filterList.Add(new DataFilter()
+                    //    {
+                    //        type = "LoginUser",
+                    //        field = loginUserList
+
+                    //    });
+                    //}
 
                     if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                     {
