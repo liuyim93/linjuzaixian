@@ -15,6 +15,7 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.EntityIndex);
 
+            Map(o => o.Direction);
             Map(o => o.IsNew);
             Map(o => o.MessageType);
             Map(o => o.ThreadIndex);
