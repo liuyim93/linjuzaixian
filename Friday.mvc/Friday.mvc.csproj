@@ -126,8 +126,11 @@
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
+    <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
+    <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
     <Compile Include="Controllers\FridayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\JsonNetResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1389,6 +1392,7 @@
     <Content Include="apps\tmall\fp\2012\util\util.js" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="comet.htm" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1412,6 +1416,7 @@
     <Content Include="Images\adminLogin\user_top_r.gif" />
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
+    <Content Include="socket.io\socket.io.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2401,6 +2406,8 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Areas\Merchant\Models\" />
     <Folder Include="Areas\Merchant\Views\Shared\" />
+    <Folder Include="Areas\Message\Models\" />
+    <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\" />
     <Folder Include="weblogin\themes\img\Expert\" />
@@ -2429,6 +2436,8 @@
     <Content Include="Views\Shared\_Floor.cshtml" />
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Areas\Message\Views\Web.config" />
+    <None Include="notifymsg.json" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />

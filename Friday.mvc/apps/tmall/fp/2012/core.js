@@ -324,9 +324,11 @@ TB.add("mod~global", function () {
                             });
                             socket.on('register', function (data) {
                                 
-                                __status_update(data.sid); 
-                                
+                                __status_update(data.sid);
+
                             });
+                            socket.on('notify', function (data)
+                            { __status_update(data.notifymsg); });
                             socket.on('disconnect', function () {
                                 __status_update("Disconnected from Server");
                               });
