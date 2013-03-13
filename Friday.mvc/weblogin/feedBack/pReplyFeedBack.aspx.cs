@@ -21,11 +21,18 @@ namespace Friday.mvc.weblogin.feedBack
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-
+            //默认，能添加反馈，就能回复反馈
             tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
-            this.PermissionCheck();
-
-
+            if (!this.PermissionValidate(PermissionTag.Enable))
+            {
+                AjaxResult result = new AjaxResult();
+                result.statusCode = "300";
+                result.message = "没有FeedBack回复权限";
+                FormatJsonResult jsonResult = new FormatJsonResult();
+                jsonResult.Data = result;
+                Response.Write(jsonResult.FormatResult());
+                Response.End();
+            }
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 

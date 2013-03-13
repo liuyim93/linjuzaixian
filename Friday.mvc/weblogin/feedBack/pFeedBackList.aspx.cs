@@ -34,6 +34,15 @@ namespace Friday.mvc.weblogin.feedBack
         {
             tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
             this.PermissionCheck();
+            //add、reply页面共用PermissionTag.Edit
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.tooledit.Visible = false;
+            }
+            if (!this.PermissionValidate(PermissionTag.Delete))
+            {
+                this.tooldelete.Visible = false;
+            }
 
 
             if (Request.Params["flag"] != "alldelete")
