@@ -36,7 +36,7 @@ namespace Friday.Test2
         private IList<SystemFunctionObject> restaurantMemberSFOCheckList = new List<SystemFunctionObject>();
         private IList<SystemFunctionObject> rentMemberSFOCheckList = new List<SystemFunctionObject>();
         ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
-
+        private LoginUser adminLoginUser;
         private IList<SystemRole> systemRoleList = new List<SystemRole>();
 
         //private List<SystemRole> systemRoleList = new List<SystemRole>();
@@ -61,7 +61,7 @@ namespace Friday.Test2
             //添加商铺的相关信息
             add_RestaurantInfo();
             add_RentInfo();
-            add_ShopInfo();  
+            add_ShopInfo();
         }
 
         //添加角色
@@ -77,8 +77,8 @@ namespace Friday.Test2
             };
             iSystemRoleRepository.SaveOrUpdate(admin);
 
-            //添加管理员admin
-            LoginUser adminLoginUser = new LoginUser()
+            //添加管理员admin  LoginUser
+            adminLoginUser = new LoginUser()
             {
                 LoginName = "admin",
                 Password = "admin",
@@ -918,13 +918,13 @@ namespace Friday.Test2
                         }
                     case "顾客":
                         {
-                            foreach (SystemMenu sm in customerMenuCheckList)
-                            {
-                                RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.SystemMenu = sm;
-                                roleInMenu.SystemRole = sr;
-                                iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
-                            }
+                            //foreach (SystemMenu sm in customerMenuCheckList)
+                            //{
+                            //    RoleInMenu roleInMenu = new RoleInMenu();
+                            //    roleInMenu.SystemMenu = sm;
+                            //    roleInMenu.SystemRole = sr;
+                            //    iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
+                            //}
                             break;
                         }
                     case "商店店主":
@@ -1009,7 +1009,7 @@ namespace Friday.Test2
             //添加管理员控制的所有功能键对象
             adminSFOCheckList = iSystemFunctionObjectRepository.GetAll();
 
-            string[] customerArr = { "基本信息模块", "顾客账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理", "餐馆模块","食品订单维护权限" };
+            string[] customerArr = { };// { "基本信息模块", "顾客账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理", "餐馆模块","食品订单维护权限" };
             foreach (var i in customerArr)
             {
                 List<DataFilter> customerFilterList = new List<DataFilter>();
@@ -1824,8 +1824,9 @@ namespace Friday.Test2
                };
                new MessageRepository().SaveOrUpdate(mess2_2);
             
-            //添加FeedBack
+            ////添加FeedBack
                IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+              // LoginUser adminLoginUser=iLoginUserRepository.s
                FeedBack fb1 = new FeedBack()
                {
                    Type = "1",
@@ -1845,9 +1846,9 @@ namespace Friday.Test2
                    Type = "2",
                    Contents = "面包质量有问题自己解决",
                    ParentFeedBack = fb2,
-                   LoginUser = lu1_2
+                   LoginUser = adminLoginUser
                };
-              // iFeedBackRepository.SaveOrUpdate(fb3);
+               // iFeedBackRepository.SaveOrUpdate(fb3);
                fb2.ChildFeedBacks.Add(fb3);
                iFeedBackRepository.SaveOrUpdate(fb2);
 
@@ -1865,9 +1866,9 @@ namespace Friday.Test2
                    Type = "3",
                    Contents = "没有有优惠活动",
                    ParentFeedBack = fb4,
-                   LoginUser =lu1
+                   LoginUser = adminLoginUser
                };
-            //   iFeedBackRepository.SaveOrUpdate(fb4);
+               //   iFeedBackRepository.SaveOrUpdate(fb4);
                fb4.ChildFeedBacks.Add(fb5);
                iFeedBackRepository.SaveOrUpdate(fb4);
 
@@ -2427,7 +2428,7 @@ namespace Friday.Test2
                    Type = "2",
                    Contents = "网上的效果是PS的,这位顾客，您的期望太高了啊！",
                    ParentFeedBack = fb2,
-                   LoginUser = lu1_2
+                   LoginUser = adminLoginUser
                };
                // iFeedBackRepository.SaveOrUpdate(fb3);
                fb2.ChildFeedBacks.Add(fb3);
@@ -2447,7 +2448,7 @@ namespace Friday.Test2
                    Type = "3",
                    Contents = "谢谢您的赞扬，我们会竭诚努力，精益求精！",
                    ParentFeedBack = fb4,
-                   LoginUser = lu1
+                   LoginUser = adminLoginUser
                };
                //   iFeedBackRepository.SaveOrUpdate(fb4);
                fb4.ChildFeedBacks.Add(fb5);
@@ -2981,10 +2982,12 @@ namespace Friday.Test2
 
            //添加FeedBack
            IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+           
+
            FeedBack fb1 = new FeedBack()
            {
                Type = "1",
-               Contents = "请问贵商店五一期间有什么促销活动吗？",
+               Contents = "请问商店五一期间有什么促销活动吗？",
                LoginUser = sysLoginUser
            };
            iFeedBackRepository.SaveOrUpdate(fb1);
@@ -2992,15 +2995,15 @@ namespace Friday.Test2
            FeedBack fb2 = new FeedBack()
            {
                Type = "2",
-               Contents = "从贵商店购买的物品出现了质量物品，可以更换吗？",
+               Contents = "从商店购买的物品出现了质量物品，可以更换吗？",
                LoginUser = sysLoginUser2
            };
            FeedBack fb3 = new FeedBack()
            {
                Type = "2",
-               Contents = "可以，请到本店前台，凭发票审查",
+               Contents = "可以，请到商店前台，凭发票审查",
                ParentFeedBack = fb2,
-               LoginUser = lu1_2
+               LoginUser = adminLoginUser
            };
            // iFeedBackRepository.SaveOrUpdate(fb3);
            fb2.ChildFeedBacks.Add(fb3);
@@ -3011,7 +3014,7 @@ namespace Friday.Test2
            FeedBack fb4 = new FeedBack()
            {
                Type = "3",
-               Contents = "请问贵商店售后服务运费规则有哪些？",
+               Contents = "请问商店售后服务运费规则有哪些？",
                LoginUser = sysLoginUser
            };
 
@@ -3020,12 +3023,13 @@ namespace Friday.Test2
                Type = "3",
                Contents = "向免费，即上门取件付费。取（返）件包含两种形式：1）京东自营上门取件收取费用收费标准>>，收费方式>>；2）客户通过第三方快递将商品寄回京东售后部，运费自付；",
                ParentFeedBack = fb4,
-               LoginUser = lu1
+               LoginUser = adminLoginUser
            };
            //   iFeedBackRepository.SaveOrUpdate(fb4);
            fb4.ChildFeedBacks.Add(fb5);
            iFeedBackRepository.SaveOrUpdate(fb4);
         }
+
     }
 }
 
