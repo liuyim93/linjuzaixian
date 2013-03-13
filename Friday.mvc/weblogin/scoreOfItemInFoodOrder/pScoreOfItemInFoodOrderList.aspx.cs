@@ -31,6 +31,11 @@ namespace Friday.mvc.weblogin.scoreOfItemInFoodOrder
         {
             tagName = systemFunctionObjectService.餐馆模块.食品评价项评分管理.TagName;
             this.PermissionCheck();
+            if (!this.PermissionValidate(PermissionTag.Delete) && !this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.toolbar.Visible = false;
+            }
+
 
             if (Request.Form["valuingOfMyFoodOrder_id"] != null)
             {

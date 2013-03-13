@@ -28,6 +28,11 @@ namespace Friday.mvc.weblogin.valuingComments
         {
             tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
             this.PermissionCheck();
+            if (!this.PermissionValidate(PermissionTag.Delete) && !this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.tooledit.Visible = false;
+                this.tooldelete.Visible = false;
+            }
 
             if (Request.Form["valuing_id"] != null)
             {

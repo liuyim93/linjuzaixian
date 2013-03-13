@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="panelBar">
-    <ul class="toolBar">
+    <ul class="toolBar"  runat=server id="toolbar">
         <li><a class="add" href="valuingItemOfMyFoodOrder/pAddValuingItemOfMyFoodOrder.aspx" title="添加食品评价项" target="navTab" rel=""><span>
             添加食品评价项</span></a></li>
         <li  id="liEdit" runat="server"><a class="edit" href="valuingItemOfMyFoodOrder/pEditValuingItemOfMyFoodOrder.aspx?uid={id}" title="修改食品评价项" rel="" target="navTab">
@@ -22,7 +22,7 @@
         <li id="liDelete" runat="server"><a class="delete" href="valuingItemOfMyFoodOrder/pValuingItemOfMyFoodOrderList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除食品评价项</span></a></li>
         <li class="line">line</li>
-    </ul>
+    </ul><%----%>
 </div>
 <div id="ValuingItemOfMyFoodOrderList">
     <table class="table" layouth="440">

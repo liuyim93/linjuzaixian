@@ -26,6 +26,11 @@ namespace Friday.mvc.weblogin.valuingItemOfMyFoodOrder
             tagName = systemFunctionObjectService.餐馆模块.食品评价项管理.TagName;
             this.PermissionCheck();
 
+            if (!this.PermissionValidate(PermissionTag.Delete) &&!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.toolbar.Visible = false;
+            }
+
             if (Request.Params["flag"] == "alldelete")
             {
                 AjaxResult result = new AjaxResult();
