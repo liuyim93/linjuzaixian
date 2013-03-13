@@ -24,6 +24,11 @@ namespace Friday.mvc.weblogin.valuingItemOfMyHouseOrder
         {
             tagName = systemFunctionObjectService.租房模块.租房订单评价管理.TagName;
             this.PermissionCheck();
+            //add、edit页面共用PermissionTag.Edit
+            if (!this.PermissionValidate(PermissionTag.Delete) && !this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.toolbar.Visible = false;
+            }
 
             if (Request.Params["flag"] == "alldelete")
             {

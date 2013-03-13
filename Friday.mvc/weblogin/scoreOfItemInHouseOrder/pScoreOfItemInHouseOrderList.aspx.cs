@@ -30,6 +30,11 @@ namespace Friday.mvc.weblogin.scoreOfItemInHouseOrder
         {
             tagName = systemFunctionObjectService.租房模块.房屋评价项评分管理.TagName;
             this.PermissionCheck();
+            //add、edit页面共用PermissionTag.Edit
+            if (!this.PermissionValidate(PermissionTag.Delete) && !this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.toolbar.Visible = false;
+            }
 
             if (Request.Form["valuingOfMyHouseOrder_id"] != null)
             {

@@ -8,7 +8,7 @@
 </form>
 
 <div class="panelBar">
-    <ul class="toolBar">
+    <ul class="toolBar" runat=server id="toolbar">
         <li><a class="add" href="ScoreOfItemInHouseOrder/pAddScoreOfItemInHouseOrder.aspx?valuingOfMyHouseOrder_id=<%=Request.Params["valuingOfMyHouseOrder_id"]%>" title="增加评价项评分" target="dialog"
             rel="" width="600" height="400"><span>增加评价项评分</span></a></li>
         <li><a class="edit" href="ScoreOfItemInHouseOrder/pEditScoreOfItemInHouseOrder.aspx?uid={scoreOfItemInHouseOrderid}&valuingOfMyHouseOrder_id=<%=Request.Params["valuingOfMyHouseOrder_id"]%>" title="修改评价项评分" rel="" target="dialog"
