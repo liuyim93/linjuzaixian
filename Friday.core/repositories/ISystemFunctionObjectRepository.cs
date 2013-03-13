@@ -10,7 +10,7 @@ namespace friday.core.repositories
     {
 
         IList<SystemFunctionObject> GetChildrenFromParentID(string ParentID);
-
+        SystemFunctionObject GetSystemFunctionObjectByName(string name);
         bool IsHaveChild(SystemFunctionObject systemFunctionObject);
         IList<SystemFunctionObject> Search(List<DataFilter> termList);
         IList<SystemFunctionObject> Search(List<DataFilter> termList, int start, int limit, out long total);

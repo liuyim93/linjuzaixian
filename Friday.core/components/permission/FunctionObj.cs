@@ -160,8 +160,8 @@ namespace friday.core.services
     {
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 反馈维护 { get; set; }
-        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
-        public FunctionTag 反馈回复 { get; set; }
+        //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
+        //public FunctionTag 反馈回复 { get; set; }
     }
     //public class 食品订单管理 : BaseModel
     //{

@@ -22,7 +22,7 @@ namespace Friday.mvc.weblogin.feedBack
         {
             string uid = Request.Params["uid"].ToString();
 
-            tagName = systemFunctionObjectService.反馈模块.反馈回复.TagName;
+            tagName = systemFunctionObjectService.反馈模块.反馈维护.TagName;
             this.PermissionCheck();
 
 

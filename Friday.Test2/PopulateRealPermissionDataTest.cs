@@ -38,7 +38,6 @@ namespace Friday.Test2
         ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
         private LoginUser adminLoginUser;
         private IList<SystemRole> systemRoleList = new List<SystemRole>();
-
         //private List<SystemRole> systemRoleList = new List<SystemRole>();
 
         [SetUp]
@@ -1028,20 +1027,67 @@ namespace Friday.Test2
             }
 
             IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            IList<SystemFunctionObjectInRole> sysFuncObjInRolerList = new List<SystemFunctionObjectInRole>();
+           string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
             foreach (var i in shopArr)
             {
-                List<DataFilter> shopFilterList = new List<DataFilter>();
-                shopFilterList.Add(new DataFilter()
+                //List<DataFilter> shopFilterList = new List<DataFilter>();
+                //shopFilterList.Add(new DataFilter()
+                //{
+                //    type = "FunctionObjectName",
+                //    value = i
+                //});
+                //shopOwnerSFOCheckList = iSystemFunctionObjectRepository.Search(shopFilterList);
+                //foreach (var j in shopOwnerSFOCheckList)
+                //{
+                    //shopOwnerList.Add(i);
+                //}
+                string[] fncOgj = i.Split(',');
+                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
+                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
+                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
+                if (fncOgj.Length==2)
                 {
-                    type = "FunctionObjectName",
-                    value = i
-                });
-                shopOwnerSFOCheckList = iSystemFunctionObjectRepository.Search(shopFilterList);
-                foreach (var j in shopOwnerSFOCheckList)
-                {
-                    shopOwnerList.Add(j);
+                    foreach (var j in fncOgj)
+                    {
+                        if (j == "Edit") 
+                        {
+                            sysFuncObjInRole.Enabled = false;
+                            sysFuncObjInRole.Deletable = false;
+                        }
+                        if (j == "Enable")
+                        {
+                            sysFuncObjInRole.Editable= false;
+                            sysFuncObjInRole.Deletable = false;
+                        }
+                        if (j == "Delete")
+                        {
+                            sysFuncObjInRole.Editable = false;
+                            sysFuncObjInRole.Enabled = false;
+                        }                     
+                    }
                 }
+                else if(fncOgj.Length==3)
+                {
+                    foreach (var j in fncOgj)
+                    {
+                        if (j == "Edit" && j == "Enable")
+                        {
+                            sysFuncObjInRole.Deletable = false;
+                        }
+                        if (j == "Enable" && j == "Delete")
+                        {
+                            sysFuncObjInRole.Editable = false;
+                        }
+                        if (j == "Delete" && j == "Edit")
+                        {
+                            sysFuncObjInRole.Enabled = false;
+                        }
+                    }
+                }
+                sysFuncObjInRolerList.Add(sysFuncObjInRole);
+
+                //shopOwnerList.Add(sysFuncObj);
             }
 
             IList<SystemFunctionObject> shopEmpList = new List<SystemFunctionObject>();
@@ -1163,14 +1209,19 @@ namespace Friday.Test2
                         }
                     case "商店店主":
                         {
-                            foreach (SystemFunctionObject shopsfb in shopOwnerList)
+                            //foreach (SystemFunctionObject shopsfb in shopOwnerList)
+                            //{
+                            //    SystemFunctionObjectInRole shopSFunctionInRole = new SystemFunctionObjectInRole();
+                            //    shopSFunctionInRole.SystemRole = sr;
+                            //    shopSFunctionInRole.SystemFunctionObject = shopsfb;
+                            //    shopSFunctionInRole.Deletable = shopsfb.DeletePermissionAvailable;
+                            //    shopSFunctionInRole.Editable = shopsfb.EditPermissionAvailable;
+                            //    shopSFunctionInRole.Enabled = shopsfb.FunctionAvailable;
+                            //    iSystemFunctionObjectInRoleRepository.SaveOrUpdate(shopSFunctionInRole);
+                            //}
+                            foreach (SystemFunctionObjectInRole shopSFunctionInRole in sysFuncObjInRolerList)
                             {
-                                SystemFunctionObjectInRole shopSFunctionInRole = new SystemFunctionObjectInRole();
                                 shopSFunctionInRole.SystemRole = sr;
-                                shopSFunctionInRole.SystemFunctionObject = shopsfb;
-                                shopSFunctionInRole.Deletable = shopsfb.DeletePermissionAvailable;
-                                shopSFunctionInRole.Editable = shopsfb.EditPermissionAvailable;
-                                shopSFunctionInRole.Enabled = shopsfb.FunctionAvailable;
                                 iSystemFunctionObjectInRoleRepository.SaveOrUpdate(shopSFunctionInRole);
                             }
                             break;

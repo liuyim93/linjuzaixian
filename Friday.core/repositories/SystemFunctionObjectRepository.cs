@@ -20,6 +20,11 @@ namespace friday.core.repositories
             var isHaveChild = (from x in this.Session.Query<SystemFunctionObject>() select x).Where(o => o.ParentFunctionObjectId == systemFunctionObject.Id && o.IsDelete == false).Count() > 0 ? true : false;
             return isHaveChild;
         }
+        public SystemFunctionObject GetSystemFunctionObjectByName(string name)
+        {
+            var s = (from x in this.Session.Query<SystemFunctionObject>() select x).Where(o => o.FunctionObjectName == name && o.IsDelete == false).SingleOrDefault();
+            return s;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(SystemFunctionObject)); }
