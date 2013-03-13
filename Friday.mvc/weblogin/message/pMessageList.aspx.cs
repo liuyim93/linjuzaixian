@@ -34,6 +34,10 @@ namespace Friday.mvc.weblogin.message
             tagName = systemFunctionObjectService.消息模块.消息维护.TagName;
             this.PermissionCheck();
 
+            if (!this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.tooledit.Visible = false;
+            }
 
             if (Request.Params["flag"] != "alldelete")
             {

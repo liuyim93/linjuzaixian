@@ -72,7 +72,7 @@
     <ul class="toolBar">
         <li><a class="add" href="message/pAddMessage.aspx" title="添加消息" target="navTab" rel=""><span>
             添加消息</span></a></li>
-        <li><a class="edit" href="message/pEditMessage.aspx?uid={id}" title="修改消息" rel="" target="navTab">
+        <li runat=server id="tooledit"><a class="edit" href="message/pEditMessage.aspx?uid={id}" title="修改消息" rel="" target="navTab">
             <span>修改消息</span></a></li>
         <li><a class="delete" href="message/pMessageList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除消息</span></a></li>
