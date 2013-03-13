@@ -24,6 +24,7 @@ namespace Friday.mvc.weblogin.valuingComments
             valuing = iValuingRepository.Get(Request.Params["valuing_id"]);
 
             tagName = systemFunctionObjectService.基本信息模块.评论回复管理.TagName;
+            
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();
