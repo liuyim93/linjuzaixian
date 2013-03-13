@@ -24,7 +24,11 @@ namespace Friday.mvc.weblogin.valuingItemOfMyCommodityOrder
         {
             tagName = systemFunctionObjectService.商店模块.商品评价项管理.TagName;
             this.PermissionCheck();
-
+            //add、edit页面共用PermissionTag.Edit
+            if (!this.PermissionValidate(PermissionTag.Delete) && !this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.toolbar.Visible = false;
+            }
             if (Request.Params["flag"] == "alldelete")
             {
                 AjaxResult result = new AjaxResult();

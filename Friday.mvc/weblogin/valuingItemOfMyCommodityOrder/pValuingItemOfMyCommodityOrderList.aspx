@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="panelBar">
-    <ul class="toolBar">
+    <ul class="toolBar" runat=server id="toolbar">
         <li><a class="add" href="valuingItemOfMyCommodityOrder/pAddValuingItemOfMyCommodityOrder.aspx" title="添加商品评价项" target="navTab" rel=""><span>
             添加商品评价项</span></a></li>
         <li  id="liEdit" runat="server"><a class="edit" href="valuingItemOfMyCommodityOrder/pEditValuingItemOfMyCommodityOrder.aspx?uid={id}" title="修改商品评价项" rel="" target="navTab">

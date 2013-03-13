@@ -30,6 +30,11 @@ namespace Friday.mvc.weblogin.scoreOfItemInCommodityOrder
         {
             tagName = systemFunctionObjectService.商店模块.商品评价项评分管理.TagName;
             this.PermissionCheck();
+            //add、edit页面共用PermissionTag.Edit
+            if (!this.PermissionValidate(PermissionTag.Delete) && !this.PermissionValidate(PermissionTag.Edit))
+            {
+                this.toolbar.Visible = false;
+            }
 
             if (Request.Form["valuingOfMyCommodityOrder_id"] != null)
             {

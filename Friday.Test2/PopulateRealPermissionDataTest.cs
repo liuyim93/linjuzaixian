@@ -650,7 +650,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyHouseOrder);
             adminMenuCheckList.Add(valuingItemOfMyHouseOrder);
-            
+            rentOwnerMenuCheckList.Add(valuingItemOfMyHouseOrder);
+            rentMemberMenuCheckList.Add(valuingItemOfMyHouseOrder);
 
             //商店模块
             SystemMenu shopModel = new SystemMenu()
@@ -758,7 +759,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyCommodityOrder);
             adminMenuCheckList.Add(valuingItemOfMyCommodityOrder);
-
+            shopOwnerMenuCheckList.Add(valuingItemOfMyCommodityOrder);
+            shopMemberMenuCheckList.Add(valuingItemOfMyCommodityOrder);
 
             //统计模块
             SystemMenu statisticModel = new SystemMenu()
@@ -1081,42 +1083,42 @@ namespace Friday.Test2
             }           
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护", "反馈模块", "反馈维护" };
             foreach (var i in shopArr)
             {
                 sysFuncObjInShopOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护" };
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护", "反馈模块", "反馈维护" };
             foreach (var i in shopEmpArr)
             {
                 sysFuncObjInShopEmpRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护,Edit", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护" };
+            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护,Edit", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护", "反馈模块", "反馈维护" };
             foreach (var i in restaurantArr)
             {
                 sysFuncObjInRestaurantOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护" };
+            string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护", "反馈模块", "反馈维护" };
             foreach (var i in restaurantEmpArr)
             {
                 sysFuncObjInRestaurantEmpRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRentOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] rentArr = { "基本信息模块", "租房模块", "租房维护,Edit", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护" };
+            string[] rentArr = { "基本信息模块", "租房模块", "租房维护,Edit", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护", "反馈模块", "反馈维护" };
             foreach (var i in rentArr)
             {
                 sysFuncObjInRentOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRentEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护" };
+            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护", "反馈模块", "反馈维护" };
             foreach (var i in rentEmpArr)
             {
                 sysFuncObjInRentEmpRolerList.Add(GetFuncObjInRoleByi(i));
