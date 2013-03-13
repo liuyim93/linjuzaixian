@@ -1052,18 +1052,20 @@ namespace Friday.Test2
                     {
                         if (j == "Edit") 
                         {
-                            sysFuncObjInRole.Enabled = false;
-                            sysFuncObjInRole.Deletable = false;
+                            sysFuncObjInRole.Editable = true;
+                            //sysFuncObjInRole.Deletable = false;
                         }
                         if (j == "Enable")
                         {
-                            sysFuncObjInRole.Editable= false;
-                            sysFuncObjInRole.Deletable = false;
+                            sysFuncObjInRole.Enabled = true;
+                            //sysFuncObjInRole.Editable= false;
+                            //sysFuncObjInRole.Deletable = false;
                         }
                         if (j == "Delete")
                         {
-                            sysFuncObjInRole.Editable = false;
-                            sysFuncObjInRole.Enabled = false;
+                            sysFuncObjInRole.Deletable = true;
+                            //sysFuncObjInRole.Editable = false;
+                            //sysFuncObjInRole.Enabled = false;
                         }                     
                     }
                 }
@@ -1073,15 +1075,18 @@ namespace Friday.Test2
                     {
                         if (j == "Edit" && j == "Enable")
                         {
-                            sysFuncObjInRole.Deletable = false;
+                            sysFuncObjInRole.Editable = true;
+                            sysFuncObjInRole.Enabled = true;
                         }
                         if (j == "Enable" && j == "Delete")
                         {
-                            sysFuncObjInRole.Editable = false;
+                                sysFuncObjInRole.Deletable = true;
+                            sysFuncObjInRole.Enabled = true;
                         }
                         if (j == "Delete" && j == "Edit")
                         {
-                            sysFuncObjInRole.Enabled = false;
+                                sysFuncObjInRole.Editable = true;
+                            sysFuncObjInRole.Deletable = true;
                         }
                     }
                 }
