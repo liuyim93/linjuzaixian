@@ -36,6 +36,7 @@ namespace Friday.Test2
         private IList<SystemFunctionObject> restaurantMemberSFOCheckList = new List<SystemFunctionObject>();
         private IList<SystemFunctionObject> rentMemberSFOCheckList = new List<SystemFunctionObject>();
         ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+        ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         private LoginUser adminLoginUser;
         private IList<SystemRole> systemRoleList = new List<SystemRole>();
         //private List<SystemRole> systemRoleList = new List<SystemRole>();
@@ -996,353 +997,127 @@ namespace Friday.Test2
             }
         }
 
+        //提取角色和功能点关联的公共函数
+        public SystemFunctionObjectInRole GetFuncObjInRoleByi(string i)
+        {
+            string[] fncOgj = i.Split(',');
+            SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
+            SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
+            sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
+            if (fncOgj.Length == 1) 
+            {
+                sysFuncObjInRole.Deletable = sysFuncObj.DeletePermissionAvailable;
+                sysFuncObjInRole.Editable = sysFuncObj.EditPermissionAvailable;
+                sysFuncObjInRole.Enabled = sysFuncObj.FunctionAvailable;
+            }
+            else if (fncOgj.Length == 2)
+            {
+                foreach (var j in fncOgj)
+                {
+                    if (j == "Edit")
+                    {
+                        sysFuncObjInRole.Editable = true;
+                    }
+                    if (j == "Enable")
+                    {
+                        sysFuncObjInRole.Enabled = true;
+                    }
+                    if (j == "Delete")
+                    {
+                        sysFuncObjInRole.Deletable = true;
+                    }
+                }
+            }
+            else if (fncOgj.Length == 3)
+            {
+                foreach (var j in fncOgj)
+                {
+                    if (j == "Edit" && j == "Enable")
+                    {
+                        sysFuncObjInRole.Editable = true;
+                        sysFuncObjInRole.Enabled = true;
+                    }
+                    if (j == "Enable" && j == "Delete")
+                    {
+                        sysFuncObjInRole.Deletable = true;
+                        sysFuncObjInRole.Enabled = true;
+                    }
+                    if (j == "Delete" && j == "Edit")
+                    {
+                        sysFuncObjInRole.Editable = true;
+                        sysFuncObjInRole.Deletable = true;
+                    }
+                }
+            }
+            return sysFuncObjInRole;
+        }
+
         //角色和功能点的关联
         private void add_ObjectInRole()
         {
             IRepository<SystemFunctionObjectInRole> iSystemFunctionObjectInRoleRepository = UnityHelper.UnityToT<IRepository<SystemFunctionObjectInRole>>();
-            ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
-
+           
             systemRoleList = iSystemRoleRepository.GetAll();
 
             IList<SystemFunctionObject> customerList = new List<SystemFunctionObject>();
-            //添加管理员控制的所有功能键对象
             adminSFOCheckList = iSystemFunctionObjectRepository.GetAll();
 
             string[] customerArr = { };// { "基本信息模块", "顾客账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理", "餐馆模块","食品订单维护权限" };
             foreach (var i in customerArr)
             {
-                List<DataFilter> customerFilterList = new List<DataFilter>();
-                //对于Customer 取值 FunctionObjectName： 基本信息模块 or 顾客账号维护          
+                List<DataFilter> customerFilterList = new List<DataFilter>();          
                 customerFilterList.Add(new DataFilter()
                 {
                     type = "FunctionObjectName",
                     value = i
                 });
-                //添加客户的功能键列表
                 customerSFOCheckList = iSystemFunctionObjectRepository.Search(customerFilterList);
                 foreach (var j in customerSFOCheckList)
                 {
                     customerList.Add(j);
                 }
-            }
+            }           
 
-            //IList<SystemFunctionObject> shopOwnerList = new List<SystemFunctionObject>();
             IList<SystemFunctionObjectInRole> sysFuncObjInShopOwnerRolerList = new List<SystemFunctionObjectInRole>();
-           string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
             foreach (var i in shopArr)
             {
-                //List<DataFilter> shopFilterList = new List<DataFilter>();
-                //shopFilterList.Add(new DataFilter()
-                //{
-                //    type = "FunctionObjectName",
-                //    value = i
-                //});
-                //shopOwnerSFOCheckList = iSystemFunctionObjectRepository.Search(shopFilterList);
-                //foreach (var j in shopOwnerSFOCheckList)
-                //{
-                    //shopOwnerList.Add(i);
-                //}
-                string[] fncOgj = i.Split(',');
-                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
-                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
-                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
-                if (fncOgj.Length==2)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit") 
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            //sysFuncObjInRole.Deletable = false;
-                        }
-                        if (j == "Enable")
-                        {
-                            sysFuncObjInRole.Enabled = true;
-                            //sysFuncObjInRole.Editable= false;
-                            //sysFuncObjInRole.Deletable = false;
-                        }
-                        if (j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                            //sysFuncObjInRole.Editable = false;
-                            //sysFuncObjInRole.Enabled = false;
-                        }                     
-                    }
-                }
-                else if(fncOgj.Length==3)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit" && j == "Enable")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Enable" && j == "Delete")
-                        {
-                                sysFuncObjInRole.Deletable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete" && j == "Edit")
-                        {
-                                sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                sysFuncObjInShopOwnerRolerList.Add(sysFuncObjInRole);
-
-                //shopOwnerList.Add(sysFuncObj);
+                sysFuncObjInShopOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商品评价项评分管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
-            foreach (var i in shopArr)
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
+            foreach (var i in shopEmpArr)
             {
-                string[] fncOgj = i.Split(',');
-                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
-                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
-                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
-                if (fncOgj.Length == 2)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                        }
-                        if (j == "Enable")
-                        {
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                else if (fncOgj.Length == 3)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit" && j == "Enable")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Enable" && j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete" && j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                sysFuncObjInShopEmpRolerList.Add(sysFuncObjInRole);
+                sysFuncObjInShopEmpRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护,Edit", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
             foreach (var i in restaurantArr)
             {
-                string[] fncOgj = i.Split(',');
-                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
-                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
-                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
-                if (fncOgj.Length == 2)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                        }
-                        if (j == "Enable")
-                        {
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                else if (fncOgj.Length == 3)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit" && j == "Enable")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Enable" && j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete" && j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                sysFuncObjInRestaurantOwnerRolerList.Add(sysFuncObjInRole);
+                sysFuncObjInRestaurantOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
             foreach (var i in restaurantEmpArr)
             {
-                string[] fncOgj = i.Split(',');
-                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
-                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
-                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
-                if (fncOgj.Length == 2)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                        }
-                        if (j == "Enable")
-                        {
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                else if (fncOgj.Length == 3)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit" && j == "Enable")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Enable" && j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete" && j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                sysFuncObjInRestaurantEmpRolerList.Add(sysFuncObjInRole);
+                sysFuncObjInRestaurantEmpRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRentOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] rentArr = { "基本信息模块", "租房模块", "租房维护", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项评分管理", "员工维护", "自定义商品类型维护", "商家账号维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理" };
+            string[] rentArr = { "基本信息模块", "租房模块", "租房维护,Edit", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
             foreach (var i in rentArr)
             {
-                string[] fncOgj = i.Split(',');
-                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
-                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
-                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
-                if (fncOgj.Length == 2)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                        }
-                        if (j == "Enable")
-                        {
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                else if (fncOgj.Length == 3)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit" && j == "Enable")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Enable" && j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete" && j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                sysFuncObjInRentOwnerRolerList.Add(sysFuncObjInRole);
+                sysFuncObjInRentOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInRentEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "自定义商品类型维护", "评论回复管理", "消息模块", "消息维护", "反馈模块", "反馈维护", "反馈管理"  };
+            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable,Delete", "消息模块", "消息维护", "反馈模块", "反馈维护,Enable" };
             foreach (var i in rentEmpArr)
             {
-                string[] fncOgj = i.Split(',');
-                SystemFunctionObject sysFuncObj = iSystemFunctionObjectRepository.GetSystemFunctionObjectByName(fncOgj[0]);
-                SystemFunctionObjectInRole sysFuncObjInRole = new SystemFunctionObjectInRole();
-                sysFuncObjInRole.SystemFunctionObject = sysFuncObj;
-                if (fncOgj.Length == 2)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                        }
-                        if (j == "Enable")
-                        {
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                else if (fncOgj.Length == 3)
-                {
-                    foreach (var j in fncOgj)
-                    {
-                        if (j == "Edit" && j == "Enable")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Enable" && j == "Delete")
-                        {
-                            sysFuncObjInRole.Deletable = true;
-                            sysFuncObjInRole.Enabled = true;
-                        }
-                        if (j == "Delete" && j == "Edit")
-                        {
-                            sysFuncObjInRole.Editable = true;
-                            sysFuncObjInRole.Deletable = true;
-                        }
-                    }
-                }
-                sysFuncObjInRentEmpRolerList.Add(sysFuncObjInRole);
+                sysFuncObjInRentEmpRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             foreach (SystemRole sr in systemRoleList)
@@ -1379,16 +1154,7 @@ namespace Friday.Test2
                         }
                     case "商店店主":
                         {
-                            //foreach (SystemFunctionObject shopsfb in shopOwnerList)
-                            //{
-                            //    SystemFunctionObjectInRole shopSFunctionInRole = new SystemFunctionObjectInRole();
-                            //    shopSFunctionInRole.SystemRole = sr;
-                            //    shopSFunctionInRole.SystemFunctionObject = shopsfb;
-                            //    shopSFunctionInRole.Deletable = shopsfb.DeletePermissionAvailable;
-                            //    shopSFunctionInRole.Editable = shopsfb.EditPermissionAvailable;
-                            //    shopSFunctionInRole.Enabled = shopsfb.FunctionAvailable;
-                            //    iSystemFunctionObjectInRoleRepository.SaveOrUpdate(shopSFunctionInRole);
-                            //}
+
                             foreach (SystemFunctionObjectInRole shopSFunctionInRole in sysFuncObjInShopOwnerRolerList)
                             {
                                 shopSFunctionInRole.SystemRole = sr;

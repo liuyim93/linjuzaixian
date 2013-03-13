@@ -51,9 +51,9 @@ namespace friday.core.services
         public FunctionTag 食品订单明细维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 餐馆订单评价管理 { get; set; }
-        [PermissionSetting(PermissionTag.Enable)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 食品评价项管理 { get; set; }
-        [PermissionSetting(PermissionTag.Enable)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 食品评价项评分管理 { get; set; }
         //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
         //public FunctionTag 食品评论回复管理 { get; set; }
@@ -71,9 +71,9 @@ namespace friday.core.services
         public FunctionTag 商品订单明细维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 商店订单评价管理 { get; set; }
-        [PermissionSetting(PermissionTag.Enable)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 商品评价项管理 { get; set; }
-        [PermissionSetting(PermissionTag.Enable)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 商品评价项评分管理 { get; set; }
         //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
         //public FunctionTag 商品评论回复管理 { get; set; }
@@ -90,9 +90,9 @@ namespace friday.core.services
         public FunctionTag 租房订单明细维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 租房订单评价管理 { get; set; }
-        [PermissionSetting(PermissionTag.Enable)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 房屋评价项管理 { get; set; }
-        [PermissionSetting(PermissionTag.Enable)]
+        [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 房屋评价项评分管理 { get; set; }
         //[PermissionSetting(PermissionTag.Edit, PermissionTag.Enable)]
         //public FunctionTag 房屋评论回复管理 { get; set; }
