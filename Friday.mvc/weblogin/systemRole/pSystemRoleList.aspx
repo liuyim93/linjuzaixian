@@ -82,10 +82,10 @@
                         </td>      
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Remarks")%></td>                
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td> 
-                         <td><a href="permission/pSystemFunctionObjectTree.aspx?uid=<%#Eval("Id")%>&roleName=<%#Eval("Name")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2">功能权限
+                         <td><a href="permission/pSystemFunctionObjectTree.aspx?uid=<%#Eval("Id")%>&roleName=<%#Server.UrlEncode(Eval("Name").ToString())%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2">功能权限
                             </a>
                         </td>
-                         <td><a href="permission/menu/pRoleInMenuPermission.aspx?uid=<%#Eval("Id")%>&roleName=<%#Eval("Name")%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2">菜单权限
+                         <td><a href="permission/menu/pRoleInMenuPermission.aspx?uid=<%#Eval("Id")%>&roleName=<%#Server.UrlEncode(Eval("Name").ToString())%>" target="ajax" prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2">菜单权限
                             </a>
                         </td>                
 				</tr>

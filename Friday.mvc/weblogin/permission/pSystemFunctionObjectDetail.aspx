@@ -5,7 +5,7 @@
 class="pageForm required-validate" runat="server">
 <div class="panel" defh="400" style="">
     <h1>
-        （<%=Request.Params["roleName"]%>）功能点权限预览</h1>
+        （<%=Server.UrlDecode(Request.Params["roleName"])%>）功能点权限预览</h1>
     <div>
         <div id="panelEnabledState" runat="server">
             <p>
