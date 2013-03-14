@@ -125,7 +125,6 @@
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
-    <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
@@ -2509,7 +2508,6 @@
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Message\Views\Web.config" />
-    <Content Include="Areas\Merchant\Views\Home\myBrandsIndex.cshtml" />
     <None Include="notifymsg.json" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
