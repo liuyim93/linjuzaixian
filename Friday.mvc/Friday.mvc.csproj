@@ -125,6 +125,7 @@
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
@@ -1347,9 +1348,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\brand\2.0\css\az.css" />
+    <Content Include="apps\department\brand\2.0\css\cat.css" />
+    <Content Include="apps\department\brand\2.0\css\fav.css" />
+    <Content Include="apps\department\brand\2.0\css\common\mui.css" />
+    <Content Include="apps\department\brand\2.0\css\common\nav.css" />
+    <Content Include="apps\department\brand\2.0\css\common\page.css" />
+    <Content Include="apps\department\brand\2.0\css\index.css" />
     <Content Include="apps\department\brand\2.0\mods\collect.js" />
     <Content Include="apps\department\brand\2.0\core.js" />
-    <Content Include="apps\department\brand\2.0\mods\dialog.js" />
+    <Content Include="apps\department\brand\2.0\dialog.js" />
     <Content Include="apps\department\brand\2.0\fav.js" />
     <Content Include="apps\department\brand\2.0\mods\item.js" />
     <Content Include="apps\department\common\brandbar-fly.js" />
@@ -1380,8 +1388,15 @@
     <Content Include="apps\tmall\common\tbuser.js" />
     <Content Include="apps\tmall\common\tgallery.js" />
     <Content Include="apps\tmall\fp\2012\core.js" />
-    <Content Include="apps\tmall\fp\2012\css\core.css" />
-    <Content Include="apps\tmall\fp\2012\css\fp.css" />
+    <Content Include="apps\tmall\fp\2012\css\act.css" />
+    <Content Include="apps\tmall\fp\2012\css\brand.css" />
+    <Content Include="apps\tmall\fp\2012\css\category.css" />
+    <Content Include="apps\tmall\fp\2012\css\common.css" />
+    <Content Include="apps\tmall\fp\2012\css\floor.css" />
+    <Content Include="apps\tmall\fp\2012\css\header.css" />
+    <Content Include="apps\tmall\fp\2012\css\layout.css" />
+    <Content Include="apps\tmall\fp\2012\css\mui.css" />
+    <Content Include="apps\tmall\fp\2012\css\slide2.css" />
     <Content Include="apps\tmall\fp\2012\fp.js" />
     <Content Include="apps\tmall\fp\2012\mods\act.js" />
     <Content Include="apps\tmall\fp\2012\mods\brand.js" />
@@ -1393,7 +1408,6 @@
     <Content Include="apps\tmall\fp\2012\util\util.js" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
-    <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
     <Content Include="comet.htm" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
@@ -1416,6 +1430,8 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="p\mall\base\global-v2.css" />
+    <Content Include="p\mall\base\header-v2.css" />
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
     <Content Include="socket.io\socket.io.js" />
@@ -2491,7 +2507,9 @@
   <ItemGroup>
     <Content Include="unity.di.infrastructure.config" />
     <Content Include="App_Browsers\Form.browser" />
-    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Account\Views\Home\login.cshtml" />
     <Content Include="Areas\Cart\Views\Web.config" />
     <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
@@ -2509,7 +2527,9 @@
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Message\Views\Web.config" />
+    <Content Include="Areas\Merchant\Views\Search\Index.cshtml" />
     <None Include="notifymsg.json" />
+    <Content Include="Views\Shared\_SiteNav.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
