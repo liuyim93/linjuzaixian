@@ -31,7 +31,7 @@ KISSY.add("2.0/mods/collect", function (S, D, E, IO) {
             //显示品牌收藏按钮
             onTgalleryReady("tgallery/department/common/brandbar", function (S, Brandbar) {
                 Brandbar.show({
-                    urlMyBrand: SERVER_URL + '/myBrandsIndex.htm'
+                    urlMyBrand: SERVER_URL + '/myBrandsIndex.html'
                 });
                 Brandbar.bindEl('.' + cfg.triggerCls, {
                     attrName: cfg.cfgAttr,
@@ -44,7 +44,7 @@ KISSY.add("2.0/mods/collect", function (S, D, E, IO) {
                     S.use('2.0/mods/dialog', function (S, Dialog) {
                         new Dialog({
                             type: (error.code == -1 ? 'attention' : 'error'),
-                            content: error.message + '<p class="brandMsgTips-p">查看<a href="myBrandsIndex.htm">我关注的品牌>></a></p>',
+                            content: error.message + '<p class="brandMsgTips-p">查看<a href="myBrandsIndex.html">我关注的品牌>></a></p>',
                             closeCallBack: cfg.callback
                         });
                     })

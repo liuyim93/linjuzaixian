@@ -420,7 +420,7 @@ TB.add("mod~global", function () {
                     //2013-03-08 basilwang use our own
                     //var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
                     var q = "localhost:7525";
-                    _brandbar.show({ urlMyBrand: "http://" + q + "/myBrandsIndex.htm", newWindow: true });
+                    _brandbar.show({ urlMyBrand: "http://" + q + "/myBrandsIndex.html", newWindow: true });
                     //2013-03-08 basilwang use our own
                     //_brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
                     _brandbar.bindEl(".j_CollectBrand", { addServer: "http://" + q + "/Favorite/AddToFav" })

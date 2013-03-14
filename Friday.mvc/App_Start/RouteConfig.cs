@@ -20,7 +20,6 @@ namespace Friday.mvc
                namespaces: new string[] { "Friday.mvc.Controllers" }
                
            );
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

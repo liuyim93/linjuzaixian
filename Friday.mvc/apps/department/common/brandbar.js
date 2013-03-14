@@ -11,7 +11,7 @@
             if (!_dom_div_id_J_BrandBar) {
                 _dom.addStyleSheet('#J_BrandBar{font-size:12px;cursor:pointer;background-color:#EEEEEE;width:120px;margin:2px 5px 0 5px;height:28px;border:solid 1px #d0d0d0;-moz-border-radius: 3px 3px 0px 0px;-khtml-border-radius: 3px 3px 0px 0px;-webkit-border-radius: 3px 3px 0px 0px;border-radius: 3px 3px 0px 0px;}#J_BrandBar:hover,#J_BrandBar.hoverBrandBar{background-color:#d9d1d1;border-color:#bcb0b0}.BrandFlyer{width:20px;height:20px;float:left;margin:4px;background:url(http://img02.taobaocdn.com/tps/i2/T1_360XiFkXXcu5FDa-20-20.png);background-repeat:no-repeat;*background:none;*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="http://img02.taobaocdn.com/tps/i2/T1_360XiFkXXcu5FDa-20-20.png");}#J_BrandBar a,#J_BrandBar a:hover{line-height:20px;display:block;margin:4px;float:left;color:#181818;text-decoration:none;}');
                 _dom_div_id_J_BrandBar = _dom.create('<div id="J_BrandBar" order="20">');
-                var _url = _opts.urlMyBrand || "http://brand.tmall.com/myBrandsIndex.htm";
+                var _url = _opts.urlMyBrand || "http://brand.tmall.com/myBrandsIndex.html";
                 _dom.html(_dom_div_id_J_BrandBar, '<div class="BrandFlyer"></div><a href="' + _url + '" target="' + (_opts.newWindow ? ' target="_blank"' : "") + '">我关注的品牌</a>');
                 _event.on(_dom_div_id_J_BrandBar, "click", function () {
                     _dom.get("a", _dom_div_id_J_BrandBar).click()
@@ -144,7 +144,7 @@
                     S("overlay/css/overlay.css");
                     _kissy_tmp.getScript(_kissy_tmp.configTgallery.path + "tmall/mui/msg/css/msg.css");
                     _dom.addStyleSheet(".brandMsgTips{margin-top:-10px;}.brandTipsDialog div.tml-stdmod-header{height:24px;background:none;border:none;}.brandTipsDialog .tml-stdmod-body{padding:0 10px;}.brandMsgTips-btn{margin-top:30px;text-align:center;}.brandMsgTips-btn a{padding:0 15px;margin:0 30px;}.brandMsgTips-p{font-size:12px;font-weight:normal;margin-top:10px;}.brandMsgTips-p a{color:#2b76af;}");
-                    var X = Q.code == -1 ? "attention" : "error", Z = _options.urlMyBrand || "http://brand.tmall.com/myBrandsIndex.htm", Y = '<div class="brandMsgTips"><div class="ui-msg ui-top-tip ui-msg-clean"><div class="ui-msg-con ui-msg-' + X + '">' + Q.message + '<p class="brandMsgTips-p">\u67e5\u770b<a href="' + Z + '">\u6211\u5173\u6ce8\u7684\u54c1\u724c>></a></p><s class="ui-msg-icon"></s></div></div></div>';
+                    var X = Q.code == -1 ? "attention" : "error", Z = _options.urlMyBrand || "http://brand.tmall.com/myBrandsIndex.html", Y = '<div class="brandMsgTips"><div class="ui-msg ui-top-tip ui-msg-clean"><div class="ui-msg-con ui-msg-' + X + '">' + Q.message + '<p class="brandMsgTips-p">\u67e5\u770b<a href="' + Z + '">\u6211\u5173\u6ce8\u7684\u54c1\u724c>></a></p><s class="ui-msg-icon"></s></div></div></div>';
                     var W = new U.Dialog({ elCls: "brandTipsDialog", width: 300, height: 110, skin: "gray", closeAction: "destroy", elStyle: { position: _kissy_tmp.UA.ie == 6 ? "absolute" : "fixed" }, zIndex: 9999999, headerContent: "", bodyContent: Y, showCat: false, mask: true, align: { points: ["cc", "cc"]} });
                     W.render();
                     W.show()

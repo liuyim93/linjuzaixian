@@ -15,10 +15,10 @@ namespace Friday.mvc.Areas.Merchant
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-            name:"myBrandsIndex",
-            url:  "myBrandsIndex.htm",
-            defaults: new { area = "Merchant", controller = "Favorite", action = "myBrandsIndex", id = UrlParameter.Optional }
-           );
+                 name: "myBrandsIndex",
+                 url: "myBrandsIndex.html",
+                 defaults: new { area = "Merchant", controller = "Favorite", action = "myBrandsIndex", id = UrlParameter.Optional }
+            );
 
             context.MapRoute(
                 "Merchant_default",
