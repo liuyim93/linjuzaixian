@@ -55,9 +55,10 @@ KISSY.add("2.0/mods/item", function (S, Anim, Switchable) {
             var el = this,
 				brandId = DOM.attr(el, 'data-brandId'),
 				tbToke = DOM.val('#J_TbToken') || '',
-				requestUrl = (DEV_EV == 'demo' || DEV_EV == 'local') ?
-					'http://' + DEV_EV + '.tmall.net/brand/2.0/ajax/cancel.php' : SERVER_URL + '/ajax/brandDelFromFav.htm',
-				obj = !!tbToke ? {
+				/*requestUrl = (DEV_EV == 'demo' || DEV_EV == 'local') ?
+					'http://' + DEV_EV + '.tmall.net/brand/2.0/ajax/cancel.php' : SERVER_URL + '/ajax/brandDelFromFav.htm',*/
+				requestUrl = SERVER_URL + '/Merchant/Favorite/DelFromFav',
+                obj = !!tbToke ? {
 				    brandId: brandId,
 				    _tb_token_: tbToke
 				} : {

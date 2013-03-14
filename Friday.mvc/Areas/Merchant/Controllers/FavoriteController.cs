@@ -46,6 +46,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
+        public ActionResult DelFromFav(string brandId, string _tb_token_, string callback)
+        {
+            string isSucceed = "T";
+            string script = callback + "({\"is_success\":\"" + isSucceed + "\"})";
+
+            return JavaScript(script);
+        }
         public ActionResult Recommend(string callback)
         {
             string json;
