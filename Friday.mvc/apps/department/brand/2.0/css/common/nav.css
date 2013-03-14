@@ -1,0 +1,10 @@
+﻿.brand-subNav {height:50px;line-height:50px;background:#ededed;box-shadow:0 1px 3px #868686; }
+.brand-subNavList {width:990px;height:50px;overflow:hidden;margin:0 auto;background-position:835px -322px; }
+.brand-subNavList li {float:left; }
+.brand-subNavList a,.brand-subNavList strong {padding:6px 12px;margin-right:20px;color:#666;font-weight:bold; }
+.brand-subNavList a:hover,.brand-subNavList strong {color:#000;background:#fff;border-radius:2px;padding:5px 11px;text-decoration:none;border:1px solid #e2e2e2; }
+a.brand-subNav-last,strong.brand-subNav-last {border:none; }
+.brandSubNav {position:relative;width:990px;margin:0 auto;height:40px;background-position:0 -323px; }
+.brandShare {position:absolute;top:15px;right:70px;cursor:pointer; }
+.brandAddFav {position:absolute;right:0;top:16px;height:16px;line-height:16px;background:#D9CFC5;color:#7d685e;display:inline-block;border-radius:8px;padding-right:10px;cursor:pointer; }
+.brandAddFav i {font-style:normal;display:inline-block;border-right:1px solid #eaeaea;width:16px;font-weight:bold;margin-right:5px;text-align:center; }
