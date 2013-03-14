@@ -1,0 +1,23 @@
+﻿.winnerTrigger{z-index:1000;display:block;position:fixed;_position:absolute;height:132px;width:46px;overflow:hidden;bottom:45px;right:15px;background:url(http://img03.taobaocdn.com/tps/i3/T1Q4jUXiNmXXaqkKEo-62-132.png) -16px 0 no-repeat;}
+.winnerTrigger:hover{width:62px;background-position:0 0;}
+.birthDirectBanner{display:block;width:760px;height:420px;margin-left:240px;position:relative;}
+.slide-nickname{font-size:18px;font-weight:700;display:inline-block;height:30px;line-height:30px;position:absolute;color:#c23732;left:380px;top:140px;width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.mfpFlash{width:780px;height:420px;position:absolute;z-index:11;display:none;left:50%;margin-left:-355px;top:0;}
+.closeFlash{background:url(http://img04.taobaocdn.com/tps/i4/T1w4zoXi0oXXaCG0rh-50-50.png) 0 0 no-repeat transparent;_background:url(http://img02.taobaocdn.com/tps/i2/T14wPiXnVuXXaCG0rh-50-50.png) 0 0 no-repeat transparent;position:absolute;right:10px;top:10px;width:50px;height:50px;z-index:12;cursor:pointer;}
+.slide-TMLShare{position:absolute;left:535px;top:120px;}
+.slide-rank{color:#c23732;display:inline-block;font-size:18px;height:30px;line-height:30px;position:absolute;left:280px;top:140px;}
+.slide-days{color:#c23732;display:inline-block;font-size:18px;height:30px;line-height:30px;position:absolute;left:215px;top:196px;width:40px;text-align:center;}
+.slide-replay{display:inline-block;position:absolute;left:514px;top:276px;width:30px;height:30px;background-color:#c23732;opacity:0;filter:alpha(opacity=0);}
+.verTopBanner{height:40px;background:#980101 url(data:image/gif;base64,R0lGODlhAQAIAJEAAJEBAYsBAZYBAZgBASH5BAAAAAAALAAAAAABAAgAAAIEnC0QBQA7) repeat-x 0 bottom;}
+.verTopBanner ins{position:relative;display:block;width:1000px;padding-left:190px;margin:0 auto;}
+.verTopBanner img{margin-top:16px;}
+.verTopBanner a{position:absolute;display:block;height:20px;width:66px;top:12px;left:544px;background:#fff;filter:alpha(opacity=0);opacity:0;}
+#site-nav{+position:static;}
+#site-nav .sn-container{+position:relative;+z-index:9999;}
+.logoVerChange{height:30px;width:110px;position:absolute;top:0;left:200px;z-index:1000000;}
+.logoVerChange a{top:0;left:0;display:block;position:absolute;height:30px;width:110px;background:#fff;opacity:0;filter:alpha(opacity=0);}
+.w990 .verTopBanner ins{width:990px;padding-left:0;}
+.w990 .logoVerChange{left:16px;}
+@media(max-width:1210px){.verTopBanner ins{width:990px;padding-left:0;}
+.logoVerChange{left:16px;}
+}

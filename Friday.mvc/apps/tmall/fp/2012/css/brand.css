@@ -1,0 +1,88 @@
+﻿.j_BrandExpand{display:none;}
+.brand{width:950px;height:475px;margin-bottom:15px;position:relative;background-color:#fff;}
+.brand h2{height:45px;line-height:45px;font-size:14px;font-family:'Lucida Grande','\5fae\8f6f\96c5\9ed1';font-weight:normal;margin-left:10px;}
+.brandMain{width:939px;height:432px;border-left:1px solid #E6E6E6;border-top:1px solid #E6E6E6;margin-left:10px;}
+.brand .brandAd{width:150px;float:left;}
+.brand .brandAd a{display:block;width:130px;border-right:1px solid #E6E6E6;border-bottom:1px solid #E6E6E6;position:relative;text-decoration:none;overflow:hidden;z-index:1;padding:10px 10px 10px 9px;-webkit-backface-visibility:hidden;color:#999;}
+.brand .brandAd a:hover{color:#BD0000;color:#999\9;}
+.brand .brandAd a.brandAd-b{padding-top:241px;height:36px;}
+.brand .brandAd a.brandAd-s{padding-top:98px;height:35px;}
+.brand .brandAd img{position:absolute;left:9px;top:10px;}
+.brand .brandAd img.logo{left:29px;top:38px;}
+.brand .brandAd p{height:18px;line-height:18px;text-align:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:pointer;}
+.brand .brandAd span{display:block;width:118px;height:20px;position:absolute;right:6px;top:6px;cursor:pointer;z-index:1;overflow:hidden;}
+.brand .brandAd span.mark{width:57px;opacity:0;filter:alpha(opacity=0);}
+.brand .brandAd span s{display:block;position:absolute;right:0;top:0;z-index:3;width:20px;height:20px;border-radius:10px;background-color:#b90000;background-position:-124px 2px;opacity:.9;filter:alpha(opacity=90);}
+.brand .brandAd span.mark s{background-color:#C3C3C3;}
+.brand .brandAd span b{display:block;position:absolute;z-index:2;right:0;top:0;opacity:0;filter:alpha(opacity=0);width:10px;height:20px;line-height:19px;background-color:#4d2626;-moz-border-radius:10px;-webkit-border-radius:10px;border-radius:10px;padding-left:10px;font-weight:normal;color:#fff;}
+.brand .brandAd span.mark b{width:47px;opacity:.6;filter:alpha(opacity=60);}
+.brand .brandAd .label{width:130px;height:19px;line-height:18px;line-height:22px\9\0;*line-height:22px;_line-height:18px;color:#fff;position:absolute;left:9px;bottom:51px;_bottom:50px;opacity:.9;filter:alpha(opacity=90);cursor:pointer;}
+.brand .label1{background-color:#64d4b5;}
+.brand .label2{background-color:#ff6464;}
+.brand .label3{background-color:#ff6f5b;}
+.brand .label4{background-color:#cc99da;}
+.brand .label5{background-color:#87de6c;}
+.brand .label6{background-color:#ffcc6b;}
+.brand .label7{background-color:#7ec0e9;}
+.brandTop{position:absolute;top:7px;height:30px;height:auto!important;min-height:30px;width:135px;text-align:center;cursor:pointer;right:0;z-index:2;border:1px solid #fff\9;}
+.brandTop h3{height:30px;line-height:30px;position:relative;}
+.brandTop h3 a{display:block;color:#000;font-size:14px;font-family:'Lucida Grande','\5fae\8f6f\96c5\9ed1';font-weight:normal;text-decoration:none;}
+.brandTop h3 a:hover{text-decoration:none;}
+.brandTop h3 s.marked{display:block;position:absolute;left:3px;top:5px;width:20px;height:20px;border-radius:10px;background-color:#b90000;background-position:-124px 2px;opacity:.8;filter:alpha(opacity=80);}
+.brandTop h3 s.arow{display:block;width:7px;height:5px;position:absolute;top:13px;right:10px;background-position:-128px -63px;}
+.brandTop .brand-list{display:none;background-color:#fff;}
+.brand .brandExpand{-moz-box-shadow:0 0 5px rgba(0,0,0,0.3);-webkit-box-shadow:0 0 5px rgba(0,0,0,0.3);box-shadow:0 0 5px rgba(0,0,0,0.3);border:1px solid #E6E6E6\9;}
+.brand .brandExpand h3{border-bottom:1px solid #E6E6E6;}
+.brand .brandExpand h3 s.arow{-moz-transform:rotate(180deg);-moz-transform-origin:50% 30%;-webkit-transform:rotate(180deg);-webkit-transform-origin:50% 30%;-o-transform:rotate(180deg);-o-transform-origin:50% 30%;-ms-transform:rotate(180deg);-ms-transform-origin:50% 30%;transform:rotate(180deg);transform-origin:50% 30%;filter:progid:DXImageTransform.Microsoft.BasicImage(rotation = 2);top:15px;_top:0;}
+.brand .brandExpand .brand-list{display:block;}
+.brand .brandExpand li{height:30px;line-height:30px;color:#B3B3B3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background-color:#fff;}
+.brand .brandExpand li.noBrand{cursor:default;}
+.brand .brandExpand li.last{background-color:#f1f1f1;margin-top:-1px;}
+.brand .brandExpand li a{display:block;width:95px;height:29px;margin:0 20px;border-bottom:1px dotted #E6E6E6;color:#B3B3B3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.brand .brandExpand li.last a{color:#434343;border-bottom:none;}
+.brand .brandExpand li a:hover{background-color:#bd0000;opacity:.8;filter:alpha(opacity=80);text-decoration:none;width:135px;margin:0;border-bottom:1px solid #bd0000;color:#fff;}
+.brand .brandExpand li.brandLogin a{text-decoration:none;}
+.brand .brandExpand li.brandLogin a:hover{text-decoration:underline;background-color:#fff;color:#B3B3B3;border-bottom:1px solid #fff;}
+.brand .brandExpand li.brandLogin a span{color:#b90000;}
+.brand .flyBrand{position:absolute;z-index:900;width:13px;height:13px;display:none;background-position:-128px -18px;}
+.brand .brandRight{width:189px;float:left;_float:right;position:relative;}
+.brand .brandRight div{width:189px;height:216px;_overflow:hidden;}
+.brand .brandRight a{display:block;text-decoration:none;text-align:center;width:188px;height:215px;-webkit-backface-visibility:hidden;border-right:1px solid #E6E6E6;border-bottom:1px solid #E6E6E6;overflow:hidden;}
+.brand .brandRight p{width:164px;height:20px;position:relative;overflow:hidden;text-align:center;font-family:'Lucida Grande','\5fae\8f6f\96c5\9ed1';}
+.brand .brandRight p span{display:block;width:100%;height:20px;line-height:20px;position:absolute;top:20px;left:0;}
+.brand .brandRight p.hovered span{top:0;}
+.brand .brandRight a.brandTheDay{width:164px;height:211px;padding:0 10px;border-top:2px solid #E6E6E6;border-right:3px solid #E6E6E6;border-bottom:3px solid #E6E6E6;border-left:2px solid #E6E6E6;background-position:10px -194px;overflow:hidden;}
+.brand .brandTheDay img{margin-top:77px;}
+.brand .brandTheDay b{width:100%;height:20px;line-height:20px;position:absolute;top:0;left:0;z-index:2;font-weight:normal;color:#513a16;}
+.brand .brandTheDay p.hovered b{color:#fff;}
+.brand .brandTheDay p{background-color:#e6e3e3;margin-top:24px;}
+.brand .brandTheDay p span{background-color:#BD0000;z-index:1;}
+.brand .brandRight a.temai{width:168px;height:215px;padding:0 10px;overflow:hidden;}
+.brand .temai img{margin-left:-10px;}
+.brand .temai p{top:-73px;color:#fff;width:168px;}
+.brand .temai p span{background-color:#BD0000;opacity:.8;filter:alpha(opacity=80);}
+.brand .brandRight .greatBrand{background-position:0 -194px;width:195px;height:250px;overflow:hidden;position:relative;top:-34px;left:-6px;}
+.brand .brandRight .greatBrand a{margin-top:34px;margin-left:6px;}
+.brand .greatBrand img{margin-top:77px;}
+.brand .greatBrand b{width:100%;height:27px;line-height:27px;position:absolute;top:0;left:0;z-index:2;font-weight:normal;color:#513a16;padding-left:23px;}
+.brand .greatBrand p{width:100%;height:27px;position:absolute;bottom:0;left:6px;z-index:5;}
+.brand .greatBrand p.hovered b{color:#fff;}
+.brand .greatBrand p{background-color:#e6e3e3;margin-top:24px;}
+.brand .greatBrand p span{background-color:#BD0000;z-index:1;height:27px;top:27px;}
+.brand .greatBrand .hongbao{width:38px;height:37px;position:absolute;bottom:0;left:43px;background-position:-156px -77px;z-index:10;}
+.brand .brandShadow{background:none;-moz-box-shadow:3px 0 5px rgba(0,0,0,0.1);-webkit-box-shadow:3px 0 5px rgba(0,0,0,0.1);box-shadow:3px 0 5px rgba(0,0,0,0.1);width:10px;height:432px;position:absolute;top:0;left:-10px;display:block;z-index:10;}
+.brand .brandAd p{-moz-transition:all .5s ease-in;-webkit-transition:all .5s ease-in;-o-transition:all .5s ease-in;-ms-transition:all .5s ease-in;transition:all .5s ease-in;}
+.brand h3 s.arow{-moz-transition:all .3s ease-in;-webkit-transition:all .3s ease-in;-o-transition:all .3s ease-in;-ms-transition:all .3s ease-in;transition:all .3s ease-in;}
+@-webkit-keyframes smallToBig{from{-webkit-transform:scale(1);}
+to{-webkit-transform:scale(1.1);}
+}
+@-moz-keyframes smallToBig{from{-moz-transform:scale(1);}
+to{-moz-transform:scale(1.1);}
+}
+@-ms-keyframes smallToBig{from{-ms-transform:scale(1);}
+to{-ms-transform:scale(1.1);}
+}
+@keyframes smallToBig{from{-ms-transform:scale(1);}
+to{-ms-transform:scale(1.1);}
+}
+.brand .brandRight span,.brand .brandTheDay b{-moz-transition:all .5s ease-in-out .2s;-webkit-transition:all .5s ease-in-out .2s;-o-transition:all .5s ease-in-out .2s;-ms-transition:all .5s ease-in-out .2s;transition:all .5s ease-in-out .2s;}

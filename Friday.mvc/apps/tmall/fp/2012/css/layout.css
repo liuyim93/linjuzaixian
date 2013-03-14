@@ -1,0 +1,74 @@
+﻿.w990 #sn-bd,.w990 .headerCon,.w990 .mallNav-con,.w990 .mallMain{width:990px;}
+.w990 #mallSearch{width:530px;}
+.w990 #mq{width:440px;}
+.w990 #mallNav{font-size:12px;}
+.w990 #mallNav a,.w990 #mallNav span{padding:0 15px;}
+.w990 .floorAd{width:740px;}
+.w990 .floorAd img{margin-left:-100px;}
+.w990 .mallRight,.w990 .slide,.w990 .brand,.w990 .floor,.w990 .slideBg,.w990 .slide-list,.w990 .slide-list li{width:750px;}
+.w990 .leftBanner{width:556px;}
+.w990 .adBanner img{margin-left:-520px;}
+.w990 .birthDirectBanner{margin-left:140px;}
+.w990 .mSc-main{width:990px;}
+.w990 .mfpSlide-nav{margin-left:-240px;}
+.w990 .mScm-link{width:555px;}
+.w990 .mSc-main b{left:150px;}
+.w990 .brandMain{width:739px;}
+.w990 .brand .brandRight{width:179px;}
+.w990 .brand .brandRight div{width:178px;}
+.w990 .brand .lastBrandAd{display:none;}
+.w990 .brand .brandAd a{padding-right:5px;padding-left:4px;}
+.w990 .brand .brandAd{width:140px;}
+.w990 .brand .brandAd img{left:4px;}
+.w990 .brand .brandAd img.logo{left:24px;}
+.w990 .brand .brandRight .greatBrand{width:185px;}
+.w990 .brand .brandRight a{width:178px;}
+.w990 .brand .brandRight a.brandTheDay{padding:0 5px;}
+.w990 .brand .brandRight a.temai{padding:0 5px;width:168px;_width:167px;}
+.w990 .floorCon-logo{margin-right:10px;}
+.w990 .floorTop-nav{width:380px;}
+.w990 #mall-desc dl{width:119px;padding-left:30px;}
+.w990 #mall-desc .other{width:150px;margin-left:-75px;}
+.w990 #mall-desc dl#payment{margin-left:150px;}
+.w1190 .sn-mcate-ctn-con{width:1190px;}
+.w1190 #site-nav .sn-container{width:968px;}
+.w1190 .sn-mcate-bd .sn-mcate-ctn{width:1255px;}
+.w1190 .sn-mcate-bd .sn-mcate-ctn li{padding-right:58px;}
+@media(max-width:1210px){#sn-bd,.headerCon,.mallNav-con,.mallMain{width:990px;}
+#mallSearch{width:530px;}
+#mq{width:440px;}
+#mallNav{font-size:12px;}
+#mallNav a,#mallNav span{padding:0 15px;}
+.floorAd{width:740px;}
+.floorAd img{margin-left:-100px;}
+.mallRight,.slide,.brand,.floor,.slideBg,.slide-list,.slide-list li{width:750px;}
+.leftBanner{width:556px;}
+.adBanner img{margin-left:-520px;}
+.birthDirectBanner{margin-left:140px;}
+.mSc-main{width:990px;}
+.mfpSlide-nav{margin-left:-240px;}
+.mScm-link{width:555px;}
+.mSc-main b{left:150px;}
+.brandMain{width:739px;}
+.brand .brandRight{width:179px;}
+.brand .brandRight div{width:178px;}
+.brand .lastBrandAd{display:none;}
+.brand .brandAd{width:140px;}
+.brand .brandAd a{padding-right:5px;padding-left:4px;}
+.brand .brandAd img{left:4px;}
+.brand .brandAd img.logo{left:24px;}
+.brand .brandRight .greatBrand{width:185px;}
+.brand .brandRight a{width:178px;}
+.brand .brandRight a.brandTheDay{padding:0 5px;}
+.brand .brandRight a.temai{width:168px;padding:0 5px;}
+.floorCon-logo{margin-right:10px;}
+.floorTop-nav{width:380px;}
+#mall-desc dl{width:119px;padding-left:30px;}
+#mall-desc .other{width:150px;margin-left:-75px;}
+#mall-desc dl#payment{margin-left:150px;}
+}
+@media(min-width:1210px){.sn-mcate-bd .sn-mcate-ctn-con{width:1190px;}
+#site-nav .sn-container{width:968px;}
+.sn-mcate-bd .sn-mcate-ctn{width:1255px;}
+.sn-mcate-bd .sn-mcate-ctn li{padding-right:59px;}
+}

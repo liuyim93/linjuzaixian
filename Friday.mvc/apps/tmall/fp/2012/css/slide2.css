@@ -1,0 +1,23 @@
+﻿.mfpSlide{position:relative;z-index:0;height:420px;min-width:990px;overflow:hidden;}
+.mfpSlide-con li{background:#fff no-repeat 50% 0;height:420px;width:100%;}
+.mSc-main{width:1190px;height:420px;margin:0 auto;position:relative;}
+.mScm-link{position:absolute;display:block;width:755px;height:420px;top:0;left:240px;_left:239px;overflow:hidden;z-index:2;border-left:1px solid #e6e6e6\9;_border-left:2px solid #e6e6e6;background:url(http://a.tbcdn.cn/kissy/1.0.0/build/imglazyload/spaceball.gif);}
+.mSc-main b{position:absolute;display:block;height:210px;width:760px;top:-40px;left:240px;z-index:1;_display:none;}
+.mScm-link b img{height:100%;width:100%;}
+.mSc-main .mScm-text1{opacity:1;top:-10px;}
+.mScm-right{position:absolute;overflow:hidden;right:3px;top:15px;width:190px;height:390px;border:1px solid #e6e6e6\9;-moz-box-shadow:0 0 5px rgba(0,0,0,0.2);-webkit-box-shadow:0 0 5px rgba(0,0,0,0.2);box-shadow:0 0 5px rgba(0,0,0,0.2);z-index:7;background-color:#efebe6;}
+.mScm-right li{*display:inline;position:relative;height:131px;background:#efebe6;}
+.mScm-right li s{display:block;width:170px;margin:0 auto;height:0;line-height:0;border-bottom:1px solid #D9CFCD;overflow:hidden;}
+.mScm-right li i{position:absolute;cursor:pointer;top:0;left:0;background:#000;border:none;height:131px;width:190px;opacity:0;filter:alpha(opacity=0);}
+.mfpSlide-nav{width:260px;left:50%;margin-left:-340px;height:25px;position:absolute;bottom:0;z-index:10;display:none;}
+.mfpSlide-nav li{width:14px;height:14px;background:#b5b5b5;-webkit-border-radius:50%;-moz-border-radius:50%;border-radius:50%;margin:0 4px;overflow:hidden;cursor:pointer;display:inline-block;*display:inline;*zoom:1;}
+.mfpSlide-nav li.selected{background-color:#c80002;}
+.mfpSlide-nav{display:block;}
+.mfpSlide-nav li{display:block;float:left;}
+.timer{width:14px;height:14px;left:50%;margin-left:-336px;position:absolute;bottom:11px;z-index:20;cursor:pointer;}
+.gray{display:block;position:absolute;top:0;right:0;width:7px;height:14px;border-radius:0 7px 7px 0;background-color:#B5B5B5;z-index:21;}
+.mask{display:block;position:absolute;top:0;right:0;width:7px;height:14px;z-index:22;overflow:hidden;}
+.rotator{display:block;position:absolute;top:0;right:0;width:7px;height:14px;border-radius:7px;background-color:#c80002;border-left:7px solid #B5B5B5;z-index:23;}
+span.gray.move{width:14px;border-radius:7px;}
+span.mask.move{right:7px;}
+span.rotator.move{right:-7px;}
