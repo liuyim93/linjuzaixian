@@ -5,7 +5,26 @@
     var _kissy = window.TShop ? window.TShop : KISSY, _core = window.TShop ? "tb-core" : "core";
     _kissy.use(_core, function (_kissy_imp) {
         KISSY.add("TMiniCartModel", function (_kissy_imp2) {
-            var W = location.hostname.indexOf(".net") != -1, X = W ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/", J = W ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/", Q = W ? "http://count.config-vip.taobao.net:8888/" : "http://count.tbcdn.cn/", P = W ? "http://assets.daily.taobao.net/" : "http://a.tbcdn.cn/", L = { Query_Num: Q + "counter6?keys=TCART_234_{uid}_q&t=", LOAD_API: X + "cart/mini/trailMiniCart.htm", COMMONADD_API: X + "cart/addCartItems.do", ADD_API: X + "cart/addCartItem.htm?itemId={itemId}&skuId={skuId}&quantity={quantity}&proId={proId}&devisionCode={devisionCode}&serverId={serverId}&tsid={tsid}&umpkey={umpkey}&_tb_token_={_tb_token_}", ADDCOMBO_API: X + "cart/addCombo.htm", UPDATE_API: X + "cart/mini/updateMiniCart.htm?cartId={cartId}&quantity={quantity}&{tkKey}={tkVal}", REMOVE_API: X + "cart/mini/delMiniCart.htm?cartId=", ASSETS_PATH: P + "p/mall/TMiniCart/", SSS_PATH: J + "sss.htm" }, K, N;
+            var W = location.hostname.indexOf(".net") != -1,
+                _host_url = W ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/",
+                _url_unknown1 = W ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/",
+                _count_url = W ? "http://count.config-vip.taobao.net:8888/" : "http://count.tbcdn.cn/",
+                _url_unknown2 = W ? "http://assets.daily.taobao.net/" : "http://a.tbcdn.cn/",
+
+                _url_unknown1=_url_unknown2= _count_url=_host_url="http://localhost:7525/",
+                _options = {
+                    Query_Num: _count_url + "counter6?keys=TCART_234_{uid}_q&t=",
+                    LOAD_API: _host_url + "cart/mini/trailMiniCart.htm",
+                    COMMONADD_API: _host_url + "cart/addCartItems.do",
+                    ADD_API: _host_url + "cart/addCartItem.htm?itemId={itemId}&skuId={skuId}&quantity={quantity}&proId={proId}&devisionCode={devisionCode}&serverId={serverId}&tsid={tsid}&umpkey={umpkey}&_tb_token_={_tb_token_}",
+                    ADDCOMBO_API: _host_url + "cart/addCombo.htm",
+                    UPDATE_API: _host_url + "cart/mini/updateMiniCart.htm?cartId={cartId}&quantity={quantity}&{tkKey}={tkVal}",
+                    REMOVE_API: _host_url + "cart/mini/delMiniCart.htm?cartId=",
+                    ASSETS_PATH: _url_unknown2 + "p/mall/TMiniCart/",
+                    SSS_PATH: _url_unknown1 + "sss.htm"
+                },
+                K,
+                N;
             var V = (TB && TB.Global && TB.Global.setCartNum) ? TB.Global.setCartNum : function () {
             };
             var R = function (S) {
@@ -28,76 +47,76 @@
                     }
                 }
             };
-            function M(S) {
-                L = _kissy_imp2.mix(L, S);
+            function TMiniCartModel(_opts) {
+                _options = _kissy_imp2.mix(_options, _opts);
                 this.cartNum = 0
             }
-            _kissy_imp2.augment(M, _kissy_imp2.EventTarget, { init: function () {
-                var S = this;
-                var Y = setTimeout(function () {
-                    S.fire("loginInit", { isLogin: false })
+            _kissy_imp2.augment(TMiniCartModel, _kissy_imp2.EventTarget, { init: function () {
+                var _tMiniCartModel = this;
+                var _timeout_fn_loginInit = setTimeout(function () {
+                    _tMiniCartModel.fire("loginInit", { isLogin: false })
                 }, 5000);
-                var Z = setTimeout(function () {
-                    S.fire("numInit", { num: -1 })
+                var _timeout_fn_numInit = setTimeout(function () {
+                    _tMiniCartModel.fire("numInit", { num: -1 })
                 }, 8000);
-                TB.Global.loginStatusReady(function (a) {
-                    var b = a.isLogin || false;
-                    clearTimeout(Y);
-                    S.fire("loginInit", { isLogin: b });
-                    TB.Global.memberInfoReady(function (c) {
-                        clearTimeout(Z);
-                        var e = c.memberInfo;
+                TB.Global.loginStatusReady(function (_user_info) {
+                    var _is_login = _user_info.isLogin || false;
+                    clearTimeout(_timeout_fn_loginInit);
+                    _tMiniCartModel.fire("loginInit", { isLogin: _is_login });
+                    TB.Global.memberInfoReady(function (_user_info) {
+                        clearTimeout(_timeout_fn_numInit);
+                        var _memberinfo = _user_info.memberInfo;
                         var d;
-                        b = e.login || false;
-                        if (b) {
-                            d = (e.cookies && e.cookies.unb) ? e.cookies.unb.value : ""
+                        _is_login = _memberinfo.login || false;
+                        if (_is_login) {
+                            d = (_memberinfo.cookies && _memberinfo.cookies.unb) ? _memberinfo.cookies.unb.value : ""
                         }
-                        d = d || c.trackId;
+                        d = d || _user_info.trackId;
                         if (d) {
                             N = d
                         }
-                        S.loadNum(function (f) {
-                            S.fire("numInit", { num: f, isLogin: b })
+                        _tMiniCartModel.loadNum(function (f) {
+                            _tMiniCartModel.fire("numInit", { num: f, isLogin: _is_login })
                         })
                     })
                 })
             }, loadNum: function (Y) {
-                var S = this;
-                H(L.Query_Num.replace("{uid}", N), { success: function (a) {
+                var _tMiniCartModel = this;
+                H(_options.Query_Num.replace("{uid}", N), { success: function (a) {
                     var Z = R(a["TCART_234_" + N + "_q"]);
-                    S.cartNum = Z;
+                    _tMiniCartModel.cartNum = Z;
                     V(Z);
-                    Y.call(S, Z)
+                    Y.call(_tMiniCartModel, Z)
                 }, error: function () {
-                    S.cartNum = -1;
+                    _tMiniCartModel.cartNum = -1;
                     V(-1);
-                    Y.call(S, -1)
+                    Y.call(_tMiniCartModel, -1)
                 } 
                 })
             }, load: function (Y) {
-                var S = this;
-                H(L.LOAD_API, { success: function (Z) {
+                var _tMiniCartModel = this;
+                H(_options.LOAD_API, { success: function (Z) {
                     U(Z);
                     if (Y) {
-                        Y.call(S, Z)
+                        Y.call(_tMiniCartModel, Z)
                     }
                     if (Z.status) {
                         K = Z
                     }
-                    S.cartNum = R(Z.cartnum);
-                    V(S.cartNum)
+                    _tMiniCartModel.cartNum = R(Z.cartnum);
+                    V(_tMiniCartModel.cartNum)
                 }, error: function () {
                     if (Y) {
-                        Y.call(S, { status: false, errType: "trailCartDegr" })
+                        Y.call(_tMiniCartModel, { status: false, errType: "trailCartDegr" })
                     }
                 } 
                 })
             }, sss: function (S) {
                 if (_kissy_imp2.isPlainObject(S) && S.quantity) {
-                    new Image().src = L.SSS_PATH + "?quantity=" + S.quantity + "&tk=" + S.token + "&" + _kissy_imp2.now()
+                    new Image().src = _options.SSS_PATH + "?quantity=" + S.quantity + "&tk=" + S.token + "&" + _kissy_imp2.now()
                 }
             }, commonAdd: function (a, b) {
-                var Y = this;
+                var _tMiniCartModel = this;
                 var S = 0;
                 if ("string" === typeof a.add) {
                     a.ify = 1
@@ -108,98 +127,98 @@
                     if (T) {
                         a._tb_token_ = T
                     }
-                    H(L.COMMONADD_API + "?" + _kissy_imp2.param(a) + (S > 0 ? ("&retry=" + S) : ""), { success: function (c) {
+                    H(_options.COMMONADD_API + "?" + _kissy_imp2.param(a) + (S > 0 ? ("&retry=" + S) : ""), { success: function (c) {
                         if ("CsrfCheckFail" === c.errorCode && c.tk && S < 1) {
                             S++;
                             T = c.tk;
                             return Z()
                         }
-                        b.call(Y, c);
+                        b.call(_tMiniCartModel, c);
                         if (c.success) {
-                            Y.sss(_kissy_imp2.JSON.parse(c.sss));
-                            Y.fire("addSuccess", { repeat: c.repeat || false, cartnum: c.cartNum });
+                            _tMiniCartModel.sss(_kissy_imp2.JSON.parse(c.sss));
+                            _tMiniCartModel.fire("addSuccess", { repeat: c.repeat || false, cartnum: c.cartNum });
                             if (c.cartNum) {
-                                Y.cartNum = R(c.cartNum);
-                                V(Y.cartNum)
+                                _tMiniCartModel.cartNum = R(c.cartNum);
+                                V(_tMiniCartModel.cartNum)
                             }
                         }
                     }, error: function () {
-                        b.call(Y, { error: "服务器响应超时" })
+                        b.call(_tMiniCartModel, { error: "服务器响应超时" })
                     } 
                     })
                 };
                 Z()
             }, add: function (a, c) {
-                var Y = this, b = { itemId: a.itemId, skuId: a.skuId || "", quantity: a.quantity || 1, proId: a.proId || "", devisionCode: a.devisionCode || "", serverId: a.serverId || "", tsid: a.tsid || "", umpkey: a.umpkey || "", _tb_token_: a._tb_token_ || "notoken" };
+                var _tMiniCartModel = this, b = { itemId: a.itemId, skuId: a.skuId || "", quantity: a.quantity || 1, proId: a.proId || "", devisionCode: a.devisionCode || "", serverId: a.serverId || "", tsid: a.tsid || "", umpkey: a.umpkey || "", _tb_token_: a._tb_token_ || "notoken" };
                 var S = 0;
                 var Z = function () {
                     if (T) {
                         b._tb_token_ = T
                     }
-                    H(_kissy_imp2.substitute(L.ADD_API, b) + (S > 0 ? ("&retry=" + S) : ""), { success: function (d) {
+                    H(_kissy_imp2.substitute(_options.ADD_API, b) + (S > 0 ? ("&retry=" + S) : ""), { success: function (d) {
                         if ("CsrfCheckFail" === d.errorCode && d.tk && S < 1) {
                             S++;
                             T = d.tk;
                             return Z()
                         }
-                        c.call(Y, d);
+                        c.call(_tMiniCartModel, d);
                         if (!d.error) {
-                            Y.sss(d.sss);
-                            Y.fire("addSuccess", { repeat: d.repeat || false, cartnum: d.cartnum });
+                            _tMiniCartModel.sss(d.sss);
+                            _tMiniCartModel.fire("addSuccess", { repeat: d.repeat || false, cartnum: d.cartnum });
                             if (d.cartnum) {
-                                Y.cartNum = R(d.cartnum);
-                                V(Y.cartNum)
+                                _tMiniCartModel.cartNum = R(d.cartnum);
+                                V(_tMiniCartModel.cartNum)
                             }
                         }
                     }, error: function () {
-                        c.call(Y, { error: "系统繁忙，请稍后再试" })
+                        c.call(_tMiniCartModel, { error: "系统繁忙，请稍后再试" })
                     } 
                     })
                 };
                 Z()
             }, addCombo: function (a, b) {
-                var Y = this;
+                var _tMiniCartModel = this;
                 var S = 0;
                 var Z = function () {
                     if (T) {
                         a._tb_token_ = T
                     }
-                    H(L.ADDCOMBO_API + "?" + _kissy_imp2.param(a) + (S > 0 ? ("&retry=" + S) : ""), { success: function (c) {
+                    H(_options.ADDCOMBO_API + "?" + _kissy_imp2.param(a) + (S > 0 ? ("&retry=" + S) : ""), { success: function (c) {
                         if ("CsrfCheckFail" === c.errorCode && c.tk && S < 1) {
                             S++;
                             T = c.tk;
                             return Z()
                         }
-                        b.call(Y, c);
+                        b.call(_tMiniCartModel, c);
                         if (c.success) {
-                            Y.sss(c.sss);
-                            Y.fire("addSuccess", { repeat: c.repeat || false, cartnum: c.cartnum });
+                            _tMiniCartModel.sss(c.sss);
+                            _tMiniCartModel.fire("addSuccess", { repeat: c.repeat || false, cartnum: c.cartnum });
                             if (c.cartnum) {
-                                Y.cartNum = R(c.cartnum);
-                                V(Y.cartNum)
+                                _tMiniCartModel.cartNum = R(c.cartnum);
+                                V(_tMiniCartModel.cartNum)
                             }
                         }
                     }, error: function () {
-                        b.call(Y, { error: "\u670d\u52a1\u5668\u54cd\u5e94\u8d85\u65f6" })
+                        b.call(_tMiniCartModel, { error: "\u670d\u52a1\u5668\u54cd\u5e94\u8d85\u65f6" })
                     } 
                     })
                 };
                 Z()
             }, update: function (Z, a) {
-                var S = this, Y = { cartId: Z.cartId, quantity: Z.quantity, tkKey: Z.tk[0] || "now", tkVal: Z.tk[1] || _kissy_imp2.now() };
-                H(_kissy_imp2.substitute(L.UPDATE_API, Y), function (b) {
+                var _tMiniCartModel = this, Y = { cartId: Z.cartId, quantity: Z.quantity, tkKey: Z.tk[0] || "now", tkVal: Z.tk[1] || _kissy_imp2.now() };
+                H(_kissy_imp2.substitute(_options.UPDATE_API, Y), function (b) {
                     U(b);
-                    a.call(S, b)
+                    a.call(_tMiniCartModel, b)
                 })
             }, remove: function (a, Z, b) {
-                var Y = this, S = {};
-                S = { url: L.REMOVE_API + a.join(","), data: {}, dataType: "jsonp", success: function (c) {
+                var _tMiniCartModel = this, S = {};
+                S = { url: _options.REMOVE_API + a.join(","), data: {}, dataType: "jsonp", success: function (c) {
                     U(c);
-                    Y.sss(c.sss);
-                    Y.cartNum = Math.max(0, Y.cartNum - a.length);
-                    c.cartnum = Y.cartNum;
-                    V(Y.cartNum);
-                    b.call(Y, c)
+                    _tMiniCartModel.sss(c.sss);
+                    _tMiniCartModel.cartNum = Math.max(0, _tMiniCartModel.cartNum - a.length);
+                    c.cartnum = _tMiniCartModel.cartNum;
+                    V(_tMiniCartModel.cartNum);
+                    b.call(_tMiniCartModel, c)
                 } 
                 };
                 if (Z) {
@@ -208,8 +227,8 @@
                 _kissy_imp2.io(S)
             } 
             });
-            _kissy_imp2.TMiniCartModel = M;
-            return M
+            _kissy_imp2.TMiniCartModel = TMiniCartModel;
+            return TMiniCartModel
         });
         KISSY.add("TMiniCartView", function (w) {
             var AG = w.DOM, n = w.Event, y = w.Cookie, a, AH = window, e = document, T, AS = w.Node, Af = KISSY.UA.ie, l = (Af == 6 ? true : false), AC, u = location.hostname.indexOf(".net") > -1, Ak = u ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/", AQ = Ak + "cart/myCart.htm", AT = u ? "{app}.daily.tmall.net" : "{app}.tmall.com", d = u ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/", AJ = d + "my_cart.htm", AE = u ? "http://buy.daily.tmall.net/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8" : "http://buy.tmall.com/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8", AR = AG.viewportHeight(e), W, Ac, J, r, P, AK, t, Aa, AU, j, U, AP, AW, k, Ad, z, AN, Z = false, Al = false, Aj = false, b = 62, Y = 283, AZ = false, O, AF, AO, Q, AA;
