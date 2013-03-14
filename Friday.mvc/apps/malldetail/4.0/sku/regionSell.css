@@ -1,0 +1,38 @@
+﻿.RS_cityList{margin:0;border-top:#CCC solid 1px;padding-top:5px;}
+.RS_selectCity{padding:10px 10px 0 10px;background:none repeat scroll 0 0 #FFF;border:1px solid #CCC;}
+.RS_selectCityList{display:block;padding-bottom:10px;zoom:1;}
+.RS_selectCityList:after,.RS_selectCityList li:after{content:"\0020";clear:both;height:1%;display:block;}
+.RS_selectCityList li{display:block;float:left;width:46px;zoom:1;}
+.RS_selectCityList .noPost span{color:#CCC;}
+#J_regionSellServer{color:#333;}
+#J_regionSellServer .money{display:inline-block;color:#333;margin-left:5px;background:url("http://img01.taobaocdn.com/tps/i1/T1ruHKXk4sXXblTazb-8-10.png") no-repeat 0 50%;text-indent:7px;}
+#J_regionSellServer .mjzs{background:#fff;text-indent:0;}
+#J_regionSellServer .shucu{background:#fff;text-indent:0;padding-right:5px;margin-right:-6px;color:#9b0402;background-color:#f6ccce;}
+.RS_selectCityList li span{display:block;background:#FFF;color:#666;float:left;padding:3px;font-size:12px;cursor:default;}
+.RS_selectCityList li span{cursor:pointer;color:#06c;}
+.RS_selectCityList .selected span,.RS_selectCityList .hover span{background:#06c;color:#fff;}
+.RS_selectCitymore{border-bottom:#ccc solid 1px;padding-bottom:10px;}
+.RS_cityList li{width:auto;_display:inline;_float:none;}
+.RS_cityList li span{_display:inline;*white-space:nowrap;}
+.moreService{background:url("http://img04.taobaocdn.com/tps/i4/T1kGGvXaBuXXXXXXXX-7-70.jpg") no-repeat scroll 50px 6px transparent;padding-right:10px;}
+.show{background-position:50px 115%;}
+.RS_selectCity .close{display:block;position:absolute;background:url("http://img03.taobaocdn.com/tps/i3/T1yqGvXfXtXXXXXXXX-9-10.jpg") no-repeat 0 0;width:9px;height:10px;left:285px;cursor:pointer;}
+.serviceList a span{display:inline-block;_line-height:20px;_height:20px;color:#333;cursor:pointer;}
+.serviceList a .serviceIcon{cursor:pointer;display:inline-block;height:14px;width:14px;margin-right:5px;position:relative;top:3px;*top:-1px;_top:0;}
+#detail .tb-join-service span a{width:auto;}
+#detail .tb-meta span#J_SSLIcon{width:auto;}
+#J_freeService{_margin-bottom:5px;}
+#friInfo{width:200px;}
+#J_regionSellServer li{zoom:1;*margin-top:5px;*margin-bottom:5px;_margin:0 4px 4px 0;}
+.citySelector{border:solid 1px #000;position:relative;background:#fff;width:300px;padding:5px 0 5px 5px;border:1px solid #ccc;}
+.cityList{margin-bottom:5px;}
+.cityList li{float:left;cursor:pointer;width:50px;}
+.cityList li a{color:#06c;display:block;padding:5px;float:left;white-space:nowrap;}
+.cityList a:hover,.cityList .select{background:#06c;display:block;color:#fff;text-decoration:none;}
+.cityList .blackCity:hover{background:none;}
+.cityList .blackCity,.cityList .blackCity:hover{color:#ccc;}
+.citySelector b{font-size:12px;color:#ccc;position:absolute;right:5px;cursor:pointer;}
+.J_City li{width:auto;}
+.tmallPost .error{color:red;}
+#detail .tb-property .tb-wrap .tb-detail-price strong{background-position:-177px -252px\0;}
+.serviceList{line-height:1px;}

@@ -124,7 +124,9 @@
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\DetailController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
@@ -1384,6 +1386,7 @@
     <Content Include="apps\mods\login\safemode.js" />
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\tmallbuy\razer\mini\core.js" />
     <Content Include="apps\tmall\common\bottombar.js" />
     <Content Include="apps\tmall\common\tbuser.js" />
     <Content Include="apps\tmall\common\tgallery.js" />
@@ -1406,6 +1409,8 @@
     <Content Include="apps\tmall\fp\2012\mods\floor.js" />
     <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
     <Content Include="apps\tmall\fp\2012\util\util.js" />
+    <Content Include="apps\tmall\header\shop\common.css" />
+    <Content Include="apps\tmall\header\shop\header.css" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
     <Content Include="comet.htm" />
@@ -2528,8 +2533,11 @@
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Message\Views\Web.config" />
     <Content Include="Areas\Merchant\Views\Search\Index.cshtml" />
+    <Content Include="Areas\Merchant\Views\Detail\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
+    <Content Include="Views\Shared\_Header2.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
