@@ -1349,7 +1349,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="apps\department\brand\2.0\mods\collect.js" />
     <Content Include="apps\department\brand\2.0\core.js" />
-    <Content Include="apps\department\brand\2.0\dialog.js" />
+    <Content Include="apps\department\brand\2.0\mods\dialog.js" />
     <Content Include="apps\department\brand\2.0\fav.js" />
     <Content Include="apps\department\brand\2.0\mods\item.js" />
     <Content Include="apps\department\common\brandbar-fly.js" />
@@ -1393,6 +1393,7 @@
     <Content Include="apps\tmall\fp\2012\util\util.js" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
     <Content Include="comet.htm" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
