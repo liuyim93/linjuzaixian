@@ -24,7 +24,8 @@ namespace Friday.mvc.weblogin.log
         protected string endDate;
         protected string type;
         protected string content;
-        protected string categoryName;
+        //2013-03-15 basilwang 不明确的匹配
+        //protected string categoryName;
         protected string title;
 
         ILogService iLogService = UnityHelper.UnityToT<ILogService>();
@@ -52,7 +53,7 @@ namespace Friday.mvc.weblogin.log
                         categoryList.Add(new DataFilter()
                         {
                             type = "CategoryID",
-                            value = categoryName = Request.Params["CategoryName"]
+                            value  = Request.Params["CategoryName"]
                         });
                         categoryOfLogList.Add(new DataFilter()
                         {
