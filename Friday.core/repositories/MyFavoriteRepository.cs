@@ -20,12 +20,20 @@ namespace friday.core.repositories
             get { return Session.CreateCriteria(typeof(MyFavorite)); }
         }
 
-        public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser)
+        public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, int start, int limit, out int total)
         {
-            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).ToList();
+            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).Skip(start).Take(limit).ToList();
+
+            total = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).Count();
             return s;
         }
 
+        public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser)
+        {
+            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).ToList();
+
+            return s;
+        }
         //对外获取方法
         public IList<MyFavorite> Search(List<DataFilter> termList)
         {

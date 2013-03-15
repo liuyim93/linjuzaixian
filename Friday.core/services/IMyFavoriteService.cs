@@ -10,6 +10,7 @@ namespace friday.core.services
     public interface IMyFavoriteService
     {
         MyFavorite Load(string id);
+        IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, int start, int limit, out int total);
         IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser);
         void Save(MyFavorite myFavorite);
         void Update(MyFavorite myFavorite);

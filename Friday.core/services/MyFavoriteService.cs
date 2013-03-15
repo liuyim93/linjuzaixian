@@ -19,6 +19,11 @@ namespace friday.core.services
             this.iLogger = iLogger;
         }
 
+        public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, int start, int limit, out int total)
+        {
+            return iMyFavoriteRepository.GetMyFavoriteBySystemUser(systemUser, start, limit, out total);
+        }
+
         public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser)
         {
             return iMyFavoriteRepository.GetMyFavoriteBySystemUser(systemUser);
