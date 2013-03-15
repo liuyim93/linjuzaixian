@@ -22,7 +22,7 @@ namespace friday.core.repositories
 
         public IList<Food> GetFoodByRestaurantIDOrderByMonthAmountDesc(string restaurantID)
         {
-            var s = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID).OrderByDescending(o => o.MonthAmount).ToList();
+            var s = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID).OrderByDescending(o => o.MonthAmount).Take(12).ToList();
             return s;
         }
         public IList<Food> GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string restaurantID, string merchantGoodTypeID, int start, int limit, out int total)

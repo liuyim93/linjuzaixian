@@ -22,7 +22,7 @@ namespace friday.core.repositories
 
         public IList<House> GetHouseByRentIDOrderByMonthAmountDesc(string rentID)
         {
-            var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID).OrderByDescending(o => o.MonthAmount).ToList();
+            var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID).OrderByDescending(o => o.MonthAmount).Take(12).ToList();
             return s;
         }
         public IList<House> GetHouseByRentIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string rentID, string merchantGoodTypeID, int start, int limit, out int total)

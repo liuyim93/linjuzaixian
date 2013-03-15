@@ -48,6 +48,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult DelFromFav(string brandId, string _tb_token_, string callback)
         {
+            iMyFavoriteService.Delete(brandId);
+
             string isSucceed = "T";
             string script = callback + "({\"is_success\":\"" + isSucceed + "\"})";
 
@@ -68,8 +70,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
-        public ActionResult myBrandsIndex()
+        public ActionResult myBrandsIndex(string page)
         {
+            int currentPage = page == "" ? 1 : Convert.ToInt16(page);
+            int pageNum;
+
             MyBrandsIndexModel myBrandsIndexModel = new MyBrandsIndexModel();
             //如果用户已经登录则准备收藏数据
             if (this.HttpContext.User.Identity.IsAuthenticated == true)

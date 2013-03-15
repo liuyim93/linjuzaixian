@@ -36,5 +36,7 @@ namespace Friday.mvc.Models
         public IList<Food>[] Foods { get; set; }
         public IList<House>[] Houses { get; set; }
         public IList<Commodity>[] Commoditys { get; set; }
+        public int currenPage { get; set; }
+        public int pageNum { get; set; }
     }
 }

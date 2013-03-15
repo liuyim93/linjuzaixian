@@ -22,7 +22,7 @@ namespace friday.core.repositories
 
         public IList<Commodity> GetCommodityByShopIDOrderByMonthAmountDesc(string shopID)
         {
-            var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID).OrderByDescending(o=>o.MonthAmount).ToList();
+            var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID).OrderByDescending(o=>o.MonthAmount).Take(12).ToList();
             return s;
         }
         public IList<Commodity> GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string shopID, string merchantGoodTypeID, int start, int limit, out int total)
