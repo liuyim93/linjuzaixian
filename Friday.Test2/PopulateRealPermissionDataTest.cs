@@ -569,7 +569,7 @@ namespace Friday.Test2
                 ColIndex = 2
             };
             iSystemMenuRepository.SaveOrUpdate(rentEdit);
-            adminMenuCheckList.Add(rentEdit);
+            //adminMenuCheckList.Add(rentEdit);
             rentOwnerMenuCheckList.Add(rentEdit);
 
             //SystemMenu houseOrderDetail = new SystemMenu()
