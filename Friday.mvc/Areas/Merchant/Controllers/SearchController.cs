@@ -26,6 +26,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             SearchModel searchModel = new SearchModel();
             IList<Shop> shoplist = this.iShopService.GetAll();
             Shop shop = this.iShopService.SearchByShortName("银座");
+
             IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(shop.Id);
             searchModel.SingleShop = shop;
             searchModel.Commoditys= myCommodities;
