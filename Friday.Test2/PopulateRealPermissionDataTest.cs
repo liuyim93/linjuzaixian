@@ -2594,7 +2594,7 @@ namespace Friday.Test2
                Rate = 0.8,
                ShopStatus = ShopStatusEnum.营业时间,
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
-               MerchantType = MerchantTypeEnum.租房
+               MerchantType = MerchantTypeEnum.百货
            };
            MerchantGoodsType shopCommodityTye_12 = new MerchantGoodsType() { Merchant = shop2, GoodsType = "金制品" };
            MerchantGoodsType shopCommodityTye_22 = new MerchantGoodsType() { Merchant = shop2, GoodsType = "茶叶" };

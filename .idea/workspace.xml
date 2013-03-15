@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="DELETED" beforePath="E:\Projects\Friday\Friday\Friday.mvc\Areas\Merchant\Views\Search\Search.cshtml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.core/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.core/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.Test2/App.config" afterPath="$PROJECT_DIR$/Friday.Test2/App.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Search/Index.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Search/Index.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/SearchController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/SearchController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/SearchModel.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/SearchModel.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Web.config" afterPath="$PROJECT_DIR$/Friday.mvc/Web.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
