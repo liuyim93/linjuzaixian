@@ -25,6 +25,11 @@ background-repeat:repeat-x;
 </head>
 <body>
     @Html.Partial("_SiteNav")
+
+               @if (Model.SingleShop != null)
+             {
+                 var m = Model.SingleShop;
+
     <div id="header">
         <!-- flash logo -->
         <div id="headerCon">
@@ -69,7 +74,7 @@ background-repeat:repeat-x;
                     <div id="shop-info">
                         <div class="main-info">
                             <h3 class="shop-title">
-                                <a target="_blank" href="http://nike.tmall.com/">NIKE官方旗舰店</a>
+                                <a target="_blank" href="http://nike.tmall.com/">@m.Name 官方旗舰店</a>
                             </h3>
                             <p class="shop-status">
                                 <a class="i" target="_blank" href="http://www.tmall.com/go/chn/mall2010/promise.php#PPZX">
@@ -106,7 +111,7 @@ background-repeat:repeat-x;
                                         <li class="shopkeeper">
                                             <label>
                                                 掌 柜：</label>
-                                            <a href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm">nike官方旗舰店</a>
+                                            <a href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm">@m.Name 官方旗舰店</a>
                                         </li>
                                         <li>
                                             <label>
@@ -119,12 +124,12 @@ background-repeat:repeat-x;
                                             <label>
                                                 公 司 名：
                                             </label>
-                                            上海宝尊电子商务有限公司 </li>
+                                            @m.Name </li>
                                         <li class="locus">
                                             <label>
                                                 所 在 地：
                                             </label>
-                                            上海 </li>
+                                            @m.Address </li>
                                     </ul>
                                 </div>
                                 <div class="other">
@@ -143,9 +148,7 @@ background-repeat:repeat-x;
             </div>
         </div>
     </div>
-            @if (Model.SingleShop != null)
-             {
-                 var m = Model.SingleShop;
+ 
 
     <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
      
