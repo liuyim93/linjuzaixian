@@ -72,15 +72,22 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult myBrandsIndex(string page)
         {
-            int currentPage = page == "" ? 1 : Convert.ToInt16(page);
-            int pageNum;
+            int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
+            int numPerPageValue = 10;
+            int total;
+
+            int start = (currentPage - 1) * numPerPageValue;
+            int limit = numPerPageValue;
 
             MyBrandsIndexModel myBrandsIndexModel = new MyBrandsIndexModel();
             //如果用户已经登录则准备收藏数据
             if (this.HttpContext.User.Identity.IsAuthenticated == true)
             {
                 SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
-                IList<MyFavorite> myFavorites = this.iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser);
+                //int start, int limit, out long total
+                IList<MyFavorite> myFavorites = this.iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser, start, limit,out total);
+                myBrandsIndexModel.currenPage = currentPage;
+                myBrandsIndexModel.pageNum = total / numPerPageValue + 1;
 
                 int merchantIndex = 0;
                 int foodIndex = 0;
