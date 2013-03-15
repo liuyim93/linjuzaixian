@@ -274,11 +274,16 @@ background-repeat:repeat-x;
                                                     title="展开或者收缩" role="tab" aria-expanded="true" aria-selected="true" aria-controls="ks-accordion-tab-panel661"
                                                     tabindex="0"></i>
                                             </div>
-                                            <form action="http://nike.tmall.com/search.htm" id="shop-search-list" method="get">
+                                           @* <form action="http://nike.tmall.com/search.htm" id="shop-search-list" method="get">*@
+                                            <form action="http://localhost:7525/merchant/search" id="shop-search-list" method="get">
+                                          
                                             <div class="shop-search">
                                                 <div class="search-form">
-                                                    <ul>
-                                                        <input type="hidden" id="J_ShopSearchFormUrl" data-info="http://nike.tmall.com/search.htm?search=y&amp;viewType=grid&amp;orderType=_newOn&amp;orderType=_newOn">
+                                                    <ul>  @*  <input type="hidden" id="J_ShopSearchFormUrl" data-info="http://nike.tmall.com/search.htm?search=y&amp;viewType=grid&amp;orderType=_newOn&amp;orderType=_newOn">
+                                                      *@ 
+                                                    
+                                                      <input type="hidden" id="J_ShopSearchFormUrl" data-info="http://localhost:7525/merchant/search?viewType=grid&keyword=wre&price1=22&price2=33&baoBeiType=1003&viewType=grid&orderType=_hotsell">
+                                                      
                                                         <input type="hidden" name="orderType" value="_newOn">
                                                         <input type="hidden" name="viewType" value="grid">
                                                         <input id="baobei_type" type="hidden" name="baobei_type" value="">
