@@ -16,5 +16,6 @@ namespace friday.core.services
         Shop SearchByShortName(string name);
         IList<Shop> Search(List<DataFilter> termList);
         IList<Shop> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<Shop> GetAll();
     }
 }

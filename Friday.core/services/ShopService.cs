@@ -55,5 +55,11 @@ namespace friday.core.services
         {
             return iShopRepository.Search(termList, start, limit, out total);
         }
+        public IList<Shop> GetAll()
+        {
+            return iShopRepository.GetAll();
+        }
+
+
     }
 }

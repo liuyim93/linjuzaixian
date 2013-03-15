@@ -16,22 +16,9 @@ namespace Friday.mvc.Models
             SingleRestaurant = new Restaurant();
             SingleRent = new Rent();
             SingleShop = new Shop();
-            Foods = new IList<Food>[10];
-            Houses = new IList<House>[10];
-            Commoditys = new IList<Commodity>[10];
-
-            for (int i = 0; i < this.Foods.Length; i++)
-            {
-                Foods[i] = new List<Food>();
-            }
-            for (int i = 0; i < this.Houses.Length; i++)
-            {
-                Houses[i] = new List<House>();
-            }
-            for (int i = 0; i < this.Commoditys.Length; i++)
-            {
-                Commoditys[i] = new List<Commodity>();
-            }
+            IList<Food> Foods = new List<Food>();
+            IList<House> Houses = new List<House>();
+            IList<Commodity> Commoditys = new List<Commodity>();
         }
 
         public Merchant SingleMerchant { get; set; }
@@ -39,8 +26,9 @@ namespace Friday.mvc.Models
         public Rent SingleRent { get; set; }
         public Shop SingleShop { get; set; }
 
-        public IList<Food>[] Foods { get; set; }
-        public IList<House>[] Houses { get; set; }
-        public IList<Commodity>[] Commoditys { get; set; }
+        public IList<Food> Foods { get; set; }
+        public IList<House> Houses { get; set; }
+        public IList<Commodity> Commoditys { get; set; }
+     
     }
 }

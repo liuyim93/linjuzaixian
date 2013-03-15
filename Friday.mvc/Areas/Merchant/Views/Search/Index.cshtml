@@ -144,16 +144,8 @@ background-repeat:repeat-x;
         </div>
     </div>
 
-          @if (Model.SingleMerchant != null && Model.SingleMerchant.MerchantType==friday.core.EnumType.MerchantTypeEnum.百货)
-          {
-              var foodIndex = 0;
-              var houseIndex = 0;
-              var commodityIndex = 0;
-
-            var m=Model.SingleMerchant;
-        
-
-           
+     
+ 
     <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
         <p class="design-page hidden" id="J_DesignPage">
             <a href="http://design.taobao.com/design.htm?pageId=256494988&amp;siteId=2&amp;sid=71955116&amp;curr_tab=0"
@@ -321,9 +313,17 @@ background-repeat:repeat-x;
                                         </div>
                                         <ul class="shop-list">
 
-                       @for (var index = 0; index < Model.Commoditys[commodityIndex].Count(); index++)
-                        {
-                            var item = Model.Commoditys[commodityIndex].ElementAt(index);
+           @if (Model.SingleMerchant != null)
+           {
+               var foodIndex = 0;
+               var houseIndex = 0;
+               var commodityIndex = 0;
+               //Model.SingleMerchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货
+               var m = Model.SingleMerchant;
+
+                       for (var index = 0; index < Model.Commoditys.Count(); index++)
+                       {
+                           var item = Model.Commoditys.ElementAt(index);
                                             <li>
                                                 <div class="item">
                                                     <div class="pic">
@@ -350,9 +350,10 @@ background-repeat:repeat-x;
                                                 </div>
                                             </li>
 
-                          }
-
-                                        </ul>
+                       }
+               }
+                                                        </ul>
+           
                                         <div class="pagination">
                                             <a class="disable">上一页</a> <a class="page-cur">1</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
                                                 2</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=3#anchor">
@@ -394,6 +395,7 @@ background-repeat:repeat-x;
                         <!--ShopsystemSearchEnd-->
                     </div>
                 </div>
+      
                 <div class="col-sub J_TRegion">
                     <!-- module-cache-info: module: shop.shopArchive:1.0-b2c,moduleId=7149738464, key: user-890482188-prototype-13-20121207 cacheArea: 208 cachedTime: 2013-03-14 15:03:33 aliveTime: 28800 AppIP:172.24.3.145 -->
                     <!--商家信息 到 进入店铺-->
@@ -419,7 +421,7 @@ background-repeat:repeat-x;
                                 </div>
                                 <div class="shop-intro">
                                     <div class="name">
-                                        <span>@m.Name 官方旗舰店</span>
+                                        <span> 官方旗舰店</span>
                                     </div>
                                     <div class="shop-rate">
                                         <h4>
@@ -442,16 +444,16 @@ background-repeat:repeat-x;
                                             <li>
                                                 <label>
                                                     公 司 名：</label>
-                                                @m.Name </li>
+                                                 </li>
                                             <li class="locus">
                                                 <label>
                                                     所 在 地：</label>
-                                                @m.Address </li>
+                                                 </li>
                                             <li class="shopkeeper">
                                                 <label>
                                                     商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
                                                 <a href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496--receivedOrPosted|0--buyerOrSeller|1.htm">
-                                                    @m.Name</a> </li>
+                                                    </a> </li>
                                             <li>
                                                 <label>
                                                     客&nbsp;&nbsp;&nbsp;&nbsp;服：</label>
@@ -1614,10 +1616,11 @@ background-repeat:repeat-x;
                 </div>
             </div>
         </div>
-    </div>
-      
-       }
-       
+       </div>
+   
+ 
+            
+           
             
     @Html.Partial("_Footer")
 </body>

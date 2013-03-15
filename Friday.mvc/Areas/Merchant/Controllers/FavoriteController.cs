@@ -126,6 +126,6 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
 
             return View(myBrandsIndexModel);
-        }
+        }       
     }
 }
