@@ -2,6 +2,7 @@
     Layout = null;
 }
 @using Friday.mvc.Models
+@model SearchModel
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,6 +14,14 @@
     <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/common.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
+    <style>        #header.thin #mall-logo{*margin-top:0;}        #mall-logo a:hover{background-position:0 -187px\0;}        #mall-logo a:hover img{_position:relative;_z-index:-1;}        #ensure dd{_clear:both;}	</style><style type="text/css">			#content {
+ background-repeat:repeat-x;
+}
+#hd {
+background-color:#000000;
+background-position:left 0;
+background-repeat:repeat-x;
+}				</style>
 </head>
 <body>
     @Html.Partial("_SiteNav")
@@ -134,6 +143,17 @@
             </div>
         </div>
     </div>
+
+          @if (Model.SingleMerchant != null && Model.SingleMerchant.MerchantType==friday.core.EnumType.MerchantTypeEnum.百货)
+          {
+              var foodIndex = 0;
+              var houseIndex = 0;
+              var commodityIndex = 0;
+
+            var m=Model.SingleMerchant;
+        
+
+           
     <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
         <p class="design-page hidden" id="J_DesignPage">
             <a href="http://design.taobao.com/design.htm?pageId=256494988&amp;siteId=2&amp;sid=71955116&amp;curr_tab=0"
@@ -198,6 +218,7 @@
                                     <span id="J_ShopSearchUserParams" data-info="&amp;upicSize=160x160"></span><span
                                         id="J_UserSearchParams" data-info="keyword=&amp;price1=&amp;price2=&amp;bannerPageTitle=分类宝贝">
                                     </span>
+                                    <!---搜索--->
                                     <div class="shop-hesper-hd J_TWidget" data-widget-config="{'triggerCls': 'trigger', 'panelCls': 'hesper-content','multiple': 'true', 'activeTriggerCls': 'collapse'}"
                                         data-widget-type="Accordion" aria-multiselectable="true">
                                         <div class="hesper-cats" id="J_HesperCats" role="tablist">
@@ -299,6 +320,10 @@
                                             </div>
                                         </div>
                                         <ul class="shop-list">
+
+                       @for (var index = 0; index < Model.Commoditys[commodityIndex].Count(); index++)
+                        {
+                            var item = Model.Commoditys[commodityIndex].ElementAt(index);
                                             <li>
                                                 <div class="item">
                                                     <div class="pic">
@@ -309,18 +334,13 @@
                                                     </div>
                                                     <div class="desc">
                                                         <a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS EXPLODED SPORTSWEAR BF 女子短袖针织衫484705 </a>
+                                                            style="">@m.Name 官方 @item.Name </a>
                                                     </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:199.0
-原价是：199.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>199.00</strong>
+                                                    <div class="price">                                                        
+                                                        <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
                                                     </div>
                                                     <div class="sales-amount">
-                                                        已销售：<em>14</em>件
+                                                        月销量：<em>@item.MonthAmount</em>件
                                                     </div>
                                                     <div class="rating">
                                                         <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
@@ -329,574 +349,9 @@ mm是：${mm}
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=16855094815&amp;" target="_blank">
-                                                            <img src="http://img01.taobaocdn.com/bao/uploaded/i1/12188020575187714/T1vHkKXmVcXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=16855094815&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 CLASSIC CORTEZ NYLON CH 女子运动鞋 555276 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:699.0
-原价是：699.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>699.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>30</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.86分"><i style="width: 4.86em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=16855094815&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有14人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=14803898575&amp;" target="_blank">
-                                                            <img src="http://img01.taobaocdn.com/bao/uploaded/i1/12188020354405690/T1JkXHXvJcXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=14803898575&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 NIKE FREE RUN+ 3 女子跑步鞋 510643 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:829.0
-原价是：829.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>829.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>280</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.89分"><i style="width: 4.89em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=14803898575&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有100人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=14841113328&amp;" target="_blank">
-                                                            <img src="http://img01.taobaocdn.com/bao/uploaded/i1/12188020035988837/T1GwFyXExeXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=14841113328&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AIR FORCE 1 '07 LE空军一号女子运动鞋315115 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:769.0
-原价是：769.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>769.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>180</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.92分"><i style="width: 4.92em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=14841113328&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有48人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=16992562816&amp;" target="_blank">
-                                                            <img src="http://img04.taobaocdn.com/bao/uploaded/i4/12188030734056066/T1MpkYXXXbXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=16992562816&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 NIKE BUCKET SLING 女子背包 BA4652 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:399.0
-原价是：399.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>399.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>1</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="0.0分"><i style="width: 0.0em"></i></span><span class="small">
-                                                            (已有0人评论)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=16400493567&amp;" target="_blank">
-                                                            <img src="http://img02.taobaocdn.com/bao/uploaded/i2/12188020386209777/T1tOJIXrFdXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=16400493567&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 CLASSIC CORTEZ NYLON 女子运动鞋 457226 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:699.0
-原价是：699.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>699.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>435</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.83分"><i style="width: 4.83em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=16400493567&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有243人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=22115020582&amp;" target="_blank">
-                                                            <img src="http://img01.taobaocdn.com/bao/uploaded/i1/12188030731004275/T1a7kVXbReXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=22115020582&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS NIKE SPORTSWEAR LS 女子针织套头衫 528877 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:329.0
-原价是：329.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>329.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>6</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22115020582&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有1人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=22114552589&amp;" target="_blank">
-                                                            <img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188030729188204/T1rAcWXi8bXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=22114552589&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS SPHERE FZ 女子梭织茄克 520333 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:999.0
-原价是：999.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>999.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>4</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22114552589&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有1人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=21295740495&amp;" target="_blank">
-                                                            <img src="http://img04.taobaocdn.com/bao/uploaded/i4/T1VVAhXnheXXXy1tc0_034611.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=21295740495&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS ELEMENT SHIELD 女子针织长裤 484420 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:649.0
-原价是：649.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>649.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>5</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=21295740495&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有2人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=22113940474&amp;" target="_blank">
-                                                            <img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188019278589493/T1VGIVXkJdXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=22113940474&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS BOMBER 女子梭织茄克 520337 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:699.0
-原价是：699.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>699.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>2</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22113940474&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有1人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=18607355811&amp;" target="_blank">
-                                                            <img src="http://img02.taobaocdn.com/bao/uploaded/i2/12188030780344156/T1y3QkXnVgXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=18607355811&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS MILER CREW 女子短袖针织衫 519830 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:229.0
-原价是：229.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>229.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>7</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=18607355811&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有4人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=22113600133&amp;" target="_blank">
-                                                            <img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188030724536247/T1.q.VXcddXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=22113600133&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AS MILER 女子长袖针织衫 519834 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:269.0
-原价是：269.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>269.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>5</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22113600133&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有1人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=17055154564&amp;" target="_blank">
-                                                            <img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188021413115881/T16INeXsJaXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=17055154564&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AIR MAX+ 2013 女子跑步鞋 555363 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:1469.0
-原价是：1469.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>1469.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>42</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.82分"><i style="width: 4.82em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=17055154564&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有17人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=15162525864&amp;" target="_blank">
-                                                            <img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188020392347322/T14kJJXERXXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=15162525864&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AIR MAX+ 2012 女子跑步鞋 487679 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:1029.03
-原价是：1469.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>1469.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>67</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.97分"><i style="width: 4.97em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=15162525864&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有35人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=22693168992&amp;" target="_blank">
-                                                            <img src="http://img01.taobaocdn.com/bao/uploaded/i1/12188019716174811/T1B7AVXoFeXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=22693168992&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 STANDALONE 传感器套件（中国地区）NA0017 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:129.0
-原价是：129.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>129.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>160</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.96分"><i style="width: 4.96em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=22693168992&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有48人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=22369128063&amp;" target="_blank">
-                                                            <img src="http://img01.taobaocdn.com/bao/uploaded/i1/12188019519437286/T1nhw7XbhhXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=22369128063&amp;" class="permalink"
-                                                            style="">Nike 耐克官方AS DROP BACK SPHERE FZ HOODY女子针织茄克 535521 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:799.0
-原价是：799.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>799.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>2</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="0.0分"><i style="width: 0.0em"></i></span><span class="small">
-                                                            (已有0人评论)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=17419354693&amp;" target="_blank">
-                                                            <img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188020392296876/T1178tXpliXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=17419354693&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 SWEET CLASSIC LEATHER CH 女子运动鞋 512077 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:579.0
-原价是：579.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>579.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>132</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=17419354693&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有27人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=20879096818&amp;" target="_blank">
-                                                            <img src="http://img04.taobaocdn.com/bao/uploaded/i4/12188019147658997/T16YcPXf0dXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=20879096818&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 ROSHE RUN 女式运动鞋 511882 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:649.0
-原价是：649.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>649.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>1437</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.72分"><i style="width: 4.72em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=20879096818&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有733人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=17124405607&amp;" target="_blank">
-                                                            <img src="http://img04.taobaocdn.com/bao/uploaded/i4/12188019483228809/T1n8w4XfJgXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=17124405607&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 AIR MAX FUSION WRM 女子训练鞋 555163 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:729.0
-原价是：729.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>729.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>2</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                            (<a target="_blank" href="http://detail.tmall.com/item.htm?id=17124405607&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有1人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="item">
-                                                    <div class="pic">
-                                                        <a href="http://detail.tmall.com/item.htm?id=16860333499&amp;" target="_blank">
-                                                            <img src="http://img02.taobaocdn.com/bao/uploaded/i2/12188020600247792/T1fK.wXhlgXXXXXXXX_!!0-item_pic.jpg_160x160.jpg"
-                                                                src2="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="desc">
-                                                        <a target="_blank" href="http://detail.tmall.com/item.htm?id=16860333499&amp;" class="permalink"
-                                                            style="">Nike 耐克官方 BLAZER MID PRINT 女子运动鞋 536698 </a>
-                                                    </div>
-                                                    <div class="price">
-                                                        <!--showDiscount是：false
-折扣价是:699.0
-原价是：699.0
-mm是：${mm}
--->
-                                                        <span>一口价 </span><s class="symbol">¥</s><strong>699.00</strong>
-                                                    </div>
-                                                    <div class="sales-amount">
-                                                        已销售：<em>68</em>件
-                                                    </div>
-                                                    <div class="rating">
-                                                        <span class="c-value-no" title="4.84分"><i style="width: 4.84em"></i></span><span
-                                                            class="small">(<a target="_blank" href="http://detail.tmall.com/item.htm?id=16860333499&amp;&amp;show_review=1#reviews"
-                                                                title="评论列表">已有31人评论</a>)</span>
-                                                    </div>
-                                                </div>
-                                            </li>
+
+                          }
+
                                         </ul>
                                         <div class="pagination">
                                             <a class="disable">上一页</a> <a class="page-cur">1</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
@@ -941,6 +396,7 @@ mm是：${mm}
                 </div>
                 <div class="col-sub J_TRegion">
                     <!-- module-cache-info: module: shop.shopArchive:1.0-b2c,moduleId=7149738464, key: user-890482188-prototype-13-20121207 cacheArea: 208 cachedTime: 2013-03-14 15:03:33 aliveTime: 28800 AppIP:172.24.3.145 -->
+                    <!--商家信息 到 进入店铺-->
                     <div class="box J_TBox tshop-psm tshop-psm-ssa10b" id="side-shop-info" data-spm="110.0.13-7149738464"
                         microscope-data="13-7149738464">
                         <div class="shop-basic">
@@ -963,7 +419,7 @@ mm是：${mm}
                                 </div>
                                 <div class="shop-intro">
                                     <div class="name">
-                                        <span>NIKE官方旗舰店</span>
+                                        <span>@m.Name 官方旗舰店</span>
                                     </div>
                                     <div class="shop-rate">
                                         <h4>
@@ -986,16 +442,16 @@ mm是：${mm}
                                             <li>
                                                 <label>
                                                     公 司 名：</label>
-                                                上海宝尊电子商务有限公司 </li>
+                                                @m.Name </li>
                                             <li class="locus">
                                                 <label>
                                                     所 在 地：</label>
-                                                上海 </li>
+                                                @m.Address </li>
                                             <li class="shopkeeper">
                                                 <label>
                                                     商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
                                                 <a href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496--receivedOrPosted|0--buyerOrSeller|1.htm">
-                                                    nike官方旗舰店</a> </li>
+                                                    @m.Name</a> </li>
                                             <li>
                                                 <label>
                                                     客&nbsp;&nbsp;&nbsp;&nbsp;服：</label>
@@ -1019,6 +475,7 @@ mm是：${mm}
                         </div>
                     </div>
                     <!-- module-cache-info: module: shop.selfDefining:1.0-common,moduleId=18103299901, key: module-18103299901-prototype-3-80 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
+                    <!--售后提示-->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-ssd10c" data-spm="110.0.3-18103299901"
                         microscope-data="3-18103299901">
                         <div class="shop-custom   no-border ">
@@ -1032,6 +489,7 @@ mm是：${mm}
                         </div>
                     </div>
                     <!-- module-cache-info: module: shop.selfDefining:1.0-common,moduleId=8875923060, key: module-8875923060-prototype-3-80 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
+                    <!--公告-->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-ssd10c" data-spm="110.0.3-8875923060"
                         microscope-data="3-8875923060">
                         <div class="shop-custom   no-border ">
@@ -1058,6 +516,7 @@ mm是：${mm}
                             </div>
                         </div>
                     </div>
+                    <!--搜索店内宝贝--->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-ssis10c" data-spm="110.0.7-7305587775"
                         microscope-data="7-7305587775">
                         <div class="shop-search">
@@ -1102,6 +561,7 @@ mm是：${mm}
                         </div>
                     </div>
                     <!-- module-cache-info: module: shop.selfDefining:1.0-common,moduleId=8297461338, key: module-8297461338-prototype-3-80 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
+                    <!--售后售前客服--->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-ssd10c" data-spm="110.0.3-8297461338"
                         microscope-data="3-8297461338">
                         <div class="shop-custom   no-border ">
@@ -1176,6 +636,7 @@ mm是：${mm}
                         </div>
                     </div>
                     <!-- module-cache-info: module: shop.itemCategory:1.0-common,moduleId=17605515237, key: sid-71955116-prototype-6-20120607 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
+                    <!--宝贝分类--->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-sic10c" data-spm="110.0.6-17605515237"
                         microscope-data="6-17605515237">
                         <div class="shop-category">
@@ -1657,6 +1118,7 @@ mm是：${mm}
                     <!-- module-cache-info: module: shop.topList:1.0-common,moduleId=7149738476, key: module-7149738476-prototype-31-20130109 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
                     <!--销售排行searchURL: http://inshop-search-hz.vip.tbsite.net:2088/bin/search?auction?user_id=890482188&price=%5B-1,1000000%5D&n=40&scid=517765776&sort=total_sold_quantity&src=shopsystem-172.24.151.135 -->
                     <!--收藏排行searchURL: http://inshop-search-hz.vip.tbsite.net:2088/bin/search?auction?user_id=890482188&price=%5B-1,1000000%5D&n=40&scid=517765776&sort=ordercost&src=shopsystem-172.24.151.135 -->
+                    <!--热销服装排行-->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-stl10c" data-spm="110.0.31-7149738476"
                         microscope-data="31-7149738476">
                         <div class="shop-rank">
@@ -1773,6 +1235,7 @@ mm是：${mm}
                     <!-- module-cache-info: module: shop.topList:1.0-common,moduleId=7937048342, key: module-7937048342-prototype-31-20130109 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
                     <!--销售排行searchURL: http://inshop-search-hz.vip.tbsite.net:2088/bin/search?auction?user_id=890482188&price=%5B-1,1000000%5D&n=40&scid=517765770&sort=total_sold_quantity&src=shopsystem-172.24.151.135 -->
                     <!--收藏排行searchURL: http://inshop-search-hz.vip.tbsite.net:2088/bin/search?auction?user_id=890482188&price=%5B-1,1000000%5D&n=40&scid=517765770&sort=ordercost&src=shopsystem-172.24.151.135 -->
+                    <!--热销运动鞋排行--->
                     <div class="box J_TBox tshop-pbsm tshop-pbsm-stl10c" data-spm="110.0.31-7937048342"
                         microscope-data="31-7937048342">
                         <div class="shop-rank">
@@ -1889,6 +1352,7 @@ mm是：${mm}
                 </div>
             </div>
         </div>
+        <!--保证 到 企业采购热线--->
         <div id="ft">
             <div class="layout grid-m">
                 <div class="col-main">
@@ -2151,6 +1615,10 @@ mm是：${mm}
             </div>
         </div>
     </div>
+      
+       }
+       
+            
     @Html.Partial("_Footer")
 </body>
 </html>
