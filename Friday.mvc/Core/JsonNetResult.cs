@@ -39,7 +39,8 @@ namespace Friday.mvc
                 new JsonSerializerSettings
                 {
                     //2012-09-30 basilwang new JavaScriptDateTimeConverter() will generate new Date(1234656000000),jquery 1.7 use native json parser will cause error.
-                    Converters = new JsonConverter[] { new IsoDateTimeConverter() },
+                    //2013-03-15 basilwang we don't want to have T in datetime, like "2009-02-15T00:00:00Z". so we have to use DateTimeFormat
+                    Converters = new JsonConverter[] { new IsoDateTimeConverter() { DateTimeFormat = "yyyy-mm-dd hh:mm:ss" } },
                     ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
                     NullValueHandling = NullValueHandling.Ignore,
                     ContractResolver = new NHibernateContractResolver(ExceptMemberName)
