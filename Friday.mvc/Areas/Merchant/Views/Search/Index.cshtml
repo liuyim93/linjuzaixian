@@ -143,14 +143,23 @@ background-repeat:repeat-x;
             </div>
         </div>
     </div>
+            @if (Model.SingleShop != null)
+             {
+                 var m = Model.SingleShop;
+
     <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
-       
+     
+                                                    
     
                  <p class="design-page hidden" id="J_DesignPage">
                 <a href="http://design.taobao.com/design.htm?pageId=256494988&amp;siteId=2&amp;sid=71955116&amp;curr_tab=0"
                     target="_blank">
                     <img src="http://img04.taobaocdn.com/tps/i4/T1J.8vXclxXXXXXXXX-16-16.png">装修此页面</a>
             </p>
+
+            
+    
+                                          
        <div id="hd">
                 <div class="layout grid-m">
                     <div class="col-main">
@@ -318,13 +327,9 @@ background-repeat:repeat-x;
                                                     
                                             <ul class="shop-list">
                                      
-                                                @if (Model.SingleShop != null)
-                                                {
-                                                    //Model.SingleMerchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货
-                                                    var m = Model.SingleShop;
-                                                    for (var index = 0; index < Model.Commoditys.Count(); index++)
-                                                    {
-                                                        var item = Model.Commoditys.ElementAt(index);
+                                                   @for (var index = 0; index < Model.Commoditys.Count(); index++)
+                                                   {
+                                                       var item = Model.Commoditys.ElementAt(index);
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
@@ -350,8 +355,8 @@ background-repeat:repeat-x;
                                                         </div>
                                                     </div>
                                                 </li>
-                                                    }
-                                                }
+                                                   }
+                                               
                                             </ul>
                                                        
                                             <div class="pagination">
@@ -1359,7 +1364,7 @@ background-repeat:repeat-x;
                     </div>
                 </div>
             </div>
-                 
+                  
      
             <!--保证 到 企业采购热线--->
           <div id="ft">
@@ -1629,13 +1634,16 @@ background-repeat:repeat-x;
                     </div>
             
      
-                      </div>
+@*                      </div>
             </div>
 
             </div> 
                
 
-             </div>
+             </div>*@
+          }                                                                  
+                                                  
+                                                    
             @Html.Partial("_Footer")
 </body>
 </html>
