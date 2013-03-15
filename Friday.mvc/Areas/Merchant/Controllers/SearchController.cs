@@ -34,17 +34,16 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             this.iFoodService = iFoodService;
             this.iHouseService = iHouseService;
         }
-        public ActionResult Index(string merchantId,string goodsTypeId)
+        public ActionResult Index(string merchantId)//,string goodsTypeId)
         {         
             SearchModel searchModel = new SearchModel();
-            IList<Shop> shoplist = this.iShopService.GetAll();
-           // Shop shop = this.iShopService.Load(merchantId);//.SearchByShortName("银座");
+
             merchantId = "885009d2-e184-41c3-913e-0b0caa058d41";
-            goodsTypeId="07c50a63-336a-492b-8a41-88e97bac37ed";
+            //goodsTypeId="07c50a63-336a-492b-8a41-88e97bac37ed";
 
             friday.core.Merchant merchant = iMerchantService.Load(merchantId);
-
-            searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodsTypeId);
+            
+            //searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodsTypeId);
 
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {

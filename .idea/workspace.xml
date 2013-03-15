@@ -7,8 +7,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.Test2/App.config" afterPath="$PROJECT_DIR$/Friday.Test2/App.config" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Search/Index.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Search/Index.cshtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/SearchController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/SearchController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/SearchModel.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/SearchModel.cs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Web.config" afterPath="$PROJECT_DIR$/Friday.mvc/Web.config" />
     </list>
     <ignored path="Friday.iws" />
