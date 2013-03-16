@@ -12,6 +12,7 @@ namespace friday.core.services
         MyFavorite Load(string id);
         IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, int start, int limit, out int total);
         IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser);
+        MyFavorite GetMyFavoriteBySystemUserAndMerchant(SystemUser systemUser, string merchantID);
         void Save(MyFavorite myFavorite);
         void Update(MyFavorite myFavorite);
         void Delete(string id);

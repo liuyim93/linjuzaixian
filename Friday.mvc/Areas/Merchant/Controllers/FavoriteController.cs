@@ -32,7 +32,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         {
             return View();
         }
-        public ActionResult AddToFav(string brandId,string _tb_token_,string callback)
+        public ActionResult AddToFav(string brandId,string _tb_token_, string callback)
         {
             MyFavorite myFavorite = new MyFavorite();
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
@@ -46,15 +46,18 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
-        public ActionResult DelFromFav(string brandId, string _tb_token_, string callback)
+        public ActionResult DelFromFav(string brandId, string _ksTS, string callback)
         {
-            iMyFavoriteService.Delete(brandId);
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            MyFavorite myFavorite = iMyFavoriteService.GetMyFavoriteBySystemUserAndMerchant(systemUser, brandId);
+            iMyFavoriteService.Delete(myFavorite.Id);
 
             string isSucceed = "T";
             string script = callback + "({\"is_success\":\"" + isSucceed + "\"})";
 
             return JavaScript(script);
         }
+
         public ActionResult Recommend(string callback)
         {
             string json;

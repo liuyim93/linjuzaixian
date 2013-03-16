@@ -59,8 +59,7 @@ KISSY.add("2.0/mods/item", function (S, Anim, Switchable) {
 					'http://' + DEV_EV + '.tmall.net/brand/2.0/ajax/cancel.php' : SERVER_URL + '/ajax/brandDelFromFav.htm',*/
 				requestUrl = SERVER_URL + '/Merchant/Favorite/DelFromFav',
                 obj = !!tbToke ? {
-				    brandId: brandId,
-				    _tb_token_: tbToke
+				    brandId: brandId
 				} : {
 				    brandId: brandId
 				},

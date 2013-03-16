@@ -22,18 +22,26 @@ namespace friday.core.repositories
 
         public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, int start, int limit, out int total)
         {
-            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).Skip(start).Take(limit).ToList();
+            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser && o.IsDelete == false).Skip(start).Take(limit).ToList();
 
-            total = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).Count();
+            total = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser && o.IsDelete == false).Count();
             return s;
         }
 
         public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser)
         {
-            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser).ToList();
+            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser && o.IsDelete==false).ToList();
 
             return s;
         }
+
+        public MyFavorite GetMyFavoriteBySystemUserAndMerchant(SystemUser systemUser, string merchantID)
+        {
+            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser && o.Merchant.Id == merchantID).FirstOrDefault();
+
+            return s;
+        }
+
         //对外获取方法
         public IList<MyFavorite> Search(List<DataFilter> termList)
         {

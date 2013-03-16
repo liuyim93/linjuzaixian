@@ -1367,6 +1367,7 @@
     <Content Include="apps\department\brand\2.0\core.js" />
     <Content Include="apps\department\brand\2.0\dialog.js" />
     <Content Include="apps\department\brand\2.0\fav.js" />
+    <Content Include="apps\department\brand\2.0\mods\dialog.js" />
     <Content Include="apps\department\brand\2.0\mods\item.js" />
     <Content Include="apps\department\common\brandbar-fly.js" />
     <Content Include="apps\department\common\brandbar.js" />
@@ -1447,7 +1448,9 @@
     <Content Include="apps\tmall\fp\2012\css\brand.css" />
     <Content Include="apps\tmall\fp\2012\css\category.css" />
     <Content Include="apps\tmall\fp\2012\css\common.css" />
+    <Content Include="apps\tmall\fp\2012\css\core.css" />
     <Content Include="apps\tmall\fp\2012\css\floor.css" />
+    <Content Include="apps\tmall\fp\2012\css\fp.css" />
     <Content Include="apps\tmall\fp\2012\css\header.css" />
     <Content Include="apps\tmall\fp\2012\css\layout.css" />
     <Content Include="apps\tmall\fp\2012\css\mui.css" />

@@ -124,20 +124,26 @@
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\DetailController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
-<<<<<<< HEAD
+    <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
-    <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
-=======
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
->>>>>>> Add MyBrandsIndexModel.cs
+    <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
     <Compile Include="Controllers\FridayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\JsonNetResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelper\MyHtmlHelpers.cs" />
+    <Compile Include="HtmlHelper\Pager\IPagedList.cs" />
+    <Compile Include="HtmlHelper\Pager\PagedList.cs" />
+    <Compile Include="HtmlHelper\Pager\Pager.cs" />
+    <Compile Include="HtmlHelper\Pager\PagingExtensions.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\MerchantModel.cs" />
@@ -1350,14 +1356,74 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\department\brand\2.0\css\az.css" />
+    <Content Include="apps\department\brand\2.0\css\cat.css" />
+    <Content Include="apps\department\brand\2.0\css\fav.css" />
+    <Content Include="apps\department\brand\2.0\css\common\mui.css" />
+    <Content Include="apps\department\brand\2.0\css\common\nav.css" />
+    <Content Include="apps\department\brand\2.0\css\common\page.css" />
+    <Content Include="apps\department\brand\2.0\css\index.css" />
     <Content Include="apps\department\brand\2.0\mods\collect.js" />
     <Content Include="apps\department\brand\2.0\core.js" />
     <Content Include="apps\department\brand\2.0\dialog.js" />
     <Content Include="apps\department\brand\2.0\fav.js" />
+    <Content Include="apps\department\brand\2.0\mods\dialog.js" />
     <Content Include="apps\department\brand\2.0\mods\item.js" />
     <Content Include="apps\department\common\brandbar-fly.js" />
     <Content Include="apps\department\common\brandbar.js" />
     <Content Include="apps\department\common\brandfollow.js" />
+<<<<<<< HEAD
+    <Content Include="apps\lz\hc.js" />
+=======
+>>>>>>> still have bug
+    <Content Include="apps\malldetail\4.0\base.css" />
+    <Content Include="apps\malldetail\4.0\common\util.js" />
+    <Content Include="apps\malldetail\4.0\css\D950.css" />
+    <Content Include="apps\malldetail\4.0\css\shop.css" />
+    <Content Include="apps\malldetail\4.0\css\sku.css" />
+    <Content Include="apps\malldetail\4.0\css\spriter.css" />
+    <Content Include="apps\malldetail\4.0\data\data.js" />
+    <Content Include="apps\malldetail\4.0\detail.js" />
+    <Content Include="apps\malldetail\4.0\mui.css" />
+    <Content Include="apps\malldetail\4.0\other\other.css" />
+    <Content Include="apps\malldetail\4.0\sku\3c.js" />
+    <Content Include="apps\malldetail\4.0\sku\areaSeletor.js" />
+    <Content Include="apps\malldetail\4.0\sku\areaSell.js" />
+    <Content Include="apps\malldetail\4.0\sku\basketAnim.js" />
+    <Content Include="apps\malldetail\4.0\sku\buylink.js" />
+    <Content Include="apps\malldetail\4.0\sku\common.js" />
+    <Content Include="apps\malldetail\4.0\sku\double11.js" />
+    <Content Include="apps\malldetail\4.0\sku\editEntry.js" />
+    <Content Include="apps\malldetail\4.0\sku\fastlogin.js" />
+    <Content Include="apps\malldetail\4.0\sku\freight.js" />
+    <Content Include="apps\malldetail\4.0\sku\ifclocation.js" />
+    <Content Include="apps\malldetail\4.0\sku\linkbasket.js" />
+    <Content Include="apps\malldetail\4.0\sku\paymethods.js" />
+    <Content Include="apps\malldetail\4.0\sku\popupsimulate.js" />
+    <Content Include="apps\malldetail\4.0\sku\price.js" />
+    <Content Include="apps\malldetail\4.0\sku\promotion.js" />
+    <Content Include="apps\malldetail\4.0\sku\propertyHandler.js" />
+    <Content Include="apps\malldetail\4.0\sku\regionSell.css" />
+    <Content Include="apps\malldetail\4.0\sku\sellCount.js" />
+    <Content Include="apps\malldetail\4.0\sku\service.js" />
+    <Content Include="apps\malldetail\4.0\sku\setup.js" />
+    <Content Include="apps\malldetail\4.0\sku\shiptime.js" />
+    <Content Include="apps\malldetail\4.0\sku\skuAmount.js" />
+    <Content Include="apps\malldetail\4.0\sku\skuFeatureIcon.js" />
+    <Content Include="apps\malldetail\4.0\sku\skuLade.js" />
+    <Content Include="apps\malldetail\4.0\sku\skuMsg.js" />
+    <Content Include="apps\malldetail\4.0\sku\skuTmVip.js" />
+    <Content Include="apps\malldetail\4.0\sku\stat.js" />
+    <Content Include="apps\malldetail\4.0\sku\stock.js" />
+    <Content Include="apps\malldetail\4.0\sku\thumbViewer.js" />
+    <Content Include="apps\malldetail\4.0\sku\util.js" />
+    <Content Include="apps\malldetail\4.0\sku\validator.js" />
+    <Content Include="apps\malldetail\4.0\spu\spu.css" />
+    <Content Include="apps\malldetail\4.0\tabbar\tabbar.css" />
+<<<<<<< HEAD
+    <Content Include="apps\martrix-mission\feedback.js" />
+=======
+>>>>>>> still have bug
     <Content Include="apps\mods\login\asynchavana.js" />
     <Content Include="apps\mods\login\AudioCheckCode.js" />
     <Content Include="apps\mods\login\capslocktip.js" />
@@ -1379,12 +1445,22 @@
     <Content Include="apps\mods\login\safemode.js" />
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\tmallbuy\razer\mini\core.js" />
     <Content Include="apps\tmall\common\bottombar.js" />
     <Content Include="apps\tmall\common\tbuser.js" />
     <Content Include="apps\tmall\common\tgallery.js" />
     <Content Include="apps\tmall\fp\2012\core.js" />
+    <Content Include="apps\tmall\fp\2012\css\act.css" />
+    <Content Include="apps\tmall\fp\2012\css\brand.css" />
+    <Content Include="apps\tmall\fp\2012\css\category.css" />
+    <Content Include="apps\tmall\fp\2012\css\common.css" />
     <Content Include="apps\tmall\fp\2012\css\core.css" />
+    <Content Include="apps\tmall\fp\2012\css\floor.css" />
     <Content Include="apps\tmall\fp\2012\css\fp.css" />
+    <Content Include="apps\tmall\fp\2012\css\header.css" />
+    <Content Include="apps\tmall\fp\2012\css\layout.css" />
+    <Content Include="apps\tmall\fp\2012\css\mui.css" />
+    <Content Include="apps\tmall\fp\2012\css\slide2.css" />
     <Content Include="apps\tmall\fp\2012\fp.js" />
     <Content Include="apps\tmall\fp\2012\mods\act.js" />
     <Content Include="apps\tmall\fp\2012\mods\brand.js" />
@@ -1394,8 +1470,18 @@
     <Content Include="apps\tmall\fp\2012\mods\floor.js" />
     <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
     <Content Include="apps\tmall\fp\2012\util\util.js" />
+    <Content Include="apps\tmall\header\shop\bg.jpg" />
+    <Content Include="apps\tmall\header\shop\bg1.jpg" />
+    <Content Include="apps\tmall\header\shop\common.css" />
+    <Content Include="apps\tmall\header\shop\head-info.css" />
+    <Content Include="apps\tmall\header\shop\head-seed.js" />
+    <Content Include="apps\tmall\header\shop\header.css" />
+    <Content Include="apps\tmall\header\shop\searchStyle.css" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="app\shop\skin\ark_black.css" />
+    <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
     <Content Include="comet.htm" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
@@ -1418,12 +1504,53 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="p\header\adapter-min.js" />
+    <Content Include="p\header\webww-min.js" />
+    <Content Include="p\mall\base\global-v2.css" />
+    <Content Include="p\mall\base\global-v2.js" />
+    <Content Include="p\mall\base\header-v2.css" />
+    <Content Include="p\shop\3.0\wangpu\base-min.js" />
+    <Content Include="p\shop\3.0\wangpu\init-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\c2c-head-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\compatible-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\countdown-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\customer-service-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\init-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\isv-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\page-banner-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\recharge-alimama-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\recharge-center-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\search-list-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\self-defined-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\shopinsearch-head-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\top-list-min.js" />
+    <Content Include="p\shop\StyleSheet1.css" />
+    <Content Include="p\tlabs\1.0.0\tlabs-min.js" />
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
-<<<<<<< HEAD
     <Content Include="socket.io\socket.io.js" />
-=======
-    <Content Include="uploadimage\b0.jpg" />
+    <Content Include="s\aplus_v2.js" />
+    <Content Include="s\fdc\spm.js" />
+    <Content Include="s\kissy\1.3.0\ajax-min.js" />
+    <Content Include="s\kissy\1.3.0\anim-min.js" />
+    <Content Include="s\kissy\1.3.0\base-min.js" />
+    <Content Include="s\kissy\1.3.0\component\base-min.js" />
+    <Content Include="s\kissy\1.3.0\component\extension-min.js" />
+    <Content Include="s\kissy\1.3.0\cookie-min.js" />
+    <Content Include="s\kissy\1.3.0\dom\base-min.js" />
+    <Content Include="s\kissy\1.3.0\event\base-min.js" />
+    <Content Include="s\kissy\1.3.0\event\custom-min.js" />
+    <Content Include="s\kissy\1.3.0\event\dom\base-min.js" />
+    <Content Include="s\kissy\1.3.0\event\dom\focusin-min.js" />
+    <Content Include="s\kissy\1.3.0\datalazyload-min.js" />
+    <Content Include="s\kissy\1.3.0\json-min.js" />
+    <Content Include="s\kissy\1.3.0\node-min.js" />
+    <Content Include="s\kissy\1.3.0\overlay-min.js" />
+    <Content Include="s\kissy\1.3.0\rich-base-min.js" />
+    <Content Include="s\kissy\1.3.0\suggest-min.js" />
+    <Content Include="s\kissy\1.3.0\switchable-min.js" />
+    <Content Include="s\tb-tracer-min.js" />
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
     <Content Include="uploadimage\b11.jpg" />
@@ -1496,7 +1623,6 @@
     <Content Include="uploadimage\s9.jpg" />
     <Content Include="uploadimage\SubJpeg2.png" />
     <Content Include="uploadimage\SubJpeg4.png" />
->>>>>>> Add MyBrandsIndexModel.cs
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2488,6 +2614,7 @@
     <Folder Include="Areas\Message\Models\" />
     <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Logs\" />
+    <Folder Include="p\shop\1.0\mods\b\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
@@ -2497,7 +2624,9 @@
   <ItemGroup>
     <Content Include="unity.di.infrastructure.config" />
     <Content Include="App_Browsers\Form.browser" />
-    <Content Include="Areas\Account\Views\Web.config" />
+    <Content Include="Areas\Account\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Account\Views\Home\login.cshtml" />
     <Content Include="Areas\Cart\Views\Web.config" />
     <Content Include="Areas\Cart\Views\Home\MyCart.cshtml" />
@@ -2515,7 +2644,12 @@
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Message\Views\Web.config" />
+    <Content Include="Areas\Merchant\Views\Search\Index.cshtml" />
+    <Content Include="Areas\Merchant\Views\Detail\Index.cshtml" />
     <None Include="notifymsg.json" />
+    <Content Include="Views\Shared\_SiteNav.cshtml" />
+    <Content Include="Views\Shared\_Header2.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
