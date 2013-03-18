@@ -34,35 +34,32 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             this.iFoodService = iFoodService;
             this.iHouseService = iHouseService;
         }
-        public ActionResult Index(string merchantId)//,string goodsTypeId)
+        public ActionResult Index(string scid, string orderType, string viewType, string keyword, string price1, string price2)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {         
             SearchModel searchModel = new SearchModel();
 
-            merchantId = "885009d2-e184-41c3-913e-0b0caa058d41";
-            //goodsTypeId="07c50a63-336a-492b-8a41-88e97bac37ed";
+            scid = "885009d2-e184-41c3-913e-0b0caa058d41";
 
-            friday.core.Merchant merchant = iMerchantService.Load(merchantId);
-            
-            //searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodsTypeId);
+            friday.core.Merchant merchant = iMerchantService.Load(scid);
 
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchantId);
-                Shop shop = this.iShopService.Load(merchantId);
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(scid);
+                Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {
-                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(merchantId);
-                Restaurant restaurant = this.iRestaurantService.Load(merchantId);
+                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(scid);
+                Restaurant restaurant = this.iRestaurantService.Load(scid);
                 searchModel.SingleRestaurant = restaurant;
                 searchModel.Foods = myFoods;
             }
             else 
             {
-                IList<House> myHouses = this.iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(merchantId);
-                Rent rent = this.iRentService.Load(merchantId);
+                IList<House> myHouses = this.iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(scid);
+                Rent rent = this.iRentService.Load(scid);
                 searchModel.SingleRent = rent;
                 searchModel.Houses = myHouses;
             }

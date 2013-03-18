@@ -2584,6 +2584,7 @@
     <Content Include="Areas\Message\Views\Web.config" />
     <Content Include="Areas\Merchant\Views\Search\Index.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\Index.cshtml" />
+    <Content Include="Areas\Merchant\Views\Search\IndexV1.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />
