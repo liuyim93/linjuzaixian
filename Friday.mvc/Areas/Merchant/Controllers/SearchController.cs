@@ -44,7 +44,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(scid);
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPrice(scid,keyword,price1,price2,orderType);
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;

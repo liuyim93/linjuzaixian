@@ -56,5 +56,9 @@ namespace friday.core.services
         {
             return iCommodityRepository.Search(termList, start, limit, out total);
         }
+        public IList<Commodity> GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(string shopID, string keyword, double price1, double price2, string orderType)
+        {
+            return iCommodityRepository.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(shopID,keyword,);
+        }
     }
 }
