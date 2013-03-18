@@ -73,7 +73,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
             {
-                dbprice1 = 0.0; 
+                dbprice1 = -1; //约定-1 表示为空
             }
             else 
             {
@@ -81,12 +81,16 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             if (string.IsNullOrEmpty(price2))
             {
-                dbprice2 = 100000000.0;
+                dbprice2 = -1;
             }
             else
             {
                 dbprice2 = Convert.ToDouble(price2);
             }
+            //if (string.IsNullOrEmpty(keyword))
+            //{
+            //    keyword = "-1";
+            //}
             SearchModel searchModel = new SearchModel();
 
             scid = "885009d2-e184-41c3-913e-0b0caa058d41";
