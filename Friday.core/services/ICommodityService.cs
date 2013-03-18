@@ -16,5 +16,6 @@ namespace friday.core.services
         void Delete(string id);
         IList<Commodity> Search(List<DataFilter> termList);
         IList<Commodity> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<Commodity> GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(string shopID, string keyword, double price1, double price2, string orderType);
     }
 }
