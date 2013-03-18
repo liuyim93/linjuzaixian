@@ -87,10 +87,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 dbprice2 = Convert.ToDouble(price2);
             }
-            //if (string.IsNullOrEmpty(keyword))
-            //{
-            //    keyword = "-1";
-            //}
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                keyword =""; 
+            }
             SearchModel searchModel = new SearchModel();
 
             scid = "885009d2-e184-41c3-913e-0b0caa058d41";
