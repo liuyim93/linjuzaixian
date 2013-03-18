@@ -103,6 +103,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
+                searchModel.count = myCommodities.Count;
+                ViewData["skeyword"] = keyword;
+                ViewData["sprice1"] = price1;
+                ViewData["sprice2"] = price2;
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {

@@ -12,11 +12,14 @@ namespace Friday.mvc.Models
     {
         public SearchModel()
         {
+            int count ;
+
             SingleMerchant = new Merchant();
             SingleRestaurant = new Restaurant();
             SingleRent = new Rent();
             SingleShop = new Shop();
             SingleMerchantGoodsType = new MerchantGoodsType();
+
 
             IList<Food> Foods = new List<Food>();
             IList<House> Houses = new List<House>();
@@ -29,6 +32,7 @@ namespace Friday.mvc.Models
         public Shop SingleShop { get; set; }
         public MerchantGoodsType SingleMerchantGoodsType { get; set; }
 
+        public int count { get; set; }
         public IList<Food> Foods { get; set; }
         public IList<House> Houses { get; set; }
         public IList<Commodity> Commoditys { get; set; }

@@ -286,7 +286,7 @@ background-repeat:repeat-x;
                                                       
                                                         <input type="hidden" name="orderType" value="_newOn">
                                                         <input type="hidden" name="viewType" value="grid">
-                                                        <input id="baobei_type" type="hidden" name="baobei_type" value="">
+                                                        @*<input id="baobei_type" type="hidden" name="baobei_type" value="">*@
                                                      <input type="hidden" name="scid" value="">
                                                          @*  <li class="type">
                                                             <label for="whole">
@@ -297,14 +297,14 @@ background-repeat:repeat-x;
                                                         <li class="keyword">
                                                             <label for="keyword">
                                                                 关键字：</label>
-                                                            <input id="keyword" name="keyword" type="text" value="">
+                                                            <input id="keyword" name="keyword" type="text" value=@ViewData["skeyword"] >
                                                         </li>
                                                         <li class="price">
                                                             <label for="price">
                                                                 价格：</label>
-                                                            <input id="price1" name="price1" type="text" class="price J_CheckInput" value="">
+                                                            <input id="price1" name="price1" type="text" class="price J_CheckInput" value=@ViewData["sprice1"]>
                                                             到
-                                                            <input id="price2" name="price2" type="text" class="price J_CheckInput" value="">
+                                                            <input id="price2" name="price2" type="text" class="price J_CheckInput" value=@ViewData["sprice2"]>
                                                         </li>
                                                         <li class="submit">
                                                             <button type="submit" class="button">
@@ -313,7 +313,7 @@ background-repeat:repeat-x;
                                                     </ul>
                                                 </div>
                                                 <div class="search-result">
-                                                    共搜索到<span> 105 </span>个符合条件的商品。
+                                                    共搜索到<span> @Model.count.ToString()</span>个符合条件的商品。
                                                 </div>
                                             </div>
                                             </form>
