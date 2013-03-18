@@ -284,10 +284,10 @@ background-repeat:repeat-x;
                                                     
                                                       <input type="hidden" id="J_ShopSearchFormUrl" data-info="http://localhost:7525/merchant/search?viewType=grid&keyword=wre&price1=22&price2=33&baoBeiType=1003&viewType=grid&orderType=_hotsell">
                                                       
-                                                        <input type="hidden" name="orderType" value="_newOn">
-                                                        <input type="hidden" name="viewType" value="grid">
+                                                        <input type="hidden" name="orderType" value=@ViewData["sorderType"]>
+                                                        <input type="hidden" name="viewType" value=@ViewData["sviewType"]>
                                                         @*<input id="baobei_type" type="hidden" name="baobei_type" value="">*@
-                                                     <input type="hidden" name="scid" value="">
+                                                     <input type="hidden" name="scid" value=@ViewData["sscid"]>
                                                          @*  <li class="type">
                                                             <label for="whole">
                                                                 搜索整店</label>
@@ -326,7 +326,7 @@ background-repeat:repeat-x;
                                                             alt="图表方式" title="图表方式" class="J_SearchAsync mode-grid">图表模式</a>
                                                 </div>
                                                 <div class="taxis">
-                                                    <span>排序：</span> <a href="http://localhost:7525/merchant/search?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_hotsell"
+                                                    <span>排序：</span> <a href="http://localhost:7525/merchant/search?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
                                                         alt="按销量排列" title="按销量排列" class="J_SearchAsync fav def">销量<i class="icon"></i></a>
                                                     <a href="http://localhost:7525/merchant/search?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=newOn"
                                                         alt="按新品排列" title="按新品排列" class="J_SearchAsync down">新品<i class="icon"></i></a>

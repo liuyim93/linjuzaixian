@@ -29,7 +29,7 @@ namespace friday.core.repositories
         {             
             if (price1 != -1&&price2!=-1)
             {
-              var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price >= price1 && o.Price <= price2).OrderByDescending(o => o.MonthAmount).ToList();
+                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price >= price1 && o.Price <= price2).OrderByDescending(o => o.MonthAmount).ToList();
               return s;
             }
             else if (price1 == -1 && price2 == -1)

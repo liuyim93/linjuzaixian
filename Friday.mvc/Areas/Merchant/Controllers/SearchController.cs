@@ -108,6 +108,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 ViewData["skeyword"] = keyword;
                 ViewData["sprice1"] = price1;
                 ViewData["sprice2"] = price2;
+                ViewData["sviewType"] = viewType;
+                ViewData["sorderType"] = orderType;
+                ViewData["sscid"] = scid;
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {
