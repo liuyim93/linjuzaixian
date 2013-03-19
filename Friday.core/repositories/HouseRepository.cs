@@ -25,7 +25,58 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID).OrderByDescending(o => o.MonthAmount).ToList();
             return s;
         }
+        public IList<House> GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(string rentID, string keyword, double price1, double price2, string orderType, int start, int limit, out int total)
+        {
 
+            if (price1 != -1 && price2 != -1)
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price >= price1 && o.Price <= price2 && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price >= price1 && o.Price <= price2 && o.IsDelete == false).Count();
+                return s;
+            }
+            else if (price1 == -1 && price2 == -1)
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.IsDelete == false).Count();
+                return s;
+            }
+            else if (price1 == -1 && price2 != -1)
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price <= price2 && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price <= price2 && o.IsDelete == false).Count();
+                return s;
+            }
+            else
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price >= price1 && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price >= price1 && o.IsDelete == false).Count();
+                return s;
+            }
+
+        }
+        public IList<House> GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(string rentID, string keyword, double price1, double price2, string orderType)
+        {
+            if (price1 != -1 && price2 != -1)
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price >= price1 && o.Price <= price2).OrderByDescending(o => o.MonthAmount).ToList();
+                return s;
+            }
+            else if (price1 == -1 && price2 == -1)
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword)).OrderByDescending(o => o.MonthAmount).ToList();
+                return s;
+            }
+            else if (price1 == -1 && price2 != -1)
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price <= price2).OrderByDescending(o => o.MonthAmount).ToList();
+                return s;
+            }
+            else
+            {
+                var s = (from x in this.Session.Query<House>() select x).Where(o => o.Rent.Id == rentID && o.Name.Contains(keyword) && o.Price >= price1).OrderByDescending(o => o.MonthAmount).ToList();
+                return s;
+            }
+        }
         //对外获取方法
         public IList<House> Search(List<DataFilter> termList)
         {

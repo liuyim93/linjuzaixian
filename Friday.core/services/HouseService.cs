@@ -56,5 +56,13 @@ namespace friday.core.services
         {
             return iHouseRepository.Search(termList, start, limit, out total);
         }
+        public IList<House> GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(string rentID, string keyword, double price1, double price2, string orderType)
+        {
+            return iHouseRepository.GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(rentID, keyword, price1, price2, orderType);
+        }
+        public IList<House> GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(string rentID, string keyword, double price1, double price2, string orderType, int start, int limit, out int total)
+        {
+            return iHouseRepository.GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(rentID, keyword, price1, price2, orderType, start, limit, out total);
+        }
     }
 }

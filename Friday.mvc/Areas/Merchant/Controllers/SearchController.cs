@@ -123,7 +123,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else
             {
-                IList<House> myHouses = this.iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(scid);
+                IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType, start, limit, out total);
                 Rent rent = this.iRentService.Load(scid);
                 searchModel.SingleRent = rent;
                 searchModel.Houses = myHouses;
