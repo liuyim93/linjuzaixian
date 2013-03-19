@@ -68,7 +68,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //    return View(searchModel);
         //}
 
-        public ActionResult Index(string scid, string orderType, string viewType, string keyword, string price1, string price2)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        public ActionResult Index(string page,string scid, string orderType, string viewType, string keyword, string price1, string price2)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -100,12 +100,18 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-                int defaultPageSize = 16;
-                int currentPageIndex = 0;
-                long total = 0;
 
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType).ToPagedList<Commodity>(currentPageIndex, defaultPageSize);
-                ViewData["Total"] = total;
+                int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
+                int numPerPageValue = 10;
+                int total;
+
+                int start = (currentPage - 1) * numPerPageValue;
+                int limit = numPerPageValue;
+
+                //int start, int limit, out long total
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType,start, limit,out total);
+                searchModel.currentPage = currentPage;
+                searchModel.pageNum = total / numPerPageValue + 1;
 
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
