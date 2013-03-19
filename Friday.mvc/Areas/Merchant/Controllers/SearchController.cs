@@ -87,7 +87,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 dbprice2 = Convert.ToDouble(price2);
             }
-
+            if (!string.IsNullOrEmpty(Request.Params["page"]))
+            {
+                page = Request.Params["page"];
+            }
             if (string.IsNullOrEmpty(keyword))
             {
                 keyword =""; 
@@ -95,42 +98,21 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             SearchModel searchModel = new SearchModel();
 
             scid = "885009d2-e184-41c3-913e-0b0caa058d41";
-
             friday.core.Merchant merchant = iMerchantService.Load(scid);
 
-            if(!string.IsNullOrEmpty(Request.Params["page"]))
-            {
-               page=Request.Params["page"];
-            }
+            int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
+            int numPerPageValue = 20;
+            int total;
+            int start = (currentPage - 1) * numPerPageValue;
+            int limit = numPerPageValue;
 
+         
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-
-                int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
-                int numPerPageValue = 20;
-                int total;
-
-                int start = (currentPage - 1) * numPerPageValue;
-                int limit = numPerPageValue;
-
-                //int start, int limit, out long total
                 IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType,start, limit,out total);
-                searchModel.currentPage = currentPage;
-                searchModel.pageNum = total / numPerPageValue + 1;
-
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
-                searchModel.Commoditys = myCommodities;
-                searchModel.count = total;
-                ViewData["skeyword"] = keyword;
-                ViewData["sprice1"] = price1;
-                ViewData["sprice2"] = price2;
-                ViewData["sviewType"] = viewType;
-                ViewData["sorderType"] = orderType;
-                ViewData["sscid"] = scid;
-
-
-
+                searchModel.Commoditys = myCommodities;         
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {
@@ -146,6 +128,15 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 searchModel.SingleRent = rent;
                 searchModel.Houses = myHouses;
             }
+            searchModel.currentPage = currentPage;
+            searchModel.pageNum = total / numPerPageValue + 1;
+            searchModel.count = total;
+            ViewData["skeyword"] = keyword;
+            ViewData["sprice1"] = price1;
+            ViewData["sprice2"] = price2;
+            ViewData["sviewType"] = viewType;
+            ViewData["sorderType"] = orderType;
+            ViewData["sscid"] = scid;
 
             return View(searchModel);
         }
