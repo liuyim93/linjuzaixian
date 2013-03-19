@@ -30,8 +30,8 @@ background-repeat:repeat-x;
     @Html.Partial("_SiteNav")
 
                @if (Model.SingleShop != null)
-             {
-                 var m = Model.SingleShop;
+               {
+                   var m = Model.SingleShop;
 
     <div id="header">
         <!-- flash logo -->
@@ -344,9 +344,32 @@ background-repeat:repeat-x;
                                                         class="checkbox">店铺VIP商品*@
                                                 </div>
                                                 <div class="pagination pagination-mini">
-                                                    <span class="page-info">@Model.currentPage/@Model.pageNum</span> <a class="disable">上一页</a> <a class="J_SearchAsync next"
-                                                        href="http://localhost:7525/merchant/search?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
+                                                    <span class="page-info">@Model.currentPage/@Model.pageNum</span> 
+                                                 @if (Model.currentPage == 1)
+                                                 { 
+                                                    <a class="disable">上一页</a> 
+                                                    
+                                                    <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
                                                         下一页</a>
+                                                 }
+                                                 else if (Model.currentPage == Model.pageNum)
+                                                 {                                            
+                                                    
+                                                    <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        上一页</a>
+                                                            <a class="disable">下一页</a> 
+                                                 }
+                                                 else
+                                                 {
+                                                     <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        上一页</a>
+                                                      <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        下一页</a>
+                                                 }
                                                     <!--下一页-->
                                                 </div>
                                             </div>
@@ -360,7 +383,7 @@ background-repeat:repeat-x;
                                                     <div class="item">
                                                         <div class="pic">
                                                             <a href="@Url.Action("ListDetail", "Favorite", new { controller = "Favorite", action = "ListDetail", id = item.Id })" target="_blank">
-                                                                <img src="@Url.Content("~/" +item.Image)"
+                                                                <img src="@Url.Content("~/" + item.Image)"
                                                                     src2="">
                                                             </a>
                                                         </div>
@@ -393,7 +416,7 @@ background-repeat:repeat-x;
                 <div class="ui-page-wrap"> <b class="ui-page-num">
                 @if (Model.currentPage > 1)
                 {
-                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage-1)" href="http://localhost:7525/merchant/search?page=@(Model.currentPage-1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
+                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/search?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
                 }
                 else
                 {
@@ -1714,7 +1737,7 @@ background-repeat:repeat-x;
                
 
              </div>*@
-             }                                                                  
+               }                                                                  
                                                   
                                                     
             @Html.Partial("_Footer")
