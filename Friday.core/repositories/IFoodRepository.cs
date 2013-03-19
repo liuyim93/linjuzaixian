@@ -9,5 +9,9 @@ namespace friday.core.repositories
         IList<Food> GetFoodByRestaurantIDOrderByMonthAmountDesc(string restaurantID);
         System.Collections.Generic.IList<Food> Search(System.Collections.Generic.List<DataFilter> termList);
         System.Collections.Generic.IList<Food> Search(System.Collections.Generic.List<DataFilter> termList, int start, int limit, out long total);
+        IList<Food> GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(string restaurantID, string keyword, double price1, double price2, string orderType);
+        IList<Food> GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(string restaurantID, string keyword, double price1, double price2, string orderType, int start, int limit, out int total);
+  
+
     }
 }

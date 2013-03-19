@@ -116,7 +116,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {
-                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(scid);
+                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType, start, limit, out total);
                 Restaurant restaurant = this.iRestaurantService.Load(scid);
                 searchModel.SingleRestaurant = restaurant;
                 searchModel.Foods = myFoods;
