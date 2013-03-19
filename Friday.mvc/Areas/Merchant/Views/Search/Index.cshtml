@@ -3,6 +3,9 @@
 }
 @using Friday.mvc.Models
 @model SearchModel
+@using System.Web.Mvc
+@using MvcPaging
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -358,14 +361,15 @@ background-repeat:repeat-x;
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
-                                                            <a href="http://detail.tmall.com/item.htm?id=22588020956&amp;" target="_blank">
-                                                                <img src="http://localhost:7525/@item.Image"
+                                                            <a href="@Url.Action("ListDetail", "Favorite", new { controller = "Favorite", action = "ListDetail", id = item.Id })" target="_blank">
+                                                                <img src="@Url.Content("~/" +item.Image)"
                                                                     src2="">
                                                             </a>
                                                         </div>
                                                         <div class="desc">
-                                                            <a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;" class="permalink"
-                                                                style="">@m.Name 官方 @item.Name </a>
+                                                          @Html.ActionLink(item.Name, "ListDetail", new { controller = "Favorite", action = "ListDetail", id = item.Id })
+                                                         @*   <a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;" class="permalink"
+                                                                style="">@m.Name 官方 @item.Name </a>*@
                                                         </div>
                                                         <div class="price">
                                                             <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
@@ -383,6 +387,14 @@ background-repeat:repeat-x;
                                                    }
                                                
                                             </ul>
+
+                                                 
+                            @if (ViewData.Model.PageSize >= 0 && ViewData.Model.PageNumber <= ViewData.Model.TotalItemCount)
+                            { 
+                        <div class="pager">
+                            @Html.Pager(ViewData.Model.PageSize, ViewData.Model.PageNumber, ViewData.Model.TotalItemCount, new { sectionID = Model[0].NewsSection.SectionCode, viewName = "List", listtitle = ViewData["ListTitle"].ToString() })%>
+                        </div>
+                            }     
                                                        
                                             <div class="pagination">
                                                 <a class="disable">上一页</a> <a class="page-cur">1</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">

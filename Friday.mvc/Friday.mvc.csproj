@@ -139,6 +139,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="HtmlHelper\MyHtmlHelpers.cs" />
+    <Compile Include="HtmlHelper\Pager\IPagedList.cs" />
+    <Compile Include="HtmlHelper\Pager\PagedList.cs" />
+    <Compile Include="HtmlHelper\Pager\Pager.cs" />
+    <Compile Include="HtmlHelper\Pager\PagingExtensions.cs" />
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\MerchantModel.cs" />

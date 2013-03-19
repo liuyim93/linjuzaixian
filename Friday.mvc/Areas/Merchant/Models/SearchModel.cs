@@ -5,6 +5,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using friday.core;
 using friday.core.domain;
+using MvcPaging;
 
 namespace Friday.mvc.Models
 {
@@ -13,6 +14,10 @@ namespace Friday.mvc.Models
         public SearchModel()
         {
             int count ;
+            int pageSize;
+		    int currentPage;
+		   int totalItemCount;
+           int pageNumber;
 
             SingleMerchant = new Merchant();
             SingleRestaurant = new Restaurant();
@@ -33,6 +38,10 @@ namespace Friday.mvc.Models
         public MerchantGoodsType SingleMerchantGoodsType { get; set; }
 
         public int count { get; set; }
+        public int pageSize { get; set; }
+        public int currentPage { get; set; }
+        public int totalItemCount { get; set; }
+        public int pageNumber { get; set; }
         public IList<Food> Foods { get; set; }
         public IList<House> Houses { get; set; }
         public IList<Commodity> Commoditys { get; set; }

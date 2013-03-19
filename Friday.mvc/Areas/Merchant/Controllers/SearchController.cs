@@ -7,7 +7,7 @@ using friday.core.services;
 using friday.core.domain;
 using Friday.mvc.Models;
 using friday.core;
-
+using MvcPaging;
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
     public class SearchController : Controller
@@ -100,7 +100,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType);
+                int defaultPageSize = 16;
+                int currentPageIndex = 0;
+                long total = 0;
+
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType).ToPagedList<Commodity>(currentPageIndex, defaultPageSize);
+                ViewData["Total"] = total;
+
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
@@ -111,6 +117,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 ViewData["sviewType"] = viewType;
                 ViewData["sorderType"] = orderType;
                 ViewData["sscid"] = scid;
+
+
+
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {
