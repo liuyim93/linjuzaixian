@@ -99,7 +99,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             scid = "885009d2-e184-41c3-913e-0b0caa058d41";
             friday.core.Merchant merchant = iMerchantService.Load(scid);
-
+            searchModel.SingleMerchant =merchant;
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 20;
             int total;
