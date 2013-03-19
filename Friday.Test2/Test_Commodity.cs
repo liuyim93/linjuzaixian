@@ -38,7 +38,7 @@ namespace friday.coretest
             IMerchantGoodsTypeRepository merchantGoodsTyperep = new MerchantGoodsTypeRepository();
             MerchantGoodsType mgt = merchantGoodsTyperep.GetGoodsTypeByTypeNameAndMerchantID("金制品", shop.Id);
 
-            for (int i = 0; i < 30; i++) 
+            for (int i = 0; i < 40; i++) 
             {
                 Commodity commodity = new Commodity()
                 {

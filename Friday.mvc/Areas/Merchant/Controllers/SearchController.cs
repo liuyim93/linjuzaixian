@@ -98,6 +98,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             friday.core.Merchant merchant = iMerchantService.Load(scid);
 
+            if(!string.IsNullOrEmpty(Request.Params["page"]))
+            {
+               page=Request.Params["page"];
+            }
+
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
 

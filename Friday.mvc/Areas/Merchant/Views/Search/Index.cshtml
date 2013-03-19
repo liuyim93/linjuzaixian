@@ -387,17 +387,17 @@ background-repeat:repeat-x;
                                             </ul>
 
                                                     
-                               
-                  <div class="brandPagination">
+                <form action="http://localhost:7525/merchant/search?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" method="post">                       
+                  <div class="brandPagination" style=" float:right">
             <div class="ui-page">
                 <div class="ui-page-wrap"> <b class="ui-page-num">
                 @if (Model.currentPage > 1)
                 {
-                    <a class="ui-page-prev j_PageChange " data-page="@(Model.currentPage-1)" href="#">&lt;&lt; 上一页</a>
+                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage-1)" href="http://localhost:7525/merchant/search?page=@(Model.currentPage-1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
                 }
                 else
                 {
-                    <b class="ui-page-prev">&lt;&lt; 上一页</b>
+                    <b class="ui-page-prev"><< 上一页</b>
                 }
                 @for (int i = 1; i <= Model.pageNum; i++)
                 {
@@ -407,29 +407,30 @@ background-repeat:repeat-x;
                     }
                     else
                     {
-                        <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                        <a href="http://localhost:7525/merchant/search?page=@i&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="j_PageChange" data-page="@i">@i</a>
                     }
                 }
                 
-                <b class="ui-page-break">...</b>
+              @*  <b class="ui-page-break">...</b>*@
 
                 @if (Model.currentPage < Model.pageNum)
                 {
-                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage+1)" href="#"> 下一页&lt;&lt;</a>
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"> 下一页>></a>
                 }
                 else
                 {
-                    <b class="ui-page-next">下一页 &gt;&gt;</b>
+                    <b class="ui-page-next">下一页 >></b>
                 }
                     </b>
 
                     <b class="ui-page-skip">共@(Model.pageNum)页，去第
-                        <input type="text" value="@Model.currentPage" size="3" class="ui-page-skipTo j_PageChangeInput" name="jumpto">
+                        <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
                         页
                         <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> 
                 </div>
             </div>
         </div>
+        </form>
                                 
                                       <!--        <div class="pagination">
                                                 <a class="disable">上一页</a> <a class="page-cur">1</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
@@ -1713,7 +1714,7 @@ background-repeat:repeat-x;
                
 
              </div>*@
-          }                                                                  
+             }                                                                  
                                                   
                                                     
             @Html.Partial("_Footer")
