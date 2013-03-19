@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2013, KISSY UI Library v1.30
-MIT Licensed
-build time: Jan 9 19:16
-*/
-KISSY.add("event/dom/base/api", function (g, f, b, c, j, l, m) {
+﻿KISSY.add("event/dom/base/api", function (g, f, b, c, j, l, m) {
     function k(a, b) {
         var d = c[b] || {};
         a.originalType || (a.selector ? d.delegateFix && (a.originalType = b, b = d.delegateFix) : d.onFix && (a.originalType = b, b = d.onFix));

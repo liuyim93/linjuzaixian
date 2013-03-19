@@ -1372,20 +1372,36 @@
     <Content Include="apps\department\common\brandbar-fly.js" />
     <Content Include="apps\department\common\brandbar.js" />
     <Content Include="apps\department\common\brandfollow.js" />
-<<<<<<< HEAD
     <Content Include="apps\lz\hc.js" />
-=======
->>>>>>> still have bug
     <Content Include="apps\malldetail\4.0\base.css" />
+    <Content Include="apps\malldetail\4.0\common\tbskip.js" />
     <Content Include="apps\malldetail\4.0\common\util.js" />
     <Content Include="apps\malldetail\4.0\css\D950.css" />
     <Content Include="apps\malldetail\4.0\css\shop.css" />
     <Content Include="apps\malldetail\4.0\css\sku.css" />
     <Content Include="apps\malldetail\4.0\css\spriter.css" />
+    <Content Include="apps\malldetail\4.0\data\ajax.js" />
     <Content Include="apps\malldetail\4.0\data\data.js" />
+    <Content Include="apps\malldetail\4.0\dc\dc.js" />
     <Content Include="apps\malldetail\4.0\detail.js" />
     <Content Include="apps\malldetail\4.0\mui.css" />
+    <Content Include="apps\malldetail\4.0\other\atp.js" />
+    <Content Include="apps\malldetail\4.0\other\attributes.css" />
+    <Content Include="apps\malldetail\4.0\other\attributes.js" />
+    <Content Include="apps\malldetail\4.0\other\bread.js" />
+    <Content Include="apps\malldetail\4.0\other\Extension.js" />
+    <Content Include="apps\malldetail\4.0\other\feedback.js" />
+    <Content Include="apps\malldetail\4.0\other\focusTime.js" />
+    <Content Include="apps\malldetail\4.0\other\init.js" />
+    <Content Include="apps\malldetail\4.0\other\itemDesc.js" />
+    <Content Include="apps\malldetail\4.0\other\lazy.js" />
+    <Content Include="apps\malldetail\4.0\other\leftSlide.js" />
+    <Content Include="apps\malldetail\4.0\other\mainBody.js" />
     <Content Include="apps\malldetail\4.0\other\other.css" />
+    <Content Include="apps\malldetail\4.0\other\staticMods.js" />
+    <Content Include="apps\malldetail\4.0\recommend\common.js" />
+    <Content Include="apps\malldetail\4.0\recommend\waterfall.css" />
+    <Content Include="apps\malldetail\4.0\shop\shop.js" />
     <Content Include="apps\malldetail\4.0\sku\3c.js" />
     <Content Include="apps\malldetail\4.0\sku\areaSeletor.js" />
     <Content Include="apps\malldetail\4.0\sku\areaSell.js" />
@@ -1419,11 +1435,17 @@
     <Content Include="apps\malldetail\4.0\sku\util.js" />
     <Content Include="apps\malldetail\4.0\sku\validator.js" />
     <Content Include="apps\malldetail\4.0\spu\spu.css" />
+    <Content Include="apps\malldetail\4.0\tabbar\dealRecord.js" />
+    <Content Include="apps\malldetail\4.0\tabbar\localData.js" />
+    <Content Include="apps\malldetail\4.0\tabbar\reviewsTmall.js" />
+    <Content Include="apps\malldetail\4.0\tabbar\sellerinfo.js" />
     <Content Include="apps\malldetail\4.0\tabbar\tabbar.css" />
 <<<<<<< HEAD
     <Content Include="apps\martrix-mission\feedback.js" />
 =======
->>>>>>> still have bug
+    <Content Include="apps\malldetail\4.0\tabbar\tabbar.js" />
+    <Content Include="apps\malldetail\4.0\tabbar\tabbarAttr.js" />
+>>>>>>> add .js and .css
     <Content Include="apps\mods\login\asynchavana.js" />
     <Content Include="apps\mods\login\AudioCheckCode.js" />
     <Content Include="apps\mods\login\capslocktip.js" />
@@ -1446,6 +1468,9 @@
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
     <Content Include="apps\tmallbuy\razer\mini\core.js" />
+    <Content Include="apps\tmall\ald\effect.js" />
+    <Content Include="apps\tmall\ald\use.js" />
+    <Content Include="apps\tmall\ald\util.js" />
     <Content Include="apps\tmall\common\bottombar.js" />
     <Content Include="apps\tmall\common\tbuser.js" />
     <Content Include="apps\tmall\common\tgallery.js" />
@@ -1476,13 +1501,27 @@
     <Content Include="apps\tmall\header\shop\head-info.css" />
     <Content Include="apps\tmall\header\shop\head-seed.js" />
     <Content Include="apps\tmall\header\shop\header.css" />
+<<<<<<< HEAD
     <Content Include="apps\tmall\header\shop\searchStyle.css" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
     <Content Include="app\shop\skin\ark_black.css" />
     <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
+=======
+    <Content Include="apps\tmall\mods\ald.js" />
+    <Content Include="apps\tmall\mods\base.js" />
+    <Content Include="apps\tmall\ald\juicer.js" />
+    <Content Include="apps\tmall\mui\backtop\js\backtop.js" />
+    <Content Include="apps\tmall\mui\feed\js\feed.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="apps\tmall\tml\1.0\tml\tml-min.js" />
+    <Content Include="app\shop\skin\ark_detail.css" />
+>>>>>>> add .js and .css
     <Content Include="comet.htm" />
+    <Content Include="cps\trace.js" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -1504,6 +1543,7 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+<<<<<<< HEAD
     <Content Include="Images\bg.jpg" />
     <Content Include="p\header\adapter-min.js" />
     <Content Include="p\header\webww-min.js" />
@@ -1551,6 +1591,45 @@
     <Content Include="s\kissy\1.3.0\suggest-min.js" />
     <Content Include="s\kissy\1.3.0\switchable-min.js" />
     <Content Include="s\tb-tracer-min.js" />
+=======
+    <Content Include="p\mall\2.0\js\zeroclipboard.js" />
+    <Content Include="p\mall\base\global-v2.css" />
+    <Content Include="p\mall\base\global-v2.js" />
+    <Content Include="p\mall\base\header-v2.css" />
+    <Content Include="p\shop\3.0\wangpu\decoration\compatible-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\countdown-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\init-min.js" />
+    <Content Include="p\shop\3.0\wangpu\decoration\isv-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\customer-service-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\page-banner-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\self-defined-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\shopinsearch-head-min.js" />
+    <Content Include="p\shop\3.0\wangpu\mods\official\top-list-min.js" />
+    <Content Include="p\shop\3.0\wangpu\base-min.js" />
+    <Content Include="p\shop\3.0\wangpu\init-min.js" />
+    <Content Include="p\tstart\1.0\build\tb-mpp.js" />
+    <Content Include="slide2.html" />
+    <Content Include="socket.io\socket.io.js" />
+    <Content Include="s\kissy\1.3.0\component\base-min.js" />
+    <Content Include="s\kissy\1.3.0\component\extension-min.js" />
+    <Content Include="s\kissy\1.3.0\component\rich-base-min.js" />
+    <Content Include="s\kissy\1.3.0\dom\base-min.js" />
+    <Content Include="s\kissy\1.3.0\event\ajax-min.js" />
+    <Content Include="s\kissy\1.3.0\event\anim-min.js" />
+    <Content Include="s\kissy\1.3.0\event\base-min.js" />
+    <Content Include="s\kissy\1.3.0\event\cookie-min.js" />
+    <Content Include="s\kissy\1.3.0\event\custom-min.js" />
+    <Content Include="s\kissy\1.3.0\event\datalazyload-min.js" />
+    <Content Include="s\kissy\1.3.0\event\dom\base-min.js" />
+    <Content Include="s\kissy\1.3.0\event\dom\focusin-min.js" />
+    <Content Include="s\kissy\1.3.0\event\imagezoom-min.js" />
+    <Content Include="s\kissy\1.3.0\event\json-min.js" />
+    <Content Include="s\kissy\1.3.0\event\node-min.js" />
+    <Content Include="s\kissy\1.3.0\event\overlay-min.js" />
+    <Content Include="s\kissy\1.3.0\event\swf-min.js" />
+    <Content Include="s\kissy\1.3.0\event\template-min.js" />
+    <Content Include="s\kissy\1.3.0\seed-min.js" />
+>>>>>>> add .js and .css
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
     <Content Include="uploadimage\b11.jpg" />

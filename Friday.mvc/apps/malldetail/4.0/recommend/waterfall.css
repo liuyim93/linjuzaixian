@@ -1,0 +1,13 @@
+﻿#J_TabRecommends{background-color:#fafafa;}
+#J_Tjwrap ul{position:relative;left:9px;top:8px;padding-bottom:40px;width:750px;}
+#J_Tjwrap li{position:absolute;width:220px;background-color:#fff;border:1px solid #ededed;border-bottom-color:#d5d5d5;box-shadow:0 1px 2px #eee;margin-top:18px;color:#999;border-radius:3px;z-index:1;}
+#J_Tjwrap .ald-wf-pic{position:relative;width:220px;height:220px;overflow:hidden;display:block;}
+#J_Tjwrap .ald-wf-pic:hover{text-decoration:none;}
+#J_Tjwrap .ald-wf-em{position:absolute;background:#fff;bottom:0;left:0;height:30px;width:100%;filter:alpha(opacity=70);opacity:.7;}
+#J_Tjwrap .ald-wf-line{border:1px solid #ddd;border-top-color:#e3e3e3;height:34px;line-height:34px;text-align:center;margin:0 auto;width:700px;background:#e3e3e3;background:-moz-linear-gradient(top,#d2d2d2,#e3e3e3 4%);background:-webkit-gradient(linear,0 0,0 4%,from(#d2d2d2),to(#e3e3e3));}
+.ald-wf-pic .ui-price,.ald-wf-pic .ui-price-original{position:absolute;top:194px;z-index:1;}
+.ald-wf-pic .ui-price{left:10px;}
+.ald-wf-pic .ui-price-original{right:10px;}
+.ald-wf-li b{color:#666;margin-right:10px;}
+.ald-wf-li p{border-bottom:1px dashed #e0e0e0;margin:0 5px;padding:5px;max-height:71px;overflow:hidden;}
+.ald-wf-li p:last-child{border-bottom-width:0;};

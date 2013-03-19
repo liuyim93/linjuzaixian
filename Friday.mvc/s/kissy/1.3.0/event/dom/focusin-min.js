@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2012, KISSY UI Library v1.30
-MIT Licensed
-build time: Dec 20 22:27
-*/
-KISSY.add("event/dom/focusin", function (d, e) {
+﻿KISSY.add("event/dom/focusin", function (d, e) {
     var g = e._Special;
     d.each([{
         name: "focusin",

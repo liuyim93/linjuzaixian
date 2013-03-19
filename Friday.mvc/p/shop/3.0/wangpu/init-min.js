@@ -1,6 +1,4 @@
-﻿
-
-KISSY.add("wangpu/init", function (d) {
+﻿KISSY.add("wangpu/init", function (d) {
     KISSY.config("modules", {
         "wangpu/decoration/init": {
             requires: ["core", "switchable", "overlay", "wangpu/decoration/compatible", "wangpu/decoration/countdown", "datalazyload", "wangpu/decoration/isv"]
@@ -61,7 +59,7 @@ KISSY.add("wangpu/init", function (d) {
     };
     var c = {
         init: function (g) {
-            d.log("wangpu init start");
+            d.log("wangpu  init start");
             var k = (new Date()).getTime();
             var f = d.merge(b, g),
 				j = [],
@@ -86,7 +84,7 @@ KISSY.add("wangpu/init", function (d) {
                 i.ready(function (o) {
                     if (window.g_hb_monitor_st) {
                         var n = (new Date()).getTime();
-                        o.log("wangpu dom ready spend time ms:" + (n - window.g_hb_monitor_st))
+                        o.log("wangpu  dom ready spend time ms:" + (n - window.g_hb_monitor_st))
                     }
                     var q = o.DOM,
 						r = {};
@@ -125,9 +123,9 @@ KISSY.add("wangpu/init", function (d) {
                             }
                         }
                     }
-                    o.log("wangpu init end");
+                    o.log("wangpu  init end");
                     var m = (new Date()).getTime();
-                    o.log("wangpu init spend time ms:" + (m - k))
+                    o.log("wangpu  init spend time ms:" + (m - k))
                 })
             })
         }
@@ -144,13 +142,3 @@ if (window.shop_config) {
         })
     }, true)
 };
-
-
-
-
-
-
-
-
-
-

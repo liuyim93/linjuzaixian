@@ -99,7 +99,8 @@
                 X.items.push(Y)
             }
             for (var W in S) {
-                var X = S[W], T = X.items, M = window.g_config.assetsHost || "http://l.tbcdn.cn", Z = [], R = [], Q = undefined, P;
+                //var X = S[W], T = X.items, M = window.g_config.assetsHost || "http://l.tbcdn.cn", Z = [], R = [], Q = undefined, P;
+                var X = S[W], T = X.items, M = window.g_config.assetsHost || "http://localhost:7525", Z = [], R = [], Q = undefined, P;
                 M += "/";
                 for (var O = 0; O < T.length; O++) {
                     var N = T[O].path;

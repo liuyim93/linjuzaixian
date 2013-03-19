@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2013, KISSY UI Library v1.30
-MIT Licensed
-build time: Jan 30 22:39
-*/
-KISSY.add("component/base", function (d, g, e, c, h, a, b, i) {
+﻿KISSY.add("component/base", function (d, g, e, c, h, a, b, i) {
     d.mix(g, {
         Controller: e,
         Render: c,

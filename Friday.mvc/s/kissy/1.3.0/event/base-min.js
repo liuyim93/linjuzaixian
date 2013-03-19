@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2012, KISSY UI Library v1.30
-MIT Licensed
-build time: Dec 20 22:27
-*/
-KISSY.add("event/base", function (e, d, c, a, b) {
+﻿KISSY.add("event/base", function (e, d, c, a, b) {
     return e.Event = {
         _Utils: d,
         _Object: c,

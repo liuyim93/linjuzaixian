@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2012, KISSY UI Library v1.30
-MIT Licensed
-build time: Dec 20 22:27
-*/
-KISSY.add("event/custom/api-impl", function (d, k, e, i) {
+﻿KISSY.add("event/custom/api-impl", function (d, k, e, i) {
     var g = d.trim,
 		f = e._Utils,
 		m = f.splitAndRun;

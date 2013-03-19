@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2013, KISSY UI Library v1.30
-MIT Licensed
-build time: Jan 29 20:38
-*/
-KISSY.add("dom/base/api", function (c) {
+﻿KISSY.add("dom/base/api", function (c) {
     var b = c.Env.host,
 		i = c.UA,
 		p = {

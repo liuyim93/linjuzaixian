@@ -1,9 +1,4 @@
-﻿/*
-Copyright 2012, KISSY UI Library v1.30
-MIT Licensed
-build time: Dec 20 22:24
-*/
-KISSY.add("component/extension/align", function (e, c, m) {
+﻿KISSY.add("component/extension/align", function (e, c, m) {
     function h(a) {
         var d = a.ownerDocument.body,
 			g = c.css(a, "position");

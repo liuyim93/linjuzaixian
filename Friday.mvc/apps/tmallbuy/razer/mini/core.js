@@ -1164,7 +1164,9 @@
             K(F)
         };
         if (!I) {
-            _kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/??tml-min.js,minilogin-min.js?t=20121022", function () {
+            //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/??tml-min.js,minilogin-min.js?t=20121022", function () {
+            _kissy.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/??tml-min.js,minilogin-min.js?t=20121022", function () {
+
                 window.TML.use("minilogin", function (M, L) {
                     J(L || M.MiniLogin)
                 })
@@ -1175,7 +1177,8 @@
                     J(L || M.MiniLogin)
                 })
             } else {
-                _kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/minilogin-min.js?t=20121022", function () {
+                //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/minilogin-min.js?t=20121022", function () {
+                _kissy.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/minilogin-min.js?t=20121022", function () {
                     I.use("minilogin", function (M, L) {
                         J(L || M.MiniLogin)
                     })
