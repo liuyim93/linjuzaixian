@@ -102,7 +102,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
 
                 int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
-                int numPerPageValue = 24;
+                int numPerPageValue = 20;
                 int total;
 
                 int start = (currentPage - 1) * numPerPageValue;
