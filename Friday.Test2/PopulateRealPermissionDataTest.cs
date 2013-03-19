@@ -2479,7 +2479,7 @@ namespace Friday.Test2
 
                 Commodity commodity_2 = new Commodity()
                 {
-                    Name = "章丘大村",
+                    Name = "章丘大葱",
                     Price = 15,
                     Image = "/uploadimage/c2.jpg",
                     IsDiscount = true,

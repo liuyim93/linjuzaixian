@@ -98,6 +98,7 @@
     <Compile Include="PopulateFakeRestaurantDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs" />
+    <Compile Include="Test_Commodity.cs" />
     <Compile Include="Test_Merchant.cs" />
     <Compile Include="Test_GlobalGoodsType.cs" />
     <Compile Include="PopulateRealPermissionDataTest.cs" />
