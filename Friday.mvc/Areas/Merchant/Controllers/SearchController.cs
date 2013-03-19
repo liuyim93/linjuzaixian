@@ -102,7 +102,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
 
                 int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
-                int numPerPageValue = 10;
+                int numPerPageValue = 24;
                 int total;
 
                 int start = (currentPage - 1) * numPerPageValue;
@@ -116,7 +116,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
-                searchModel.count = myCommodities.Count;
+                searchModel.count = total;
                 ViewData["skeyword"] = keyword;
                 ViewData["sprice1"] = price1;
                 ViewData["sprice2"] = price2;
