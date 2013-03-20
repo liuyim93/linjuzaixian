@@ -9,6 +9,7 @@ namespace friday.core.services
 {
     public interface IValuingOfMyCommodityOrderService
     {
+        IList<ValuingOfMyCommodityOrder> GetValuingOfMyCommodityOrderByCommodityID(string commodityID);
         ValuingOfMyCommodityOrder Load(string id);
         void Save(ValuingOfMyCommodityOrder valuingOfMyCommodityOrder);
         void Update(ValuingOfMyCommodityOrder valuingOfMyCommodityOrder);

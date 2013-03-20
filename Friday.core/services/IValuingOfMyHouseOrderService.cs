@@ -8,6 +8,7 @@ namespace friday.core.services
 {
     public interface IValuingOfMyHouseOrderService
     {
+        IList<ValuingOfMyHouseOrder> GetValuingOfMyHouseOrderByHouseID(string houseID);
         ValuingOfMyHouseOrder Load(string id);
         void Save(ValuingOfMyHouseOrder valuingOfMyHouseOrder);
         void Update(ValuingOfMyHouseOrder valuingOfMyHouseOrder);
