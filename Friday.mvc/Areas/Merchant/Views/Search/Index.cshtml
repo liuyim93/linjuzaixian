@@ -200,7 +200,16 @@ background-repeat:repeat-x;
                                        @foreach (var i in Model.merchantGoodsTypes)
                                          {
                                                      
-                                   <li class="top_nav04 first-trigger-nav04">
+                                   <li class="top_nav01 first-trigger-nav01" style=" width:80px">
+                                                       <a href="http://nike.tmall.com/search.htm?scid=493467032&amp;scname=svrGt8%2B1wdA%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                    <em>@i.GoodsType
+                                                                                    </em></a>
+                                                                                    </li>
+                                              }
+                                                   @foreach (var i in Model.merchantGoodsTypes)
+                                         {
+                                                     
+                                   <li class="top_nav01 first-trigger-nav01"  style=" width:78px">
                                                        <a href="http://nike.tmall.com/search.htm?scid=493467032&amp;scname=svrGt8%2B1wdA%3D&amp;checkedRange=true&amp;queryType=cat">
                                                                                     <em>@i.GoodsType
                                                                                     </em></a>
