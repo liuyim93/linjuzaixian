@@ -24,7 +24,7 @@ namespace Friday.mvc.Models
             SingleShop = new Shop();
             SingleMerchantGoodsType = new MerchantGoodsType();
 
-
+            IList<MerchantGoodsType> merchantGoodsTypes = new List<MerchantGoodsType>();
             IList<Food> Foods = new List<Food>();
             IList<House> Houses = new List<House>();
             IList<Commodity> Commoditys = new List<Commodity>();
@@ -39,6 +39,7 @@ namespace Friday.mvc.Models
         public int count { get; set; }
         public int currentPage { get; set; }
         public int pageNum { get; set; }
+        public IList<MerchantGoodsType> merchantGoodsTypes { get; set; }
         public IList<Food> Foods { get; set; }
         public IList<House> Houses { get; set; }
         public IList<Commodity> Commoditys { get; set; }

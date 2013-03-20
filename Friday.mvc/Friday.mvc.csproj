@@ -1465,7 +1465,6 @@
     <Content Include="apps\tmall\header\shop\head-info.css" />
     <Content Include="apps\tmall\header\shop\head-seed.js" />
     <Content Include="apps\tmall\header\shop\header.css" />
-    <Content Include="apps\tmall\header\shop\header.js" />
     <Content Include="apps\tmall\header\shop\searchStyle.css" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />

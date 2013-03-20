@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NHibernate;
 using friday.core.components;
+using friday.core.domain;
 
 namespace friday.core.repositories
 {

@@ -183,23 +183,45 @@ background-repeat:repeat-x;
                                                                 data-cdn-reduce-traffic="http://img02.taobaocdn.com/imgextra/i2/890482188/T2Z_x3XhxcXXXXXXXX_!!890482188.jpg_q75.jpg">
                                                         *@ <img border="0" src="@m.Logo"    >
                                                                 </a></li>
-                                                      <li class="top_nav01 first-trigger-nav01"><a href="http://nike.tmall.com/search.htm?scid=493467018&amp;scname=xNDX0w%3D%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                  @*    <li class="top_nav01 first-trigger-nav01">
+                                                      <a href="http://nike.tmall.com/search.htm?scid=493467018&amp;scname=xNDX0w%3D%3D&amp;checkedRange=true&amp;queryType=cat">
                                                                         <em>男子</em></a></li>
-                                                      <li class="top_nav02 first-trigger-nav02"><a href="http://nike.tmall.com/search.htm?scid=493467022&amp;scname=xa7X0w%3D%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                      <li class="top_nav02 first-trigger-nav02">
+                                                      <a href="http://nike.tmall.com/search.htm?scid=493467022&amp;scname=xa7X0w%3D%3D&amp;checkedRange=true&amp;queryType=cat">
                                                                             <em>女子</em></a></li>
-                                                     <li class="top_nav03 first-trigger-nav03"><a href="http://nike.tmall.com/search.htm?scid=493467026&amp;scname=1Mu2r7L6xrc%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                     <li class="top_nav03 first-trigger-nav03">
+                                                     <a href="http://nike.tmall.com/search.htm?scid=493467026&amp;scname=1Mu2r7L6xrc%3D&amp;checkedRange=true&amp;queryType=cat">
                                                                                 <em>运动产品</em></a></li>
-                                                       <li class="top_nav04 first-trigger-nav04"><a href="http://nike.tmall.com/search.htm?scid=493467032&amp;scname=svrGt8%2B1wdA%3D&amp;checkedRange=true&amp;queryType=cat">
-                                                                                    <em>产品系列</em></a></li>
-                                                  <li class="top_nav05"><a href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467010&amp;viewType=grid&amp;orderType=_newOn&amp;prt=1341396525549&amp;prc=1">
+                                                       <li class="top_nav04 first-trigger-nav04">
+                                                       <a href="http://nike.tmall.com/search.htm?scid=493467032&amp;scname=svrGt8%2B1wdA%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                    <em>产品系列</em></a>
+                                                                                    </li>*@
+                                   
+                                       @foreach (var i in Model.merchantGoodsTypes)
+                                         {
+                                                     
+                                   <li class="top_nav04 first-trigger-nav04">
+                                                       <a href="http://nike.tmall.com/search.htm?scid=493467032&amp;scname=svrGt8%2B1wdA%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                    <em>@i.GoodsType
+                                                                                    </em></a>
+                                                                                    </li>
+                                              }
+
+                                                  <li class="top_nav05">
+                                                  <a href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467010&amp;viewType=grid&amp;orderType=_newOn&amp;prt=1341396525549&amp;prc=1">
                                                                                         <em>最新商品</em></a></li>
-                                                 <li class="top_nav06"><a href="http://nike.tmall.com/search.htm?scid=493467006&amp;scname=yMjC9MnMxrc%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                 <li class="top_nav06">
+                                                 <a href="http://nike.tmall.com/search.htm?scid=493467006&amp;scname=yMjC9MnMxrc%3D&amp;checkedRange=true&amp;queryType=cat">
                                                                                             <em>热卖商品</em></a></li>
-                                                <li class="top_nav07 first-trigger-nav06"><a href="http://nike.tmall.com/search.htm?scid=493467014&amp;scname=08W73cnMxrc%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                <li class="top_nav07 first-trigger-nav06">
+                                                <a href="http://nike.tmall.com/search.htm?scid=493467014&amp;scname=08W73cnMxrc%3D&amp;checkedRange=true&amp;queryType=cat">
                                                                                                 <em>优惠商品</em></a></li>
-                                                 <li class="top_nav08"><a href="http://nike.tmall.com/view_page-260002965.htm?prt=1340092292125&amp;prc=1">
+                                                 <li class="top_nav08">
+                                                 <a href="http://nike.tmall.com/view_page-260002965.htm?prt=1340092292125&amp;prc=1">
                                                                                                     <em>购物须知</em></a>
-                                                </li><li><a href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=56863333b8195"
+                                                </li>
+                                                <li>
+                                                <a href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=56863333b8195"
                                                                                                         target="_blank">
                                                                                                         <img border="0" src="http://img03.taobaocdn.com/imgextra/i3/890482188/T2FW84XcFcXXXXXXXX_!!890482188.jpg"
                                                                                                             data-cdn-reduce-traffic="http://img03.taobaocdn.com/imgextra/i3/890482188/T2FW84XcFcXXXXXXXX_!!890482188.jpg_q75.jpg"></a></li>
@@ -357,7 +379,7 @@ background-repeat:repeat-x;
                                                     
                                                     <a class="disable" > 下一页</a>
                                                  }
-                                                 else if (Model.currentPage == Model.pageNum && Model.pageNum !=1)
+                                                 else if (Model.currentPage == Model.pageNum && Model.pageNum != 1)
                                                  {                                            
                                                     
                                                     <a class="J_SearchAsync next"
@@ -1815,7 +1837,7 @@ background-repeat:repeat-x;
 
              </div>*@
                                                                           
-               }                                
+                                   }                                
                                                     
             @Html.Partial("_Footer")
 </body>
