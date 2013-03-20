@@ -1463,10 +1463,13 @@
     <Content Include="apps\tmall\header\shop\head-info.css" />
     <Content Include="apps\tmall\header\shop\head-seed.js" />
     <Content Include="apps\tmall\header\shop\header.css" />
+    <Content Include="apps\tmall\header\shop\header.js" />
     <Content Include="apps\tmall\header\shop\searchStyle.css" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="app\shop\skin\ark_black.css" />
+    <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
     <Content Include="comet.htm" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml">
@@ -1492,6 +1495,7 @@
     <Content Include="p\mall\base\global-v2.css" />
     <Content Include="p\mall\base\global-v2.js" />
     <Content Include="p\mall\base\header-v2.css" />
+    <Content Include="p\shop\StyleSheet1.css" />
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
     <Content Include="socket.io\socket.io.js" />
@@ -2558,6 +2562,7 @@
     <Folder Include="Areas\Message\Models\" />
     <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Logs\" />
+    <Folder Include="p\shop\1.0\mods\b\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
