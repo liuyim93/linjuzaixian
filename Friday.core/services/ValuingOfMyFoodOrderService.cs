@@ -12,6 +12,10 @@ namespace friday.core.services
     {
         private IValuingOfMyFoodOrderRepository iValuingOfMyFoodOrderRepository;
         private ILogger iLogger;
+        public IList<ValuingOfMyFoodOrder> GetValuingOfMyFoodOrderByFoodID(string foodID)
+        {
+            return iValuingOfMyFoodOrderRepository.GetValuingOfMyFoodOrderByFoodID(foodID);
+        }
         public ValuingOfMyFoodOrderService(IValuingOfMyFoodOrderRepository iValuingOfMyFoodOrderRepository, ILogger iLogger)
         {
             this.iValuingOfMyFoodOrderRepository = iValuingOfMyFoodOrderRepository;
