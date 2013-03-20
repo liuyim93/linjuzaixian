@@ -130,6 +130,7 @@
     <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
+    <Compile Include="Areas\Merchant\Models\DetailModel.cs" />
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
