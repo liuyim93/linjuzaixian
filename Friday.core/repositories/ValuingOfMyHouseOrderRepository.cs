@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using friday.core.components;
 using NHibernate;
+using NHibernate.Linq;
 
 namespace friday.core.repositories
 {
@@ -13,6 +14,21 @@ namespace friday.core.repositories
         {
             get { return Session.CreateCriteria(typeof(ValuingOfMyHouseOrder)); }
         }
+
+
+        public IList<ValuingOfMyHouseOrder> GetValuingOfMyHouseOrderByHouseID(string houseID)
+        {
+            var s = (from v in Session.Query<ValuingOfMyHouseOrder>()
+                     join m in Session.Query<MyHouseOrder>()
+                          on v.MyHouseOrder.Id equals m.Id
+                     join o in Session.Query<OrderOfHouse>()
+                       on m.Id equals o.MyHouseOrder.Id
+                     where v.ValuingContent != null && o.House.Id == houseID
+                     select v).Take(3).ToList();
+            return s;
+        }
+
+
         //对外获取方法
         public IList<ValuingOfMyHouseOrder> Search(List<DataFilter> termList)
         {
