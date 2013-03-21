@@ -47,6 +47,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodTypeId);
             }
+            else 
+            {
+                goodTypeId = "0";
+            }
             searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 20;
@@ -122,7 +126,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else 
             {
-                goodTypeId = "";
+                goodTypeId = "0";
             }
             searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);

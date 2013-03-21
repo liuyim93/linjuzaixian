@@ -280,7 +280,7 @@ background-repeat:repeat-x;
                                                 <ol>
                                                   <!---  商品的分类名称 女子--->
                                                     
-                                                    @if (!string.IsNullOrEmpty(ViewData["sgoodTypeId"].ToString()))
+                                                    @if (ViewData["sgoodTypeId"].ToString()!="0")
                                                     {
                                                        <li> @Model.SingleMerchantGoodsType.GoodsType</li>
                                                     }
