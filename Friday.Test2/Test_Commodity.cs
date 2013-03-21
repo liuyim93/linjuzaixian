@@ -55,8 +55,25 @@ namespace friday.coretest
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
-            }      
-           
+            }
+            for (int i = 0; i < 40; i++)
+            {
+                Commodity commodity = new Commodity()
+                {
+                    Name = i + "铁观音",
+                    Price = i + 10,
+                    Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
+                    IsDiscount = false,
+                    InventoryCount = 100,
+                    MerchantGoodsType = mgt,
+                    Shop = shop,
+                    ValuingCount = i,
+                    Amount = i * 10,
+                    MonthAmount = i,
+
+                };
+                new CommodityRepository().SaveOrUpdate(commodity);
+            }  
              
         }
        
