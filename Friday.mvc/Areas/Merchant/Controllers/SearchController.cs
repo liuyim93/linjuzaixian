@@ -65,13 +65,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
             }
-            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            //{
-            //    IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(scid);
-            //    Restaurant restaurant = this.iRestaurantService.Load(scid);
-            //    searchModel.SingleRestaurant = restaurant;
-            //    searchModel.Foods = myFoods;
-            //}
+            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+            {
+                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
+                Restaurant restaurant = this.iRestaurantService.Load(scid);
+                searchModel.SingleRestaurant = restaurant;
+                searchModel.Foods = myFoods;
+            }
             else
             {
                 IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
@@ -117,7 +117,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             SearchModel searchModel = new SearchModel();
 
-            scid = "d86b7c9f-5b9d-41b6-9bda-140d777191f6";
+            scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
             friday.core.Merchant merchant = iMerchantService.Load(scid);
             searchModel.SingleMerchant =merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
@@ -145,7 +145,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             {
-                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType, start, limit, out total);
+                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType,goodTypeId, start, limit, out total);
                 Restaurant restaurant = this.iRestaurantService.Load(scid);
                 searchModel.SingleRestaurant = restaurant;
                 searchModel.Foods = myFoods;

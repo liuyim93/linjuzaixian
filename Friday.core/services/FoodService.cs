@@ -60,9 +60,13 @@ namespace friday.core.services
         {
             return iFoodRepository.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(restaurantID, keyword, price1, price2, orderType);
         }
-        public IList<Food> GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(string restaurantID, string keyword, double price1, double price2, string orderType, int start, int limit, out int total)
+        public IList<Food> GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(string restaurantID, string keyword, double price1, double price2,string goodTypeId, string orderType, int start, int limit, out int total)
         {
-            return iFoodRepository.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(restaurantID, keyword, price1, price2, orderType, start, limit, out total);
+            return iFoodRepository.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(restaurantID, keyword, price1, price2,goodTypeId, orderType, start, limit, out total);
+        }
+        public IList<Food> GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string restaurantID, string merchantGoodTypeID, int start, int limit, out int total)
+        {
+            return iFoodRepository.GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(restaurantID, merchantGoodTypeID, start, limit, out total);
         }
     }
 }
