@@ -48,14 +48,14 @@ namespace friday.core.repositories
             }
             else if (price1 == -1 && price2 != -1)
             {
-                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price <= price2 && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
-                total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price <= price2 && o.IsDelete == false).Count();
+                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price <= price2 && (o.MerchantGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price <= price2 && (o.MerchantGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).Count();
                 return s;
             }
             else
             {
-                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price >= price1 && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
-                total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price >= price1  && o.IsDelete == false).Count();
+                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price >= price1 && (o.MerchantGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.Price >= price1 && (o.MerchantGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).Count();
                 return s;
             }
             
