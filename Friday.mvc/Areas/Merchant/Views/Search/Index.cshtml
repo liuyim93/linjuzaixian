@@ -280,7 +280,7 @@ background-repeat:repeat-x;
                                                 <ol>
                                                   <!---  商品的分类名称 女子--->
                                                     
-                                                    @if (!string.IsNullOrEmpty(Model.SingleMerchantGoodsType.GoodsType))
+                                                    @if (!string.IsNullOrEmpty(ViewData["sgoodTypeId"].ToString()))
                                                     {
                                                        <li> @Model.SingleMerchantGoodsType.GoodsType</li>
                                                     }
@@ -330,6 +330,7 @@ background-repeat:repeat-x;
                                                         <input type="hidden" name="viewType" value=@ViewData["sviewType"]>
                                                         @*<input id="baobei_type" type="hidden" name="baobei_type" value="">*@
                                                      <input type="hidden" name="scid" value=@ViewData["sscid"]>
+                                                     <input type="hidden" name="goodTypeId" value=@ViewData["sgoodTypeId"] />
                                                          @*  <li class="type">
                                                             <label for="whole">
                                                                 搜索整店</label>

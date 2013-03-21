@@ -31,7 +31,7 @@ namespace friday.core.repositories
             total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.MerchantGoodsType.Id == merchantGoodTypeID && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Count();        
             return s;
         }
-        public IList<Commodity> GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(string shopID, string keyword, double price1, double price2, string orderType, int start, int limit, out int total)
+        public IList<Commodity> GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(string shopID, string keyword, double price1, double price2, string goodTypeId, string orderType, int start, int limit, out int total)
         {
          
             if (price1 != -1 && price2 != -1)
@@ -42,8 +42,8 @@ namespace friday.core.repositories
             }
             else if (price1 == -1 && price2 == -1)
             {
-                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
-                total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.IsDelete == false).Count();
+                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.MerchantGoodsType.Id == goodTypeId && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID && o.Name.Contains(keyword) && o.MerchantGoodsType.Id == goodTypeId && o.IsDelete == false).Count();
                 return s;
             }
             else if (price1 == -1 && price2 != -1)

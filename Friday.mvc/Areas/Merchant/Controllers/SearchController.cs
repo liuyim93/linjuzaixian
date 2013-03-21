@@ -78,6 +78,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchModel.currentPage = currentPage;
             searchModel.pageNum = total / numPerPageValue + 1;
             searchModel.count = total;
+            ViewData["sscid"] = scid;
+            ViewData["sgoodTypeId"] = goodTypeId;
 
             return View("Index",searchModel);
         }
@@ -118,6 +120,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodTypeId);
             }
+            else 
+            {
+                goodTypeId = "";
+            }
             searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 20;
@@ -128,7 +134,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
          
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType, start, limit, out total);
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId, orderType, start, limit, out total);
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;         
@@ -156,6 +162,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["sviewType"] = viewType;
             ViewData["sorderType"] = orderType;
             ViewData["sscid"] = scid;
+            ViewData["sgoodTypeId"] = goodTypeId;
 
             return View(searchModel);
         }
