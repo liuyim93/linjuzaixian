@@ -1461,6 +1461,8 @@
     <Content Include="apps\tmall\fp\2012\mods\floor.js" />
     <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
     <Content Include="apps\tmall\fp\2012\util\util.js" />
+    <Content Include="apps\tmall\header\shop\bg.jpg" />
+    <Content Include="apps\tmall\header\shop\bg1.jpg" />
     <Content Include="apps\tmall\header\shop\common.css" />
     <Content Include="apps\tmall\header\shop\head-info.css" />
     <Content Include="apps\tmall\header\shop\head-seed.js" />
@@ -1493,6 +1495,7 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="Images\bg.jpg" />
     <Content Include="p\header\adapter-min.js" />
     <Content Include="p\header\webww-min.js" />
     <Content Include="p\mall\base\global-v2.css" />

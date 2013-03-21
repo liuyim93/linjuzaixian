@@ -17,10 +17,22 @@ display:none;
 }
 .tb-shop .top_nav01 a{
 display:block;
-width:73px;
+width:88px;
 height:51px;
-background:url(http://img04.taobaocdn.com/imgextra/i4/890482188/T2sPd9Xk0bXXXXXXXX_!!890482188.jpg) no-repeat 0 0;
+background:url(bg1.jpg) no-repeat 0 0;
+text-align:center;
+padding-top:15px;
+text-decoration:none;
 }
+.tb-shop .top_nav01 a:hover  
+{
+    color:Red;
+    font-size:20px;
+    text-align:center; 
+    font-family:华文新魏; 
+ 
+
+} 
 .tb-shop .top_nav11 a{
 display:block;
 width:73px;
