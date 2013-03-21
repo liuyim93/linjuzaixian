@@ -18,6 +18,7 @@ namespace friday.core.services
         IList<House> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<House> GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(string rentID, string keyword, double price1, double price2, string orderType);
         IList<House> GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(string rentID, string keyword, double price1, double price2,string goodTypeId, string orderType, int start, int limit, out int total);
-  
+        IList<House> GetHouseByRentIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string rentID, string merchantGoodTypeID, int start, int limit, out int total);
+      
      }
 }

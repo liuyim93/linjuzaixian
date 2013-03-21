@@ -39,7 +39,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             SearchModel searchModel = new SearchModel();
 
-            scid = "885009d2-e184-41c3-913e-0b0caa058d41";
+            //scid = "885009d2-e184-41c3-913e-0b0caa058d41";
         
             friday.core.Merchant merchant = iMerchantService.Load(scid);
             searchModel.SingleMerchant = merchant;
@@ -58,13 +58,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
-            //{
+            if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+            {
                 IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
-            //}
+            }
             //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             //{
             //    IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(scid);
@@ -72,13 +72,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //    searchModel.SingleRestaurant = restaurant;
             //    searchModel.Foods = myFoods;
             //}
-            //else
-            //{
-            //    IList<House> myHouses = this.iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(scid);
-            //    Rent rent = this.iRentService.Load(scid);
-            //    searchModel.SingleRent = rent;
-            //    searchModel.Houses = myHouses;
-            //}
+            else
+            {
+                IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
+                Rent rent = this.iRentService.Load(scid);
+                searchModel.SingleRent = rent;
+                searchModel.Houses = myHouses;
+            }
             searchModel.currentPage = currentPage;
             searchModel.pageNum = total / numPerPageValue + 1;
             searchModel.count = total;
@@ -117,7 +117,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             SearchModel searchModel = new SearchModel();
 
-            scid = "885009d2-e184-41c3-913e-0b0caa058d41";
+            scid = "d86b7c9f-5b9d-41b6-9bda-140d777191f6";
             friday.core.Merchant merchant = iMerchantService.Load(scid);
             searchModel.SingleMerchant =merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
