@@ -34,41 +34,45 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             this.iFoodService = iFoodService;
             this.iHouseService = iHouseService;
         }
-        //public ActionResult Index(string scid)// ,string baobei_type,string searchRange)//,string goodsTypeId)
-        //{    
+        public ActionResult SearchGoods(string scid,string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        {
+
+            SearchModel searchModel = new SearchModel();
+
+            scid = "885009d2-e184-41c3-913e-0b0caa058d41";
         
-        //    SearchModel searchModel = new SearchModel();
+            friday.core.Merchant merchant = iMerchantService.Load(scid);
+            searchModel.SingleMerchant = merchant;
+            if (!string.IsNullOrEmpty(goodTypeId))
+            {
+                searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodTypeId);
+            }
+            if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+            {
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(scid);
+                Shop shop = this.iShopService.Load(scid);
+                searchModel.SingleShop = shop;
+                searchModel.Commoditys = myCommodities;
+            }
+            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+            {
+                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(scid);
+                Restaurant restaurant = this.iRestaurantService.Load(scid);
+                searchModel.SingleRestaurant = restaurant;
+                searchModel.Foods = myFoods;
+            }
+            else
+            {
+                IList<House> myHouses = this.iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(scid);
+                Rent rent = this.iRentService.Load(scid);
+                searchModel.SingleRent = rent;
+                searchModel.Houses = myHouses;
+            }
 
-        //    scid = "885009d2-e184-41c3-913e-0b0caa058d41";
+            return View("Index",searchModel);
+        }
 
-        //    friday.core.Merchant merchant = iMerchantService.Load(scid);
-
-        //    if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
-        //    {
-        //        IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(scid);
-        //        Shop shop = this.iShopService.Load(scid);
-        //        searchModel.SingleShop = shop;
-        //        searchModel.Commoditys = myCommodities;
-        //    }
-        //    else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-        //    {
-        //        IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(scid);
-        //        Restaurant restaurant = this.iRestaurantService.Load(scid);
-        //        searchModel.SingleRestaurant = restaurant;
-        //        searchModel.Foods = myFoods;
-        //    }
-        //    else 
-        //    {
-        //        IList<House> myHouses = this.iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(scid);
-        //        Rent rent = this.iRentService.Load(scid);
-        //        searchModel.SingleRent = rent;
-        //        searchModel.Houses = myHouses;
-        //    }
-
-        //    return View(searchModel);
-        //}
-
-        public ActionResult Index(string page,string scid, string orderType, string viewType, string keyword, string price1, string price2)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -100,6 +104,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             scid = "885009d2-e184-41c3-913e-0b0caa058d41";
             friday.core.Merchant merchant = iMerchantService.Load(scid);
             searchModel.SingleMerchant =merchant;
+            if (!string.IsNullOrEmpty(goodTypeId))
+            {
+                searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodTypeId);
+            }
             searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 20;
@@ -110,7 +118,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
          
             if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType,start, limit,out total);
+                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, orderType, start, limit, out total);
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;         
