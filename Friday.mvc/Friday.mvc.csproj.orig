@@ -129,11 +129,8 @@
     <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
-=======
     <Compile Include="Areas\Merchant\Models\DetailModel.cs" />
->>>>>>> Add DetailModel.cs
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
@@ -1405,6 +1402,7 @@
     <Content Include="apps\malldetail\4.0\other\staticMods.js" />
     <Content Include="apps\malldetail\4.0\recommend\common.js" />
     <Content Include="apps\malldetail\4.0\recommend\waterfall.css" />
+    <Content Include="apps\malldetail\4.0\recommend\waterfall.js" />
     <Content Include="apps\malldetail\4.0\shop\shop.js" />
     <Content Include="apps\malldetail\4.0\sku\3c.js" />
     <Content Include="apps\malldetail\4.0\sku\areaSeletor.js" />
@@ -1613,8 +1611,12 @@
     <Content Include="s\kissy\1.3.0\event\swf-min.js" />
     <Content Include="s\kissy\1.3.0\event\template-min.js" />
     <Content Include="s\kissy\1.3.0\seed-min.js" />
+<<<<<<< HEAD
     <Content Include="s\kissy\1.3.0\switchable-min.js" />
     <Content Include="s\tb-tracer-min.js" />
+=======
+    <Content Include="s\kissy\1.3.0\waterfall-min.js" />
+>>>>>>> index have bug
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
     <Content Include="uploadimage\b11.jpg" />

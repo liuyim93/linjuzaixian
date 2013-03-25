@@ -2,6 +2,8 @@
     Layout = null;
 }
 @using Friday.mvc.Models
+@using Friday.core
+@model DetailModel
 <!doctype html>
 <html lang="en">
 <head>
@@ -33,7 +35,6 @@
     <script src=@Url.Content("/apps/tmall/header/shop/head-seed.js")></script>
     <script src=@Url.Content("/apps/malldetail/4.0/detail.js")></script>
 
-    
     <script src=@Url.Content("/s/kissy/1.3.0/event/base-min.js")></script>
     <script src=@Url.Content("/s/kissy/1.3.0/event/dom/base-min.js")></script>
     <script src=@Url.Content("/s/kissy/1.3.0/dom/base-min.js")></script>
@@ -107,6 +108,8 @@
     <script src = @Url.Content("/apps/malldetail/4.0/data/ajax.js") > </script>
     <script src = @Url.Content("/apps/malldetail/4.0/other/ishare.js") > </script>
     <script src = @Url.Content("/apps/malldetail/4.0/recommend/common.js") > </script>
+    <script src = @Url.Content("/apps/malldetail/4.0/recommend/waterfall.js") > </script>
+    <script src=@Url.Content("/s/kissy/1.3.0/waterfall-min.js")></script>
     <script src = @Url.Content("/apps/malldetail/4.0/common/tbskip.js") > </script>
     <script src = @Url.Content("/apps/malldetail/4.0/tabbar/reviewsTmall.js") > </script>
 
@@ -2482,250 +2485,62 @@ font-family:arial;
 							<div class="tm-clear hidden J_BrandAttr"></div>
 							<div id="J_Tjwrap">
 								<ul id="J_TjWaterfall" class="clearfix ald-03040" style="height: 1549px;">
-									<li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" style="left: 15px; top: 0px;" data-waterfall-col="0">
-										<a href="http://detail.tmall.com/item.htm?id=16246207723&amp;pos=1&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_1&amp;acm=03040.1003.247.238.16246207723_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qQ3iXjxbXXb2KJg9_103037.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												249
-											</span>
-										</a>
-										<p>
-											<b>a***e</b>
-											料子很不错，弹力很好！穿着也舒服！
-										</p>
-										<p>
-											<b>x***9</b>
-											穿着运动很舒服。我是75c 买L号刚好。
-										</p>
-										<p>
-											<b>军舰小草</b>
-											正品又实惠。卖家也很用心，没有要求发票都一起寄过来
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-1" style="left: 255px; top: 0px;" data-waterfall-col="1">
-										<a href="http://detail.tmall.com/item.htm?id=17562959948&amp;pos=2&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_2&amp;acm=03040.1003.247.238.17562959948_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img02.taobaocdn.com/bao/uploaded/i2/T1kcQdXalfXXXM_0s8_100132.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												299
-											</span>
-										</a>
-										<p>
-											<b>hslizhener</b>
-											正品，质量很好，穿了很舒服，健身运动更随心
-										</p>
-										<p>
-											<b>maggie_yu7</b>
-											顺丰快递，而且免运费。  东西包装很好。
-										</p>
-										<p>
-											<b>yh521fang</b>
-											是正品  质量非常好  快递很快就送到了 发货也很快 快递员很负责 穿起来很舒服 是运动的首选  很贴身  非常满意的
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-2 ks-waterfall-col-last" style="left: 495px; top: 0px;" data-waterfall-col="2">
-										<a href="http://detail.tmall.com/item.htm?id=15052401756&amp;pos=3&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_3&amp;acm=03040.1003.247.238.15052401756_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img04.taobaocdn.com/bao/uploaded/i4/12188030101240413/T1YdEPXolcXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												349
-											</span>
-										</a>
-										<p>
-											<b>h***7</b>
-											很好，很不错，也很保暖， 180个子，80公斤 L号，很有型
-										</p>
-										<p>
-											<b>vincenttsang</b>
-											无论速度、质量都好得不得了
-										</p>
-										<p>
-											<b>三***生</b>
-											质量很好，尺码大小也很标准。
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" style="left: 15px; top: 380px;" data-waterfall-col="0">
-										<a href="http://detail.tmall.com/item.htm?id=17583012952&amp;pos=4&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_4&amp;acm=03040.1003.247.238.17583012952_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img03.taobaocdn.com/bao/uploaded/i3/12188020378377956/T15xpIXEhdXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												869
-											</span>
-										</a>
-										<p>
-											<b>相***离</b>
-											应该是正品吧。快递慢点了，顺丰闹哪样!总体很不错。\n有发票。包装很用心的。\u0001不错。
-										</p>
-										<p>
-											<b>f***2</b>
-											挺划算的~比实体店都便宜~
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-2 ks-waterfall-col-last" style="left: 495px; top: 380px;" data-waterfall-col="2">
-										<a href="http://detail.tmall.com/item.htm?id=21737712074&amp;pos=5&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_5&amp;acm=03040.1003.247.238.21737712074_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img04.taobaocdn.com/bao/uploaded/i4/12188020045471170/T1JgRnXuxiXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												424.05
-											</span>
-										</a>
-										<p>
-											<b>h***8</b>
-											价格便宜，质量很好，是正品。物流很快，还有发票，正规的商家。收藏了，下次还会光顾。
-										</p>
-										<p>
-											<b>p***k</b>
-											商品款式很好 质量也好 特别包装很好\u0001服务态度很好
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-1" style="left: 255px; top: 415px;" data-waterfall-col="1">
-										<a href="http://detail.tmall.com/item.htm?id=17579720278&amp;pos=6&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_6&amp;acm=03040.1003.247.238.17579720278_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img02.taobaocdn.com/bao/uploaded/i2/T1QF2hXcXhXXc3oHo6_061002.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												769
-											</span>
-										</a>
-										<p>
-											<b>天***婿</b>
-											感觉很不错，快递也蛮快的，只是发货有点小慢，不过好饭不怕晚，支持官网品质，总体来说，很满意
-										</p>
-										<p>
-											<b>梦***臣</b>
-											鞋子是真品，不过价格能便宜一点就好了，和专柜的价钱一样
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" style="left: 15px; top: 713px;" data-waterfall-col="0">
-										<a href="http://detail.tmall.com/item.htm?id=17055154564&amp;pos=7&amp;uuid=68c97f4f765b43c49e011824917cf1a6&amp;scm=1003.3.03040.1_7&amp;acm=03040.1003.247.238.17055154564_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img03.taobaocdn.com/bao/uploaded/i3/12188021413115881/T16INeXsJaXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												1469
-											</span>
-										</a>
-										<p>
-											<b>l***7</b>
-											超级红超级好看，穿上很舒适，老婆很喜欢！
-										</p>
-										<p>
-											<b>yoi余肖伟</b>
-											老婆穿上非常合适，感觉质量比实体店还好。
-										</p>
-										<p>
-											<b>z***5</b>
-											应该是正品吧，第一次在网上买这个牌子
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-2 ks-waterfall-col-last" style="left: 495px; top: 731px;" data-waterfall-col="2">
-										<a href="http://detail.tmall.com/item.htm?id=17418062780&amp;pos=8&amp;uuid=68c97f4f765b43c49e011824917cf1a6&amp;scm=1003.3.03040.1_8&amp;acm=03040.1003.247.238.17418062780_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img02.taobaocdn.com/bao/uploaded/i2/12188020040140553/T1Hb8AXD0aXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												522.01
-											</span>
-										</a>
-										<p>
-											<b>tb8828082_2011</b>
-											舒服 好评 顺风给力\u0001耐心细致
-										</p>
-										<p>
-											<b>d***9</b>
-											质量没话说，颜色很好看！
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-1" style="left: 255px; top: 783px;" data-waterfall-col="1">
-										<a href="http://detail.tmall.com/item.htm?id=21529148948&amp;pos=9&amp;uuid=68c97f4f765b43c49e011824917cf1a6&amp;scm=1003.3.03040.1_9&amp;acm=03040.1003.247.238.21529148948_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img02.taobaocdn.com/bao/uploaded/i2/12188020314895169/T1lXJIXzdXXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												899
-											</span>
-										</a>
-										<p>
-											<b>n***y</b>
-											质量不错，发货也很快，物流也给力，掌柜顶你。\u0001都很好，继续支持。
-										</p>
-										<p>
-											<b>许铭楷</b>
-											很好. 鞋子很好看  质量也十分好 以后都来这买了
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-2 ks-waterfall-col-last" style="left: 495px; top: 1046px;" data-waterfall-col="2">
-										<a href="http://detail.tmall.com/item.htm?id=15903803440&amp;pos=10&amp;uuid=68c97f4f765b43c49e011824917cf1a6&amp;scm=1003.3.03040.1_10&amp;acm=03040.1003.247.238.15903803440_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img03.taobaocdn.com/bao/uploaded/i3/12188020380253548/T1V84sXpNhXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												529
-											</span>
-										</a>
-										<p>
-											<b>肖建清小猫猫</b>
-											商家服务很好，大小刚合适，正品
-										</p>
-										<p>
-											<b>韩***飞</b>
-											鞋子里面竟然有线头的出现。感觉不爽，鞋子一些小的细节不行。整体来说还好
-										</p>
-										<p>
-											<b>赵***2</b>
-											哈哈，给 男朋友的买的他非常 开心啊~~~物流顺丰 超级快，东西也很好啊，没有线头，好评好评~~~
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" style="left: 15px; top: 1093px;" data-waterfall-col="0">
-										<a href="http://detail.tmall.com/item.htm?id=15681171312&amp;pos=11&amp;uuid=68c97f4f765b43c49e011824917cf1a6&amp;scm=1003.3.03040.1_11&amp;acm=03040.1003.247.238.15681171312_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/12188020368638670/T1nLtGXAFgXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												829
-											</span>
-										</a>
-										<p>
-											<b>comeking88</b>
-											鞋子的质量不错，机打发票也随鞋子寄过来了，是正品！
-										</p>
-										<p>
-											<b>cuizhiweinec</b>
-											绝对正品，穿着合适。顺风快递给力
-										</p>
-										<p>
-											<b>情***德</b>
-											质量很好 飞一般的感觉 ！ 跟专卖店一样  是正品
-										</p>
-									</li>
-									<li class="ald-wf-li ks-waterfall-col-1" style="left: 255px; top: 1134px;" data-waterfall-col="1">
-										<a href="http://detail.tmall.com/item.htm?id=22386380096&amp;pos=12&amp;uuid=68c97f4f765b43c49e011824917cf1a6&amp;scm=1003.3.03040.1_12&amp;acm=03040.1003.247.238.22386380096_1" class="ald-wf-pic" target="_blank">
-											<img height="220" src="http://img04.taobaocdn.com/bao/uploaded/i4/12188019506928680/T1sqQTXchgXXXXXXXX_!!0-item_pic.jpg_250x250.jpg">
-											<em class="ald-wf-em"></em>
-											<span class="ui-price">
-												<span class="ui-price-icon">¥</span>
-												1399
-											</span>
-										</a>
-										<p>
-											<b>资冰蓉城</b>
-											上周日购的货，周二就到了，发货很及时。孩子已经穿上了，非常满意！这几天忙，没有及时确认付款，见谅！
-										</p>
-										<p>
-											<b>霞***8</b>
-											收到货孩子很满意，给了发票，值得购买。
-										</p>
-										<p>
-											<b>曹***1</b>
-											是正品，很好。\u0001^_^很好
-										</p>
-									</li>
+
+                                @if (Model.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+                                {
+                                    for (var index = 0; index < (Model.Foods.Count() > 12 ? 12 : Model.Foods.Count()); index++)
+                                    {
+                                        var item = Model.Foods.ElementAt(index);
+                                        <li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" >
+		                                <a href="http://detail.tmall.com/item.htm?id=16246207723&amp;pos=1&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_1&amp;acm=03040.1003.247.238.16246207723_1" class="ald-wf-pic" target="_blank">
+                                        <img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qQ3iXjxbXXb2KJg9_103037.jpg_250x250.jpg">
+                                         <span class="ui-price"><span class="ui-price-icon">¥</span> @item.Price</span></a>
+		                                @foreach (friday.core.ValuingOfMyFoodOrder v in Model.ValuingOfMyFoodOrders[index])
+                                        {
+                                            <p>
+			                                <b>@v.LoginUser.LoginName</b> @v.ValuingContent
+		                                    </p>
+                                        }
+	                                    </li>
+                                    }
+                                }
+                                else if (Model.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+                                {
+                                    for (var index = 0; index < (Model.Commoditys.Count() > 12 ? 12 : Model.Commoditys.Count()); index++)
+                                    {
+                                        var item = Model.Commoditys.ElementAt(index);
+                                        <li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" >
+		                                <a href="http://detail.tmall.com/item.htm?id=16246207723&amp;pos=1&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_1&amp;acm=03040.1003.247.238.16246207723_1" class="ald-wf-pic" target="_blank">
+                                        <img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qQ3iXjxbXXb2KJg9_103037.jpg_250x250.jpg">
+                                         <span class="ui-price"><span class="ui-price-icon">¥</span> @item.Price</span></a>
+		                                @foreach (friday.core.ValuingOfMyCommodityOrder v in Model.ValuingOfMyCommodityOrders[index])
+                                        {
+                                            <p>
+			                                <b>@v.LoginUser.LoginName</b> @v.ValuingContent
+		                                    </p>
+                                        }
+	                                    </li>
+                                    }
+                                }
+                                else
+                                {
+                                    for (var index = 0; index < (Model.Houses.Count() > 12 ? 12 : Model.Houses.Count()); index++)
+                                    {
+                                        var item = Model.Houses.ElementAt(index);
+                                        <li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" >
+		                                <a href="http://detail.tmall.com/item.htm?id=16246207723&amp;pos=1&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_1&amp;acm=03040.1003.247.238.16246207723_1" class="ald-wf-pic" target="_blank">
+                                        <img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qQ3iXjxbXXb2KJg9_103037.jpg_250x250.jpg">
+                                         <span class="ui-price"><span class="ui-price-icon">¥</span> @item.Price</span></a>
+		                                @foreach (friday.core.ValuingOfMyHouseOrder v in Model.ValuingOfMyHouseOrders[index])
+                                        {
+                                            <p>
+			                                <b>@v.LoginUser.LoginName</b> @v.ValuingContent
+		                                    </p>
+                                        }
+	                                    </li>
+                                    }
+                                }
+
 								</ul>
 							</div>
 							<div style="height: 200px; background-color: rgb(255, 255, 255); display: none;" class="ui-loading"></div>
