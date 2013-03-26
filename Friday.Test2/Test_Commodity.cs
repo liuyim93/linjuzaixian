@@ -17,18 +17,18 @@ namespace friday.coretest
     [TestFixture]
     public class Test_Commodity
     {
-        //private TransactionScope scope;
-        //[SetUp]
-        //public void SetUp()
-        //{
-        //    scope = new TransactionScope();
-        //}
+        private TransactionScope scope;
+        [SetUp]
+        public void SetUp()
+        {
+            scope = new TransactionScope();
+        }
 
-        //[TearDown]
-        //public void TearDown()
-        //{
-        //    scope.Dispose();
-        //}
+        [TearDown]
+        public void TearDown()
+        {
+            scope.Dispose();
+        }
         [Test]
         public void test_add_shop_and_commodity()
         {
