@@ -40,7 +40,7 @@ namespace friday.mvc
             FormsAuthentication.SignOut();
             var cache = new WebCache();
             cache.RemoveSessionCache("currentuser");//清空当前用户信息缓存
-            Response.Redirect("../login.aspx");
+            Response.Redirect("login.aspx");
         }
         protected void InitMenu()
         {

@@ -28,7 +28,7 @@ namespace Friday.mvc.weblogin.restaurant
         protected string owener;
         protected string shortName;
         protected string address;
-        protected string shopStatus;
+        protected string status;
         protected string tel;
         protected string loginName;
         protected string merchantID;
@@ -109,7 +109,7 @@ namespace Friday.mvc.weblogin.restaurant
                        filterList.Add(new DataFilter()
                        {
                            type = "ShopStatus",
-                           value = shopStatus=Request.Form["ShopStatus"]
+                           value = status=Request.Form["ShopStatus"]
 
                        });
                    if (!string.IsNullOrEmpty(Request.Form["Tel"]))
@@ -138,6 +138,9 @@ namespace Friday.mvc.weblogin.restaurant
                    repeater.DataBind();
 
                    numPerPage.Value = numPerPageValue.ToString();
+                   //2013-03-28 basilwang fix the bug can't remember the status when choose and pagination
+                   ShopStatus.Value = status;
+                   
                }
            }
            else
