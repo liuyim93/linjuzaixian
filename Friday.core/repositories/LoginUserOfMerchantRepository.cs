@@ -17,15 +17,15 @@ namespace friday.core.repositories
 
     
         //20120223  pangfuxing  get Merchant's  Admin user
-        public LoginUser GetMerchantLoginUserBy(string MerchantId,UserTypeEnum ust)
-        {
+        //public LoginUser GetMerchantLoginUserBy(string MerchantId,UserTypeEnum ust)
+        //{
             
 
-            var q = Session.CreateQuery(@"select  u from LoginUserOfMerchant  as lu   left join  lu.LoginUser as u  where  lu.Merchant=:mchtId and  lu.LoginUser.UserType=:ust")
-                 .SetString("mchtId", MerchantId).SetEnum("ust", ust); 
+        //    var q = Session.CreateQuery(@"select  u from LoginUserOfMerchant  as lu   left join  lu.LoginUser as u  where  lu.Merchant=:mchtId and  lu.LoginUser.UserType=:ust")
+        //         .SetString("mchtId", MerchantId).SetEnum("ust", ust); 
 
-            return q.UniqueResult<LoginUser>();
-        }
+        //    return q.UniqueResult<LoginUser>();
+        //}
 
 
         //20120223  pangfuxing get  merchant_id  in LoginUserOfMerchant

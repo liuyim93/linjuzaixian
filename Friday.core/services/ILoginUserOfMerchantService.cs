@@ -13,7 +13,7 @@ namespace friday.core.services
         void Save(LoginUserOfMerchant loginUserOfMerchant);
         void Update(LoginUserOfMerchant loginUserOfMerchant);
         void Delete(string id);
-        LoginUser GetMerchantLoginUserBy(string MerchantId, UserTypeEnum ust);
+        //LoginUser GetMerchantLoginUserBy(string MerchantId, UserTypeEnum ust);
         //String[] GetLoginUserOfMerchantBy(string loginusername);
     }
 }

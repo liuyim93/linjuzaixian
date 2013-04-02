@@ -41,10 +41,10 @@ namespace friday.core.services
             iLoginUserOfMerchantRepository.Delete(id);
         }
 
-        public LoginUser GetMerchantLoginUserBy(string MerchantId, UserTypeEnum ust)
-        {
-            return iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(MerchantId,ust);
-        }
+        //public LoginUser GetMerchantLoginUserBy(string MerchantId, UserTypeEnum ust)
+        //{
+        //    return iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(MerchantId,ust);
+        //}
 
         //public String[] GetLoginUserOfMerchantBy(string loginusername)
         //{
