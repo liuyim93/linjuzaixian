@@ -27,6 +27,15 @@ namespace friday.core.repositories
             var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.SystemUser.Email == email).SingleOrDefault();
             return q;
         }
+        public bool DeleteLoginUserByCreateTime(string month)
+        {
+            int mon=Convert.ToInt32(month); 
+            DateTime  goaldate=DateTime.Now.AddMonths(-mon);
+            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.CreateTime <= goaldate);
+            
+
+            return q;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(LoginUser)); }
