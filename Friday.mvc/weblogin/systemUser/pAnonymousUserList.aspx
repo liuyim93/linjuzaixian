@@ -53,14 +53,12 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="systemUser/pAddAnonymousUser.aspx" title="添加用户" target="navTab" rel=""><span>
-            添加用户</span></a></li>
-        <li id="liEdit" runat="server"><a class="edit" href="systemUser/pEditAnonymousUser.aspx?uid={id}" title="修改用户" rel="" target="navTab">
-            <span>修改用户</span></a></li>
-        <li id="liReset" runat="server"><a class="delete" href="systemUser/pResetAnonymousUserPassword.aspx?uid={id}" title="密码重置" rel="" target="navTab">
-        <span>密码重置</span></a></li>
-        <li id="liDelete" runat="server"><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}"
+        <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}&month=0"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
+        <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}&month=3"
+            target="ajaxTodo" title="确定要删除吗?"><span>删除6个月前用户</span></a></li>
+       <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}&month=6"
+            target="ajaxTodo" title="确定要删除吗?"><span>删除3个月前用户</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>

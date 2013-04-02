@@ -78,7 +78,8 @@ namespace Friday.mvc.weblogin
 
                 filterList.Add(new DataFilter()
                 {
-                    type = "IsAnonymous"
+                    type = "IsAnonymous",
+                    value = "0"
                 });
 
                 if (!string.IsNullOrEmpty(Request.Form["LoginName"]))

@@ -133,7 +133,7 @@ namespace friday.core.services
         public FunctionTag 公共商品类型维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 顾客账号维护 { get; set; }
-        [PermissionSetting(PermissionTag.Delete)]
+        [PermissionSetting(PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 匿名账号维护 { get; set; }
         [PermissionSetting(PermissionTag.Edit, PermissionTag.Enable, PermissionTag.Delete)]
         public FunctionTag 菜单管理 { get; set; }

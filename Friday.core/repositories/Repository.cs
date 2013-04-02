@@ -632,7 +632,14 @@ namespace friday.core.repositories
 
                     if (df.type.Equals("IsAnonymous"))
                     {
-                        query.Add(Expression.Eq(notself + "IsAnonymous", false));
+                        if (df.value == "0")
+                        {
+                            query.Add(Expression.Eq(notself + "IsAnonymous", false));
+                        }
+                        else 
+                        {
+                            query.Add(Expression.Eq(notself + "IsAnonymous", true));
+                        }
                         continue;
                     }
 

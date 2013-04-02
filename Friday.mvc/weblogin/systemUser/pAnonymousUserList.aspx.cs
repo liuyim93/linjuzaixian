@@ -22,33 +22,23 @@ namespace Friday.mvc.weblogin
         protected string name;
         protected string tel;
         protected string email;
+        protected string month;
 
         private ISystemUserService iSystemUserService = UnityHelper.UnityToT<ISystemUserService>();
         private ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            tagName = systemFunctionObjectService.基本信息模块.顾客账号维护.TagName;
-            this.PermissionCheck();
-            //2013-02-28 basilwang you can use this to block button
-            if (!this.PermissionValidate(PermissionTag.Delete))
-            {
-                //this.liDelete
-                this.liDelete.Visible = false;
-            }
-
-            if (!this.PermissionValidate(PermissionTag.Edit))
-            {
-                this.liEdit.Visible = false;
-                this.liReset.Visible = false;
-            }
+            //tagName = systemFunctionObjectService.基本信息模块.匿名账号维护.TagName;
+            //this.PermissionCheck();
+            month=Request.Params["month"];
 
             if (Request.Params["flag"] == "alldelete")
             {
                 AjaxResult result = new AjaxResult();
                 FormatJsonResult jsonResult = new FormatJsonResult();
 
-                tagName = systemFunctionObjectService.基本信息模块.顾客账号维护.TagName;
+                tagName = systemFunctionObjectService.基本信息模块.匿名账号维护.TagName;
                 if (!this.PermissionValidate(PermissionTag.Delete))
                 {
                     result.statusCode = "300";
@@ -58,7 +48,7 @@ namespace Friday.mvc.weblogin
                     Response.End();
                 }
 
-                DeleteAnonymousUser();
+                DeleteAnonymousUser(month);
 
             }
             else
@@ -78,7 +68,8 @@ namespace Friday.mvc.weblogin
 
                 filterList.Add(new DataFilter()
                 {
-                    type = "IsAnonymous"
+                    type = "IsAnonymous",
+                    value="1"
                 });
 
                 if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
@@ -134,15 +125,25 @@ namespace Friday.mvc.weblogin
             }
         }
 
-        private void DeleteAnonymousUser()
+        private void DeleteAnonymousUser(string month)
         {
+            if (month == "0") 
+            { 
             string LoginUserID = iSystemUserService.Load(Request.Params["uid"]).LoginUser.Id;
             iSystemUserService.Delete(Request.Params["uid"]);
             iLoginUserService.Delete(LoginUserID);
+            }
+            else if (month == "3")
+            {
 
+            }
+            else 
+            {            
+            
+            }
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "删除成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
