@@ -340,6 +340,19 @@ namespace Friday.Test2
             adminMenuCheckList.Add(systemUser);
             customerMenuCheckList.Add(systemUser);
 
+            SystemMenu anonymousUser = new SystemMenu()
+            {
+                Name = "匿名账号管理",
+                Leaf = true,
+                ParentID = baseInfo.Id,
+                MenuRoute = "systemUser/pAnonymousUserList.aspx",
+                TLevel = 1,
+                ColIndex = 6
+            };
+            iSystemMenuRepository.SaveOrUpdate(anonymousUser);
+            adminMenuCheckList.Add(anonymousUser);
+            customerMenuCheckList.Add(anonymousUser);
+
             SystemMenu merchantMember = new SystemMenu()
             {
                 Name = "员工管理",
@@ -347,7 +360,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "merchantEmployee/pMerchantEmployeeList.aspx",
                 TLevel = 1,
-                ColIndex = 6
+                ColIndex = 7
             };
             iSystemMenuRepository.SaveOrUpdate(merchantMember);
             //adminMenuCheckList.Add(merchantMember);
@@ -362,7 +375,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "loginUser/pLoginUserList.aspx",
                 TLevel = 1,
-                ColIndex = 7
+                ColIndex = 8
             };
             iSystemMenuRepository.SaveOrUpdate(loginUser);
             adminMenuCheckList.Add(loginUser);
@@ -375,7 +388,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "loginUser/pEditLoginUser.aspx",
                 TLevel = 1,
-                ColIndex = 8
+                ColIndex = 9
             };
             iSystemMenuRepository.SaveOrUpdate(logUser);
             //adminMenuCheckList.Add(logUser);
@@ -390,7 +403,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "systemRole/pSystemRoleList.aspx",
                 TLevel = 1,
-                ColIndex = 9
+                ColIndex = 10
             };
             iSystemMenuRepository.SaveOrUpdate(systemRole);
             adminMenuCheckList.Add(systemRole);
@@ -402,7 +415,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "merchantCategory/pMerchantCategoryList.aspx",
                 TLevel = 1,
-                ColIndex = 10
+                ColIndex = 11
             };
             iSystemMenuRepository.SaveOrUpdate(merchantCategory);
             adminMenuCheckList.Add(merchantCategory);
@@ -414,7 +427,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "school/pSchoolList.aspx",
                 TLevel = 1,
-                ColIndex = 11
+                ColIndex = 12
             };
             iSystemMenuRepository.SaveOrUpdate(school);
             adminMenuCheckList.Add(school);
