@@ -1065,6 +1065,13 @@
     <Compile Include="weblogin\systemUser\pSystemUserList.aspx.designer.cs">
       <DependentUpon>pSystemUserList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\systemUser\pAnonymousUserList.aspx.cs">
+      <DependentUpon>pAnonymousUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pAnonymousUserList.aspx.designer.cs">
+      <DependentUpon>pAnonymousUserList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1899,6 +1906,7 @@
     <Content Include="weblogin\systemUser\pResetSystemUserPassword.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserDetail.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
+    <Content Include="weblogin\systemUser\pAnonymousUserList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />
     <Content Include="weblogin\themes\azure\images\alert\alertpanel.png" />
