@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data.Linq;
 using System.Text.RegularExpressions;
 using NHibernate;
 using NHibernate.Linq;
@@ -33,8 +34,7 @@ namespace friday.core.repositories
             DateTime  goaldate=DateTime.Now.AddMonths(-mon);
             var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.CreateTime <= goaldate);
             
-
-            return q;
+            return true;
         }
         protected virtual ICriteria Query
         {
