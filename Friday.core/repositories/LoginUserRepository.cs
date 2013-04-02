@@ -32,7 +32,7 @@ namespace friday.core.repositories
         {
             int mon=Convert.ToInt32(month); 
             DateTime  goaldate=DateTime.Now.AddMonths(-mon);
-            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.CreateTime <= goaldate);
+            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.CreateTime <= goaldate && o.SystemUser.IsAnonymous==true );
             
             return true;
         }

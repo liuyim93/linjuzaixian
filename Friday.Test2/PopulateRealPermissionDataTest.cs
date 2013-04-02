@@ -46,6 +46,7 @@ namespace Friday.Test2
         {
             //添加角色和admin账号
             add_Random_SystemRoles();
+            add_Anonymous_SystemUsers();
             //添加菜单
             add_Random_SystemMenus();
             //添加关联
@@ -135,7 +136,39 @@ namespace Friday.Test2
             };
             iSystemRoleRepository.SaveOrUpdate(rentMember);
         }
+        //添加匿名用户
+        private void add_Anonymous_SystemUsers()
+        {
+            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+          
+            SystemUser sysu1 = new SystemUser()
+            {
+                 IsAnonymous=true,
+                 Name="匿名用户sys1",                  
+            };
+            LoginUser lu1 = new LoginUser()
+            {
+                LoginName = "匿名用户1",
+                Password = "111111",
+                IsAdmin = false,
+                SystemUser = sysu1
+            };
+            iLoginUserRepository.SaveOrUpdate(lu1);
 
+            SystemUser sysu2 = new SystemUser()
+            {
+                IsAnonymous = true,
+                Name = "匿名用户sys2",
+            };
+            LoginUser lu2 = new LoginUser()
+            {
+                LoginName = "匿名用户2",
+                Password = "222222",
+                IsAdmin = false,
+                SystemUser = sysu2
+            };
+            iLoginUserRepository.SaveOrUpdate(lu2);
+        }
         //添加菜单
         private void add_Random_SystemMenus()
         {

@@ -29,8 +29,8 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //tagName = systemFunctionObjectService.基本信息模块.匿名账号维护.TagName;
-            //this.PermissionCheck();
+            tagName = systemFunctionObjectService.基本信息模块.匿名账号维护.TagName;
+            this.PermissionCheck();
             month=Request.Params["month"];
 
             if (Request.Params["flag"] == "alldelete")
