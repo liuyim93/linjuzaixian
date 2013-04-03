@@ -27,6 +27,8 @@ namespace Friday.mvc.weblogin.rent
         protected string shortName;
         protected string address;
         protected string loginName;
+        protected string _ShopStatus;
+
         IRentService iRentService = UnityHelper.UnityToT<IRentService>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -90,13 +92,16 @@ namespace Friday.mvc.weblogin.rent
 
                         });
                     if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
+                    {
                         filterList.Add(new DataFilter()
-                        {
-                            type = "ShopStatus",
-                            value = Request.Form["ShopStatus"]
+                          {
+                              type = "ShopStatus",
+                              value = _ShopStatus = Request.Form["ShopStatus"]
 
-                        });
-
+                          });
+                        //2013-03-28 basilwang fix the bug can't remember the status when choose and pagination
+                        ShopStatus.Value = _ShopStatus;  
+                    }
                     if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                     {
                         loginUserList.Add(new DataFilter()

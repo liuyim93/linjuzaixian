@@ -26,7 +26,7 @@ namespace Friday.mvc.weblogin.shop
         protected string owener;
         protected string shortName;
         protected string address;
-        protected string shopStatus;
+        protected string _ShopStatus;
         protected string loginName;
         IShopService iShopService = UnityHelper.UnityToT<IShopService>();
 
@@ -76,13 +76,16 @@ namespace Friday.mvc.weblogin.shop
 
                     });
                 if (!string.IsNullOrEmpty(Request.Form["ShopStatus"]))
+                {
                     filterList.Add(new DataFilter()
-                    {
-                        type = "ShopStatus",
-                        value = shopStatus = Request.Form["ShopStatus"]
+                      {
+                          type = "ShopStatus",
+                          value = _ShopStatus = Request.Form["ShopStatus"]
 
-                    });               
-
+                      });
+                    //2013-03-28 basilwang fix the bug can't remember the status when choose and pagination
+                    ShopStatus.Value = _ShopStatus;  
+                }
              
                 var filter = new DataFilter();
                 if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
