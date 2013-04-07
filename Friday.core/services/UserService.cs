@@ -45,7 +45,7 @@ namespace friday.core.services
         }
         public LoginUser GetLoginUser(HttpContextBase httpContextBase)
         {
-            return GetLoginUser(CookieUtil.getUserCookie(httpContextBase));
+            return GetLoginUser(CookieUtil.getUserCookie(httpContextBase,false));
         }
         private LoginUser GetLoginUser(CookieBag bag)
         {

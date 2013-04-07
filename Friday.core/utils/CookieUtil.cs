@@ -9,12 +9,12 @@ namespace friday.core.utils
 {
     public class CookieUtil
     {
-        public static CookieBag getUserCookie(HttpContextBase HttpContextBase)
+        public static CookieBag getUserCookie(HttpContextBase HttpContextBase, bool isPublicSite = true)
         {
             HttpContextBase context = HttpContextBase;
-            string id;
-            bool isTicket;
-            HttpCookie cookie;
+            string id = string.Empty;
+            bool isTicket = false;
+            HttpCookie cookie = null;
             if (context.User.Identity.IsAuthenticated)
             {
                 cookie = context.Request.Cookies[".friday"];
@@ -22,7 +22,7 @@ namespace friday.core.utils
                 id=authTicket.Name;
                 isTicket = true;
             }
-            else
+            else if (isPublicSite)
             {
                 cookie = context.Request.Cookies["friday_anonymous"];
                 id=cookie.Values["userID"];
