@@ -57,8 +57,12 @@ namespace friday.core.utils
             }
             else
             {
-                cookie.Values["userID"] =null;
-                httpContextBase.Response.Cookies.Add(cookie); 
+                //2013-04-08 basilwang judge if cookie is null 
+                if (cookie != null)
+                {
+                    cookie.Values["userID"] = null;
+                    httpContextBase.Response.Cookies.Add(cookie);
+                }
             }
         }
     }
