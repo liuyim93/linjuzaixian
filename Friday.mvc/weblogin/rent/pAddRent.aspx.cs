@@ -20,6 +20,8 @@ namespace Friday.mvc.weblogin.rent
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.tagName = systemFunctionObjectService.租房模块.租房维护.TagName;
+
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();
