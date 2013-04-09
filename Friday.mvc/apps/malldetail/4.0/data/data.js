@@ -1,7 +1,10 @@
 ﻿KISSY.add("malldetail/data/data", function (_kissy, _ajax, _malldetail_common_util) {
-    var B, G, J, F, E = _malldetail_common_util.createLoader(function (K) {
-        B = B ? B(K) : K
-    });
+    var _iterator_queue_fn_wrapper, _time, _createAsyn_wrapper, _tmp_defaultModel,
+        _loader_fn = _malldetail_common_util.createLoader(
+               function (_iterator_queue) {
+                 _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_iterator_queue) : _iterator_queue
+               }
+            );
     function A(N) {
         var K = _kissy.cfg(), L = N.itemPriceResultDO || {};
         var M = N.tradeResult;
@@ -22,30 +25,30 @@
         K.systemTime = N.miscDO["systemTime"];
         K.is1111 = (K.systemTime >= 1352563200000 && K.systemTime < 1352649600000)
     }
-    var H = { setMdskip: function (L, K) {
-        if (K >= 0) {
-            if (L) {
-                _kissy.sendAcAtpanel("tmalldetail.15.1", { tl: K })
+    var _malldetail_data_data = { setMdskip: function (_defaultModelObject, _num_i_dont_konw) {
+        if (_num_i_dont_konw >= 0) {
+            if (_defaultModelObject) {
+                _kissy.sendAcAtpanel("tmalldetail.15.1", { tl: _num_i_dont_konw })
             } else {
-                _kissy.sendErr("mdskipTimeout", { tl: K })
+                _kissy.sendErr("mdskipTimeout", { tl: _num_i_dont_konw })
             }
         }
-        B = B ? B(L || {}) : function (M) {
-            M(L || {})
+        _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_defaultModelObject || {}) : function (_iterator_queue_fn) {
+            _iterator_queue_fn(_defaultModelObject || {})
         }
-    }, onMdskip: E, setMdskipTimeout: function (K) {
-        G = K
-    }, onModel: function (L, K) {
-        if (!J) {
-            J = _malldetail_common_util.createAsyn(E, G || 3000);
-            J(function (Q) {
-                Q = Q || {};
-                var S, P = _kissy.cfg();
-                if (Q.isSuccess) {
-                    S = Q.defaultModel;
-                    if (S.tradeResult) {
-                        if (_kissy.isUndefined(S.tradeResult.tradeType) || S.tradeResult.tradeType == null) {
-                            S.tradeResult.tradeType = P.tradeType
+    }, onMdskip: _loader_fn, setMdskipTimeout: function (K) {
+        _time = K
+    }, onModel: function (L, _num_dont_know) {
+        if (!_createAsyn_wrapper) {
+            _createAsyn_wrapper = _malldetail_common_util.createAsyn(_loader_fn, _time || 3000);
+            _createAsyn_wrapper(function (_defaultModelObject) {
+                _defaultModelObject = _defaultModelObject || {};
+                var _defaultModel, _sku_cfg = _kissy.cfg();    //the same with TShop.Setup(config)
+                if (_defaultModelObject.isSuccess) {
+                    _defaultModel = _defaultModelObject.defaultModel;
+                    if (_defaultModel.tradeResult) {
+                        if (_kissy.isUndefined(_defaultModel.tradeResult.tradeType) || _defaultModel.tradeResult.tradeType == null) {
+                            _defaultModel.tradeResult.tradeType = _sku_cfg.tradeType
                         }
                     }
                     if (_kissy.cfg("detailMode") == "skipError") {
@@ -53,46 +56,46 @@
                     } else {
                         _kissy.cfg("detailMode", "skipOk")
                     }
-                    if (!P.detail.isDownShelf && S.inventoryDO && S.inventoryDO.totalQuantity == 0) {
+                    if (!_sku_cfg.detail.isDownShelf && _defaultModel.inventoryDO && _defaultModel.inventoryDO.totalQuantity == 0) {
                         _kissy.cfg("detail").isDownFe = true
                     }
-                    var R = S.gatewayDO.trade;
+                    var R = _defaultModel.gatewayDO.trade;
                     if (R) {
-                        P.addToCartParames = R.addToCart;
+                        _sku_cfg.addToCartParames = R.addToCart;
                         if ("umpkey" in R.addToCart) {
-                            P.isTmallComboSupport = false
+                            _sku_cfg.isTmallComboSupport = false
                         }
                     }
                 } else {
                     var O = _kissy.getUrlParams("key");
                     var N = O ? true : false;
-                    S = { itemPriceResultDO: { priceInfo: {}, promType: O ? 1 : 0 }, userInfoDO: {}, miscDO: {}, gatewayDO: {} };
-                    _kissy.mix(S, P.noSkipMode, true);
+                    _defaultModel = { itemPriceResultDO: { priceInfo: {}, promType: O ? 1 : 0 }, userInfoDO: {}, miscDO: {}, gatewayDO: {} };
+                    _kissy.mix(_defaultModel, _sku_cfg.noSkipMode, true);
                     var M = _kissy.getUrlParams("campaignId");
                     if (M) {
-                        S.itemPriceResultDO.campaignInfo = {};
-                        S.itemPriceResultDO.campaignInfo.campaignId = M
+                        _defaultModel.itemPriceResultDO.campaignInfo = {};
+                        _defaultModel.itemPriceResultDO.campaignInfo.campaignId = M
                     }
                     if (N) {
-                        S.tradeResult.cartEnable = false
+                        _defaultModel.tradeResult.cartEnable = false
                     }
                     _kissy.cfg("detailMode", "skipError")
                 }
-                A(S);
+                A(_defaultModel);
                 _kissy.log("TMLOG::detailMode:" + _kissy.cfg("detailMode"), "info");
-                S.isSuccess = Q.isSuccess;
-                F = S
+                _defaultModel.isSuccess = _defaultModelObject.isSuccess;
+                _tmp_defaultModel = _defaultModel
             }, 12)
         }
-        J(function () {
-            L && L(F)
-        }, K)
+        _createAsyn_wrapper(function () {
+            L && L(_tmp_defaultModel)
+        }, _num_dont_know)
     }, onPriceInfo: function (K, M, L) {
         K = K || {};
-        H.onModel(function (N) {
+        _malldetail_data_data.onModel(function (N) {
             var O = N.itemPriceResultDO;
             if (K.areaId && O && K.areaId != O.areaId) {
-                H.onLocationModel(K.areaId, function (P) {
+                _malldetail_data_data.onLocationModel(K.areaId, function (P) {
                     M && M((P && P.itemPriceResultDO && P.itemPriceResultDO.priceInfo) || (O && O.priceInfo))
                 });
                 return
@@ -100,24 +103,24 @@
             M && M(O && O.priceInfo)
         }, L)
     }, onLocationModel: function (L, M, K) {
-        if (!H.locLM) {
-            H.locLM = {}
+        if (!_malldetail_data_data.locLM) {
+            _malldetail_data_data.locLM = {}
         }
-        if (!H.locCM) {
-            H.locCM = {}
+        if (!_malldetail_data_data.locCM) {
+            _malldetail_data_data.locCM = {}
         }
-        H.locLM[L] = H.locLM[L] || _malldetail_common_util.createLoader(function (N) {
-            H.locCM[L] = H.locCM[L] ? H.locCM[L](N) : N
+        _malldetail_data_data.locLM[L] = _malldetail_data_data.locLM[L] || _malldetail_common_util.createLoader(function (N) {
+            _malldetail_data_data.locCM[L] = _malldetail_data_data.locCM[L] ? _malldetail_data_data.locCM[L](N) : N
         });
-        H.locLM[L](M, K)
+        _malldetail_data_data.locLM[L](M, K)
     }, setLocationModel: function (L, K) {
-        if (!H.locLM) {
-            H.locLM = {}
+        if (!_malldetail_data_data.locLM) {
+            _malldetail_data_data.locLM = {}
         }
-        if (!H.locCM) {
-            H.locCM = {}
+        if (!_malldetail_data_data.locCM) {
+            _malldetail_data_data.locCM = {}
         }
-        H.locCM[L] = H.locCM[L] ? H.locCM[L](K || {}) : function (M) {
+        _malldetail_data_data.locCM[L] = _malldetail_data_data.locCM[L] ? _malldetail_data_data.locCM[L](K || {}) : function (M) {
             (typeof M == "function") && M(K || {})
         }
     }, onReviewCount: _malldetail_common_util.createLoader(function (P) {
@@ -165,5 +168,5 @@
         })
     })
     };
-    return H
+    return _malldetail_data_data
 }, { requires: ["ajax", "malldetail/common/util"] });

@@ -1,71 +1,71 @@
 ﻿KISSY.add("malldetail/common/util", function (_kissy, _dom, _event) {
     var D = {};
-    return { createLoader: function (H) {
-        var G, I, E = [], F;
-        return function (K, J) {
-            if (J !== 0 && !J) {
-                J = 1
+    return { createLoader: function (_fn_dont_know) {
+        var _argument, _is_fn_load, _iterator_handle_queue_array = [], _iterator_handle_queue_fn;
+        return function (_iterate_handle_queue, _num_still_dont_know) {
+            if (_num_still_dont_know !== 0 && !_num_still_dont_know) {
+                _num_still_dont_know = 1
             }
-            if ((J & 1) && !I) {
-                I = true;
-                H(function (L) {
-                    G = L;
-                    while (F = E.shift()) {
-                        F && F.apply(null, [G])
+            if ((_num_still_dont_know & 1) && !_is_fn_load) {
+                _is_fn_load = true;
+                _fn_dont_know(function (_defaultModelObject) {
+                    _argument = _defaultModelObject;
+                    while (_iterator_handle_queue_fn = _iterator_handle_queue_array.shift()) {
+                        _iterator_handle_queue_fn && _iterator_handle_queue_fn.apply(null, [_argument])
                     }
                 })
             }
-            if (G) {
-                K && K.apply(null, [G]);
-                return G
+            if (_argument) {
+                _iterate_handle_queue && _iterate_handle_queue.apply(null, [_argument]);
+                return _argument
             }
-            if (!(J & 2)) {
-                K && E.push(K)
+            if (!(_num_still_dont_know & 2)) {
+                _iterate_handle_queue && _iterator_handle_queue_array.push(_iterate_handle_queue)
             }
-            return G
+            return _argument
         }
-    }, createAsyn: function (E, F) {
-        var K, J, I, H, G = [];
-        E(function (L) {
-            J = L;
-            while (H = G.shift()) {
-                H.handle.apply(null, [J])
+    }, createAsyn: function (_loader_fn, _time) {
+        var K, _tmp_defaultModelObject, I, _callback_fn_object, G = [];
+        _loader_fn(function (_defaultModelObject) {
+            _tmp_defaultModelObject = _defaultModelObject;
+            while (_callback_fn_object = G.shift()) {
+                _callback_fn_object.handle.apply(null, [_tmp_defaultModelObject])
             }
         }, 0);
-        return function (M, L) {
-            if (L !== 0 && !L) {
-                L = 1
+        return function (_callback_fn, _num_dont_know) {
+            if (_num_dont_know !== 0 && !_num_dont_know) {
+                _num_dont_know = 1
             }
-            if ((L & 1) && !K) {
+            if ((_num_dont_know & 1) && !K) {
                 setTimeout(function () {
-                    if (J !== undefined) {
+                    if (_tmp_defaultModelObject !== undefined) {
                         return
                     }
                     I = true;
                     for (var N = 0; N < G.length; N++) {
-                        G[N].handle.apply(null, [J]);
+                        G[N].handle.apply(null, [_tmp_defaultModelObject]);
                         if (!(G[N].type & 8)) {
                             G.splice(N, 1);
                             N--
                         }
                     }
-                }, F || 200);
-                E(null, L)
+                }, _time || 200);
+                _loader_fn(null, _num_dont_know)
             }
-            if (!M) {
+            if (!_callback_fn) {
                 return
             }
-            if (J !== undefined || !(L & 4)) {
-                E(M, L);
+            if (_tmp_defaultModelObject !== undefined || !(_num_dont_know & 4)) {
+                _loader_fn(_callback_fn, _num_dont_know);
                 return
             }
             if (I) {
-                M();
-                if (L & 8) {
-                    E(M, L)
+                _callback_fn();
+                if (_num_dont_know & 8) {
+                    _loader_fn(_callback_fn, _num_dont_know)
                 }
             } else {
-                G.push({ handle: M, type: L })
+                G.push({ handle: _callback_fn, type: _num_dont_know })
             }
         }
     }, loadAssets: function (G, L, F) {

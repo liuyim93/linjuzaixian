@@ -290,22 +290,22 @@
             });
             TShop.onLeftSlide.apply(null, H)
         })
-    }, loadMdskip: function (L) {
-        function K(M) {
+    }, loadMdskip: function (_url) {
+        function _onMdskip(_defaultModelObject) {
             window.onMdskip = null;
-            TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(M, J ? (_kissy.now - J) : -1) : function (N) {
-                N(M, J ? (_kissy.now - J) : -1)
+            TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(_defaultModelObject, _now ? (_kissy.now - _now) : -1) : function (_data_setMdskip) {
+                _data_setMdskip(_defaultModelObject, _now ? (_kissy.now - _now) : -1)
             }
         }
         if (-1 != location.href.indexOf("rate_detail.htm")) {
-            K();
+            _onMdskip();
             return
         }
-        var I = _kissy.getUrlParams(["ip", "campaignId", "key", "abt", "cat_id", "q", "u_channel"]);
-        I.ref = encodeURIComponent(_document.referrer);
-        var H = _kissy.param(I), J = _kissy.now();
-        window.onMdskip = K;
-        _kissy.getScript(L + "&callback=onMdskip&" + H, { error: K })
+        var _url_params_object = _kissy.getUrlParams(["ip", "campaignId", "key", "abt", "cat_id", "q", "u_channel"]);
+        _url_params_object.ref = encodeURIComponent(_document.referrer);
+        var _url_params = _kissy.param(_url_params_object), _now = _kissy.now();
+        window.onMdskip = _onMdskip;
+        _kissy.getScript(_url + "&callback=onMdskip&" + _url_params, { error: _onMdskip })
     }, Setup: function (_config) {
         _kissy._TMD_Config = _config;
         if (_config.renderReq) {
@@ -341,30 +341,30 @@
     }, cfg: function () {
         var I;
         var K;
-        var H = arguments;
-        var J = _kissy._TMD_Config || { api: {}, detail: {}, itemDO: {}, tag: {}, systemTime: new Date().getTime() };
-        switch (typeof H[0]) {
+        var _arguments = arguments;
+        var _tmd_config = _kissy._TMD_Config || { api: {}, detail: {}, itemDO: {}, tag: {}, systemTime: new Date().getTime() };
+        switch (typeof _arguments[0]) {
             case "undefined":
-                return J;
+                return _tmd_config;
                 break;
             case "string":
                 if (arguments.length == 2) {
-                    I = J[H[0]];
-                    if (I != H[1]) {
-                        J[H[0]] = H[1];
-                        _kissy.fire("TMDConfigChange", { oldVal: I, newVal: H[1] })
+                    I = _tmd_config[_arguments[0]];
+                    if (I != _arguments[1]) {
+                        _tmd_config[_arguments[0]] = _arguments[1];
+                        _kissy.fire("TMDConfigChange", { oldVal: I, newVal: _arguments[1] })
                     }
                 } else {
-                    return J[H[0]]
+                    return _tmd_config[_arguments[0]]
                 }
                 break;
             case "object":
                 I = {};
-                _kissy.each(H[0], function (M, L) {
-                    I[L] = J[L];
-                    J[L] = M
+                _kissy.each(_arguments[0], function (M, L) {
+                    I[L] = _tmd_config[L];
+                    _tmd_config[L] = M
                 });
-                _kissy.fire("TMDConfigChange", { oldVal: I, newVal: H[0] });
+                _kissy.fire("TMDConfigChange", { oldVal: I, newVal: _arguments[0] });
                 break
         }
     }, Asyn: function () {

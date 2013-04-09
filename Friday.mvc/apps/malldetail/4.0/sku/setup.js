@@ -159,7 +159,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     }
     function l() {
         var S = function (v) {
-            var w = _sku_cfg.valMode;
+            var _valMode = _sku_cfg.valMode;
             r(v);
             C(v);
             if (!_mods_SKU.LinkBuy) {
