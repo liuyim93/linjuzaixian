@@ -1,19 +1,19 @@
 ﻿KISSY.add("malldetail/sku/thumbViewer", function (_kissy, _dom, _event, _imagezoom, _json, _malldetail_common_util) {
     var _body = document.body,
-        G,
-        A,
-        B,
+        _dom_id_J_ImgBooth,
+        _dom_id_J_UlThumb,
+        _dom_li_array,
         K,
         L = 100,
-        F = "tb-selected",
+        _str_classname_tb_selected = "tb-selected",
         N = "hidden",
-        O,
-        Q = (window.g_config.D950) ? { size: [460, 460], smallSize: [60, 60], bigSize: [477, 335]} : { size: [310, 310], smallSize: [40, 40], bigSize: [430, 310] };
+        _zoomlevel,
+        _size_config = (window.g_config.D950) ? { size: [460, 460], smallSize: [60, 60], bigSize: [477, 335]} : { size: [310, 310], smallSize: [40, 40], bigSize: [430, 310] };
     var H = _malldetail_common_util.createLoader(function (V) {
         if ("ontouchstart" in document) {
             return
         }
-        var U = { imageNode: G, width: Q.bigSize[0], height: Q.bigSize[1], bigImageWidth: 800, bigImageHeight: 800, align: { node: _dom.parent(G), points: ["tr", "tl"], offset: [10, -1] }, hasZoom: !("ontouchstart" in document), preload: false, showIcon: true };
+        var U = { imageNode: _dom_id_J_ImgBooth, width: _size_config.bigSize[0], height: _size_config.bigSize[1], bigImageWidth: 800, bigImageHeight: 800, align: { node: _dom.parent(_dom_id_J_ImgBooth), points: ["tr", "tl"], offset: [10, -1] }, hasZoom: !("ontouchstart" in document), preload: false, showIcon: true };
         var S = new _imagezoom(U);
         if (S.lensIcon) {
             _event.on(S.lensIcon, "mouseenter", function () {
@@ -39,87 +39,87 @@
         }));
         return S[U](W, V)
     }
-    function M(S) {
-        var U = S.src || _dom.attr(S, "data-ks-lazyload");
-        return U.replace(new RegExp("_" + Q.smallSize.join("x") + "\\.(jpg|png|gif)$"), "")
+    function _remove_img_size_to_url(_img) {
+        var _url = _img.src || _dom.attr(_img, "data-ks-lazyload");
+        return _url.replace(new RegExp("_" + _size_config.smallSize.join("x") + "\\.(jpg|png|gif)$"), "")
     }
     return { init: function () {
-        var S = this;
-        if (!(G = _dom.get("#J_ImgBooth")) || !(A = _dom.get("#J_UlThumb"))) {
+        var _thumbviewer = this;
+        if (!(_dom_id_J_ImgBooth = _dom.get("#J_ImgBooth")) || !(_dom_id_J_UlThumb = _dom.get("#J_UlThumb"))) {
             return
         }
-        B = _dom.query("li", A);
-        O = parseInt(G.getAttribute("data-hasZoom"), 10);
-        S._bindEvents();
+        _dom_li_array = _dom.query("li", _dom_id_J_UlThumb);
+        _zoomlevel = parseInt(_dom_id_J_ImgBooth.getAttribute("data-hasZoom"), 10);
+        _thumbviewer._bindEvents();
         _kissy.ready(function () {
-            var U = _dom.query("." + F, A);
-            if (U && U.length) {
-                S._switchTo(U[0])
+            var _dom_li_selected = _dom.query("." + _str_classname_tb_selected, _dom_id_J_UlThumb);
+            if (_dom_li_selected && _dom_li_selected.length) {
+                _thumbviewer._switchTo(_dom_li_selected[0])
             }
         })
     }, _bindEvents: function () {
         var S = this;
-        _event.on(A, "click", function (U) {
+        _event.on(_dom_id_J_UlThumb, "click", function (U) {
             U.preventDefault()
         });
-        _event.on(B, "mouseenter", function (U) {
+        _event.on(_dom_li_array, "mouseenter", function (U) {
             K && K.cancel();
             K = _kissy.later(function () {
                 S._switchTo(U.target);
                 _kissy.sendAtpanel("tmalldetail.13.6")
             }, L)
         });
-        _event.on(B, "mouseleave", function () {
+        _event.on(_dom_li_array, "mouseleave", function () {
             K && K.cancel()
         })
-    }, _switchTo: function (Y) {
-        if (!Y) {
+    }, _switchTo: function (_dom_li) {
+        if (!_dom_li) {
             return
         }
-        if (Y.tagName !== "LI") {
-            Y = _dom.parent(Y, "li")
+        if (_dom_li.tagName !== "LI") {
+            _dom_li = _dom.parent(_dom_li, "li")
         }
-        var V = Y.getElementsByTagName("img")[0];
-        var W = M(V);
-        if (!W) {
+        var _img = _dom_li.getElementsByTagName("img")[0];
+        var _url_to_be_added_img_size = _remove_img_size_to_url(_img);
+        if (!_url_to_be_added_img_size) {
             return
         }
-        var X = W + "_" + Q.size.join("x") + ".jpg";
-        var U = _dom.attr(Y, "data-size");
+        var _url = _url_to_be_added_img_size + "_" + _size_config.size.join("x") + ".jpg";
+        var _data_size = _dom.attr(_dom_li, "data-size");
         var S = function (Z) {
             if (Z.zm) {
                 H(function (a) {
-                    a.set(X);
+                    a.set(_url);
                     a.set("hasZoom", true);
-                    a.set("bigImageSrc", W);
+                    a.set("bigImageSrc", _url_to_be_added_img_size);
                     a.set("bigImageWidth", Z.w);
                     a.set("bigImageHeight", Z.h)
                 })
             }
         };
-        this.show(X);
-        _dom.addClass(Y, F);
-        U = _json.parse(U);
-        if (U) {
-            S(U)
+        this.show(_url);
+        _dom.addClass(_dom_li, _str_classname_tb_selected);
+        _data_size = _json.parse(_data_size);
+        if (_data_size) {
+            S(_data_size)
         } else {
-            C(W, function (a) {
+            C(_url_to_be_added_img_size, function (a) {
                 var Z = { w: a.width, h: a.height };
-                Z.zm = (a.width >= O) ? 1 : 0;
-                _dom.attr(Y, { "data-size": _json.stringify(Z) });
+                Z.zm = (a.width >= _zoomlevel) ? 1 : 0;
+                _dom.attr(_dom_li, { "data-size": _json.stringify(Z) });
                 S(Z)
             })
         }
     }, show: function (S) {
-        if (!G || !A) {
-            G = G || _dom.get("#J_ImgBooth");
-            A = A || _dom.get("#J_UlThumb")
+        if (!_dom_id_J_ImgBooth || !_dom_id_J_UlThumb) {
+            _dom_id_J_ImgBooth = _dom_id_J_ImgBooth || _dom.get("#J_ImgBooth");
+            _dom_id_J_UlThumb = _dom_id_J_UlThumb || _dom.get("#J_UlThumb")
         }
-        if (!G || !A) {
+        if (!_dom_id_J_ImgBooth || !_dom_id_J_UlThumb) {
             return
         }
-        _dom.removeClass(B, F);
-        G.src = S;
+        _dom.removeClass(_dom_li_array, _str_classname_tb_selected);
+        _dom_id_J_ImgBooth.src = S;
         H(function (U) {
             U && U.set("hasZoom", false)
         })
