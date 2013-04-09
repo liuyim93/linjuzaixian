@@ -25,10 +25,10 @@
             return _argument
         }
     }, createAsyn: function (_loader_fn, _time) {
-        var K, _tmp_defaultModelObject, I, _callback_fn_object, G = [];
+        var K, _tmp_defaultModelObject, _is_already_load_defaultModelObject, _callback_fn_object, _iterate_handle_queue = [];
         _loader_fn(function (_defaultModelObject) {
             _tmp_defaultModelObject = _defaultModelObject;
-            while (_callback_fn_object = G.shift()) {
+            while (_callback_fn_object = _iterate_handle_queue.shift()) {
                 _callback_fn_object.handle.apply(null, [_tmp_defaultModelObject])
             }
         }, 0);
@@ -41,12 +41,12 @@
                     if (_tmp_defaultModelObject !== undefined) {
                         return
                     }
-                    I = true;
-                    for (var N = 0; N < G.length; N++) {
-                        G[N].handle.apply(null, [_tmp_defaultModelObject]);
-                        if (!(G[N].type & 8)) {
-                            G.splice(N, 1);
-                            N--
+                    _is_already_load_defaultModelObject = true;
+                    for (var _index = 0; _index < _iterate_handle_queue.length; _index++) {
+                        _iterate_handle_queue[_index].handle.apply(null, [_tmp_defaultModelObject]);
+                        if (!(_iterate_handle_queue[_index].type & 8)) {
+                            _iterate_handle_queue.splice(_index, 1);
+                            _index--
                         }
                     }
                 }, _time || 200);
@@ -59,13 +59,13 @@
                 _loader_fn(_callback_fn, _num_dont_know);
                 return
             }
-            if (I) {
+            if (_is_already_load_defaultModelObject) {
                 _callback_fn();
                 if (_num_dont_know & 8) {
                     _loader_fn(_callback_fn, _num_dont_know)
                 }
             } else {
-                G.push({ handle: _callback_fn, type: _num_dont_know })
+                _iterate_handle_queue.push({ handle: _callback_fn, type: _num_dont_know })
             }
         }
     }, loadAssets: function (G, L, F) {

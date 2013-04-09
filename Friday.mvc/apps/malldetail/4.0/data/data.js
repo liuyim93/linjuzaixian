@@ -1,29 +1,29 @@
 ﻿KISSY.add("malldetail/data/data", function (_kissy, _ajax, _malldetail_common_util) {
-    var _iterator_queue_fn_wrapper, _time, _createAsyn_wrapper, _tmp_defaultModel,
+    var _iterator_queue_fn_wrapper, _time, _createAsyn_wrapper, _global_defaultModel,
         _loader_fn = _malldetail_common_util.createLoader(
                function (_iterator_queue) {
                  _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_iterator_queue) : _iterator_queue
                }
             );
-    function A(N) {
-        var K = _kissy.cfg(), L = N.itemPriceResultDO || {};
-        var M = N.tradeResult;
-        if (L.areaId) {
-            K.destination = L.areaId
+    function _population_cfg(_defaultMode) {
+        var _cfg = _kissy.cfg(), _itemPriceResultDO = _defaultMode.itemPriceResultDO || {};
+        var _tradeResult = _defaultMode.tradeResult;
+        if (_itemPriceResultDO.areaId) {
+            _cfg.destination = _itemPriceResultDO.areaId
         }
-        K.meizDO = N.meizDO;
-        K.itemPriceResultDO = L;
-        if (L && L.campaignInfo && L.campaignInfo.campaignId) {
-            K.varPromotionId = L.campaignInfo.campaignId
+        _cfg.meizDO = _defaultMode.meizDO;
+        _cfg.itemPriceResultDO = _itemPriceResultDO;
+        if (_itemPriceResultDO && _itemPriceResultDO.campaignInfo && _itemPriceResultDO.campaignInfo.campaignId) {
+            _cfg.varPromotionId = _itemPriceResultDO.campaignInfo.campaignId
         }
-        if (M.cartEnable && M.cartType == 2 && (!(K.valMode & 2048))) {
-            K.valMode += 2048
+        if (_tradeResult.cartEnable && _tradeResult.cartType == 2 && (!(_cfg.valMode & 2048))) {
+            _cfg.valMode += 2048
         }
-        K.tradeType = M.tradeType;
-        K.apparelDO = N.apparelDO;
-        K.userInfoDO = N.userInfoDO;
-        K.systemTime = N.miscDO["systemTime"];
-        K.is1111 = (K.systemTime >= 1352563200000 && K.systemTime < 1352649600000)
+        _cfg.tradeType = _tradeResult.tradeType;
+        _cfg.apparelDO = _defaultMode.apparelDO;
+        _cfg.userInfoDO = _defaultMode.userInfoDO;
+        _cfg.systemTime = _defaultMode.miscDO["systemTime"];
+        _cfg.is1111 = (_cfg.systemTime >= 1352563200000 && _cfg.systemTime < 1352649600000)
     }
     var _malldetail_data_data = { setMdskip: function (_defaultModelObject, _num_i_dont_konw) {
         if (_num_i_dont_konw >= 0) {
@@ -38,7 +38,7 @@
         }
     }, onMdskip: _loader_fn, setMdskipTimeout: function (K) {
         _time = K
-    }, onModel: function (L, _num_dont_know) {
+    }, onModel: function (_success_callback_fn, _num_dont_know) {
         if (!_createAsyn_wrapper) {
             _createAsyn_wrapper = _malldetail_common_util.createAsyn(_loader_fn, _time || 3000);
             _createAsyn_wrapper(function (_defaultModelObject) {
@@ -81,14 +81,14 @@
                     }
                     _kissy.cfg("detailMode", "skipError")
                 }
-                A(_defaultModel);
+                _population_cfg(_defaultModel);
                 _kissy.log("TMLOG::detailMode:" + _kissy.cfg("detailMode"), "info");
                 _defaultModel.isSuccess = _defaultModelObject.isSuccess;
-                _tmp_defaultModel = _defaultModel
+                _global_defaultModel = _defaultModel
             }, 12)
         }
         _createAsyn_wrapper(function () {
-            L && L(_tmp_defaultModel)
+            _success_callback_fn && _success_callback_fn(_global_defaultModel)
         }, _num_dont_know)
     }, onPriceInfo: function (K, M, L) {
         K = K || {};

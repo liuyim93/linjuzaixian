@@ -11,21 +11,21 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     var p = {};
     _mods_SKU.selectSkuId = 0;
     _mods_SKU.valSkuInfo = "";
-    var m = function (x) {
+    var _get_skuQuantity = function (_inventoryDO) {
         var w = _sku_cfg.valItemInfo.skuMap;
-        if (x && x.success) {
-            var T = x.skuQuantity;
-            if (_sku_cfg.valMode & 1 && T) {
+        if (_inventoryDO && _inventoryDO.success) {
+            var _skuQuantity = _inventoryDO.skuQuantity;
+            if (_sku_cfg.valMode & 1 && _skuQuantity) {
                 for (var v in w) {
                     var S = w[v]["skuId"];
-                    if (T[S]) {
-                        w[v].type = T[S]["type"];
-                        w[v].stock = T[S]["quantity"]
+                    if (_skuQuantity[S]) {
+                        w[v].type = _skuQuantity[S]["type"];
+                        w[v].stock = _skuQuantity[S]["quantity"]
                     }
                 }
             }
-            _sku_cfg.valItemInfo.type = x.type;
-            _sku_cfg.valItemInfo.skuQuantity = T
+            _sku_cfg.valItemInfo.type = _inventoryDO.type;
+            _sku_cfg.valItemInfo.skuQuantity = _skuQuantity
         }
     };
     function L() {
@@ -86,50 +86,50 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             })
         }
     }
-    function r(w) {
-        var v = false;
-        var S = _sku_cfg.itemDO.auctionStatus;
-        var y = _sku_cfg.detail.isAuthSeller;
+    function _item_visible_check(_defaultMode) {
+        var _visible = false;
+        var _auctionStatus = _sku_cfg.itemDO.auctionStatus;
+        var _is_AuthSeller = _sku_cfg.detail.isAuthSeller;
         var T = "";
-        if (!w.userInfoDO.loginUserType) {
-            v = _sku_cfg.itemDO.canView;
+        if (!_defaultMode.userInfoDO.loginUserType) {
+            _visible = _sku_cfg.itemDO.canView;
             T = 1
         } else {
-            var x = w.userInfoDO.loginUserType == "seller" ? true : false;
-            if (w.userInfoDO.loginCC) {
-                if (x && _sku_cfg.detail.isItemAllowSellerView) {
+            var _is_seller = _defaultMode.userInfoDO.loginUserType == "seller" ? true : false;
+            if (_defaultMode.userInfoDO.loginCC) {
+                if (_is_seller && _sku_cfg.detail.isItemAllowSellerView) {
                     T = 2;
-                    v = true
+                    _visible = true
                 } else {
                     T = 3;
-                    v = false
+                    _visible = false
                 }
             } else {
-                if (!x) {
+                if (!_is_seller) {
                     T = 4;
-                    v = _sku_cfg.itemDO.canView
+                    _visible = _sku_cfg.itemDO.canView
                 } else {
                     if (_sku_cfg.detail.isItemAllowSellerView) {
                         T = 5;
-                        v = true
+                        _visible = true
                     } else {
                         T = 6;
-                        v = false
+                        _visible = false
                     }
                 }
             }
-            if ((S != 0 && S != 1) && !x) {
-                if (!y) {
+            if ((_auctionStatus != 0 && _auctionStatus != 1) && !_is_seller) {
+                if (!_is_AuthSeller) {
                     T = 83;
-                    v = false
+                    _visible = false
                 }
             }
         }
         if (_sku_cfg.itemDO.sellerFreeze) {
             T = 7;
-            v = false
+            _visible = false
         }
-        if (!v) {
+        if (!_visible) {
             _window.location.href = "http://detail.tmall.com/auction/noitem.htm?type=" + T
         }
     }
@@ -158,21 +158,21 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         })
     }
     function l() {
-        var S = function (v) {
+        var S = function (_defaultMode) {
             var _valMode = _sku_cfg.valMode;
-            r(v);
-            C(v);
+            _item_visible_check(_defaultMode);
+            C(_defaultMode);
             if (!_mods_SKU.LinkBuy) {
                 _mods_SKU.LinkBuy = new _mods_SKU.Util.BuyLinkStatu("#J_LinkBuy", 3)
             }
-            _mods_SKU.Price.init(v.itemPriceResultDO, v.inventoryDO);
+            _mods_SKU.Price.init(_defaultMode.itemPriceResultDO, _defaultMode.inventoryDO);
             _kissy_imp.use("malldetail/sku/double11", function (x, y) {
-                y.init(v.detailPageTipsDO, v.tradeResult, v.itemPriceResultDO, v.miscDO)
+                y.init(_defaultMode.detailPageTipsDO, _defaultMode.tradeResult, _defaultMode.itemPriceResultDO, _defaultMode.miscDO)
             });
-            T(v);
-            _malldetail_sku_freight.init(v.deliveryDO);
-            _malldetail_sku_stock.init(v);
-            p = v
+            T(_defaultMode);
+            _malldetail_sku_freight.init(_defaultMode.deliveryDO);
+            _malldetail_sku_stock.init(_defaultMode);
+            p = _defaultMode
         };
         var T = function (v) {
             var w = _sku_cfg.valMode;
@@ -201,12 +201,12 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             return T(v)
         };
         _malldetail_data_data.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
-        _malldetail_data_data.onModel(function (v) {
-            if (v.isSuccess) {
-                m(v.inventoryDO)
+        _malldetail_data_data.onModel(function (_defaultModel) {
+            if (_defaultModel.isSuccess) {
+                _get_skuQuantity(_defaultModel.inventoryDO)
             }
-            S(v);
-            d(v.isSuccess)
+            S(_defaultModel);
+            d(_defaultModel.isSuccess)
         }, 13)
     }
     _mods_SKU.getCurrentSkuList = function () {
@@ -359,7 +359,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
                 if (AA.isSuccess) {
                     var AB = AA.defaultModel;
                     _malldetail_data_data.setLocationModel(w.areaId, AB);
-                    m(AB.inventoryDO);
+                    _get_skuQuantity(AB.inventoryDO);
                     _mods_SKU.Price.init(AB.itemPriceResultDO, AB.inventoryDO);
                     _mods_SKU.Service.init(AB.serviceDO);
                     _malldetail_sku_stock.init(AB);
