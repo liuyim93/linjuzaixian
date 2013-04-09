@@ -1518,7 +1518,7 @@
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
     <Content Include="app\shop\skin\ark_black.css" />
     <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
-    <Content Include="apps\tmall\tml\1.0\tml\tml-min.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\tml.js" />
     <Content Include="app\shop\skin\ark_detail.css" />
     <Content Include="comet.htm" />
     <Content Include="cps\trace.js" />
