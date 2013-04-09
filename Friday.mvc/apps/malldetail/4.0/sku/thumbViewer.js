@@ -86,14 +86,14 @@
         }
         var _url = _url_to_be_added_img_size + "_" + _size_config.size.join("x") + ".jpg";
         var _data_size = _dom.attr(_dom_li, "data-size");
-        var S = function (Z) {
-            if (Z.zm) {
+        var S = function (_data_size_attr) {
+            if (_data_size_attr.zm) {
                 H(function (a) {
                     a.set(_url);
                     a.set("hasZoom", true);
                     a.set("bigImageSrc", _url_to_be_added_img_size);
-                    a.set("bigImageWidth", Z.w);
-                    a.set("bigImageHeight", Z.h)
+                    a.set("bigImageWidth", _data_size_attr.w);
+                    a.set("bigImageHeight", _data_size_attr.h)
                 })
             }
         };

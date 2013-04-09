@@ -2,7 +2,24 @@
     //var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://l.tbcdn.cn";
     var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://localhost:7525";
     A.t = A.t + "d4";
-    _kissy.config({ combine: true, map: [[/(malldetail\/[0-9\.]+\/)malldetail\//, "$1"]], packages: [{ name: "malldetail", ignorePackageNameInUri: true, tag: A.t, path: C + "/apps/malldetail/" + A.ver + "/", charset: "gbk", combine: true, debug: true}] });
+    _kissy.config(
+         { combine: false,
+           map: [
+                  [/(malldetail\/[0-9\.]+\/)malldetail\//, "$1"]
+                ],
+           packages:
+               [
+                   { name: "malldetail",
+                     ignorePackageNameInUri: true,
+                     tag: A.t,
+                     path: C + "/apps/malldetail/" + A.ver + "/",
+                     charset: "gbk",
+                     combine: true,
+                     debug: true
+                   }
+               ]
+         }
+    );
     _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: C + "/p/shop/3.0/", charset: "utf-8"}] });
     TShop = _kissy;
     _kissy.add("tb-core", function () {
