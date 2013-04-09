@@ -158,7 +158,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         })
     }
     function l() {
-        var S = function (_defaultMode) {
+        var _form_init = function (_defaultMode) {
             var _valMode = _sku_cfg.valMode;
             _item_visible_check(_defaultMode);
             _render_form_wrapper(_defaultMode);
@@ -205,7 +205,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             if (_defaultModel.isSuccess) {
                 _get_skuQuantity(_defaultModel.inventoryDO)
             }
-            S(_defaultModel);
+            _form_init(_defaultModel);
             d(_defaultModel.isSuccess)
         }, 13)
     }
