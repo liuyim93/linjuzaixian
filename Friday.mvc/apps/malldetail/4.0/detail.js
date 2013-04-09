@@ -313,16 +313,16 @@
         }
         _kissy.namespace("mods.SKU");
         _kissy.loadMdskip(_config.initApi);
-        _kissy.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (K, I, J) {
-            TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(J.setMdskip) : J.setMdskip;
-            I.on(_document, "click tap", function (O) {
-                var N = K.bdClickFn || [];
+        _kissy.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (_kissy_m, _event, _malldetail_data_data) {
+            TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(_malldetail_data_data.setMdskip) : _malldetail_data_data.setMdskip;
+            _event.on(_document, "click tap", function (_e) {
+                var N = _kissy_m.bdClickFn || [];
                 for (var M = 0, L = N.length; M < L; M++) {
-                    N[M](O, O.target)
+                    N[M](_e, _e.target)
                 }
             });
             TB.Global.writeLoginInfo();
-            K.mix(K, K.EventTarget);
+            _kissy_m.mix(_kissy_m, _kissy_m.EventTarget);
             _config.onBuyEnable = function () {
                 TShop.poc("buyEnable")
             };
@@ -331,7 +331,7 @@
                     L.switchTab("J_Reviews")
                 })
             };
-            K.mods.SKU.init(_config)
+            _kissy_m.mods.SKU.init(_config)
         })
     }, onBDclick: function (H) {
         _kissy.bdClickFn = _kissy.bdClickFn || [];

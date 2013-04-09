@@ -371,39 +371,39 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             })
         })
     };
-    function Z() {
-        var T = '<li class="sold-out-recommend" id="J_Sold-out-recommend">                            <p><strong class="sold-out-tit">\u6b64\u5546\u54c1\u5df2\u4e0b\u67b6</strong>\uff08<a target="_blank" href="http://service.taobao.com/support/knowledge-1102683.htm"><img src="http://img03.taobaocdn.com/tps/i3/T1Tj4wXkVhXXXXXXXX-12-12.png" alt="\u4e3a\u4ec0\u4e48"></a>\uff09</p>                            <div id="J_FE_soldout"></div>                        </li>';
-        var S = _dom.children("#J_DetailMeta .tb-wrap");
-        var w, v;
-        _kissy.each(S, function (z, y) {
-            if (y == 0 && z.className == "tb-meta") {
-                w = z;
-                v = _dom.children(z)
+    function _sold_out() {
+        var _str_snippet_sold_out = '<li class="sold-out-recommend" id="J_Sold-out-recommend">                            <p><strong class="sold-out-tit">\u6b64\u5546\u54c1\u5df2\u4e0b\u67b6</strong>\uff08<a target="_blank" href="http://service.taobao.com/support/knowledge-1102683.htm"><img src="http://img03.taobaocdn.com/tps/i3/T1Tj4wXkVhXXXXXXXX-12-12.png" alt="\u4e3a\u4ec0\u4e48"></a>\uff09</p>                            <div id="J_FE_soldout"></div>                        </li>';
+        var _dom_div_array_meta = _dom.children("#J_DetailMeta .tb-wrap");
+        var _meta_sold_out_holder, _price_related_list;
+        _kissy.each(_dom_div_array_meta, function (_meta_item, _index) {
+            if (_index == 0 && _meta_item.className == "tb-meta") {
+                _meta_sold_out_holder = _meta_item;
+                _price_related_list = _dom.children(_meta_item)
             } else {
-                if (y == 1 && !v) {
-                    w = z;
-                    v = _dom.children(z)
+                if (_index == 1 && !_price_related_list) {
+                    _meta_sold_out_holder = _meta_item;
+                    _price_related_list = _dom.children(_meta_item)
                 } else {
-                    _dom.remove(z)
+                    _dom.remove(_meta_item)
                 }
             }
         });
-        if (!v) {
+        if (!_price_related_list) {
             return
         }
-        _kissy.each(v, function (y, z) {
-            if (!y.id || (y.id != "J_StrPriceModBox" && y.id != "J_PromoPrice")) {
-                _dom.remove(y);
-                delete v[z]
+        _kissy.each(_price_related_list, function (_price_item, _index) {
+            if (!_price_item.id || (_price_item.id != "J_StrPriceModBox" && _price_item.id != "J_PromoPrice")) {
+                _dom.remove(_price_item);
+                delete _price_related_list[_index]
             }
         });
-        if (w) {
-            var x = _dom.create(T);
-            _dom.append(x, w)
+        if (_meta_sold_out_holder) {
+            var _dom_sold_out = _dom.create(_str_snippet_sold_out);
+            _dom.append(_dom_sold_out, _meta_sold_out_holder)
         }
-        S = w = v = null;
-        _kissy_imp.use("malldetail/recommend/common", function (y, z) {
-            z.install("soldOut", "#J_FE_soldout")
+        _dom_div_array_meta = _meta_sold_out_holder = _price_related_list = null;
+        _kissy_imp.use("malldetail/recommend/common", function (_kissy_imp, _malldetail_recommend_common) {
+            _malldetail_recommend_common.install("soldOut", "#J_FE_soldout")
         })
     }
     function Q(S) {
@@ -414,7 +414,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             t.init();
             R.init(S);
             if (i.detail.isDownFe) {
-                Z()
+                _sold_out()
             } else {
                 if (S.jzDO) {
                     _mods_SKU.IFCLocation.init(S)
@@ -529,10 +529,10 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
         })
     }
     function Y() {
-        var S = function (T) {
-            return _document.getElementById(T)
+        var _get_elem_by_id = function (_id_selector) {
+            return _document.getElementById(_id_selector)
         };
-        i = _kissy.mix(i || {}, { strPrice: S("J_StrPrice"), emStock: S("J_EmStock"), linkBuy: S("J_LinkBuy"), dlChoice: S("J_DlChoice"), frmBid: S("J_FrmBid"), valItemInfo: {}, linkAdd: S("J_LinkAdd"), apiAddCart: G, valCartInfo: {}, linkBasket: S("J_LinkBasket"), divDetail: S("detail").parentNode, valExpanded: false, destination: "330100", emPoint: S("J_EmPoint"), valPointRate: 0, emPointsBuy: S("J_EmPointsBuy"), apiBidCount: G, valLoginUrl: G, valLoginIndicator: G, isDaily: (_g_config.assetsHost.indexOf("taobao.net") != -1), isHouseholdService: 0, varPromotionId: 0, limited: null, valMode: 0 }, false);
+        i = _kissy.mix(i || {}, { strPrice: _get_elem_by_id("J_StrPrice"), emStock: _get_elem_by_id("J_EmStock"), linkBuy: _get_elem_by_id("J_LinkBuy"), dlChoice: _get_elem_by_id("J_DlChoice"), frmBid: _get_elem_by_id("J_FrmBid"), valItemInfo: {}, linkAdd: _get_elem_by_id("J_LinkAdd"), apiAddCart: G, valCartInfo: {}, linkBasket: _get_elem_by_id("J_LinkBasket"), divDetail: _get_elem_by_id("detail").parentNode, valExpanded: false, destination: "330100", emPoint: _get_elem_by_id("J_EmPoint"), valPointRate: 0, emPointsBuy: _get_elem_by_id("J_EmPointsBuy"), apiBidCount: G, valLoginUrl: G, valLoginIndicator: G, isDaily: (_g_config.assetsHost.indexOf("taobao.net") != -1), isHouseholdService: 0, varPromotionId: 0, limited: null, valMode: 0 }, false);
         i.valCartInfo.ct = D.get("t");
         i.valCartInfo.statsUrl += "&userid=" + D.get("cookie17");
         if (null !== i.dlChoice) {

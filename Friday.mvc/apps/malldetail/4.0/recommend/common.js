@@ -95,10 +95,10 @@
                 }
             })
         },
-        install: function (N, M, Q) {
+        install: function (N, _selector, Q) {
             var P = A[N];
             if (P && !P.loaded) {
-                H[N](N, M);
+                H[N](N, _selector);
                 var O = E.cfg("itemDO");
                 F.mix(P.params, {
                     categoryId: O.categoryId,
