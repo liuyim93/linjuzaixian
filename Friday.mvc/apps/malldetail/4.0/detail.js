@@ -1,7 +1,7 @@
 ﻿(function (_kissy) {
     //var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://l.tbcdn.cn";
-    var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://localhost:7525";
-    A.t = A.t + "d4";
+    var _document = document, _window = window, _g_config = _window.g_config, _url = _g_config.assetsHost || "http://localhost:7525";
+    _g_config.t = _g_config.t + "d4";
     _kissy.config(
          { combine: false,
            map: [
@@ -11,8 +11,8 @@
                [
                    { name: "malldetail",
                      ignorePackageNameInUri: true,
-                     tag: A.t,
-                     path: C + "/apps/malldetail/" + A.ver + "/",
+                     tag: _g_config.t,
+                     path: _url + "/apps/malldetail/" + _g_config.ver + "/",
                      charset: "gbk",
                      combine: true,
                      debug: true
@@ -20,7 +20,7 @@
                ]
          }
     );
-    _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: C + "/p/shop/3.0/", charset: "utf-8"}] });
+    _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: _url + "/p/shop/3.0/", charset: "utf-8"}] });
     TShop = _kissy;
     _kissy.add("tb-core", function () {
     });
@@ -125,14 +125,14 @@
     );
     _kissy.namespace("mods", "widgets");
     _kissy.t = function () {
-        return A.t
+        return _g_config.t
     };
     _kissy.mix(_kissy, { isDetail: function () {
-        return 1 === A.appId
+        return 1 === _g_config.appId
     }, isMall: function () {
-        return "b" === A.type
+        return "b" === _g_config.type
     }, isBid: function () {
-        return "auction" === A.pageType
+        return "auction" === _g_config.pageType
     }, addTimeStamp: function () {
         var H = _kissy.now();
         return function (I) {
@@ -147,14 +147,14 @@
             var L = L || {};
             L = _kissy.mix(L, I, false);
             var N = "jsFeImage_" + _kissy.guid();
-            var M = E[N] = new Image();
+            var M = _window[N] = new Image();
             if (K.indexOf("?") == -1) {
                 K += "?" + _kissy.param(L)
             } else {
                 K += "&" + _kissy.param(L)
             }
             M.onload = (M.onerror = function () {
-                E[N] = null
+                _window[N] = null
             });
             M.src = K + "&_tm_cache=" + _kissy.now();
             M = null
@@ -186,7 +186,7 @@
         this.sendAtpanel("tmalldetail.15.2", I)
     }, scrollToElem: function (I) {
         var H = _kissy.DOM, J = H.offset(I).top;
-        F[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = J - 130
+        _document[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = J - 130
     }, flush: ((0 < _kissy.UA.ie) ? CollectGarbage : (function () {
     })), inBucket: function (N) {
         var M, I = 20;
@@ -213,7 +213,7 @@
         _kissy.log("bucket_id:" + K, "info");
         return K <= J
     }, getUrlParams: function (I) {
-        var H = E.location.href.split("?")[1] || "";
+        var H = _window.location.href.split("?")[1] || "";
         var K = {};
         var O = {};
         H = H.replace(/#.*$/, "").split("&");
@@ -243,7 +243,7 @@
             }
         }
     }, onLogin: function (L, I) {
-        var J = (A.assetsHost.indexOf("taobao.net") != -1);
+        var J = (_g_config.assetsHost.indexOf("taobao.net") != -1);
         var K = J ? "daily.tmall.net" : "tmall.com";
         var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
         _kissy.use("tml/minilogin", function (M, N) {
@@ -302,7 +302,7 @@
             return
         }
         var I = _kissy.getUrlParams(["ip", "campaignId", "key", "abt", "cat_id", "q", "u_channel"]);
-        I.ref = encodeURIComponent(F.referrer);
+        I.ref = encodeURIComponent(_document.referrer);
         var H = _kissy.param(I), J = _kissy.now();
         window.onMdskip = K;
         _kissy.getScript(L + "&callback=onMdskip&" + H, { error: K })
@@ -315,7 +315,7 @@
         _kissy.loadMdskip(H.initApi);
         _kissy.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (K, I, J) {
             TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(J.setMdskip) : J.setMdskip;
-            I.on(F, "click tap", function (O) {
+            I.on(_document, "click tap", function (O) {
                 var N = K.bdClickFn || [];
                 for (var M = 0, L = N.length; M < L; M++) {
                     N[M](O, O.target)
@@ -381,7 +381,7 @@
         function I(N) {
             if (N.url.indexOf("ald.taobao.com") != -1) {
                 var O = _kissy.cfg("itemDO");
-                _kissy.mix(N.data, { categoryId: O.categoryId, sellerId: O.userId, shopId: _kissy.cfg("rstShopId"), brandId: O.brandId, refer: F.referrer }, false)
+                _kissy.mix(N.data, { categoryId: O.categoryId, sellerId: O.userId, shopId: _kissy.cfg("rstShopId"), brandId: O.brandId, refer: _document.referrer }, false)
             }
         }
         _kissy.augment(K, { run: function () {
@@ -464,8 +464,8 @@
     });
     TB.namespace("Detail");
     try {
-        var G = F.domain.split(".");
-        F.domain = G.slice(G.length - 2).join(".")
+        var G = _document.domain.split(".");
+        _document.domain = G.slice(G.length - 2).join(".")
     } catch (D) {
     }
     TShop.poc = function (H) {
@@ -511,7 +511,7 @@
                 TShop.onLeftSlide()
             });
             TShop.use("malldetail/dc/dc", function (U, T) {
-                var R = U._TMD_Config, Q = { assetsHost: C, pageType: "tmalldetail", lazyContainers: ["#hd"] };
+                var R = U._TMD_Config, Q = { assetsHost: _url, pageType: "tmalldetail", lazyContainers: ["#hd"] };
                 if (R && R.itemDO) {
                     Q.isvParams = U.mix({ nickName: R.itemDO.sellerNickName, userId: R.itemDO.userId, shopId: "", itemId: "", itemNumId: R.itemDO.itemId, shopStats: R.itemDO.feature, validatorUrl: R.itemDO.validatorUrl, templateName: R.itemDO.templateName, templateId: R.itemDO.templateId }, R.isv)
                 }
@@ -573,7 +573,7 @@
                 document.domain = M(location.hostname)
             }
             if (H.bidInit) {
-                L.getScript(C + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + A.ver + "/css/auction.css?t=" + L.t());
+                L.getScript(_url + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + _g_config.ver + "/css/auction.css?t=" + L.t());
                 L.use("malldetail/bid/bid", function (R, Q) {
                     Q.init("#tbid-container", { isCustom: false, isMpp: true })
                 })
