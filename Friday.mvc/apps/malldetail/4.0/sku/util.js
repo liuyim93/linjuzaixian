@@ -1,5 +1,5 @@
-﻿KISSY.add("malldetail/sku/util", function (E) {
-    var B = E.mods.SKU, F = KISSY, H = F.UA, L = F.DOM, G = window;
+﻿KISSY.add("malldetail/sku/util", function (_kissy_imp) {
+    var _mods_SKU = _kissy_imp.mods.SKU, _kissy = KISSY, _ua = _kissy.UA, _dom = _kissy.DOM, _window = window;
     function I(M) {
         while (M.lastChild) {
             M.removeChild(M.lastChild)
@@ -14,14 +14,14 @@
         var Q = ["src=" + P, "type=" + N, "rq=" + encodeURIComponent(M), "t=" + (+new Date())];
         new Image().src = O + (O.lastIndexOf("?") != -1 ? "&" : "?") + Q.join("&")
     }
-    function C(M, O) {
-        var N = F.get(M);
-        this.ele = N ? N : null;
-        var O = (typeof O == "undefined") ? 3 : O;
-        this.app = { init: O };
-        this.curstatu = O
+    function _buylinkstatus(_id_selector, _link_type) {
+        var _dom_a_J_LinkBuy = _kissy.get(_id_selector);
+        this.ele = _dom_a_J_LinkBuy ? _dom_a_J_LinkBuy : null;
+        var _link_type_tmp = (typeof _link_type == "undefined") ? 3 : _link_type;
+        this.app = { init: _link_type_tmp };
+        this.curstatu = _link_type_tmp
     }
-    F.augment(C, { getStatu: function () {
+    _kissy.augment(_buylinkstatus, { getStatu: function () {
         return this.curstatu
     }, statu: function (M, Q) {
         if (!this.ele) {
@@ -56,24 +56,24 @@
                 var Y = U & parseInt(1, 2);
                 var X = U & parseInt(10, 2);
                 if (T !== Y) {
-                    var V = L.parent(N.ele);
+                    var V = _dom.parent(N.ele);
                     if (Y == 1) {
                         if (V) {
-                            L.removeClass(V, "tb-hidden")
+                            _dom.removeClass(V, "tb-hidden")
                         }
                     } else {
                         if (Y == 0) {
                             if (V) {
-                                L.addClass(V, "tb-hidden")
+                                _dom.addClass(V, "tb-hidden")
                             }
                         }
                     }
                 }
                 if (W !== X) {
                     if (X == 2) {
-                        L.removeClass(N.ele, "noPost")
+                        _dom.removeClass(N.ele, "noPost")
                     } else {
-                        L.addClass(N.ele, "noPost")
+                        _dom.addClass(N.ele, "noPost")
                     }
                 }
                 N.curstatu = U
@@ -82,18 +82,18 @@
     } 
     });
     function A(N) {
-        var M = E.cfg("url").tbskip + "/json/get_tb_ck_ps.htm";
-        F.use("cookie", function (P, O) {
+        var M = _kissy_imp.cfg("url").tbskip + "/json/get_tb_ck_ps.htm";
+        _kissy.use("cookie", function (P, O) {
             O = O || P.Cookie;
-            var Q = O.get("t") || E.cfg("valCT");
-            P.getScript(E.addTimeStamp(M) + "&varName=TB.Detail.TrackID", { success: function () {
+            var Q = O.get("t") || _kissy_imp.cfg("valCT");
+            P.getScript(_kissy_imp.addTimeStamp(M) + "&varName=TB.Detail.TrackID", { success: function () {
                 if (typeof TB.Detail.TrackID === "undefined") {
                     return N(Q)
                 }
-                E.cfg("valCartInfo").ct = TB.Detail.TrackID.ct;
+                _kissy_imp.cfg("valCartInfo").ct = TB.Detail.TrackID.ct;
                 N(TB.Detail.TrackID.ct);
                 delete TB.Detail.TrackID;
-                E.flush()
+                _kissy_imp.flush()
             }, error: function () {
                 N(Q)
             }, timeout: 100
@@ -119,7 +119,7 @@
         }
         return N
     }
-    B.Util = function () {
-        return { halt: D, clearNodes: I, monitorBuyServer: J, BuyLinkStatu: C, getTrackID: A, formatDate: K }
+    _mods_SKU.Util = function () {
+        return { halt: D, clearNodes: I, monitorBuyServer: J, BuyLinkStatu: _buylinkstatus, getTrackID: A, formatDate: K }
     } ()
 }, { requires: [] }); /*pub-1|2013-02-20 11:13:13*/

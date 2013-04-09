@@ -161,7 +161,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         var S = function (_defaultMode) {
             var _valMode = _sku_cfg.valMode;
             _item_visible_check(_defaultMode);
-            C(_defaultMode);
+            _render_form_wrapper(_defaultMode);
             if (!_mods_SKU.LinkBuy) {
                 _mods_SKU.LinkBuy = new _mods_SKU.Util.BuyLinkStatu("#J_LinkBuy", 3)
             }
@@ -440,43 +440,43 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
         })
     }
-    function C(w) {
-        var T = _kissy_imp.getUrlParams;
-        var z = _sku_cfg.frmBid;
-        if (!z) {
+    function _render_form_wrapper(w) {
+        var _fn_getUrlParams = _kissy_imp.getUrlParams;
+        var _dom_form_id_J_FrmBid = _sku_cfg.frmBid;
+        if (!_dom_form_id_J_FrmBid) {
             return
         }
-        var S = { arr: [], set: function (AB, AC, AD) {
-            if (z[AB]) {
-                z[AB].value = AC
+        var _form_wrapper = { arr: [], set: function (_key, _value, _id) {
+            if (_dom_form_id_J_FrmBid[_key]) {
+                _dom_form_id_J_FrmBid[_key].value = _value
             } else {
-                this.arr.push({ k: AB, v: AC, id: AD })
+                this.arr.push({ k: _key, v: _value, id: _id })
             }
             return this
         }, rander: function () {
-            var AE = [];
-            var AB = this.arr;
-            for (var AC = 0; AC < AB.length; AC++) {
-                var AD = "";
-                if (typeof AB[AC]["id"] != "undefined") {
-                    AD = 'id="' + AB[AC]["id"] + '"'
+            var _arr_snippet = [];
+            var _arr = this.arr;
+            for (var _index = 0; _index < _arr.length; _index++) {
+                var _str = "";
+                if (typeof _arr[_index]["id"] != "undefined") {
+                    _str = 'id="' + _arr[_index]["id"] + '"'
                 }
-                AE.push('<input type="hidden" name="' + AB[AC]["k"] + '" value="' + AB[AC]["v"] + '" ' + AD + ">")
+                _arr_snippet.push('<input type="hidden" name="' + _arr[_index]["k"] + '" value="' + _arr[_index]["v"] + '" ' + _str + ">")
             }
-            if (AE.length) {
-                z.innerHTML += AE.join("")
+            if (_arr_snippet.length) {
+                _dom_form_id_J_FrmBid.innerHTML += _arr_snippet.join("")
             }
             return this
         } 
         };
         if (w.secKillDO && w.secKillDO.timeKillKeyName && typeof w.secKillDO.timeKillKey != "undefined") {
             if (_g_config.isSpu || (_sku_cfg.itemDO.isOnline && (_sku_cfg.itemDO.isSecondKillFromPC || _sku_cfg.itemDO.isSecondKillFromPCAndWap || (_sku_cfg.detail.timeKillAuction && w.userInfoDO.loginUserType)))) {
-                S.set(w.secKillDO.timeKillKeyName, w.secKillDO.timeKillKey)
+                _form_wrapper.set(w.secKillDO.timeKillKeyName, w.secKillDO.timeKillKey)
             }
         }
         if (w.gatewayDO.trade) {
             for (var v in w.gatewayDO.trade.addToBuyNow) {
-                S.set(v, w.gatewayDO.trade.addToBuyNow[v])
+                _form_wrapper.set(v, w.gatewayDO.trade.addToBuyNow[v])
             }
             delete w.gatewayDO.trade.addToBuyNow
         }
@@ -484,48 +484,48 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         if (w.itemPriceResultDO.promType == 1 && (x = _mods_SKU.getCurrentPromotion()) && x.amountRestriction && x.amountRestriction < y) {
             y = x.amountRestriction
         }
-        S.set("allow_quantity", y);
-        S.set("quantity", 1, "quantity");
-        S.set("skuId", "", "skuId");
-        S.set("skuInfo", "", "skuInfo");
+        _form_wrapper.set("allow_quantity", y);
+        _form_wrapper.set("quantity", 1, "quantity");
+        _form_wrapper.set("skuId", "", "skuId");
+        _form_wrapper.set("skuInfo", "", "skuInfo");
         if (w.itemPriceResultDO.promType == 1) {
-            S.set("key", T("key"))
+            _form_wrapper.set("key", _fn_getUrlParams("key"))
         }
         if (!_g_config.isSpu) {
-            S.set("activity", T("activity"));
-            var AA = T("buytraceid");
+            _form_wrapper.set("activity", _fn_getUrlParams("activity"));
+            var AA = _fn_getUrlParams("buytraceid");
             if (AA) {
-                S.set("buytraceid", AA)
+                _form_wrapper.set("buytraceid", AA)
             }
         }
-        S.set("bankfrom", T("bankfrom"));
-        S.set("destination", _sku_cfg.destination);
+        _form_wrapper.set("bankfrom", _fn_getUrlParams("bankfrom"));
+        _form_wrapper.set("destination", _sku_cfg.destination);
         if (_sku_cfg.tradeType == 1) {
-            S.set("item_url_refer", _document.referrer || "OTHER")
+            _form_wrapper.set("item_url_refer", _document.referrer || "OTHER")
         }
-        S.set("buyer_from", _g_config.isSpu ? "spu" : T("buyer_from"));
-        S.set("item_id_num", _sku_cfg.itemDO.itemId);
-        S.set("item_id", _sku_cfg.itemDO.itemId);
-        S.set("auction_id", _sku_cfg.itemDO.itemId);
-        S.set("seller_rank", "0");
-        S.set("seller_rate_sum", "0");
-        S.set("is_orginal", "no");
-        S.set("point_price", "false");
-        S.set("secure_pay", "true");
-        S.set("pay_method", "\u6b3e\u5230\u53d1\u8d27");
-        S.set("from", "item_detail");
-        S.set("buy_now", _sku_cfg.itemDO.reservePrice);
-        S.set("current_price", _sku_cfg.itemDO.reservePrice);
-        S.set("auction_type", _sku_cfg.itemDO.auctionType);
-        S.set("seller_num_id", _sku_cfg.itemDO.userId);
+        _form_wrapper.set("buyer_from", _g_config.isSpu ? "spu" : _fn_getUrlParams("buyer_from"));
+        _form_wrapper.set("item_id_num", _sku_cfg.itemDO.itemId);
+        _form_wrapper.set("item_id", _sku_cfg.itemDO.itemId);
+        _form_wrapper.set("auction_id", _sku_cfg.itemDO.itemId);
+        _form_wrapper.set("seller_rank", "0");
+        _form_wrapper.set("seller_rate_sum", "0");
+        _form_wrapper.set("is_orginal", "no");
+        _form_wrapper.set("point_price", "false");
+        _form_wrapper.set("secure_pay", "true");
+        _form_wrapper.set("pay_method", "款到发货");
+        _form_wrapper.set("from", "item_detail");
+        _form_wrapper.set("buy_now", _sku_cfg.itemDO.reservePrice);
+        _form_wrapper.set("current_price", _sku_cfg.itemDO.reservePrice);
+        _form_wrapper.set("auction_type", _sku_cfg.itemDO.auctionType);
+        _form_wrapper.set("seller_num_id", _sku_cfg.itemDO.userId);
         if (!_g_config.isSpu) {
-            S.set("activity", "");
-            S.set("chargeTypeId", "", "J_ChargeTypeId")
+            _form_wrapper.set("activity", "");
+            _form_wrapper.set("chargeTypeId", "", "J_ChargeTypeId")
         }
-        S.set("_tb_token_", "", "J_TokenField");
-        S.rander();
+        _form_wrapper.set("_tb_token_", "", "J_TokenField");
+        _form_wrapper.rander();
         _kissy_imp.mods.Token.onInited(function () {
-            z._tb_token_.value = _sku_cfg.valToken
+            _dom_form_id_J_FrmBid._tb_token_.value = _sku_cfg.valToken
         })
     }
     function _sku_cfg_further() {
