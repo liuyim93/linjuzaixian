@@ -4,18 +4,18 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     var _window = window, _document = document, _body = _document.body;
     var _g_config = _window.g_config;
     var G = "";
-    var i = {};
-    var h = _kissy.merge({}, _kissy.EventTarget);
+    var _sku_cfg = {};
+    var _event_target = _kissy.merge({}, _kissy.EventTarget);
     var V = "configChange";
-    var N = "skuInited";
+    var _str_sku_inited_event = "skuInited";
     var p = {};
     _mods_SKU.selectSkuId = 0;
     _mods_SKU.valSkuInfo = "";
     var m = function (x) {
-        var w = i.valItemInfo.skuMap;
+        var w = _sku_cfg.valItemInfo.skuMap;
         if (x && x.success) {
             var T = x.skuQuantity;
-            if (i.valMode & 1 && T) {
+            if (_sku_cfg.valMode & 1 && T) {
                 for (var v in w) {
                     var S = w[v]["skuId"];
                     if (T[S]) {
@@ -24,20 +24,20 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
                     }
                 }
             }
-            i.valItemInfo.type = x.type;
-            i.valItemInfo.skuQuantity = T
+            _sku_cfg.valItemInfo.type = x.type;
+            _sku_cfg.valItemInfo.skuQuantity = T
         }
     };
     function L() {
         var y = _kissy.unparam(_window.location.href.split("?")[1]);
         var x = [];
         var w;
-        var T = i.elmProps && i.elmProps.length;
+        var T = _sku_cfg.elmProps && _sku_cfg.elmProps.length;
         if (!T) {
             return
         }
         if (y.skuId) {
-            var w = i.valItemInfo.skuMap;
+            var w = _sku_cfg.valItemInfo.skuMap;
             var S = y.skuId;
             for (var v in w) {
                 if (w[v]["skuId"] == S) {
@@ -52,12 +52,12 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             }
         }
         if (x.length) {
-            i.valItemInfo.defSelected = x;
+            _sku_cfg.valItemInfo.defSelected = x;
             _kissy.log(x)
         }
     }
     function O() {
-        var S = i.valMode;
+        var S = _sku_cfg.valMode;
         L();
         E.init();
         _mods_SKU.LinkAdd = new _mods_SKU.Util.BuyLinkStatu("#J_LinkAdd", 2);
@@ -76,7 +76,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             }
         }
         _mods_SKU.PopupSimulate.init();
-        if (G !== i.valLoginIndicator || G !== i.valLoginUrl) {
+        if (G !== _sku_cfg.valLoginIndicator || G !== _sku_cfg.valLoginUrl) {
             _mods_SKU.FastLogin.init()
         }
         f.init();
@@ -88,16 +88,16 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     }
     function r(w) {
         var v = false;
-        var S = i.itemDO.auctionStatus;
-        var y = i.detail.isAuthSeller;
+        var S = _sku_cfg.itemDO.auctionStatus;
+        var y = _sku_cfg.detail.isAuthSeller;
         var T = "";
         if (!w.userInfoDO.loginUserType) {
-            v = i.itemDO.canView;
+            v = _sku_cfg.itemDO.canView;
             T = 1
         } else {
             var x = w.userInfoDO.loginUserType == "seller" ? true : false;
             if (w.userInfoDO.loginCC) {
-                if (x && i.detail.isItemAllowSellerView) {
+                if (x && _sku_cfg.detail.isItemAllowSellerView) {
                     T = 2;
                     v = true
                 } else {
@@ -107,9 +107,9 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             } else {
                 if (!x) {
                     T = 4;
-                    v = i.itemDO.canView
+                    v = _sku_cfg.itemDO.canView
                 } else {
-                    if (i.detail.isItemAllowSellerView) {
+                    if (_sku_cfg.detail.isItemAllowSellerView) {
                         T = 5;
                         v = true
                     } else {
@@ -125,7 +125,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
                 }
             }
         }
-        if (i.itemDO.sellerFreeze) {
+        if (_sku_cfg.itemDO.sellerFreeze) {
             T = 7;
             v = false
         }
@@ -136,16 +136,16 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     function M(S) {
         W.init();
         P.init(S);
-        if (i.isHouseholdService) {
+        if (_sku_cfg.isHouseholdService) {
             _kissy_imp.use("malldetail/sku/jia", function (T, v) {
                 v.init()
             })
         }
         q.init(S.sellCountDO);
         K.loadAssets("cps/trace.js?t=20120618", function () {
-            var T = _g_config.isSpu ? 1 : ((i.userInfoDO && i.userInfoDO.juKeBuyerLogin) ? 4 : 2);
+            var T = _g_config.isSpu ? 1 : ((_sku_cfg.userInfoDO && _sku_cfg.userInfoDO.juKeBuyerLogin) ? 4 : 2);
             try {
-                window.CPS.trace({ type: 1, subtype: T, itemid: i.itemDO.itemId, sellerid: i.itemDO.userId })
+                window.CPS.trace({ type: 1, subtype: T, itemid: _sku_cfg.itemDO.itemId, sellerid: _sku_cfg.itemDO.userId })
             } catch (v) {
             }
         })
@@ -159,7 +159,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     }
     function l() {
         var S = function (v) {
-            var w = i.valMode;
+            var w = _sku_cfg.valMode;
             r(v);
             C(v);
             if (!_mods_SKU.LinkBuy) {
@@ -175,7 +175,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             p = v
         };
         var T = function (v) {
-            var w = i.valMode;
+            var w = _sku_cfg.valMode;
             if (w & 2048) {
                 _mods_SKU.BasketHandler.init()
             } else {
@@ -185,22 +185,22 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             }
             f.init(v.itemPriceResultDO);
             b.init(v);
-            i.onBuyEnable && i.onBuyEnable();
+            _sku_cfg.onBuyEnable && _sku_cfg.onBuyEnable();
             _mods_SKU.Service.init(v.serviceDO);
             c.init(v.specialServiceList);
             if (_dom.attr("#J_TreeSelectTrigger", "combo-level") != 3) {
-                _mods_SKU.L2Selector.init(i);
+                _mods_SKU.L2Selector.init(_sku_cfg);
                 _mods_SKU.dqCity.init(v.soldAreaDO)
             } else {
                 _mods_SKU.areaSell.init(v.soldAreaDO)
             }
             M(v);
-            h.fire(N, v);
+            _event_target.fire(_str_sku_inited_event, v);
             T = function (x) {
             };
             return T(v)
         };
-        o.setMdskipTimeout(i.noSkipMode.timeout || 3000);
+        o.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
         o.onModel(function (v) {
             if (v.isSuccess) {
                 m(v.inventoryDO)
@@ -213,7 +213,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
         if (_mods_SKU.selectSkuId) {
             return [_mods_SKU.selectSkuId]
         }
-        var y = _mods_SKU.selArr || [], S = [], x = i.valItemInfo.skuMap;
+        var y = _mods_SKU.selArr || [], S = [], x = _sku_cfg.valItemInfo.skuMap;
         if (!x) {
             return null
         }
@@ -221,7 +221,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             var v = true;
             for (var T = 0; T < y.length; T++) {
                 var w = new RegExp(";" + y[T] + ";");
-                if (!i.detail.isDownShelf && !w.test(z)) {
+                if (!_sku_cfg.detail.isDownShelf && !w.test(z)) {
                     v = false;
                     break
                 }
@@ -342,14 +342,14 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     };
     _mods_SKU.changeLocation = function (w) {
         _mods_SKU.buyerLocation = w;
-        var v = i.changeLocationApi;
+        var v = _sku_cfg.changeLocationApi;
         var T = _kissy_imp.getUrlParams;
         var x = p.gatewayDO;
         var S = T(["campaignId", "abt", "key"]);
         S.ref = encodeURIComponent(_document.referrer);
         S.areaId = w ? w.areaId : "";
         if (v.indexOf("tmallBuySupport") == -1) {
-            S.tmallBuySupport = i.tradeType == 2 ? "true" : "false"
+            S.tmallBuySupport = _sku_cfg.tradeType == 2 ? "true" : "false"
         }
         if (x && x.changeLocationGateway) {
             _kissy.mix(S, x.changeLocationGateway)
@@ -407,19 +407,19 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
         })
     }
     function Q(S) {
-        if (i.valMode & 1) {
+        if (_sku_cfg.valMode & 1) {
             _mods_SKU.PropertyHandler.init()
         }
         _kissy.ready(function (T) {
             t.init();
             R.init(S);
-            if (i.detail.isDownFe) {
+            if (_sku_cfg.detail.isDownFe) {
                 _sold_out()
             } else {
                 if (S.jzDO) {
                     _mods_SKU.IFCLocation.init(S)
                 }
-                if (i.isMeiz) {
+                if (_sku_cfg.isMeiz) {
                     _kissy_imp.use("malldetail/meiz/meiz", function (v) {
                         v.mods.Meiz.init(S)
                     })
@@ -431,7 +431,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
                 }
                 u.init(S)
             }
-            if (i.isTmallComboSupport) {
+            if (_sku_cfg.isTmallComboSupport) {
                 _kissy_imp.use("malldetail/combos/combos", function (v) {
                     v.mods.Token.onInited(function () {
                         v.mods.Combos.init()
@@ -442,7 +442,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     }
     function C(w) {
         var T = _kissy_imp.getUrlParams;
-        var z = i.frmBid;
+        var z = _sku_cfg.frmBid;
         if (!z) {
             return
         }
@@ -470,7 +470,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
         } 
         };
         if (w.secKillDO && w.secKillDO.timeKillKeyName && typeof w.secKillDO.timeKillKey != "undefined") {
-            if (_g_config.isSpu || (i.itemDO.isOnline && (i.itemDO.isSecondKillFromPC || i.itemDO.isSecondKillFromPCAndWap || (i.detail.timeKillAuction && w.userInfoDO.loginUserType)))) {
+            if (_g_config.isSpu || (_sku_cfg.itemDO.isOnline && (_sku_cfg.itemDO.isSecondKillFromPC || _sku_cfg.itemDO.isSecondKillFromPCAndWap || (_sku_cfg.detail.timeKillAuction && w.userInfoDO.loginUserType)))) {
                 S.set(w.secKillDO.timeKillKeyName, w.secKillDO.timeKillKey)
             }
         }
@@ -480,7 +480,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             }
             delete w.gatewayDO.trade.addToBuyNow
         }
-        var y = i.itemDO.quantity || "", x;
+        var y = _sku_cfg.itemDO.quantity || "", x;
         if (w.itemPriceResultDO.promType == 1 && (x = _mods_SKU.getCurrentPromotion()) && x.amountRestriction && x.amountRestriction < y) {
             y = x.amountRestriction
         }
@@ -499,14 +499,14 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             }
         }
         S.set("bankfrom", T("bankfrom"));
-        S.set("destination", i.destination);
-        if (i.tradeType == 1) {
+        S.set("destination", _sku_cfg.destination);
+        if (_sku_cfg.tradeType == 1) {
             S.set("item_url_refer", _document.referrer || "OTHER")
         }
         S.set("buyer_from", _g_config.isSpu ? "spu" : T("buyer_from"));
-        S.set("item_id_num", i.itemDO.itemId);
-        S.set("item_id", i.itemDO.itemId);
-        S.set("auction_id", i.itemDO.itemId);
+        S.set("item_id_num", _sku_cfg.itemDO.itemId);
+        S.set("item_id", _sku_cfg.itemDO.itemId);
+        S.set("auction_id", _sku_cfg.itemDO.itemId);
         S.set("seller_rank", "0");
         S.set("seller_rate_sum", "0");
         S.set("is_orginal", "no");
@@ -514,10 +514,10 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
         S.set("secure_pay", "true");
         S.set("pay_method", "\u6b3e\u5230\u53d1\u8d27");
         S.set("from", "item_detail");
-        S.set("buy_now", i.itemDO.reservePrice);
-        S.set("current_price", i.itemDO.reservePrice);
-        S.set("auction_type", i.itemDO.auctionType);
-        S.set("seller_num_id", i.itemDO.userId);
+        S.set("buy_now", _sku_cfg.itemDO.reservePrice);
+        S.set("current_price", _sku_cfg.itemDO.reservePrice);
+        S.set("auction_type", _sku_cfg.itemDO.auctionType);
+        S.set("seller_num_id", _sku_cfg.itemDO.userId);
         if (!_g_config.isSpu) {
             S.set("activity", "");
             S.set("chargeTypeId", "", "J_ChargeTypeId")
@@ -525,44 +525,44 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
         S.set("_tb_token_", "", "J_TokenField");
         S.rander();
         _kissy_imp.mods.Token.onInited(function () {
-            z._tb_token_.value = i.valToken
+            z._tb_token_.value = _sku_cfg.valToken
         })
     }
-    function Y() {
+    function _sku_cfg_further() {
         var _get_elem_by_id = function (_id_selector) {
             return _document.getElementById(_id_selector)
         };
-        i = _kissy.mix(i || {}, { strPrice: _get_elem_by_id("J_StrPrice"), emStock: _get_elem_by_id("J_EmStock"), linkBuy: _get_elem_by_id("J_LinkBuy"), dlChoice: _get_elem_by_id("J_DlChoice"), frmBid: _get_elem_by_id("J_FrmBid"), valItemInfo: {}, linkAdd: _get_elem_by_id("J_LinkAdd"), apiAddCart: G, valCartInfo: {}, linkBasket: _get_elem_by_id("J_LinkBasket"), divDetail: _get_elem_by_id("detail").parentNode, valExpanded: false, destination: "330100", emPoint: _get_elem_by_id("J_EmPoint"), valPointRate: 0, emPointsBuy: _get_elem_by_id("J_EmPointsBuy"), apiBidCount: G, valLoginUrl: G, valLoginIndicator: G, isDaily: (_g_config.assetsHost.indexOf("taobao.net") != -1), isHouseholdService: 0, varPromotionId: 0, limited: null, valMode: 0 }, false);
-        i.valCartInfo.ct = D.get("t");
-        i.valCartInfo.statsUrl += "&userid=" + D.get("cookie17");
-        if (null !== i.dlChoice) {
-            i.valMode += 1;
-            i.elmProps = _kissy.query(".J_TSaleProp", "#detail");
-            i.divKeyProp = _dom.parent(i.dlChoice, ".tb-key");
-            if (i.elmProps.length == 0) {
-                i.valMode -= 1
+        _sku_cfg = _kissy.mix(_sku_cfg || {}, { strPrice: _get_elem_by_id("J_StrPrice"), emStock: _get_elem_by_id("J_EmStock"), linkBuy: _get_elem_by_id("J_LinkBuy"), dlChoice: _get_elem_by_id("J_DlChoice"), frmBid: _get_elem_by_id("J_FrmBid"), valItemInfo: {}, linkAdd: _get_elem_by_id("J_LinkAdd"), apiAddCart: G, valCartInfo: {}, linkBasket: _get_elem_by_id("J_LinkBasket"), divDetail: _get_elem_by_id("detail").parentNode, valExpanded: false, destination: "330100", emPoint: _get_elem_by_id("J_EmPoint"), valPointRate: 0, emPointsBuy: _get_elem_by_id("J_EmPointsBuy"), apiBidCount: G, valLoginUrl: G, valLoginIndicator: G, isDaily: (_g_config.assetsHost.indexOf("taobao.net") != -1), isHouseholdService: 0, varPromotionId: 0, limited: null, valMode: 0 }, false);
+        _sku_cfg.valCartInfo.ct = D.get("t");
+        _sku_cfg.valCartInfo.statsUrl += "&userid=" + D.get("cookie17");
+        if (null !== _sku_cfg.dlChoice) {
+            _sku_cfg.valMode += 1;
+            _sku_cfg.elmProps = _kissy.query(".J_TSaleProp", "#detail");
+            _sku_cfg.divKeyProp = _dom.parent(_sku_cfg.dlChoice, ".tb-key");
+            if (_sku_cfg.elmProps.length == 0) {
+                _sku_cfg.valMode -= 1
             }
         } else {
-            if (i.isMeiz) {
+            if (_sku_cfg.isMeiz) {
                 if (_kissy.get("#J_MeizTry")) {
-                    i.divKeyProp = _dom.parent("#J_MeizTry", ".tb-key")
+                    _sku_cfg.divKeyProp = _dom.parent("#J_MeizTry", ".tb-key")
                 }
             }
         }
-        if (i.linkAdd && G !== i.valCartInfo.itemId) {
-            i.valMode += 2
+        if (_sku_cfg.linkAdd && G !== _sku_cfg.valCartInfo.itemId) {
+            _sku_cfg.valMode += 2
         }
-        if (null !== i.emPoint && 0 !== i.valPointRate) {
-            i.valMode += 512
+        if (null !== _sku_cfg.emPoint && 0 !== _sku_cfg.valPointRate) {
+            _sku_cfg.valMode += 512
         }
-        i.isLoadDealRecord = true;
-        i.isLimitProm = false;
-        i.isSupportCity = true;
+        _sku_cfg.isLoadDealRecord = true;
+        _sku_cfg.isLimitProm = false;
+        _sku_cfg.isSupportCity = true;
         _kissy_imp.mods.Token.init()
     }
     _kissy_imp.mods.Token = { counter: 0, init: function () {
-        var S = i.isDaily ? "daily.taobao.net" : "tmall.com";
-        var T = "http://www." + (i.isDaily ? "daily.tmall.net" : "tmall.com") + "/go/rgn/tmall/t.php?t=20121104";
+        var S = _sku_cfg.isDaily ? "daily.taobao.net" : "tmall.com";
+        var T = "http://www." + (_sku_cfg.isDaily ? "daily.tmall.net" : "tmall.com") + "/go/rgn/tmall/t.php?t=20121104";
         var v = _dom.create('<iframe style="display:none" width="0" onload="TShop.mods.Token.getIfrToken(this)" height="0" src="' + T + '"></iframe>');
         _document.domain = _document.domain.split(".").slice(-2).join(".");
         _body.insertBefore(v, _body.firstChild)
@@ -581,8 +581,8 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             if (y) {
                 clearTimeout(y)
             }
-            i.valToken = z.contentWindow.getToken();
-            _kissy.log("TMLOG::tbtoken inited =" + i.valToken, "info");
+            _sku_cfg.valToken = z.contentWindow.getToken();
+            _kissy.log("TMLOG::tbtoken inited =" + _sku_cfg.valToken, "info");
             T.inited = true;
             _kissy_imp.fire("tokenInited")
         };
@@ -598,17 +598,17 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
                 }, 50)
             } else {
                 _kissy_imp.fire("tokenInited");
-                _kissy.sendErr("getToken", { t: i.valCartInfo.ct });
+                _kissy.sendErr("getToken", { t: _sku_cfg.valCartInfo.ct });
                 _kissy.log("tokenInited error:" + x.description, "error")
             }
         }
     } 
     };
-    _mods_SKU.init = function (T) {
-        i = T;
-        Y();
+    _mods_SKU.init = function (_config) {
+        _sku_cfg = _config;
+        _sku_cfg_further();
         O();
-        h.on(N, function (v) {
+        _event_target.on(_str_sku_inited_event, function (v) {
             Q(v)
         });
         l();
@@ -625,10 +625,10 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
                 S.innerHTML = '<p><span class="c-value-no c-value-' + w + '"><em>' + x + "</em></span>" + x + '\u5206<span>(<a href="#" id="J_MallReviewTabTrigger">\u7d2f\u8ba1\u8bc4\u4ef7<em>' + v.rateTotal + "</em></a>)</span></p>";
                 _dom.show("#J_ItemRates");
                 _kissy.later(function () {
-                    if (i.onReviewClick) {
+                    if (_sku_cfg.onReviewClick) {
                         _event.on("#J_MallReviewTabTrigger", "click", function (y) {
                             y.preventDefault();
-                            i.onReviewClick();
+                            _sku_cfg.onReviewClick();
                             _kissy.sendAtpanel("tmalldetail.12.1")
                         })
                     }
