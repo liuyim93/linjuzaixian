@@ -1,5 +1,5 @@
 ﻿TB.loginHttp = TB.loginHttp || "https";
-KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, q, W, u, P, f, R, U, g, X, t) {
+KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, _malldetail_data_data, F, s, b, E, c, q, W, u, P, f, R, U, g, X, t) {
     var _mods_SKU = _kissy_imp.namespace("mods.SKU"), _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, _ua = _kissy.UA;
     var _window = window, _document = document, _body = _document.body;
     var _g_config = _window.g_config;
@@ -200,8 +200,8 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             };
             return T(v)
         };
-        o.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
-        o.onModel(function (v) {
+        _malldetail_data_data.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
+        _malldetail_data_data.onModel(function (v) {
             if (v.isSuccess) {
                 m(v.inventoryDO)
             }
@@ -287,7 +287,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
     };
     _mods_SKU.onPriceData = function (T) {
         var S = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
-        o.onPriceInfo({ areaId: S }, T, 13)
+        _malldetail_data_data.onPriceInfo({ areaId: S }, T, 13)
     };
     _mods_SKU.onPriceInfo = function (S, T) {
         _mods_SKU.onPriceData(function (v) {
@@ -358,7 +358,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
             y.jsonp(v, S, function (AA) {
                 if (AA.isSuccess) {
                     var AB = AA.defaultModel;
-                    o.setLocationModel(w.areaId, AB);
+                    _malldetail_data_data.setLocationModel(w.areaId, AB);
                     m(AB.inventoryDO);
                     _mods_SKU.Price.init(AB.itemPriceResultDO, AB.inventoryDO);
                     _mods_SKU.Service.init(AB.serviceDO);
@@ -618,11 +618,11 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, D, K, o, F, s, b, E, c, 
                 w.init()
             })
         });
-        var S = _dom.get("#J_Stars");
-        if (S) {
-            o.onReviewCount(function (v) {
+        var _dom_id_J_Stars = _dom.get("#J_Stars");
+        if (_dom_id_J_Stars) {
+            _malldetail_data_data.onReviewCount(function (v) {
                 var x = v.gradeAvg, w = x.split(".").join("d");
-                S.innerHTML = '<p><span class="c-value-no c-value-' + w + '"><em>' + x + "</em></span>" + x + '\u5206<span>(<a href="#" id="J_MallReviewTabTrigger">\u7d2f\u8ba1\u8bc4\u4ef7<em>' + v.rateTotal + "</em></a>)</span></p>";
+                _dom_id_J_Stars.innerHTML = '<p><span class="c-value-no c-value-' + w + '"><em>' + x + "</em></span>" + x + '分<span>(<a href="#" id="J_MallReviewTabTrigger">累计评价<em>' + v.rateTotal + "</em></a>)</span></p>";
                 _dom.show("#J_ItemRates");
                 _kissy.later(function () {
                     if (_sku_cfg.onReviewClick) {

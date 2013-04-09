@@ -1,9 +1,9 @@
-﻿KISSY.add("malldetail/data/data", function (D, C, I) {
-    var B, G, J, F, E = I.createLoader(function (K) {
+﻿KISSY.add("malldetail/data/data", function (_kissy, _ajax, _malldetail_common_util) {
+    var B, G, J, F, E = _malldetail_common_util.createLoader(function (K) {
         B = B ? B(K) : K
     });
     function A(N) {
-        var K = D.cfg(), L = N.itemPriceResultDO || {};
+        var K = _kissy.cfg(), L = N.itemPriceResultDO || {};
         var M = N.tradeResult;
         if (L.areaId) {
             K.destination = L.areaId
@@ -25,9 +25,9 @@
     var H = { setMdskip: function (L, K) {
         if (K >= 0) {
             if (L) {
-                D.sendAcAtpanel("tmalldetail.15.1", { tl: K })
+                _kissy.sendAcAtpanel("tmalldetail.15.1", { tl: K })
             } else {
-                D.sendErr("mdskipTimeout", { tl: K })
+                _kissy.sendErr("mdskipTimeout", { tl: K })
             }
         }
         B = B ? B(L || {}) : function (M) {
@@ -37,24 +37,24 @@
         G = K
     }, onModel: function (L, K) {
         if (!J) {
-            J = I.createAsyn(E, G || 3000);
+            J = _malldetail_common_util.createAsyn(E, G || 3000);
             J(function (Q) {
                 Q = Q || {};
-                var S, P = D.cfg();
+                var S, P = _kissy.cfg();
                 if (Q.isSuccess) {
                     S = Q.defaultModel;
                     if (S.tradeResult) {
-                        if (D.isUndefined(S.tradeResult.tradeType) || S.tradeResult.tradeType == null) {
+                        if (_kissy.isUndefined(S.tradeResult.tradeType) || S.tradeResult.tradeType == null) {
                             S.tradeResult.tradeType = P.tradeType
                         }
                     }
-                    if (D.cfg("detailMode") == "skipError") {
-                        D.cfg("detailMode", "skipOkAfterError")
+                    if (_kissy.cfg("detailMode") == "skipError") {
+                        _kissy.cfg("detailMode", "skipOkAfterError")
                     } else {
-                        D.cfg("detailMode", "skipOk")
+                        _kissy.cfg("detailMode", "skipOk")
                     }
                     if (!P.detail.isDownShelf && S.inventoryDO && S.inventoryDO.totalQuantity == 0) {
-                        D.cfg("detail").isDownFe = true
+                        _kissy.cfg("detail").isDownFe = true
                     }
                     var R = S.gatewayDO.trade;
                     if (R) {
@@ -64,11 +64,11 @@
                         }
                     }
                 } else {
-                    var O = D.getUrlParams("key");
+                    var O = _kissy.getUrlParams("key");
                     var N = O ? true : false;
                     S = { itemPriceResultDO: { priceInfo: {}, promType: O ? 1 : 0 }, userInfoDO: {}, miscDO: {}, gatewayDO: {} };
-                    D.mix(S, P.noSkipMode, true);
-                    var M = D.getUrlParams("campaignId");
+                    _kissy.mix(S, P.noSkipMode, true);
+                    var M = _kissy.getUrlParams("campaignId");
                     if (M) {
                         S.itemPriceResultDO.campaignInfo = {};
                         S.itemPriceResultDO.campaignInfo.campaignId = M
@@ -76,10 +76,10 @@
                     if (N) {
                         S.tradeResult.cartEnable = false
                     }
-                    D.cfg("detailMode", "skipError")
+                    _kissy.cfg("detailMode", "skipError")
                 }
                 A(S);
-                D.log("TMLOG::detailMode:" + D.cfg("detailMode"), "info");
+                _kissy.log("TMLOG::detailMode:" + _kissy.cfg("detailMode"), "info");
                 S.isSuccess = Q.isSuccess;
                 F = S
             }, 12)
@@ -106,7 +106,7 @@
         if (!H.locCM) {
             H.locCM = {}
         }
-        H.locLM[L] = H.locLM[L] || I.createLoader(function (N) {
+        H.locLM[L] = H.locLM[L] || _malldetail_common_util.createLoader(function (N) {
             H.locCM[L] = H.locCM[L] ? H.locCM[L](N) : N
         });
         H.locLM[L](M, K)
@@ -120,8 +120,8 @@
         H.locCM[L] = H.locCM[L] ? H.locCM[L](K || {}) : function (M) {
             (typeof M == "function") && M(K || {})
         }
-    }, onReviewCount: I.createLoader(function (P) {
-        var L = D.cfg();
+    }, onReviewCount: _malldetail_common_util.createLoader(function (P) {
+        var L = _kissy.cfg();
         var K, O = {};
         var N = L.itemDO;
         if (L.detail.dsrFromCounterEnable) {
@@ -135,7 +135,7 @@
             K = L.url.rate + "/list_dsr_info.htm";
             O = { itemId: N.itemId, spuId: N.spuId, sellerId: N.userId }
         }
-        C({ url: K, data: O, dataType: "jsonp", success: function (Q) {
+        _ajax({ url: K, data: O, dataType: "jsonp", success: function (Q) {
             var S = {};
             if (Q.dsr) {
                 S.grade = Q.dsr.gradeAvg;
@@ -149,8 +149,8 @@
             P(S)
         } 
         })
-    }), onSalesCount: I.createLoader(function (K) {
-        D.use("dom", function (L, N) {
+    }), onSalesCount: _malldetail_common_util.createLoader(function (K) {
+        _kissy.use("dom", function (L, N) {
             var M, O = N.get("#detail em.J_MonSalesNum");
             if (O && (M = O.innerHTML) && !(/[0\s]*/.test(M))) {
                 K({ monTotal: M });
