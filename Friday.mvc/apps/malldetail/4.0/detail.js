@@ -1,33 +1,123 @@
-﻿(function (B) {
+﻿(function (_kissy) {
     //var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://l.tbcdn.cn";
     var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://localhost:7525";
     A.t = A.t + "d4";
-    B.config({ combine: true, map: [[/(malldetail\/[0-9\.]+\/)malldetail\//, "$1"]], packages: [{ name: "malldetail", ignorePackageNameInUri: true, tag: A.t, path: C + "/apps/malldetail/" + A.ver + "/", charset: "gbk", combine: true, debug: true}] });
-    B.config({ packages: [{ name: "wangpu", tag: "20130106", path: C + "/p/shop/3.0/", charset: "utf-8"}] });
-    TShop = B;
-    B.add("tb-core", function () {
+    _kissy.config({ combine: true, map: [[/(malldetail\/[0-9\.]+\/)malldetail\//, "$1"]], packages: [{ name: "malldetail", ignorePackageNameInUri: true, tag: A.t, path: C + "/apps/malldetail/" + A.ver + "/", charset: "gbk", combine: true, debug: true}] });
+    _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: C + "/p/shop/3.0/", charset: "utf-8"}] });
+    TShop = _kissy;
+    _kissy.add("tb-core", function () {
     });
-    B.add("backward/Tabs", function (H, I) {
-        H.Tabs = I.Tabs
+    _kissy.add("backward/Tabs", function (_kissy_imp, _switchable) {
+        _kissy_imp.Tabs = _switchable.Tabs
     }, { requires: ["switchable"] });
-    B.add("backward/Popup", function (I, H) {
-        I.Popup = function (K, J) {
-            return new H.Popup(K, J)
+    _kissy.add("backward/Popup", function (_kissy_imp, _overlay) {
+        _kissy_imp.Popup = function (K, J) {
+            return new _overlay.Popup(K, J)
         }
     }, { requires: ["overlay"] });
-    B.config({ modules: { "malldetail/other/lazy": { requires: ["datalazyload", "dom"] }, "malldetail/other/mainBody": { requires: ["dom", "event", "malldetail/tabbar/tabbar", "malldetail/other/itemDesc"] }, "malldetail/other/leftSlide": { requires: ["dom", "event", "ajax"] }, "malldetail/sku/setup": { requires: ["cookie", "ua", "malldetail/sku/util", "malldetail/sku/fastlogin", "malldetail/sku/buylink", "malldetail/sku/thumbViewer", "malldetail/sku/skuFeatureIcon", "malldetail/sku/sellCount", "malldetail/sku/skuLade", "malldetail/sku/paymethods", "malldetail/sku/skuTmVip", "malldetail/sku/skuAmount", "malldetail/sku/editEntry", "malldetail/sku/freight", "malldetail/sku/stock", "malldetail/sku/basketAnim", "malldetail/sku/shiptime", "malldetail/sku/linkbasket", "malldetail/sku/popupsimulate", "malldetail/sku/promotion", "malldetail/sku/ifclocation", "malldetail/sku/common", "malldetail/sku/propertyHandler", "malldetail/sku/3c", "malldetail/sku/areaSell", "malldetail/sku/price", "malldetail/sku/service", "malldetail/sku/stat", "malldetail/sku/double11"] }, "malldetail/dc/dc": { requires: ["malldetail/shop/shop"] }, "malldetail/other/init": { requires: ["malldetail/other/focusTime", "malldetail/other/attributes", "malldetail/tabbar/tabbarAttr", "malldetail/other/staticMods", "malldetail/other/ishare", "malldetail/recommend/common", "malldetail/common/tbskip"] }, "malldetail/tabbar/tabbar": { requires: ["dom", "event", "malldetail/data/data"] }, "malldetail/tabbar/newRecommend": { requires: ["template", "malldetail/common/util"] }, "malldetail/recommend/waterfall": { requires: ["dom", "waterfall", "template", "malldetail/recommend/waterfall.css"] }, "malldetail/other/atp": { requires: ["malldetail/tabbar/tabbar"] }, "malldetail/data/data": { requires: ["ajax", "malldetail/common/util"] }, "malldetail/tabbar/reviewsTmall": { requires: ["ajax", "dom", "event", "template", "json"] }, "malldetail/tabbar/afterSale": { requires: ["dom"] }, "malldetail/sku/buylink": { requires: ["template", "malldetail/sku/validator"] }, "malldetail/sku/thumbViewer": { requires: ["dom", "event", "malldetail/common/util", "imagezoom"] }, "malldetail/sku/skuFeatureIcon": { requires: ["dom"] }, "malldetail/sku/sellCount": { requires: ["dom"] }, "malldetail/sku/skuLade": { requires: ["dom", "event"] }, "malldetail/sku/paymethods": { requires: ["dom", "event"] }, "malldetail/sku/skuTmVip": { requires: ["template"] }, "malldetail/sku/skuAmount": { requires: ["malldetail/sku/validator"] }, "malldetail/sku/editEntry": { requires: ["template"] }, "malldetail/sku/freight": { requires: ["template"] }, "malldetail/sku/stock": { requires: ["template", "malldetail/sku/skuMsg"] }, "malldetail/sku/linkbasket": { requires: ["anim", "malldetail/sku/skuMsg", "malldetail/sku/validator"] }, "malldetail/sku/popupsimulate": { requires: ["malldetail/sku/validator"] }, "malldetail/sku/propertyHandler": { requires: ["malldetail/sku/validator"] }, "malldetail/sku/3c": { requires: ["malldetail/sku/areaSeletor", "malldetail/sku/freight", "malldetail/sku/stock", "malldetail/sku/skuMsg"] }, "malldetail/sku/price": { requires: ["template"] }, "malldetail/sku/service": { requires: ["template"] }, "malldetail/sku/stat": { requires: ["dom", "event", "ajax"] }, "malldetail/sku/double11": { requires: ["template"] }, "malldetail/sku/calculator": { requires: ["dom", "event"] }, "malldetail/combos/combos": { requires: ["cookie", "switchable", "malldetail/sku/areaSeletor", "json"] }, "malldetail/shop/shop": { requires: ["malldetail/common/util"] }, "malldetail/other/attributes": { requires: ["template"] }, "malldetail/tabbar/tabbarAttr": { requires: ["template", "malldetail/tabbar/localData"] }, "malldetail/other/staticMods": { requires: ["template", "malldetail/data/ajax", "json"] }, "malldetail/common/tbskip": { requires: ["cookie", "swf", "json"] }, "malldetail/sku/validator": { requires: ["malldetail/sku/skuMsg"] }, "malldetail/sku/skuMsg": { requires: ["template"] }, "malldetail/recommend/basketrecommend": { requires: ["malldetail/recommend/basketrecommend.css"] }, "malldetail/sku/areaSeletor": { requires: ["overlay", "template"] }, "malldetail/sku/regionSelectPopup": { requires: ["overlay"] }, "malldetail/data/ajax": { requires: ["dom"] }, "malldetail/other/relate": { requires: ["dom", "ajax"] }, TMiniCart: { requires: ["TMiniCartModel", "TMiniCartView"]}} });
-    B.namespace("mods", "widgets");
-    B.t = function () {
+    _kissy.config(
+                  {
+                    modules:
+                    { "malldetail/other/lazy":
+                                                 {
+                                                   requires: ["datalazyload", "dom"]
+                                                 },
+                     "malldetail/other/mainBody":
+                                                 {
+                                                   requires: ["dom", "event", "malldetail/tabbar/tabbar", "malldetail/other/itemDesc"]
+                                                 },
+                     "malldetail/other/leftSlide":
+                                                 {
+                                                   requires: ["dom", "event", "ajax"]
+                                                 },
+                     "malldetail/sku/setup":
+                                                 {
+                                                     requires: ["cookie", "ua", "malldetail/sku/util", "malldetail/sku/fastlogin", "malldetail/sku/buylink", "malldetail/sku/thumbViewer", "malldetail/sku/skuFeatureIcon", "malldetail/sku/sellCount", "malldetail/sku/skuLade", "malldetail/sku/paymethods", "malldetail/sku/skuTmVip", "malldetail/sku/skuAmount", "malldetail/sku/editEntry", "malldetail/sku/freight", "malldetail/sku/stock", "malldetail/sku/basketAnim", "malldetail/sku/shiptime", "malldetail/sku/linkbasket", "malldetail/sku/popupsimulate", "malldetail/sku/promotion", "malldetail/sku/ifclocation", "malldetail/sku/common", "malldetail/sku/propertyHandler", "malldetail/sku/3c", "malldetail/sku/areaSell", "malldetail/sku/price", "malldetail/sku/service", "malldetail/sku/stat", "malldetail/sku/double11"]
+                                                 },
+                     "malldetail/dc/dc":
+                                                 {
+                                                     requires: ["malldetail/shop/shop"]
+                                                 },
+                     "malldetail/other/init": {
+                                                     requires: ["malldetail/other/focusTime", "malldetail/other/attributes", "malldetail/tabbar/tabbarAttr", "malldetail/other/staticMods", "malldetail/other/ishare", "malldetail/recommend/common", "malldetail/common/tbskip"]
+                                                 },
+                     "malldetail/tabbar/tabbar":
+                                                 {
+                                                     requires: ["dom", "event", "malldetail/data/data"]
+                                                 },
+                     "malldetail/tabbar/newRecommend":
+                                                 {
+                                                     requires: ["template", "malldetail/common/util"]
+                                                 },
+                     "malldetail/recommend/waterfall":
+                                                 {
+                                                     requires: ["dom", "waterfall", "template", "malldetail/recommend/waterfall.css"]
+                                                 },
+                     "malldetail/other/atp":
+                                                 {
+                                                     requires: ["malldetail/tabbar/tabbar"]
+                                                 },
+                     "malldetail/data/data":
+                                                 {
+                                                     requires: ["ajax", "malldetail/common/util"]
+                                                 },
+                     "malldetail/tabbar/reviewsTmall":
+                                                 {
+                                                     requires: ["ajax", "dom", "event", "template", "json"]
+                                                 },
+                      "malldetail/tabbar/afterSale":
+                                                 {
+                                                     requires: ["dom"]
+                                                 },
+                      "malldetail/sku/buylink": { requires: ["template", "malldetail/sku/validator"] },
+                      "malldetail/sku/thumbViewer": { requires: ["dom", "event", "malldetail/common/util", "imagezoom"] },
+                      "malldetail/sku/skuFeatureIcon": { requires: ["dom"] },
+                      "malldetail/sku/sellCount": { requires: ["dom"] },
+                      "malldetail/sku/skuLade": { requires: ["dom", "event"] },
+                      "malldetail/sku/paymethods": { requires: ["dom", "event"] },
+                      "malldetail/sku/skuTmVip": { requires: ["template"] },
+                      "malldetail/sku/skuAmount": { requires: ["malldetail/sku/validator"] },
+                      "malldetail/sku/editEntry": { requires: ["template"] },
+                      "malldetail/sku/freight": { requires: ["template"] },
+                      "malldetail/sku/stock": { requires: ["template", "malldetail/sku/skuMsg"] },
+                      "malldetail/sku/linkbasket": { requires: ["anim", "malldetail/sku/skuMsg", "malldetail/sku/validator"] },
+                      "malldetail/sku/popupsimulate": { requires: ["malldetail/sku/validator"] },
+                      "malldetail/sku/propertyHandler": { requires: ["malldetail/sku/validator"] },
+                      "malldetail/sku/3c": { requires: ["malldetail/sku/areaSeletor", "malldetail/sku/freight", "malldetail/sku/stock", "malldetail/sku/skuMsg"] },
+                      "malldetail/sku/price": { requires: ["template"] },
+                      "malldetail/sku/service": { requires: ["template"] },
+                      "malldetail/sku/stat": { requires: ["dom", "event", "ajax"] },
+                      "malldetail/sku/double11": { requires: ["template"] },
+                      "malldetail/sku/calculator": { requires: ["dom", "event"] },
+                      "malldetail/combos/combos": { requires: ["cookie", "switchable", "malldetail/sku/areaSeletor", "json"] },
+                      "malldetail/shop/shop": { requires: ["malldetail/common/util"] },
+                      "malldetail/other/attributes": { requires: ["template"] },
+                      "malldetail/tabbar/tabbarAttr": { requires: ["template", "malldetail/tabbar/localData"] },
+                      "malldetail/other/staticMods": { requires: ["template", "malldetail/data/ajax", "json"] },
+                      "malldetail/common/tbskip": { requires: ["cookie", "swf", "json"] },
+                      "malldetail/sku/validator": { requires: ["malldetail/sku/skuMsg"] },
+                      "malldetail/sku/skuMsg": { requires: ["template"] },
+                      "malldetail/recommend/basketrecommend": { requires: ["malldetail/recommend/basketrecommend.css"] },
+                      "malldetail/sku/areaSeletor": { requires: ["overlay", "template"] },
+                      "malldetail/sku/regionSelectPopup": { requires: ["overlay"] },
+                      "malldetail/data/ajax": { requires: ["dom"] },
+                      "malldetail/other/relate": { requires: ["dom", "ajax"] },
+                      TMiniCart: { requires: ["TMiniCartModel", "TMiniCartView"]}
+                   }
+                }
+    );
+    _kissy.namespace("mods", "widgets");
+    _kissy.t = function () {
         return A.t
     };
-    B.mix(B, { isDetail: function () {
+    _kissy.mix(_kissy, { isDetail: function () {
         return 1 === A.appId
     }, isMall: function () {
         return "b" === A.type
     }, isBid: function () {
         return "auction" === A.pageType
     }, addTimeStamp: function () {
-        var H = B.now();
+        var H = _kissy.now();
         return function (I) {
             return I + (I.indexOf("?") === -1 ? "?" : "&") + "t=" + H
         }
@@ -35,21 +125,21 @@
         if (!H) {
             return
         }
-        var I = { catid: B.cfg("itemDO").categoryId, itemId: B.cfg("itemDO").itemId, pagetype: this.getPageType(), rn: this.getUrlParams("rn"), sellerId: B.cfg("itemDO").userId };
+        var I = { catid: _kissy.cfg("itemDO").categoryId, itemId: _kissy.cfg("itemDO").itemId, pagetype: this.getPageType(), rn: this.getUrlParams("rn"), sellerId: _kissy.cfg("itemDO").userId };
         this._sendImage = function (K, L) {
             var L = L || {};
-            L = B.mix(L, I, false);
-            var N = "jsFeImage_" + B.guid();
+            L = _kissy.mix(L, I, false);
+            var N = "jsFeImage_" + _kissy.guid();
             var M = E[N] = new Image();
             if (K.indexOf("?") == -1) {
-                K += "?" + B.param(L)
+                K += "?" + _kissy.param(L)
             } else {
-                K += "&" + B.param(L)
+                K += "&" + _kissy.param(L)
             }
             M.onload = (M.onerror = function () {
                 E[N] = null
             });
-            M.src = K + "&_tm_cache=" + B.now();
+            M.src = K + "&_tm_cache=" + _kissy.now();
             M = null
         };
         return this._sendImage(H, J)
@@ -78,14 +168,14 @@
         I.type = H;
         this.sendAtpanel("tmalldetail.15.2", I)
     }, scrollToElem: function (I) {
-        var H = B.DOM, J = H.offset(I).top;
-        F[B.UA.webkit ? "body" : "documentElement"].scrollTop = J - 130
-    }, flush: ((0 < B.UA.ie) ? CollectGarbage : (function () {
+        var H = _kissy.DOM, J = H.offset(I).top;
+        F[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = J - 130
+    }, flush: ((0 < _kissy.UA.ie) ? CollectGarbage : (function () {
     })), inBucket: function (N) {
         var M, I = 20;
         N = parseFloat(N, 10);
         var J = Math.round(I * (N / 100));
-        M = B.Cookie.get("t") || "";
+        M = _kissy.Cookie.get("t") || "";
         var L = this.getUrlParams("bucket_id") || "";
         var K;
         function H(T) {
@@ -103,7 +193,7 @@
             return (Q & 65535) % P
         }
         K = (L > 0) ? L : O(H(M), I);
-        B.log("bucket_id:" + K, "info");
+        _kissy.log("bucket_id:" + K, "info");
         return K <= J
     }, getUrlParams: function (I) {
         var H = E.location.href.split("?")[1] || "";
@@ -125,7 +215,7 @@
         if (typeof I == "string") {
             return K[I] || ""
         } else {
-            if (B.isArray(I)) {
+            if (_kissy.isArray(I)) {
                 for (var M = 0, L = I.length; M < L; M++) {
                     var Q = I[M];
                     O[Q] = K[Q] || ""
@@ -138,18 +228,18 @@
     }, onLogin: function (L, I) {
         var J = (A.assetsHost.indexOf("taobao.net") != -1);
         var K = J ? "daily.tmall.net" : "tmall.com";
-        var H = B.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + B.t() }, I);
-        B.use("tml/minilogin", function (M, N) {
+        var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
+        _kissy.use("tml/minilogin", function (M, N) {
             N.show(L, H)
         })
     }, addLazyCallback: function () {
         var H = arguments;
-        B.use("malldetail/other/lazy", function (J, I) {
+        _kissy.use("malldetail/other/lazy", function (J, I) {
             I.addCallback.apply(I, H)
         })
     }, onMainBody: function () {
         var H = arguments, I = TShop.onMainBody;
-        B.use("malldetail/common/util", function (J, K) {
+        _kissy.use("malldetail/common/util", function (J, K) {
             if (I != TShop.onMainBody) {
                 return
             }
@@ -166,7 +256,7 @@
         })
     }, onLeftSlide: function () {
         var H = arguments, I = TShop.onLeftSlide;
-        B.use("malldetail/common/util", function (J, K) {
+        _kissy.use("malldetail/common/util", function (J, K) {
             if (I != TShop.onLeftSlide) {
                 return
             }
@@ -186,27 +276,27 @@
     }, loadMdskip: function (L) {
         function K(M) {
             window.onMdskip = null;
-            TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(M, J ? (B.now - J) : -1) : function (N) {
-                N(M, J ? (B.now - J) : -1)
+            TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(M, J ? (_kissy.now - J) : -1) : function (N) {
+                N(M, J ? (_kissy.now - J) : -1)
             }
         }
         if (-1 != location.href.indexOf("rate_detail.htm")) {
             K();
             return
         }
-        var I = B.getUrlParams(["ip", "campaignId", "key", "abt", "cat_id", "q", "u_channel"]);
+        var I = _kissy.getUrlParams(["ip", "campaignId", "key", "abt", "cat_id", "q", "u_channel"]);
         I.ref = encodeURIComponent(F.referrer);
-        var H = B.param(I), J = B.now();
+        var H = _kissy.param(I), J = _kissy.now();
         window.onMdskip = K;
-        B.getScript(L + "&callback=onMdskip&" + H, { error: K })
+        _kissy.getScript(L + "&callback=onMdskip&" + H, { error: K })
     }, Setup: function (H) {
-        B._TMD_Config = H;
+        _kissy._TMD_Config = H;
         if (H.renderReq) {
             new Image().src = H.renderSystemServer + "/index.htm?keys=" + encodeURIComponent(H.renderReq)
         }
-        B.namespace("mods.SKU");
-        B.loadMdskip(H.initApi);
-        B.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (K, I, J) {
+        _kissy.namespace("mods.SKU");
+        _kissy.loadMdskip(H.initApi);
+        _kissy.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (K, I, J) {
             TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(J.setMdskip) : J.setMdskip;
             I.on(F, "click tap", function (O) {
                 var N = K.bdClickFn || [];
@@ -227,15 +317,15 @@
             K.mods.SKU.init(H)
         })
     }, onBDclick: function (H) {
-        B.bdClickFn = B.bdClickFn || [];
-        if (B.isFunction(H)) {
-            B.bdClickFn.push(H)
+        _kissy.bdClickFn = _kissy.bdClickFn || [];
+        if (_kissy.isFunction(H)) {
+            _kissy.bdClickFn.push(H)
         }
     }, cfg: function () {
         var I;
         var K;
         var H = arguments;
-        var J = B._TMD_Config || { api: {}, detail: {}, itemDO: {}, tag: {}, systemTime: new Date().getTime() };
+        var J = _kissy._TMD_Config || { api: {}, detail: {}, itemDO: {}, tag: {}, systemTime: new Date().getTime() };
         switch (typeof H[0]) {
             case "undefined":
                 return J;
@@ -245,7 +335,7 @@
                     I = J[H[0]];
                     if (I != H[1]) {
                         J[H[0]] = H[1];
-                        B.fire("TMDConfigChange", { oldVal: I, newVal: H[1] })
+                        _kissy.fire("TMDConfigChange", { oldVal: I, newVal: H[1] })
                     }
                 } else {
                     return J[H[0]]
@@ -253,51 +343,51 @@
                 break;
             case "object":
                 I = {};
-                B.each(H[0], function (M, L) {
+                _kissy.each(H[0], function (M, L) {
                     I[L] = J[L];
                     J[L] = M
                 });
-                B.fire("TMDConfigChange", { oldVal: I, newVal: H[0] });
+                _kissy.fire("TMDConfigChange", { oldVal: I, newVal: H[0] });
                 break
         }
     }, Asyn: function () {
         var J;
         var M;
-        var H = { timeout: 30000, runCount: 0, jsonpCallback: "jsonp" + B.now() + "_" + B.guid(), pageCache: false };
+        var H = { timeout: 30000, runCount: 0, jsonpCallback: "jsonp" + _kissy.now() + "_" + _kissy.guid(), pageCache: false };
         var L = {};
         function K(O, N) {
             this.key = O;
-            B.mix(this, N);
+            _kissy.mix(this, N);
             this.thenCalls = [];
-            B.mix(this, B.EventTarget)
+            _kissy.mix(this, _kissy.EventTarget)
         }
         function I(N) {
             if (N.url.indexOf("ald.taobao.com") != -1) {
-                var O = B.cfg("itemDO");
-                B.mix(N.data, { categoryId: O.categoryId, sellerId: O.userId, shopId: B.cfg("rstShopId"), brandId: O.brandId, refer: F.referrer }, false)
+                var O = _kissy.cfg("itemDO");
+                _kissy.mix(N.data, { categoryId: O.categoryId, sellerId: O.userId, shopId: _kissy.cfg("rstShopId"), brandId: O.brandId, refer: F.referrer }, false)
             }
         }
-        B.augment(K, { run: function () {
+        _kissy.augment(K, { run: function () {
             this._get();
             this.runCount++;
             this.thenCalls.push("get");
             return this
         }, then: function (N) {
-            if (B.isFunction(N)) {
+            if (_kissy.isFunction(N)) {
                 this.thenCalls.push(N)
             }
         }, _checkTime: function () {
             var N = this;
-            if (B.isFunction(this.error)) {
-                var O = B.now() - N._startTime;
+            if (_kissy.isFunction(this.error)) {
+                var O = _kissy.now() - N._startTime;
                 if (O >= N.timeout) {
                     if (N.errorTimer) {
                         clearTimeout(N.errorTimer)
                     }
                     if (!N._endTime) {
-                        N._errorTime = B.now();
+                        N._errorTime = _kissy.now();
                         N.error();
-                        B.log(N.key + " Aysn Timeout:" + N.url, "error")
+                        _kissy.log(N.key + " Aysn Timeout:" + N.url, "error")
                     }
                 } else {
                     N.errorTimer = setTimeout(function () {
@@ -308,9 +398,9 @@
         }, _get: function () {
             var N = this;
             I(N);
-            this._startTime = B.now();
+            this._startTime = _kissy.now();
             this._checkTime();
-            B.use("ajax", function (P, O) {
+            _kissy.use("ajax", function (P, O) {
                 O = O || P.io;
                 O({ url: N.url, data: N.data, jsonpCallback: N.jsonpCallback, success: function (Q, S, R) {
                     N._endTime = P.now();
@@ -334,14 +424,14 @@
                 return
             }
             N = N || {};
-            B.mix(N, H, false);
-            if (B.Config.debug) {
+            _kissy.mix(N, H, false);
+            if (_kissy.Config.debug) {
                 N.jsonpCallback = "Jsonp" + O
             }
             if (!L[O]) {
                 L[O] = new K(O, N)
             } else {
-                B.mix(L[O], N, true)
+                _kissy.mix(L[O], N, true)
             }
             return L[O]
         }, get: function (N) {
@@ -373,7 +463,7 @@
         (J._poc = J._poc || []).push(["_trackCustomTime", "tt_" + H, new Date().valueOf()])
     };
     TShop.initFoot = function (H) {
-        B.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (L, N, J) {
+        _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (L, N, J) {
             J.initHover();
             J.loadAssets("apps/tmall/common/tgallery.js?t=20121028");
             J.loadAssets("/apps/tmall/common/bottombar.js?t=20121028");

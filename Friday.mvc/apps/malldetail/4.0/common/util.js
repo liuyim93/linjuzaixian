@@ -1,4 +1,4 @@
-﻿KISSY.add("malldetail/common/util", function (B, C, A) {
+﻿KISSY.add("malldetail/common/util", function (_kissy, _dom, _event) {
     var D = {};
     return { createLoader: function (H) {
         var G, I, E = [], F;
@@ -139,7 +139,7 @@
                 if (R[0]) {
                     M += "?" + R.join("&")
                 }
-                B.getScript(M, function () {
+                _kissy.getScript(M, function () {
                     for (var c = 0; c < T.length; c++) {
                         T[c].status = 2;
                         var b, d = T[c].callbacks;
@@ -154,39 +154,39 @@
         var E = arguments.callee._hover;
         if (E === undefined) {
             if (E = arguments.callee._hover = !("ontouchstart" in document)) {
-                C.addClass("body", "enableHover")
+                _dom.addClass("body", "enableHover")
             } else {
-                C.removeClass("body", "enableHover")
+                _dom.removeClass("body", "enableHover")
             }
         }
         return E
     }, fixHover: function (H, G, F) {
-        var E = this.initHover(), I = B.UA.ie == 6;
+        var E = this.initHover(), I = _kissy.UA.ie == 6;
         F = F || "hover";
         if (!E || I) {
             G = I ? "mouse" : (G || "click");
-            B.each(C.query(H), function (L) {
+            _kissy.each(_dom.query(H), function (L) {
                 if (!E || (I && L.nodeName != "A")) {
                     function K(M) {
-                        C.addClass(L, F)
+                        _dom.addClass(L, F)
                     }
                     function J(M) {
-                        if (G != "touch" && G != "mouse" && (M.target == L || C.contains(L, M.target))) {
+                        if (G != "touch" && G != "mouse" && (M.target == L || _dom.contains(L, M.target))) {
                             return
                         }
-                        C.removeClass(L, F)
+                        _dom.removeClass(L, F)
                     }
                     if (G == "touch") {
-                        A.on(L, "touchstart", K);
-                        A.on(L, "touchend", J);
-                        C.style(L, { WebkitTouchCallout: "none" })
+                        _event.on(L, "touchstart", K);
+                        _event.on(L, "touchend", J);
+                        _dom.style(L, { WebkitTouchCallout: "none" })
                     } else {
                         if (G == "mouse") {
-                            A.on(L, "mouseenter", K);
-                            A.on(L, "mouseleave", J)
+                            _event.on(L, "mouseenter", K);
+                            _event.on(L, "mouseleave", J)
                         } else {
-                            A.on(L, "mousedown touchstart", K);
-                            A.on(document, "mousedown touchstart", J)
+                            _event.on(L, "mousedown touchstart", K);
+                            _event.on(document, "mousedown touchstart", J)
                         }
                     }
                 }
