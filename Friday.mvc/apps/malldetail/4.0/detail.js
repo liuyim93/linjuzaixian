@@ -264,7 +264,7 @@
                 J.use("malldetail/other/mainBody", function (M, N) {
                     N.init({ onTabBarReady: function () {
                         TShop.poc("tabbar")
-                    } 
+                    }
                     });
                     L(N)
                 })
@@ -283,7 +283,7 @@
                         TShop.onMainBody(function (O) {
                             O.switchTab("J_Reviews")
                         })
-                    } 
+                    }
                     });
                     L(M)
                 })
@@ -306,13 +306,13 @@
         var H = _kissy.param(I), J = _kissy.now();
         window.onMdskip = K;
         _kissy.getScript(L + "&callback=onMdskip&" + H, { error: K })
-    }, Setup: function (H) {
-        _kissy._TMD_Config = H;
-        if (H.renderReq) {
-            new Image().src = H.renderSystemServer + "/index.htm?keys=" + encodeURIComponent(H.renderReq)
+    }, Setup: function (_config) {
+        _kissy._TMD_Config = _config;
+        if (_config.renderReq) {
+            new Image().src = _config.renderSystemServer + "/index.htm?keys=" + encodeURIComponent(_config.renderReq)
         }
         _kissy.namespace("mods.SKU");
-        _kissy.loadMdskip(H.initApi);
+        _kissy.loadMdskip(_config.initApi);
         _kissy.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (K, I, J) {
             TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(J.setMdskip) : J.setMdskip;
             I.on(_document, "click tap", function (O) {
@@ -323,15 +323,15 @@
             });
             TB.Global.writeLoginInfo();
             K.mix(K, K.EventTarget);
-            H.onBuyEnable = function () {
+            _config.onBuyEnable = function () {
                 TShop.poc("buyEnable")
             };
-            H.onReviewClick = function () {
+            _config.onReviewClick = function () {
                 TShop.onMainBody(function (L) {
                     L.switchTab("J_Reviews")
                 })
             };
-            K.mods.SKU.init(H)
+            K.mods.SKU.init(_config)
         })
     }, onBDclick: function (H) {
         _kissy.bdClickFn = _kissy.bdClickFn || [];
@@ -434,7 +434,7 @@
                 }, dataType: "jsonp"
                 })
             })
-        } 
+        }
         });
         return { add: function (O, N) {
             if (!O) {
@@ -458,7 +458,7 @@
         }, then: function () {
         }, _apps: function () {
             console.dir(L)
-        } 
+        }
         }
     } ()
     });
