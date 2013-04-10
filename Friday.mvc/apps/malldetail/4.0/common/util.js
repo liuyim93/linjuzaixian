@@ -1,71 +1,71 @@
 ﻿KISSY.add("malldetail/common/util", function (_kissy, _dom, _event) {
     var D = {};
-    return { createLoader: function (_fn_dont_know) {
-        var _argument, _is_fn_load, _iterator_handle_queue_array = [], _iterator_handle_queue_fn;
-        return function (_iterate_handle_queue, _num_still_dont_know) {
-            if (_num_still_dont_know !== 0 && !_num_still_dont_know) {
-                _num_still_dont_know = 1
+    return { createLoader: function (_loader_fn_callback) {
+        var _t_defaultModelObject, _is_fn_load, _iterator_handle_queue_array = [], _t_iterator_handle_fn;
+        return function (_handle_fn, _state) {
+            if (_state !== 0 && !_state) {
+                _state = 1
             }
-            if ((_num_still_dont_know & 1) && !_is_fn_load) {
+            if ((_state & 1) && !_is_fn_load) {
                 _is_fn_load = true;
-                _fn_dont_know(function (_defaultModelObject) {
-                    _argument = _defaultModelObject;
-                    while (_iterator_handle_queue_fn = _iterator_handle_queue_array.shift()) {
-                        _iterator_handle_queue_fn && _iterator_handle_queue_fn.apply(null, [_argument])
+                _loader_fn_callback(function (_defaultModelObject) {
+                    _t_defaultModelObject = _defaultModelObject;
+                    while (_t_iterator_handle_fn = _iterator_handle_queue_array.shift()) {
+                        _t_iterator_handle_fn && _t_iterator_handle_fn.apply(null, [_t_defaultModelObject])
                     }
                 })
             }
-            if (_argument) {
-                _iterate_handle_queue && _iterate_handle_queue.apply(null, [_argument]);
-                return _argument
+            if (_t_defaultModelObject) {
+                _handle_fn && _handle_fn.apply(null, [_t_defaultModelObject]);
+                return _t_defaultModelObject
             }
-            if (!(_num_still_dont_know & 2)) {
-                _iterate_handle_queue && _iterator_handle_queue_array.push(_iterate_handle_queue)
+            if (!(_state & 2)) {
+                _handle_fn && _iterator_handle_queue_array.push(_handle_fn)
             }
-            return _argument
+            return _t_defaultModelObject
         }
     }, createAsyn: function (_loader_fn, _time) {
-        var K, _tmp_defaultModelObject, _is_already_load_defaultModelObject, _callback_fn_object, _iterate_handle_queue = [];
+        var _is_fn_load, _t_defaultModelObject, _is_already_load_defaultModelObject, _callback_fn_object, _iterate_handle_queue = [];
         _loader_fn(function (_defaultModelObject) {
-            _tmp_defaultModelObject = _defaultModelObject;
+            _t_defaultModelObject = _defaultModelObject;
             while (_callback_fn_object = _iterate_handle_queue.shift()) {
-                _callback_fn_object.handle.apply(null, [_tmp_defaultModelObject])
+                _callback_fn_object.handle.apply(null, [_t_defaultModelObject])
             }
         }, 0);
-        return function (_callback_fn, _num_dont_know) {
-            if (_num_dont_know !== 0 && !_num_dont_know) {
-                _num_dont_know = 1
+        return function (_callback_fn, _state) {
+            if (_state !== 0 && !_state) {
+                _state = 1
             }
-            if ((_num_dont_know & 1) && !K) {
+            if ((_state & 1) && !_is_fn_load) {
                 setTimeout(function () {
-                    if (_tmp_defaultModelObject !== undefined) {
+                    if (_t_defaultModelObject !== undefined) {
                         return
                     }
                     _is_already_load_defaultModelObject = true;
                     for (var _index = 0; _index < _iterate_handle_queue.length; _index++) {
-                        _iterate_handle_queue[_index].handle.apply(null, [_tmp_defaultModelObject]);
+                        _iterate_handle_queue[_index].handle.apply(null, [_t_defaultModelObject]);
                         if (!(_iterate_handle_queue[_index].type & 8)) {
                             _iterate_handle_queue.splice(_index, 1);
                             _index--
                         }
                     }
                 }, _time || 200);
-                _loader_fn(null, _num_dont_know)
+                _loader_fn(null, _state)
             }
             if (!_callback_fn) {
                 return
             }
-            if (_tmp_defaultModelObject !== undefined || !(_num_dont_know & 4)) {
-                _loader_fn(_callback_fn, _num_dont_know);
+            if (_t_defaultModelObject !== undefined || !(_state & 4)) {
+                _loader_fn(_callback_fn, _state);
                 return
             }
             if (_is_already_load_defaultModelObject) {
                 _callback_fn();
-                if (_num_dont_know & 8) {
-                    _loader_fn(_callback_fn, _num_dont_know)
+                if (_state & 8) {
+                    _loader_fn(_callback_fn, _state)
                 }
             } else {
-                _iterate_handle_queue.push({ handle: _callback_fn, type: _num_dont_know })
+                _iterate_handle_queue.push({ handle: _callback_fn, type: _state })
             }
         }
     }, loadAssets: function (G, L, F) {

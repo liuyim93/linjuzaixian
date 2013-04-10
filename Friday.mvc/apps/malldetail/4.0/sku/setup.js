@@ -150,11 +150,11 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
         })
     }
-    function d(S) {
-        var v = ["#J_RSPostageCont", "#J_EmStock"];
-        var T = S ? "removeClass" : "addClass";
-        _kissy.each(v, function (w) {
-            _dom[T](w, "tb-hidden")
+    function _toggleStockArea(_isRemoveClass) {
+        var _id_array_to_be_hidden = ["#J_RSPostageCont", "#J_EmStock"];
+        var _str_class = _isRemoveClass ? "removeClass" : "addClass";
+        _kissy.each(_id_array_to_be_hidden, function (_item) {
+            _dom[_str_class](_item, "tb-hidden")
         })
     }
     function l() {
@@ -206,28 +206,28 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
                 _get_skuQuantity(_defaultModel.inventoryDO)
             }
             _form_init(_defaultModel);
-            d(_defaultModel.isSuccess)
+            _toggleStockArea(_defaultModel.isSuccess)
         }, 13)
     }
     _mods_SKU.getCurrentSkuList = function () {
         if (_mods_SKU.selectSkuId) {
             return [_mods_SKU.selectSkuId]
         }
-        var y = _mods_SKU.selArr || [], S = [], x = _sku_cfg.valItemInfo.skuMap;
-        if (!x) {
+        var _selArr = _mods_SKU.selArr || [], S = [], _skuMap = _sku_cfg.valItemInfo.skuMap;
+        if (!_skuMap) {
             return null
         }
-        for (var z in x) {
+        for (var _skuMapItem in _skuMap) {
             var v = true;
-            for (var T = 0; T < y.length; T++) {
-                var w = new RegExp(";" + y[T] + ";");
-                if (!_sku_cfg.detail.isDownShelf && !w.test(z)) {
+            for (var _index = 0; _index < _selArr.length; _index++) {
+                var w = new RegExp(";" + _selArr[_index] + ";");
+                if (!_sku_cfg.detail.isDownShelf && !w.test(_skuMapItem)) {
                     v = false;
                     break
                 }
             }
             if (v) {
-                S.push(x[z]["skuId"])
+                S.push(_skuMap[_skuMapItem]["skuId"])
             }
         }
         return S
@@ -286,8 +286,8 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         })
     };
     _mods_SKU.onPriceData = function (T) {
-        var S = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
-        _malldetail_data_data.onPriceInfo({ areaId: S }, T, 13)
+        var _areaid = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
+        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, T, 13)
     };
     _mods_SKU.onPriceInfo = function (S, T) {
         _mods_SKU.onPriceData(function (v) {
@@ -318,17 +318,17 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         return S
     };
     _mods_SKU.onCurrentPriceInfoList = function (S) {
-        _mods_SKU.onPriceData(function (w) {
+        _mods_SKU.onPriceData(function (_priceInfoArray) {
             var T = _mods_SKU.getCurrentSkuList();
             var v = [];
             if (T) {
                 _kissy.each(T, function (x) {
-                    if (w[x]) {
-                        v.push(w[x])
+                    if (_priceInfoArray[x]) {
+                        v.push(_priceInfoArray[x])
                     }
                 })
             } else {
-                _kissy.each(w, function (x) {
+                _kissy.each(_priceInfoArray, function (x) {
                     if (x) {
                         v.push(x)
                     }

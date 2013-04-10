@@ -38,7 +38,7 @@
         }
     }, onMdskip: _loader_fn, setMdskipTimeout: function (K) {
         _time = K
-    }, onModel: function (_success_callback_fn, _num_dont_know) {
+    }, onModel: function (_success_callback_fn, _state) {
         if (!_createAsyn_wrapper) {
             _createAsyn_wrapper = _malldetail_common_util.createAsyn(_loader_fn, _time || 3000);
             _createAsyn_wrapper(function (_defaultModelObject) {
@@ -89,19 +89,19 @@
         }
         _createAsyn_wrapper(function () {
             _success_callback_fn && _success_callback_fn(_global_defaultModel)
-        }, _num_dont_know)
-    }, onPriceInfo: function (K, M, L) {
-        K = K || {};
-        _malldetail_data_data.onModel(function (N) {
-            var O = N.itemPriceResultDO;
-            if (K.areaId && O && K.areaId != O.areaId) {
-                _malldetail_data_data.onLocationModel(K.areaId, function (P) {
-                    M && M((P && P.itemPriceResultDO && P.itemPriceResultDO.priceInfo) || (O && O.priceInfo))
+        }, _state)
+    }, onPriceInfo: function (_areaObj, M, _state) {
+        _areaObj = _areaObj || {};
+        _malldetail_data_data.onModel(function (_defaultModelObject) {
+            var _itemPriceResultDO = _defaultModelObject.itemPriceResultDO;
+            if (_areaObj.areaId && _itemPriceResultDO && _areaObj.areaId != _itemPriceResultDO.areaId) {
+                _malldetail_data_data.onLocationModel(_areaObj.areaId, function (P) {
+                    M && M((P && P.itemPriceResultDO && P.itemPriceResultDO.priceInfo) || (_itemPriceResultDO && _itemPriceResultDO.priceInfo))
                 });
                 return
             }
-            M && M(O && O.priceInfo)
-        }, L)
+            M && M(_itemPriceResultDO && _itemPriceResultDO.priceInfo)
+        }, _state)
     }, onLocationModel: function (L, M, K) {
         if (!_malldetail_data_data.locLM) {
             _malldetail_data_data.locLM = {}
