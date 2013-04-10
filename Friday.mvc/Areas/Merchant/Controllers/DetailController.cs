@@ -7,6 +7,8 @@ using Friday.mvc.Models;
 using friday.core.services;
 using friday.core.domain;
 using friday.core;
+using Friday.mvc.Areas.Merchant.Models;
+using friday.core.components;
 
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
@@ -111,6 +113,48 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
 
             return View(detailModel);
+        }
+        public ActionResult InitItemDetail()
+        {
+            DefaultModel defaultModel = new DefaultModel()
+            {
+                deliveryDO = new DeliveryDO()
+                {
+                    deliverySkuMap = new
+                    {
+                        a23105929387=new SKU()
+                        {
+                            money=null,
+                            name=null,
+                            postage="快递: 0.00 ",
+                            postageFree=false,
+                            signText=null,
+                            type=0
+                        },
+                        a23105929386 = new SKU()
+                        {
+                            money = "190.00",
+                            name = null,
+                            postage = "快递: 0.00 ",
+                            postageFree = false,
+                            signText = null,
+                            type = 0
+                        }
+                    }
+                }
+
+
+            };
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = new 
+            {
+                isSuccess=true,
+                defaultModel=defaultModel
+            };
+            string json = jsonResult.FormatResult();
+            string script = "onMdskip("   +  json +  ")";
+
+            return JavaScript(script);
         }
 
     }
