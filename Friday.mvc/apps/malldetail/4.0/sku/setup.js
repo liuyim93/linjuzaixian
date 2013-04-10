@@ -133,15 +133,15 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _window.location.href = "http://detail.tmall.com/auction/noitem.htm?type=" + T
         }
     }
-    function M(S) {
+    function _from_vip_init(_defaultMode) {
         _malldetail_sku_skuLade.init();
-        _malldetail_sku_skuTmVip.init(S);
+        _malldetail_sku_skuTmVip.init(_defaultMode);
         if (_sku_cfg.isHouseholdService) {
-            _kissy_imp.use("malldetail/sku/jia", function (T, v) {
-                v.init()
+            _kissy_imp.use("malldetail/sku/jia", function (_kissy_i, _malldetail_sku_jia) {
+                _malldetail_sku_jia.init()
             })
         }
-        _malldetail_sku_sellCount.init(S.sellCountDO);
+        _malldetail_sku_sellCount.init(_defaultMode.sellCountDO);
         _malldetail_common_util.loadAssets("cps/trace.js?t=20120618", function () {
             var T = _g_config.isSpu ? 1 : ((_sku_cfg.userInfoDO && _sku_cfg.userInfoDO.juKeBuyerLogin) ? 4 : 2);
             try {
@@ -169,36 +169,36 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _kissy_imp.use("malldetail/sku/double11", function (x, y) {
                 y.init(_defaultMode.detailPageTipsDO, _defaultMode.tradeResult, _defaultMode.itemPriceResultDO, _defaultMode.miscDO)
             });
-            T(_defaultMode);
+            _form_plugin_init(_defaultMode);
             _malldetail_sku_freight.init(_defaultMode.deliveryDO);
             _malldetail_sku_stock.init(_defaultMode);
             p = _defaultMode
         };
-        var T = function (v) {
-            var w = _sku_cfg.valMode;
-            if (w & 2048) {
+        var _form_plugin_init = function (_defaultMode) {
+            var _valMode = _sku_cfg.valMode;
+            if (_valMode & 2048) {
                 _mods_SKU.BasketHandler.init()
             } else {
-                if (v.tradeResult.miniTmallCartEnable) {
+                if (_defaultMode.tradeResult.miniTmallCartEnable) {
                     _mods_SKU.BasketHandler.load()
                 }
             }
-            _malldetail_sku_skuAmount.init(v.itemPriceResultDO);
-            _malldetail_sku_buylink.init(v);
+            _malldetail_sku_skuAmount.init(_defaultMode.itemPriceResultDO);
+            _malldetail_sku_buylink.init(_defaultMode);
             _sku_cfg.onBuyEnable && _sku_cfg.onBuyEnable();
-            _mods_SKU.Service.init(v.serviceDO);
-            _malldetail_sku_skuFeatureIcon.init(v.specialServiceList);
+            _mods_SKU.Service.init(_defaultMode.serviceDO);
+            _malldetail_sku_skuFeatureIcon.init(_defaultMode.specialServiceList);
             if (_dom.attr("#J_TreeSelectTrigger", "combo-level") != 3) {
                 _mods_SKU.L2Selector.init(_sku_cfg);
-                _mods_SKU.dqCity.init(v.soldAreaDO)
+                _mods_SKU.dqCity.init(_defaultMode.soldAreaDO)
             } else {
-                _mods_SKU.areaSell.init(v.soldAreaDO)
+                _mods_SKU.areaSell.init(_defaultMode.soldAreaDO)
             }
-            M(v);
-            _event_target.fire(_str_sku_inited_event, v);
-            T = function (x) {
+            _from_vip_init(_defaultMode);
+            _event_target.fire(_str_sku_inited_event, _defaultMode);
+            _form_plugin_init = function (x) {
             };
-            return T(v)
+            return _form_plugin_init(_defaultMode)
         };
         _malldetail_data_data.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
         _malldetail_data_data.onModel(function (_defaultModel) {
