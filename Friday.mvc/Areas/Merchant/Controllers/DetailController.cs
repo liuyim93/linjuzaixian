@@ -122,24 +122,24 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 {
                     deliverySkuMap = new
                     {
-                        a23105929387=new SKU()
+                        a23105929387=new List<SKU>(){new SKU()
                         {
-                            money=null,
-                            name=null,
+                            money="0",
+                            name="",
                             postage="快递: 0.00 ",
                             postageFree=false,
-                            signText=null,
+                            signText="",
                             type=0
-                        },
-                        a23105929386 = new SKU()
+                        }},
+                        a23105929386 = new List<SKU>(){new SKU()
                         {
                             money = "190.00",
-                            name = null,
+                            name = "",
                             postage = "快递: 0.00 ",
                             postageFree = false,
-                            signText = null,
+                            signText = "",
                             type = 0
-                        }
+                        }}
                     }
                 }
 
