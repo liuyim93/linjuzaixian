@@ -164,8 +164,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     },
                     trade = new Trade()
                     {
-                        addToBuyNow = "{}",
-                        addToCart = "{}"
+                        addToBuyNow = new { },
+                        addToCart = new { }
                     }
                 },
                 inventoryDO = new InventoryDO()
@@ -241,21 +241,21 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     sellCount = 0
                 },
                 specialServiceList = "{}",
-                tradeResult = new TradeResult() 
+                tradeResult = new TradeResult()
                 {
-                   cartEnable=true,
-                   cartType=2,
-                   miniTmallCartEnable=true,
-                   param=null,
-                   tradeDisableTypeEnum=null,
-                   tradeEnable=true,
-                   tradeType=null
+                    cartEnable = true,
+                    cartType = 2,
+                    miniTmallCartEnable = true,
+                    param = null,
+                    tradeDisableTypeEnum = null,
+                    tradeEnable = true,
+                    tradeType = null
                 },
-                userInfoDO=new UserInfoDO()
+                userInfoDO = new UserInfoDO()
                 {
-                   juKeBuyerLogin=false,
-                   loginCC=false,
-                   loginUserType="buyer"
+                    juKeBuyerLogin = false,
+                    loginCC = false,
+                    loginUserType = "buyer"
                 }
 
             };

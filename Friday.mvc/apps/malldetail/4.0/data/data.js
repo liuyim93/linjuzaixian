@@ -59,10 +59,10 @@
                     if (!_sku_cfg.detail.isDownShelf && _defaultModel.inventoryDO && _defaultModel.inventoryDO.totalQuantity == 0) {
                         _kissy.cfg("detail").isDownFe = true
                     }
-                    var R = _defaultModel.gatewayDO.trade;
-                    if (R) {
-                        _sku_cfg.addToCartParames = R.addToCart;
-                        if ("umpkey" in R.addToCart) {
+                    var _trade = _defaultModel.gatewayDO.trade;
+                    if (_trade) {
+                        _sku_cfg.addToCartParames = _trade.addToCart;
+                        if ("umpkey" in _trade.addToCart) {
                             _sku_cfg.isTmallComboSupport = false
                         }
                     }
