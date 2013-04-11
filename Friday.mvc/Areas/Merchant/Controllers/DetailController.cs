@@ -122,7 +122,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 {
                     deliverySkuMap = new
                     {
-                        a23105929387=new List<SKU>(){new SKU()
+                        a23105929387 = new List<SKU>(){new SKU()
                         {
                             money="0",
                             name="",
@@ -152,9 +152,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         }}
                     },
                     //2013-04-11 pang
-                    otherServiceList = new
-                    {
-                    }
+                    otherServiceList = "[]"
                 },
                 //2013-04-11 pang
                 gatewayDO = new GatewayDO()
@@ -170,6 +168,95 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         addToCart = "{}"
                     }
                 },
+                inventoryDO = new InventoryDO()
+                {
+                    icTotalQuantity = 45,
+                    skuQuantity = new
+                    {
+                        b41506008322 = new List<SkuQuantity>{new SkuQuantity()
+                       {
+                           quantity=3,
+                           type=1
+                       }},
+                        b41506008333 = new List<SkuQuantity>{new SkuQuantity()
+                       {
+                           quantity=5,
+                           type=1
+                       }}
+                    },
+                    success = true,
+                    totalQuantity = 45,
+                    type = 1
+                },
+                itemPriceResultDO = new ItemPriceResultDO()
+                {
+                    areaId = "370100",
+                    campaignInfo = null,
+                    largeScalePromOfficial = false,
+                    largeScalePromPeriod = -1,
+                    largeScalePromUnOfficial = false,
+                    largeScalePromUnderFiftyPOff = false,
+                    priceInfo = new
+                    {
+                        p41506008322 = new List<PriceInfo>{new PriceInfo()
+                       {
+                           areaSold=true,
+                           price=699,
+                           promotionList=null,
+                           tagPrice=null,
+                           umpBigPromotionDisplayPrice=null
+                       }},
+                        p41506008333 = new List<PriceInfo>{new PriceInfo()
+                       {
+                           areaSold=true,
+                           price=699,
+                           promotionList=null,
+                           tagPrice=null,
+                           umpBigPromotionDisplayPrice=null
+                       }},
+                    },
+                    promType = null,
+                    queryProm = false,
+                    umpBigPromotionItem = false,
+                    wanrentuanInfo = null
+                },
+                memberRightDO = new MemberRightDO()
+                {
+                    discount = 0,
+                    freePostage = false,
+                    gradeName = null,
+                    level = 0,
+                    shopMember = false,
+                    success = false,
+                    times = 0
+                },
+                miscDO = new MiscDO()
+                {
+                    sellCountDown = 0,
+                    systemTime = "1365659724759"
+                },
+                sellCountDO = new SellCountDO()
+                {
+                    cspuSellCountMap = "{}",
+                    sellCount = 0
+                },
+                specialServiceList = "{}",
+                tradeResult = new TradeResult() 
+                {
+                   cartEnable=true,
+                   cartType=2,
+                   miniTmallCartEnable=true,
+                   param=null,
+                   tradeDisableTypeEnum=null,
+                   tradeEnable=true,
+                   tradeType=null
+                },
+                userInfoDO=new UserInfoDO()
+                {
+                   juKeBuyerLogin=false,
+                   loginCC=false,
+                   loginUserType="buyer"
+                }
 
             };
             FormatJsonResult jsonResult = new FormatJsonResult();

@@ -30,7 +30,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-        public InventoryDo inventoryDo
+        public InventoryDO inventoryDO
         {
             get;
             set;
@@ -56,7 +56,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             set;
         }
         //2013-04-11 pang  //[]
-        public string specialServiceList
+        public Object specialServiceList
         {
             get;
             set;
@@ -80,7 +80,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             set;
         }
         //2013-04-11 pang  //[]
-        public string otherServiceList
+        public Object otherServiceList
         {
             get;
             set;
@@ -126,14 +126,14 @@ namespace Friday.mvc.Areas.Merchant.Models
         }
     }
     //2013-04-11 pang
-    public class InventoryDo
+    public class InventoryDO
     {
         public int icTotalQuantity
         {
             get;
             set;
         }
-        public SkuQuantity skuQuantity
+        public Object skuQuantity
         {
             get;
             set;
@@ -199,7 +199,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-        public PriceInfo priceInfo
+        public Object priceInfo
         {
             get;
             set;
@@ -285,7 +285,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-        public DateTime times
+        public int times
         {
             get;
             set;
@@ -298,7 +298,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-        public DateTime systemTime
+        public string systemTime
         {
             get;
             set;
@@ -307,7 +307,7 @@ namespace Friday.mvc.Areas.Merchant.Models
     public class SellCountDO
     {
         //{}
-        public string cspuSellCountMap
+        public Object cspuSellCountMap
         {
             get;
             set;
