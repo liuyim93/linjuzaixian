@@ -30,10 +30,56 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
+        public InventoryDo inventoryDo
+        {
+            get;
+            set;
+        }
+        public ItemPriceResultDO itemPriceResultDO
+        {
+            get;
+            set;
+        }
+        public MemberRightDO memberRightDO
+        {
+            get;
+            set;
+        }
+        public MiscDO miscDO
+        {
+            get;
+            set;
+        }
+        public SellCountDO sellCountDO
+        {
+            get;
+            set;
+        }
+        public string specialServiceList
+        {
+            get;
+            set;
+        }
+        public TradeResult tradeResult
+        {
+            get;
+            set;
+        }
+        public UserInfoDO userInfoDO
+        {
+            get;
+            set;
+        }
     }
     public class DeliveryDO
     {
         public Object deliverySkuMap
+        {
+            get;
+            set;
+        }
+        //2013-04-11 pang
+        public Object otherServiceList
         {
             get;
             set;
@@ -73,6 +119,262 @@ namespace Friday.mvc.Areas.Merchant.Models
             set;
         }
         public object addToCart
+        {
+            get;
+            set;
+        }
+    }
+    //2013-04-11 pang
+    public class InventoryDo
+    {
+        public string icTotalQuantity
+        {
+            get;
+            set;
+        }
+        public SkuQuantity skuQuantity
+        {
+            get;
+            set;
+        }
+        public bool success
+        {
+            get;
+            set;
+        }
+        public string totalQuantity
+        {
+            get;
+            set;
+        }
+        public string type
+        {
+            get;
+            set;
+        }
+    }
+    public class SkuQuantity
+    {
+        public string quantity
+        {
+            get;
+            set;
+        }
+        public string type
+        {
+            get;
+            set;
+        }
+    }
+    public class ItemPriceResultDO
+    {
+        public string areaId
+        {
+            get;
+            set;
+        }
+        public string campaignInfo
+        {
+            get;
+            set;
+        }
+        public bool largeScalePromOfficial
+        {
+            get;
+            set;
+        }
+        public string largeScalePromPeriod
+        {
+            get;
+            set;
+        }
+        public bool largeScalePromUnOfficial
+        {
+            get;
+            set;
+        }
+        public bool largeScalePromUnderFiftyPOff
+        {
+            get;
+            set;
+        }
+        public PriceInfo priceInfo
+        {
+            get;
+            set;
+        }
+        public string promType
+        {
+            get;
+            set;
+        }
+        public bool queryProm
+        {
+            get;
+            set;
+        }
+        public bool umpBigPromotionItem
+        {
+            get;
+            set;
+        }
+        public string wanrentuanInfo
+        {
+            get;
+            set;
+        }
+    }
+    public class PriceInfo
+    {
+        public bool areaSold
+        {
+            get;
+            set;
+        }
+        public string price
+        {
+            get;
+            set;
+        }
+        public string promotionList
+        {
+            get;
+            set;
+        }
+        public string tagPrice
+        {
+            get;
+            set;
+        }
+        public string umpBigPromotionDisplayPrice
+        {
+            get;
+            set;
+        }
+    }
+    public class MemberRightDO
+    {
+        public string discount
+        {
+            get;
+            set;
+        }
+        public bool freePostage
+        {
+            get;
+            set;
+        }
+        public string gradeName
+        {
+            get;
+            set;
+        }
+        public int level
+        {
+            get;
+            set;
+        }
+        public bool shopMember
+        {
+            get;
+            set;
+        }
+        public bool success
+        {
+            get;
+            set;
+        }
+        public DateTime times
+        {
+            get;
+            set;
+        }
+    }
+    public class MiscDO
+    {
+        public int sellCountDown
+        {
+            get;
+            set;
+        }
+        public DateTime systemTime
+        {
+            get;
+            set;
+        }
+    }
+    public class SellCountDO
+    {
+        public string cspuSellCountMap
+        {
+            get;
+            set;
+        }
+        public int sellCount
+        {
+            get;
+            set;
+        }
+    }
+    public class SpecialServiceList
+    {
+        public string specialServiceList
+        {
+            get;
+            set;
+        }
+    }
+    public class TradeResult
+    {
+        public bool cartEnable
+        {
+            get;
+            set;
+        }
+        public int cartType
+        {
+            get;
+            set;
+        }
+        public bool miniTmallCartEnable
+        {
+            get;
+            set;
+        }
+        public string param
+        {
+            get;
+            set;
+        }
+        public string tradeDisableTypeEnum
+        {
+            get;
+            set;
+        }
+        public bool tradeEnable
+        {
+            get;
+            set;
+        }
+        public string tradeType
+        {
+            get;
+            set;
+        }
+    }
+    public class UserInfoDO
+    {
+        public bool juKeBuyerLogin
+        {
+            get;
+            set;
+        }
+        public bool loginCC
+        {
+            get;
+            set;
+        }
+        public string loginUserType
         {
             get;
             set;

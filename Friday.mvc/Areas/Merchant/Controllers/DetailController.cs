@@ -139,10 +139,37 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             postageFree = false,
                             signText = "",
                             type = 0
+                        }},
+                        //2013-04-11 pang
+                        adefault = new List<SKU>(){new SKU()
+                        {
+                            money = "0",
+                            name = "",
+                            postage = "快递: 0.00 ",
+                            postageFree = false,
+                            signText = "",
+                            type = 0
                         }}
+                    },
+                    //2013-04-11 pang
+                    otherServiceList = new
+                    {
                     }
-                }
-
+                },
+                //2013-04-11 pang
+                gatewayDO = new GatewayDO()
+                {
+                    changeLocationGateway = new ChangeLocationGateway()
+                    {
+                        queryDelivery = true,
+                        queryProm = false
+                    },
+                    trade = new Trade()
+                    {
+                        addToBuyNow = "{}",
+                        addToCart = "{}"
+                    }
+                },
 
             };
             FormatJsonResult jsonResult = new FormatJsonResult();
