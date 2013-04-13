@@ -23,6 +23,8 @@ namespace Friday.mvc.weblogin
 
 
         protected string propIDName;
+        protected string propIDId;
+        protected int intPropIDId;
 
         IPropIDService iPropIDService = UnityHelper.UnityToT<IPropIDService>();
 
@@ -86,7 +88,16 @@ namespace Friday.mvc.weblogin
 
                     });
 
-           
+                if (!string.IsNullOrEmpty(Request.Form["PropIDId"]))
+                {
+                    propIDId = Request.Form["PropIDId"];
+                    filterList.Add(new DataFilter()
+                       {
+                           type = "Id",
+                           value = propIDId
+
+                       });
+                }
 
                 IList<PropID> propIDList = iPropIDService.Search(filterList, start, limit, out total);
 

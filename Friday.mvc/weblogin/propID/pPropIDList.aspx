@@ -19,9 +19,13 @@
                     <td>
                         <label>
                             名称:</label>
-                        <input id="PropIDName" type="text" name="GoodsType" value="<%=propIDName%>" />
+                        <input id="PropIDName" type="text" name="PropIDName" value="<%=propIDName%>" />
                     </td>
-                 
+                    <td>
+                        <label>
+                            编号:</label>
+                        <input id="PropIDId" type="text" name="PropIDId" value="<%=propIDId%>" />
+                    </td>
                  
                 </tr>
                 <tr>
@@ -52,14 +56,14 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="propID/pAddPropID.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id={id}" title="增加商品类型" target="dialog"
-            rel="" width="600" height="400"><span>增加自定义商品类型</span></a></li>
-        <li><a class="add" href="propID/pSelectGlobalGoodsType.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id={id}" title="选择系统商品类型" target="dialog"
-            rel="" width="600" height="400"><span>选择系统商品类型</span></a></li>
-        <li><a class="edit" href="propID/pEditPropID.aspx?uid={propIDid}" title="修改商品类型" rel="" target="dialog"
-            height="480"><span>修改商品类型</span></a></li>
+        <li><a class="add" href="propID/pAddPropID.aspx?merchant_id={id}" title="增加商品类型" target="dialog"
+            rel="" width="600" height="400"><span>增加规格类型</span></a></li>
+    <%--    <li><a class="add" href="propID/pSelectGlobalGoodsType.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id={id}" title="选择系统商品类型" target="dialog"
+            rel="" width="600" height="400"><span>选择系统商品类型</span></a></li>--%>
+        <li><a class="edit" href="propID/pEditPropID.aspx?uid={propIDid}" title="修改规格类型" rel="" target="dialog"
+            height="480"><span>修改规格类型</span></a></li>
         <li><a class="delete" href="propID/pPropIDList.aspx?flag=alldelete&uid={propIDid}" target="ajaxTodo"
-            title="确定要删除吗?"><span>删除商品类型</span></a></li>
+            title="确定要删除吗?"><span>删除规格类型</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>

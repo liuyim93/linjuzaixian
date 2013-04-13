@@ -13,7 +13,7 @@ namespace friday.core.domain
             get;
             set;
         }
-        public virtual int PropIDName
+        public virtual string PropIDName
         {
             get;
             set;
