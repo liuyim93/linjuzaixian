@@ -17,7 +17,7 @@ namespace friday.core.domain
             Map(o => o.stock).Default("0").Not.Nullable(); ;
 
             References<Commodity>(o => o.Commodity).Not.Nullable();
-            HasMany<SKUProp>(o => o.SKUProps).Inverse().Cascade.All();
+            HasMany<SkuProp>(o => o.SKUProps).Inverse().Cascade.All();
         }
     }
 }

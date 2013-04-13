@@ -120,8 +120,8 @@
     <Compile Include="domain\ScoreOfItemInFoodOrderMap.cs" />
     <Compile Include="domain\ScoreOfItemInHouseOrder.cs" />
     <Compile Include="domain\ScoreOfItemInHouseOrderMap.cs" />
-    <Compile Include="domain\SKUMap.cs" />
-    <Compile Include="domain\SKUPropMap.cs" />
+    <Compile Include="domain\SkuMap.cs" />
+    <Compile Include="domain\SkuPropMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
     <Compile Include="domain\SystemMenuMap.cs" />
     <Compile Include="domain\TreeNode.cs" />
@@ -177,6 +177,8 @@
     <Compile Include="repositories\ValuingItemOfMyCommodityOrderRepository.cs" />
     <Compile Include="repositories\ValuingItemOfMyHouseOrderRepository.cs" />
     <Compile Include="repositories\IValuingItemOfMyHouseOrderRepository.cs" />
+    <Compile Include="repositories\IPropIDRepository.cs" />
+    <Compile Include="repositories\PropIDRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -494,8 +496,10 @@
     <Compile Include="services\IValuingItemOfMyCommodityOrderService.cs" />
     <Compile Include="services\ValuingItemOfMyHouseOrderService.cs" />
     <Compile Include="services\ValuingItemOfMyCommodityOrderService.cs" />
-    <Compile Include="domain\SKU.cs" />
-    <Compile Include="domain\SKUProp.cs" />
+    <Compile Include="domain\Sku.cs" />
+    <Compile Include="domain\SkuProp.cs" />
+    <Compile Include="services\IPropIDService.cs" />
+    <Compile Include="services\PropIDService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

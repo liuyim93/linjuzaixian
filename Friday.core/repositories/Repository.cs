@@ -4417,6 +4417,47 @@ namespace friday.core.repositories
             }
             return query;
         }
+        protected ICriteria SearchByPropID(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            string notself = null;
+            if (!isSelf)
+            {
+                query.CreateAlias("PropID", "propID");
+                notself = "propID.";
+            }
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("PropIDName"))
+                    {
+                        query.Add(Restrictions.Like(notself + "PropIDName", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+                    if (df.type.Equals("Id"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Id", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    ////时间
+                    //if (df.type.Equals("CreateTime"))
+                    //{
+                    //    SearchByCreateTime(query, df, notself);
+                    //    continue;
+                    //}
+
+                }
+            }
+            return query;
+        }
         protected ICriteria SearchByRestaurantStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchByRestaurantStatistic(query, termList);
