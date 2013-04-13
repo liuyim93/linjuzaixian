@@ -465,6 +465,30 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(school);
             adminMenuCheckList.Add(school);
 
+            SystemMenu propid = new SystemMenu()
+            {
+                Name = "规格类型管理",
+                Leaf = true,
+                ParentID = baseInfo.Id,
+                MenuRoute = "propID/pPropIDList.aspx",
+                TLevel = 1,
+                ColIndex = 13
+            };
+            iSystemMenuRepository.SaveOrUpdate(propid);
+            adminMenuCheckList.Add(propid);
+
+            SystemMenu propvalue = new SystemMenu()
+            {
+                Name = "规格明细管理",
+                Leaf = true,
+                ParentID = baseInfo.Id,
+                MenuRoute = "propValue/pPropValueList.aspx",
+                TLevel = 1,
+                ColIndex = 13
+            };
+            iSystemMenuRepository.SaveOrUpdate(propvalue);
+            adminMenuCheckList.Add(propvalue);
+
             //SystemMenu valuingComments = new SystemMenu()
             //{
             //    Name = "评论回复管理",
