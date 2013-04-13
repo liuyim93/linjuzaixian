@@ -688,6 +688,13 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\propID\pPropIDList.aspx.cs">
+      <DependentUpon>pPropIDList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propID\pPropIDList.aspx.designer.cs">
+      <DependentUpon>pPropIDList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.cs">
       <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1856,6 +1863,7 @@
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
+    <Content Include="weblogin\propID\pPropIDList.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />
     <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />
