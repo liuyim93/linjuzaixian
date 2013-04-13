@@ -9,7 +9,8 @@ namespace friday.core.repositories
 {
     public interface IPropIDRepository : IRepository<PropID>
     {
-       
 
+        IList<PropID> Search(List<DataFilter> termList);
+        IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total);
     }
 }
