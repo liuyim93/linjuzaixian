@@ -183,6 +183,8 @@
     <Compile Include="repositories\IPropValueRepository.cs" />
     <Compile Include="repositories\SkuRepository.cs" />
     <Compile Include="repositories\ISkuRepository.cs" />
+    <Compile Include="repositories\ISkuPropRepository.cs" />
+    <Compile Include="repositories\SkuPropRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -507,7 +509,9 @@
     <Compile Include="services\IPropValueService.cs" />
     <Compile Include="services\PropValueService.cs" />
     <Compile Include="services\SkuService.cs" />
-    <Compile Include="services\ISkuValueService.cs" />
+    <Compile Include="services\ISkuService.cs" />
+    <Compile Include="services\ISkuPropService.cs" />
+    <Compile Include="services\SkuPropService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

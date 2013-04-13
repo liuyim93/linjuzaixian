@@ -73,7 +73,7 @@ namespace Friday.Test2
             iPropValues.Add(ppv1_1);
             PropValue ppv1_2 = new PropValue()
             {
-                PropValueName = "黑色",
+                PropValueName = "蓝色",
                 IsDelete = false,
                 PropID = ppt1
             };
