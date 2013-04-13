@@ -10,7 +10,7 @@ namespace friday.core
     {
          public Commodity()
         {
-            // TODO: Complete member initialization
+            Skus = new Iesi.Collections.Generic.HashedSet<SKU>();
         }
 
          public Commodity(string id): this()
@@ -20,6 +20,12 @@ namespace friday.core
         public virtual Shop Shop
         {
             get;
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<SKU> Skus
+        {
+            get;
+
             set;
         }
     }

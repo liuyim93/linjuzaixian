@@ -116,13 +116,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult InitItemDetail()
         {
-            DefaultModel defaultModel = new DefaultModel()
-            {
-                deliveryDO = new DeliveryDO()
-                {
-                    deliverySkuMap = new
-                    {
-                        a23105929387 = new List<SKU>(){new SKU()
+           var sku_list= new List<SKUDO>(){new SKUDO()
                         {
                             money="0",
                             name="",
@@ -130,27 +124,17 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             postageFree=false,
                             signText="",
                             type=0
-                        }},
-                        a23105929386 = new List<SKU>(){new SKU()
-                        {
-                            money = "190.00",
-                            name = "",
-                            postage = "快递: 0.00 ",
-                            postageFree = false,
-                            signText = "",
-                            type = 0
-                        }},
-                        //2013-04-11 pang
-                        adefault = new List<SKU>(){new SKU()
-                        {
-                            money = "0",
-                            name = "",
-                            postage = "快递: 0.00 ",
-                            postageFree = false,
-                            signText = "",
-                            type = 0
-                        }}
-                    },
+                        }};
+            dynamic deliverySkuMap = new Dictionary<string,List<SKUDO>>();
+            for (int i = 0; i < 10; i++)
+            {
+                deliverySkuMap.Add(i.ToString(), sku_list);
+            }
+            DefaultModel defaultModel = new DefaultModel()
+            {
+                deliveryDO = new DeliveryDO()
+                {
+                    deliverySkuMap = deliverySkuMap,
                     //2013-04-11 pang
                     otherServiceList = "[]"
                 },

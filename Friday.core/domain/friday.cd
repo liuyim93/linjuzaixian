@@ -3,7 +3,7 @@
   <Class Name="friday.core.domain.Activity" Collapsed="true">
     <Position X="2.5" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAgAAAAAAAAAAQQAAAAABAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAgAAAAAAAAAAQQAAAAABAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\Activity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -118,7 +118,7 @@
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAACQggIAAAAAAIAQAAAAAAIBDAAIAAEAACAA=</HashCode>
+      <HashCode>QAAAAUAAACQggIAQAAAAIAQgAAAAAIBDAAIAAEAACAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -164,7 +164,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.AbstractCommodity">
-    <Position X="9.25" Y="15.75" Width="1.5" />
+    <Position X="9.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAQCAAAAAAAEQAAaAAgAAABAAAAAGEgAACAA=</HashCode>
       <FileName>domain\AbstractCommodity.cs</FileName>
@@ -217,9 +217,12 @@
   <Class Name="friday.core.Commodity">
     <Position X="7.5" Y="18.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>domain\Commodity.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Skus" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="friday.core.MyCommodityOrder">
     <Position X="16" Y="13.75" Width="2.5" />
@@ -506,42 +509,80 @@
   <Class Name="friday.core.domain.ScoreOfItemInCommodityOrder" Collapsed="true">
     <Position X="1" Y="33" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgAAAAAAIAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ScoreOfItemInCommodityOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ValuingItemOfMyCommodityOrder" />
       <Property Name="ValuingOfMyCommodityOrder" />
+      <Property Name="ValuingItemOfMyCommodityOrder" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.ScoreOfItemInHouseOrder" Collapsed="true">
     <Position X="7.5" Y="33" Width="2" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAIQAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ScoreOfItemInHouseOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ValuingItemOfMyHouseOrder" />
       <Property Name="ValuingOfMyHouseOrder" />
+      <Property Name="ValuingItemOfMyHouseOrder" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.ScoreOfItemInFoodOrder" Collapsed="true">
     <Position X="4.25" Y="33" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAggAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAggAAAAAAAAAAAA=</HashCode>
       <FileName>domain\ScoreOfItemInFoodOrder.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="ValuingItemOfMyFoodOrder" />
       <Property Name="ValuingOfMyFoodOrder" />
+      <Property Name="ValuingItemOfMyFoodOrder" />
     </ShowAsAssociation>
   </Class>
   <Class Name="friday.core.domain.ValuingComments">
     <Position X="7.75" Y="29" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAABAAAAAAACAAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAAAAAABAAAAAAACAAAAAAAAAAAABAAAAAAAAAIAA=</HashCode>
       <FileName>domain\ValuingComments.cs</FileName>
     </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.SKU">
+    <Position X="5.25" Y="20.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAgAAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>SKU.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="SKUProps" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="friday.core.SKUProp">
+    <Position X="3.25" Y="22.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>SKUProp.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PropID" />
+      <Property Name="PropValue" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="friday.core.PropID">
+    <Position X="1.75" Y="23.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>PropID.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="friday.core.PropValue">
+    <Position X="1.5" Y="20.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACAAIAA=</HashCode>
+      <FileName>PropValue.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="PropID" />
+    </ShowAsAssociation>
   </Class>
   <Font Name="宋体" Size="9" />
 </ClassDiagram>

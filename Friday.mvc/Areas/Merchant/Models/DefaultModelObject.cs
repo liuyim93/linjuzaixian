@@ -383,7 +383,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             set;
         }
     }
-    public class SKU
+    public class SKUDO
     {
         public string money
         {

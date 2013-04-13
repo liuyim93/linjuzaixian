@@ -125,6 +125,8 @@
     <Compile Include="domain\ValuingComments.cs" />
     <Compile Include="domain\ValuingCommentsMap.cs" />
     <Compile Include="Models\MerchantModel.cs" />
+    <Compile Include="PropID.cs" />
+    <Compile Include="PropValue.cs" />
     <Compile Include="repositories\IRoleInMenuRepository.cs" />
     <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ILogRepository.cs">
@@ -480,6 +482,8 @@
     <Compile Include="services\IValuingItemOfMyCommodityOrderService.cs" />
     <Compile Include="services\ValuingItemOfMyHouseOrderService.cs" />
     <Compile Include="services\ValuingItemOfMyCommodityOrderService.cs" />
+    <Compile Include="SKU.cs" />
+    <Compile Include="SKUProp.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
