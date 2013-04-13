@@ -159,24 +159,26 @@ namespace friday.coretest
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
 
-                int skuConut = new Random().Next(9);
-                for (int j = 0; j <= skuConut; j++)
+                int skuConut = new Random().Next(12);
+                for (int j = 0,l=0,m=0; j <= skuConut; j++)
                 {
-                   //颜色机选
-                    int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+                   //颜色
+                   //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
                    SkuProp skpcolor = new SkuProp()
                    {
                        PropID = ppt1,
-                       PropValue = iPropValues[pVauCnColor]
+                       PropValue = iPropValues[l/3]
                    };
-                   //尺寸机选
-                   int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+                   l++;
+                   //尺寸
+                   //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
                    SkuProp skpsize = new SkuProp()
                    {
                        PropID = ppt2,
-                       PropValue = iPropValues2[pVauCntSize]
+                       PropValue = iPropValues2[m%4]
                    };
-
+                   m++;
+                    
                    Sku skus = new Sku()
                    {
                         Commodity = commodity,
@@ -188,8 +190,8 @@ namespace friday.coretest
                    skus.SKUProps.Add(skpsize);
                    skurep.SaveOrUpdate(skus);
 
-                   iPropValues.Remove(iPropValues[pVauCnColor]);
-                   iPropValues2.Remove(iPropValues2[pVauCntSize]);
+                   //iPropValues.Remove(iPropValues[pVauCnColor]);
+                   //iPropValues2.Remove(iPropValues2[pVauCntSize]);
 
                 }
 
