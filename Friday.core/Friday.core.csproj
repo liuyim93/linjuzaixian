@@ -110,6 +110,8 @@
     <Compile Include="domain\CategoryLog.cs" />
     <Compile Include="domain\CategoryMap.cs" />
     <Compile Include="domain\Log.cs" />
+    <Compile Include="domain\PropIDMap.cs" />
+    <Compile Include="domain\PropValueMap.cs" />
     <Compile Include="domain\RoleInMenu.cs" />
     <Compile Include="domain\RoleInMenuMap.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrder.cs" />
@@ -118,6 +120,8 @@
     <Compile Include="domain\ScoreOfItemInFoodOrderMap.cs" />
     <Compile Include="domain\ScoreOfItemInHouseOrder.cs" />
     <Compile Include="domain\ScoreOfItemInHouseOrderMap.cs" />
+    <Compile Include="domain\SKUMap.cs" />
+    <Compile Include="domain\SKUPropMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
     <Compile Include="domain\SystemMenuMap.cs" />
     <Compile Include="domain\TreeNode.cs" />
@@ -125,8 +129,8 @@
     <Compile Include="domain\ValuingComments.cs" />
     <Compile Include="domain\ValuingCommentsMap.cs" />
     <Compile Include="Models\MerchantModel.cs" />
-    <Compile Include="PropID.cs" />
-    <Compile Include="PropValue.cs" />
+    <Compile Include="domain\PropID.cs" />
+    <Compile Include="domain\PropValue.cs" />
     <Compile Include="repositories\IRoleInMenuRepository.cs" />
     <Compile Include="domain\LogMap.cs" />
     <Compile Include="repositories\ILogRepository.cs">
@@ -482,8 +486,8 @@
     <Compile Include="services\IValuingItemOfMyCommodityOrderService.cs" />
     <Compile Include="services\ValuingItemOfMyHouseOrderService.cs" />
     <Compile Include="services\ValuingItemOfMyCommodityOrderService.cs" />
-    <Compile Include="SKU.cs" />
-    <Compile Include="SKUProp.cs" />
+    <Compile Include="domain\SKU.cs" />
+    <Compile Include="domain\SKUProp.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

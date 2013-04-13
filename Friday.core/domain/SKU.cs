@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using friday.core.domain;
 
-namespace friday.core
+namespace friday.core.domain
 {
     public class SKU : BaseObject
     {
@@ -37,6 +37,11 @@ namespace friday.core
 
             set;
 
+        }
+        public virtual Commodity Commodity
+        {
+            get;
+            set;
         }
         public virtual Iesi.Collections.Generic.ISet<SKUProp> SKUProps
         {

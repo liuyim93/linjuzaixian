@@ -546,39 +546,42 @@
       <FileName>domain\ValuingComments.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.SKU">
+  <Class Name="friday.core.domain.SKU">
     <Position X="5.25" Y="20.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAgAAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
-      <FileName>SKU.cs</FileName>
+      <HashCode>AAABAAACAgAAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\SKU.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Commodity" />
+    </ShowAsAssociation>
     <ShowAsCollectionAssociation>
       <Property Name="SKUProps" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="friday.core.SKUProp">
+  <Class Name="friday.core.domain.SKUProp">
     <Position X="3.25" Y="22.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>SKUProp.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <FileName>domain\SKUProp.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="PropID" />
       <Property Name="PropValue" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="friday.core.PropID">
+  <Class Name="friday.core.domain.PropID">
     <Position X="1.75" Y="23.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAEAAAAAAAAA=</HashCode>
-      <FileName>PropID.cs</FileName>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>domain\PropID.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.PropValue">
+  <Class Name="friday.core.domain.PropValue">
     <Position X="1.5" Y="20.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAACAAIAA=</HashCode>
-      <FileName>PropValue.cs</FileName>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAIAA=</HashCode>
+      <FileName>domain\PropValue.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="PropID" />
