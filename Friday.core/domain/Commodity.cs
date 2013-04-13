@@ -10,7 +10,7 @@ namespace friday.core
     {
          public Commodity()
         {
-            Skus = new Iesi.Collections.Generic.HashedSet<SKU>();
+            Skus = new Iesi.Collections.Generic.HashedSet<Sku>();
         }
 
          public Commodity(string id): this()
@@ -22,7 +22,7 @@ namespace friday.core
             get;
             set;
         }
-        public virtual Iesi.Collections.Generic.ISet<SKU> Skus
+        public virtual Iesi.Collections.Generic.ISet<Sku> Skus
         {
             get;
 

@@ -300,11 +300,11 @@
       <FileName>domain\RestaurantStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.RentSatistic">
+  <Class Name="friday.core.RentStatistic">
     <Position X="10" Y="26.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\RentSatistic.cs</FileName>
+      <FileName>domain\RentStatistic.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.Message">
@@ -546,11 +546,12 @@
       <FileName>domain\ValuingComments.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="friday.core.domain.SKU">
+  <Class Name="friday.core.domain.Sku">
     <Position X="5.25" Y="20.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABAAACAgAAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
-      <FileName>domain\SKU.cs</FileName>
+      <FileName>domain\Sku.cs</FileName>
+      <NewMemberFileName>domain\SKU.cs</NewMemberFileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Commodity" />
@@ -559,11 +560,12 @@
       <Property Name="SKUProps" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="friday.core.domain.SKUProp">
+  <Class Name="friday.core.domain.SkuProp">
     <Position X="3.25" Y="22.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
-      <FileName>domain\SKUProp.cs</FileName>
+      <FileName>domain\SkuProp.cs</FileName>
+      <NewMemberFileName>domain\SKUProp.cs</NewMemberFileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="PropID" />

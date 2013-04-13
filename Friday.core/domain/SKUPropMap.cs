@@ -6,9 +6,9 @@ using FluentNHibernate.Mapping;
 
 namespace friday.core.domain
 {
-    public class SKUPropMap:ClassMap<SKUProp>
+    public class SkuPropMap:ClassMap<SkuProp>
     {
-        public SKUPropMap()
+        public SkuPropMap()
         {
             Id(o => o.Id).GeneratedBy.Native();
             Map(o => o.IsDelete);

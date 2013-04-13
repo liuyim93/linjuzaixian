@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core.domain
 {
-    public class SKUProp : BaseObject
+    public class SkuProp : BaseObject
     {
         public virtual int Id
         {

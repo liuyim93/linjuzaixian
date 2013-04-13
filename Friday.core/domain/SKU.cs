@@ -6,11 +6,11 @@ using friday.core.domain;
 
 namespace friday.core.domain
 {
-    public class SKU : BaseObject
+    public class Sku : BaseObject
     {
-        public SKU()
+        public Sku()
         {
-            SKUProps = new Iesi.Collections.Generic.HashedSet<SKUProp>();
+            SKUProps = new Iesi.Collections.Generic.HashedSet<SkuProp>();
         }
         public virtual int skuId
         {
@@ -43,7 +43,7 @@ namespace friday.core.domain
             get;
             set;
         }
-        public virtual Iesi.Collections.Generic.ISet<SKUProp> SKUProps
+        public virtual Iesi.Collections.Generic.ISet<SkuProp> SKUProps
         {
             get;
             set;
