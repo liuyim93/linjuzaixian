@@ -128,7 +128,7 @@
     <Compile Include="Test_ValuingOfMyHouseOrder.cs" />
     <Compile Include="Test_ValuingOfMyCommodityOrder.cs" />
     <Compile Include="PopulateFakeActivityDataTest.cs" />
-    <Compile Include="Test_PropID.cs" />
+    <Compile Include="Test_Prop.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="uploadImage\activityImage\jpeg1.jpg" />

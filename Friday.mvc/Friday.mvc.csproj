@@ -1409,6 +1409,13 @@
     <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyHouseOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\propValue\pPropValueList.aspx.cs">
+      <DependentUpon>pPropValueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propValue\pPropValueList.aspx.designer.cs">
+      <DependentUpon>pPropValueList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -2691,6 +2698,7 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
+    <Content Include="weblogin\propValue\pPropValueList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

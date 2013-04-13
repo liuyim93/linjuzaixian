@@ -179,6 +179,8 @@
     <Compile Include="repositories\IValuingItemOfMyHouseOrderRepository.cs" />
     <Compile Include="repositories\IPropIDRepository.cs" />
     <Compile Include="repositories\PropIDRepository.cs" />
+    <Compile Include="repositories\PropValueRepository.cs" />
+    <Compile Include="repositories\IPropValueRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="repositories\FoodStatisticRepository.cs" />
@@ -500,6 +502,8 @@
     <Compile Include="domain\SkuProp.cs" />
     <Compile Include="services\IPropIDService.cs" />
     <Compile Include="services\PropIDService.cs" />
+    <Compile Include="services\IPropValueService.cs" />
+    <Compile Include="services\PropValueService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

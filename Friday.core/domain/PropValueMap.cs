@@ -10,7 +10,7 @@ namespace friday.core.domain
     {
         public PropValueMap()
         {
-            Id(o => o.Id).GeneratedBy.Native();
+            Id(o => o.Id).GeneratedBy.Native();//.Default(3000000);
             Map(o => o.IsDelete);
             Map(o => o.PropValueName);
 
