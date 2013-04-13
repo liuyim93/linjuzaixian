@@ -4417,6 +4417,7 @@ namespace friday.core.repositories
             }
             return query;
         }
+        
         protected ICriteria SearchByPropID(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             string notself = null;
