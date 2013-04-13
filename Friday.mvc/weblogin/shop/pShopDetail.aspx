@@ -17,6 +17,8 @@
                 target="ajax"><span>员工列表</span></a></li>
                  <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
                 target="ajax"><span>商品类型管理</span></a></li>
+                <li><a href='propID/pPropIDList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox222"
+                target="ajax"><span>规格类型管理</span></a></li>
            </ul>
         </div>
     </div>
@@ -145,7 +147,9 @@
 
          <div id="jbsxBox2" >
         </div>
-           <div id="jbsxBox111" >
+         <div id="jbsxBox111" >
+        </div>
+         <div id="jbsxBox222" >
         </div>
     </div>
     <div class="tabsFooter">
