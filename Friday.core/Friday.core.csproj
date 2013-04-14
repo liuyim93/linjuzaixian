@@ -193,6 +193,7 @@
     <Compile Include="services\IScoreOfItemInCommodityOrderService.cs" />
     <Compile Include="services\IScoreOfItemInFoodOrderService.cs" />
     <Compile Include="services\IScoreOfItemInHouseOrderService.cs" />
+    <Compile Include="services\ISKUService.cs" />
     <Compile Include="services\ISystemMenuService.cs" />
     <Compile Include="services\ISystemRoleService.cs" />
     <Compile Include="services\ISystemUserService.cs" />
@@ -426,6 +427,7 @@
     <Compile Include="services\ScoreOfItemInCommodityOrderService.cs" />
     <Compile Include="services\ScoreOfItemInFoodOrderService.cs" />
     <Compile Include="services\ScoreOfItemInHouseOrderService.cs" />
+    <Compile Include="services\SKUService.cs" />
     <Compile Include="services\SystemFunctionObjectService.cs" />
     <Compile Include="services\SystemMenuService.cs" />
     <Compile Include="services\SystemRoleService.cs" />
