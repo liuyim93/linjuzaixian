@@ -12,7 +12,7 @@ namespace friday.core.domain
         {
             SKUProps = new Iesi.Collections.Generic.HashedSet<SKUProp>();
         }
-        public int skuId
+        public virtual int skuId
         {
             get;
             set;
