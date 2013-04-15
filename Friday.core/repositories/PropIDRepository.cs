@@ -38,7 +38,11 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<PropID>();
         }
-         
+        public bool IsHaveTheSameName(string name)
+        {
+            var isHaveChild = (from x in this.Session.Query<PropID>() select x).Where(o => o.PropIDName == name && o.IsDelete == false).Count() > 0 ? true : false;
+            return isHaveChild;
+        }
 
     }
      

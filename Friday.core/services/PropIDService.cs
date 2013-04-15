@@ -23,12 +23,21 @@ namespace friday.core.services
         {
             return iPropIDRepository.Load(id);
         }
+        public void Save(PropID propID)
+        {
+            iLogger.LogMessage("插入PropID数据，ID：" + propID.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iPropIDRepository.SaveOrUpdate(propID);
+        }
+
         public IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
             return iPropIDRepository.Search(termList, start, limit, out total);
         }
 
-
+        public bool IsHaveTheSameName(string name)
+        {
+            return iPropIDRepository.IsHaveTheSameName(name);
+        }
 
 
     }
