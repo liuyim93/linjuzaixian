@@ -695,6 +695,13 @@
     <Compile Include="weblogin\propID\pAddPropID.aspx.designer.cs">
       <DependentUpon>pAddPropID.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\propID\pEditPropID.aspx.cs">
+      <DependentUpon>pEditPropID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propID\pEditPropID.aspx.designer.cs">
+      <DependentUpon>pEditPropID.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\propID\pPropIDList.aspx.cs">
       <DependentUpon>pPropIDList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1878,6 +1885,7 @@
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
     <Content Include="weblogin\propID\pAddPropID.aspx" />
+    <Content Include="weblogin\propID\pEditPropID.aspx" />
     <Content Include="weblogin\propID\pPropIDList.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />

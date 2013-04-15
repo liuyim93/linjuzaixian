@@ -121,9 +121,9 @@ namespace Friday.mvc.weblogin
             }
         }
 
-        private void DeletePropID()
+        private void DeletePropID()//级联删除PropValue
         {
-            //iPropIDService.Delete(Request.Params["uid"]);
+            iPropIDService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
