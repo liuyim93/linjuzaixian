@@ -60,7 +60,7 @@ namespace Friday.mvc.weblogin
 
             if (Sku_ID != null && Sku_ID != "")
             {
-                //skuPropList = iSkuPropRepository.GetSkuPropsBySkuID(Sku_ID, start, limit, out total);
+                skuPropList = iSkuPropRepository.GetSkuPropsBySkuID(Sku_ID, start, limit, out total);
             }
             repeater.DataSource = skuPropList;
             repeater.DataBind();
