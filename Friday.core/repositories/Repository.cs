@@ -4418,19 +4418,85 @@ namespace friday.core.repositories
             return query;
         }
         
+        //protected ICriteria SearchByPropID(ICriteria query, List<DataFilter> termList, bool isSelf)
+        //{
+        //    string notself = null;
+        //    if (!isSelf)
+        //    {
+        //        query.CreateAlias("PropID", "propID");
+        //        notself = "propID.";
+        //    }
+        //    if (termList.Count != 0)
+        //    {
+
+        //        foreach (DataFilter df in termList)
+        //        {
+        //            if (df.type.Equals("IsDelete"))
+        //            {
+        //                query.Add(Expression.Eq(notself + "IsDelete", false));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("PropIDName"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "PropIDName", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+        //            if (df.type.Equals("Id"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "Id", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+
+        //            //Merchant
+        //            if (df.type.Equals("Merchant"))
+        //            {
+        //                SearchByMerchant(query, df, notself);
+        //                continue;
+        //            }
+
+        //        }
+        //    }
+        //    return query;
+        //}
+
         protected ICriteria SearchByPropID(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchByPropID(query, termList);
+        }
+        protected ICriteria SearchByPropID(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByPropID(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByPropID(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("PropID", "propID");
                 notself = "propID.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "PropID";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".PropID";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "propID");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
                 foreach (DataFilter df in termList)
                 {
+
                     if (df.type.Equals("IsDelete"))
                     {
                         query.Add(Expression.Eq(notself + "IsDelete", false));
@@ -4448,17 +4514,32 @@ namespace friday.core.repositories
                         continue;
                     }
 
-                    ////时间
-                    //if (df.type.Equals("CreateTime"))
-                    //{
-                    //    SearchByCreateTime(query, df, notself);
-                    //    continue;
-                    //}
+                    //Merchant                                
+                    if (df.type.Equals("Merchant"))
+                    {
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }                  
+
+                   
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
 
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
+
         protected ICriteria SearchByPropValue(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             string notself = null;
