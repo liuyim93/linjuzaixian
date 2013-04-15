@@ -133,44 +133,42 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             var pceInfoList = new List<PriceInfo>();
             int totalquty = 0;
 
+            dynamic deliverySkuMap = new Dictionary<string, List<SKUDO>>();
+            dynamic skuQuantity = new Dictionary<string, List<SkuQuantity>>();
+            dynamic priceInfo = new Dictionary<string, List<PriceInfo>>();
             for (int i = 0; i < skulist.Count; i++)
-            {
-              SKUDO  skuvommdty= new SKUDO()
-                     {
-                        money=skulist[i].price.ToString(),
-                        name=skulist[i].Commodity.Name,
-                        postage="快递: 0.00 ",
-                        postageFree=false,
-                        signText=skulist[i].stock.ToString(),
-                        type=0
-                      };
-                sku_list.Add(skuvommdty);
-             
-              SkuQuantity  skuquty=new SkuQuantity()
-                    {
-                      quantity=skulist[i].stock,
-                      type=skulist[i].Commodity.Version
-                    };
-                sku_quantityList.Add(skuquty);
-                PriceInfo pceInfo = new PriceInfo()
-                     {
-                         areaSold = true,
-                         price =(float)skulist[i].price,
-                         promotionList = null,
-                         tagPrice = null,
-                         umpBigPromotionDisplayPrice = null
-                     };
-                pceInfoList.Add(pceInfo);
+            {          
+             deliverySkuMap.Add(i.ToString(), new List<SKUDO>(){new SKUDO()
+                        {
+                            money=skulist[i].price.ToString(),
+                            name=skulist[i].Commodity.Name,
+                            postage="快递: 0.00 ",
+                            postageFree=false,
+                            signText=skulist[i].stock.ToString(),
+                            type=0
+                        }});
 
+             skuQuantity.Add(i.ToString(), new List<SkuQuantity>(){new SkuQuantity()
+                        {
+                             quantity=skulist[i].stock,
+                             type=skulist[i].Commodity.Version
+                        }});
+             priceInfo.Add(i.ToString(), new List<PriceInfo>(){new PriceInfo()
+                        {
+                             areaSold = true,
+                             price =(float)skulist[i].price,
+                             promotionList = null,
+                             tagPrice = null,
+                             umpBigPromotionDisplayPrice = null
+                        }});
                 totalquty = totalquty + skulist[i].stock;        
-            }
-
-            
+            };
+     
             DefaultModel defaultModel = new DefaultModel()
             {
                 deliveryDO = new DeliveryDO()
                 {
-                    deliverySkuMap = sku_list,
+                    deliverySkuMap = deliverySkuMap,
                     otherServiceList = "[]"
                 },
                 gatewayDO = new GatewayDO()
@@ -189,7 +187,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 inventoryDO = new InventoryDO()
                 {
                     icTotalQuantity = totalquty,
-                    skuQuantity = sku_quantityList,
+                    skuQuantity = skuQuantity,
                     success = true,
                     totalQuantity = totalquty,
                     type = 1
@@ -202,7 +200,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     largeScalePromPeriod = -1,
                     largeScalePromUnOfficial = false,
                     largeScalePromUnderFiftyPOff = false,
-                    priceInfo = pceInfoList,
+                    priceInfo = priceInfo,
                     promType = null,
                     queryProm = false,
                     umpBigPromotionItem = false,
