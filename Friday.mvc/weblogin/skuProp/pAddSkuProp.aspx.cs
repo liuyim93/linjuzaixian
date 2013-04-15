@@ -15,8 +15,45 @@ namespace Friday.mvc.weblogin.skuProp
 {
     public partial class pAddSkuProp : System.Web.UI.Page
     {
+        private ISkuPropService skuPropService = UnityHelper.UnityToT<ISkuPropService>();
+        private IPropIDService propIDService = UnityHelper.UnityToT<IPropIDService>();
+        private IPropValueService propValueService = UnityHelper.UnityToT<IPropValueService>();
+        private ISkuService skuService = UnityHelper.UnityToT<ISkuService>();
+
+        Sku sku = new Sku();
+        private SkuProp skuProp = new SkuProp();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Request.Params["__EVENTVALIDATION"] != null)
+            {
+                SaveSkuProp();
+            }
+        }
+
+        private void SaveSkuProp()
+        {
+            sku = skuService.getSkubyIntID(Request.Params["sku_id"]);
+            skuProp.SKU = sku;
+            skuProp.PropID = propIDService.getPropIDbyIntID(PropID.Value);
+            skuProp.PropValue = propValueService.getPropValuebyIntID(Request.Params["PropValue"]);
+
+            skuPropService.Save(skuProp);
+
+            AjaxResult result = new AjaxResult();
+            result.statusCode = "200";
+            result.message = "修改成功";
+            result.navTabId = "referer";
+            //2013-02-13 basilwang set rel_hook to panelId
+            if (Request.Params["rel_hook"] != null)
+            {
+                result.panelId = Request.Params["rel_hook"];
+            }
+            result.callbackType = "closeCurrent";
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = result;
+            Response.Write(jsonResult.FormatResult());
+            Response.End();
 
         }
 

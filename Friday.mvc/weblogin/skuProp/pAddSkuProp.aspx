@@ -19,7 +19,7 @@
             <p>
                 <label>
                     规格值：</label>
-                <select id="PropValue" style="width: 85px" runat="server">
+                <select id="PropValue" style="width: 85px" runat="server" class="required">
                        <option value="">请选择</option>
                 </select>
             </p>
