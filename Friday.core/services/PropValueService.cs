@@ -54,10 +54,10 @@ namespace friday.core.services
         {
             return iPropValueRepository.IsHaveTheSameName(name);
         }
-
-        public IList<PropValue> getPropValuebyPropID(string propID)
+        public IList<PropValue> GetPropValueListByPropID(int pid) 
         {
-            return iPropValueRepository.getPropValuebyPropID(propID);
+            return iPropValueRepository.GetPropValueListByPropID(pid);
+        }
         }
 
 

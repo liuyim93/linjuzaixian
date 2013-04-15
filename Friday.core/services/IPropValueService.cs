@@ -16,6 +16,6 @@ namespace friday.core.services
         void Delete(int id);
         IList<PropValue> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
-        PropValue getPropValuebyIntID(string id); 
+        IList<PropValue> GetPropValueListByPropID(int pid);
     }
 }

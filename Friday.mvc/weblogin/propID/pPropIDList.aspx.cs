@@ -27,6 +27,8 @@ namespace Friday.mvc.weblogin
         protected int intPropIDId;
 
         IPropIDService iPropIDService = UnityHelper.UnityToT<IPropIDService>();
+        IPropValueService iPropValueService = UnityHelper.UnityToT<IPropValueService>();
+        IList<PropValue> ppvl=new List<PropValue>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -125,9 +127,15 @@ namespace Friday.mvc.weblogin
         {
             int intid = Convert.ToInt32(Request.Params["uid"]);
             iPropIDService.Delete(intid);
+            //级联删除PropValue
+            ppvl = iPropValueService.GetPropValueListByPropID(intid);
+            foreach (var p in ppvl)
+            {
+                iPropValueService.Delete(p.Id);
+            }
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "删除成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
