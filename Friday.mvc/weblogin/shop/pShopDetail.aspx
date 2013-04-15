@@ -11,8 +11,8 @@
                 <li><a href="#"><span>配送时间</span></a></li>
                 <li><a href="#"><span>促销打折</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
-                <li><a href='commodity/pCommodityList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
-                target="ajax"><span>商品</span></a></li>
+<%--                <li><a href='commodity/pCommodityList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
+                target="ajax"><span>商品</span></a></li>--%>
                  <li><a href='merchantEmployee/pMerchantEmployeeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
                 target="ajax"><span>员工列表</span></a></li>
                  <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
@@ -38,11 +38,6 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-             <%--   <p>
-                <label>
-                    登陆名：</label>
-                <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
-            </p>--%>
          </div>
          <div>
             <p>
@@ -148,8 +143,6 @@
             </div>
          </div>
 
-        <div id="jbsxBox1" >
-        </div>
          <div id="jbsxBox2" >
         </div>
            <div id="jbsxBox111" >

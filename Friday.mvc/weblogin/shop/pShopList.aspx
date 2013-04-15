@@ -92,6 +92,8 @@
             <span>修改商店</span></a></li>
         <li><a class="delete" href="shop/pShopList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除商店</span></a></li>
+        <li><a class="add" href="commodity/pCommodityList.aspx?shop_id={id}"
+            target="navTab" rel=""><span>商品类型管理</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
