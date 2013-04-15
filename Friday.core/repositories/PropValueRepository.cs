@@ -44,13 +44,18 @@ namespace friday.core.repositories
             var isHaveChild = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropValueName == name && o.IsDelete == false).Count() > 0 ? true : false;
             return isHaveChild;
         }
+        public IList<PropValue> getPropValuebyPropID(string propID)
+        {
+            var items = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.Id == Convert.ToInt16(propID) && o.IsDelete == false).ToList();
+            return items;
+        }
+
         public PropValue getPropValuebyIntID(string id)
         {
             int pid = Convert.ToInt32(id);
             var ppd = (from x in this.Session.Query<PropValue>() select x).Where(o => o.Id == pid && o.IsDelete == false).SingleOrDefault();
             return ppd;
         }
-
     }
      
 }

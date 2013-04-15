@@ -39,19 +39,26 @@ namespace friday.core.services
             iLogger.LogMessage("删除PropValue数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iPropValueRepository.Delete(id);
         }
+
         public IList<PropValue> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
             return iPropValueRepository.Search(termList, start, limit, out total);
         }
+
         public PropValue getPropValuebyIntID(string id)
         {
             return iPropValueRepository.getPropValuebyIntID(id);
         }
+
         public bool IsHaveTheSameName(string name)
         {
             return iPropValueRepository.IsHaveTheSameName(name);
         }
 
+        public IList<PropValue> getPropValuebyPropID(string propID)
+        {
+            return iPropValueRepository.getPropValuebyPropID(propID);
+        }
 
 
     }
