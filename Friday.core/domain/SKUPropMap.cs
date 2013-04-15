@@ -15,7 +15,7 @@ namespace friday.core.domain
 
             References<PropID>(o => o.PropID).Not.Nullable();
             References<PropValue>(o => o.PropValue).Not.Nullable();
-            References<Commodity>(o => o.SKU).Not.Nullable();
+            References<Sku>(o => o.SKU).Not.Nullable();
         }
     }
 }
