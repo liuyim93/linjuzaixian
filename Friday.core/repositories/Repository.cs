@@ -4510,7 +4510,7 @@ namespace friday.core.repositories
                     }
                     if (df.type.Equals("Id"))
                     {
-                        query.Add(Restrictions.Like(notself + "Id", df.value, MatchMode.Anywhere));
+                        query.Add(Restrictions.Like(notself + "Id",Convert.ToInt32(df.value))); //, MatchMode.Anywhere));
                         continue;
                     }
 
@@ -4631,7 +4631,7 @@ namespace friday.core.repositories
                     }
                     if (df.type.Equals("Id"))
                     {
-                        query.Add(Restrictions.Like(notself + "Id", df.value, MatchMode.Anywhere));
+                        query.Add(Restrictions.Eq(notself + "Id", Convert.ToInt32(df.value)));//, MatchMode.Anywhere));
                         continue;
                     }
 
