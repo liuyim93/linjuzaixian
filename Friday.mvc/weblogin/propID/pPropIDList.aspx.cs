@@ -72,7 +72,7 @@ namespace Friday.mvc.weblogin
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
                 List<DataFilter> filterList = new List<DataFilter>();
-                     
+                List<DataFilter> filterMerchantList = new List<DataFilter>();                     
                
 
                 filterList.Add(new DataFilter()
@@ -88,15 +88,28 @@ namespace Friday.mvc.weblogin
 
                     });
 
+                if (!string.IsNullOrEmpty(merchantId))
+                {
+                    filterMerchantList.Add(new DataFilter()
+                       {
+                           type = "Merchant",
+                           value = merchantId
+                       });
+                    filterList.Add(new DataFilter() 
+                    {
+                        type = "Merchant",
+                        field = filterMerchantList
+                    });
+                }
                 if (!string.IsNullOrEmpty(Request.Form["PropIDId"]))
                 {
                     propIDId = Request.Form["PropIDId"];
                     filterList.Add(new DataFilter()
-                       {
-                           type = "Id",
-                           value = propIDId
+                    {
+                        type = "Id",
+                        value = propIDId
 
-                       });
+                    });
                 }
 
                 IList<PropID> propIDList = iPropIDService.Search(filterList, start, limit, out total);
