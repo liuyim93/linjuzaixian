@@ -18,5 +18,6 @@ namespace friday.core.services
         bool IsHaveTheSameName(string name);
         PropID getPropIDbyIntID(string id);
         IList<PropID> GetPropIDByMerchantID(string mid);
+        PropID getPropIDbyPropIDName(string name);
     }
 }

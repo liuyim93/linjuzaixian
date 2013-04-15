@@ -73,8 +73,9 @@ namespace Friday.mvc.weblogin
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
                 List<DataFilter> filterList = new List<DataFilter>();
-                     
+                List<DataFilter> filterMerchantList = new List<DataFilter>();                     
                
+     
 
                 filterList.Add(new DataFilter()
                 {
@@ -98,6 +99,20 @@ namespace Friday.mvc.weblogin
                            value = propValueId
 
                        });
+                }
+
+                if (!string.IsNullOrEmpty(merchantId))
+                {
+                    filterMerchantList.Add(new DataFilter()
+                    {
+                        type = "Merchant",
+                        value = merchantId
+                    });
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "Merchant",
+                        field = filterMerchantList
+                    });
                 }
 
                 IList<PropValue> propValueList = iPropValueService.Search(filterList, start, limit, out total);

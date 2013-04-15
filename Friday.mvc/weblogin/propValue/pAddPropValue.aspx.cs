@@ -38,7 +38,14 @@ namespace Friday.mvc.weblogin
             //    Response.End();
             //}
 
-            mid = Request.Params["merchant_id"].ToString();
+            if (!string.IsNullOrEmpty(Request.Params["merchant_id"]))
+            {
+                mid = Request.Params["merchant_id"].ToString();
+            }
+            if (!this.CurrentUser.IsAdmin) 
+            { 
+                mid=this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            }
             //mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
@@ -47,26 +54,20 @@ namespace Friday.mvc.weblogin
             else 
             {
                 IList<PropID> propIDs = new List<PropID>();
-                if (!this.CurrentUser.IsAdmin)
+                if (!string.IsNullOrEmpty(mid)) //!this.CurrentUser.IsAdmin 
                 {
-                    propIDs = iPropIDService.GetPropIDByMerchantID(this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
+                    propIDs = iPropIDService.GetPropIDByMerchantID(mid);//this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
                 }
-                else
-                {
-                    propIDs = iPropIDService.GetAll();
-                }
+                //else 
+                //{
+                //    propIDs = iPropIDService.GetAll();
+                //}
                 foreach (var i in propIDs)
                 {
                     this.PropIDList.Items.Add(i.PropIDName);
                 }
                 
             }
-
-
-
-
-
-
 
         }
 
@@ -90,6 +91,8 @@ namespace Friday.mvc.weblogin
             else 
             {
 
+                PropID propid = iPropIDService.getPropIDbyPropIDName(this.PropIDList.Value);
+                propValue.PropID = propid;
                 iPropValueService.Save(propValue);
                 result.statusCode = "200";
                 result.message = "添加成功";

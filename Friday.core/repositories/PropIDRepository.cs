@@ -49,6 +49,11 @@ namespace friday.core.repositories
             var ppd = (from x in this.Session.Query<PropID>() select x).Where(o => o.Id == pid && o.IsDelete == false).SingleOrDefault();
             return ppd;
         }
+        public PropID getPropIDbyPropIDName(string name)
+        {
+            var ppd = (from x in this.Session.Query<PropID>() select x).Where(o => o.PropIDName == name && o.IsDelete == false).SingleOrDefault();
+            return ppd;
+        }
         public IList<PropID> GetPropIDByMerchantID(string mid)
         {
             var list = (from x in this.Session.Query<PropID>() select x).Where(o => o.Merchant.Id == mid && o.IsDelete == false).ToList();

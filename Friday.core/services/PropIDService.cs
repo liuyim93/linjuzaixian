@@ -56,6 +56,10 @@ namespace friday.core.services
         {
             return iPropIDRepository.IsHaveTheSameName(name);
         }
+        public PropID getPropIDbyPropIDName(string name)
+        {
+            return iPropIDRepository.getPropIDbyPropIDName(name);
+        }
         public IList<PropID> GetPropIDByMerchantID(string mid)
         {
             return iPropIDRepository.GetPropIDByMerchantID(mid);

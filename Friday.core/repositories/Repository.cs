@@ -4540,19 +4540,84 @@ namespace friday.core.repositories
             return query;
         }
 
+        //protected ICriteria SearchByPropValue(ICriteria query, List<DataFilter> termList, bool isSelf)
+        //{
+        //    string notself = null;
+        //    if (!isSelf)
+        //    {
+        //        query.CreateAlias("PropValue", "propValue");
+        //        notself = "propValue.";
+        //    }
+        //    if (termList.Count != 0)
+        //    {
+
+        //        foreach (DataFilter df in termList)
+        //        {
+        //            if (df.type.Equals("IsDelete"))
+        //            {
+        //                query.Add(Expression.Eq(notself + "IsDelete", false));
+        //                continue;
+        //            }
+
+        //            if (df.type.Equals("PropValueName"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "PropValueName", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+        //            if (df.type.Equals("Id"))
+        //            {
+        //                query.Add(Restrictions.Like(notself + "Id", df.value, MatchMode.Anywhere));
+        //                continue;
+        //            }
+
+        //            //嵌套PropID查询
+        //            if (df.type.Equals("PropID"))
+        //            {
+        //                SearchByPropID(query, termList, false);
+        //                continue;
+        //            }
+
+        //        }
+        //    }
+        //    return query;
+        //}
         protected ICriteria SearchByPropValue(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
+            return SearchByPropValue(query, termList);
+        }
+        protected ICriteria SearchByPropValue(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByPropValue(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByPropValue(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
             string notself = null;
-            if (!isSelf)
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
             {
-                query.CreateAlias("PropValue", "propValue");
                 notself = "propValue.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "PropValue";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".PropValue";
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "propValue");
             }
+            deepIndex++;
             if (termList.Count != 0)
             {
 
                 foreach (DataFilter df in termList)
                 {
+
                     if (df.type.Equals("IsDelete"))
                     {
                         query.Add(Expression.Eq(notself + "IsDelete", false));
@@ -4573,12 +4638,24 @@ namespace friday.core.repositories
                     //嵌套PropID查询
                     if (df.type.Equals("PropID"))
                     {
-                        SearchByPropID(query, termList, false);
+                        SearchByPropID(query, df.field, ref deepIndex, ref parentSearch);
                         continue;
                     }
+                    //Merchant                                
+                    if (df.type.Equals("Merchant"))
+                    {
 
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchByMerchant(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }  
+                
                 }
             }
+            deepIndex--;
+            parentSearch = oldParentSearch;
             return query;
         }
         protected ICriteria SearchByRestaurantStatistic(ICriteria query, List<DataFilter> termList, bool isSelf)
