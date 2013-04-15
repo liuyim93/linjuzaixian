@@ -476,6 +476,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(propid);
             adminMenuCheckList.Add(propid);
+            shopOwnerMenuCheckList.Add(propid);
+            shopMemberMenuCheckList.Add(propid);
 
             SystemMenu propvalue = new SystemMenu()
             {
@@ -488,6 +490,8 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(propvalue);
             adminMenuCheckList.Add(propvalue);
+            shopOwnerMenuCheckList.Add(propvalue);
+            shopMemberMenuCheckList.Add(propvalue);
 
             //SystemMenu valuingComments = new SystemMenu()
             //{
@@ -1132,14 +1136,14 @@ namespace Friday.Test2
             }           
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "员工维护", "规格类型维护", "规格明细维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
             foreach (var i in shopArr)
             {
                 sysFuncObjInShopOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "规格类型维护", "规格明细维护", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
             foreach (var i in shopEmpArr)
             {
                 sysFuncObjInShopEmpRolerList.Add(GetFuncObjInRoleByi(i));
