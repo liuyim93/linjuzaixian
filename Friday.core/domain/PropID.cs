@@ -6,7 +6,7 @@ using friday.core.domain;
 
 namespace friday.core.domain
 {
-    public class PropID : BaseObject
+    public class PropID :BaseObject//Entity
     {
         public PropID()
         {
@@ -22,16 +22,16 @@ namespace friday.core.domain
             get;
             set;
         }
-        public virtual DateTime CreateTime 
-        { 
-            get; 
-            protected set; 
-        }
         public virtual Merchant Merchant
         {
             get;
 
             set;
+        } 
+        public virtual DateTime CreateTime 
+        { 
+            get; 
+            protected set; 
         }
     }
 }

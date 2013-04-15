@@ -73,8 +73,8 @@ namespace Friday.mvc.weblogin
                 int start = (pageNum - 1) * numPerPageValue;
                 int limit = numPerPageValue;
                 List<DataFilter> filterList = new List<DataFilter>();
-                List<DataFilter> filterMerchantList = new List<DataFilter>();                     
-               
+                List<DataFilter> filterMerchantList = new List<DataFilter>();
+                List<DataFilter> filterPropIdList = new List<DataFilter>(); 
      
 
                 filterList.Add(new DataFilter()
@@ -97,8 +97,21 @@ namespace Friday.mvc.weblogin
                        {
                            type = "Id",
                            value = propValueId
-
                        });
+                }
+                if (!string.IsNullOrEmpty(Request.Form["PropIDName"]))
+                {
+                    propIDName = Request.Form["PropIDName"];
+                    filterPropIdList.Add(new DataFilter()
+                    {
+                        type = "PropIDName",
+                        value = propIDName
+                    });
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "PropID",
+                        field = filterPropIdList
+                    });
                 }
 
                 if (!string.IsNullOrEmpty(merchantId))
@@ -126,7 +139,7 @@ namespace Friday.mvc.weblogin
 
         private void DeletePropValue()
         {
-            //iPropValueService.Delete(Request.Params["uid"]);
+            iPropValueService.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

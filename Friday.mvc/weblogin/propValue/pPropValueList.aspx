@@ -80,8 +80,9 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" align="center">所属规格</th>
-                            <th width="20%" orderField="PropValueName" class="asc" align="center">明细名称</th>
+                            <th width="20%"  orderField="PropValueName" class="asc"  align="center">编号</th>
+                            <th width="25%" align="center">所属规格</th>
+                            <th width="25%" align="center">明细名称</th>
                            
                           
                             <th width="20%" align="center">删除标记</th>
@@ -93,6 +94,7 @@
                 
                     <tr target="propValueid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
+                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Id")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropID.PropIDName")%></td> 
                       
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropValueName")%></td>

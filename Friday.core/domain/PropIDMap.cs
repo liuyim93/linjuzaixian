@@ -10,7 +10,12 @@ namespace friday.core.domain
     {
         public PropIDMap()
         {
-            Id(o => o.Id).GeneratedBy.Native();//. Default(1000000);
+            //Id(o => o.Id);
+            //Map(o => o.CreateTime);
+            //Map(o => o.IsDelete);
+            //Map(o => o.Version);
+            //Map(o => o.IndexId).Generatedby.Native();//. Default(1000000);
+            Id(o=>o.Id).GeneratedBy.Native();
             Map(o => o.IsDelete);
             Map(o => o.PropIDName);
             Map(o => o.CreateTime);
