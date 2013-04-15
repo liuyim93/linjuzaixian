@@ -8,6 +8,6 @@ namespace friday.core.repositories
 {
     public interface ISKURepository : IRepository<SKU>
     {
-
+        IList<SKU> GetSKUsByCommodityID(string commodityID, int start, int limit, out long total);
     }
 }

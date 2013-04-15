@@ -5,8 +5,8 @@
         <div class="tabsHeaderContent">
           <ul>
                 <li class="selected"><a href="#"><span>商品基本信息</span></a></li>
-                <li><a href='commodity/pCommodityDetail.aspx?commodity_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
-                target="ajax"><span>商品规格</span></a></li>
+                <li><a href='sku/pSkuList.aspx?commodity_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
+                target="ajax"><span>商品种类</span></a></li>
            </ul>
         </div>
     </div>

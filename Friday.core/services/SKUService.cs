@@ -19,6 +19,11 @@ namespace friday.core.services
             this.iLogger = iLogger;
         }
 
+        public IList<SKU> GetSKUsByCommodityID(string commodityID, int start, int limit, out long total)
+        {
+            return iSKURepository.GetSKUsByCommodityID(commodityID, start, limit, out total);
+        }
+
         public SKU Load(string id)
         {
             return iSKURepository.Load(id);
