@@ -8,6 +8,10 @@ namespace friday.core.domain
 {
     public class PropID : BaseObject
     {
+        public PropID()
+        {
+            CreateTime = DateTime.Now;
+        }
         public virtual int Id
         {
             get;
@@ -17,6 +21,11 @@ namespace friday.core.domain
         {
             get;
             set;
+        }
+        public virtual DateTime CreateTime 
+        { 
+            get; 
+            protected set; 
         }
         public virtual Merchant Merchant
         {

@@ -13,7 +13,7 @@ namespace friday.core.domain
             Id(o => o.Id).GeneratedBy.Native();//.Default(3000000);
             Map(o => o.IsDelete);
             Map(o => o.PropValueName);
-
+            Map(o => o.CreateTime);
             References<PropID>(o => o.PropID).Not.Nullable();
             References<Merchant>(o => o.Merchant).Not.Nullable();
         }
