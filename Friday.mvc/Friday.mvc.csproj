@@ -709,6 +709,13 @@
     <Compile Include="weblogin\propID\pPropIDList.aspx.designer.cs">
       <DependentUpon>pPropIDList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\propValue\pAddPropValue.aspx.cs">
+      <DependentUpon>pAddPropValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propValue\pAddPropValue.aspx.designer.cs">
+      <DependentUpon>pAddPropValue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.cs">
       <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1887,6 +1894,7 @@
     <Content Include="weblogin\propID\pAddPropID.aspx" />
     <Content Include="weblogin\propID\pEditPropID.aspx" />
     <Content Include="weblogin\propID\pPropIDList.aspx" />
+    <Content Include="weblogin\propValue\pAddPropValue.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />
     <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />

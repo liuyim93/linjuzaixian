@@ -38,7 +38,18 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<PropValue>();
         }
-         
+
+        public bool IsHaveTheSameName(string name)
+        {
+            var isHaveChild = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropValueName == name && o.IsDelete == false).Count() > 0 ? true : false;
+            return isHaveChild;
+        }
+        public PropValue getPropValuebyIntID(string id)
+        {
+            int pid = Convert.ToInt32(id);
+            var ppd = (from x in this.Session.Query<PropValue>() select x).Where(o => o.Id == pid && o.IsDelete == false).SingleOrDefault();
+            return ppd;
+        }
 
     }
      

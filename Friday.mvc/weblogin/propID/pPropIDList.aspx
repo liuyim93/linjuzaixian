@@ -74,9 +74,10 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" orderField="PropIDName" class="asc" align="center">名称</th>
+                             <th width="20%"  orderField="Id" class="asc" align="center">规格编号</th>
+                            <th width="20%"  align="center">规格名称</th>
                            
-                            <th width="20%" align="center">创建时间</th>
+                         
                             <th width="20%" align="center">删除标记</th>
                         </tr>
                     </thead>
@@ -86,7 +87,7 @@
                 
                     <tr target="propIDid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropIDName")%></td> 
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Id")%></td> 
                       
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropIDName")%></td>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>
