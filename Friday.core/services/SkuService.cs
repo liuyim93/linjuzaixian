@@ -46,5 +46,10 @@ namespace friday.core.services
             iLogger.LogMessage("删除Sku数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iSkuRepository.Delete(id);
         }
+
+        public Sku getSkubyIntID(string id)
+        {
+            return iSkuRepository.getSkubyIntID(id);
+        }
     }
 }

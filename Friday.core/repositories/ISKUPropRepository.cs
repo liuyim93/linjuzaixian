@@ -8,6 +8,7 @@ namespace friday.core.repositories
 {
     public interface ISkuPropRepository : IRepository<SkuProp>
     {
+        SkuProp getSkuPropbyIntID(string id);
         IList<SkuProp> GetSkuPropsBySkuID(string SKU_ID, int start, int limit, out long total);
     }
 }

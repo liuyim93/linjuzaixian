@@ -15,5 +15,12 @@ namespace friday.core.repositories
             total = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).Count();
             return list;
         }
+
+        public SkuProp getSkuPropbyIntID(string id)
+        {
+            int pid = Convert.ToInt32(id);
+            var ppd = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.Id == pid && o.IsDelete == false).SingleOrDefault();
+            return ppd;
+        }
     }
 }
