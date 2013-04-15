@@ -187,7 +187,7 @@ namespace friday.coretest
                    SkuProp skpcolor = new SkuProp()
                    {
                        PropID = ppt1,
-                       PropValue = iPropValues[l%3],
+                       PropValue = iPropValues[l/4],
                        SKU=skus
                    };
                    iSkuPropRepository.SaveOrUpdate(skpcolor);
