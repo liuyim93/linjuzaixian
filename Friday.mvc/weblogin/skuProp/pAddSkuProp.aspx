@@ -12,7 +12,7 @@
                     规格类型：</label>
                 <input type="text" id="PropIDName" size="30" class="required textInput gray"
                     runat="server" readonly="true" />
-                <input type="hidden" id="PropID" size="30" runat="server" />
+                <input type="text" id="PropID" size="30" class="required textInput gray" runat="server" />
                 <a class="btnLook" href="ListPropID.aspx" rel=""  lookupgroup="">选择规格</a>
             </p>
 
@@ -20,7 +20,7 @@
                 <label>
                     规格值：</label>
                 <select id="PropValue" style="width: 85px" runat="server">
-                    <option value="营业时间">营业时间</option>
+                       <option value="">请选择</option>
                 </select>
             </p>
 
@@ -58,7 +58,6 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger;
 
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
@@ -73,6 +72,35 @@
 
                 });
             }
+
+            var propID = o.find("#PropID");
+            var PropValue = o.find("#PropValue");
+
+            o.find("#PropID").change(function (event) {
+                debugger
+                var dataStr = "{'nvls':[{'name':'propID','value':'" + propID.val() + "'}]}";
+                $.ajax({
+                    type: "POST",
+                    contentType: 'application/json; charset=utf8',
+                    dataType: "json",
+                    data: dataStr,
+                    url: "skuProp/pAddSkuProp.aspx/GetPropValue?t=" + (new Date().getTime()),
+                    success: function (result) {
+                        debugger
+                        if (result == null) return;
+                        if (result.d != null) {
+                            var items = eval(result.d);
+                            PropValue.empty();
+                            PropValue.append('<option value="">请选择</option>');
+                            for (var i = 0; i < items.length; i++) {
+                                PropValue.append('<option value="' + items[i].Id + '">' + items[i].PropValueName + '</option>');
+                            }
+                        }
+                    }
+                });
+            });
+
+
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
         });

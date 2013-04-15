@@ -36,7 +36,7 @@
                  </HeaderTemplate>
                  <ItemTemplate> 
                     
-                    <tr target="addressid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
+                    <tr target="addressid" rel="<%#Eval("skuId")%>&discriminer=<%#Eval("skuId")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Name")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "price")%></td> 
