@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSkuList.aspx.cs" Inherits="Friday.mvc.weblogin.sku.pSkuList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pSkuPropList.aspx.cs" Inherits="Friday.mvc.weblogin.pSkuPropList" %>
 
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
@@ -9,15 +9,15 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="sku/pAddSku.aspx?commodity_id=<%=Request.Params["commodity_id"]%>" title="增加商品种类" target="navTab"
-            rel=""><span>增加商品种类</span></a></li>
-        <li><a class="edit" href="Address/pEditAddress.aspx?uid={addressid}" title="修改商品种类" rel="" target="navTab"><span>修改商品种类</span></a></li>
+        <li><a class="add" href="skuProp/pAddSkuProp.aspx?sku_id=<%=Request.Params["sku_id"]%>" title="增加规格" target="dialog"
+            rel=""><span>增加规格</span></a></li>
+        <li><a class="edit" href="Address/pEditAddress.aspx?uid={addressid}" title="修改规格" rel="" target="dialog"><span>修改规格</span></a></li>
         <li><a class="delete" href="Address/pAddressList.aspx?flag=alldelete&uid={addressid}" target="ajaxTodo"
-            title="确定要删除吗?"><span>删除商品种类</span></a></li>
+            title="确定要删除吗?"><span>删除规格</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
-<div>
+<div id="SkuPropList">
 <form id="form" rel="pagerForm" method="post" runat="server">
 </form>
     <table class="table" rel='<%=Request.Params["rel_v3"] %>'>
@@ -26,22 +26,20 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="15%" align="center">商品种类名称</th>
-                            <th width="20%" align="center">价格</th>
-                            <th width="10%" align="center">库存</th>
-
+                            <th width="20%" align="center">规格</th>
+                            <th width="20%" align="center">规格值</th>
                         </tr>
                     </thead>
                     <tbody>
                  </HeaderTemplate>
                  <ItemTemplate> 
                     
-                    <tr target="addressid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
+                    <tr target="SkuPropID" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
-                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Name")%></td>
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "price")%></td> 
-                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "stock")%></td>
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropID.PropIDName")%></td> 
+                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropValue.PropValueName")%></td>
                     </tr>
+			      
                 </ItemTemplate>
          </asp:repeater>
         </tbody>
@@ -67,7 +65,8 @@
     $(function () {
         var rel_v3 = '<%=Request.Params["rel_v3"] %>';
         var prefix = '<%=Request.Params["prefix"] %>';
-
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
@@ -84,5 +83,7 @@
             o = null;
 
         });
+
+
     });
 </script>

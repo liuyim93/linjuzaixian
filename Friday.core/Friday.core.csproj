@@ -139,6 +139,7 @@
     <Compile Include="repositories\IScoreOfItemInCommodityOrderRepository.cs" />
     <Compile Include="repositories\IScoreOfItemInFoodOrderRepository.cs" />
     <Compile Include="repositories\IScoreOfItemInHouseOrderRepository.cs" />
+    <Compile Include="repositories\ISKUPropRepository.cs" />
     <Compile Include="repositories\ISKURepository.cs" />
     <Compile Include="repositories\ISystemMenuRepository.cs" />
     <Compile Include="repositories\IValuingCommentsRepository.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="repositories\ScoreOfItemInCommodityOrderRepository.cs" />
     <Compile Include="repositories\ScoreOfItemInFoodOrderRepository.cs" />
     <Compile Include="repositories\ScoreOfItemInHouseOrderRepository.cs" />
+    <Compile Include="repositories\SKUPropRepository.cs" />
     <Compile Include="repositories\SKURepository.cs" />
     <Compile Include="repositories\SystemMenuRepository.cs" />
     <Compile Include="repositories\MessageContentRepository.cs" />
@@ -193,6 +195,7 @@
     <Compile Include="services\IScoreOfItemInCommodityOrderService.cs" />
     <Compile Include="services\IScoreOfItemInFoodOrderService.cs" />
     <Compile Include="services\IScoreOfItemInHouseOrderService.cs" />
+    <Compile Include="services\ISKUPropService.cs" />
     <Compile Include="services\ISKUService.cs" />
     <Compile Include="services\ISystemMenuService.cs" />
     <Compile Include="services\ISystemRoleService.cs" />
@@ -427,6 +430,7 @@
     <Compile Include="services\ScoreOfItemInCommodityOrderService.cs" />
     <Compile Include="services\ScoreOfItemInFoodOrderService.cs" />
     <Compile Include="services\ScoreOfItemInHouseOrderService.cs" />
+    <Compile Include="services\SKUPropService.cs" />
     <Compile Include="services\SKUService.cs" />
     <Compile Include="services\SystemFunctionObjectService.cs" />
     <Compile Include="services\SystemMenuService.cs" />

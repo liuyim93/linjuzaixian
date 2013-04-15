@@ -23,5 +23,10 @@ namespace friday.core.domain
             get;
             set;
         }
+        public virtual SKU SKU
+        {
+            get;
+            set;
+        }
     }
 }
