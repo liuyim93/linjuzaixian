@@ -16,6 +16,7 @@ namespace Friday.mvc.weblogin
     {
     
         IPropValueService iPropValueService = UnityHelper.UnityToT<IPropValueService>();
+        IPropIDService iPropIDService = UnityHelper.UnityToT<IPropIDService>();
         IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
 
         private PropValue propValue;
@@ -41,9 +42,32 @@ namespace Friday.mvc.weblogin
             //mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
                 SavePropValue();
             }
+            else 
+            {
+                IList<PropID> propIDs = new List<PropID>();
+                if (!this.CurrentUser.IsAdmin)
+                {
+                    propIDs = iPropIDService.GetPropIDByMerchantID(this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
+                }
+                else
+                {
+                    propIDs = iPropIDService.GetAll();
+                }
+                foreach (var i in propIDs)
+                {
+                    this.PropIDList.Items.Add(i.PropIDName);
+                }
+                
+            }
+
+
+
+
+
+
+
         }
 
         private void SavePropValue()

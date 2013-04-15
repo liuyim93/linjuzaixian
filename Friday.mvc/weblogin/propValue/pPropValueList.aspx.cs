@@ -25,6 +25,7 @@ namespace Friday.mvc.weblogin
         protected string propValueName;
         protected string propValueId;
         protected int intPropValueId;
+        protected string propIDName;
 
         IPropValueService iPropValueService = UnityHelper.UnityToT<IPropValueService>();
 

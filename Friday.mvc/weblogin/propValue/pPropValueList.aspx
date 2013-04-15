@@ -18,12 +18,18 @@
                 <tr>
                     <td>
                         <label>
-                            名称:</label>
+                            所属规格:</label>
+                        <input id="PropIDName" type="text" name="PropIDName" value="<%=propIDName%>" />
+                    </td>
+                 
+                    <td>
+                        <label>
+                            明细名称:</label>
                         <input id="PropValueName" type="text" name="PropValueName" value="<%=propValueName%>" />
                     </td>
                     <td>
                         <label>
-                            编号:</label>
+                            明细编号:</label>
                         <input id="PropValueId" type="text" name="PropValueId" value="<%=propValueId%>" />
                     </td>
                  
@@ -74,9 +80,10 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="20%" orderField="PropValueName" class="asc" align="center">名称</th>
+                            <th width="20%" align="center">所属规格</th>
+                            <th width="20%" orderField="PropValueName" class="asc" align="center">明细名称</th>
                            
-                            <th width="20%" align="center">创建时间</th>
+                          
                             <th width="20%" align="center">删除标记</th>
                         </tr>
                     </thead>
@@ -86,7 +93,7 @@
                 
                     <tr target="propValueid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropValueName")%></td> 
+                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropID.PropIDName")%></td> 
                       
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropValueName")%></td>
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>

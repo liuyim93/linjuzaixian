@@ -39,6 +39,10 @@ namespace friday.core.services
             iLogger.LogMessage("删除PropID数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iPropIDRepository.Delete(id);
         }
+        public IList<PropID> GetAll()
+        {
+            return iPropIDRepository.GetAll();
+        }
         public PropID getPropIDbyIntID(string id) 
         {
             return iPropIDRepository.getPropIDbyIntID(id);
@@ -52,7 +56,10 @@ namespace friday.core.services
         {
             return iPropIDRepository.IsHaveTheSameName(name);
         }
-
+        public IList<PropID> GetPropIDByMerchantID(string mid)
+        {
+            return iPropIDRepository.GetPropIDByMerchantID(mid);
+        }
 
     }
 }

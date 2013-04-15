@@ -13,8 +13,10 @@ namespace friday.core.services
         void Save(PropID propID);
         void Update(PropID propID);
         void Delete(string id);
+        IList<PropID> GetAll();
         IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
-        PropID getPropIDbyIntID(string id); 
+        PropID getPropIDbyIntID(string id);
+        IList<PropID> GetPropIDByMerchantID(string mid);
     }
 }

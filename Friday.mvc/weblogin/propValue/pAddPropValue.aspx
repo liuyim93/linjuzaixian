@@ -7,9 +7,21 @@
         <h1>
             规格类型信息</h1>
         <div>
+
+
+         <p>
+                <label>
+                    所属规格：</label>
+                   <select name="PropIDList" id="PropIDList" runat="server" >
+                         <option value="">请选择</option>
+                        
+                     </select>
+                
+            </p>
+
             <p>
                 <label>
-                    规格类型名称：</label>
+                    规格明细名称：</label>
                 <input type="text" id="PropValueName" size="30" class="required textInput gray"  runat="server" />
                 
             </p>
