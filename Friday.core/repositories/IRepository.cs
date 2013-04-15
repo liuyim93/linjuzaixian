@@ -12,11 +12,13 @@ namespace friday.core.repositories
     {
         T Load(string id);
         T Get(string id);
+        T Get(int id);
         IList<T> GetAll();
      
         void SaveOrUpdate(T entity);
         void Update(T entity);
         void Delete(string id);
+        void Delete(int id);
         void PhysicsDelete(string id);
         IList<T> GetPageList(int start, int limit, out long total);
             }

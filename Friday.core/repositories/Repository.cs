@@ -146,6 +146,52 @@ namespace friday.core.repositories
                 throw new Exception("删除实体失败", ex);
             }
         }
+        //20130415  庞夫星  重载  int  for  PropID and PropValue
+        public virtual T Load(int id)
+        {
+            try
+            {
+                T reslut = Session.Load<T>(id);
+                if (reslut == null)
+                    throw new Exception("返回实体为空");
+                else
+                    return reslut;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("获取实体失败", ex);
+            }
+        }
+        //20130415  庞夫星  重载  int  for  PropID and PropValue
+        public virtual void Delete(int id)
+        {
+            try
+            {
+                var entity = Get(id);
+                entity.IsDelete = true;
+                Update(entity);
+            }
+            catch (System.Exception ex)
+            {
+                throw new Exception("删除实体失败", ex);
+            }
+        }
+        //20130415  庞夫星  重载  int  for  PropID and PropValue
+        public virtual T Get(int id)
+        {
+            try
+            {
+                T reslut = Session.Get<T>(id);
+                if (reslut == null)
+                    throw new Exception("返回实体为空");
+                else
+                    return reslut;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("获取实体失败", ex);
+            }
+        }
         
         private string GetComparison(string comparison)
         {

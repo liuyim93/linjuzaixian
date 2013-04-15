@@ -139,7 +139,8 @@ namespace Friday.mvc.weblogin
 
         private void DeletePropValue()
         {
-            iPropValueService.Delete(Request.Params["uid"]);
+            int intid = Convert.ToInt32(Request.Params["uid"]);
+            iPropValueService.Delete(intid);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

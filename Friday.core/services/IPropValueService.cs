@@ -12,7 +12,7 @@ namespace friday.core.services
         PropValue Load(string id);
         void Save(PropValue propValue);
         void Update(PropValue propValue);
-        void Delete(string id);
+        void Delete(int id);
         IList<PropValue> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
         PropValue getPropValuebyIntID(string id); 

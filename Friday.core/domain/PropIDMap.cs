@@ -14,7 +14,7 @@ namespace friday.core.domain
             //Map(o => o.CreateTime);
             //Map(o => o.IsDelete);
             //Map(o => o.Version);
-            //Map(o => o.IndexId).Generatedby.Native();//. Default(1000000);
+            //Map(o => o.IndexId).Generatedby.Native();//.Default(1000000);
             Id(o=>o.Id).GeneratedBy.Native();
             Map(o => o.IsDelete);
             Map(o => o.PropIDName);

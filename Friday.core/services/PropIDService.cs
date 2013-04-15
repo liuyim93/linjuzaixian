@@ -34,7 +34,7 @@ namespace friday.core.services
             iPropIDRepository.SaveOrUpdate(propID);
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             iLogger.LogMessage("删除PropID数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iPropIDRepository.Delete(id);

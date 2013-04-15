@@ -34,7 +34,7 @@ namespace friday.core.services
             iPropValueRepository.SaveOrUpdate(propValue);
         }
 
-        public void Delete(string id)
+        public void Delete(int id)
         {
             iLogger.LogMessage("删除PropValue数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iPropValueRepository.Delete(id);
