@@ -22,6 +22,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
+        private ISkuService iSkuService;
+        private ISkuPropService iSkuPropService;
+        private IPropValueService iPropValueService;
+        private IPropIDService iPropIDService;
+
         private IOrderOfCommodityService iOrderOfCommodityService;
         private IOrderOfFoodService iOrderOfFoodService;
         private IOrderOfHouseService iOrderOfHouseService;
@@ -51,7 +56,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         public ActionResult Index()
         {
             string brandId = Request.Params["brandId"].ToString();
-            friday.core.Merchant merchant = iMerchantService.Load(brandId);
+            friday.core.Merchant merchant = iMerchantService.Load(brandId);           
 
             DetailModel detailModel = new DetailModel();
             detailModel.Merchant = merchant;
@@ -116,25 +121,43 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult InitItemDetail()
         {
-           var sku_list= new List<SKUDO>(){new SKUDO()
-                        {
-                            money="0",
-                            name="",
-                            postage="快递: 0.00 ",
-                            postageFree=false,
-                            signText="",
-                            type=0
-                        }};
-            dynamic deliverySkuMap = new Dictionary<string,List<SKUDO>>();
-            for (int i = 0; i < 10; i++)
+            IList<Sku>  skulist=new List<Sku>();
+            //string brandId = Request.Params["brandId"].ToString();
+            //friday.core.Merchant merchant = iMerchantService.Load(brandId);
+            string commdityId = "dd35ae8d-2468-4cd9-8e56-ffe3d52af94d";
+            Commodity commodity = iCommodityService.Load(commdityId);
+            skulist = commodity.Skus.ToList<Sku>();
+            
+            var sku_list = new List<SKUDO>();
+            var sku_quantityList=new List<SkuQuantity>();
+
+            for (int i = 0; i < skulist.Count; i++)
             {
-                deliverySkuMap.Add(i.ToString(), sku_list);
-            }
+              SKUDO  skuvommdty= new SKUDO()
+                     {
+                        money=skulist[i].price.ToString(),
+                        name=skulist[i].Commodity.Name,
+                        postage="快递: 0.00 ",
+                        postageFree=false,
+                        signText=skulist[i].stock.ToString(),
+                        type=0
+                      };
+                sku_list.Add(skuvommdty);
+             
+              SkuQuantity  skuquty=new SkuQuantity()
+                    {
+                     quantity=skulist[i].stock,
+                      type=skulist[i].Commodity.Version
+                    };
+                sku_quantityList.Add(skuquty);
+              }
+
+            
             DefaultModel defaultModel = new DefaultModel()
             {
                 deliveryDO = new DeliveryDO()
                 {
-                    deliverySkuMap = deliverySkuMap,
+                    deliverySkuMap = sku_list,
                     //2013-04-11 pang
                     otherServiceList = "[]"
                 },
@@ -155,19 +178,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 inventoryDO = new InventoryDO()
                 {
                     icTotalQuantity = 45,
-                    skuQuantity = new
-                    {
-                        b41506008322 = new List<SkuQuantity>{new SkuQuantity()
-                       {
-                           quantity=3,
-                           type=1
-                       }},
-                        b41506008333 = new List<SkuQuantity>{new SkuQuantity()
-                       {
-                           quantity=5,
-                           type=1
-                       }}
-                    },
+                    skuQuantity = sku_quantityList,
                     success = true,
                     totalQuantity = 45,
                     type = 1
