@@ -72,7 +72,7 @@ namespace Friday.mvc.weblogin.commodity
         private void SearchCommodity()
         {
             //在这里初始化ShopId
-            numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
+            numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
             if (!this.CurrentUser.IsAdmin)
             {
                 shopId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;

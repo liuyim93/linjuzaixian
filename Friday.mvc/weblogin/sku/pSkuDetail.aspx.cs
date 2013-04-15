@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Friday.mvc.weblogin.sku
 {
-    public partial class pSkuList : System.Web.UI.Page
+    public partial class pSkuDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

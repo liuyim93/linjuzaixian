@@ -63,9 +63,9 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="commodity/pAddCommodity.aspx?merchant_id={id}" title="增加商品" target="dialog"
+        <li><a class="add" href="commodity/pAddCommodity.aspx" title="增加商品" target="dialog"
             rel="" width="600" height="400"><span>增加商品</span></a></li>
-        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}&merchant_id={id}" title="修改商品" rel="" target="dialog"
+        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}" title="修改商品" rel="" target="dialog"
             height="480"><span>修改商品</span></a></li>
         <li><a class="delete" href="commodity/pCommodityList.aspx?flag=alldelete&commodity_id={commodityid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除商品</span></a></li>
@@ -91,7 +91,7 @@
                 
                     <tr target="commodityid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td>
-                         <td><a href="sku/pSkuList.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="skuBox"><%#Eval("Name")%>
+                         <td><a href="commodity/pCommodityDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Name")%>
                             </a></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "MonthAmount")%></td> 
                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "Createtime")%></td>
