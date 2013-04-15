@@ -152,7 +152,6 @@
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");
                 }
-
             });
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {

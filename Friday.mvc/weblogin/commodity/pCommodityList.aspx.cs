@@ -137,36 +137,18 @@ namespace Friday.mvc.weblogin.commodity
                 dfl.Add(new DataFilter() { type = "Name", value = name });
             }
 
-            //owenType = Request.Form["owenType"];
-
             goodsType = Request.Form["mGoodsType"];
             if (!string.IsNullOrEmpty(goodsType))
             {
                 MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, shopId);
                 string mectGTypeID = mectGType.Id;
                 dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
-                // dfl.Add(new DataFilter() { type = "GoodsType", value = goodsType });
             }
-            //else
-            //{
-            //    if (!string.IsNullOrEmpty(owenType))
-            //    {
-            //        dfl.Add(new DataFilter() { type = "CommodityType", value = owenType });
-            //    }
-            //}
-
-
-            //if (!string.IsNullOrEmpty(shopId))
-            //{
-            //    dfl.Add(new DataFilter() { type = "Shop", value = shopId });
-            //}
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
             string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
             dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
-            //dflForOrder.Add(new DataFilter() { type = "CommodityType", comparison = "Desc" });
-            //dflForOrder.Add(new DataFilter() { type = "Price" });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
             commodityList = iCommodityService.Search(dfl, start, limit, out total);
@@ -191,9 +173,6 @@ namespace Friday.mvc.weblogin.commodity
                 }
 
             }
-
-
-
             numPerPage.Value = numPerPageValue.ToString();
         }
     }

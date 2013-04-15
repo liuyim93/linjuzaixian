@@ -807,6 +807,13 @@
     <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.designer.cs">
       <DependentUpon>pShopStatisticList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\sku\pSkuList.aspx.cs">
+      <DependentUpon>pSkuList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\sku\pSkuList.aspx.designer.cs">
+      <DependentUpon>pSkuList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1831,6 +1838,7 @@
     <Content Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
+    <Content Include="weblogin\sku\pSkuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
