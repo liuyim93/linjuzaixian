@@ -10,7 +10,7 @@ namespace friday.core.services
     public interface IPropValueService
     {
         IList<PropValue> getPropValuebyPropID(string propID);
-        PropValue Load(string id);
+        PropValue Load(int id);
         void Save(PropValue propValue);
         void Update(PropValue propValue);
         void Delete(int id);

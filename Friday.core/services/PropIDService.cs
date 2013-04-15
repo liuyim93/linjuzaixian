@@ -19,7 +19,7 @@ namespace friday.core.services
             this.iPropIDRepository = iPropIDRepository;
             this.iLogger = iLogger;
         }
-        public PropID Load(string id)
+        public PropID Load(int id)
         {
             return iPropIDRepository.Load(id);
         }
@@ -42,10 +42,6 @@ namespace friday.core.services
         public IList<PropID> GetAll()
         {
             return iPropIDRepository.GetAll();
-        }
-        public PropID getPropIDbyIntID(string id) 
-        {
-            return iPropIDRepository.getPropIDbyIntID(id);
         }
         public IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total)
         {

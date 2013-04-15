@@ -9,14 +9,13 @@ namespace friday.core.services
 {
     public interface IPropIDService
     {
-        PropID Load(string id);
+        PropID Load(int id);
         void Save(PropID propID);
         void Update(PropID propID);
         void Delete(int id);
         IList<PropID> GetAll();
         IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
-        PropID getPropIDbyIntID(string id);
         IList<PropID> GetPropIDByMerchantID(string mid);
         PropID getPropIDbyPropIDName(string name);
     }

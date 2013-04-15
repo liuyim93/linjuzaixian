@@ -20,12 +20,12 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
+            int uid =Convert.ToInt32(Request.Params["uid"]);
 
             //tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
             //this.PermissionCheck();
 
-            propID = iPropIDService.getPropIDbyIntID(uid);
+            propID = iPropIDService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 

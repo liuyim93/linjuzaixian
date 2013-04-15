@@ -11,6 +11,7 @@ namespace friday.core.repositories
     public interface IRepository<T>  where T : BaseObject
     {
         T Load(string id);
+        T Load(int id);
         T Get(string id);
         T Get(int id);
         IList<T> GetAll();

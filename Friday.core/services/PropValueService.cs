@@ -19,7 +19,7 @@ namespace friday.core.services
             this.iPropValueRepository = iPropValueRepository;
             this.iLogger = iLogger;
         }
-        public PropValue Load(string id)
+        public PropValue Load(int id)
         {
             return iPropValueRepository.Load(id);
         }
