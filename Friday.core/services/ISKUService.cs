@@ -3,16 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using friday.core.domain;
-using friday.core.components;
 
 namespace friday.core.services
 {
-    public interface ISKUService
+    public interface ISkuService
     {
-        IList<SKU> GetSKUsByCommodityID(string commodityID, int start, int limit, out long total);
-        SKU Load(string id);
-        void Save(SKU sku);
-        void Update(SKU sku);
+        IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total);
+        Sku Load(string id);
+        void Save(Sku sku);
+        void Update(Sku sku);
         void Delete(string id);
     }
 }

@@ -8,43 +8,43 @@ using friday.core.domain;
 
 namespace friday.core.services
 {
-    public class SKUService:ISKUService
+    public class SkuService:ISkuService
     {
-        private ISKURepository iSKURepository;
+        private ISkuRepository iSkuRepository;
         private ILogger iLogger;
 
-        public SKUService(ISKURepository iSKURepository, ILogger iLogger)
+        public SkuService(ISkuRepository iSkuRepository, ILogger iLogger)
         {
-            this.iSKURepository = iSKURepository;
+            this.iSkuRepository = iSkuRepository;
             this.iLogger = iLogger;
         }
 
-        public IList<SKU> GetSKUsByCommodityID(string commodityID, int start, int limit, out long total)
+        public IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total)
         {
-            return iSKURepository.GetSKUsByCommodityID(commodityID, start, limit, out total);
+            return iSkuRepository.GetSkusByCommodityID(commodityID, start, limit, out total);
         }
 
-        public SKU Load(string id)
+        public Sku Load(string id)
         {
-            return iSKURepository.Load(id);
+            return iSkuRepository.Load(id);
         }
 
-        public void Save(SKU sku)
+        public void Save(Sku sku)
         {
-            iLogger.LogMessage("插入SKU数据，ID：" + sku.skuId, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iSKURepository.SaveOrUpdate(sku);
+            iLogger.LogMessage("插入Sku数据，ID：" + sku.skuId, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iSkuRepository.SaveOrUpdate(sku);
         }
 
-        public void Update(SKU sku)
+        public void Update(Sku sku)
         {
-            iLogger.LogMessage("更新SKU数据，ID：" + sku.skuId, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iSKURepository.SaveOrUpdate(sku);
+            iLogger.LogMessage("更新Sku数据，ID：" + sku.skuId, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iSkuRepository.SaveOrUpdate(sku);
         }
 
         public void Delete(string id)
         {
-            iLogger.LogMessage("删除SKU数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
-            iSKURepository.Delete(id);
+            iLogger.LogMessage("删除Sku数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iSkuRepository.Delete(id);
         }
     }
 }

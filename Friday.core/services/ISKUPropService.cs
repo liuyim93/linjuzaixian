@@ -6,12 +6,12 @@ using friday.core.domain;
 
 namespace friday.core.services
 {
-    public interface ISKUPropService
+    public interface ISkuPropService
     {
-        IList<SKUProp> GetSKUPropsBySkuID(string SKU_ID, int start, int limit, out long total);
-        SKUProp Load(string id);
-        void Save(SKUProp skuProp);
-        void Update(SKUProp skuProp);
+        IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total);
+        SkuProp Load(string id);
+        void Save(SkuProp skuProp);
+        void Update(SkuProp skuProp);
         void Delete(string id);
     }
 }

@@ -14,28 +14,28 @@ namespace Friday.mvc.weblogin.sku
 {
     public partial class pAddSku : System.Web.UI.Page
     {
-        private ISKUService skuService = UnityHelper.UnityToT<ISKUService>();
+        private ISkuService skuService = UnityHelper.UnityToT<ISkuService>();
         private ICommodityService commodityService = UnityHelper.UnityToT<ICommodityService>();
 
         Commodity commodity = new Commodity();
-        private SKU sku;
+        private Sku sku;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                SaveSKU();
+                SaveSku();
             }
             else
             {
-                sku = new SKU();
+                sku = new Sku();
                 //skuService.Save(sku);
                 SkuId.Value = sku.skuId.ToString();
             }
 
         }
 
-        private void SaveSKU()
+        private void SaveSku()
         {
 
             BindingHelper.RequestToObject(sku);

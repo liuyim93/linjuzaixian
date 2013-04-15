@@ -6,8 +6,8 @@ using friday.core.domain;
 
 namespace friday.core.repositories
 {
-    public interface ISKURepository : IRepository<SKU>
+    public interface ISkuRepository : IRepository<Sku>
     {
-        IList<SKU> GetSKUsByCommodityID(string commodityID, int start, int limit, out long total);
+        IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total);
     }
 }

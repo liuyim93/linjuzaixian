@@ -18,22 +18,22 @@ namespace Friday.mvc.weblogin.sku
         protected int numPerPageValue;
 
         protected string CommodityID;
-        private ISKURepository iSKURepository = UnityHelper.UnityToT<ISKURepository>();
+        private ISkuRepository iSkuRepository = UnityHelper.UnityToT<ISkuRepository>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.Params["flag"] != "alldelete")
             {
-                SearchSKU();
+                SearchSku();
             }
             else
             {
-                DeleteSKU();
+                DeleteSku();
             }
         }
-        private void DeleteSKU()
+        private void DeleteSku()
         {
-            iSKURepository.Delete(Request.Params["uid"]);
+            iSkuRepository.Delete(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";
@@ -42,7 +42,7 @@ namespace Friday.mvc.weblogin.sku
             Response.Write(jsonResult.FormatResult());
             Response.End();
         }
-        private void SearchSKU()
+        private void SearchSku()
         {
             if (Request.Form["commodity_id"] != null)
             {
@@ -57,9 +57,9 @@ namespace Friday.mvc.weblogin.sku
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IList<SKU> addressList = null;
+            IList<Sku> addressList = null;
 
-            addressList = iSKURepository.GetSKUsByCommodityID(CommodityID, start, limit, out total);
+            addressList = iSkuRepository.GetSkusByCommodityID(CommodityID, start, limit, out total);
             repeater.DataSource = addressList;
             repeater.DataBind();
 

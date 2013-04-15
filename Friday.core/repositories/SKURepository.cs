@@ -7,12 +7,12 @@ using friday.core.domain;
 
 namespace friday.core.repositories
 {
-    public class SKURepository : Repository<SKU>, ISKURepository
+    public class SkuRepository : Repository<Sku>, ISkuRepository
     {
-        public IList<SKU> GetSKUsByCommodityID(string commodityID, int start, int limit, out long total)
+        public IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total)
         {
-            var list = (from x in this.Session.Query<SKU>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Skip(start).Take(limit).ToList();
-            total = (from x in this.Session.Query<SKU>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Count();
+            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Skip(start).Take(limit).ToList();
+            total = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Count();
             return list;
         }
     }
