@@ -13,5 +13,6 @@ namespace friday.core.repositories
         IList<PropID> Search(List<DataFilter> termList);
         IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
+        PropID getPropIDbyIntID(string id);
     }
 }

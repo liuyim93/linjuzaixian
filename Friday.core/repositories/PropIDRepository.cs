@@ -43,6 +43,12 @@ namespace friday.core.repositories
             var isHaveChild = (from x in this.Session.Query<PropID>() select x).Where(o => o.PropIDName == name && o.IsDelete == false).Count() > 0 ? true : false;
             return isHaveChild;
         }
+        public PropID getPropIDbyIntID(string id)
+        {
+            int pid =Convert.ToInt32(id);
+            var ppd = (from x in this.Session.Query<PropID>() select x).Where(o => o.Id == pid && o.IsDelete == false).SingleOrDefault();
+            return ppd;
+        }
 
     }
      
