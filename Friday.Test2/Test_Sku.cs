@@ -171,12 +171,21 @@ namespace friday.coretest
                 int skuConut = new Random().Next(12);
                 for (int j = 0,l=0,m=0; j <= skuConut; j++)
                 {
+                    Sku skus = new Sku()
+                    {
+                        Commodity = commodity,
+                        price = 39 + i * 10,
+                        priceCent = i,
+                        stock = i * 5,
+                    };
+
                    //颜色
                    //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
                    SkuProp skpcolor = new SkuProp()
                    {
                        PropID = ppt1,
-                       PropValue = iPropValues[l%3]
+                       PropValue = iPropValues[l % 3],
+                       SKU = skus
                    };
                    l++;
                    //尺寸
@@ -184,17 +193,11 @@ namespace friday.coretest
                    SkuProp skpsize = new SkuProp()
                    {
                        PropID = ppt2,
-                       PropValue = iPropValues2[m%4]
+                       PropValue = iPropValues2[m%4],
+                       SKU = skus
                    };
                    m++;
                     
-                   Sku skus = new Sku()
-                   {
-                        Commodity = commodity,
-                        price=39+i*10,
-                        priceCent=i,
-                        stock=i*5,                         
-                   };
                    skus.SKUProps.Add(skpcolor);
                    skus.SKUProps.Add(skpsize);
                    skurep.SaveOrUpdate(skus);
