@@ -29,7 +29,8 @@ namespace Friday.mvc.weblogin.sku
             else
             {
                 sku = new Sku();
-                //skuService.Save(sku);
+                sku.Commodity = commodityService.Load(Request.Params["commodity_id"]);
+                skuService.Save(sku);
                 SkuId.Value = sku.skuId.ToString();
             }
 

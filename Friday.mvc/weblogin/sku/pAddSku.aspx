@@ -8,7 +8,7 @@
         <div>
             <input type="hidden" id="SkuId" size="30" runat="server" />
 
-            <a href='skuProp/pSkuPropList.aspx?sku_id=<%=SkuId.Value %>' prefix='<%=Request.Params["prefix"] %>'  rel_v3="jbsxBox2" target="ajax" style="display:none">load</a>
+            <a href='skuProp/pSkuPropList.aspx?sku_id=<%=SkuId.Value %>&commodity_id=<%=Request.Params["commodity_id"] %>' prefix='<%=Request.Params["prefix"] %>'  rel_v3="jbsxBox2" target="ajax" style="display:none">load</a>
             <div id="jbsxBox2" class="pageFormContent" style="">
             </div>
 
