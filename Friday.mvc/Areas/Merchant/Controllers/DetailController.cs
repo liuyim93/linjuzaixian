@@ -124,12 +124,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             IList<Sku>  skulist=new List<Sku>();
             //string brandId = Request.Params["brandId"].ToString();
             //friday.core.Merchant merchant = iMerchantService.Load(brandId);
-            string commdityId = "dd35ae8d-2468-4cd9-8e56-ffe3d52af94d";
+            string commdityId = "854a8141-0fdb-4d6d-ba86-92f127c49b95";
             Commodity commodity = iCommodityService.Load(commdityId);
             skulist = commodity.Skus.ToList<Sku>();
             
             var sku_list = new List<SKUDO>();
             var sku_quantityList=new List<SkuQuantity>();
+            var pceInfoList = new List<PriceInfo>();
+            int totalquty = 0;
 
             for (int i = 0; i < skulist.Count; i++)
             {
@@ -146,11 +148,22 @@ namespace Friday.mvc.Areas.Merchant.Controllers
              
               SkuQuantity  skuquty=new SkuQuantity()
                     {
-                     quantity=skulist[i].stock,
+                      quantity=skulist[i].stock,
                       type=skulist[i].Commodity.Version
                     };
                 sku_quantityList.Add(skuquty);
-              }
+                PriceInfo pceInfo = new PriceInfo()
+                     {
+                         areaSold = true,
+                         price =(float)skulist[i].price,
+                         promotionList = null,
+                         tagPrice = null,
+                         umpBigPromotionDisplayPrice = null
+                     };
+                pceInfoList.Add(pceInfo);
+
+                totalquty = totalquty + skulist[i].stock;        
+            }
 
             
             DefaultModel defaultModel = new DefaultModel()
@@ -158,10 +171,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 deliveryDO = new DeliveryDO()
                 {
                     deliverySkuMap = sku_list,
-                    //2013-04-11 pang
                     otherServiceList = "[]"
                 },
-                //2013-04-11 pang
                 gatewayDO = new GatewayDO()
                 {
                     changeLocationGateway = new ChangeLocationGateway()
@@ -177,10 +188,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 },
                 inventoryDO = new InventoryDO()
                 {
-                    icTotalQuantity = 45,
+                    icTotalQuantity = totalquty,
                     skuQuantity = sku_quantityList,
                     success = true,
-                    totalQuantity = 45,
+                    totalQuantity = totalquty,
                     type = 1
                 },
                 itemPriceResultDO = new ItemPriceResultDO()
@@ -191,25 +202,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     largeScalePromPeriod = -1,
                     largeScalePromUnOfficial = false,
                     largeScalePromUnderFiftyPOff = false,
-                    priceInfo = new
-                    {
-                        p41506008322 = new List<PriceInfo>{new PriceInfo()
-                       {
-                           areaSold=true,
-                           price=699,
-                           promotionList=null,
-                           tagPrice=null,
-                           umpBigPromotionDisplayPrice=null
-                       }},
-                        p41506008333 = new List<PriceInfo>{new PriceInfo()
-                       {
-                           areaSold=true,
-                           price=699,
-                           promotionList=null,
-                           tagPrice=null,
-                           umpBigPromotionDisplayPrice=null
-                       }},
-                    },
+                    priceInfo = pceInfoList,
                     promType = null,
                     queryProm = false,
                     umpBigPromotionItem = false,

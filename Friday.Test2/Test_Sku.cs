@@ -78,7 +78,7 @@ namespace friday.coretest
             //添加规格明细
             IRepository<PropValue> iPropValueRepository = UnityHelper.UnityToT<IRepository<PropValue>>();
             IList<PropValue> iPropValues = new List<PropValue>();
-
+            IRepository<SkuProp> iSkuPropRepository = UnityHelper.UnityToT<IRepository<SkuProp>>();
             //颜色明细
             PropValue ppv1_1 = new PropValue()
             {
@@ -154,7 +154,7 @@ namespace friday.coretest
             {
                 Commodity commodity = new Commodity()
                 {
-                    Name = i + "",
+                    Name = strCommdtyName[i],
                     Price = i + 10,
                     Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
                     IsDiscount = false,
@@ -174,19 +174,23 @@ namespace friday.coretest
                     Sku skus = new Sku()
                     {
                         Commodity = commodity,
-                        price = 39 + i * 10,
-                        priceCent = i,
-                        stock = i * 5,
+                        price = 39 + j * 10,
+                        priceCent = j,
+                        stock = j * 5,
                     };
+                    //skus.SKUProps.Add(skpcolor);
+                    //skus.SKUProps.Add(skpsize);
+                    skurep.SaveOrUpdate(skus);
 
                    //颜色
                    //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
                    SkuProp skpcolor = new SkuProp()
                    {
                        PropID = ppt1,
-                       PropValue = iPropValues[l % 3],
-                       SKU = skus
+                       PropValue = iPropValues[l%3],
+                       SKU=skus
                    };
+                   iSkuPropRepository.SaveOrUpdate(skpcolor);
                    l++;
                    //尺寸
                    //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
@@ -194,13 +198,12 @@ namespace friday.coretest
                    {
                        PropID = ppt2,
                        PropValue = iPropValues2[m%4],
-                       SKU = skus
+                       SKU=skus
                    };
+                   iSkuPropRepository.SaveOrUpdate(skpsize);
                    m++;
                     
-                   skus.SKUProps.Add(skpcolor);
-                   skus.SKUProps.Add(skpsize);
-                   skurep.SaveOrUpdate(skus);
+                 
 
                    //iPropValues.Remove(iPropValues[pVauCnColor]);
                    //iPropValues2.Remove(iPropValues2[pVauCntSize]);
