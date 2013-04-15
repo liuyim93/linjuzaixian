@@ -23,5 +23,11 @@ namespace friday.core.domain
             get;
             set;
         }
+        public virtual Merchant Merchant
+        {
+            get;
+
+            set;
+        }
     }
 }

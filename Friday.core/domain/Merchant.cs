@@ -14,6 +14,8 @@ namespace friday.core
             MerchantGoodsTypes = new Iesi.Collections.Generic.HashedSet<MerchantGoodsType>();
             SchoolOfMerchants = new Iesi.Collections.Generic.HashedSet<SchoolOfMerchant>();
             LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
+            PropIDs = new Iesi.Collections.Generic.HashedSet<PropID>();
+            PropValues = new Iesi.Collections.Generic.HashedSet<PropValue>();
         }
 
         public virtual string Email
@@ -164,7 +166,18 @@ namespace friday.core
             get;
             set;
         }
+        public virtual Iesi.Collections.Generic.ISet<PropID> PropIDs
+        {
+            get;
 
+            set;
+        }
+        public virtual Iesi.Collections.Generic.ISet<PropValue> PropValues
+        {
+            get;
+
+            set;
+        }
        
        
 

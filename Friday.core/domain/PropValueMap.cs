@@ -14,7 +14,8 @@ namespace friday.core.domain
             Map(o => o.IsDelete);
             Map(o => o.PropValueName);
 
-            References<PropID>(o => o.PropID).Not.Nullable(); 
+            References<PropID>(o => o.PropID).Not.Nullable();
+            References<Merchant>(o => o.Merchant).Not.Nullable();
         }
     }
 }

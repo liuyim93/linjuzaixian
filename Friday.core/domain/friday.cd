@@ -112,13 +112,13 @@
     <Position X="7.5" Y="8.75" Width="2" />
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
-        <Point X="7.5" Y="9.237" />
-        <Point X="3.891" Y="9.237" />
+        <Point X="7.5" Y="9.273" />
+        <Point X="3.891" Y="9.273" />
         <Point X="3.891" Y="12.5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAACQggIAQAAAAIAQgAAAAAIBDAAIAAEAACAA=</HashCode>
+      <HashCode>QAAAAUAAAGQggIAQAAAAIAQgAAAAAIBDAAIQAEAACAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -575,14 +575,14 @@
   <Class Name="friday.core.domain.PropID">
     <Position X="1.75" Y="23.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\PropID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.PropValue">
     <Position X="1.5" Y="20.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAIAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAIAA=</HashCode>
       <FileName>domain\PropValue.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
