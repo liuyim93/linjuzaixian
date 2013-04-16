@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using friday.core.domain;
 using NHibernate;
+using NHibernate.Linq;
+using NHibernate.Criterion;
 
 namespace friday.core.repositories
 {
@@ -15,8 +17,10 @@ namespace friday.core.repositories
             string name="";
             string id="";
             int i = 1;
-            var q = Session.CreateQuery(@"select s  from   UserInRole as  sm left join  sm.SystemRole  as  s    where  sm.LoginUser=:LId ")
-                           .SetString("LId", userID).List<SystemRole>();
+            var q = (from x in this.Session.Query<UserInRole>()
+                     where x.LoginUser.Id == userID && x.IsDelete == false 
+                     select x.SystemRole)
+                     .ToList();
 
             foreach (SystemRole sc in q)
             {
