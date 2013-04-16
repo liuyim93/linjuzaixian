@@ -6,7 +6,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
             _prop_array = [],
             _pvid_array = [],
             _defaultSelected = [],
-            _eleProps_length = 0,
+            _elmProps_length = 0,
             _eventTarget = _kissy.merge({}, _kissy.EventTarget),
             _str_skuChange = "skuChange",
             _str_PropertyChange = "PropertyChange", T = [];
@@ -24,7 +24,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
         var _filter_by_pvid = function (_pvid_array_t) {
             var _skuMap = _kissy_imp.cfg("valItemInfo").skuMap;
             var _pvid_array_length = _pvid_array_t.length;
-            var d = [];
+            var _skuMap_filtered_by_pvid = [];
             var _pvid_sort_fn = function (_array) {
                 _array.sort(function (_x, _y) {
                     _x = parseInt(_x.split(":")[0], 10);
@@ -36,15 +36,15 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
             _pvid_array_t = _pvid_sort_fn(_pvid_array_t);
             if (_pvid_array_t.length) {
                 var _pvid_array_join_regex = new RegExp(";" + _pvid_array_t.join(";(-?\\d+:-?\\d+;)*") + ";");
-                for (var _item in _skuMap) {
-                    if (_pvid_array_join_regex.test(_item)) {
-                        d.push(_item)
+                for (var _key in _skuMap) {
+                    if (_pvid_array_join_regex.test(_key)) {
+                        _skuMap_filtered_by_pvid.push(_key)
                     }
                 }
             } else {
-                d = _skuMap
+                _skuMap_filtered_by_pvid = _skuMap
             }
-            return d
+            return _skuMap_filtered_by_pvid
         };
         var _set_stock_state = function (_dom_li) {
             if (_dom.hasClass(_dom_li, "tb-selected")) {
@@ -81,11 +81,14 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
         };
         var N = {};
         var Q = function () {
-            _eleProps_length = _cfg.elmProps.length;
-            var _skuMap = _cfg.valItemInfo.skuMap, _strPrice = _cfg.strPrice, v = [], _hasDefaultSelected = ("undefined" !== typeof _defaultSelected);
+            _elmProps_length = _cfg.elmProps.length;
+            var _skuMap = _cfg.valItemInfo.skuMap,
+                _strPrice = _cfg.strPrice,
+                v = [],
+                _hasDefaultSelected = ("undefined" !== typeof _defaultSelected);
             _defaultSelected = _cfg.valItemInfo.defSelected;
             var f = [], h, w;
-            for (var _index = _eleProps_length - 1; 0 <= _index; _index--) {
+            for (var _index = _elmProps_length - 1; 0 <= _index; _index--) {
                 var _elmProp = _cfg.elmProps[_index],
                     _prop_array_item = _prop_array[_index] = { prop: _string_for_empty, elmt: null, data: [], hasImg: null },
                     _pvid_array_item = _pvid_array[_index] = { pvid: _string_for_empty, prop: _string_for_empty, name: _string_for_empty, elmt: null, oos: [] };
@@ -172,7 +175,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                 _pvid_array_item_tmp.elmt = _dom_li_tmp;
                                 if (_cfg.isWTContract) {
                                     if (!_dom.attr(_elmProp_tmp, "data-contract")) {
-                                        var AK = _dom_li_tmp.getAttribute("data-value");
+                                        var _data_value = _dom_li_tmp.getAttribute("data-value");
                                         if (h) {
                                             for (var AU = 0; AU < f.length; AU++) {
                                                 var AW = _filter_by_pvid([h, f[AU]["wtValue"]])[0];
@@ -183,13 +186,13 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                             }
                                         }
                                         for (var AU = 0; AU < f.length; AU++) {
-                                            var AW = _filter_by_pvid([AK, f[AU]["wtValue"]])[0];
+                                            var AW = _filter_by_pvid([_data_value, f[AU]["wtValue"]])[0];
                                             var Af = _skuMap[AW];
                                             if (Af && Af.wtDesc) {
                                                 _dom.html(f[AU]["wtSpan"], '<em class="icon-wt"></em>' + Af.wtDesc)
                                             }
                                         }
-                                        h = AK
+                                        h = _data_value
                                     } else {
                                         w = _elmt_package_tmp.pvid
                                     }
@@ -228,13 +231,13 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                 })
                             }
                             var _pvid_combo = [];
-                            for (var _eleProp_index = 0; _eleProps_length > _eleProp_index; _eleProp_index++) {
+                            for (var _eleProp_index = 0; _elmProps_length > _eleProp_index; _eleProp_index++) {
                                 var _pvid_array_item_t_t = _pvid_array[_eleProp_index], _pvid = _pvid_array_item_t_t.pvid;
                                 if (_string_for_empty !== _pvid) {
                                     _pvid_combo.push(_pvid)
                                 }
                             }
-                            for (var _eleProps_index = 0; _eleProps_length > _eleProps_index; _eleProps_index++) {
+                            for (var _eleProps_index = 0; _elmProps_length > _eleProps_index; _eleProps_index++) {
                                 var _pvid_array_item_t_t = _pvid_array[_eleProps_index], _pvid = _pvid_array_item_t_t.pvid;
                                 var _prop_array_index_data = _prop_array[_eleProps_index].data, _prop_array_index_data_length = _prop_array_index_data.length;
                                 for (var _prop_array_index_data_index = 0; _prop_array_index_data_index < _prop_array_index_data_length; _prop_array_index_data_index++) {
@@ -273,7 +276,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                 }
                             }
                             var _skuMap_value;
-                            if (_pvid_combo.length === _eleProps_length) {
+                            if (_pvid_combo.length === _elmProps_length) {
                                 var _skuMap_key = ";" + _pvid_combo.join(";") + ";";
                                 if ("undefined" !== typeof _skuMap[_skuMap_key]) {
                                     _skuMap_value = _skuMap[_skuMap_key];
@@ -286,7 +289,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                 _mods_SKU.selectSkuId = _skuid;
                                 _mods_SKU.inventoryType = _skuMap_value ? _skuMap_value.type : 0;
                                 _mods_SKU.skuFlag = _skuMap_key;
-                                _eventTarget.fire(_str_skuChange, { price: _dom.text(_strPrice), isSelectAll: _pvid_combo.length === _eleProps_length, skuId: _skuid, skuIdOld: _selectSkuId, skuFlag: _skuMap_key || "" })
+                                _eventTarget.fire(_str_skuChange, { price: _dom.text(_strPrice), isSelectAll: _pvid_combo.length === _elmProps_length, skuId: _skuid, skuIdOld: _selectSkuId, skuFlag: _skuMap_key || "" })
                             }
                             _mods_SKU.selArr = _pvid_combo;
                             _kissy_imp.fire(_str_PropertyChange, { selArr: _pvid_combo })
