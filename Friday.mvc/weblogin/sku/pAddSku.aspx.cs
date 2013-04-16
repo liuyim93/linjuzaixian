@@ -38,7 +38,7 @@ namespace Friday.mvc.weblogin.sku
 
         private void SaveSku()
         {
-
+            sku = skuService.getSkubyIntID(SkuId.Value);
             BindingHelper.RequestToObject(sku);
             commodity = commodityService.Load(Request.Params["commodity_id"]);
             sku.Commodity = commodity;

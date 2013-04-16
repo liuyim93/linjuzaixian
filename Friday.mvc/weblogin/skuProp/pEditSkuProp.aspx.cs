@@ -45,8 +45,9 @@ namespace Friday.mvc.weblogin
 
         private void SaveSkuProp()
         {
+            skuProp.PropID = iPropIDService.getPropIDbyIntID(PropID.Value);
+            skuProp.PropValue = iPropValueService.getPropValuebyIntID(Request.Params["PropValue"]);
 
-            BindingHelper.RequestToObject(skuProp);
             iSkuPropService.Save(skuProp);
 
             AjaxResult result = new AjaxResult();

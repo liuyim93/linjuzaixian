@@ -2,6 +2,7 @@
 
 <div class="pageFormContent" layouth="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"    runat="server">
+    <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
     <div class="panel collapse" defh="155">
         <h1>
             商品规格</h1>
@@ -66,7 +67,22 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             o.find("a[rel_v3]").trigger("click");
-            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, navTabAjaxDone)
+
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, dialogAjaxDone)
+
+                });
+            }
+
+
+
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
         });
