@@ -8,12 +8,21 @@ namespace friday.core.domain
 {
     public class SkuProp : BaseObject
     {
+        public SkuProp()
+        {
+            CreateTime = DateTime.Now;
+        }
         public virtual int Id
         {
             get;
             set;
         }
         public virtual PropID PropID
+        {
+            get;
+            set;
+        }
+        public virtual DateTime CreateTime
         {
             get;
             set;

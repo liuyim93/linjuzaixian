@@ -12,6 +12,7 @@ namespace friday.core.domain
         {
             Id(o => o.Id).GeneratedBy.Native();
             Map(o => o.IsDelete);
+            Map(o => o.CreateTime);
 
             References<PropID>(o => o.PropID).Not.Nullable();
             References<PropValue>(o => o.PropValue).Not.Nullable();

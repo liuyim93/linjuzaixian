@@ -11,12 +11,18 @@ namespace friday.core.domain
         public Sku()
         {
             SKUProps = new Iesi.Collections.Generic.HashedSet<SkuProp>();
+            CreateTime = DateTime.Now;
         }
         public virtual int skuId
         {
             get;
             set;
-        }     
+        }
+        public virtual DateTime CreateTime
+        {
+            get;
+            set;
+        }
         public virtual double price
         {
             get;

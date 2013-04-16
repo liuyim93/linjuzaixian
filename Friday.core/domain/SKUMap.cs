@@ -12,6 +12,7 @@ namespace friday.core.domain
         {
             Id(o => o.skuId).GeneratedBy.Native();
             Map(o => o.IsDelete);
+            Map(o => o.CreateTime);
             Map(o => o.price).Default("0").Not.Nullable(); ;
             Map(o => o.priceCent).Default("0").Not.Nullable(); ;
             Map(o => o.stock).Default("0").Not.Nullable(); ;

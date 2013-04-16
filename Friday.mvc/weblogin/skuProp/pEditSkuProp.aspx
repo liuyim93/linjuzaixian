@@ -10,8 +10,7 @@
             <p>
                 <label>
                     规格类型：</label>
-                <input type="text" id="PropIDName" size="30" class="required textInput gray"
-                    runat="server" readonly="true" />
+                <input type="text" id="PropIDName" size="30" class="required textInput gray" runat="server" readonly="true" />
                 <input type="text" id="PropID" size="30" class="required textInput gray" runat="server" />
                 <a class="btnLook" href="ListPropID.aspx" rel=""  lookupgroup="">选择规格</a>
             </p>

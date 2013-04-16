@@ -12,22 +12,34 @@ using friday.core.services;
 
 namespace Friday.mvc.weblogin
 {
-    public partial class pEditSkuPropProp : BasePage
+    public partial class pEditSkuProp : BasePage
     {
         private ISkuPropService iSkuPropService = UnityHelper.UnityToT<ISkuPropService>();
+        private IPropIDService iPropIDService = UnityHelper.UnityToT<IPropIDService>();
+        private IPropValueService iPropValueService = UnityHelper.UnityToT<IPropValueService>();
+        private ISkuService iSkuService = UnityHelper.UnityToT<ISkuService>();
+
         private SkuProp skuProp;
+        IList<PropValue> propValues;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            skuProp = iSkuPropService.Load(uid);
+            skuProp = iSkuPropService.getSkuPropbyIntID(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveSkuProp();
             }
             else
             {
-                BindingHelper.ObjectToControl(skuProp, this);
+                PropIDName.Value = skuProp.PropID.PropIDName;
+                PropID.Value = skuProp.PropID.Id.ToString();
+                propValues = iPropValueService.getPropValuebyPropID(skuProp.PropID.Id.ToString());
+                foreach (PropValue p in propValues)
+                {
+                    PropValue.Items.Add(new ListItem(p.PropValueName, p.Id.ToString()));
+                }
+                PropValue.Value = skuProp.PropValue.Id.ToString();
             }
         }
 
