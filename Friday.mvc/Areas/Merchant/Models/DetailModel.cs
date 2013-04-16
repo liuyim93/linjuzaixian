@@ -37,6 +37,8 @@ namespace Friday.mvc.Models
 
         public Merchant Merchant { get; set; }
 
+        public Commodity Commodity { get; set; }
+
         public IList<ValuingOfMyCommodityOrder>[] ValuingOfMyCommodityOrders { get; set; }
         public IList<ValuingOfMyFoodOrder>[] ValuingOfMyFoodOrders { get; set; }
         public IList<ValuingOfMyHouseOrder>[] ValuingOfMyHouseOrders { get; set; }

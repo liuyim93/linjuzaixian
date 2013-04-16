@@ -1,0 +1,165 @@
+﻿@{
+    Layout = null;
+}
+@using Friday.mvc.Models
+@using Friday.core
+@model DetailModel
+
+<script>
+   @{
+     <text>
+     
+     var skuMap = {
+     </text>
+     for(var skuIndex=0;skuIndex<Model.Commodity.Skus.Count;skuIndex++)
+     {
+        var sku=Model.Commodity.Skus.ElementAt(skuIndex);
+        <text>"@sku.SKUPropString":{ "skuId": "@sku.skuId", "price": "@sku.price", "priceCent": "@sku.priceCent", "stock": "@sku.stock" }</text>
+        if(skuIndex!=Model.Commodity.Skus.Count-1)
+        {
+          <text>,</text>
+         }
+     }    
+     <text>
+       };
+     </text>
+    }
+    TShop.poc('buyshow');
+    (function () {
+
+        TShop.Setup({
+            rstShopId: 71955116,
+            valLoginIndicator: "http:\/\/buy.taobao.com\/auction\/buy.htm?from=itemDetail&x_id=&item_id=16246683095&id=16246683095",
+            renderSystemServer: 'http://render.taobao.com',
+            valMode: 128,
+            "valCartInfo": { "itemId": "16246683095", "dbNum": "", "cartUrl": "http:\/\/cart.taobao.com\/my_cart.htm?from=bdetail", "statsUrl": "http://www.atpanel.com/1.gif?category=cart_{loc}_50022890" },
+            "apiBidCount": "http:\/\/tbskip.taobao.com\/json\/show_bid_count.htm?itemNumId=16246683095&old_quantity=66&date=1362931720000",
+            "apiAddCart": "http:\/\/cart.taobao.com\/add_cart_item.htm?item_id=16246683095",
+            "valPointRate": "0.5",
+            "apiItemViews": "http:\/\/count.taobao.com\/counter2?keys=ICVT_7_16246683095&inc=ICVT_7_16246683095&sign=6467080b974667e31c746107efa2e9d889b33",
+            "apiItemCollects": "http:\/\/count.tbcdn.cn\/counter3?keys=ICCP_1_16246683095",
+            "valTimeLeft": "273365",
+            "valItemInfo": {
+                "defSelected":
+							[],
+                "skuMap": skuMap
+            },
+
+            "isSevenDaysRefundment": true,
+            "isAreaSell": false,
+            "isService": false,
+            "isHouseholdService": false,
+            "isTmallComboSupport": false,
+            "standardItem": false,
+            "tmallRateType": 0, "isWTContract": false, "isMeiz": false,
+            "trialItemId": 0,
+            "trialErrNum": 0,
+            "releaseTime": "1363244611000",
+            "renderTime": "1363244612127",
+            "apiMember": 'http://tmm.taobao.com/member/query_member_for_detail.do',
+            "vipBirthJumpLink": 'http://vip.tmall.com/vip/privilege.htm?priv=birthdaygift&spm=2001.1.4.3',
+
+
+
+
+
+            "initApi": "initItemDetail?trialErrNum=0&isSpu=false&isIFC=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&isForbidBuyItem=false&isMeizTry=false&tmallBuySupport=true&itemTags=1478,2049,3974,4166&household=false&sellerUserTag=236548128&tgTag=false&itemId=16246683095&isUseInventoryCenter=false&isSecKill=false&isApparel=true&service3C=false&cartEnable=true",
+            //"initApi": "http://mdskip.taobao.com/core/initItemDetail.htm?trialErrNum=0&isSpu=false&isIFC=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&isForbidBuyItem=false&isMeizTry=false&tmallBuySupport=true&itemTags=1478,2049,3974,4166&household=false&sellerUserTag=236548128&tgTag=false&itemId=16246683095&isUseInventoryCenter=false&isSecKill=false&isApparel=true&service3C=false&cartEnable=true",
+            "changeLocationApi": "http://mdskip.taobao.com/core/changeLocation.htm?itemTags=1478,2049,3974,4166&sellerUserTag=236548128&household=false&tgTag=false&isSpu=false&itemId=16246683095&isUseInventoryCenter=false&isSecKill=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&service3C=false&cartEnable=true",
+            "initExtensionApi": "http://mdskip.taobao.com/extension/initExtension.htm?showBreadCrumb=true&sellerId=890482188&brand=Nike%2F%C4%CD%BF%CB&showSpuMaintainer=false",
+            "initExtraApi": "http://mdskip.taobao.com/extension/initExtra.htm",
+
+
+
+
+
+            "api": {
+                "fetchDcUrl": "http://tdecorate.tbcdn.cn/dc/fetchDc.htm?pid=256494987&sellerId=890482188&t=1363244611000"
+            },
+
+            "itemDO": {
+                'categoryId': '50022890',
+                'itemId': '16246683095',
+                'isBidden': false,
+                'isInRepository': false,
+                'auctionType': 'b',
+                'auctionStatus': '0',
+                'canView': true,
+                'sellerFreeze': false,
+                'quantity': 5,
+                'isOnline': true,
+                'isSecondKillFromPC': false,
+                'isSecondKillFromPCAndWap': false,
+                'userId': '890482188',
+                "sellerNickName": 'nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97',
+                'isEcardAuction': false,
+                'brand': 'Nike\/\u8010\u514B',
+                'brandId': '20578',
+                'isDcAsyn': true,
+                'reservePrice': '199.00',
+                'spuId': '203480309',
+
+                'feature': '1',
+                'validatorUrl': 'http://store.taobao.com/tadget/shop_stats.htm',
+                'templateName': '',
+                'templateId': ''
+            },
+            "detail": {
+                'canEditInItemDet': true,
+                'autoccUser': false,
+                'isShowPreClosed': false,
+                'goNewAuctionFlow': false,
+                'isAllowReport': true,
+                'isTeMai': false,
+                'isIFCShop': false,
+                'isItemAllowSellerView': true,
+                'isAuthSeller': true,
+                'timeKillAuction': false,
+                'quantityList': [],
+                'defaultItemPrice': '199.00',
+                'rateEnable': true,
+                'loginBeforeCart': false,
+                'cdn75': false,
+                'rateCloudDisable': false,
+                'isDownShelf': false,
+                'dsrFromCounterEnable': false
+            },
+            "idsMod": [],
+            "tag": {
+                "isAsynDesc": true, 'isMedical': false,
+                'isRightRecommend': true,
+                'isBrandAttr': true
+            },
+            "url": {
+                'topUploadServerBaseUrl': 'http://upload.taobao.com',
+                'BIDRedirectionitemDomain': 'http://paimai.taobao.com',
+                'tradeBaseUrl': 'http://trade.taobao.com/trade',
+                'tgDomain': 'http://ju.taobao.com',
+                'mallList': 'http://list.tmall.com',
+                'buyBase': 'http://buy.taobao.com/auction',
+                "tbskip": "http://tbskip.taobao.com",
+                "rate": "http://rate.tmall.com"
+            },
+            "tradeType": 2,
+            "cartEnable": true,
+
+            "tradeConfig": {
+                1: "http://buy.taobao.com/auction/buy_now.jhtml",
+                2: "http://buy.tmall.com/order/confirm_order.htm",
+                3: "http://obuy.tmall.com/home/order/confirm_order.htm",
+                4: ""
+            },
+            "noSkipMode": {
+                timeout: 15000,
+                tradeResult: {
+                    cartEnable: true,
+                    cartType: 2,
+                    tradeEnable: true,
+                    tradeType: 2,
+                    tradeDisableTypeEnum: ""
+                }
+
+            }
+        });
+
+    })();</script>

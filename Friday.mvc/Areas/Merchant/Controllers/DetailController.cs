@@ -55,76 +55,77 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
         public ActionResult Index()
         {
-            string brandId = Request.Params["brandId"].ToString();
-            friday.core.Merchant merchant = iMerchantService.Load(brandId);           
-
+            string commodity_id = Request.Params["brandId"].ToString();
+            //friday.core.Merchant merchant = iMerchantService.Load(brandId);           
+            Commodity commodity = iCommodityService.Load(commodity_id);
             DetailModel detailModel = new DetailModel();
-            detailModel.Merchant = merchant;
-            int index = 0;
+            detailModel.Commodity = commodity;
+            //detailModel.Merchant = merchant;
+            //int index = 0;
 
-            if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            {
-                IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(merchant.Id);
-                if (foods.Count > 0)
-                {
-                    foreach (Food f in foods)
-                    {
-                        detailModel.Foods.Add(f);
+            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+            //{
+            //    IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(merchant.Id);
+            //    if (foods.Count > 0)
+            //    {
+            //        foreach (Food f in foods)
+            //        {
+            //            detailModel.Foods.Add(f);
 
-                        IList<ValuingOfMyFoodOrder> valuingOfMyFoodOrders = iValuingOfMyFoodOrderService.GetValuingOfMyFoodOrderByFoodID(f.Id);
-                        foreach (ValuingOfMyFoodOrder v in valuingOfMyFoodOrders)
-                        {
-                            detailModel.ValuingOfMyFoodOrders[index].Add(v);
-                        }
-                        index++;
-                    }
-                }
-            }
-            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
-            {
-                IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchant.Id);
-                if (commoditys.Count > 0)
-                {
-                    foreach (Commodity c in commoditys)
-                    {
-                        detailModel.Commoditys.Add(c);
+            //            IList<ValuingOfMyFoodOrder> valuingOfMyFoodOrders = iValuingOfMyFoodOrderService.GetValuingOfMyFoodOrderByFoodID(f.Id);
+            //            foreach (ValuingOfMyFoodOrder v in valuingOfMyFoodOrders)
+            //            {
+            //                detailModel.ValuingOfMyFoodOrders[index].Add(v);
+            //            }
+            //            index++;
+            //        }
+            //    }
+            //}
+            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+            //{
+            //    IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchant.Id);
+            //    if (commoditys.Count > 0)
+            //    {
+            //        foreach (Commodity c in commoditys)
+            //        {
+            //            detailModel.Commoditys.Add(c);
 
-                        IList<ValuingOfMyCommodityOrder> valuingOfMyCommodityOrders = iValuingOfMyCommodityOrderService.GetValuingOfMyCommodityOrderByCommodityID(c.Id);
-                        foreach (ValuingOfMyCommodityOrder v in valuingOfMyCommodityOrders)
-                        {
-                            detailModel.ValuingOfMyCommodityOrders[index].Add(v);
-                        }
-                        index++;
-                    }
-                }
-            }
-            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
-            {
-                IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(merchant.Id);
-                if (houses.Count > 0)
-                {
-                    foreach (House h in houses)
-                    {
-                        detailModel.Houses.Add(h);
+            //            IList<ValuingOfMyCommodityOrder> valuingOfMyCommodityOrders = iValuingOfMyCommodityOrderService.GetValuingOfMyCommodityOrderByCommodityID(c.Id);
+            //            foreach (ValuingOfMyCommodityOrder v in valuingOfMyCommodityOrders)
+            //            {
+            //                detailModel.ValuingOfMyCommodityOrders[index].Add(v);
+            //            }
+            //            index++;
+            //        }
+            //    }
+            //}
+            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
+            //{
+            //    IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(merchant.Id);
+            //    if (houses.Count > 0)
+            //    {
+            //        foreach (House h in houses)
+            //        {
+            //            detailModel.Houses.Add(h);
 
-                        IList<ValuingOfMyHouseOrder> valuingOfMyHouseOrders = iValuingOfMyHouseOrderService.GetValuingOfMyHouseOrderByHouseID(h.Id);
-                        foreach (ValuingOfMyHouseOrder v in valuingOfMyHouseOrders)
-                        {
-                            detailModel.ValuingOfMyHouseOrders[index].Add(v);
-                        }
-                        index++;
-                    }
-                }
-            }
+            //            IList<ValuingOfMyHouseOrder> valuingOfMyHouseOrders = iValuingOfMyHouseOrderService.GetValuingOfMyHouseOrderByHouseID(h.Id);
+            //            foreach (ValuingOfMyHouseOrder v in valuingOfMyHouseOrders)
+            //            {
+            //                detailModel.ValuingOfMyHouseOrders[index].Add(v);
+            //            }
+            //            index++;
+            //        }
+            //    }
+            //}
 
             return View(detailModel);
         }
         public ActionResult InitItemDetail()
         {
             IList<Sku>  skulist=new List<Sku>();
-            //string brandId = Request.Params["brandId"].ToString();
+            string commdityId = Request.Params["brandId"].ToString();
             //friday.core.Merchant merchant = iMerchantService.Load(brandId);
-            string commdityId = "3804cfa1-7bcd-4aae-9ca3-e6824a3bdf7d";
+            //string commdityId = "3804cfa1-7bcd-4aae-9ca3-e6824a3bdf7d";
             Commodity commodity = iCommodityService.Load(commdityId);
             skulist = commodity.Skus.ToList<Sku>();
             

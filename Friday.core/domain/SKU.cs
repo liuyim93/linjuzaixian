@@ -54,5 +54,23 @@ namespace friday.core.domain
             get;
             set;
         }
+        public virtual string SKUPropString
+        {
+            get
+            {
+                string comma = ";";
+                string propStr = comma;
+                for(var i=0;i<SKUProps.Count;i++)
+                {  
+                    var prop=SKUProps.ElementAt(i);
+                    propStr += prop.PropID.Id.ToString() + ":" + prop.PropValue.Id.ToString();
+                    if (i < SKUProps.Count)
+                    {
+                        propStr += comma;
+                    }
+                }
+                return propStr;
+            }
+        }
     }
 }
