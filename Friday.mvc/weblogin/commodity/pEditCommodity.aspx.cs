@@ -26,19 +26,24 @@ namespace Friday.mvc.weblogin
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            mid = Request.Params["merchant_id"].ToString();
+            if (!this.CurrentUser.IsAdmin)
+            {
+                mid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            }
+            else
+            {
+                mid = Request.Params["shop_id"];
+            }
             this.tagName = systemFunctionObjectService.商店模块.商品维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);
 
             f = iCommodityService.Load(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
                 SaveCommodity();
             }
             else
             {
-
                 BindingHelper.ObjectToControl(f, this);
                 this.ImagePreview.Src = f.Image;
                 Shop rst = iShopService.Load(mid);
@@ -92,12 +97,9 @@ namespace Friday.mvc.weblogin
                 f.Image = "/uploadimage/commodityImage/" + filesnewName;
             }
 
-
-
             Shop shop = iShopService.Load(mid);
             f.Shop = shop;
             f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
-
 
             iCommodityService.Update(f);
 
@@ -105,18 +107,11 @@ namespace Friday.mvc.weblogin
             result.statusCode = "200";
             result.message = "修改成功";
             result.navTabId = "referer";
-            //2013-02-13 basilwang set rel_hook to panelId
-            if (Request.Params["rel_hook"] != null)
-            {
-                result.panelId = Request.Params["rel_hook"];
-            }
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
-
-
 
         }
     }
