@@ -40,7 +40,7 @@ namespace Friday.mvc.weblogin
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
-            //result.navTabId = "referer";
+            result.navTabId = "referer";
             //2013-02-13 basilwang set rel_hook to panelId
             if (Request.Params["rel_hook"] != null)
             {

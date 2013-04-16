@@ -1,8 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditSku.aspx.cs" Inherits="Friday.mvc.weblogin.pEditSku" %>
 
 <div class="pageFormContent" layouth="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
-    <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
+    
     <div class="panel collapse" defh="155">
         <h1>
             商品规格</h1>
@@ -13,6 +12,8 @@
 
         </div>
     </div>
+    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+    <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
    <div class="panel collapse" defh="95">
         <h1>
             基本信息</h1>

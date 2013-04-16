@@ -22,12 +22,12 @@
             <p>
                 <label>
                     商品价格：</label>
-                <input type="text" id="price" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="price" size="30" class="required textInput gray number" runat="server" />
             </p>
             <p>
                 <label>
                     库存数量：</label>
-                <input type="text" id="stock" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="stock" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
         </div>
     </div>

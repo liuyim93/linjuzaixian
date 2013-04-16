@@ -9,6 +9,7 @@ namespace friday.core.services
     public interface ISkuPropService
     {
         SkuProp getSkuPropbyIntID(string id);
+        void deleteSkuPropbyID(string id);
         IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total);
         SkuProp Load(string id);
         void Save(SkuProp skuProp);

@@ -863,6 +863,13 @@
     <Compile Include="weblogin\skuProp\pAddSkuProp.aspx.designer.cs">
       <DependentUpon>pAddSkuProp.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\skuProp\pEditSkuProp.aspx.cs">
+      <DependentUpon>pEditSkuProp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pEditSkuProp.aspx.designer.cs">
+      <DependentUpon>pEditSkuProp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\skuProp\pSkuPropList.aspx.cs">
       <DependentUpon>pSkuPropList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -876,6 +883,13 @@
     </Compile>
     <Compile Include="weblogin\sku\pAddSku.aspx.designer.cs">
       <DependentUpon>pAddSku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\sku\pEditSku.aspx.cs">
+      <DependentUpon>pEditSku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\sku\pEditSku.aspx.designer.cs">
+      <DependentUpon>pEditSku.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\sku\pSkuList.aspx.cs">
       <DependentUpon>pSkuList.aspx</DependentUpon>
@@ -1923,8 +1937,10 @@
     <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
     <Content Include="weblogin\skuProp\pAddSkuProp.aspx" />
+    <Content Include="weblogin\skuProp\pEditSkuProp.aspx" />
     <Content Include="weblogin\skuProp\pSkuPropList.aspx" />
     <Content Include="weblogin\sku\pAddSku.aspx" />
+    <Content Include="weblogin\sku\pEditSku.aspx" />
     <Content Include="weblogin\sku\pSkuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />

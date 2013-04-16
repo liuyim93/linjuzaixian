@@ -4,6 +4,7 @@ using NHibernate.Linq;
 using System.Linq;
 using System.Text;
 using friday.core.domain;
+using NHibernate;
 
 namespace friday.core.repositories
 {
@@ -21,6 +22,24 @@ namespace friday.core.repositories
             int pid = Convert.ToInt32(id);
             var ppd = (from x in this.Session.Query<Sku>() select x).Where(o => o.skuId == pid && o.IsDelete == false).SingleOrDefault();
             return ppd;
+        }
+
+        public void deleteSkubyID(string id)
+        {
+            using (ITransaction tran = Session.BeginTransaction())
+            {
+                try
+                {
+                    Session.CreateQuery(@"update Sku set IsDelete=true  where  skuId=:sId ")
+                         .SetString("sId", id).ExecuteUpdate();
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    throw ex;
+                }
+            }
         }
     }
 }

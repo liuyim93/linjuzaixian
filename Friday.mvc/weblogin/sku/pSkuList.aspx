@@ -26,7 +26,8 @@
                       <thead>
                         <tr>
                             <th width="10%" align="center">序 号</th>
-                            <th width="15%" align="center">商品种类名称</th>
+                            <th width="15%" align="center">类型编码</th>
+                            <th width="15%" align="center">类型名称</th>
                             <th width="20%" align="center">价格</th>
                             <th width="10%" align="center">库存</th>
 
@@ -37,9 +38,10 @@
                  <ItemTemplate> 
                     
                     <tr target="skuid" rel="<%#Eval("skuId")%>&discriminer=<%#Eval("skuId")%>">
-                         <td align="center"><%#Container.ItemIndex+1%></td> 
+                          <td align="center"><%#Container.ItemIndex+1%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Name")%></td>
-                         <td align="center"><%#DataBinder.Eval(Container.DataItem, "price")%></td> 
+                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Name")%></td>
+                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "price")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "stock")%></td>
                     </tr>
                 </ItemTemplate>

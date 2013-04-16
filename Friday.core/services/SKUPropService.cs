@@ -51,5 +51,11 @@ namespace friday.core.services
         {
             return iSkuPropRepository.getSkuPropbyIntID(id);
         }
+
+        public void deleteSkuPropbyID(string id)
+        {
+            iSkuPropRepository.deleteSkuPropbyID(id);
+        }
+
     }
 }
