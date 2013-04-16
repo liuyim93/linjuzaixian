@@ -81,7 +81,7 @@ namespace Friday.mvc.weblogin.commodity
             {
                 shopId = Request.Form["shop_id"];
             }
-            if (!string.IsNullOrEmpty(Request.Params["shop_id"]))
+            else if (!string.IsNullOrEmpty(Request.Params["shop_id"]))
             {
                 shopId = Request.Params["shop_id"];
             }
@@ -136,6 +136,11 @@ namespace Friday.mvc.weblogin.commodity
             {
                 dfl.Add(new DataFilter() { type = "Name", value = name });
             }
+
+            dfl.Add(new DataFilter()
+            {
+                type = "IsDelete"
+            });
 
             goodsType = Request.Form["mGoodsType"];
             if (!string.IsNullOrEmpty(goodsType))

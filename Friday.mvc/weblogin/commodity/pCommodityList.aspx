@@ -2,6 +2,7 @@
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
+<input type="hidden" name="shop_id" value='<%=Request.Params["shop_id"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
 <input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
 <input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
@@ -63,10 +64,8 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="commodity/pAddCommodity.aspx" title="增加商品" target="dialog"
-            rel="" width="600" height="400"><span>增加商品</span></a></li>
-        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}" title="修改商品" rel="" target="dialog"
-            height="480"><span>修改商品</span></a></li>
+        <li><a class="add" href="commodity/pAddCommodity.aspx?shop_id=<%=Request.Params["shop_id"] %>" title="增加商品" target="dialog" width="900" height="480" rel="" ><span>增加商品</span></a></li>
+        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}&shop_id=<%=Request.Params["shop_id"] %>" title="修改商品" rel="" width="900" height="480" target="dialog"><span>修改商品</span></a></li>
         <li><a class="delete" href="commodity/pCommodityList.aspx?flag=alldelete&commodity_id={commodityid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除商品</span></a></li>
         <li class="line">line</li>
