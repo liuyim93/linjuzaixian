@@ -1,11 +1,11 @@
-﻿KISSY.add("malldetail/sku/buylink", function (E, G, C) {
-    var B = E.mods.SKU;
-    var F = KISSY, H = F.Event, J = F.DOM, D = window.g_config;
-    function I(O) {
-        var N = KISSY, T = N.DOM;
+﻿KISSY.add("malldetail/sku/buylink", function (_kissy_imp, _template, _malldetail_sku_validator) {
+    var _mods_SKU = _kissy_imp.mods.SKU;
+    var _kissy = KISSY, _event = _kissy.Event, _dom = _kissy.DOM, _g_config = window.g_config;
+    function _init(O) {
+        var _kissy_inner = KISSY, _dom_inner = _kissy_inner.DOM;
         var Q = "";
         var K = null;
-        var L = E.cfg();
+        var _cfg = _kissy_imp.cfg();
         var M = O.tradeResult;
         var P;
         if (O.miscDO && O.miscDO.sellCountDown > 0) {
@@ -19,10 +19,10 @@
             }
         }
         if (!M.tradeEnable) {
-            B.LinkBuy.statu("init", "hide")
+            _mods_SKU.LinkBuy.statu("init", "hide")
         }
         if (P) {
-            T.addClass(T.parent("#J_LinkBuy"), "tb-hidden");
+            _dom_inner.addClass(_dom_inner.parent("#J_LinkBuy"), "tb-hidden");
             switch (P) {
                 case 1:
                     Q = '<div class="tb-key tb-out-of-date"><div class="tb-skin"><p>\u805a\u5212\u7b97\u6d3b\u52a8\u5546\u54c1\uff0c<a href="{{tgDomain}}/tg/home.htm?itemId={{itemId}}&{{param}}">\u70b9\u51fb\u6b64\u5904</a>\u4eab\u53d7\u56e2\u8d2d\u4f18\u60e0\u4ef7\u3002</p></div></div>';
@@ -40,7 +40,7 @@
                     if (!O.itemPriceResultDO["wanrentuanInfo"]) {
                         Q = '<div class="ui-msg">                            <div class="ui-msg-con ui-msg-tip">                                <span id="J_SellCountDownTip"></span><s class="ui-msg-icon"></s>                            </div>                        </div>';
                         K = function () {
-                            N.use("malldetail/util/timer", function (V, W) {
+                            _kissy_inner.use("malldetail/util/timer", function (V, W) {
                                 new W({ leftTime: O.miscDO.sellCountDown, container: "#J_SellCountDownTip", template: 2, tpl: "\u8fd8\u5269{date},\u8bf7\u5148\u6536\u85cf\u5546\u54c1" }).onStop(function () {
                                     window.location.reload()
                                 })
@@ -51,11 +51,11 @@
                     break
             }
             if (Q) {
-                var U = T.get(".tb-action", "#detail");
+                var U = _dom_inner.get(".tb-action", "#detail");
                 if (U) {
-                    T.removeClass(U, "tb-action");
-                    var R = G(Q).render({ param: N.param(M.param), tgDomain: L.url.tgDomain, itemId: D.itemId });
-                    T.html(U, R, false, K)
+                    _dom_inner.removeClass(U, "tb-action");
+                    var R = _template(Q).render({ param: _kissy_inner.param(M.param), tgDomain: _cfg.url.tgDomain, itemId: _g_config.itemId });
+                    _dom_inner.html(U, R, false, K)
                 }
             }
         }
@@ -63,51 +63,51 @@
             return
         }
         if (M.cartEnable && M.cartType == 1) {
-            B.LinkAdd.statu("init", "show")
+            _mods_SKU.LinkAdd.statu("init", "show")
         }
-        if (!M.cartEnable || M.cartType != 2 || D.offlineShop) {
-            B.LinkBasket.statu("init", "hide")
+        if (!M.cartEnable || M.cartType != 2 || _g_config.offlineShop) {
+            _mods_SKU.LinkBasket.statu("init", "hide")
         }
-        if (L.tradeType == 1 || L.tradeType == 3) {
-            T.hide("#dianbaobao")
+        if (_cfg.tradeType == 1 || _cfg.tradeType == 3) {
+            _dom_inner.hide("#dianbaobao")
         }
         A()
     }
     var A = function () {
-        var L = E.cfg();
-        var M = L.linkBuy;
-        var K;
-        if (M) {
-            H.on(M, "click", function (N) {
-                N.preventDefault();
-                E.sendAtpanel("tmalldetail.50.1");
-                if (J.hasClass(J.parent(N.target), "noPost")) {
+        var _cfg = _kissy_imp.cfg();
+        var _linkbuy = _cfg.linkBuy;
+        var _later_validator_fn;
+        if (_linkbuy) {
+            _event.on(_linkbuy, "click", function (_event) {
+                _event.preventDefault();
+                _kissy_imp.sendAtpanel("tmalldetail.50.1");
+                if (_dom.hasClass(_dom.parent(_event.target), "noPost")) {
                     return
                 }
-                if (C.run(true) && false !== B.PropertyHandler.beforeBuyValidateCheck()) {
-                    L.frmBid.quantity.value = parseInt(L.iptAmount.value, 10);
-                    L.frmBid.skuId.value = B.selectSkuId || "";
-                    L.frmBid.skuInfo.value = B.valSkuInfo;
-                    L.frmBid.strSkuId && (L.frmBid.strSkuId.value = B.selectSkuId);
-                    if (D.offlineShop) {
-                        L.frmBid.buyer_from.value = "ifc0001"
+                if (_malldetail_sku_validator.run(true) && false !== _mods_SKU.PropertyHandler.beforeBuyValidateCheck()) {
+                    _cfg.frmBid.quantity.value = parseInt(_cfg.iptAmount.value, 10);
+                    _cfg.frmBid.skuId.value = _mods_SKU.selectSkuId || "";
+                    _cfg.frmBid.skuInfo.value = _mods_SKU.valSkuInfo;
+                    _cfg.frmBid.strSkuId && (_cfg.frmBid.strSkuId.value = _mods_SKU.selectSkuId);
+                    if (_g_config.offlineShop) {
+                        _cfg.frmBid.buyer_from.value = "ifc0001"
                     }
-                    if (L.divKeyProp && L.divKeyProp.close) {
-                        L.divKeyProp.close()
+                    if (_cfg.divKeyProp && _cfg.divKeyProp.close) {
+                        _cfg.divKeyProp.close()
                     }
-                    B.FastLogin.checkLogin()
+                    _mods_SKU.FastLogin.checkLogin()
                 }
             });
-            H.on(M, "mouseenter mouseleave", function (N) {
-                K && K.cancel();
-                if (N.type === "mouseenter" && B.LinkBuy.getStatu() !== 1) {
-                    K = F.later(C.run, 200)
+            _event.on(_linkbuy, "mouseenter mouseleave", function (_event) {
+                _later_validator_fn && _later_validator_fn.cancel();
+                if (_event.type === "mouseenter" && _mods_SKU.LinkBuy.getStatu() !== 1) {
+                    _later_validator_fn = _kissy.later(_malldetail_sku_validator.run, 200)
                 }
             })
         }
     };
     return { init: function (K) {
-        I(K)
+        _init(K)
     } 
     }
 }, { requires: ["template", "malldetail/sku/validator"] }); /*pub-1|2013-02-28 21:14:24*/
