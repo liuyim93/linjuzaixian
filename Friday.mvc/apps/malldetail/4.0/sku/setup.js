@@ -616,7 +616,8 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         });
         l();
         _kissy.ready(function (v) {
-            _mods_SKU.Promotion.init();
+           //2013-04-16 basilwang block promotion
+           // _mods_SKU.Promotion.init();
             _kissy_imp.use("malldetail/sku/stat", function (x, w) {
                 w.init()
             })

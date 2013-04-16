@@ -232,7 +232,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                 var _prop_array_index_data = _prop_array[_eleProps_index].data, _prop_array_index_data_length = _prop_array_index_data.length;
                                 for (var _prop_array_index_data_index = 0; _prop_array_index_data_index < _prop_array_index_data_length; _prop_array_index_data_index++) {
                                     var _prop_array_index_data_item = _prop_array_index_data[_prop_array_index_data_index];
-                                    var AJ = [].concat(_pvid_combo);
+                                    var _skuMap_key = [].concat(_pvid_combo);
                                     if (_pvid_array_item_tmp.pvid === _elmt_package_tmp.pvid) {
                                         if (_dom.hasClass(_prop_array_index_data_item.elmt, "tb-out-of-stock")) {
                                             continue
@@ -241,11 +241,11 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                             if (_pvid == _prop_array_index_data_item.pvid) {
                                                 continue
                                             }
-                                            var Ad = _kissy.indexOf(_pvid, AJ);
-                                            AJ = AJ.slice(0, Ad).concat(AJ.slice(1 + Ad, AJ.length))
+                                            var Ad = _kissy.indexOf(_pvid, _skuMap_key);
+                                            _skuMap_key = _skuMap_key.slice(0, Ad).concat(_skuMap_key.slice(1 + Ad, _skuMap_key.length))
                                         }
-                                        AJ.push(_prop_array_index_data_item.pvid);
-                                        AW = _filter_by_pvid(AJ);
+                                        _skuMap_key.push(_prop_array_index_data_item.pvid);
+                                        AW = _filter_by_pvid(_skuMap_key);
                                         if (_calculate_total_stock(AW)) {
                                             _set_stock_state(_prop_array_index_data_item.elmt)
                                         }
@@ -254,11 +254,11 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                             continue
                                         }
                                         if (_string_for_empty !== _pvid) {
-                                            var Ad = _kissy.indexOf(_pvid, AJ);
-                                            AJ = AJ.slice(0, Ad).concat(AJ.slice(1 + Ad, AJ.length))
+                                            var Ad = _kissy.indexOf(_pvid, _skuMap_key);
+                                            _skuMap_key = _skuMap_key.slice(0, Ad).concat(_skuMap_key.slice(1 + Ad, _skuMap_key.length))
                                         }
-                                        AJ.push(_prop_array_index_data_item.pvid);
-                                        AW = _filter_by_pvid(AJ);
+                                        _skuMap_key.push(_prop_array_index_data_item.pvid);
+                                        AW = _filter_by_pvid(_skuMap_key);
                                         if (!_calculate_total_stock(AW)) {
                                             _dom.removeClass(_prop_array_index_data_item.elmt, "tb-out-of-stock")
                                         }
