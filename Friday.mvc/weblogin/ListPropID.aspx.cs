@@ -16,9 +16,19 @@ namespace Friday.mvc.weblogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRepository<PropID> iPropIDRepository = UnityHelper.UnityToT<Repository<PropID>>();
+            string merchantID = "";
+            IPropIDService iPropIDService = UnityHelper.UnityToT<IPropIDService>();
             IList<PropID> propIDs = new List<PropID>();
-            propIDs = iPropIDRepository.GetAll();
+            if (!this.CurrentUser.IsAdmin)
+            {
+                merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+                propIDs = iPropIDService.GetPropIDByMerchantID(merchantID);
+            }
+            else
+            {
+                propIDs = iPropIDService.GetAll();
+            }
+
             repeater.DataSource = propIDs;
             repeater.DataBind();
         }
