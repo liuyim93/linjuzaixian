@@ -54,6 +54,7 @@ namespace friday.core.domain
             get;
             set;
         }
+        //2013-04-16 basilwang to generate skumap key in cshtml
         public virtual string SKUPropString
         {
             get

@@ -120,13 +120,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return View(detailModel);
         }
-        public ActionResult InitItemDetail()
+        public ActionResult InitItemDetail(string itemId)
         {
             IList<Sku>  skulist=new List<Sku>();
-            string commdityId = Request.Params["brandId"].ToString();
+            //string commdityId = Request.Params["itemId"].ToString();
             //friday.core.Merchant merchant = iMerchantService.Load(brandId);
             //string commdityId = "3804cfa1-7bcd-4aae-9ca3-e6824a3bdf7d";
-            Commodity commodity = iCommodityService.Load(commdityId);
+            Commodity commodity = iCommodityService.Load(itemId);
             skulist = commodity.Skus.ToList<Sku>();
             
             var sku_list = new List<SKUDO>();
