@@ -1,12 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddCommodity.aspx.cs" Inherits="Friday.mvc.weblogin.pAddCommodity" %>
 
 
-<div class="page">
-    <div class="pageContent">
-        <form id="form" method="post"  class="pageForm required-validate" enctype="multipart/form-data" runat="server">
-        <%--2013-02-17 basilwang we still need get rel_hook after postback--%>
-        <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
-        <div class="pageFormContent" layoutH="80px" style="">
+<div class="pageFormContent">
+    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+    <div class="panel collapse">
             <h1>
                 商品基本信息</h1>
             <input type="hidden" id="FoodId" size="30" runat="server" />
@@ -18,24 +15,24 @@
             <p>
                 <label>
                    商品当前价格：</label>
-                <input type="text" id="Price" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Price" size="30" class="required textInput gray number" min="0" runat="server" />
             </p>
             <p>
                 <label>
                    商品过去价格：</label>
-                <input type="text" id="OldPrice" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="OldPrice" size="30" class="required textInput gray number" min="0"  runat="server" />
             </p>
             <p>
                 <label>
                     库存量：</label>
-                <input type="text" id="InventoryCount" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="InventoryCount" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
             
             <p>
                 <label>
                     Limited：</label>
-                <select name="IsLimited" id="IsLimited" runat="server">
-            <option value="" ></option>
+                <select name="IsLimited" id="IsLimited" class="required" runat="server">
+            <option value="" >请选择</option>
             <option value="True" >Yes</option>
             <option value="False" >No</option>
           
@@ -45,8 +42,8 @@
             <p>
             <label>
                     上/下架：</label>
-           <select name="IsEnabled" id="IsEnabled" runat="server">
-            <option value="" ></option>
+           <select name="IsEnabled" id="IsEnabled" class="required"  runat="server">
+            <option value="" >请选择</option>
             <option value="True" >上架</option>
             <option value="False" >下架</option>
           
@@ -55,8 +52,8 @@
               <p>
             <label>
                     是否打折：</label>
-           <select name="IsDiscount" id="IsDiscount" runat="server">
-            <option value="" ></option>
+           <select name="IsDiscount" id="IsDiscount" class="required"  runat="server">
+            <option value="" >请选择</option>
             <option value="True" >是</option>
             <option value="False" >否</option>
           
@@ -65,44 +62,34 @@
             <p>
                 <label>
                     折扣库存量：</label>
-                <input type="text" id="DiscountInventoryCount" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="DiscountInventoryCount" size="30" class="required textInput gray digits" min="0"  runat="server" />
             </p>
           
             <p>
                 <label>
                     折扣价格：</label>
-                <input type="text" id="DiscountPrice" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="DiscountPrice" size="30" class="required textInput gray number" min="0" runat="server" />
             </p>
-              <p>
+
+            <p>
             <label>
                     菜品类型：</label>
-           <select name="GoodsType" id="GoodsType" runat="server">
-            <option value="" ></option>
-            
-          
+           <select name="GoodsType" id="GoodsType" class="required" runat="server">
+            <option value="" >请选择</option>
             </select>
             </p>
                      
             <p>
                 <label>
                     月售额：</label>
-                <input type="text" id="MonthAmount" size="30" class="digits" runat="server" />
+                <input type="text" id="MonthAmount" size="30" class="number required"  min="0"  runat="server" />
             </p>
               <p>
                 <label>
                     销售额：</label>
-                <input type="text" id="Amount" size="30" class="digits" runat="server" />
+                <input type="text" id="Amount" size="30" class="number required"  min="0"  runat="server" />
             </p>
-             <p>
-                <label>
-                    删除标记：</label>
-                  <select name="IsDelete" id="IsDelete" runat="server">
-                   <option value="" ></option>
-            <option value="True" >是</option>
-            <option value="False" >否</option>
-          
-            </select>
-            </p>
+
             <p>
                 <label>
                     附件上传：</label>
@@ -115,9 +102,7 @@
               <p >
                 <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
             </p>
-          
-
-
+         </div>         
 
             <div class="formBar">
                 <ul>
@@ -141,9 +126,9 @@
                     <li></li>
                 </ul>
             </div>
-        </div>
+
         </form>
-    </div>
+    <div class="divider"></div>
 </div>
 <script type="text/javascript">
 
