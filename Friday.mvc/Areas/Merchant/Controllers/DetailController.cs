@@ -124,7 +124,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             IList<Sku>  skulist=new List<Sku>();
             //string brandId = Request.Params["brandId"].ToString();
             //friday.core.Merchant merchant = iMerchantService.Load(brandId);
-            string commdityId = "854a8141-0fdb-4d6d-ba86-92f127c49b95";
+            string commdityId = "3804cfa1-7bcd-4aae-9ca3-e6824a3bdf7d";
             Commodity commodity = iCommodityService.Load(commdityId);
             skulist = commodity.Skus.ToList<Sku>();
             
@@ -163,7 +163,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         });
                 totalquty = totalquty + skulist[i].stock;        
             };
-     
+
             DefaultModel defaultModel = new DefaultModel()
             {
                 deliveryDO = new DeliveryDO()
@@ -223,8 +223,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 },
                 sellCountDO = new SellCountDO()
                 {
-                    cspuSellCountMap = "{}",
-                    sellCount = 0
+                    cspuSellCountMap = new { },
+                    sellCount = 32
                 },
                 specialServiceList = "{}",
                 tradeResult = new TradeResult()
