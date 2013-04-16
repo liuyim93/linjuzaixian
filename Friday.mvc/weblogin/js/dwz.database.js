@@ -27,6 +27,8 @@
 
                     if (name == inputName) {
                         $input.val(args[key]);
+                        //2013-02-21 basilwang won't trigger if no calling change method
+                        $input.val(args[key]).change();
                         break;
                     }
                 }

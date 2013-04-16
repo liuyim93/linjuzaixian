@@ -17,6 +17,12 @@ namespace friday.core.repositories
             return list;
         }
 
+        public IList<SkuProp> GetAllSkuPropsBySkuID(string Sku_ID)
+        {
+            var list = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).OrderByDescending(o => o.CreateTime).ToList();
+            return list;
+        }
+
         public SkuProp getSkuPropbyIntID(string id)
         {
             int pid = Convert.ToInt32(id);

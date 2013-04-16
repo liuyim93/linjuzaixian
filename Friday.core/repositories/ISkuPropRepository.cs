@@ -10,6 +10,7 @@ namespace friday.core.repositories
     {
         SkuProp getSkuPropbyIntID(string id);
         void deleteSkuPropbyID(string id);
+        IList<SkuProp> GetAllSkuPropsBySkuID(string Sku_ID);
         IList<SkuProp> GetSkuPropsBySkuID(string SKU_ID, int start, int limit, out long total);
     }
 }

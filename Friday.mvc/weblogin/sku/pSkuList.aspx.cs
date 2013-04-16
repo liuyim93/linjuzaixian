@@ -8,6 +8,7 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.domain;
 using friday.core.components;
+using friday.core.services;
 
 namespace Friday.mvc.weblogin.sku
 {
@@ -19,6 +20,7 @@ namespace Friday.mvc.weblogin.sku
 
         protected string CommodityID;
         private ISkuRepository iSkuRepository = UnityHelper.UnityToT<ISkuRepository>();
+        private ISkuPropService skuPropService = UnityHelper.UnityToT<ISkuPropService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +35,13 @@ namespace Friday.mvc.weblogin.sku
         }
         private void DeleteSku()
         {
-            iSkuRepository.Delete(Request.Params["uid"]);
+            IList<SkuProp> skuProps = skuPropService.GetAllSkuPropsBySkuID(Request.Params["uid"]);
+            foreach (SkuProp skuProp in skuProps)
+            {
+                skuPropService.deleteSkuPropbyID(skuProp.Id.ToString());
+            }
+            iSkuRepository.deleteSkubyID(Request.Params["uid"]);
+
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "操作成功";

@@ -57,5 +57,10 @@ namespace friday.core.services
             iSkuPropRepository.deleteSkuPropbyID(id);
         }
 
+        public IList<SkuProp> GetAllSkuPropsBySkuID(string Sku_ID)
+        {
+            return iSkuPropRepository.GetAllSkuPropsBySkuID(Sku_ID);
+        }
+
     }
 }
