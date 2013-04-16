@@ -11,8 +11,8 @@
     <ul class="toolBar">
         <li><a class="add" href="skuProp/pAddSkuProp.aspx?sku_id=<%=Request.Params["sku_id"]%>" title="增加规格" target="dialog"
             rel=""><span>增加规格</span></a></li>
-        <li><a class="edit" href="Address/pEditAddress.aspx?uid={addressid}" title="修改规格" rel="" target="dialog"><span>修改规格</span></a></li>
-        <li><a class="delete" href="Address/pAddressList.aspx?flag=alldelete&uid={addressid}" target="ajaxTodo"
+        <li><a class="edit" href="skuProp/pEditSkuProp.aspx?uid={SkuPropID}" title="修改规格" rel="" target="dialog"><span>修改规格</span></a></li>
+        <li><a class="delete" href="Address/pAddressList.aspx?flag=alldelete&uid={SkuPropID}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除规格</span></a></li>
         <li class="line">line</li>
     </ul>
