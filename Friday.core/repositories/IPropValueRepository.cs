@@ -9,7 +9,6 @@ namespace friday.core.repositories
 {
     public interface IPropValueRepository : IRepository<PropValue>
     {
-        IList<PropValue> getPropValuebyPropID(string propID);
         IList<PropValue> Search(List<DataFilter> termList);
         IList<PropValue> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);

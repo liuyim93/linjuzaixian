@@ -34,9 +34,12 @@ namespace Friday.mvc.weblogin.skuProp
         private void SaveSkuProp()
         {
             sku = skuService.getSkubyIntID(Request.Params["sku_id"]);
+            int intpropID = Convert.ToInt32(PropID.Value);
+            int intpropValueID = Convert.ToInt32(Request.Params["PropValue"]);
+
             skuProp.SKU = sku;
-            skuProp.PropID = propIDService.getPropIDbyIntID(PropID.Value);
-            skuProp.PropValue = propValueService.getPropValuebyIntID(Request.Params["PropValue"]);
+            skuProp.PropID = propIDService.Load(intpropID);
+            skuProp.PropValue = propValueService.Load(intpropValueID);
 
             skuPropService.Save(skuProp);
 
@@ -62,11 +65,12 @@ namespace Friday.mvc.weblogin.skuProp
         {
             IPropValueService iPropValueService = UnityHelper.UnityToT<IPropValueService>();
             string propID = (from c in nvls where c.name == "propID" select c.value).FirstOrDefault();
+            int intpropID = Convert.ToInt32(propID);
 
             IList<Object> resultObjs = new List<Object>();
             IList<PropValue> items = new List<PropValue>();
 
-            items = iPropValueService.getPropValuebyPropID(propID);
+            items = iPropValueService.GetPropValueListByPropID(intpropID);
             foreach (PropValue p in items)
             {
                 resultObjs.Add(new {

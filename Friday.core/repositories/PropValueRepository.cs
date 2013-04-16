@@ -49,13 +49,6 @@ namespace friday.core.repositories
             var pplist = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.Id == pid && o.IsDelete == false).ToList<PropValue>();
             return pplist;
         }   
-
-        public PropValue getPropValuebyIntID(string id)
-        {
-            int pid = Convert.ToInt32(id);
-            var ppd = (from x in this.Session.Query<PropValue>() select x).Where(o => o.Id == pid && o.IsDelete == false).SingleOrDefault();
-            return ppd;
-        }
     }
      
 }

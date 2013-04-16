@@ -44,12 +44,7 @@ namespace friday.core.services
         {
             return iPropValueRepository.Search(termList, start, limit, out total);
         }
-
-        public PropValue getPropValuebyIntID(string id)
-        {
-            return iPropValueRepository.getPropValuebyIntID(id);
-        }
-
+ 
         public bool IsHaveTheSameName(string name)
         {
             return iPropValueRepository.IsHaveTheSameName(name);
@@ -57,9 +52,7 @@ namespace friday.core.services
         public IList<PropValue> GetPropValueListByPropID(int pid) 
         {
             return iPropValueRepository.GetPropValueListByPropID(pid);
-        }
-        }
-
+        }   
 
     }
 }
