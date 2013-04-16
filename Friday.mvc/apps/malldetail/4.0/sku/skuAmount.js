@@ -58,7 +58,7 @@
     function A(_itemPriceResultDO) {
         var _dom_dd_J_Amount = _kissy.get("#J_Amount");
         var T;
-        var W;
+        var _later_fn_validator;
         var V = function () {
             _event.remove("#J_AmountWidget", "click");
             _event.remove("#J_IptAmount", "blur");
@@ -85,10 +85,10 @@
                 _kissy_imp.cfg("iptAmount", _kissy.get("#J_IptAmount"))
             }
             _eventTarget.on(_str_onchange, function () {
-                if (W) {
-                    clearTimeout(W)
+                if (_later_fn_validator) {
+                    clearTimeout(_later_fn_validator)
                 }
-                W = setTimeout(function () {
+                _later_fn_validator = setTimeout(function () {
                     if (_malldetail_sku_validator.run()) {
                         _mods_SKU.PopupSimulate.checkActs()
                     }
