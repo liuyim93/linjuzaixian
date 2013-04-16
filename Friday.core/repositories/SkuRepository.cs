@@ -11,7 +11,7 @@ namespace friday.core.repositories
     {
         public IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total)
         {
-            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Skip(start).Take(limit).ToList();
+            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).OrderByDescending(o=>o.CreateTime).Skip(start).Take(limit).ToList();
             total = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Count();
             return list;
         }

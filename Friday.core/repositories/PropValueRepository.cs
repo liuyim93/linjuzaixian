@@ -46,7 +46,7 @@ namespace friday.core.repositories
         }
         public IList<PropValue> getPropValuebyPropID(string propID)
         {
-            var items = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.Id == Convert.ToInt16(propID) && o.IsDelete == false).ToList();
+            var items = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.Id == Convert.ToInt16(propID) && o.IsDelete == false).OrderByDescending(o => o.CreateTime).ToList();
             return items;
         }
 

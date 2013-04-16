@@ -11,7 +11,7 @@ namespace friday.core.repositories
     {
         public IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total)
         {
-            var list = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).Skip(start).Take(limit).ToList();
+            var list = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).OrderByDescending(o => o.CreateTime).Skip(start).Take(limit).ToList();
             total = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).Count();
             return list;
         }

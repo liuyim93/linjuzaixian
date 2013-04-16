@@ -56,7 +56,7 @@ namespace friday.core.repositories
         }
         public IList<PropID> GetPropIDByMerchantID(string mid)
         {
-            var list = (from x in this.Session.Query<PropID>() select x).Where(o => o.Merchant.Id == mid && o.IsDelete == false).ToList();
+            var list = (from x in this.Session.Query<PropID>() select x).Where(o => o.Merchant.Id == mid && o.IsDelete == false).OrderByDescending(o => o.CreateTime).ToList();
             return list;
         }
 
