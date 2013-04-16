@@ -2,7 +2,14 @@
 KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sku_price) {
     var _mods_SKU = _kissy_imp.mods.SKU, _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, _ua = _kissy.UA, _document = document, _is_ie = (0 < _ua.ie), _is_ie6 = (6 == _ua.ie), _string_for_empty = "";
     _mods_SKU.PropertyHandler = function () {
-        var _cfg = {}, _prop_array = [], _pvid_array = [], _defaultSelected = [], _eleProps_length = 0, U = _kissy.merge({}, _kissy.EventTarget), a = "skuChange", M = "PropertyChange", T = [];
+        var _cfg = {},
+            _prop_array = [],
+            _pvid_array = [],
+            _defaultSelected = [],
+            _eleProps_length = 0,
+            _eventTarget = _kissy.merge({}, _kissy.EventTarget),
+            _str_skuChange = "skuChange",
+            _str_PropertyChange = "PropertyChange", T = [];
         var Y = 0;
         function Z() {
             var e = true, d = T.length;
@@ -216,8 +223,8 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                 }
                             }
                             if (_string_for_empty !== _elmt_package_tmp.img) {
-                                _kissy.use("malldetail/sku/thumbViewer", function (Ah, Ai) {
-                                    Ai.show(_elmt_package_tmp.img)
+                                _kissy.use("malldetail/sku/thumbViewer", function (_kissy_imp_t, _thumbViewer) {
+                                    _thumbViewer.show(_elmt_package_tmp.img)
                                 })
                             }
                             var _pvid_combo = [];
@@ -265,24 +272,24 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                     }
                                 }
                             }
-                            var AM;
+                            var _skuMap_value;
                             if (_pvid_combo.length === _eleProps_length) {
-                                var Aa = ";" + _pvid_combo.join(";") + ";";
-                                if ("undefined" !== typeof _skuMap[Aa]) {
-                                    AM = _skuMap[Aa];
-                                    _malldetail_sku_price.updatePointsBuyPrice((AM.price * 100).toFixed(0))
+                                var _skuMap_key = ";" + _pvid_combo.join(";") + ";";
+                                if ("undefined" !== typeof _skuMap[_skuMap_key]) {
+                                    _skuMap_value = _skuMap[_skuMap_key];
+                                    _malldetail_sku_price.updatePointsBuyPrice((_skuMap_value.price * 100).toFixed(0))
                                 }
                             }
-                            var AT = AM ? AM.skuId : "";
-                            var AP = _mods_SKU.selectSkuId || "";
-                            if (AP != AT) {
-                                _mods_SKU.selectSkuId = AT;
-                                _mods_SKU.inventoryType = AM ? AM.type : 0;
-                                _mods_SKU.skuFlag = Aa;
-                                U.fire(a, { price: _dom.text(_strPrice), isSelectAll: _pvid_combo.length === _eleProps_length, skuId: AT, skuIdOld: AP, skuFlag: Aa || "" })
+                            var _skuid = _skuMap_value ? _skuMap_value.skuId : "";
+                            var _selectSkuId = _mods_SKU.selectSkuId || "";
+                            if (_selectSkuId != _skuid) {
+                                _mods_SKU.selectSkuId = _skuid;
+                                _mods_SKU.inventoryType = _skuMap_value ? _skuMap_value.type : 0;
+                                _mods_SKU.skuFlag = _skuMap_key;
+                                _eventTarget.fire(_str_skuChange, { price: _dom.text(_strPrice), isSelectAll: _pvid_combo.length === _eleProps_length, skuId: _skuid, skuIdOld: _selectSkuId, skuFlag: _skuMap_key || "" })
                             }
                             _mods_SKU.selArr = _pvid_combo;
-                            _kissy_imp.fire(M, { selArr: _pvid_combo })
+                            _kissy_imp.fire(_str_PropertyChange, { selArr: _pvid_combo })
                         };
                         _event.on(_dom_a_tmp, "click", _click_fn);
                         N[_elmt_package_tmp.pvid] = function (AJ) {
@@ -337,11 +344,11 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
             Q()
         }, onSkuChange: function (d) {
             if (_kissy.isFunction(d)) {
-                U.on(a, d)
+                _eventTarget.on(_str_skuChange, d)
             }
         }, onPropertyChange: function (d) {
             if (_kissy.isFunction(d)) {
-                _kissy_imp.on(M, d)
+                _kissy_imp.on(_str_PropertyChange, d)
             }
         }, getSeleProp: function () {
             return _pvid_array

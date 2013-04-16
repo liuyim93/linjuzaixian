@@ -3,8 +3,8 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
     var _mods_sku = _kissy_imp.mods.SKU;
     var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, _document = document, _body = _document.body;
     var _g_config = window.g_config;
-    var C = "display", P = "block", o = "hidden", e = "none", E = "", q = "style";
-    var M = { showYuan: false };
+    var _str_display = "display", _str_block = "block", _str_hidden = "hidden", _str_none = "none", E = "", q = "style";
+    var _showYuan_combo = { showYuan: false };
     var _dom_li_id_J_PromoPrice = _dom.get("#J_PromoPrice");
     var _dom_id_J_PromoBox;
     var Y = null;
@@ -339,33 +339,33 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
     }
     var d = function () {
-        var S = _dom.get(".tb-promo-price-type");
-        var T = "\u767b\u5f55\u540e\u67e5\u770b\u662f\u5426\u4eab\u6709\u6b64\u4f18\u60e0";
+        var _dom_class_tb_promo_price_type = _dom.get(".tb-promo-price-type");
+        var _str = "登录后查看是否享有此优惠";
         return { init: function (w) {
-            if (!S) {
+            if (!_dom_class_tb_promo_price_type) {
                 return
             }
-            var u, v, t;
-            _event.on(S, "mouseenter", function () {
-                if (!u) {
-                    (u = _dom.create("<span>", { css: { top: _dom.offset(S).top + 18, left: _dom.offset(S).left - 30, display: "none"} })).className = "coin-popup";
-                    (v = _dom.create("<span>")).className = "cor";
-                    (t = _dom.create("<span>")).className = "con";
-                    u.appendChild(v);
-                    u.appendChild(t);
-                    _body.insertBefore(u, _body.firstChild);
-                    t.innerHTML = w;
-                    _event.on(u, "mouseenter", function () {
-                        u.style.display = "inline"
+            var _span, _dom_class_cor, _dom_class_con;
+            _event.on(_dom_class_tb_promo_price_type, "mouseenter", function () {
+                if (!_span) {
+                    (_span = _dom.create("<span>", { css: { top: _dom.offset(_dom_class_tb_promo_price_type).top + 18, left: _dom.offset(_dom_class_tb_promo_price_type).left - 30, display: "none"} })).className = "coin-popup";
+                    (_dom_class_cor = _dom.create("<span>")).className = "cor";
+                    (_dom_class_con = _dom.create("<span>")).className = "con";
+                    _span.appendChild(_dom_class_cor);
+                    _span.appendChild(_dom_class_con);
+                    _body.insertBefore(_span, _body.firstChild);
+                    _dom_class_con.innerHTML = w;
+                    _event.on(_span, "mouseenter", function () {
+                        _span.style.display = "inline"
                     });
-                    _event.on(u, "mouseleave", function () {
-                        u.style.display = "none"
+                    _event.on(_span, "mouseleave", function () {
+                        _span.style.display = "none"
                     })
                 }
-                u.style.display = "inline"
+                _span.style.display = "inline"
             });
-            _event.on(S, "mouseleave", function () {
-                u.style.display = "none"
+            _event.on(_dom_class_tb_promo_price_type, "mouseleave", function () {
+                _span.style.display = "none"
             })
         } 
         }
@@ -409,21 +409,21 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
             }
         }
     }
-    var N = function (S) {
-        var T = _kissy_imp.cfg("emPointsBuy");
-        if (T) {
-            N = function (t) {
-                T.replaceChild(_document.createTextNode(t), T.firstChild)
+    var _updatePointsBuyPrice = function (_price) {
+        var _emPointsBuy = _kissy_imp.cfg("emPointsBuy");
+        if (_emPointsBuy) {
+            _updatePointsBuyPrice = function (_price) {
+                _emPointsBuy.replaceChild(_document.createTextNode(_price), _emPointsBuy.firstChild)
             }
         } else {
-            N = function () {
+            _updatePointsBuyPrice = function () {
                 return false
             }
         }
-        return N(S)
+        return _updatePointsBuyPrice(_price)
     };
-    return _mods_sku.Price = { init: _init, getAreaSold: O, getCampaignInfo: W, getPromType: L, limitBuy: k, updatePointsBuyPrice: function (S) {
-        return N(S)
+    return _mods_sku.Price = { init: _init, getAreaSold: O, getCampaignInfo: W, getPromType: L, limitBuy: k, updatePointsBuyPrice: function (_price) {
+        return _updatePointsBuyPrice(_price)
     } 
     }
 }, { requires: ["template"] }); /*pub-1|2013-02-01 14:30:07*/
