@@ -2,7 +2,7 @@
 KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sku_price) {
     var _mods_SKU = _kissy_imp.mods.SKU, _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, _ua = _kissy.UA, _document = document, _is_ie = (0 < _ua.ie), _is_ie6 = (6 == _ua.ie), _string_for_empty = "";
     _mods_SKU.PropertyHandler = function () {
-        var _cfg = {}, R = [], P = [], _defaultSelected = [], _eleProps_length = 0, U = _kissy.merge({}, _kissy.EventTarget), a = "skuChange", M = "PropertyChange", T = [];
+        var _cfg = {}, _prop_array = [], _pvid_array = [], _defaultSelected = [], _eleProps_length = 0, U = _kissy.merge({}, _kissy.EventTarget), a = "skuChange", M = "PropertyChange", T = [];
         var Y = 0;
         function Z() {
             var e = true, d = T.length;
@@ -14,9 +14,9 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
             }
             return e
         }
-        var _filter_by_pvid = function (_pvid_array) {
+        var _filter_by_pvid = function (_pvid_array_t) {
             var _skuMap = _kissy_imp.cfg("valItemInfo").skuMap;
-            var _pvid_array_length = _pvid_array.length;
+            var _pvid_array_length = _pvid_array_t.length;
             var d = [];
             var _pvid_sort_fn = function (_array) {
                 _array.sort(function (_x, _y) {
@@ -26,9 +26,9 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                 });
                 return _array.length ? _array : ""
             };
-            _pvid_array = _pvid_sort_fn(_pvid_array);
-            if (_pvid_array.length) {
-                var _pvid_array_join_regex = new RegExp(";" + _pvid_array.join(";(-?\\d+:-?\\d+;)*") + ";");
+            _pvid_array_t = _pvid_sort_fn(_pvid_array_t);
+            if (_pvid_array_t.length) {
+                var _pvid_array_join_regex = new RegExp(";" + _pvid_array_t.join(";(-?\\d+:-?\\d+;)*") + ";");
                 for (var _item in _skuMap) {
                     if (_pvid_array_join_regex.test(_item)) {
                         d.push(_item)
@@ -39,38 +39,38 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
             }
             return d
         };
-        var V = function (d) {
-            if (_dom.hasClass(d, "tb-selected")) {
-                O(d)
+        var _set_stock_state = function (_dom_li) {
+            if (_dom.hasClass(_dom_li, "tb-selected")) {
+                _fireEvent(_dom_li)
             }
-            _dom.addClass(d, "tb-out-of-stock")
+            _dom.addClass(_dom_li, "tb-out-of-stock")
         };
-        var O = function (e) {
+        var _fireEvent = function (_dom_li) {
             if (!!_document.createEvent) {
-                var d = _document.createEvent("HTMLEvents");
-                d.initEvent("click", false, true);
-                e.children[0].dispatchEvent(d)
+                var _htmlEvents = _document.createEvent("HTMLEvents");
+                _htmlEvents.initEvent("click", false, true);
+                _dom_li.children[0].dispatchEvent(_htmlEvents)
             } else {
-                e.children[0].fireEvent("onclick")
+                _dom_li.children[0].fireEvent("onclick")
             }
         };
-        var S = function (_array_filtered_by_pvid) {
+        var _calculate_total_stock = function (_array_filtered_by_pvid) {
             var _totalStock = 0;
-            var k = false;
+            var _is_unlimited_stock = false;
             var _skuMap = _cfg.valItemInfo.skuMap;
             var g;
-            var d = true;
+            var _is_out_of_stock = true;
             for (var _index = 0, _array_length = _array_filtered_by_pvid.length; _index < _array_length; _index++) {
                 var _pvid = _array_filtered_by_pvid[_index];
                 _totalStock += _skuMap[_pvid].stock;
-                if (_skuMap[_pvid]["type"] == 3) {
-                    k = true
+                if (_skuMap[_pvid]["type"] == 3) {     //2013-04-16 basilwang I think type=3 is unlimited stock
+                    _is_unlimited_stock = true
                 }
             }
-            if (_array_filtered_by_pvid.length && (_totalStock > 0 || k)) {
-                d = false
+            if (_array_filtered_by_pvid.length && (_totalStock > 0 || _is_unlimited_stock)) {
+                _is_out_of_stock = false
             }
-            return d
+            return _is_out_of_stock
         };
         var N = {};
         var Q = function () {
@@ -79,7 +79,9 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
             _defaultSelected = _cfg.valItemInfo.defSelected;
             var f = [], h, w;
             for (var _index = _eleProps_length - 1; 0 <= _index; _index--) {
-                var _elmProp = _cfg.elmProps[_index], g = R[_index] = { prop: _string_for_empty, elmt: null, data: [], hasImg: null }, k = P[_index] = { pvid: _string_for_empty, prop: _string_for_empty, name: _string_for_empty, elmt: null, oos: [] };
+                var _elmProp = _cfg.elmProps[_index],
+                    _prop_array_item = _prop_array[_index] = { prop: _string_for_empty, elmt: null, data: [], hasImg: null },
+                    _pvid_array_item = _pvid_array[_index] = { pvid: _string_for_empty, prop: _string_for_empty, name: _string_for_empty, elmt: null, oos: [] };
                 var _dom_i = _document.createElement("i");
                 _dom_i.appendChild(_document.createTextNode("已选中"));
                 if (_cfg.isWTContract && _dom.attr(_elmProp, "data-contract")) {
@@ -88,49 +90,49 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                         f[n] = { wtSpan: _dom.get("span", l[n]), wtValue: _dom.attr(l[n], "data-value") }
                     }
                 }
-                g.prop = k.prop = _elmProp.getAttribute("data-property");
-                g.elmt = _dom.prev(_elmProp.parentNode);   //dt颜色分类
-                g.hasImg = _dom.hasClass(_elmProp, "tb-img");
-                var _dom_span_array = _elmProp.getElementsByTagName("span");  //eg. 010黑 011白
-                for (var _dom_span_index = _dom_span_array.length - 1; 0 <= _dom_span_index; _dom_span_index--) {
-                    var _dom_span = _dom_span_array[_dom_span_index],
+                _prop_array_item.prop = _pvid_array_item.prop = _elmProp.getAttribute("data-property");    //<ul data-property="颜色分类" class="tm-clear J_TSaleProp tb-img  ">
+                _prop_array_item.elmt = _dom.prev(_elmProp.parentNode);   //dt颜色分类
+                _prop_array_item.hasImg = _dom.hasClass(_elmProp, "tb-img");
+                var _dom_span_array_for_elmProp = _elmProp.getElementsByTagName("span");  //eg. 010黑 011白
+                for (var _dom_span_index = _dom_span_array_for_elmProp.length - 1; 0 <= _dom_span_index; _dom_span_index--) {
+                    var _dom_span = _dom_span_array_for_elmProp[_dom_span_index],
                         _dom_a = _dom_span.parentNode,
                         _dom_li = _dom_a.parentNode,
                         _elmt_package = { name: _dom_span.firstChild ? _dom_span.firstChild.nodeValue : "", pvid: _dom_li.getAttribute("data-value"), elmt: _dom_li, img: _string_for_empty };
-                    if (true === g.hasImg) {
+                    if (true === _prop_array_item.hasImg) {
                         var _background_image_css = _dom.css(_dom_a, "background-image");
                         var _image_size = window.g_config.D950 ? "460x460" : "310x310";
                         if (-1 !== _background_image_css.indexOf("url(")) {
                             _elmt_package.img = _background_image_css.match(/url\("?([^\)^"]*)/)[1].replace("30x30", _image_size)
                         }
                     }
-                    g.data.unshift(_elmt_package);
+                    _prop_array_item.data.unshift(_elmt_package);
                     if (true === _is_ie) {
                         _dom_a.hideFocus = true
                     }
                     if (!_kissy.inArray(_elmt_package.pvid, _defaultSelected)) {
-                        if (S(_filter_by_pvid([_elmt_package.pvid]))) {
-                            V(_elmt_package.elmt)
+                        if (_calculate_total_stock(_filter_by_pvid([_elmt_package.pvid]))) {
+                            _set_stock_state(_elmt_package.elmt)
                         }
                     }
                     (function () {
-                        var AG = _index, AD = g.prop, AF = _elmProp, j = _dom_span, y = _dom_li, AH = _elmt_package, i = _dom_a, AC = k, AE = _dom_i;
-                        var AI = function (Ab, Ag, AV) {
-                            Ab && Ab.preventDefault();
-                            if (Ab) {
+                        var AG = _index, _prop_tmp = _prop_array_item.prop, _elmProp_tmp = _elmProp, _dom_span_tmp = _dom_span, _dom_li_tmp = _dom_li, _elmt_package_tmp = _elmt_package, _dom_a_tmp = _dom_a, _pvid_array_item_tmp = _pvid_array_item, _dom_i_tmp = _dom_i;
+                        var _click_fn = function (_event, Ag, AV) {
+                            _event && _event.preventDefault();
+                            if (_event) {
                                 _kissy_imp.sendAtpanel("tmalldetail.13.1")
                             }
-                            if (_dom.hasClass(y, "tb-out-of-stock")) {
+                            if (_dom.hasClass(_dom_li_tmp, "tb-out-of-stock")) {
                                 return
                             }
-                            if (AC.pvid === AH.pvid && typeof Ag == "undefined") {
-                                _dom.removeClass(y, "tb-selected");
-                                AC.pvid = _string_for_empty;
-                                AC.name = _string_for_empty;
-                                AC.elmt = null;
+                            if (_pvid_array_item_tmp.pvid === _elmt_package_tmp.pvid && typeof Ag == "undefined") {
+                                _dom.removeClass(_dom_li_tmp, "tb-selected");
+                                _pvid_array_item_tmp.pvid = _string_for_empty;
+                                _pvid_array_item_tmp.name = _string_for_empty;
+                                _pvid_array_item_tmp.elmt = null;
                                 if (_cfg.isWTContract) {
-                                    if (!_dom.attr(AF, "data-contract")) {
-                                        var AK = y.getAttribute("data-value");
+                                    if (!_dom.attr(_elmProp_tmp, "data-contract")) {
+                                        var AK = _dom_li_tmp.getAttribute("data-value");
                                         for (var AU = 0; AU < f.length; AU++) {
                                             var AW = _filter_by_pvid([AK, f[AU]["wtValue"]])[0];
                                             var Af = _skuMap[AW];
@@ -153,17 +155,17 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                     }
                                 })
                             } else {
-                                if (AC.elmt) {
-                                    O(AC.elmt)
+                                if (_pvid_array_item_tmp.elmt) {
+                                    _fireEvent(_pvid_array_item_tmp.elmt)
                                 }
-                                _dom.addClass(y, "tb-selected");
-                                y.appendChild(AE);
-                                AC.pvid = AH.pvid;
-                                AC.name = AH.name;
-                                AC.elmt = y;
+                                _dom.addClass(_dom_li_tmp, "tb-selected");
+                                _dom_li_tmp.appendChild(_dom_i_tmp);
+                                _pvid_array_item_tmp.pvid = _elmt_package_tmp.pvid;
+                                _pvid_array_item_tmp.name = _elmt_package_tmp.name;
+                                _pvid_array_item_tmp.elmt = _dom_li_tmp;
                                 if (_cfg.isWTContract) {
-                                    if (!_dom.attr(AF, "data-contract")) {
-                                        var AK = y.getAttribute("data-value");
+                                    if (!_dom.attr(_elmProp_tmp, "data-contract")) {
+                                        var AK = _dom_li_tmp.getAttribute("data-value");
                                         if (h) {
                                             for (var AU = 0; AU < f.length; AU++) {
                                                 var AW = _filter_by_pvid([h, f[AU]["wtValue"]])[0];
@@ -182,7 +184,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                         }
                                         h = AK
                                     } else {
-                                        w = AH.pvid
+                                        w = _elmt_package_tmp.pvid
                                     }
                                     if (h && w) {
                                         var AW = _filter_by_pvid([h, w])[0];
@@ -213,25 +215,25 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                     }
                                 }
                             }
-                            if (_string_for_empty !== AH.img) {
+                            if (_string_for_empty !== _elmt_package_tmp.img) {
                                 _kissy.use("malldetail/sku/thumbViewer", function (Ah, Ai) {
-                                    Ai.show(AH.img)
+                                    Ai.show(_elmt_package_tmp.img)
                                 })
                             }
                             var Ac = [];
-                            for (var AY = 0; _eleProps_length > AY; AY++) {
-                                var Ae = P[AY], AS = Ae.pvid;
-                                if (_string_for_empty !== AS) {
-                                    Ac.push(AS)
+                            for (var _eleProp_index = 0; _eleProps_length > _eleProp_index; _eleProp_index++) {
+                                var _pvid_array_item_t_t = _pvid_array[_eleProp_index], _pvid = _pvid_array_item_t_t.pvid;
+                                if (_string_for_empty !== _pvid) {
+                                    Ac.push(_pvid)
                                 }
                             }
                             for (var AY = 0; _eleProps_length > AY; AY++) {
-                                var Ae = P[AY], AS = Ae.pvid;
-                                var AL = R[AY].data, AQ = AL.length;
+                                var Ae = _pvid_array[AY], AS = Ae.pvid;
+                                var AL = _prop_array[AY].data, AQ = AL.length;
                                 for (var AX = 0; AX < AQ; AX++) {
                                     var AZ = AL[AX];
                                     var AJ = [].concat(Ac);
-                                    if (AC.pvid === AH.pvid) {
+                                    if (_pvid_array_item_tmp.pvid === _elmt_package_tmp.pvid) {
                                         if (_dom.hasClass(AZ.elmt, "tb-out-of-stock")) {
                                             continue
                                         }
@@ -244,8 +246,8 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                         }
                                         AJ.push(AZ.pvid);
                                         AW = _filter_by_pvid(AJ);
-                                        if (S(AW)) {
-                                            V(AZ.elmt)
+                                        if (_calculate_total_stock(AW)) {
+                                            _set_stock_state(AZ.elmt)
                                         }
                                     } else {
                                         if (!_dom.hasClass(AZ.elmt, "tb-out-of-stock")) {
@@ -257,7 +259,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                                         }
                                         AJ.push(AZ.pvid);
                                         AW = _filter_by_pvid(AJ);
-                                        if (!S(AW)) {
+                                        if (!_calculate_total_stock(AW)) {
                                             _dom.removeClass(AZ.elmt, "tb-out-of-stock")
                                         }
                                     }
@@ -282,12 +284,12 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                             _mods_SKU.selArr = Ac;
                             _kissy_imp.fire(M, { selArr: Ac })
                         };
-                        _event.on(i, "click", AI);
-                        N[AH.pvid] = function (AJ) {
-                            AI(null, AJ)
+                        _event.on(_dom_a_tmp, "click", _click_fn);
+                        N[_elmt_package_tmp.pvid] = function (AJ) {
+                            _click_fn(null, AJ)
                         };
-                        if ((true === AB && _kissy.inArray(_elmt_package.pvid, _defaultSelected)) || (1 === _dom_span_array.length && typeof _dom_span_array[0] != undefined && _dom_span_array[0].parentNode.style.background == "")) {
-                            v.push(AI)
+                        if ((true === _hasDefaultSelected && _kissy.inArray(_elmt_package.pvid, _defaultSelected)) || (1 === _dom_span_array_for_elmProp.length && typeof _dom_span_array_for_elmProp[0] != undefined && _dom_span_array_for_elmProp[0].parentNode.style.background == "")) {
+                            v.push(_click_fn)
                         }
                     })()
                 }
@@ -312,14 +314,14 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                 }
             });
             if (!l) {
-                for (var k = 0, h = R.length; k < h; k++) {
-                    var e = R[k]["data"];
+                for (var k = 0, h = _prop_array.length; k < h; k++) {
+                    var e = _prop_array[k]["data"];
                     for (var g = 0, f = e.length; g < f; g++) {
                         var d = e[g];
                         var p = d.pvid;
                         if (!_kissy.inArray(p, _defaultSelected)) {
-                            if (S(_filter_by_pvid([p]))) {
-                                V(d.elmt)
+                            if (_calculate_total_stock(_filter_by_pvid([p]))) {
+                                _set_stock_state(d.elmt)
                             } else {
                                 _dom.removeClass(d.elmt, "tb-out-of-stock")
                             }
@@ -342,11 +344,11 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                 _kissy_imp.on(M, d)
             }
         }, getSeleProp: function () {
-            return P
+            return _pvid_array
         }, getPropData: function () {
-            return R
+            return _prop_array
         }, propClick: function (d) {
-            return O(d)
+            return _fireEvent(d)
         }, getdataLinkList: function () {
             return N
         }, reset: function () {
