@@ -11,8 +11,8 @@
     <ul class="toolBar">
         <li><a class="add" href="sku/pAddSku.aspx?commodity_id=<%=Request.Params["commodity_id"]%>" title="增加商品种类" target="navTab"
             rel=""><span>增加商品种类</span></a></li>
-        <li><a class="edit" href="Address/pEditAddress.aspx?uid={skuid}" title="修改商品种类" rel="" target="navTab"><span>修改商品种类</span></a></li>
-        <li><a class="delete" href="Address/pAddressList.aspx?flag=alldelete&uid={skuid}" target="ajaxTodo"
+        <li><a class="edit" href="sku/pEditSku.aspx?uid={skuid}" title="修改商品种类" rel="" target="navTab"><span>修改商品种类</span></a></li>
+        <li><a class="delete" href="sku/pSkuList.aspx?flag=alldelete&uid={skuid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除商品种类</span></a></li>
         <li class="line">line</li>
     </ul>

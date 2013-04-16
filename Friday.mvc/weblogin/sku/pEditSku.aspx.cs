@@ -20,7 +20,7 @@ namespace Friday.mvc.weblogin
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            sku = iSkuService.Load(uid);
+            sku = iSkuService.getSkubyIntID(uid);
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 SaveSku();

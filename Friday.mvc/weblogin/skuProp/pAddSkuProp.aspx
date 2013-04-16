@@ -6,7 +6,6 @@
         <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
         <div defh="95">
             <h1>配送地址基本信息</h1>
-            <input type="hidden" id="SkuId" size="30" runat="server" />
             <p>
                 <label>
                     规格类型：</label>
