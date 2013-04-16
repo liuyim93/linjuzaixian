@@ -134,8 +134,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int totalquty = 0;
 
             dynamic deliverySkuMap = new Dictionary<string, List<SKUDO>>();
-            dynamic skuQuantity = new Dictionary<string, List<SkuQuantity>>();
-            dynamic priceInfo = new Dictionary<string, List<PriceInfo>>();
+            dynamic skuQuantity = new Dictionary<string, SkuQuantity>();
+            dynamic priceInfo = new Dictionary<string, PriceInfo>();
             for (int i = 0; i < skulist.Count; i++)
             {          
              deliverySkuMap.Add(skulist[i].skuId.ToString(), new List<SKUDO>(){new SKUDO()
@@ -148,19 +148,19 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             type=0
                         }});
 
-             skuQuantity.Add(skulist[i].skuId.ToString(), new List<SkuQuantity>(){new SkuQuantity()
+             skuQuantity.Add(skulist[i].skuId.ToString(), new SkuQuantity()
                         {
                              quantity=skulist[i].stock,
                              type=skulist[i].Commodity.Version
-                        }});
-             priceInfo.Add(skulist[i].skuId.ToString(), new List<PriceInfo>(){new PriceInfo()
+                        });
+             priceInfo.Add(skulist[i].skuId.ToString(), new PriceInfo()
                         {
                              areaSold = true,
                              price =(float)skulist[i].price,
                              promotionList = null,
                              tagPrice = null,
                              umpBigPromotionDisplayPrice = null
-                        }});
+                        });
                 totalquty = totalquty + skulist[i].stock;        
             };
      
