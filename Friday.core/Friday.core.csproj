@@ -88,6 +88,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -99,6 +100,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="components\CommodityUploadImage.cs" />
     <Compile Include="components\EntLibConnectionProvider.cs" />
     <Compile Include="components\tree\JsonTree.cs" />
     <Compile Include="components\tree\nvl.cs" />
