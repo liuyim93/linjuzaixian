@@ -18,7 +18,7 @@ namespace friday.core.components
             string filesNewNameWithoutExt = "";
             string result = "";
             string genaratePicPath = "";
-            int[] imageSize = { 120, 60, 30 };
+            int[] imageSize = { 460, 120, 60, 30 };
 
             Random R = new Random();//创建产生随机数
             try
@@ -81,7 +81,7 @@ namespace friday.core.components
                             try
                             {
                                 //以jpg格式保存缩略图
-                                genaratePicPath = System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesNewNameWithoutExt + "_" + size + "x" + size + fileExtension;
+                                genaratePicPath = System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesnewName + "_" + size + "x" + size + fileExtension;
                                 switch (fileExtension)
                                 {
                                     case ".gif": bitmap.Save(genaratePicPath, System.Drawing.Imaging.ImageFormat.Gif); break;
@@ -89,7 +89,7 @@ namespace friday.core.components
                                     case ".bmp": bitmap.Save(genaratePicPath, System.Drawing.Imaging.ImageFormat.Bmp); break;
                                     case ".png": bitmap.Save(genaratePicPath, System.Drawing.Imaging.ImageFormat.Png); break;
                                 }
-                                //result = ((result == "") ? "" : result + ";") + "/uploadimage/" + ParentPath + "/" + filesNewNameWithoutExt + "_" + size + "x" + size + fileExtension;
+                                //result = ((result == "") ? "" : result + ";") + "/uploadimage/" + ParentPath + "/" + filesnewName + "_" + size + "x" + size + fileExtension;
 
                             }
                             catch (System.Exception e)

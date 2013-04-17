@@ -213,34 +213,51 @@
             </div>
         </div>
         <div class="tb-gallery">
+
             <div class="tb-booth tb-pic tb-s460">
-                <a href="http://www.taobao.com/view_image.php?pic=Wx0GGlFDXA1VUwMAWx0SCwkNGRFcVxxQW1UcCxMFRBkDCFdVV1cRRhpWRDhHK1YPA2tXQF0xKglFKD4LFmsCA0daQVRFBgYV&amp;title=TmlrZSDEzb%2FLudm3vSBBUyBBREFQVCBJTkRZIFNIT1JUIMWu19O99Mntt%2F4gNTAzNTU1&amp;version=2&amp;c=NTRlNmY5NDM0M2I1ZDJkNjQ3ZmRkZThhOTM2MzQ0OTY%3D&amp;itemId=16246683095&amp;shopId=71955116&amp;sellerRate=13310&amp;dbId=&amp;fv=9"
-                    target="_blank"><span class="ks-imagezoom-wrap">
-                        <img id="J_ImgBooth" src="http://img03.taobaocdn.com/imgextra/i3/890482188/T2tiy9XXtXXXXXXXXX_!!890482188.jpg_460x460.jpg"
-                            data-haszoom="700">
+                    @{
+                        string imagePath = Model.Commodity.Image;
+                        string[] images = imagePath.Split(';');
+                        
+                        var src_0 = "http://localhost:7525/weblogin" + images[0]; 
+                        
+                        <a href="@src_0" target="_blank"><span class="ks-imagezoom-wrap">
+                        <img id="J_ImgBooth" data-haszoom="700">
+                     
                         <span class="ks-imagezoom-icon" style=""></span><span style="position: absolute;
                             top: 0px; left: 184.7249999999999px; width: 274.27500000000003px; height: 192.625px;
                             display: none;" class="ks-imagezoom-lens"></span></span></a>
+                      }  
             </div>
             <ul id="J_UlThumb" class="tb-thumb tm-clear">
-                <li class="" data-size="{&quot;w&quot;:600,&quot;h&quot;:600,&quot;zm&quot;:0}">
-                    <div class="tb-pic tb-s60">
-                        <a href="#">
-                            <img src="http://img02.taobaocdn.com/bao/uploaded/i2/T1Yn61XcxnXXc.DMo._112320.jpg_60x60.jpg"></a>
-                    </div>
-                </li>
-                <li class="" data-size="{&quot;w&quot;:800,&quot;h&quot;:800,&quot;zm&quot;:1}">
-                    <div class="tb-pic tb-s60">
-                        <a href="#">
-                            <img src="http://img01.taobaocdn.com/imgextra/i1/890482188/T2hIhUXfhdXXXXXXXX_!!890482188.jpg_60x60.jpg"></a>
-                    </div>
-                </li>
-                <li class="tb-selected" data-size="{&quot;w&quot;:800,&quot;h&quot;:800,&quot;zm&quot;:1}">
-                    <div class="tb-pic tb-s60">
-                        <a href="#">
-                            <img src="http://img03.taobaocdn.com/imgextra/i3/890482188/T2tiy9XXtXXXXXXXXX_!!890482188.jpg_60x60.jpg"></a>
-                    </div>
-                </li>
+            @{
+
+                for (int a=0;a< images.Length;a++)
+                {
+                    var src = "http://localhost:7525/weblogin"+images[a]+"_60x60.jpg";                    
+                    if(a==0)
+                    {
+                        <image data-ks-lazyload="@src_0" />
+                
+                        <li class="tb-selected">
+                            <div class="tb-pic tb-s60">
+                                <a href="#">
+                                    <img src='@src'></a>
+                            </div>
+                        </li>
+                    }
+                    else
+                    {
+
+                         <li>
+                            <div class="tb-pic tb-s60">
+                                <a href="#">
+                                    <img src='@src'></a>
+                            </div>
+                        </li>  
+                    }
+                }
+            }
             </ul>
         </div>
     </div>
