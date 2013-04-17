@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="此处有设计缺陷，Commodity应该和PropID关联，这样增加属于Commodity的Sku，会限定PropID。 目前暂时去Commodity第一个Sku的PropID">
+    <Position X="5.602" Y="23.275" Height="1.033" Width="1.7" />
+  </Comment>
   <Class Name="friday.core.domain.Activity" Collapsed="true">
     <Position X="2.5" Y="1" Width="1.5" />
     <TypeIdentifier>
@@ -549,7 +552,7 @@
   <Class Name="friday.core.domain.Sku">
     <Position X="5.25" Y="20.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAACAgAAAAAAAAAAAAAAAIAAAIAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAABAAACAgAAAAAAAAAAAAAAAIEAAIAAAAAAAAIAAAA=</HashCode>
       <FileName>domain\Sku.cs</FileName>
       <NewMemberFileName>domain\SKU.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -563,7 +566,7 @@
   <Class Name="friday.core.domain.SkuProp">
     <Position X="3.25" Y="22.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAACAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAgAAAAAAAAAAAEAAAAAAAAAECAAAAA=</HashCode>
       <FileName>domain\SkuProp.cs</FileName>
       <NewMemberFileName>domain\SKUProp.cs</NewMemberFileName>
     </TypeIdentifier>
@@ -575,14 +578,14 @@
   <Class Name="friday.core.domain.PropID">
     <Position X="1.75" Y="23.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAgAAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAEAAAgAAAAAAAAAAAAEAgAAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\PropID.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="friday.core.domain.PropValue">
     <Position X="1.5" Y="20.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAACAAIAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAEAgAAAAAAAACAAIAA=</HashCode>
       <FileName>domain\PropValue.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

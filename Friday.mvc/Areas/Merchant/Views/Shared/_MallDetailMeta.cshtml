@@ -1,0 +1,247 @@
+﻿@{
+    Layout = null;
+}
+@using Friday.mvc.Models
+@using Friday.core
+@model DetailModel
+<div id="J_DetailMeta" class="tb-detail-bd tm-clear">
+    <div class="tb-summary tm-clear">
+        <div class="tb-property">
+            <div class="tb-wrap">
+                <div class="tb-detail-hd">
+                    <h3 data-spm="1000983">
+                        <a target="_blank" href="http://detail.tmall.com/venus/spu_detail.htm?spu_id=203480309&amp;no_switch=1&amp;default_item_id=16246683095">
+                            Nike 耐克官方 AS ADAPT INDY SHORT 女子紧身服 503555</a>
+                    </h3>
+                </div>
+                <ul class="tb-meta">
+                    <li class="tb-detail-price tm-clear" id="J_StrPriceModBox"><span class="tb-metatit">
+                        价格</span> <strong id="J_StrPrice"></strong><span class="yuan">元</span> </li>
+                    <li class="tb-detail-price tm-clear tb-promo-price  tb-hidden" id="J_PromoPrice"><span
+                        class="tb-metatit">促销</span>
+                        <div id="J_PromoBox">
+                        </div>
+                    </li>
+                    <li class="tb-delivery tm-clear" id="J_RSPostageCont"><span class="tb-metatit">配送</span>
+                        <div class="tb-postAge">
+                            <a id="J_dqPostAgeCont" href="#" class="tb-postAgeCont" data-spm-anchor-id="a220o.1000855.0.65">
+                                至&nbsp;济南</a>
+                            <div id="J_PostageToggleCont" class="tb-postAge-info">
+                                <div id="friInfo" style="display: none;">
+                                </div>
+                                <div id="info" class="tmallPost">
+                                    <span>快递: 0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tb-sold-out tm-clear J_MonSales" style="display: list-item;"><span class="tb-metatit">
+                        月销量</span> <em class="J_MonSalesNum"></em>件 </li>
+                    <li class="tb-item-rates tm-clear" id="J_ItemRates" style="display: list-item;"><span
+                        class="tb-metatit">评价</span>
+                        <div id="J_Stars">
+                            <p>
+                                <span class="c-value-no c-value-4d9"><em>4.9</em> </span>4.9分 <span>( <a href="#"
+                                    id="J_MallReviewTabTrigger">累计评价 <em>39</em> </a>) </span>
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+                <div class="tb-key">
+                    <div class="tb-skin tb-naked">
+                        <div class="tb-sku">
+                            <!-- meizInfo.vm start-->
+                            <!--  -->
+                            <!-- meizInfo.vm end-->
+                            @{
+                                if(Model.Commodity.Skus.Count!=0)
+                                {
+                                    var sku = Model.Commodity.Skus.ElementAt(0);
+                                    for (var propIndex = 0; propIndex < sku.SKUProps.Count; propIndex++)
+                                    {
+                                        var prop=sku.SKUProps.ElementAt(propIndex);
+                                        var propid=prop.PropID;
+                                        <dl class="tb-prop tm-clear">
+                                            <dt class="tb-metatit">@prop.PropID.PropIDName</dt>
+                                            <dd>
+                                                <ul data-property="@prop.PropID.PropIDName" class="tm-clear J_TSaleProp  ">
+                                                   @for (var propValueIndex = 0; propValueIndex < propid.PropValues.Count(); propValueIndex++)
+                                                   {
+                                                       var propvalue = propid.PropValues.ElementAt(propValueIndex);
+                                                       <li data-value="@propid.Id:@propvalue.Id"><a href="#"><span>@propvalue.PropValueName</span> </a></li>
+                                                   }
+                                                </ul>
+                                            </dd>
+                                        </dl>
+                                    }
+                                }
+                             }
+                            @*<dl class="tb-prop tm-clear">
+                                <dt class="tb-metatit">运动服尺寸</dt>
+                                <dd>
+                                    <ul data-property="运动服尺寸" class="tm-clear J_TSaleProp  ">
+                                        <li data-value="1626580:28316"><a href="#" data-spm-anchor-id="a220o.1000855.0.67"><span>
+                                            S</span> </a></li>
+                                        <li data-value="1626580:28317"><a href="#" data-spm-anchor-id="a220o.1000855.0.67"><span>
+                                            M</span> </a></li>
+                                        <li data-value="1626580:28318"><a href="#" data-spm-anchor-id="a220o.1000855.0.67"><span>
+                                            L</span> </a></li>
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="tb-prop tm-clear">
+                                <dt class="tb-metatit tb-h">颜色分类</dt>
+                                <dd>
+                                    <ul data-property="颜色分类" class="tm-clear J_TSaleProp tb-img  ">
+                                        <li data-value="1627207:28341" title="010黑"><a href="#" style="background: url(http://img02.taobaocdn.com/bao/uploaded/i2/890482188/T2UkdZXaNcXXXXXXXX_!!890482188.png_30x30.jpg) center no-repeat;">
+                                            <span>010黑</span> </a></li>
+                                        <li data-value="1627207:28340" title="010白"><a href="#"><span>011白</span> </a></li>
+                                    </ul>
+                                </dd>
+                            </dl>*@
+                            <dl class="tb-amount tm-clear">
+                                <dt class="tb-metatit">数量</dt>
+                                <dd id="J_Amount">
+                                    @*//2013-01-10  王海川  注释重复代码
+                                                    <span class="tb-amount-widget" id="J_AmountWidget">
+														<input id="J_IptAmount" type="text" class="tb-text" value="1" maxlength="8" title="请输入购买量">
+														<span class="increase"></span>
+														<span class="decrease"></span>
+													</span>
+													件*@ <em id="J_EmStock" style="">(库存5件)</em>
+                                </dd>
+                            </dl>
+                            <dl id="J_DlChoice" class="tb-choice tm-clear">
+                                <dt>请选择：</dt>
+                                <dd>
+                                    <em>"运动服尺寸"</em> <em>"颜色分类"</em>
+                                </dd>
+                            </dl>
+                            <div class="tb-action tm-clear ">
+                                <div class="tb-btn-buy tb-btn-sku">
+                                    <a id="J_LinkBuy" href="#" data-addfastbuy="true" title="点击此按钮，到下一步确认购买信息。">立刻购买 <b>
+                                    </b></a>
+                                </div>
+                                <div class="tb-btn-basket tb-btn-sku">
+                                    <a href="#" id="J_LinkBasket">加入购物车 <b></b></a>
+                                </div>
+                                <div class="tb-btn-add tb-btn-sku tb-hidden">
+                                    <a href="#" id="J_LinkAdd">加入购物车 <b></b></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="tb-meta">
+                    <li>
+                        <ul class="tb-meta tb-serUnified tm-clear">
+                            <li><span class="tb-metatit" data-spm="1000988"><a href="http://vip.tmall.com/vip/index.htm"
+                                target="_blank">天猫积分</a> </span>送 <em id="J_EmPoint" class="tb-serIntegral">99</em>
+                            </li>
+                            <li class="tb-serPay"><span class="tb-metatit">支付</span>
+                                <div class="pay-credit J_Paylist" data-spm="1000990">
+                                    <a title="支持使用信用卡分期支付" target="_blank" href="http://help.alipay.com/lab/help_detail.htm?help_id=249183">
+                                        信用卡分期 <s></s></a><a title="支持用绑定了支付宝的银行卡付款" href="http://help.alipay.com/lab/help_detail.htm?help_id=245296"
+                                            target="_blank">快捷支付</a> <a title="支持用开通了网上银行的银行卡付款" href="http://help.alipay.com/lab/help_detail.htm?help_id=251545"
+                                                target="_blank">网银支付</a> <a title="拍下商品后，让其他人帮您付款" href="http://help.alipay.com/lab/help_detail.htm?help_id=214301"
+                                                    target="_blank">找人代付</a> <a title="支持手机话费卡充值付款" href="http://help.alipay.com/lab/help_detail.htm?help_id=251558"
+                                                        target="_blank">消费卡</a> <a title="到支付宝合作的线下网点（如便利店、邮局、药店等），用现金或刷卡即可完成网上订单付款" href="http://help.alipay.com/lab/help_detail.htm?help_id=211741"
+                                                            target="_blank">网点支付</a> <a title="支持使用支付宝账户余额的钱付款" href="http://help.alipay.com/lab/help_detail.htm?help_id=251547"
+                                                                target="_blank">支付宝余额</a> <em title="显示所有信息" class="pay-toggler" id="J_Toggler">更多信息</em>
+                                </div>
+                            </li>
+                        </ul>
+                        <dl class="tb-serPromise tm-clear">
+                            <dt class="tb-serPromise-t">服务承诺</dt>
+                            <dd class="tb-serPromise-c tm-clear">
+                                <ul class="tb-serPromise-list">
+                                    <li>
+                                        <h3 class="tb-serTitle">
+                                            商品保证</h3>
+                                        <a class="tb-serPromise-serIcon tm-clear" title="“正品保障”指当买家使用支付宝服务购买您在tmall.com（天猫）网站出售的商品时，获得的保障"
+                                            href="http://service.tmall.com/support/tmall/knowledge-1124130.htm?spm=0.0.0.88.Ngk8qq"
+                                            target="_blank"><span class="tb-serPromise-name">正品保障</span> </a></li>
+                                    <li class="tb-serPromise-ser02">
+                                        <h3 class="tb-serTitle">
+                                            退款权益</h3>
+                                        <a class="tb-serPromise-serIcon" href="http://vip.tmall.com/vip/privilege.htm?spm=3.1000588.0.141.2a0ae8&amp;priv=speed"
+                                            title="极速退款是天猫为T2及T3天猫达人提供的退款退货流程的专享特权，目前针对部分T2、T3的天猫达人开放" target="_blank"><span
+                                                class="tb-serPromise-name">极速退款</span> <span class="tb-serPromise-serLv">T3</span>
+                                        </a></li>
+                                    <li class="tb-serPromise-ser03">
+                                        <h3 class="tb-serTitle">
+                                            退货服务</h3>
+                                        <a class="tb-serPromise-serIcon" href="http://vip.tmall.com/member/card_center.htm?spm=3.1000591.0.164.2QKIZ8&amp;card=1"
+                                            title="天猫达人购物凭退货保障卡免费获保退货运费险，其中T1得3张，T2得5张，T3得10张，有效期至2013年12月31日" target="_blank">
+                                            <span class="tb-serPromise-name">退货保障卡</span> <span class="tb-serPromise-serLv">T1</span>
+                                        </a></li>
+                                </ul>
+                            </dd>
+                        </dl>
+                    </li>
+                </ul>
+                <ul class="tb-meta">
+                    <li class="tb-other tm-clear "><span class="tb-metatit">爱分享</span> <span id="J_IShare">
+                        <div class="TMLShareTrigger" id="tml-share-trigger">
+                            <div class="tml-share-ctn TMLShareCtn">
+                                <em class="tml-share-copyIcon TMLShareCopy" title="复制链接分享给好友">复制分享</em> <b class="tml-share-separator">
+                                </b><a class="tml-share-app-t tml-share-app-sina-t TMLShareAppT" title="分享到新浪微博"
+                                    target="_blank" data-tml-appid="4" href="http://t.taobao.com/cooperate/connect/connect_sina.htm">
+                                </a><a class="tml-share-app-t tml-share-app-qzone-t TMLShareAppT" title="分享到QQ空间"
+                                    target="_blank" data-tml-appid="7" href="http://t.taobao.com/cooperate/connect/connect_qzone.htm">
+                                </a><a class="tml-share-app-t tml-share-app-qweibo-t TMLShareAppT" title="分享到腾讯微博"
+                                    target="_blank" data-tml-appid="6" href="http://t.taobao.com/cooperate/connect/connect_qweibo.htm">
+                                </a><a class="tml-share-app-t tml-share-app-renren-t TMLShareAppT" title="分享到人人网"
+                                    target="_blank" data-tml-appid="3" href="http://t.taobao.com/cooperate/connect/connect_renren.htm">
+                                </a><a class="tml-share-app-t tml-share-app-kaixin-t TMLShareAppT" title="分享到开心网"
+                                    target="_blank" data-tml-appid="2" href="http://t.taobao.com/cooperate/connect/connect_kaixin.htm">
+                                </a><a class="tml-share-app-t tml-share-app-sohu-t TMLShareAppT" title="分享到搜狐微博"
+                                    target="_blank" data-tml-appid="5" href="http://t.taobao.com/cooperate/connect/connect_sohu.htm">
+                                </a>
+                            </div>
+                        </div>
+                    </span><a id="J_Favorite" href="http://favorite.taobao.com/popup/add_collection.htm?id=16246683095&amp;itemtype=1&amp;scjjc=1&amp;_tb_token_=T6C62bS4Apux"
+                        class="J_TDialogTrigger J_PopupTrigger xshop_sc favorite J_TokenSign" data-width="440"
+                        data-height="260" data-closebtn="true" title="收藏该商品"><i></i>收藏商品 </a><span class="tb-fav-num">
+                            <span style="">(人气 <em id="J_CollectCount">704</em> ) </span></span>
+                        <p id="J_EditItem" class="right">
+                            <a href="http://archer.taobao.com/myservice/report/entry.htm?auction_num_id=16246683095&amp;display_type=3"
+                                target="_blank">举报</a>
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="tb-gallery">
+            <div class="tb-booth tb-pic tb-s460">
+                <a href="http://www.taobao.com/view_image.php?pic=Wx0GGlFDXA1VUwMAWx0SCwkNGRFcVxxQW1UcCxMFRBkDCFdVV1cRRhpWRDhHK1YPA2tXQF0xKglFKD4LFmsCA0daQVRFBgYV&amp;title=TmlrZSDEzb%2FLudm3vSBBUyBBREFQVCBJTkRZIFNIT1JUIMWu19O99Mntt%2F4gNTAzNTU1&amp;version=2&amp;c=NTRlNmY5NDM0M2I1ZDJkNjQ3ZmRkZThhOTM2MzQ0OTY%3D&amp;itemId=16246683095&amp;shopId=71955116&amp;sellerRate=13310&amp;dbId=&amp;fv=9"
+                    target="_blank"><span class="ks-imagezoom-wrap">
+                        <img id="J_ImgBooth" src="http://img03.taobaocdn.com/imgextra/i3/890482188/T2tiy9XXtXXXXXXXXX_!!890482188.jpg_460x460.jpg"
+                            data-haszoom="700">
+                        <span class="ks-imagezoom-icon" style=""></span><span style="position: absolute;
+                            top: 0px; left: 184.7249999999999px; width: 274.27500000000003px; height: 192.625px;
+                            display: none;" class="ks-imagezoom-lens"></span></span></a>
+            </div>
+            <ul id="J_UlThumb" class="tb-thumb tm-clear">
+                <li class="" data-size="{&quot;w&quot;:600,&quot;h&quot;:600,&quot;zm&quot;:0}">
+                    <div class="tb-pic tb-s60">
+                        <a href="#">
+                            <img src="http://img02.taobaocdn.com/bao/uploaded/i2/T1Yn61XcxnXXc.DMo._112320.jpg_60x60.jpg"></a>
+                    </div>
+                </li>
+                <li class="" data-size="{&quot;w&quot;:800,&quot;h&quot;:800,&quot;zm&quot;:1}">
+                    <div class="tb-pic tb-s60">
+                        <a href="#">
+                            <img src="http://img01.taobaocdn.com/imgextra/i1/890482188/T2hIhUXfhdXXXXXXXX_!!890482188.jpg_60x60.jpg"></a>
+                    </div>
+                </li>
+                <li class="tb-selected" data-size="{&quot;w&quot;:800,&quot;h&quot;:800,&quot;zm&quot;:1}">
+                    <div class="tb-pic tb-s60">
+                        <a href="#">
+                            <img src="http://img03.taobaocdn.com/imgextra/i3/890482188/T2tiy9XXtXXXXXXXXX_!!890482188.jpg_60x60.jpg"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

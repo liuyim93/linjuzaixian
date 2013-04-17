@@ -6,7 +6,7 @@
         if (S) {
             var T = N.get("#J_Select_region");
             if (T && (T.value == null || T.value == R)) {
-                alert("\u8bf7\u9009\u62e9\u5546\u54c1\u5151\u6362\u5730!");
+                alert("请选择商品兑换地!");
                 return false
             }
         }
@@ -33,15 +33,15 @@
         var U = L.inventoryType ? L.inventoryType : P.valItemInfo.type;
         if (S != null && Y > S) {
             if (S < T) {
-                V = "\u6bcf\u4eba\u9650\u8d2d" + S + "\u4ef6"
+                V = "每人限购" + S + "件"
             }
         }
         switch (true) {
             case false === /^\d+$/.test(P.iptAmount.value) || 0 >= T:
-                V = "\u8bf7\u586b\u5199\u6b63\u786e\u7684\u5546\u54c1\u6570\u91cf\uff01";
+                V = "请填写正确的商品数量！";
                 break;
             case (Y < T) && U != 3:
-                V = X === "ju" ? ("\u805a\u5212\u7b97\u7279\u4ef7\u5546\u54c1,\u6bcf\u4eba\u9650\u8d2d" + Y + "\u4ef6") : (W ? "\u60a8\u6240\u586b\u5199\u7684\u5546\u54c1\u6570\u91cf\u8d85\u8fc7\u9650\u8d2d\u6570\u91cf\uff01" : "\u60a8\u6240\u586b\u5199\u7684\u5546\u54c1\u6570\u91cf\u8d85\u8fc7\u5e93\u5b58\uff01");
+                V = X === "ju" ? ("聚划算特价商品,每人限购" + Y + "件") : (W ? "您所填写的商品数量超过限购数量！" : "您所填写的商品数量超过库存！");
                 break
         }
         if (R !== V) {
@@ -112,11 +112,11 @@
             var S = parseInt(P.iptAmount.value, 10);
             var T = V.amountRestriction || 0;
             if (C.cfg("statu") == "-1") {
-                alert("\u6d3b\u52a8\u5df2\u7ecf\u7ed3\u675f\uff0c\u4f60\u53ea\u80fd\u7528\u539f\u4ef7\u8d2d\u4e70\u4e86");
+                alert("活动已经结束，你只能用原价购买了");
                 return false
             }
             if (T > 0 && S > T) {
-                U = "\u60a8\u6240\u586b\u5199\u7684\u5546\u54c1\u6570\u91cf\u8d85\u8fc7\u9650\u8d2d\u6570\u91cf\uff01"
+                U = "您所填写的商品数量超过限购数量！"
             }
             if (R !== U) {
                 J.show(U);

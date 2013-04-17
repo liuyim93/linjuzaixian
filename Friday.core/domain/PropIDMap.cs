@@ -20,6 +20,8 @@ namespace friday.core.domain
             Map(o => o.PropIDName);
             Map(o => o.CreateTime);
             References<Merchant>(o => o.Merchant).Not.Nullable();
+            //2013-04-17 basilwang we need iterate propvalue by propid
+            HasMany<PropValue>(o => o.PropValues).Inverse().Cascade.All();
         }
     }
 }

@@ -11,6 +11,7 @@ namespace friday.core.domain
         public PropID()
         {
             CreateTime = DateTime.Now;
+            PropValues = new Iesi.Collections.Generic.HashedSet<PropValue>();
         }
         public virtual int Id
         {
@@ -32,6 +33,11 @@ namespace friday.core.domain
         { 
             get; 
             protected set; 
+        }
+        public virtual Iesi.Collections.Generic.ISet<PropValue> PropValues
+        {
+            get;
+            set;
         }
     }
 }
