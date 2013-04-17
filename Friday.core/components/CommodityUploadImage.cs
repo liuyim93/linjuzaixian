@@ -89,7 +89,7 @@ namespace friday.core.components
                                     case ".bmp": bitmap.Save(genaratePicPath, System.Drawing.Imaging.ImageFormat.Bmp); break;
                                     case ".png": bitmap.Save(genaratePicPath, System.Drawing.Imaging.ImageFormat.Png); break;
                                 }
-                                result = ((result == "") ? "" : result + ";") + "/uploadimage/" + ParentPath + "/" + filesNewNameWithoutExt + "_" + size + "x" + size + fileExtension;
+                                //result = ((result == "") ? "" : result + ";") + "/uploadimage/" + ParentPath + "/" + filesNewNameWithoutExt + "_" + size + "x" + size + fileExtension;
 
                             }
                             catch (System.Exception e)
@@ -110,7 +110,7 @@ namespace friday.core.components
             {
             }
 
-            return result;
+            return "/uploadimage/" + ParentPath + "/" + filesnewName;
         }
     }
 }
