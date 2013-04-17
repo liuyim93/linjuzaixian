@@ -99,9 +99,6 @@
                 请上传大小为190×142的食物图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
             </p>
           
-              <p >
-                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
-            </p>
          </div>         
 
             <div class="formBar">

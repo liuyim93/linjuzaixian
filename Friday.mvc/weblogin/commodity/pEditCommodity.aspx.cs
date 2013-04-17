@@ -45,7 +45,6 @@ namespace Friday.mvc.weblogin
             else
             {
                 BindingHelper.ObjectToControl(f, this);
-                this.ImagePreview.Src = f.Image;
                 Shop rst = iShopService.Load(mid);
                 IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
                 foreach (var i in goodsTypes)
