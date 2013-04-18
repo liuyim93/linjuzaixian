@@ -255,21 +255,21 @@
             I.addCallback.apply(I, H)
         })
     }, onMainBody: function () {
-        var H = arguments, I = TShop.onMainBody;
-        _kissy.use("malldetail/common/util", function (J, K) {
-            if (I != TShop.onMainBody) {
+        var _arguments = arguments, _onMainBody = TShop.onMainBody;
+        _kissy.use("malldetail/common/util", function (_kissy_imp_t, _malldetail_common_util) {
+            if (_onMainBody != TShop.onMainBody) {
                 return
             }
-            TShop.onMainBody = K.createLoader(function (L) {
-                J.use("malldetail/other/mainBody", function (M, N) {
-                    N.init({ onTabBarReady: function () {
+            TShop.onMainBody = _malldetail_common_util.createLoader(function (L) {
+                _kissy_imp_t.use("malldetail/other/mainBody", function (_kissy_imp_t_t, _malldetail_other_mainBody) {
+                    _malldetail_other_mainBody.init({ onTabBarReady: function () {
                         TShop.poc("tabbar")
                     }
                     });
-                    L(N)
+                    L(_malldetail_other_mainBody)
                 })
             });
-            TShop.onMainBody.apply(null, H)
+            TShop.onMainBody.apply(null, _arguments)
         })
     }, onLeftSlide: function () {
         var H = arguments, I = TShop.onLeftSlide;
@@ -469,34 +469,34 @@
     } catch (D) {
     }
     TShop.poc = function (H) {
-        var J = window;
-        var I = J.g_config;
-        if (I.offlineShop || I.isOfflineShop) {
+        var _window = window;
+        var _g_config = _window.g_config;
+        if (_g_config.offlineShop || _g_config.isOfflineShop) {
             return
         }
-        if (I.isSpu) {
+        if (_g_config.isSpu) {
             H += "_s"
         }
-        (J._poc = J._poc || []).push(["_trackCustomTime", "tt_" + H, new Date().valueOf()])
+        (_window._poc = _window._poc || []).push(["_trackCustomTime", "tt_" + H, new Date().valueOf()])
     };
     TShop.initFoot = function (H) {
-        _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (L, N, J) {
-            J.initHover();
-            J.loadAssets("apps/tmall/common/tgallery.js?t=20121028");
-            J.loadAssets("/apps/tmall/common/bottombar.js?t=20121028");
-            J.loadAssets("/apps/department/common/brandbar.js?t=20121028");
-            J.loadAssets("/p/mall/2.0/js/zeroclipboard.js");
-            J.loadAssets("s/tb-tracer-min.js?t=20110628");
-            J.loadAssets("cps/trace.js?t=20120618");
+        _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (_kissy_imp_t_x, _dom, _malldetail_common_util) {
+            _malldetail_common_util.initHover();
+            _malldetail_common_util.loadAssets("apps/tmall/common/tgallery.js?t=20121028");
+            _malldetail_common_util.loadAssets("/apps/tmall/common/bottombar.js?t=20121028");
+            _malldetail_common_util.loadAssets("/apps/department/common/brandbar.js?t=20121028");
+            _malldetail_common_util.loadAssets("/p/mall/2.0/js/zeroclipboard.js");
+            _malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
+            _malldetail_common_util.loadAssets("cps/trace.js?t=20120618");
             var I = 0;
-            var K = L.getUrlParams();
+            var K = _kissy_imp_t_x.getUrlParams();
             var O = K.selected || ((K.on_comment == 1 || -1 !== location.href.indexOf("rate_detail.htm")) ? "reviews" : "");
             if (O) {
                 TShop.onMainBody(function (Q) {
                     Q.switchTab(O)
                 })
             }
-            var P = N.get("#detail");
+            var P = _dom.get("#detail");
             if (P) {
                 for (P = P.nextSibling; P; P = P.nextSibling) {
                     if (P.nodeType != 1) {
@@ -507,7 +507,7 @@
                     })
                 }
             }
-            TShop.addLazyCallback(N.get(".col-sub", "#content"), function () {
+            TShop.addLazyCallback(_dom.get(".col-sub", "#content"), function () {
                 TShop.onLeftSlide()
             });
             TShop.use("malldetail/dc/dc", function (U, T) {
@@ -522,7 +522,7 @@
                 Q.mods.footinit.init()
             });
             if (H.showShoplist) {
-                L.use(["event", "dom"], function (T, W, X) {
+                _kissy_imp_t_x.use(["event", "dom"], function (T, W, X) {
                     W.delegate(document, "click", ".J_atpanelClick", function (Z) {
                         var S = Z.target;
                         document.createElement("img").src = "http://www.atpanel.com/mallsearch?" + H.aLog + "&itemid=" + S.getAttribute("itemId") + "&itemcat=" + S.getAttribute("categoryId") + "&itemspu=" + S.getAttribute("spuId") + "&machineid=" + H.trackid + "&type=1&clickid=" + S.getAttribute("itemId") + "&shopid=" + S.getAttribute("shopID");
@@ -547,7 +547,7 @@
                 }, 0)
             }
             if (H.showPaimaiBid) {
-                L.use(["dom", "json"], function (R, U, Q) {
+                _kissy_imp_t_x.use(["dom", "json"], function (R, U, Q) {
                     try {
                         if (window.TAOBAO_PAIMAI_BIDSAU) {
                             U.html("#J_BidRecord", Q.parse(window.TAOBAO_PAIMAI_BIDSAU.data).totalCnt)
@@ -573,8 +573,8 @@
                 document.domain = M(location.hostname)
             }
             if (H.bidInit) {
-                L.getScript(_url + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + _g_config.ver + "/css/auction.css?t=" + L.t());
-                L.use("malldetail/bid/bid", function (R, Q) {
+                _kissy_imp_t_x.getScript(_url + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + _g_config.ver + "/css/auction.css?t=" + _kissy_imp_t_x.t());
+                _kissy_imp_t_x.use("malldetail/bid/bid", function (R, Q) {
                     Q.init("#tbid-container", { isCustom: false, isMpp: true })
                 })
             }

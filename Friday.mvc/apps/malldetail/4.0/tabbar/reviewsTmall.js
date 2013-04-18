@@ -97,7 +97,7 @@
         l();
 
         function Z(z) {
-            var AB = '{{#each tags as tag}}								<li class="{{#if tag.posi}}posi{{/if}}">									<a href="#" data-tagid="{{tag.id}}" data-tagtype="{{tag.posi}}"{{#if tag.id==selectedTag.id && tag.posi==selectedTag.posi}} class="selected"{{/if}}>{{tag.tag}}({{tag.count}})<s></s></a>								</li>							{{/each}}',
+            var _snippet = '{{#each tags as tag}}								<li class="{{#if tag.posi}}posi{{/if}}">									<a href="#" data-tagid="{{tag.id}}" data-tagtype="{{tag.posi}}"{{#if tag.id==selectedTag.id && tag.posi==selectedTag.posi}} class="selected"{{/if}}>{{tag.tag}}({{tag.count}})<s></s></a>								</li>							{{/each}}',
 				y = L.tags.sort(function (AC, AD) {
 				    return AD.count - AC.count
 				});
@@ -112,7 +112,7 @@
             if (!z) {
                 y = y.slice(0, 8)
             }
-            _dom.html(_dom.get(".btag-list", E), _kissy.Template(AB).render({
+            _dom.html(_dom.get(".btag-list", E), _kissy.Template(_snippet).render({
                 tags: y.sort(AA),
                 selectedTag: L.selectedTag
             }))
@@ -232,8 +232,8 @@
         }
         function l() {
             B = v.append;
-            _kissy.use("malldetail/data/data", function (z, y) {
-                y.onReviewCount(function (AA) {
+            _kissy.use("malldetail/data/data", function (z, _malldetail_data_data) {
+                _malldetail_data_data.onReviewCount(function (AA) {
                     P = AA.gradeAvg;
                     _ajax({
                         url: W.url.rate + "/list_detail_rate.htm",
@@ -516,10 +516,10 @@
             var z = "";
             AA = +AA;
             if (isNaN(AA)) {
-                z = "\u8bf7\u8f93\u5165\u4e00\u4e2a\u6570\u5b57"
+                z = "请输入一个数字"
             }
             if (z === "" && t && (AA < 1 || AA > t.lastPage)) {
-                z = "\u9875\u7801\u8303\u56f4\u5728 1 \u5230 " + t.lastPage + " \u4e4b\u95f4"
+                z = "页码范围在 1 到 " + t.lastPage + " 之间"
             }
             if (z === "") {
                 v.currentPage = AA;

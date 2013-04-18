@@ -165,10 +165,10 @@
                     N.mods.AfterSales.init()
                 })
             });
-            var I = _kissy_imp.get("#J_TabBar");
+            var _dom_ul_id_J_TabBar = _kissy_imp.get("#J_TabBar");
             _malldetail_tabbar_tabbar.init({
-                ulNode: I,
-                contEl: (_dom.get("#detail") || {}).parentNode,
+                ulNode: _dom_ul_id_J_TabBar,
+                contEl: (_dom.get("#detail") || {}).parentNode,      // 2013-04-18 basilwang <div id="content" ><div id="detail"></div></div>
                 success: F.onTabBarReady
             });
             _malldetail_tabbar_tabbar.onSwitch(function () {

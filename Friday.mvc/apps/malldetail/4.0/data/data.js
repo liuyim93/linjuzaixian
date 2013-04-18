@@ -124,27 +124,27 @@
             (typeof M == "function") && M(K || {})
         }
     }, onReviewCount: _malldetail_common_util.createLoader(function (P) {
-        var L = _kissy.cfg();
-        var K, O = {};
-        var N = L.itemDO;
-        if (L.detail.dsrFromCounterEnable) {
-            var M = "IM_102_im-" + N.itemId + ",IRT_104_irt-" + N.itemId;
-            if (L.isDaily) {
-                K = "http://count.config-vip.taobao.net:8888/counter7?keys=" + M
+        var _cfg = _kissy.cfg();
+        var _url, _data = {};
+        var _itemDO = _cfg.itemDO;
+        if (_cfg.detail.dsrFromCounterEnable) {
+            var M = "IM_102_im-" + _itemDO.itemId + ",IRT_104_irt-" + _itemDO.itemId;
+            if (_cfg.isDaily) {
+                _url = "http://count.config-vip.taobao.net:8888/counter7?keys=" + M
             } else {
-                K = "http://ratecount.tbcdn.cn/counter7?keys=" + M
+                _url = "http://ratecount.tbcdn.cn/counter7?keys=" + M
             }
         } else {
-            K = L.url.rate + "/list_dsr_info.htm";
-            O = { itemId: N.itemId, spuId: N.spuId, sellerId: N.userId }
+            _url = _cfg.url.rate + "/list_dsr_info.htm";
+            _data = { itemId: _itemDO.itemId, spuId: _itemDO.spuId, sellerId: _itemDO.userId }
         }
-        _ajax({ url: K, data: O, dataType: "jsonp", success: function (Q) {
+        _ajax({ url: _url, data: _data, dataType: "jsonp", success: function (Q) {
             var S = {};
             if (Q.dsr) {
                 S.grade = Q.dsr.gradeAvg;
                 S.rateTotal = Q.dsr.rateTotal
             } else {
-                var R = L.itemDO.itemId;
+                var R = _cfg.itemDO.itemId;
                 S.grade = Q["IM_102_im-" + R];
                 S.rateTotal = Q["IRT_104_irt-" + R]
             }
