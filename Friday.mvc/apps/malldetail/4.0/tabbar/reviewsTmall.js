@@ -84,8 +84,8 @@
         }, t = null,
 			u = 0,
 			f = H.isSpu,
-			s = "\u4e0e\u63cf\u8ff0\u76f8\u7b26",
-			x, h, g = V.create('<div class="bd">\u6b63\u5728\u52a0\u8f7d ...<br /><div style="min-height:400px;_height:400px;"></div></div>');
+			_str_review = "与描述相符",
+			x, h, g = V.create('<div class="bd">正在加载 ...<br /><div style="min-height:400px;_height:400px;"></div></div>');
         if (W.isMeiz) {
             W.tmallRateType = 1
         }
@@ -365,11 +365,11 @@
                         var y = AA.parentNode.previousSibling;
                         if (V.hasClass(y, "rate-haveMoreContentShow")) {
                             V.removeClass(y, "rate-haveMoreContentShow");
-                            AA.title = "\u5c55\u5f00\u5168\u6587";
+                            AA.title = "展开全文";
                             V.removeClass(AA, "b-showMore-open")
                         } else {
                             V.addClass(y, "rate-haveMoreContentShow");
-                            AA.title = "\u7f29\u8fdb\u5168\u6587";
+                            AA.title = "缩进全文";
                             V.addClass(AA, "b-showMore-open")
                         }
                         break
@@ -624,22 +624,22 @@
             return AB.join("")
         }
         function e(z) {
-            var y = {};
+            var _rating_combo = {};
             if (!G.isUndefined(P)) {
-                y.merchandisScore = P;
-                y.width = P / 5 * 100;
-                y.rateStar = P.replace(".0", "").replace(".", "d");
-                y.scoreSummaryTitle = s;
+                _rating_combo.merchandisScore = P;
+                _rating_combo.width = P / 5 * 100;
+                _rating_combo.rateStar = P.replace(".0", "").replace(".", "d");
+                _rating_combo.scoreSummaryTitle = _str_review;
                 if (P === "0.0") {
-                    y.merchandisScore = "";
-                    y.merchandisScoreSuffix = "";
-                    y.hideMerchandisScore = 'style="display:none"'
+                    _rating_combo.merchandisScore = "";
+                    _rating_combo.merchandisScoreSuffix = "";
+                    _rating_combo.hideMerchandisScore = 'style="display:none"'
                 } else {
-                    y.merchandisScoreSuffix = "\u5206";
-                    y.hideMerchandisScore = ""
+                    _rating_combo.merchandisScoreSuffix = "分";
+                    _rating_combo.hideMerchandisScore = ""
                 }
             }
-            return y
+            return _rating_combo
         }
         function m(AJ) {
             var AI = AJ.paginator,

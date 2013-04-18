@@ -1,80 +1,80 @@
-﻿KISSY.add("malldetail/other/mainBody", function (C, D, A, E, B) {
+﻿KISSY.add("malldetail/other/mainBody", function (_kissy_imp, _dom, _event, _malldetail_tabbar_tabbar, _malldetail_other_itemDesc) {
     return {
         addLazyCallback: function () {
             var F = arguments;
-            C.use("malldetail/other/lazy", function (H, G) {
-                G.addCallback.apply(G, F)
+            _kissy_imp.use("malldetail/other/lazy", function (H, _malldetail_other_lazy) {
+                _malldetail_other_lazy.addCallback.apply(_malldetail_other_lazy, F)
             })
         },
         refreshLazy: function () {
-            C.use("malldetail/other/lazy", function (G, F) {
+            _kissy_imp.use("malldetail/other/lazy", function (G, F) {
                 F.refresh()
             })
         },
         init: function (F) {
-            var L = window;
-            var H = L.g_config;
-            var G = this;
-            C.mix(G, F);
-            B.init({
+            var _window = window;
+            var _g_config = _window.g_config;
+            var _mainBody = this;
+            _kissy_imp.mix(_mainBody, F);
+            _malldetail_other_itemDesc.init({
                 success: function () {
-                    if (H.offlineShop) {
-                        A.on(D.query("a", "#J_ItemDesc"), "click", function (N) {
+                    if (_g_config.offlineShop) {
+                        _event.on(_dom.query("a", "#J_ItemDesc"), "click", function (N) {
                             N.halt()
                         })
                     }
                 }
             });
-            C.log("TMDLOG:itemDesc-domready", "info");
-            if (!H.offlineShop) {
+            _kissy_imp.log("TMDLOG:itemDesc-domready", "info");
+            if (!_g_config.offlineShop) {
                 var M = false,
 					K = false,
 					J = false;
                 revRecommendloaded = false;
-                C.each(D.query("div.tshop-psm-trb10c"), function (N) {
+                _kissy_imp.each(_dom.query("div.tshop-psm-trb10c"), function (N) {
                     M = true;
-                    G.addLazyCallback(N, function () {
+                    _mainBody.addLazyCallback(N, function () {
                         K = true;
-                        C.use("malldetail/tabbar/newRecommend", function (P, O) {
+                        _kissy_imp.use("malldetail/tabbar/newRecommend", function (P, O) {
                             O.onModHtml("buy", function (Q) {
-                                D.addClass(N, "J_DetailSection ald ald-03013 ald-03013-tab");
-                                D.html(N, Q);
-                                D.get("ald-inner").addClass("shop-custom").removeClass("ald-inner");
+                                _dom.addClass(N, "J_DetailSection ald ald-03013 ald-03013-tab");
+                                _dom.html(N, Q);
+                                _dom.get("ald-inner").addClass("shop-custom").removeClass("ald-inner");
                                 P.sendImg("http://ac.atpanel.com/1.gif?cache=" + (+new Date()) + "&com=02&apply=detail&cod=3.1.1&uid=&ver=&ip=&other=")
                             })
                         })
                     })
                 });
-                C.each(D.query("div.tshop-psm-trv10c"), function (N) {
+                _kissy_imp.each(_dom.query("div.tshop-psm-trv10c"), function (N) {
                     M = true;
-                    G.addLazyCallback(N, function () {
+                    _mainBody.addLazyCallback(N, function () {
                         K = true;
-                        C.use("malldetail/tabbar/newRecommend", function (P, O) {
+                        _kissy_imp.use("malldetail/tabbar/newRecommend", function (P, O) {
                             O.onModHtml("view", function (Q) {
-                                D.addClass(N, "J_DetailSection ald ald-03013 ald-03013-tab");
-                                D.html(N, Q);
-                                D.get("ald-inner").addClass("shop-custom").removeClass("ald-inner");
+                                _dom.addClass(N, "J_DetailSection ald ald-03013 ald-03013-tab");
+                                _dom.html(N, Q);
+                                _dom.get("ald-inner").addClass("shop-custom").removeClass("ald-inner");
                                 P.sendImg("http://ac.atpanel.com/1.gif?cache=" + (+new Date()) + "&com=02&apply=detail&cod=3.1.2&uid=&ver=&ip=&other=")
                             })
                         })
                     })
                 });
-                G.addLazyCallback("#J_TabRecommends", function () {
-                    if (H.D950) {
+                _mainBody.addLazyCallback("#J_TabRecommends", function () {
+                    if (_g_config.D950) {
                         J = true;
-                        C.use("malldetail/recommend/waterfall", function (Q, R) {
+                        _kissy_imp.use("malldetail/recommend/waterfall", function (Q, R) {
                             R.init()
                         })
                     } else {
                         function P() {
-                            return E.curIndex() == "J_TabRecommends" || (E.curIndex() == "description" && !M && !revRecommendloaded)
+                            return _malldetail_tabbar_tabbar.curIndex() == "J_TabRecommends" || (_malldetail_tabbar_tabbar.curIndex() == "description" && !M && !revRecommendloaded)
                         }
                         if (!P()) {
-                            D.hide(D.get(".hd", "#J_TabRecommends"));
+                            _dom.hide(_dom.get(".hd", "#J_TabRecommends"));
                             return false
                         }
                         J = true;
-                        C.use("malldetail/tabbar/newRecommend", function (R, Q) {
+                        _kissy_imp.use("malldetail/tabbar/newRecommend", function (R, Q) {
                             Q.init()
                         });
                         var N = false;
@@ -84,44 +84,44 @@
                                 return
                             }
                             if (N) {
-                                D.hide("#J_TabRecommends")
+                                _dom.hide("#J_TabRecommends")
                             } else {
-                                D.show("#J_TabRecommends")
+                                _dom.show("#J_TabRecommends")
                             }
                             N = !N
                         }
                         O();
-                        E.onSwitch(O)
+                        _malldetail_tabbar_tabbar.onSwitch(O)
                     }
                 });
-                if (H.D950) {
-                    C.use("malldetail/other/atp", function (O, N) {
+                if (_g_config.D950) {
+                    _kissy_imp.use("malldetail/other/atp", function (O, N) {
                         N.tabAld()
                     })
                 }
             }
-            G.addLazyCallback("#J_Reviews", function () {
-                C.use("malldetail/data/data", function (O, N) {
+            _mainBody.addLazyCallback("#J_Reviews", function () {
+                _kissy_imp.use("malldetail/data/data", function (O, N) {
                     N.onReviewCount(function (P) {
-                        O.each(D.query("#J_Reviews em.J_ReviewsCountNum"), function (Q) {
+                        O.each(_dom.query("#J_Reviews em.J_ReviewsCountNum"), function (Q) {
                             Q.innerHTML = P.rateTotal;
-                            D.show(D.parent(Q))
+                            _dom.show(_dom.parent(Q))
                         })
                     })
                 });
-                C.use("malldetail/tabbar/reviewsTmall", function (O, N) {
+                _kissy_imp.use("malldetail/tabbar/reviewsTmall", function (O, N) {
                     N.init({
                         switchTab: function (P) {
-                            E.switchTo(P);
-                            E.scrollIntoView()
+                            _malldetail_tabbar_tabbar.switchTo(P);
+                            _malldetail_tabbar_tabbar.scrollIntoView()
                         }
                     });
-                    if (!D.get("iframe", "#J_Reviews") && E.curIndex() == "J_Reviews" && !K && !J) {
+                    if (!_dom.get("iframe", "#J_Reviews") && _malldetail_tabbar_tabbar.curIndex() == "J_Reviews" && !K && !J) {
                         revRecommendloaded = true;
                         O.use("malldetail/tabbar/newRecommend", function (Q, P) {
                             P.onHtml(function (S) {
-                                var R = D.create(S);
-                                D.append(R, "#J_Reviews");
+                                var R = _dom.create(S);
+                                _dom.append(R, "#J_Reviews");
                                 Q.sendAcAtpanel("1.gif", {
                                     com: "02",
                                     apply: "detail",
@@ -133,61 +133,61 @@
                                 });
 
                                 function T() {
-                                    if (E.curIndex() == "description") {
-                                        D.hide(R);
-                                        D.removeClass("#J_Reviews", "j_hideReviews2Recommend")
+                                    if (_malldetail_tabbar_tabbar.curIndex() == "description") {
+                                        _dom.hide(R);
+                                        _dom.removeClass("#J_Reviews", "j_hideReviews2Recommend")
                                     } else {
-                                        D.show(R);
-                                        D.addClass("#J_Reviews", "j_hideReviews2Recommend")
+                                        _dom.show(R);
+                                        _dom.addClass("#J_Reviews", "j_hideReviews2Recommend")
                                     }
                                 }
                                 T();
                                 if (M) {
-                                    E.onSwitch(T)
+                                    _malldetail_tabbar_tabbar.onSwitch(T)
                                 }
                             })
                         })
                     }
                 })
             });
-            G.addLazyCallback("#J_DealRecord", function () {
-                C.use("malldetail/tabbar/dealRecord", function (N) {
+            _mainBody.addLazyCallback("#J_DealRecord", function () {
+                _kissy_imp.use("malldetail/tabbar/dealRecord", function (N) {
                     N.mods.DealRecord.init()
                 })
             });
-            G.addLazyCallback("#J_SellerInfo", function () {
-                C.use("malldetail/tabbar/sellerinfo", function (N) {
+            _mainBody.addLazyCallback("#J_SellerInfo", function () {
+                _kissy_imp.use("malldetail/tabbar/sellerinfo", function (N) {
                     N.mods.SellerInfo.init()
                 })
             });
-            G.addLazyCallback("#J_AfterSales", function () {
-                C.use("malldetail/tabbar/afterSale", function (N) {
+            _mainBody.addLazyCallback("#J_AfterSales", function () {
+                _kissy_imp.use("malldetail/tabbar/afterSale", function (N) {
                     N.mods.AfterSales.init()
                 })
             });
-            var I = C.get("#J_TabBar");
-            E.init({
+            var I = _kissy_imp.get("#J_TabBar");
+            _malldetail_tabbar_tabbar.init({
                 ulNode: I,
-                contEl: (D.get("#detail") || {}).parentNode,
+                contEl: (_dom.get("#detail") || {}).parentNode,
                 success: F.onTabBarReady
             });
-            E.onSwitch(function () {
+            _malldetail_tabbar_tabbar.onSwitch(function () {
                 setTimeout(function () {
-                    G.refreshLazy()
+                    _mainBody.refreshLazy()
                 }, 4)
             })
         },
         switchTab: function (F) {
-            E.switchTo(F);
-            E.scrollIntoView()
+            _malldetail_tabbar_tabbar.switchTo(F);
+            _malldetail_tabbar_tabbar.scrollIntoView()
         },
         showTryDetail: function () {
-            var F = D.get("#trydetail");
+            var F = _dom.get("#trydetail");
             if (!F) {
                 return
             }
             this.addLazyCallback(F, function () {
-                C.use("malldetail/tabbar/trydetail", function (G, H) {
+                _kissy_imp.use("malldetail/tabbar/trydetail", function (G, H) {
                     H.init({
                         container: F
                     })

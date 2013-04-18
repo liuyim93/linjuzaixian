@@ -5,13 +5,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.core/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.core/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" afterPath="$PROJECT_DIR$/Friday.mvc/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.Test2/App.config" afterPath="$PROJECT_DIR$/Friday.Test2/App.config" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Web.config" afterPath="$PROJECT_DIR$/Friday.mvc/Web.config" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744763914" ignored="false" />
+    <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1366210305498" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
+    <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1366208261391" ignored="false" />
+    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1366210126005" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +39,7 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="88" column="27" selection-start="4334" selection-end="4334" vertical-scroll-proportion="0.0">
+            <state line="44" column="27" selection-start="2205" selection-end="2205" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -49,10 +54,48 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.css" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="header.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/header.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="24" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.11259259">
+            <state line="22" column="24" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainBody.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="103" column="66" selection-start="4952" selection-end="4952" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reviewsTmall.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="232" column="17" selection-start="10033" selection-end="10033" vertical-scroll-proportion="-0.7984733">
+              <folding>
+                <marker date="1366210221241" expanded="false" signature="2645:2676" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="9291:9332" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="9404:9458" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="9656:9688" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="22843:22871" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="24209:24220" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="25069:25081" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="25268:25302" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="25387:25421" placeholder="..." />
+                <marker date="1366210221241" expanded="false" signature="25531:25565" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="125" column="7" selection-start="6770" selection-end="6770" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -88,34 +131,7 @@
       <file leaf-file-name="core.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="25" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fp.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="36" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="message.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/mods/login/message.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="33" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="brand.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="267" column="30" selection-start="12825" selection-end="12825" vertical-scroll-proportion="0.0">
+            <state line="7" column="25" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -140,8 +156,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Friday.mvc/slide2.html" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/direct-promo.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/slide2.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/common/bottombar.js" />
@@ -156,6 +170,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/dialog.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
       </list>
     </option>
   </component>
@@ -339,36 +355,6 @@
               <option name="myItemId" value="tmall" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="shop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Friday" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Friday" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Friday.mvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tmall" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -414,7 +400,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="department" />
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -436,49 +426,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="department" />
+              <option name="myItemId" value="malldetail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="brand" />
+              <option name="myItemId" value="4.0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="2.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Friday" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Friday" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Friday.mvc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="apps" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="department" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="brand" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="2.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mods" />
+              <option name="myItemId" value="tabbar" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -500,19 +456,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="department" />
+              <option name="myItemId" value="malldetail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="brand" />
+              <option name="myItemId" value="4.0" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="2.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="other" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -528,6 +480,17 @@
     <property name="FullScreen" value="false" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="8a303a50-16cc-4de8-9601-c65363457bdc">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -553,7 +516,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1456" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1456" height="876" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -635,21 +598,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="38" selection-start="2996" selection-end="2996" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="163" column="0" selection-start="9709" selection-end="9709" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tbuser.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="21" selection-start="5132" selection-end="5132" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/common/tgallery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
@@ -667,23 +615,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="267" column="30" selection-start="12825" selection-end="12825" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="267" column="30" selection-start="12825" selection-end="12825" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/mods/login/message.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="33" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="8" column="33" selection-start="244" selection-end="244" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/fp.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="36" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="50" column="36" selection-start="1855" selection-end="1855" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/css/core.css">
@@ -702,7 +644,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="25" selection-start="491" selection-end="491" vertical-scroll-proportion="0.0">
+        <state line="7" column="25" selection-start="536" selection-end="536" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -716,7 +658,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="88" column="27" selection-start="4334" selection-end="4334" vertical-scroll-proportion="0.0">
+        <state line="44" column="27" selection-start="2205" selection-end="2205" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -730,8 +672,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/header.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="24" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.11259259">
+        <state line="22" column="24" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="103" column="66" selection-start="4952" selection-end="4952" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="7" selection-start="6770" selection-end="6770" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="232" column="17" selection-start="10033" selection-end="10033" vertical-scroll-proportion="-0.7984733">
+          <folding>
+            <marker date="1366210221241" expanded="false" signature="2645:2676" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="9291:9332" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="9404:9458" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="9656:9688" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="22843:22871" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="24209:24220" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="25069:25081" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="25268:25302" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="25387:25421" placeholder="..." />
+            <marker date="1366210221241" expanded="false" signature="25531:25565" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
