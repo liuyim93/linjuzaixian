@@ -60,7 +60,7 @@ KISSY.add("malldetail/recommend/waterfall", function (G, O, H, R, I) {
                 Y(a);
                 if (D.length) {
                     Q = true;
-                    var c = O.create('<div class="ald-wf-line">\u4ee5\u4e0a\u662f\u201c' + W.name + '\u201d\u7684\u5168\u90e8\u7ed3\u679c\uff0c\u6211\u518d\u770b\u770b\u5176\u4ed6\u7c7b\u578b\u7684\u5427\uff01</div><ul id="J_TjWaterfallOther" class="clearfix ald-03040"></ul>');
+                    var c = O.create('<div class="ald-wf-line">以上是' + W.name + '的全部结果，我再看看其他类型的吧！</div><ul id="J_TjWaterfallOther" class="clearfix ald-03040"></ul>');
                     O.append(c, E);
                     F.destroy();
                     F = N("#J_TjWaterfallOther")

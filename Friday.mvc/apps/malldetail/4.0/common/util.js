@@ -68,7 +68,7 @@
                 _iterate_handle_queue.push({ handle: _callback_fn, type: _state })
             }
         }
-    }, loadAssets: function (G, L, F) {
+    }, loadAssets: function (_url, L, F) {
         var J;
         if (F) {
             if ((J = F()) !== undefined) {
@@ -76,8 +76,8 @@
                 return
             }
         }
-        G = G.replace(/^[\/\\]+/g, "").replace(/\?\?/g, "?");
-        var E = G.split("?", 2), K = E[0], I = E[1] || "", H = D[K] || (D[K] = { path: K, status: 0, callbacks: [], timestamp: [] });
+        _url = _url.replace(/^[\/\\]+/g, "").replace(/\?\?/g, "?");
+        var E = _url.split("?", 2), K = E[0], I = E[1] || "", H = D[K] || (D[K] = { path: K, status: 0, callbacks: [], timestamp: [] });
         if (F) {
             H.getter = F
         }
