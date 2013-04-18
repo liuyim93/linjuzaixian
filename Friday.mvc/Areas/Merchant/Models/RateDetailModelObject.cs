@@ -22,7 +22,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-        public Object rate
+        public Object rateList
         {
             get;
             set;
