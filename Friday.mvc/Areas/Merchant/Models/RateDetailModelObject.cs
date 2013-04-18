@@ -27,6 +27,11 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
+        public Object tags
+        {
+            get;
+            set;
+        }
     }
     public class Paginator
     {
@@ -66,12 +71,12 @@ namespace Friday.mvc.Areas.Merchant.Models
     }
     public class RateDanceInfo
     {
-        public int currentMilles
+        public  string currentMilles
         {
             get;
             set;
         }
-        public int intervalMilles
+        public  string intervalMilles
         {
             get;
             set;
@@ -154,7 +159,7 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-         public float dsr 
+         public double dsr 
         {
             get;
             set;

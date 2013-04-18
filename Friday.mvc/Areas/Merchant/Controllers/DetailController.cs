@@ -258,5 +258,81 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return JavaScript(script);
         }
 
+        public ActionResult ListDetailRate(string itemId)
+        {
+
+            var rate_list = new List<Rate>();
+            dynamic rateList = new Dictionary<string, List<Rate>>();
+       
+            for (int i = 0; i < 10; i++)
+            {
+                rateList.Add(i.ToString(), new Rate()
+                  {
+                         aliMallSeller=false,
+			             anony=true,
+			             appendComment= i.ToString(),
+			             attributes= i.ToString(),
+			             auctionSku="颜色分类:"+i.ToString()+"激光紫色/帆白;尺码:37.5/6.5",
+			             buyCount= 0,
+			             cmsSource="天猫",
+			             displayRatePic="b_red_1.gif",
+			             displayRateSum=5,
+			             displayUserLink="",
+			             displayUserNick="h***7",
+			             displayUserNumId="",
+			             displayUserRateLink="",
+			             dsr=5.0,
+			             fromMall=true,
+			             fromMemory=0,
+			             id=i.ToString(),
+               			 position="",
+			             rateContent=i.ToString()+"很好的鞋子，适合夏天穿",
+			             rateDate="2013-04-04 12:00:01",
+			             reply="",
+			             serviceRateContent="",
+			             tamllSweetLevel=2,
+			             tmallSweetPic="tmall-grade-t2-18.png",
+			             useful=true,
+			             userInfo="",
+			             userVipLevel=0,
+			             userVipPic=""
+                        });
+            }
+
+            RateDetailModelObject rateDetailModel = new RateDetailModelObject()
+           {
+               paginator = new Paginator()
+               {
+                    items=318,
+			        lastPage=16,
+			        page=1
+               },
+               rateCount = new RateCount()
+               {
+                  	shop=0,
+			        total=0,
+			        used=12
+               },
+               rateDanceInfo = new RateDanceInfo()
+               {
+                   currentMilles="1366244482350",
+			       intervalMilles="215087439000",
+			       showChooseTopic=false,
+			       storeType=1
+               },
+               rateList ="["+rateList+"]",
+               tags=""
+           };
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = new
+            {
+                rateDetail = rateDetailModel
+            };
+            string json = jsonResult.FormatResult();
+            string script = "jsonp347(" + json + ")";
+
+            return JavaScript(script);
+        }
+
     }
 }
