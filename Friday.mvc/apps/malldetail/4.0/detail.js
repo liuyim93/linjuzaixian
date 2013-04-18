@@ -173,10 +173,10 @@
                 return "item"
         }
     }, sendAtpanel: function (I, J) {
-        var H = "http://log.mmstat.com/" + I;
+        var H = "http://localhost:7527/" + I;
         this._sendImage(H, J)
-    }, sendAcAtpanel: function (I, J) {
-        var H = "http://ac.atpanel.com/" + I;
+    }, sendAcAtpanel: function (_tab_panel_id, J) {
+        var H = "http://localhost:7527/" + _tab_panel_id;
         this._sendImage(H, J)
     }, sendImg: function (H) {
         this._sendImage(H)

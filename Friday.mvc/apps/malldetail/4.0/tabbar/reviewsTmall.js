@@ -1,6 +1,6 @@
-﻿KISSY.add("malldetail/tabbar/reviewsTmall", function (G, D, V, Y, X) {
+﻿KISSY.add("malldetail/tabbar/reviewsTmall", function (_kissy, _ajax, _dom, _event, _template) {
     var W;
-    var H = window.g_config,
+    var _g_config = window.g_config,
 		F;
     var T, M, U, R = false,
 		I = false,
@@ -67,7 +67,7 @@
 			c = b.type,
 			Z = d[S][c];
         if (Z) {
-            G.sendAtpanel(Z, {
+            _kissy.sendAtpanel(Z, {
                 shopid: W.rstShopId,
                 itemid: W.itemDO.itemId,
                 categoryId: W.itemDO.categoryId
@@ -83,16 +83,16 @@
             forShop: 1
         }, t = null,
 			u = 0,
-			f = H.isSpu,
+			f = _g_config.isSpu,
 			_str_review = "与描述相符",
-			x, h, g = V.create('<div class="bd">正在加载 ...<br /><div style="min-height:400px;_height:400px;"></div></div>');
+			x, h, g = _dom.create('<div class="bd">正在加载 ...<br /><div style="min-height:400px;_height:400px;"></div></div>');
         if (W.isMeiz) {
             W.tmallRateType = 1
         }
         if (W.closeTmallRate) {
             W.tmallRateType = 0
         }
-        V.insertAfter(g, V.get("h4.hd", "#J_Reviews"));
+        _dom.insertAfter(g, _dom.get("h4.hd", "#J_Reviews"));
         p();
         l();
 
@@ -112,14 +112,14 @@
             if (!z) {
                 y = y.slice(0, 8)
             }
-            V.html(V.get(".btag-list", E), G.Template(AB).render({
+            _dom.html(_dom.get(".btag-list", E), _kissy.Template(AB).render({
                 tags: y.sort(AA),
                 selectedTag: L.selectedTag
             }))
         }
         function d() {
             I = true;
-            D({
+            _ajax({
                 url: W.url.rate + "/listTagClouds.htm",
                 data: {
                     itemId: W.itemDO.itemId,
@@ -159,9 +159,9 @@
                             E.innerHTML = '<ul class="btag-list"></ul>' + (AO.tags.length > 8 ? '<em class="pay-toggler" title="\u663e\u793a\u6240\u6709\u4fe1\u606f"></em>' : "");
                             Z(false)
                         } else {
-                            V.removeClass("#J_RateScore", "tm-tagRate-info");
+                            _dom.removeClass("#J_RateScore", "tm-tagRate-info");
                             if (x) {
-                                G.get("#J_Graph").innerHTML = G.Template(h).render({
+                                _kissy.get("#J_Graph").innerHTML = _kissy.Template(h).render({
                                     scoreInfo: x
                                 })
                             }
@@ -179,7 +179,7 @@
                             }
                         }
                     } else {
-                        V.removeClass("#J_RateScore", "tm-tagRate-info")
+                        _dom.removeClass("#J_RateScore", "tm-tagRate-info")
                     }
                     var AB = AH.tags.innerTagCloudList;
                     if (AB && AB[0]) {
@@ -222,9 +222,9 @@
                             }
                         }
                         if (AM > 20) {
-                            var y = V.create('<div class="persentInfo">');
-                            y.innerHTML = G.Template('<div class="hd">\u5927\u5bb6\u8ba4\u4e3a</div><div class="bd tb-clearfix">								{{#each tags.innerTagCloudList as tag}}<label>{{tag.dimenName}}: </label><p>									{{#each tag.tagScaleList as scale index}}										{{#if scale.proportion}}										<s class="level_{{scale._order}}" style="left:{{scale._position-25}}px;width:50px;">{{scale.scale}}</s>										<i class="level_{{scale._order}}" style="left:{{scale._ahead*2+scale._proportion-3+index*2}}px;"></i>										<span class="level_{{scale._order}} {{#if index==0}}edge-left{{/if}} {{#if index==tag.tagScaleList.length-1}}edge-right{{/if}} " title="{{scale.scale}}:{{scale.proportion}}%" style="width: {{scale._proportion*2}}px">											{{#if scale._order==0}}{{scale.proportion}}%{{/if}}										</span>										{{/if}}									{{/each}}								</p>{{/each}}								</div>').render(AH);
-                            V.insertAfter(y, V.get("#J_RateScore", g))
+                            var y = _dom.create('<div class="persentInfo">');
+                            y.innerHTML = _kissy.Template('<div class="hd">\u5927\u5bb6\u8ba4\u4e3a</div><div class="bd tb-clearfix">								{{#each tags.innerTagCloudList as tag}}<label>{{tag.dimenName}}: </label><p>									{{#each tag.tagScaleList as scale index}}										{{#if scale.proportion}}										<s class="level_{{scale._order}}" style="left:{{scale._position-25}}px;width:50px;">{{scale.scale}}</s>										<i class="level_{{scale._order}}" style="left:{{scale._ahead*2+scale._proportion-3+index*2}}px;"></i>										<span class="level_{{scale._order}} {{#if index==0}}edge-left{{/if}} {{#if index==tag.tagScaleList.length-1}}edge-right{{/if}} " title="{{scale.scale}}:{{scale.proportion}}%" style="width: {{scale._proportion*2}}px">											{{#if scale._order==0}}{{scale.proportion}}%{{/if}}										</span>										{{/if}}									{{/each}}								</p>{{/each}}								</div>').render(AH);
+                            _dom.insertAfter(y, _dom.get("#J_RateScore", g))
                         }
                     }
                 }
@@ -232,10 +232,10 @@
         }
         function l() {
             B = v.append;
-            G.use("malldetail/data/data", function (z, y) {
+            _kissy.use("malldetail/data/data", function (z, y) {
                 y.onReviewCount(function (AA) {
                     P = AA.gradeAvg;
-                    D({
+                    _ajax({
                         url: W.url.rate + "/list_detail_rate.htm",
                         data: v,
                         dataType: "jsonp",
@@ -266,10 +266,10 @@
             })
         }
         function i() {
-            G.each(G.query("#J_Show-rate-table .rate-auto"), function (y) {
+            _kissy.each(_kissy.query("#J_Show-rate-table .rate-auto"), function (y) {
                 if (y.offsetHeight / 18 > 10) {
-                    V.insertAfter(V.create("<div class='rate-btn'><a href='javascript:;' title='\u5c55\u5f00\u5168\u6587' class='b-showMore'>&nbsp;</a></div>"), y);
-                    V.addClass(y, "rate-haveMoreContent")
+                    _dom.insertAfter(_dom.create("<div class='rate-btn'><a href='javascript:;' title='\u5c55\u5f00\u5168\u6587' class='b-showMore'>&nbsp;</a></div>"), y);
+                    _dom.addClass(y, "rate-haveMoreContent")
                 }
             })
         }
@@ -287,19 +287,19 @@
             return AA
         }
         function p() {
-            Y.on(g, "click", function (AB) {
+            _event.on(g, "click", function (AB) {
                 var AA = AB.target,
 					z;
                 switch (true) {
-                    case AA.tagName === "A" && V.hasClass(AA, "act-showmore"):
+                    case AA.tagName === "A" && _dom.hasClass(AA, "act-showmore"):
                         v.ismore = "1";
                         l();
                         break;
                     case AA.tagName === "A" && ((z = AA.getAttribute("data-page")) != null):
-                        if (G.mods.TabBar && G.mods.TabBar.curIndex() == "J_Reviews") {
-                            G.sendAtpanel("tmalldetail.12.2")
+                        if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "J_Reviews") {
+                            _kissy.sendAtpanel("tmalldetail.12.2")
                         } else {
-                            G.sendAtpanel("tmalldetail.12.4")
+                            _kissy.sendAtpanel("tmalldetail.12.4")
                         }
                         o(z);
                         break;
@@ -313,12 +313,12 @@
                     case (AA.tagName === "A" || AA.tagName === "EM") && ((z = AA.getAttribute("data-tagid")) != null):
                         AB.preventDefault();
                         if (L.selectedTag.id == z && L.selectedTag.posi == (AA.getAttribute("data-tagtype") == "true")) {
-                            if (V.get("#J_allShop")) {
-                                V.get("#J_allShop").className = "curr"
+                            if (_dom.get("#J_allShop")) {
+                                _dom.get("#J_allShop").className = "curr"
                             }
                             delete v.tagId;
                             delete v.posi;
-                            V.removeClass("#J_Graph a", "selected");
+                            _dom.removeClass("#J_Graph a", "selected");
                             v.currentPage = 1;
                             L.selectedTag.id = null;
                             L.selectedTag.posi = null;
@@ -329,60 +329,60 @@
                                 v.append = 0
                             }
                             v.append = 0;
-                            V.removeClass("#J_toggletype a", "curr");
+                            _dom.removeClass("#J_toggletype a", "curr");
                             c(z, AA.getAttribute("data-tagtype"));
-                            V.removeClass("#J_Graph a", "selected");
-                            V.addClass(AA, "selected");
-                            V.get("#J_addComment").checked = false;
+                            _dom.removeClass("#J_Graph a", "selected");
+                            _dom.addClass(AA, "selected");
+                            _dom.get("#J_addComment").checked = false;
                             L.selectedTag.id = z;
                             L.selectedTag.posi = AA.getAttribute("data-tagtype") == "true" ? true : false;
                             L.selectedTag.name = k()
                         }
                         break;
-                    case V.hasClass(AA, "J_Reviews2recommend"):
+                    case _dom.hasClass(AA, "J_Reviews2recommend"):
                         AB.preventDefault();
                         if (!F.switchTab) {
                             return
                         }
-                        if (G.mods.TabBar && G.mods.TabBar.curIndex() == "J_Reviews") {
-                            G.sendAtpanel("tmalldetail.12.3")
+                        if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "J_Reviews") {
+                            _kissy.sendAtpanel("tmalldetail.12.3")
                         } else {
-                            G.sendAtpanel("tmalldetail.12.5")
+                            _kissy.sendAtpanel("tmalldetail.12.5")
                         }
                         F.switchTab("J_TabRecommends");
                         break;
-                    case V.hasClass(AA, "pay-toggler"):
+                    case _dom.hasClass(AA, "pay-toggler"):
                         AB.preventDefault();
                         if (K) {
                             Z(K = false);
-                            V.removeClass("#J_RateScore", "tglistOpen")
+                            _dom.removeClass("#J_RateScore", "tglistOpen")
                         } else {
                             Z(K = true);
-                            V.addClass("#J_RateScore", "tglistOpen")
+                            _dom.addClass("#J_RateScore", "tglistOpen")
                         }
                         break;
-                    case AA.tagName === "A" && V.hasClass(AA, "b-showMore"):
+                    case AA.tagName === "A" && _dom.hasClass(AA, "b-showMore"):
                         var y = AA.parentNode.previousSibling;
-                        if (V.hasClass(y, "rate-haveMoreContentShow")) {
-                            V.removeClass(y, "rate-haveMoreContentShow");
+                        if (_dom.hasClass(y, "rate-haveMoreContentShow")) {
+                            _dom.removeClass(y, "rate-haveMoreContentShow");
                             AA.title = "展开全文";
-                            V.removeClass(AA, "b-showMore-open")
+                            _dom.removeClass(AA, "b-showMore-open")
                         } else {
-                            V.addClass(y, "rate-haveMoreContentShow");
+                            _dom.addClass(y, "rate-haveMoreContentShow");
                             AA.title = "缩进全文";
-                            V.addClass(AA, "b-showMore-open")
+                            _dom.addClass(AA, "b-showMore-open")
                         }
                         break
                 }
             })
         }
         function b() {
-            var y = V.query("#J_commentOrder a", g);
-            Y.on(y, "click", function () {
-                V.removeClass(y, "curr");
-                V.addClass(this, "curr");
+            var y = _dom.query("#J_commentOrder a", g);
+            _event.on(y, "click", function () {
+                _dom.removeClass(y, "curr");
+                _dom.addClass(this, "curr");
                 v.currentPage = 1;
-                var z = V.attr(this, "value");
+                var z = _dom.attr(this, "value");
                 if (z == 1) {
                     O({
                         from: "all",
@@ -401,7 +401,7 @@
                     if (v.tagId) {
                         delete v.tagId;
                         delete v.posi;
-                        V.removeClass("#J_Graph a", "selected")
+                        _dom.removeClass("#J_Graph a", "selected")
                     }
                     if (W.tmallRateType == 2) {
                         O({
@@ -426,9 +426,9 @@
                     }
                 }
                 if (v.order == 0) {
-                    V.show(V.get(".ui-msg", "#J_commentOrder"))
+                    _dom.show(_dom.get(".ui-msg", "#J_commentOrder"))
                 } else {
-                    V.hide(V.get(".ui-msg", "#J_commentOrder"))
+                    _dom.hide(_dom.get(".ui-msg", "#J_commentOrder"))
                 }
                 l();
                 return false
@@ -466,18 +466,18 @@
             l()
         }
         function j() {
-            Y.on("#J_addComment", "click", function () {
+            _event.on("#J_addComment", "click", function () {
                 if (this.checked) {
                     v.append = 1;
                     delete (v.forShop);
                     delete v.tagId;
-                    V.removeClass("#J_toggletype a", "curr");
-                    V.removeClass("#J_Graph a", "selected")
+                    _dom.removeClass("#J_toggletype a", "curr");
+                    _dom.removeClass("#J_Graph a", "selected")
                 } else {
                     v.append = 0;
                     v.forShop = 1;
-                    if (V.get("#J_allShop")) {
-                        V.get("#J_allShop").className = "curr"
+                    if (_dom.get("#J_allShop")) {
+                        _dom.get("#J_allShop").className = "curr"
                     }
                 }
                 O({
@@ -488,22 +488,22 @@
             })
         }
         function q(z) {
-            var y = G.all("a", G.get(".act-toggletype"));
+            var y = _kissy.all("a", _kissy.get(".act-toggletype"));
             if (y.length > 0) {
-                V.removeClass(y, "curr");
-                G.each(y, function (AA) {
-                    if (V.attr(AA, "data-forshop") == z) {
-                        V.addClass(AA, "curr")
+                _dom.removeClass(y, "curr");
+                _kissy.each(y, function (AA) {
+                    if (_dom.attr(AA, "data-forshop") == z) {
+                        _dom.addClass(AA, "curr")
                     }
                 })
             }
-            V.get("#J_addComment").checked = false;
+            _dom.get("#J_addComment").checked = false;
             v.append = 0;
             v.forShop = z;
             v.currentPage = 1;
             delete v.tagId;
             delete v.posi;
-            V.removeClass("#J_Graph a", "selected");
+            _dom.removeClass("#J_Graph a", "selected");
             if (z > 0 && W.tmallRateType == 1) {
                 O({
                     from: "meiz",
@@ -524,7 +524,7 @@
             if (z === "") {
                 v.currentPage = AA;
                 v.ismore = 1;
-                G.later(function () {
+                _kissy.later(function () {
                     if (W.tmallRateType == 1) {
                         O({
                             from: "meiz",
@@ -548,7 +548,7 @@
                         from: "all",
                         type: "tmRate-page"
                     });
-                    G.scrollToElem(T)
+                    _kissy.scrollToElem(T)
                 }, 0)
             } else {
                 alert(z);
@@ -563,7 +563,7 @@
                 rateListInfo: '<div class="rate-select tm-clear"><ul class="act-toggletype" id="J_toggletype">{{#if showChooseTopic}}<li><a href="#" data-forShop="0" >\u7cbe\u9009\u8bc4\u4ef7</a></li><li><a href="#" data-forShop="1" class="curr" id="J_allShop">\u672c\u5e97\u6240\u6709\u8bc4\u4ef7</a></li>{{/if}}<input type="checkbox" id="J_addComment"></input><label class="addLabel" for="J_addComment">\u67e5\u770b\u8ffd\u52a0{{#if rateCount && rateCount.used}}({{rateCount.used}}){{/if}}</label></ul><div id="J_TagSelected" style="float:left;"></div><ul class="act-changetype" aria-labelledby="\u9009\u62e9\u8981\u663e\u793a\u7684\u8bc4\u4ef7" id="J_commentOrder"><li><div class="ui-msg tb-clearfix"><div class="ui-msg-tip"> \u6709\u5185\u5bb9\u8bc4\u4ef7(10\u5b57\u53ca\u4ee5\u4e0a)  <s class="ui-msg-icon"></s> </div> <s class="ui-msg-arrow ui-msg-arrow-right"></s></div><a href="#" value="0" class="curr" {{commType.isShowAll}}}>\u9ed8\u8ba4</a></li><li><a href="#" value="1" {{commType.isHasContent}}>\u6309\u65f6\u95f4<i></i></a></li><li><a href="#" value="2" {{commType.isNoContent}}>\u6309\u4fe1\u7528<i></i></a></li></ul></div>',
                 tfoot: '<tfoot><tr><td colspan="5">' + AA + '<div class="pagination"> {prevPageLink} {prevMore}%pages1%<span class="page-cur">{page}</span>%pages2%{nextMore}{nextPageLink} </div></td></tr></tfoot>',
                 table: '<table style="width: 100%;" class="show-rate-table"><tbody>%rateList%</tbody>%tfoot%</table>',
-                rateList: '<tr><td class="cmt">									{{#if rateContent && serviceRateContent }}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u5546\u54c1: </s>{{rateContent}}</p>										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u670d\u52a1: </s>{{serviceRateContent}}</p>									{{#else}}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto">{{rateContent}}{{serviceRateContent}}</p>									{{/if}}									{{#if reply }}<p class="reply rate-auto"><span class="appendTitle">\u89e3\u91ca: </span>{{reply}}</p>{{/if}}								</td><td class="sku">									{{#if auctionSku }}									<p class="cmtInfo">{{#each auctionSku.split(";") as item}}<span class="actSku">										<span class="title">{{item.split(":",2)[0]}}</span><span>: {{item.split(":",2)[1]}}</span>									</span>{{/each}}</p>									{{/if}}                                </td><td class="buyer" data-spm="1000822">									{{#if ' + (H.offlineShop ? "true" : "false") + " }}										<a>{{displayUserNick}}</a> 									{{#elseif !fromMall }}										<p>{{displayUserNick1}}</p>										{{#if " + (W.isMeiz ? "true" : "false") + ' && cmsSource }}<p class="from">\u6765\u81ea\uff1a{{cmsSource}}</p>{{/if}}									{{#elseif (fromMall && anony) || !(displayUserNumId > 0)}}										<p>{{displayUserNick1}}  &nbsp;<span class="tb-anonymous">(\u533f\u540d)</span></p>									{{#else}}										<p><a target="_blank" href="{{displayUserLink}}">{{displayUserNick}}</a></p>									{{/if}}									{{#if (tamllSweetLevel||userVipLevel) && tamllSweetLevel>0 }}										<a href="' + (H.offlineShop ? "#" : "http://vip.tmall.com") + '" target="_blank" class="tmallVip"><img src="http://l.tbcdn.cn/apps/membermanager/v2/image/{{tmallSweetPic}}" alt=""/></a>									{{/if}}									{{#if fromMall }}										<span><a											{{#if ' + (H.offlineShop ? "true" : "false") + ' && !anony && displayUserNumId>0}} href="http://rate.taobao.com/user-rate-{{displayUserNumId}}.htm?buyerOrSeller=1" target="_blank"{{/if}}											>{{grade}}</a></span>									{{/if}}									{{#if attributes&&attributes.indexOf("giftBillId")!=-1 }}										<p class="userGift">\u83b7\u8ba4\u771f\u8bc4\u4ef7\u5956  <i class="tb-icon-gift"></i></p>									{{/if}}								</td></tr><tr class="baseline"><td class="time">									<span class="date">[{{rateDate}}]</span>									{{#if appendComment.content }}										<div class="cmt-append"><i class="cmt-append-horn"></i>										<p class="appendRate rate-auto">											<span class="appendTime">{{#if appendComment.days === 0 }}\u5f53\u5929\u8ffd\u52a0: {{#elseif appendComment.days }}{{appendComment.days}}\u5929\u540e\u8ffd\u52a0: {{#else}}{{appendComment.commentTime}}\u8ffd\u52a0: {{/if}}</span>											{{appendComment.content}}										</p>										{{#if appendComment.reply }}<p class="appendReply rate-auto"><span class="appendTitle">\u89e3\u91ca\uff1a</span>{{appendComment.reply}}</p>{{/if}}										</div>									{{/if}}								</td><td class="user">									{{#if userInfo }}<p class="cmtInfo">{{#each userInfo.split(";") as item}}										 {{item.split(":",2)[1]}}									{{/each}}</p>{{/if}}                                </td><td class="times">									{{#if buyTimes }}										\u5728\u672c\u5e97\u4e70\u8fc7<span class="buyTimes">{{buyTimes}}</span>\u6b21									{{/if}}								</td></tr>',
+                rateList: '<tr><td class="cmt">									{{#if rateContent && serviceRateContent }}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u5546\u54c1: </s>{{rateContent}}</p>										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u670d\u52a1: </s>{{serviceRateContent}}</p>									{{#else}}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto">{{rateContent}}{{serviceRateContent}}</p>									{{/if}}									{{#if reply }}<p class="reply rate-auto"><span class="appendTitle">\u89e3\u91ca: </span>{{reply}}</p>{{/if}}								</td><td class="sku">									{{#if auctionSku }}									<p class="cmtInfo">{{#each auctionSku.split(";") as item}}<span class="actSku">										<span class="title">{{item.split(":",2)[0]}}</span><span>: {{item.split(":",2)[1]}}</span>									</span>{{/each}}</p>									{{/if}}                                </td><td class="buyer" data-spm="1000822">									{{#if ' + (_g_config.offlineShop ? "true" : "false") + " }}										<a>{{displayUserNick}}</a> 									{{#elseif !fromMall }}										<p>{{displayUserNick1}}</p>										{{#if " + (W.isMeiz ? "true" : "false") + ' && cmsSource }}<p class="from">\u6765\u81ea\uff1a{{cmsSource}}</p>{{/if}}									{{#elseif (fromMall && anony) || !(displayUserNumId > 0)}}										<p>{{displayUserNick1}}  &nbsp;<span class="tb-anonymous">(\u533f\u540d)</span></p>									{{#else}}										<p><a target="_blank" href="{{displayUserLink}}">{{displayUserNick}}</a></p>									{{/if}}									{{#if (tamllSweetLevel||userVipLevel) && tamllSweetLevel>0 }}										<a href="' + (_g_config.offlineShop ? "#" : "http://vip.tmall.com") + '" target="_blank" class="tmallVip"><img src="http://l.tbcdn.cn/apps/membermanager/v2/image/{{tmallSweetPic}}" alt=""/></a>									{{/if}}									{{#if fromMall }}										<span><a											{{#if ' + (_g_config.offlineShop ? "true" : "false") + ' && !anony && displayUserNumId>0}} href="http://rate.taobao.com/user-rate-{{displayUserNumId}}.htm?buyerOrSeller=1" target="_blank"{{/if}}											>{{grade}}</a></span>									{{/if}}									{{#if attributes&&attributes.indexOf("giftBillId")!=-1 }}										<p class="userGift">\u83b7\u8ba4\u771f\u8bc4\u4ef7\u5956  <i class="tb-icon-gift"></i></p>									{{/if}}								</td></tr><tr class="baseline"><td class="time">									<span class="date">[{{rateDate}}]</span>									{{#if appendComment.content }}										<div class="cmt-append"><i class="cmt-append-horn"></i>										<p class="appendRate rate-auto">											<span class="appendTime">{{#if appendComment.days === 0 }}\u5f53\u5929\u8ffd\u52a0: {{#elseif appendComment.days }}{{appendComment.days}}\u5929\u540e\u8ffd\u52a0: {{#else}}{{appendComment.commentTime}}\u8ffd\u52a0: {{/if}}</span>											{{appendComment.content}}										</p>										{{#if appendComment.reply }}<p class="appendReply rate-auto"><span class="appendTitle">\u89e3\u91ca\uff1a</span>{{appendComment.reply}}</p>{{/if}}										</div>									{{/if}}								</td><td class="user">									{{#if userInfo }}<p class="cmtInfo">{{#each userInfo.split(";") as item}}										 {{item.split(":",2)[1]}}									{{/each}}</p>{{/if}}                                </td><td class="times">									{{#if buyTimes }}										\u5728\u672c\u5e97\u4e70\u8fc7<span class="buyTimes">{{buyTimes}}</span>\u6b21									{{/if}}								</td></tr>',
                 page: ' <a href="javascript:void(0);" data-page="{page}">{page}</a> '
             }, AB = [],
 				AE = [],
@@ -571,12 +571,12 @@
 				AG = [];
             if (AF.paginator) {
                 if (AF.paginator["pages1"]) {
-                    G.each(AF.paginator["pages1"], function (AH) {
+                    _kissy.each(AF.paginator["pages1"], function (AH) {
                         AE[AE.length] = w(AC.page, AH)
                     })
                 }
                 if (AF.paginator["pages2"]) {
-                    G.each(AF.paginator["pages2"], function (AH) {
+                    _kissy.each(AF.paginator["pages2"], function (AH) {
                         AD[AD.length] = w(AC.page, AH)
                     })
                 }
@@ -584,8 +584,8 @@
                 AC.tfoot = '<tfoot><tr><td colspan="5">' + AA + "</td></tr></tfoot>"
             }
             var y = AF.rateList || AF.rateDetail.rateList;
-            G.each(y, function (AH) {
-                AG[AG.length] = X(AC.rateList).render(AH)
+            _kissy.each(y, function (AH) {
+                AG[AG.length] = _template(AC.rateList).render(AH)
             });
             AE = AE.join("");
             AD = AD.join("");
@@ -595,10 +595,10 @@
                 if (W.tmallRateType) {
                     AB.push('<div class="rate-meiz">')
                 }
-                if (!G.cfg("detail").rateCloudDisable && !G.isUndefined(P)) {
-                    AB.push(X(AC.scoreInfo).render(AF))
+                if (!_kissy.cfg("detail").rateCloudDisable && !_kissy.isUndefined(P)) {
+                    AB.push(_template(AC.scoreInfo).render(AF))
                 }
-                AB.push(X(AC.rateListInfo).render(AF));
+                AB.push(_template(AC.rateListInfo).render(AF));
                 if (W.tmallRateType) {
                     AB.push("</div>")
                 }
@@ -613,8 +613,8 @@
             }
             if (W.tmallRateType) {
                 if (typeof v.append != "undefined" && v.append == 0) {
-                    if (V.get("select.act-changetype", g)) {
-                        var z = V.get("select.act-changetype", g);
+                    if (_dom.get("select.act-changetype", g)) {
+                        var z = _dom.get("select.act-changetype", g);
                         if (z.options[z.selectedIndex].value == 3) {
                             z.options[0].selected = true
                         }
@@ -625,7 +625,7 @@
         }
         function e(z) {
             var _rating_combo = {};
-            if (!G.isUndefined(P)) {
+            if (!_kissy.isUndefined(P)) {
                 _rating_combo.merchandisScore = P;
                 _rating_combo.width = P / 5 * 100;
                 _rating_combo.rateStar = P.replace(".0", "").replace(".", "d");
@@ -647,7 +647,7 @@
             AJ.showChooseTopic = AJ.rateDanceInfo.showChooseTopic;
             AJ.scoreInfo = e(AJ);
             AJ.tmallRateType = W.tmallRateType;
-            G.each(AL, function (AO) {
+            _kissy.each(AL, function (AO) {
                 var AM = AO;
                 var AN = AO;
                 AO.grade = r(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://img03.taobaocdn.com/tps/i3/T1PbuIXclkXXXXXXXX-16-16.png", "http://img04.taobaocdn.com/tps/i4/T1FHuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1GYuIXcRkXXXXXXXX-16-16.png", "http://img02.taobaocdn.com/tps/i2/T1HbuIXcNkXXXXXXXX-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
@@ -775,20 +775,20 @@
         init: function (S) {
             F = S || {};
             if (!R) {
-                W = G.cfg();
-                if (!(T = V.get(J))) {
+                W = _kissy.cfg();
+                if (!(T = _dom.get(J))) {
                     return
                 }
-                var Z = V.get("iframe", T);
+                var Z = _dom.get("iframe", T);
                 if (Z) {
-                    G.use("malldetail/common/crossDomain", function () {
+                    _kissy.use("malldetail/common/crossDomain", function () {
                         window.XD.receiveMessage(function (a) {
                             switch (a.action) {
                                 case "setHeight":
-                                    V.height(Z, a.height);
+                                    _dom.height(Z, a.height);
                                     break;
                                 case "setScrollTop":
-                                    document[G.UA.webkit ? "body" : "documentElement"].scrollTop = V.offset(Z).top * 1 + a.scrollTop * 1;
+                                    document[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = _dom.offset(Z).top * 1 + a.scrollTop * 1;
                                     break
                             }
                         })
@@ -796,8 +796,8 @@
                     R = true;
                     return
                 }
-                if (G.mods.TabBar && G.mods.TabBar.curIndex() == "description") {
-                    G.sendAcAtpanel("tmalldetail.4.1")
+                if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "description") {
+                    _kissy.sendAcAtpanel("tmalldetail.4.1")
                 }
                 A();
                 R = true
