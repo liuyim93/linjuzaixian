@@ -27,9 +27,15 @@ namespace Friday.mvc.weblogin
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            mid = Request.Params["merchant_id"].ToString();
-
-            this.tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
+            if (!this.CurrentUser.IsAdmin)
+            {
+                mid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            }
+            else
+            {
+                mid = Request.Params["merchant_id"];
+            }
+            this.tagName = systemFunctionObjectService.租房模块.房屋维护.TagName;
             this.PermissionCheck(PermissionTag.Edit);
 
             f = iHouseService.Load(uid);

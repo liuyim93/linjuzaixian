@@ -22,8 +22,15 @@ namespace Friday.mvc.weblogin
         string mid;
 
         protected void Page_Load(object sender, EventArgs e)
-        {
-             mid = Request.Params["merchant_id"].ToString();
+        {            
+             if (!this.CurrentUser.IsAdmin)
+             {
+                 mid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+             }
+             else
+             {
+                 mid = Request.Params["merchant_id"];
+             }
              tagName = systemFunctionObjectService.餐馆模块.菜品维护.TagName;
              if (!this.PermissionValidate(PermissionTag.Enable))
              {

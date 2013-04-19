@@ -67,9 +67,9 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="Food/pAddFood.aspx?merchant_id={id}" title="增加菜品" target="dialog"
+        <li><a class="add" href="Food/pAddFood.aspx?merchant_id=<%=Request.Params["id"] %>" title="增加菜品" target="dialog"
             rel="" width="600" height="400"><span>增加菜品</span></a></li>
-        <li><a class="edit" href="Food/pEditFood.aspx?uid={foodid}&merchant_id={id}" title="修改菜品" rel="" target="dialog"
+        <li><a class="edit" href="Food/pEditFood.aspx?uid={foodid}&merchant_id=<%=Request.Params["id"] %>" title="修改菜品" rel="" target="dialog"
             height="480"><span>修改菜品</span></a></li>
         <li><a class="delete" href="Food/pFoodList.aspx?flag=alldelete&food_id={foodid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除菜品</span></a></li>

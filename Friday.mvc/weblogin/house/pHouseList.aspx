@@ -67,9 +67,9 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="House/pAddHouse.aspx?merchant_id={id}" title="增加房屋" target="navTab"
+        <li><a class="add" href="House/pAddHouse.aspx?merchant_id=<%=Request.Params["id"] %>" title="增加房屋" target="dialog"
             rel="" width="600" height="400"><span>增加房屋</span></a></li>
-        <li><a class="edit" href="House/pEditHouse.aspx?uid={houseid}&merchant_id={id}" title="修改房屋" rel="" target="dialog"
+        <li><a class="edit" href="House/pEditHouse.aspx?uid={houseid}&merchant_id=<%=Request.Params["id"] %>" title="修改房屋" rel="" target="dialog"
             height="480"><span>修改房屋</span></a></li>
         <li><a class="delete" href="House/pHouseList.aspx?flag=alldelete&house_id={houseid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除房屋</span></a></li>
