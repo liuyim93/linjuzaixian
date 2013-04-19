@@ -261,7 +261,6 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         public ActionResult ListDetailRate(string itemId)
         {
 
-            var rate_list = new List<Rate>();
             dynamic rateList = new Dictionary<string, List<Rate>>();
        
             for (int i = 0; i < 10; i++)
@@ -327,6 +326,43 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             jsonResult.Data = new
             {
                 rateDetail = rateDetailModel
+            };
+            string json = jsonResult.FormatResult();
+            string script = "jsonp347(" + json + ")";
+
+            return JavaScript(script);
+        }
+
+        public ActionResult Recommend(string itemId)
+        {
+
+            dynamic recommendList = new Dictionary<string, List<Recommend>>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                recommendList.Add(i.ToString(), new Recommend()
+                {
+                    	id="17124405607",
+		                sellerId="890482188",
+		                title=i+"Nike  耐克官方  AIR MAX FUSION WRM 女子训练鞋 555163",
+		                url="http://detail.tmall.com/item.htm?id=17124405607&pos=1&uuid=43f8d91add60486dad032e80ea4db029&scm=1003.3.03054.1_1&acm=03054.1003.656.250.17124405607_1",
+		                img="http://img04.taobaocdn.com/bao/uploaded/i4/12188019483228809/T1n8w4XfJgXXXXXXXX_!!0-item_pic.jpg",
+		                commentNum=i,
+		                rate=i,
+		                price=584.0+i,
+		                marketPrice=729.0+i,
+                        lastBitOfSCM=i.ToString()
+                });
+            }
+
+            RecommendDetailModel recommendDetailModel = new RecommendDetailModel()
+            {
+                recommend = "[" + recommendList + "]",
+            };
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = new
+            {
+                rateDetail = recommendDetailModel
             };
             string json = jsonResult.FormatResult();
             string script = "jsonp347(" + json + ")";

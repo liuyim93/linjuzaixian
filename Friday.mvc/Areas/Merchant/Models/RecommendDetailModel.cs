@@ -7,6 +7,14 @@ namespace Friday.mvc.Areas.Merchant.Models
 {
     public class RecommendDetailModel
     {
+        public object recommend
+        {
+            get;
+            set;
+        }
+    }
+    public class  Recommend
+    {
         public string id
         {
             get;
@@ -37,17 +45,17 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-        public float rate
+        public double rate
         {
             get;
             set;
         }
-        public float price
+        public double price
         {
             get;
             set;
         }
-         public float marketPrice
+         public double marketPrice
         {
             get;
             set;
@@ -57,6 +65,6 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
-    }
+     }
     
 }
