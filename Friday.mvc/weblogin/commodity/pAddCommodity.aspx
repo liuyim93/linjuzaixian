@@ -73,7 +73,7 @@
 
             <p>
             <label>
-                    菜品类型：</label>
+                    商品类型：</label>
            <select name="GoodsType" id="GoodsType" class="required" runat="server">
             <option value="" >请选择</option>
             </select>
