@@ -478,6 +478,10 @@ namespace Friday.Test2
             adminMenuCheckList.Add(propid);
             shopOwnerMenuCheckList.Add(propid);
             shopMemberMenuCheckList.Add(propid);
+            restaruantOwnerMenuCheckList.Add(propid);
+            restaurantMemberMenuCheckList.Add(propid);
+            rentOwnerMenuCheckList.Add(propid);
+            rentMemberMenuCheckList.Add(propid);
 
             SystemMenu propvalue = new SystemMenu()
             {
@@ -492,6 +496,10 @@ namespace Friday.Test2
             adminMenuCheckList.Add(propvalue);
             shopOwnerMenuCheckList.Add(propvalue);
             shopMemberMenuCheckList.Add(propvalue);
+            restaruantOwnerMenuCheckList.Add(propid);
+            restaurantMemberMenuCheckList.Add(propid);
+            rentOwnerMenuCheckList.Add(propid);
+            rentMemberMenuCheckList.Add(propid);
 
             //SystemMenu valuingComments = new SystemMenu()
             //{
