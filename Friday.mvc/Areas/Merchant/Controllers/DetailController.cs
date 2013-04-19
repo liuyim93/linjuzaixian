@@ -358,6 +358,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             RecommendDetailModel recommendDetailModel = new RecommendDetailModel()
             {
                 recommend = "[" + recommendList + "]",
+                acurl = "http://ac.atpanel.com/1.gif?cache=8636728&com=02&apply=detail&cod=1.4.1&acm=03054.1003.656.250.20879096818_1&uid=&ver=&ip=&other="
             };
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = new
@@ -365,7 +366,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 rateDetail = recommendDetailModel
             };
             string json = jsonResult.FormatResult();
-            string script = "jsonp347(" + json + ")";
+            string script = "ald318(" + json+","+null+")";
 
             return JavaScript(script);
         }

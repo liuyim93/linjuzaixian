@@ -12,6 +12,11 @@ namespace Friday.mvc.Areas.Merchant.Models
             get;
             set;
         }
+        public string acurl
+        {
+            get;
+            set;
+        }
     }
     public class  Recommend
     {
