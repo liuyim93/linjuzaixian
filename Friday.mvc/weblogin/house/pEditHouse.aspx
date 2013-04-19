@@ -41,7 +41,7 @@
                 </p>
 
         <p>   <label>出租时间:</label>
-                    <input type="text" name="DaySpanOfRent"    readonly="true" runat="server"
+                    <input type="text" name="DaySpanOfRent"      runat="server"
                        /></p>
             
             <p>

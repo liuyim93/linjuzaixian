@@ -32,17 +32,17 @@
             </p>
              <p>
                     <label>起始日期:</label>
-                    <input  type="text" name="TimeOfRentFrom" class="date textInput readonly" readonly="true" 
+                    <input  type="text" name="TimeOfRentFrom" class="date textInput readonly" readonly="true"  runat="server"
                        />
                 </p>
                 <p>
                     <label>截止日期:</label>
-                    <input type="text" name="TimeOfRentTO" class="date textInput readonly" readonly="true" 
+                    <input type="text" name="TimeOfRentTO" class="date textInput readonly" readonly="true"  runat="server"
                        />
                 </p>
 
         <p>   <label>出租时间:</label>
-                    <input type="text" name="DaySpanOfRent" 
+                    <input type="text" name="DaySpanOfRent"  runat="server"
                        /></p>
             
             <p>
