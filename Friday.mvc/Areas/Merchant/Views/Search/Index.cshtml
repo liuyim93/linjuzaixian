@@ -432,15 +432,13 @@ background-repeat:repeat-x;
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
-                                                            <a href="@Url.Action("ListDetail", "Favorite", new { controller = "Favorite", action = "ListDetail", id = item.Id })" target="_blank">
-                                                                <img src="@Url.Content("~/" + item.Image)"
-                                                                    src2="">
+                                                            <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" target="_blank" class="permalink"> 
+                                                              <img src="@Url.Content("~/" + item.Image)" >
                                                             </a>
                                                         </div>
-                                                        <div class="desc">
-                                                          @Html.ActionLink(item.Name, "ListDetail", new { controller = "Favorite", action = "ListDetail", id = item.Id })
-                                                         @*   <a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;" class="permalink"
-                                                                style="">@m.Name 官方 @item.Name </a>*@
+                                                       <div class="desc">
+                                                        <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" target="_blank" class="permalink"> 
+                                                            @item.Name <br />   @m.Name 官方 </a>
                                                         </div>
                                                         <div class="price">
                                                             <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
@@ -449,9 +447,9 @@ background-repeat:repeat-x;
                                                             月销量：<em>@item.MonthAmount</em>件
                                                         </div>
                                                         <div class="rating">
-                                                            <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                                (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;&amp;show_review=1#reviews"
-                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>
+                                                         @*   <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
+                                                                (<a target="_blank" href="http://localhost:7525/merchant/detail/index?brandid=@item.Id"
+                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>*@
                                                         </div>
                                                     </div>
                                                 </li>
@@ -468,16 +466,16 @@ background-repeat:repeat-x;
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
-                                                            <a href="@Url.Action("ListDetail", "Favorite", new { controller = "Favorite", action = "ListDetail", id = item.Id })" target="_blank">
+                                                             <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id">
                                                                 <img src="@Url.Content("~/" + item.Image)"
                                                                     src2="">
                                                             </a>
                                                         </div>
                                                         <div class="desc">
-                                                          @Html.ActionLink(item.Name, "ListDetail", new { controller = "Favorite", action = "ListDetail", id = item.Id })
-                                                         @*   <a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;" class="permalink"
-                                                                style="">@m.Name 官方 @item.Name </a>*@
+                                                       <a target="_blank" href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" class="permalink"
+                                                                style="">@*@m.Name 官方*@ @item.Name </a>
                                                         </div>
+                                                            
                                                         <div class="price">
                                                             <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
                                                         </div>
@@ -485,9 +483,9 @@ background-repeat:repeat-x;
                                                             月销量：<em>@item.MonthAmount</em>件
                                                         </div>
                                                         <div class="rating">
-                                                            <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
+                                                       @*     <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
                                                                 (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;&amp;show_review=1#reviews"
-                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>
+                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>*@
                                                         </div>
                                                     </div>
                                                 </li>
@@ -504,15 +502,14 @@ background-repeat:repeat-x;
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
-                                                            <a href="@Url.Action("ListDetail", "Favorite", new { controller = "Favorite", action = "ListDetail", id = item.Id })" target="_blank">
+                                                             <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id">
                                                                 <img src="@Url.Content("~/" + item.Image)"
                                                                     src2="">
                                                             </a>
                                                         </div>
-                                                        <div class="desc">
-                                                          @Html.ActionLink(item.Name, "ListDetail", new { controller = "Favorite", action = "ListDetail", id = item.Id })
-                                                         @*   <a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;" class="permalink"
-                                                                style="">@m.Name 官方 @item.Name </a>*@
+                                                        <div class="desc">                                                       
+                                                        <a target="_blank" href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" class="permalink"
+                                                                style="">@*@m.Name 官方*@ @item.Name </a>
                                                         </div>
                                                         <div class="price">
                                                             <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
@@ -521,9 +518,9 @@ background-repeat:repeat-x;
                                                             月销量：<em>@item.MonthAmount</em>件
                                                         </div>
                                                         <div class="rating">
-                                                            <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
+                                                            @*<span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
                                                                 (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;&amp;show_review=1#reviews"
-                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>
+                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>*@
                                                         </div>
                                                     </div>
                                                 </li>
