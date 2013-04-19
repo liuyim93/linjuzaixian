@@ -5,7 +5,7 @@
         <%--2013-02-17 basilwang we still need get rel_hook after postback--%>
         <input type="hidden" name="rel_hook" value='<%=Request.Params["rel_hook"]%>' />
         <div defh="95">
-            <h1>配送地址基本信息</h1>
+            <h1>规格基本信息</h1>
             <input type="hidden" id="SkuId" size="30" runat="server" />
             <p>
                 <label>
