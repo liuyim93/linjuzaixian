@@ -67,7 +67,7 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="merchantEmployee/pAddMerchantEmployee.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id={id}" title="增加员工" target="dialog"
+        <li><a class="add" href="merchantEmployee/pAddMerchantEmployee.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id=<%= Request.Params["merchant_id"]%>" title="增加员工" target="dialog"
             rel="" width="600" height="400"><span>增加员工</span></a></li>
         <li><a class="edit" href="merchantEmployee/pEditMerchantEmployee.aspx?merchantEmployeeid={merchantEmployee_id}" title="修改员工" rel="" target="dialog"
             height="480"><span>修改员工</span></a></li>
