@@ -52,9 +52,9 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="merchantGoodsType/pAddMerchantGoodsType.aspx?merchant_id=<%= Request.Params["merchant_id"]%>" title="增加商品类型" target="dialog"
+        <li><a class="add" href="merchantGoodsType/pAddMerchantGoodsType.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id=<%= Request.Params["merchant_id"]%>" title="增加商品类型" target="dialog"
             rel="" width="600" height="400"><span>增加自定义商品类型</span></a></li>
-        <li><a class="add" href="merchantGoodsType/pSelectGlobalGoodsType.aspx?merchant_id=<%= Request.Params["merchant_id"]%>" title="选择系统商品类型" target="dialog"
+        <li><a class="add" href="merchantGoodsType/pSelectGlobalGoodsType.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id=<%= Request.Params["merchant_id"]%>" title="选择系统商品类型" target="dialog"
             rel="" width="600" height="400"><span>选择系统商品类型</span></a></li>
         <li><a class="edit" href="merchantGoodsType/pEditMerchantGoodsType.aspx?uid={merchantGoodsTypeid}" title="修改商品类型" rel="" target="dialog"
             height="480"><span>修改商品类型</span></a></li>
