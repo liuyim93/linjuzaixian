@@ -38,13 +38,20 @@ namespace Friday.mvc.weblogin
             //    Response.End();
             //}
 
-            if (!string.IsNullOrEmpty(Request.Params["merchant_id"]))
+            if (!this.CurrentUser.IsAdmin)
             {
-                mid = Request.Params["merchant_id"].ToString();
+                mid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            if (!this.CurrentUser.IsAdmin) 
-            { 
-                mid=this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            else
+            {
+                if (Request.Form["merchant_id"] != null)
+                {
+                    mid = Request.Form["merchant_id"];
+                }
+                else
+                {
+                    mid = Request.Params["merchant_id"];
+                }
             }
             //mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
