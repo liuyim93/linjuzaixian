@@ -21,12 +21,28 @@ namespace Friday.mvc.weblogin
         IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
 
         string mid;
-        string mtype;
+        //string mtype;
+        Merchant merchant;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-             mid = Request.Params["merchant_id"].ToString();
-             mtype = Request.Params["mType"].ToString();
+             if (!this.CurrentUser.IsAdmin)
+             {
+                 mid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+             }
+             else
+             {
+                 if (Request.Form["merchant_id"] != null)
+                 {
+                     mid = Request.Form["merchant_id"];
+                 }
+                 else
+                 {
+                     mid = Request.Params["merchant_id"];
+                 }
+             }
+             merchant = iMerchantService.Load(mid);
+             //mtype = Request.Params["mType"].ToString();
              tagName = systemFunctionObjectService.基本信息模块.员工维护.TagName;
              if (!this.PermissionValidate(PermissionTag.Enable))
              {
@@ -56,22 +72,21 @@ namespace Friday.mvc.weblogin
              BindingHelper.RequestToObject(f);             
              iLoginUserService.Save(f);
              UserInRole ur = new UserInRole();
-             if (mtype == "Restaurant")
+             if (merchant.MerchantType == MerchantTypeEnum.餐馆)
              {
                  ur.SystemRole = iSystemRoleService.GetRoleByName("餐馆店小二");
              }
-             if (mtype == "Rent")
+             if (merchant.MerchantType == MerchantTypeEnum.租房)
              {
                  ur.SystemRole = iSystemRoleService.GetRoleByName("租房店小二");
              }
-             if (mtype == "Shop")
+             if (merchant.MerchantType == MerchantTypeEnum.百货)
              {
                  ur.SystemRole = iSystemRoleService.GetRoleByName("商店店小二");
              }
              ur.LoginUser = f;
              iUserInRoleService.Save(ur);
              iPermissionManager.RefreshUserInRole();
-            Merchant merchant = iMerchantService.Load(mid);
 
              LoginUserOfMerchant lum = new LoginUserOfMerchant();
              lum.LoginUser = f;

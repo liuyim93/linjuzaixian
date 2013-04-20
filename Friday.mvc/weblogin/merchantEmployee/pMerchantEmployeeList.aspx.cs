@@ -84,16 +84,23 @@ namespace Friday.mvc.weblogin
         {
             numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
 
-
             if (!this.CurrentUser.IsAdmin)
             {
-                merchantId = this.CurrentUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id;
+                merchantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            if (!string.IsNullOrEmpty(Request.Params["merchant_id"]))
+            else
             {
-                merchantId = Request.Params["merchant_id"];
+                if (Request.Form["merchant_id"] != null)
+                {
+                    merchantId = Request.Form["merchant_id"];
+                }
+                else
+                {
+                    merchantId = Request.Params["merchant_id"];
+                }
             }
-            mType = Request.Params["merchantType"];
+
+            //mType = Request.Params["merchantType"];
 
 
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
@@ -134,7 +141,13 @@ namespace Friday.mvc.weblogin
                 type = "LoginUserOfMerchant",
                 field = loginUserOfMechentList
             });
-               
+
+
+            logiUserList.Add(new DataFilter()
+            {
+                type = "IsDelete"
+            });
+
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
             string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
