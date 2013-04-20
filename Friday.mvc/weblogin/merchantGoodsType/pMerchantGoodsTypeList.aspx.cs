@@ -28,7 +28,7 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            merchantType = Request.Params["merchantType"];
+            //merchantType = Request.Params["merchantType"];
 
             tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
             this.PermissionCheck();
@@ -53,17 +53,20 @@ namespace Friday.mvc.weblogin
             }
             else
             {
-                if (Request.Form["merchant_id"] != null)
-                {
-                    merchantId = Request.Form["merchant_id"];
-                }
-                else
-                {
-                    merchantId = Request.Params["merchant_id"];
-                }
                 if (!this.CurrentUser.IsAdmin)
                 {
                     merchantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+                }
+                else
+                {
+                    if (Request.Form["merchant_id"] != null)
+                    {
+                        merchantId = Request.Form["merchant_id"];
+                    }
+                    else
+                    {
+                        merchantId = Request.Params["merchant_id"];
+                    }
                 }
                 numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
                 pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
