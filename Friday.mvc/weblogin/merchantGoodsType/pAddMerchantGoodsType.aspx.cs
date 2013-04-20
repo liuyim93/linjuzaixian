@@ -20,7 +20,7 @@ namespace Friday.mvc.weblogin
 
         private MerchantGoodsType merchantGoodsType;
         private string mid;
-        private string mtype="";
+        //private string mtype="";
         private Merchant merchant;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -37,8 +37,22 @@ namespace Friday.mvc.weblogin
                 Response.End();
             }
 
-            mid = Request.Params["merchant_id"].ToString();
-            mtype = Request.Params["mType"].ToString();
+            if (!this.CurrentUser.IsAdmin)
+            {
+                mid = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
+            }
+            else
+            {
+                if (Request.Form["merchant_id"] != null)
+                {
+                    mid = Request.Form["merchant_id"];
+                }
+                else
+                {
+                    mid = Request.Params["merchant_id"];
+                }
+            }
+            //mtype = Request.Params["mType"].ToString();
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
 
