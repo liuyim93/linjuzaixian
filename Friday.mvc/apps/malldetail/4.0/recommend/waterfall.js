@@ -25,7 +25,8 @@ KISSY.add("malldetail/recommend/waterfall", function (G, O, H, R, I) {
         }
         var X = G.cfg("isDaily") ? "13975762416" : window.g_config.itemId;
         G.Asyn.add("AldTabWaterfall", {
-            url: "http://ald.taobao.com/recommend.htm",
+            //url: "http://ald.taobao.com/recommend.htm",
+            url: "http://localhost:7525/Merchant/Detail/Tab_Recommend",
             data: {
                 appId: "03040",
                 itemId: X,
