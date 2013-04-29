@@ -1,22 +1,22 @@
-﻿KISSY.add("malldetail/other/itemDesc", function (C) {
-    var D = KISSY,
-		E = D.DOM;
-    var F = window;
+﻿KISSY.add("malldetail/other/itemDesc", function (_kissy_imp) {
+    var _kissy = KISSY,
+		_dom = _kissy.DOM;
+    var _window = window;
 
-    function B(N) {
-        var H = "#J_ItemDesc";
-        var J = D.get(H);
-        var G;
+    function B(_desc) {
+        var _str_J_ItemDesc = "#J_ItemDesc";
+        var _dom_id_J_ItemDesc = _kissy.get(_str_J_ItemDesc);
+        var _dom_id_J_ItemDesc_clone;
         var I = /(<img[^>]*)(src *= *("[^"]*"|'[^']*'|[^ >]*))/g;
         var L = 0;
-        var K = "http://l.tbcdn.cn/kissy/1.0.0/build/imglazyload/spaceball.gif";
+        var _spaceball = "http://l.tbcdn.cn/kissy/1.0.0/build/imglazyload/spaceball.gif";
         var M = "_q75.jpg";
-        if (!J) {
+        if (!_dom_id_J_ItemDesc) {
             return
         }
-        N = N.replace(I, function (O, T, R, Q) {
+        _desc = _desc.replace(I, function (O, T, R, Q) {
             L++;
-            if (C.cfg("detail").cdn75 && /img0[1-8]\.taobaocdn\.com/.test(Q)) {
+            if (_kissy_imp.cfg("detail").cdn75 && /img0[1-8]\.taobaocdn\.com/.test(Q)) {
                 var S = Q.length;
                 var P = Q.substr(S - 1);
                 if (P == "'" || P == '"') {
@@ -25,41 +25,41 @@
                     Q += M
                 }
             }
-            return [T, 'src="' + K + '" data-ks-lazyload=', Q].join("")
+            return [T, 'src="' + _spaceball + '" data-ks-lazyload=', Q].join("")
         });
-        if (D.UA.IE) {
-            E.html(H, N)
+        if (_kissy.UA.IE) {
+            _dom.html(_str_J_ItemDesc, _desc)
         } else {
-            G = J.cloneNode(false);
-            G.innerHTML = N;
-            J.parentNode.replaceChild(G, J);
-            J = G
+            _dom_id_J_ItemDesc_clone = _dom_id_J_ItemDesc.cloneNode(false);
+            _dom_id_J_ItemDesc_clone.innerHTML = _desc;
+            _dom_id_J_ItemDesc.parentNode.replaceChild(_dom_id_J_ItemDesc_clone, _dom_id_J_ItemDesc);
+            _dom_id_J_ItemDesc = _dom_id_J_ItemDesc_clone
         }
-        C.use("malldetail/other/lazy", function (O, P) {
-            P.addElements(J)
+        _kissy_imp.use("malldetail/other/lazy", function (O, P) {
+            P.addElements(_dom_id_J_ItemDesc)
         })
     }
-    function A(H) {
-        H = H || {};
-        if (C.cfg("tag").isAsynDesc) {
-            if (typeof F.desc === "undefined") {
+    function _init(_itemDesc_config) {
+        _itemDesc_config = _itemDesc_config || {};
+        if (_kissy_imp.cfg("tag").isAsynDesc) {
+            if (typeof _window.desc === "undefined") {
                 setTimeout(arguments.callee, 100);
                 return
             } else {
-                B(F.desc)
+                B(_window.desc)
             }
-            H.success && H.success()
+            _itemDesc_config.success && _itemDesc_config.success()
         }
-        var G = C.cfg("valFlashUrl");
-        if (G) {
-            D.use("malldetail/other/flashplayer", function (I) {
-                I.TmdFlv.init(G)
+        var _valFlashUrl = _kissy_imp.cfg("valFlashUrl");
+        if (_valFlashUrl) {
+            _kissy.use("malldetail/other/flashplayer", function (_flashplayer) {
+                _flashplayer.TmdFlv.init(_valFlashUrl)
             })
         }
     }
     return {
-        init: function (G) {
-            A(G)
+        init: function (_itemDesc_config) {
+            _init(_itemDesc_config)
         }
     }
 }); 

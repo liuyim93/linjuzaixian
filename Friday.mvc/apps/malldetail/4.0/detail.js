@@ -489,11 +489,13 @@
             _malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
             _malldetail_common_util.loadAssets("cps/trace.js?t=20120618");
             var I = 0;
-            var K = _kissy_imp_t_x.getUrlParams();
-            var O = K.selected || ((K.on_comment == 1 || -1 !== location.href.indexOf("rate_detail.htm")) ? "reviews" : "");
-            if (O) {
+            var _urlparams = _kissy_imp_t_x.getUrlParams();
+            var _is_selected = _urlparams.selected ||
+                ((_urlparams.on_comment == 1
+                    || -1 !== location.href.indexOf("rate_detail.htm")) ? "reviews" : "");
+            if (_is_selected) {
                 TShop.onMainBody(function (Q) {
-                    Q.switchTab(O)
+                    Q.switchTab(_is_selected)
                 })
             }
             var P = _dom.get("#detail");
