@@ -101,9 +101,9 @@
                 }
             }
             _mainBody.addLazyCallback("#J_Reviews", function () {
-                _kissy_imp.use("malldetail/data/data", function (O, N) {
-                    N.onReviewCount(function (P) {
-                        O.each(_dom.query("#J_Reviews em.J_ReviewsCountNum"), function (Q) {
+                _kissy_imp.use("malldetail/data/data", function (_kissy_imp_data, _malldetail_data_data) {
+                    _malldetail_data_data.onReviewCount(function (P) {
+                        _kissy_imp_data.each(_dom.query("#J_Reviews em.J_ReviewsCountNum"), function (Q) {
                             Q.innerHTML = P.rateTotal;
                             _dom.show(_dom.parent(Q))
                         })
