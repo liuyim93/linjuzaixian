@@ -9,6 +9,7 @@ using friday.core.domain;
 using friday.core;
 using Friday.mvc.Areas.Merchant.Models;
 using friday.core.components;
+using System.IO;
 
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
@@ -373,5 +374,28 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return JavaScript(script);
         }
 
+        public ActionResult seller_info()
+        {
+            string html = RenderRazorViewToString("seller_info_partial",null);
+            html = html.Replace("\"", "\\\"").Replace("\r\n", ""); ;
+            string script = "jsonpSellerInfo(\"" + html + "\",\"J_sellerinfo\")";
+            return JavaScript(script);
+        }
+        public ActionResult seller_info_partial()
+        {
+            return View();
+        }
+        public string RenderRazorViewToString(string viewName, object model)
+        {
+            ViewData.Model = model;
+            using (var sw = new StringWriter())
+            {
+                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+                viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+                return sw.GetStringBuilder().ToString();
+            }
+        }
     }
 }

@@ -156,8 +156,8 @@
                 })
             });
             _mainBody.addLazyCallback("#J_SellerInfo", function () {
-                _kissy_imp.use("malldetail/tabbar/sellerinfo", function (N) {
-                    N.mods.SellerInfo.init()
+                _kissy_imp.use("malldetail/tabbar/sellerinfo", function (_kissy_imp_sellerinfo) {
+                    _kissy_imp_sellerinfo.mods.SellerInfo.init()
                 })
             });
             _mainBody.addLazyCallback("#J_AfterSales", function () {

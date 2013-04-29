@@ -8,6 +8,7 @@ using System.Web.Security;
 using friday.core;
 using friday.core.domain;
 using friday.core.repositories;
+using System.IO;
 
 namespace Friday.mvc.Controllers
 {
@@ -165,6 +166,18 @@ namespace Friday.mvc.Controllers
         {
             public bool isSucceed;
             public string message;
+        }
+        public string RenderRazorViewToString(string viewName, object model)
+        {
+            ViewData.Model = model;
+            using (var sw = new StringWriter())
+            {
+                var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, viewName);
+                var viewContext = new ViewContext(ControllerContext, viewResult.View, ViewData, TempData, sw);
+                viewResult.View.Render(viewContext, sw);
+                viewResult.ViewEngine.ReleaseView(ControllerContext, viewResult.View);
+                return sw.GetStringBuilder().ToString();
+            }
         }
     }
 }
