@@ -1,28 +1,28 @@
 ﻿KISSY.add("malldetail/common/util", function (_kissy, _dom, _event) {
     var D = {};
-    return { createLoader: function (_loader_fn_callback) {
-        var _t_defaultModelObject, _is_fn_load, _iterator_handle_queue_array = [], _t_iterator_handle_fn;
-        return function (_handle_fn, _state) {
+    return { createLoader: function (_loader_fn) {
+        var _t_AssemblyObject, _is_fn_load, _iterator_handle_queue_array = [], _t_iterator_handle_fn;
+        return function (_filter_fn, _state) {
             if (_state !== 0 && !_state) {
                 _state = 1
             }
             if ((_state & 1) && !_is_fn_load) {
                 _is_fn_load = true;
-                _loader_fn_callback(function (_defaultModelObject) {
-                    _t_defaultModelObject = _defaultModelObject;
+                _loader_fn(function (_assemblyObject) {
+                    _t_AssemblyObject = _assemblyObject;
                     while (_t_iterator_handle_fn = _iterator_handle_queue_array.shift()) {
-                        _t_iterator_handle_fn && _t_iterator_handle_fn.apply(null, [_t_defaultModelObject])
+                        _t_iterator_handle_fn && _t_iterator_handle_fn.apply(null, [_t_AssemblyObject])
                     }
                 })
             }
-            if (_t_defaultModelObject) {
-                _handle_fn && _handle_fn.apply(null, [_t_defaultModelObject]);
-                return _t_defaultModelObject
+            if (_t_AssemblyObject) {
+                _filter_fn && _filter_fn.apply(null, [_t_AssemblyObject]);
+                return _t_AssemblyObject
             }
             if (!(_state & 2)) {
-                _handle_fn && _iterator_handle_queue_array.push(_handle_fn)
+                _filter_fn && _iterator_handle_queue_array.push(_filter_fn)
             }
-            return _t_defaultModelObject
+            return _t_AssemblyObject
         }
     }, createAsyn: function (_loader_fn, _time) {
         var _is_fn_load, _t_defaultModelObject, _is_already_load_defaultModelObject, _callback_fn_object, _iterate_handle_queue = [];
