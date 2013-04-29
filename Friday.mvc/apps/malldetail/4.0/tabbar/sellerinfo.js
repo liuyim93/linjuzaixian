@@ -1,49 +1,49 @@
 ﻿/*pub-1|2013-01-06 16:13:22*/
-KISSY.add("malldetail/tabbar/sellerinfo", function (C) {
-    var D = KISSY,
-		J = D.DOM,
-		H = D.Event,
-		B = "TShop.mods.SellerInfo.callback",
-		E = "selected",
-		A;
-    var K = false;
+KISSY.add("malldetail/tabbar/sellerinfo", function (_kissy_imp) {
+    var _kissy = KISSY,
+		_dom = _kissy.DOM,
+		_event = _kissy.Event,
+		_str_callback = "TShop.mods.SellerInfo.callback",
+		_str_selected = "selected",
+		_dom_id_J_SellerInfo;
+    var _is_inited = false;
 
-    function I() {
-        if (!K && (A = D.get("#J_SellerInfo"))) {
-            K = true;
-            G()
+    function _init() {
+        if (!_is_inited && (_dom_id_J_SellerInfo = _kissy.get("#J_SellerInfo"))) {
+            _is_inited = true;
+            _load()
         }
     }
-    function G() {
-        if (!K) {
-            return I()
+    function _load() {
+        if (!_is_inited) {
+            return _init()
         }
-        var L = J.attr(A, "data-url");
-        if (L) {
-            D.use("ajax", function (N, M) {
-                M = M || N.io;
-                M({
-                    url: L,
+        var _data_url = _dom.attr(_dom_id_J_SellerInfo, "data-url");
+        if (_data_url) {
+            _kissy.use("ajax", function (_kissy_imp_1, _ajax) {
+                _ajax = _ajax || _kissy_imp_1.io;
+                _ajax({
+                    url: _data_url,
                     dataType: "jsonp",
                     jsonpCallback: "jsonpSellerInfo",
-                    success: function (P) {
-                        A.innerHTML += P[0];
-                        var O = N.query("#J_sellerRateInfo .J_RateInfoTrigger");
-                        H.on(O, "mouseover", function () {
-                            J.removeClass(O, E);
-                            J.addClass(this, E)
+                    success: function (_results) {
+                        _dom_id_J_SellerInfo.innerHTML += _results[0];
+                        var _dom_array_class_J_RateInfoTrigger = _kissy_imp_1.query("#J_sellerRateInfo .J_RateInfoTrigger");
+                        _event.on(_dom_array_class_J_RateInfoTrigger, "mouseover", function () {
+                            _dom.removeClass(_dom_array_class_J_RateInfoTrigger, _str_selected);
+                            _dom.addClass(this, _str_selected)
                         });
-                        if (C.mods.TabBar && C.mods.TabBar.curIndex() == "description") {
-                            C.sendAcAtpanel("tmalldetail.4.3")
+                        if (_kissy_imp.mods.TabBar && _kissy_imp.mods.TabBar.curIndex() == "description") {
+                            _kissy_imp.sendAcAtpanel("tmalldetail.4.3")
                         }
                     }
                 })
             })
         }
     }
-    var F = {
-        init: I,
-        load: G
+    var _sellerInfo = {
+        init: _init,
+        load: _load
     };
-    C.mods.SellerInfo = F
+    _kissy_imp.mods.SellerInfo = _sellerInfo
 });

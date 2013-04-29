@@ -52,8 +52,8 @@
         }
         var _valFlashUrl = _kissy_imp.cfg("valFlashUrl");
         if (_valFlashUrl) {
-            _kissy.use("malldetail/other/flashplayer", function (_flashplayer) {
-                _flashplayer.TmdFlv.init(_valFlashUrl)
+            _kissy.use("malldetail/other/flashplayer", function (_v) {
+                _v.TmdFlv.init(_valFlashUrl)
             })
         }
     }

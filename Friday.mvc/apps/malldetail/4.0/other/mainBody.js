@@ -1,9 +1,9 @@
 ﻿KISSY.add("malldetail/other/mainBody", function (_kissy_imp, _dom, _event, _malldetail_tabbar_tabbar, _malldetail_other_itemDesc) {
     return {
         addLazyCallback: function () {
-            var F = arguments;
-            _kissy_imp.use("malldetail/other/lazy", function (H, _malldetail_other_lazy) {
-                _malldetail_other_lazy.addCallback.apply(_malldetail_other_lazy, F)
+            var _arguments = arguments;
+            _kissy_imp.use("malldetail/other/lazy", function (_kissy_imp_1, _malldetail_other_lazy) {
+                _malldetail_other_lazy.addCallback.apply(_malldetail_other_lazy, _arguments)
             })
         },
         refreshLazy: function () {
