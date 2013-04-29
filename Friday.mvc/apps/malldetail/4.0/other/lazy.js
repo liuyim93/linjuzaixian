@@ -1,33 +1,33 @@
-﻿KISSY.add("malldetail/other/lazy", function (A, D, C) {
-    var B = new D("#content", {
+﻿KISSY.add("malldetail/other/lazy", function (_kissy_imp, _datalazyload, _dom) {
+    var _datalazyload_origin = new _datalazyload("#content", {
         mod: "manual",
         autoDestroy: false,
         diff: 150
     });
     return {
-        addCallback: function (E, F) {
+        addCallback: function (_item_selected, _fn) {
             setTimeout(function () {
-                if (typeof E == "string") {
-                    E = C.query(E)
+                if (typeof _item_selected == "string") {
+                    _item_selected = _dom.query(_item_selected)
                 }
-                if (!E || (E && E.length == 0)) {
+                if (!_item_selected || (_item_selected && _item_selected.length == 0)) {
                     return
                 }
-                B.addCallback(E, function () {
-                    if (C.css(E, "display") == "none") {
+                _datalazyload_origin.addCallback(_item_selected, function () {
+                    if (_dom.css(_item_selected, "display") == "none") {
                         return false
                     }
-                    return F()
+                    return _fn()
                 })
             }, 0)
         },
-        addElements: function (E) {
-            D(E, {
+        addElements: function (_els) {
+            _datalazyload(_els, {
                 diff: 200
             })
         },
         refresh: function () {
-            B.refresh()
+            _datalazyload_origin.refresh()
         }
     }
 }, {
