@@ -123,7 +123,7 @@
         _malldetail_data_data.locCM[L] = _malldetail_data_data.locCM[L] ? _malldetail_data_data.locCM[L](K || {}) : function (M) {
             (typeof M == "function") && M(K || {})
         }
-    }, onReviewCount: _malldetail_common_util.createLoader(function (P) {
+    }, onReviewCount: _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
         var _cfg = _kissy.cfg();
         var _url, _data = {};
         var _itemDO = _cfg.itemDO;
@@ -138,18 +138,18 @@
             _url = _cfg.url.rate + "/list_dsr_info.htm";
             _data = { itemId: _itemDO.itemId, spuId: _itemDO.spuId, sellerId: _itemDO.userId }
         }
-        _ajax({ url: _url, data: _data, dataType: "jsonp", success: function (Q) {
-            var S = {};
-            if (Q.dsr) {
-                S.grade = Q.dsr.gradeAvg;
-                S.rateTotal = Q.dsr.rateTotal
+        _ajax({ url: _url, data: _data, dataType: "jsonp", success: function (_results) {
+            var _assemblyObject = {};
+            if (_results.dsr) {
+                _assemblyObject.grade = _results.dsr.gradeAvg;
+                _assemblyObject.rateTotal = _results.dsr.rateTotal
             } else {
-                var R = _cfg.itemDO.itemId;
-                S.grade = Q["IM_102_im-" + R];
-                S.rateTotal = Q["IRT_104_irt-" + R]
+                var _itemid = _cfg.itemDO.itemId;
+                _assemblyObject.grade = _results["IM_102_im-" + _itemid];
+                _assemblyObject.rateTotal = _results["IRT_104_irt-" + _itemid]
             }
-            S.gradeAvg = (S.grade + "").length > 2 ? (S.grade + "").substr(0, 3) : (S.grade + "");
-            P(S)
+            _assemblyObject.gradeAvg = (_assemblyObject.grade + "").length > 2 ? (_assemblyObject.grade + "").substr(0, 3) : (_assemblyObject.grade + "");
+            _filter_pipeline_dry_fn(_assemblyObject)
         } 
         })
     }), onSalesCount: _malldetail_common_util.createLoader(function (K) {
