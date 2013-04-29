@@ -11,11 +11,11 @@
                 F.refresh()
             })
         },
-        init: function (F) {
+        init: function (_to_be_extended_collections) {
             var _window = window;
             var _g_config = _window.g_config;
             var _mainBody = this;
-            _kissy_imp.mix(_mainBody, F);
+            _kissy_imp.mix(_mainBody, _to_be_extended_collections);
             _malldetail_other_itemDesc.init({
                 success: function () {
                     if (_g_config.offlineShop) {
@@ -169,7 +169,7 @@
             _malldetail_tabbar_tabbar.init({
                 ulNode: _dom_ul_id_J_TabBar,
                 contEl: (_dom.get("#detail") || {}).parentNode,      // 2013-04-18 basilwang <div id="content" ><div id="detail"></div></div>
-                success: F.onTabBarReady
+                success: _to_be_extended_collections.onTabBarReady
             });
             _malldetail_tabbar_tabbar.onSwitch(function () {
                 setTimeout(function () {

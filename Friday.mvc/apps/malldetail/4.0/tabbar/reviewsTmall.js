@@ -4,7 +4,7 @@
 		F;
     var T, M, U, R = false,
 		I = false,
-		P, N, C = document,
+		P, N, _document = document,
 		B, J = "#J_Reviews";
     var L = {
         tags: null,
