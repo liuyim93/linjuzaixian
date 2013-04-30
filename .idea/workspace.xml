@@ -2,30 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367329671547" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
-    <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367245908609" ignored="false" />
+    <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367337526535" ignored="false" />
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367222364877" ignored="false" />
-    <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367302896508" ignored="false" />
+    <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336581776" ignored="false" />
     <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
     <file path="/sellerinfo.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367228583690" ignored="false" />
     <file path="/lazy.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367230254229" ignored="false" />
-    <file path="/util.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367276648548" ignored="false" />
+    <file path="/util.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367331171971" ignored="false" />
     <file path="/data.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367283403090" ignored="false" />
     <file path="/setup.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367330010469" ignored="false" />
     <file path="/fastlogin.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367301934442" ignored="false" />
     <file path="/dc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367311284129" ignored="false" />
     <file path="/shop.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367311738646" ignored="false" />
+    <file path="/tabbar.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336993364" ignored="false" />
+    <file path="/thumbViewer.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367338081687" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,16 +48,27 @@
       <file leaf-file-name="mainBody.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="0.0">
+            <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="thumbViewer.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="60" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.51238257">
+              <folding>
+                <marker date="1367338082381" expanded="false" signature="1639:1672" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="13" selection-start="3346" selection-end="3346" vertical-scroll-proportion="0.5508113">
+            <state line="46" column="63" selection-start="2395" selection-end="2395" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -66,7 +77,7 @@
       <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="39" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.0">
+            <state line="12" column="39" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -95,8 +106,19 @@
       <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="524" column="19" selection-start="24075" selection-end="24075" vertical-scroll-proportion="0.0">
+            <state line="523" column="69" selection-start="24077" selection-end="24077" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tabbar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="14.413794">
+              <folding>
+                <marker date="1367336993928" expanded="false" signature="2535:2574" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -121,24 +143,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="fastlogin.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="31" selection-start="5466" selection-end="5466" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="itemDesc.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="52" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindManager">
@@ -158,22 +162,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/fav.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/dialog.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
       </list>
     </option>
   </component>
@@ -232,7 +236,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -243,7 +247,169 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tmall" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tabbar" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sku" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.30000004" />
@@ -303,7 +469,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="918" height="1410" extended-state="7" />
+    <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -385,16 +551,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/header.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="24" selection-start="1618" selection-end="1618" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/localData.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/socket.io/socket.io.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="8" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" />
@@ -436,13 +592,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="39" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="118" column="10" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.0">
@@ -452,23 +601,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="27" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="524" column="19" selection-start="24075" selection-end="24075" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -484,8 +619,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="13" selection-start="3346" selection-end="3346" vertical-scroll-proportion="0.5508113">
+        <state line="46" column="63" selection-start="2395" selection-end="2395" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="39" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="523" column="69" selection-start="24077" selection-end="24077" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="14.413794">
+          <folding>
+            <marker date="1367336993928" expanded="false" signature="2535:2574" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="60" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.51238257">
+          <folding>
+            <marker date="1367338082381" expanded="false" signature="1639:1672" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

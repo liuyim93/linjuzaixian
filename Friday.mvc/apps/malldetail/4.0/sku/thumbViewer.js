@@ -9,7 +9,7 @@
         N = "hidden",
         _zoomlevel,
         _size_config = (window.g_config.D950) ? { size: [460, 460], smallSize: [60, 60], bigSize: [477, 335]} : { size: [310, 310], smallSize: [40, 40], bigSize: [430, 310] };
-    var H = _malldetail_common_util.createLoader(function (V) {
+    var _loader_fn_factory = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
         if ("ontouchstart" in document) {
             return
         }
@@ -20,7 +20,7 @@
                 _dom.hide(this)
             })
         }
-        V(S)
+        _filter_pipeline_dry_fn(S)
     });
     function C(U, W, V) {
         var S = C.images || (C.images = {});
@@ -88,7 +88,7 @@
         var _data_size = _dom.attr(_dom_li, "data-size");
         var S = function (_data_size_attr) {
             if (_data_size_attr.zm) {
-                H(function (a) {
+                _loader_fn_factory(function (a) {
                     a.set(_url);
                     a.set("hasZoom", true);
                     a.set("bigImageSrc", _url_to_be_added_img_size);
@@ -120,7 +120,7 @@
         }
         _dom.removeClass(_dom_li_array, _str_classname_tb_selected);
         _dom_id_J_ImgBooth.src = S;
-        H(function (U) {
+        _loader_fn_factory(function (U) {
             U && U.set("hasZoom", false)
         })
     } 
