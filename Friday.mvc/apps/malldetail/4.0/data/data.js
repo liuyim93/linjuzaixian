@@ -152,18 +152,18 @@
             _filter_pipeline_dry_fn(_assemblyObject)
         } 
         })
-    }), onSalesCount: _malldetail_common_util.createLoader(function (K) {
-        _kissy.use("dom", function (L, N) {
-            var M, O = N.get("#detail em.J_MonSalesNum");
-            if (O && (M = O.innerHTML) && !(/[0\s]*/.test(M))) {
-                K({ monTotal: M });
+    }), onSalesCount: _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
+        _kissy.use("dom", function (_kissy_L, _dom_N) {
+            var _monSalesNum, _dom_class_J_MonSalesNum = _dom_N.get("#detail em.J_MonSalesNum");
+            if (_dom_class_J_MonSalesNum && (_monSalesNum = _dom_class_J_MonSalesNum.innerHTML) && !(/[0\s]*/.test(_monSalesNum))) {
+                _filter_pipeline_dry_fn({ monTotal: _monSalesNum });
                 return
             }
-            M = L.cfg("valSaleNum");
-            if (L.isUndefined(M)) {
-                L.on("data:saleNum:success", K)
+            _monSalesNum = _kissy_L.cfg("valSaleNum");
+            if (_kissy_L.isUndefined(_monSalesNum)) {
+                _kissy_L.on("data:saleNum:success", _filter_pipeline_dry_fn)
             } else {
-                K({ monTotal: M })
+                _filter_pipeline_dry_fn({ monTotal: _monSalesNum })
             }
         })
     })
