@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 =======
 =======
@@ -18,6 +19,9 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 >>>>>>> rename itemDesc.js
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
+>>>>>>> small changes
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -65,6 +69,10 @@
 >>>>>>> small change
 =======
     <file path="/data.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367283403090" ignored="false" />
+<<<<<<< HEAD
+>>>>>>> small changes
+=======
+    <file path="/setup.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367294659645" ignored="false" />
 >>>>>>> small changes
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +96,11 @@
       <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="46" column="64" selection-start="2406" selection-end="2406" vertical-scroll-proportion="0.0">
+=======
+            <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="-53.793102">
+>>>>>>> small changes
               <folding />
             </state>
           </provider>
@@ -166,6 +178,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="freight.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/freight.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -179,6 +192,10 @@
       </file>
       <file leaf-file-name="stock.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/stock.js">
+=======
+      <file leaf-file-name="dealRecord.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/dealRecord.js">
+>>>>>>> small changes
           <provider selected="true" editor-type-id="text-editor">
             <state line="95" column="84" selection-start="4016" selection-end="4016" vertical-scroll-proportion="0.0">
               <folding />
@@ -194,12 +211,13 @@
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
 >>>>>>> rename itemDesc.js
           <provider selected="true" editor-type-id="text-editor">
-            <state line="262" column="101" selection-start="13828" selection-end="13828" vertical-scroll-proportion="0.0">
+            <state line="295" column="145" selection-start="15276" selection-end="15276" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="3c.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/3c.js">
@@ -215,6 +233,23 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="41" column="64" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.52519214">
 >>>>>>> rename itemDesc.js
+=======
+      <file leaf-file-name="setup.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="33" selection-start="1893" selection-end="1893" vertical-scroll-proportion="0.14090522">
+              <folding>
+                <marker date="1367294661206" expanded="false" signature="24562:24574" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itemDesc.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="47" column="52" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0">
+>>>>>>> small changes
               <folding />
             </state>
           </provider>
@@ -240,11 +275,14 @@
     <option name="changedFiles">
       <list>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
 =======
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
+=======
+>>>>>>> small changes
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar-fly.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/p/tstart/1.0/build/tb-mpp.js" />
@@ -273,7 +311,11 @@
 =======
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
+<<<<<<< HEAD
 >>>>>>> rename itemDesc.js
+=======
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
+>>>>>>> small changes
       </list>
     </option>
   </component>
@@ -618,7 +660,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="common" />
+=======
+              <option name="myItemId" value="sku" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
+>>>>>>> small changes
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -712,10 +788,14 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942791" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1750572" sideWeight="0.75161815" order="0" side_tool="false" content_ui="combo" />
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24485126" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> rename itemDesc.js
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24485126" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> small changes
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
 =======
@@ -812,6 +892,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="80" column="46" selection-start="3137" selection-end="3137" vertical-scroll-proportion="0.0" />
@@ -842,6 +923,8 @@
 =======
 =======
 >>>>>>> rename itemDesc.js
+=======
+>>>>>>> small changes
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/localData.js">
 >>>>>>> small changes
       <provider selected="true" editor-type-id="text-editor">
@@ -885,13 +968,20 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/propertyHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="301" column="38" selection-start="19093" selection-end="19093" vertical-scroll-proportion="0.0">
+=======
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="39" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.0">
+>>>>>>> small changes
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/price.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -904,26 +994,36 @@
         <state line="26" column="7" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
 =======
         <state line="48" column="39" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
+=======
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="97" column="8" selection-start="5213" selection-end="5213" vertical-scroll-proportion="-30.172413">
->>>>>>> rename itemDesc.js
+>>>>>>> small changes
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="262" column="101" selection-start="13828" selection-end="13828" vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
+        <state line="97" column="8" selection-start="5213" selection-end="5213" vertical-scroll-proportion="-30.172413">
+>>>>>>> rename itemDesc.js
+=======
+        <state line="47" column="52" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0">
+>>>>>>> small changes
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="-53.793102">
           <folding />
 >>>>>>> small changes
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -943,8 +1043,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="64" selection-start="2062" selection-end="2062" vertical-scroll-proportion="0.52519214">
 >>>>>>> rename itemDesc.js
+=======
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="295" column="145" selection-start="15276" selection-end="15276" vertical-scroll-proportion="0.0">
+>>>>>>> small changes
           <folding />
 >>>>>>> small change
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="33" selection-start="1893" selection-end="1893" vertical-scroll-proportion="0.14090522">
+          <folding>
+            <marker date="1367294661206" expanded="false" signature="24562:24574" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
