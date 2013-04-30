@@ -127,18 +127,26 @@
     _kissy.t = function () {
         return _g_config.t
     };
-    _kissy.mix(_kissy, { isDetail: function () {
+
+
+    _kissy.mix(_kissy,
+        {
+        isDetail: function () {
         return 1 === _g_config.appId
-    }, isMall: function () {
+    },
+        isMall: function () {
         return "b" === _g_config.type
-    }, isBid: function () {
+    },
+        isBid: function () {
         return "auction" === _g_config.pageType
-    }, addTimeStamp: function () {
-        var H = _kissy.now();
-        return function (I) {
-            return I + (I.indexOf("?") === -1 ? "?" : "&") + "t=" + H
+    },
+        addTimeStamp: function () {
+        var _now = _kissy.now();
+        return function (_url_t) {
+            return _url_t + (_url_t.indexOf("?") === -1 ? "?" : "&") + "t=" + _now
         }
-    } (), _sendImage: function (H, J) {
+    } (),
+        _sendImage: function (H, J) {
         if (!H) {
             return
         }
@@ -160,35 +168,43 @@
             M = null
         };
         return this._sendImage(H, J)
-    }, getPageType: function () {
-        var H = location.href;
+    },
+            getPageType: function () {
+        var _url_t = location.href;
         switch (true) {
-            case (/spu_detail/.test(H)):
+            case (/spu_detail/.test(_url_t)):
                 return "spu";
-            case (/rate_detail/.test(H)):
+            case (/rate_detail/.test(_url_t)):
                 return "rate";
-            case (/meal_detail/.test(H)):
+            case (/meal_detail/.test(_url_t)):
                 return "meal";
             default:
                 return "item"
         }
-    }, sendAtpanel: function (I, J) {
+    },
+            sendAtpanel: function (I, J) {
         var H = "http://localhost:7527/" + I;
         this._sendImage(H, J)
-    }, sendAcAtpanel: function (_tab_panel_id, J) {
+    },
+            sendAcAtpanel: function (_tab_panel_id, J) {
         var H = "http://localhost:7527/" + _tab_panel_id;
         this._sendImage(H, J)
-    }, sendImg: function (H) {
+    },
+            sendImg: function (H) {
         this._sendImage(H)
-    }, sendErr: function (H, I) {
+    },
+            sendErr: function (H, I) {
         I = I || {};
         I.type = H;
         this.sendAtpanel("tmalldetail.15.2", I)
-    }, scrollToElem: function (I) {
+    },
+            scrollToElem: function (I) {
         var H = _kissy.DOM, J = H.offset(I).top;
         _document[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = J - 130
-    }, flush: ((0 < _kissy.UA.ie) ? CollectGarbage : (function () {
-    })), inBucket: function (N) {
+    },
+            flush: ((0 < _kissy.UA.ie) ? CollectGarbage : (function () {
+    })),
+            inBucket: function (N) {
         var M, I = 20;
         N = parseFloat(N, 10);
         var J = Math.round(I * (N / 100));
@@ -212,7 +228,8 @@
         K = (L > 0) ? L : O(H(M), I);
         _kissy.log("bucket_id:" + K, "info");
         return K <= J
-    }, getUrlParams: function (I) {
+    },
+            getUrlParams: function (I) {
         var H = _window.location.href.split("?")[1] || "";
         var K = {};
         var O = {};
@@ -242,19 +259,22 @@
                 return K
             }
         }
-    }, onLogin: function (L, I) {
+    },
+            onLogin: function (L, I) {
         var J = (_g_config.assetsHost.indexOf("taobao.net") != -1);
         var K = J ? "daily.tmall.net" : "tmall.com";
         var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
         _kissy.use("tml/minilogin", function (M, N) {
             N.show(L, H)
         })
-    }, addLazyCallback: function () {
-        var H = arguments;
-        _kissy.use("malldetail/other/lazy", function (J, I) {
-            I.addCallback.apply(I, H)
+    },
+            addLazyCallback: function () {
+        var _arguments = arguments;
+        _kissy.use("malldetail/other/lazy", function (_kissy_J, _malldetail_other_lazy) {
+            _malldetail_other_lazy.addCallback.apply(_malldetail_other_lazy, _arguments)
         })
-    }, onMainBody: function () {
+    },
+            onMainBody: function () {
         var _arguments = arguments, _onMainBody = TShop.onMainBody;
         _kissy.use("malldetail/common/util", function (_kissy_imp_t, _malldetail_common_util) {
             if (_onMainBody != TShop.onMainBody) {
@@ -271,7 +291,8 @@
             });
             TShop.onMainBody.apply(null, _arguments)
         })
-    }, onLeftSlide: function () {
+    },
+            onLeftSlide: function () {
         var H = arguments, I = TShop.onLeftSlide;
         _kissy.use("malldetail/common/util", function (J, K) {
             if (I != TShop.onLeftSlide) {
@@ -290,7 +311,8 @@
             });
             TShop.onLeftSlide.apply(null, H)
         })
-    }, loadMdskip: function (_url) {
+    },
+            loadMdskip: function (_url) {
         function _onMdskip(_defaultModelObject) {
             window.onMdskip = null;
             TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(_defaultModelObject, _now ? (_kissy.now - _now) : -1) : function (_data_setMdskip) {
@@ -306,7 +328,8 @@
         var _url_params = _kissy.param(_url_params_object), _now = _kissy.now();
         window.onMdskip = _onMdskip;
         _kissy.getScript(_url + "&callback=onMdskip&" + _url_params, { error: _onMdskip })
-    }, Setup: function (_config) {
+    },
+            Setup: function (_config) {
         _kissy._TMD_Config = _config;
         if (_config.renderReq) {
             new Image().src = _config.renderSystemServer + "/index.htm?keys=" + encodeURIComponent(_config.renderReq)
@@ -333,12 +356,14 @@
             };
             _kissy_m.mods.SKU.init(_config)
         })
-    }, onBDclick: function (H) {
+    },
+            onBDclick: function (H) {
         _kissy.bdClickFn = _kissy.bdClickFn || [];
         if (_kissy.isFunction(H)) {
             _kissy.bdClickFn.push(H)
         }
-    }, cfg: function () {
+    },
+            cfg: function () {
         var I;
         var K;
         var _arguments = arguments;
@@ -367,7 +392,8 @@
                 _kissy.fire("TMDConfigChange", { oldVal: I, newVal: _arguments[0] });
                 break
         }
-    }, Asyn: function () {
+    },
+            Asyn: function () {
         var J;
         var M;
         var H = { timeout: 30000, runCount: 0, jsonpCallback: "jsonp" + _kissy.now() + "_" + _kissy.guid(), pageCache: false };
@@ -464,8 +490,9 @@
     });
     TB.namespace("Detail");
     try {
-        var G = _document.domain.split(".");
-        _document.domain = G.slice(G.length - 2).join(".")
+        var _domain_split_array = _document.domain.split(".");
+        //2013-04-30 basilwang strip www
+        _document.domain = _domain_split_array.slice(_domain_split_array.length - 2).join(".")
     } catch (D) {
     }
     TShop.poc = function (H) {
