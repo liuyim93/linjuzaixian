@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 =======
 =======
@@ -30,17 +31,20 @@
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
+=======
+>>>>>>> rename tabbar
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367329671547" ignored="false" />
 >>>>>>> small change
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367416248972" ignored="false" />
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367498893559" ignored="false" />
@@ -86,6 +90,15 @@
     <file path="/data.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367277501893" ignored="false" />
 >>>>>>> small change
 =======
+=======
+    <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367337526535" ignored="false" />
+    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367222364877" ignored="false" />
+    <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336581776" ignored="false" />
+    <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
+    <file path="/sellerinfo.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367228583690" ignored="false" />
+    <file path="/lazy.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367230254229" ignored="false" />
+    <file path="/util.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367331171971" ignored="false" />
+>>>>>>> rename tabbar
     <file path="/data.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367283403090" ignored="false" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -98,7 +111,12 @@
     <file path="/fastlogin.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367301934442" ignored="false" />
     <file path="/dc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367311284129" ignored="false" />
     <file path="/shop.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367311738646" ignored="false" />
+<<<<<<< HEAD
 >>>>>>> small change
+=======
+    <file path="/tabbar.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336993364" ignored="false" />
+    <file path="/thumbViewer.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367338081687" ignored="false" />
+>>>>>>> rename tabbar
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,6 +141,7 @@
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state line="46" column="64" selection-start="2406" selection-end="2406" vertical-scroll-proportion="0.0">
 =======
             <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="-53.793102">
@@ -130,11 +149,15 @@
 =======
             <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+            <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
@@ -161,6 +184,23 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="61" column="13" selection-start="3346" selection-end="3346" vertical-scroll-proportion="0.5508113">
 >>>>>>> small change
+=======
+      <file leaf-file-name="thumbViewer.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="82" column="60" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.51238257">
+              <folding>
+                <marker date="1367338082381" expanded="false" signature="1639:1672" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="46" column="63" selection-start="2395" selection-end="2395" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
               <folding />
             </state>
           </provider>
@@ -171,6 +211,7 @@
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state line="26" column="7" selection-start="1015" selection-end="1015" vertical-scroll-proportion="0.0">
 =======
             <state line="26" column="7" selection-start="1161" selection-end="1161" vertical-scroll-proportion="0.0">
@@ -178,6 +219,9 @@
 =======
             <state line="48" column="39" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.0">
 >>>>>>> rename itemDesc.js
+=======
+            <state line="12" column="39" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
               <folding />
             </state>
           </provider>
@@ -236,13 +280,14 @@
       <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="524" column="19" selection-start="24075" selection-end="24075" vertical-scroll-proportion="0.0">
+            <state line="523" column="69" selection-start="24077" selection-end="24077" vertical-scroll-proportion="0.0">
               <folding />
 >>>>>>> small change
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="stock.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/stock.js">
@@ -253,6 +298,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="95" column="84" selection-start="4016" selection-end="4016" vertical-scroll-proportion="0.0">
 =======
+=======
+      <file leaf-file-name="tabbar.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="14.413794">
+              <folding>
+                <marker date="1367336993928" expanded="false" signature="2535:2574" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> rename tabbar
       <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -284,6 +342,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -325,6 +384,8 @@
           </provider>
         </entry>
       </file>
+=======
+>>>>>>> rename tabbar
     </leaf>
   </component>
   <component name="FindManager">
@@ -347,6 +408,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
@@ -361,11 +423,14 @@
 >>>>>>> small change
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brands/2.0/fav.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/dialog.js" />
+=======
+>>>>>>> rename tabbar
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/brand/2.0/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/core.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js" />
+<<<<<<< HEAD
 >>>>>>> rename itemDesc.js
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
@@ -376,6 +441,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/util.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/freight.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/stock.js" />
+=======
+>>>>>>> rename tabbar
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -391,12 +458,19 @@
 =======
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
 >>>>>>> small change
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
+<<<<<<< HEAD
 >>>>>>> small changes
+=======
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
+>>>>>>> rename tabbar
       </list>
     </option>
   </component>
@@ -455,7 +529,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -467,7 +541,12 @@
       <sortByType />
     </navigator>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <panes>
+=======
+    <panes>
+      <pane id="Scope" />
+>>>>>>> rename tabbar
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -626,6 +705,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+<<<<<<< HEAD
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Friday" />
@@ -787,6 +867,11 @@
 =======
     <panes />
 >>>>>>> small change
+=======
+        </subPane>
+      </pane>
+    </panes>
+>>>>>>> rename tabbar
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.30000004" />
@@ -867,6 +952,7 @@
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
     <editor active="false" />
     <layout>
@@ -884,6 +970,9 @@
 >>>>>>> small changes
 =======
     <frame x="-9" y="-9" width="918" height="1410" extended-state="7" />
+=======
+    <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
+>>>>>>> rename tabbar
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -975,6 +1064,7 @@
   </component>
   <component name="editorHistoryManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="139" column="31" selection-start="7154" selection-end="7154" vertical-scroll-proportion="0.0" />
@@ -1038,6 +1128,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+=======
+>>>>>>> rename tabbar
     <entry file="file://$PROJECT_DIR$/Friday.mvc/socket.io/socket.io.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="87" column="8" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" />
@@ -1113,6 +1205,7 @@
       </provider>
     </entry>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/propertyHandler.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="301" column="38" selection-start="19093" selection-end="19093" vertical-scroll-proportion="0.0">
@@ -1121,10 +1214,25 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="39" selection-start="2401" selection-end="2401" vertical-scroll-proportion="0.0">
 >>>>>>> small changes
+=======
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="10" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1367311290722" expanded="false" signature="3074:3087" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="27" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/price.js">
@@ -1147,17 +1255,21 @@
           <folding />
 =======
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
+=======
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+>>>>>>> rename tabbar
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="10" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.0">
+        <state line="206" column="32" selection-start="9295" selection-end="9295" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1367311290722" expanded="false" signature="3074:3087" placeholder="..." />
+            <marker date="1367330012131" expanded="false" signature="24586:24598" placeholder="..." />
           </folding>
 >>>>>>> small change
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
         <state line="97" column="8" selection-start="5213" selection-end="5213" vertical-scroll-proportion="-30.172413">
@@ -1168,13 +1280,16 @@
 =======
         <state line="104" column="47" selection-start="5121" selection-end="5121" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+        <state line="46" column="63" selection-start="2395" selection-end="2395" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+        <state line="12" column="39" selection-start="585" selection-end="585" vertical-scroll-proportion="0.0">
           <folding />
 >>>>>>> small changes
         </state>
@@ -1204,29 +1319,42 @@
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state line="295" column="145" selection-start="15276" selection-end="15276" vertical-scroll-proportion="0.0">
 >>>>>>> small changes
 =======
         <state line="524" column="19" selection-start="24075" selection-end="24075" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+        <state line="523" column="69" selection-start="24077" selection-end="24077" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
           <folding />
 >>>>>>> small change
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="32" selection-start="9295" selection-end="9295" vertical-scroll-proportion="0.0">
+        <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="14.413794">
           <folding>
-            <marker date="1367330012131" expanded="false" signature="24586:24598" placeholder="..." />
+            <marker date="1367336993928" expanded="false" signature="2535:2574" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="13" selection-start="3346" selection-end="3346" vertical-scroll-proportion="0.5508113">
+        <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="60" selection-start="3546" selection-end="3546" vertical-scroll-proportion="0.51238257">
+          <folding>
+            <marker date="1367338082381" expanded="false" signature="1639:1672" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
