@@ -28,37 +28,37 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _sku_cfg.valItemInfo.skuQuantity = _skuQuantity
         }
     };
-    function L() {
-        var y = _kissy.unparam(_window.location.href.split("?")[1]);
-        var x = [];
+    function _set_defSelected_sku() {
+        var _url_params = _kissy.unparam(_window.location.href.split("?")[1]);
+        var _sku_properties_array = [];
         var w;
-        var T = _sku_cfg.elmProps && _sku_cfg.elmProps.length;
-        if (!T) {
+        var _elmProps_length = _sku_cfg.elmProps && _sku_cfg.elmProps.length;
+        if (!_elmProps_length) {
             return
         }
-        if (y.skuId) {
-            var w = _sku_cfg.valItemInfo.skuMap;
-            var S = y.skuId;
-            for (var v in w) {
-                if (w[v]["skuId"] == S) {
-                    v = v.split(";");
-                    x = v.slice(1, v.length - 1);
+        if (_url_params.skuId) {
+            var _t_skuMap = _sku_cfg.valItemInfo.skuMap;
+            var _t_skuId = _url_params.skuId;
+            for (var _map_item in _t_skuMap) {
+                if (_t_skuMap[_map_item]["skuId"] == _t_skuId) {
+                    _map_item = _map_item.split(";");
+                    _sku_properties_array = _map_item.slice(1, _map_item.length - 1);    //2013-04-30 basilwang strip ;
                     break
                 }
             }
         } else {
-            if (y.sku_properties) {
-                x = y.sku_properties.split(";")
+            if (_url_params.sku_properties) {
+                _sku_properties_array = _url_params.sku_properties.split(";")
             }
         }
-        if (x.length) {
-            _sku_cfg.valItemInfo.defSelected = x;
-            _kissy.log(x)
+        if (_sku_properties_array.length) {
+            _sku_cfg.valItemInfo.defSelected = _sku_properties_array;
+            _kissy.log(_sku_properties_array)
         }
     }
     function O() {
-        var S = _sku_cfg.valMode;
-        L();
+        var _valMode = _sku_cfg.valMode;
+        _set_defSelected_sku();
         _malldetail_sku_thumbViewer.init();
         _mods_SKU.LinkAdd = new _mods_SKU.Util.BuyLinkStatu("#J_LinkAdd", 2);
         if (_window.g_config.offlineShop) {
@@ -69,7 +69,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
                 })
             });
             _mods_SKU.cardManager = new window.JZ.CardManager({ cardCookie: "xx1", loginCookie: "xx4", timeout: 10000 });
-            if (S & 2) {
+            if (_valMode & 2) {
                 _kissy_imp.use("malldetail/cart/cart", function (v, w) {
                     w.init()
                 })
