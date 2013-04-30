@@ -1,8 +1,8 @@
 ﻿KISSY.add("malldetail/data/data", function (_kissy, _ajax, _malldetail_common_util) {
     var _iterator_queue_fn_wrapper, _time, _createAsyn_wrapper, _global_defaultModel,
-        _loader_fn = _malldetail_common_util.createLoader(
-               function (_iterator_queue) {
-                 _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_iterator_queue) : _iterator_queue
+        _loader_fn_factory = _malldetail_common_util.createLoader(
+               function (_filter_pipeline_dry_fn) {
+                 _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_filter_pipeline_dry_fn) : _filter_pipeline_dry_fn
                }
             );
     function _population_cfg(_defaultMode) {
@@ -25,22 +25,22 @@
         _cfg.systemTime = _defaultMode.miscDO["systemTime"];
         _cfg.is1111 = (_cfg.systemTime >= 1352563200000 && _cfg.systemTime < 1352649600000)
     }
-    var _malldetail_data_data = { setMdskip: function (_defaultModelObject, _num_i_dont_konw) {
-        if (_num_i_dont_konw >= 0) {
+    var _malldetail_data_data = { setMdskip: function (_defaultModelObject, _elapsed_time) {
+        if (_elapsed_time >= 0) {
             if (_defaultModelObject) {
-                _kissy.sendAcAtpanel("tmalldetail.15.1", { tl: _num_i_dont_konw })
+                _kissy.sendAcAtpanel("tmalldetail.15.1", { tl: _elapsed_time })
             } else {
-                _kissy.sendErr("mdskipTimeout", { tl: _num_i_dont_konw })
+                _kissy.sendErr("mdskipTimeout", { tl: _elapsed_time })
             }
         }
         _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_defaultModelObject || {}) : function (_iterator_queue_fn) {
             _iterator_queue_fn(_defaultModelObject || {})
         }
-    }, onMdskip: _loader_fn, setMdskipTimeout: function (K) {
-        _time = K
+    }, onMdskip: _loader_fn_factory, setMdskipTimeout: function (_timeout) {
+        _time = _timeout
     }, onModel: function (_success_callback_fn, _state) {
         if (!_createAsyn_wrapper) {
-            _createAsyn_wrapper = _malldetail_common_util.createAsyn(_loader_fn, _time || 3000);
+            _createAsyn_wrapper = _malldetail_common_util.createAsyn(_loader_fn_factory, _time || 3000);
             _createAsyn_wrapper(function (_defaultModelObject) {
                 _defaultModelObject = _defaultModelObject || {};
                 var _defaultModel, _sku_cfg = _kissy.cfg();    //the same with TShop.Setup(config)
