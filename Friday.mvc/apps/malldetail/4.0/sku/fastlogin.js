@@ -1,7 +1,14 @@
-﻿KISSY.add("malldetail/sku/fastlogin", function (D, H) {
-    var N = D.mods.SKU, T = D.DOM, W = D.Event;
-    var C = window, E = C.g_config;
-    var V = {}, K = (E.assetsHost.indexOf("taobao.net") != -1), M = K ? "daily.tmall.net" : "tmall.com", G = K ? "daily.taobao.net" : "taobao.com", A = K ? "http://wt.daily.taobao.net" : "http://wt.taobao.com", X = "", L = D.merge({}, D.EventTarget), F = "beforeSubmit";
+﻿KISSY.add("malldetail/sku/fastlogin", function (_kissy_D, _cookie) {
+    var _mods_SKU = _kissy_D.mods.SKU, _dom = _kissy_D.DOM, _event = _kissy_D.Event;
+    var _window = window, _g_config = _window.g_config;
+    var _cfg = {},
+        K = (_g_config.assetsHost.indexOf("taobao.net") != -1),
+        M = K ? "daily.tmall.net" : "tmall.com",
+        G = K ? "daily.taobao.net" : "taobao.com",
+        A = K ? "http://wt.daily.taobao.net" : "http://wt.taobao.com",
+        X = "",
+        L = _kissy_D.merge({}, _kissy_D.EventTarget),
+        F = "beforeSubmit";
     var Q = function (Y, a) {
         var S = Y.length, d = [];
         for (var b = 0; b < S; b++) {
@@ -12,7 +19,7 @@
         return d.join(",")
     };
     var B = function () {
-        var Y = V.frmBid, Z = "", S = "";
+        var Y = _cfg.frmBid, Z = "", S = "";
         if (!Y) {
             return
         }
@@ -26,16 +33,16 @@
         location.href = S
     };
     var I = function () {
-        var S = V.frmBid;
-        if (E.offlineShop && S.buy_param) {
-            C.location.href = S.action + "?buyer_from=ifc0001&buy_param=" + S.buy_param.value
+        var S = _cfg.frmBid;
+        if (_g_config.offlineShop && S.buy_param) {
+            _window.location.href = S.action + "?buyer_from=ifc0001&buy_param=" + S.buy_param.value
         } else {
-            if (V.tradeType == 4) {
+            if (_cfg.tradeType == 4) {
                 P()
             } else {
-                if (V.isWTContract) {
-                    if (T.get("#J_WTSkuId", S) && T.get("#J_WTSkuPrice", S)) {
-                        C.location.href = A + "/select_plan.html?item_id=" + V.itemDO.itemId + "&sku_id=" + S.wt_skuId.value + "&step=contract%2Ccombo%2Cnumber&buy_select_price=" + S.wt_skuPrice.value + "&from=tmall"
+                if (_cfg.isWTContract) {
+                    if (_dom.get("#J_WTSkuId", S) && _dom.get("#J_WTSkuPrice", S)) {
+                        _window.location.href = A + "/select_plan.html?item_id=" + _cfg.itemDO.itemId + "&sku_id=" + S.wt_skuId.value + "&step=contract%2Ccombo%2Cnumber&buy_select_price=" + S.wt_skuPrice.value + "&from=tmall"
                     } else {
                         S.submit()
                     }
@@ -46,28 +53,28 @@
         }
     };
     var J = function (Y) {
-        var S = V.frmBid;
+        var S = _cfg.frmBid;
         var Y = Y || {};
         if (Y.fastBuy) {
-            S.action = V.url["buyBase"] + "/fastbuy/fast_buy.htm";
+            S.action = _cfg.url["buyBase"] + "/fastbuy/fast_buy.htm";
             I()
         } else {
-            if (V.isWTContract) {
-                if (T.get("#J_WTSkuId", S) && T.get("#J_WTSkuPrice", S)) {
-                    location.href = A + "/select_plan.html?item_id=" + V.itemDO.itemId + "&sku_id=" + S.wt_skuId.value + "&step=contract%2Ccombo%2Cnumber&buy_select_price=" + S.wt_skuPrice.value + "&from=tmall&full_redirect=true";
+            if (_cfg.isWTContract) {
+                if (_dom.get("#J_WTSkuId", S) && _dom.get("#J_WTSkuPrice", S)) {
+                    location.href = A + "/select_plan.html?item_id=" + _cfg.itemDO.itemId + "&sku_id=" + S.wt_skuId.value + "&step=contract%2Ccombo%2Cnumber&buy_select_price=" + S.wt_skuPrice.value + "&from=tmall&full_redirect=true";
                     return
                 }
             }
             if (S.etm && S.etm.value == "") {
-                S.action = V.tradeConfig[1]
+                S.action = _cfg.tradeConfig[1]
             } else {
-                S.action = V.tradeConfig[V.tradeType]
+                S.action = _cfg.tradeConfig[_cfg.tradeType]
             }
             I()
         }
     };
     function U(S, Z, Y) {
-        Y = Y || V.frmBid;
+        Y = Y || _cfg.frmBid;
         if (Y[S]) {
             Y[S].value = Z
         } else {
@@ -75,9 +82,9 @@
         }
     }
     function O() {
-        var Y = V.frmBid;
-        var Z = N.cardManager;
-        Y.action = V.tradeConfig[3];
+        var Y = _cfg.frmBid;
+        var Z = _mods_SKU.cardManager;
+        Y.action = _cfg.tradeConfig[3];
         Y.buyer_from.value = "ifc0001";
         if (Z.isIn()) {
             var S = MFP.LoginPopup;
@@ -96,23 +103,23 @@
             })
         }
     }
-    function R(a, S) {
-        var Z = "http://buy." + M + "/login/buy.do?from=itemDetail&var=login_indicator&id=" + V.itemDO.itemId + "&shop_id=" + V.rstShopId + "&cart_ids=";
-        var S = D.mix({ fastbuy: true }, S);
-        var Y = V.frmBid;
-        H.remove("cookie2", "");
-        D.getScript(Z + "&t=" + D.now(), { success: function () {
-            var g = C.login_indicator;
-            var f = V.linkBuy;
-            var h = (f) ? T.attr(f, "data-noFastBuy") : false;
+    function _buglogin(a, S) {
+        var Z = "http://buy." + M + "/login/buy.do?from=itemDetail&var=login_indicator&id=" + _cfg.itemDO.itemId + "&shop_id=" + _cfg.rstShopId + "&cart_ids=";
+        var S = _kissy_D.mix({ fastbuy: true }, S);
+        var Y = _cfg.frmBid;
+        _cookie.remove("cookie2", "");
+        _kissy_D.getScript(Z + "&t=" + _kissy_D.now(), { success: function () {
+            var g = _window.login_indicator;
+            var f = _cfg.linkBuy;
+            var h = (f) ? _dom.attr(f, "data-noFastBuy") : false;
             if (g.success && g.token && g.token.length > 0) {
                 var e = g.token, d;
                 for (var c = 0, b = e.length; c < b; c++) {
-                    if (!T.get("#J_" + e[c][0])) {
-                        d = T.create('<input id="J_' + e[c][0] + '" type="hidden" name="' + e[c][0] + '">');
+                    if (!_dom.get("#J_" + e[c][0])) {
+                        d = _dom.create('<input id="J_' + e[c][0] + '" type="hidden" name="' + e[c][0] + '">');
                         Y.appendChild(d)
                     } else {
-                        d = T.get("#J_" + e[c][0])
+                        d = _dom.get("#J_" + e[c][0])
                     }
                     d.value = e[c][1]
                 }
@@ -125,7 +132,7 @@
                     if (g.fastBuy) {
                         a(g)
                     } else {
-                        D.onLogin(function () {
+                        _kissy_D.onLogin(function () {
                             a()
                         }, { check: false })
                     }
@@ -136,33 +143,33 @@
         }, timeout: 10, charset: "gbk"
         })
     }
-    return N.FastLogin = { init: function () {
-        if (!(V = D.cfg())) {
+    return _mods_SKU.FastLogin = { init: function () {
+        if (!(_cfg = _kissy_D.cfg())) {
             return
         }
     }, onBeforeSubmit: function (S) {
-        if (D.isFunction(S)) {
+        if (_kissy_D.isFunction(S)) {
             L.on(F, S)
         }
     }, checkLogin: function (b) {
-        var S = V.frmBid;
-        var Z = V.linkBuy;
-        var Z = V.linkBuy;
-        var a = (Z) ? T.attr(Z, "data-noFastBuy") : false;
-        var Y = (!a && E.offlineShop != "1" && V.tradeType != 2);
-        L.fire(F, { frmBid: V.frmBid });
-        if (V.tradeType == 2 && !V.isHouseholdService && !N.dqCity.getOrder()) {
+        var S = _cfg.frmBid;
+        var Z = _cfg.linkBuy;
+        var Z = _cfg.linkBuy;
+        var a = (Z) ? _dom.attr(Z, "data-noFastBuy") : false;
+        var Y = (!a && _g_config.offlineShop != "1" && _cfg.tradeType != 2);
+        L.fire(F, { frmBid: _cfg.frmBid });
+        if (_cfg.tradeType == 2 && !_cfg.isHouseholdService && !_mods_SKU.dqCity.getOrder()) {
             return
         }
-        if (E.offlineShop) {
+        if (_g_config.offlineShop) {
             return O()
         }
-        if (!D.isFunction(b)) {
+        if (!_kissy_D.isFunction(b)) {
             b = J
         }
-        R(b, { fastbuy: Y })
+        _buglogin(b, { fastbuy: Y })
     }, buylogin: function (Y, S) {
-        return R(Y, S)
+        return _buglogin(Y, S)
     } 
     }
 }, { requires: ["cookie"] }); /*pub-1|2013-02-28 21:14:22*/

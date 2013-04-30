@@ -56,7 +56,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _kissy.log(_sku_properties_array)
         }
     }
-    function O() {
+    function _sku_cfg_step2() {
         var _valMode = _sku_cfg.valMode;
         _set_defSelected_sku();
         _malldetail_sku_thumbViewer.init();
@@ -160,7 +160,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _dom[_str_class](_item, "tb-hidden")
         })
     }
-    function l() {
+    function _sku_cfg_step3() {
         var _form_init = function (_defaultMode) {
             var _valMode = _sku_cfg.valMode;
             _item_visible_check(_defaultMode);
@@ -531,7 +531,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _dom_form_id_J_FrmBid._tb_token_.value = _sku_cfg.valToken
         })
     }
-    function _sku_cfg_further() {
+    function _sku_cfg_step1() {
         var _get_elem_by_id = function (_id_selector) {
             return _document.getElementById(_id_selector)
         };
@@ -609,12 +609,12 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     };
     _mods_SKU.init = function (_config) {
         _sku_cfg = _config;
-        _sku_cfg_further();
-        O();
+        _sku_cfg_step1();
+        _sku_cfg_step2();
         _event_target.on(_str_sku_inited_event, function (v) {
             Q(v)
         });
-        l();
+        _sku_cfg_step3();
         _kissy.ready(function (v) {
            //2013-04-16 basilwang block promotion
            // _mods_SKU.Promotion.init();
@@ -624,9 +624,9 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         });
         var _dom_id_J_Stars = _dom.get("#J_Stars");
         if (_dom_id_J_Stars) {
-            _malldetail_data_data.onReviewCount(function (v) {
-                var x = v.gradeAvg, w = x.split(".").join("d");
-                _dom_id_J_Stars.innerHTML = '<p><span class="c-value-no c-value-' + w + '"><em>' + x + "</em></span>" + x + '分<span>(<a href="#" id="J_MallReviewTabTrigger">累计评价<em>' + v.rateTotal + "</em></a>)</span></p>";
+            _malldetail_data_data.onReviewCount(function (_assemblyObject) {
+                var x = _assemblyObject.gradeAvg, w = x.split(".").join("d");
+                _dom_id_J_Stars.innerHTML = '<p><span class="c-value-no c-value-' + w + '"><em>' + x + "</em></span>" + x + '分<span>(<a href="#" id="J_MallReviewTabTrigger">累计评价<em>' + _assemblyObject.rateTotal + "</em></a>)</span></p>";
                 _dom.show("#J_ItemRates");
                 _kissy.later(function () {
                     if (_sku_cfg.onReviewClick) {
