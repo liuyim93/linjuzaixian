@@ -521,17 +521,17 @@
                 ((_urlparams.on_comment == 1
                     || -1 !== location.href.indexOf("rate_detail.htm")) ? "reviews" : "");
             if (_is_selected) {
-                TShop.onMainBody(function (Q) {
-                    Q.switchTab(_is_selected)
+                TShop.onMainBody(function (_malldetail_other_mainBody) {
+                    _malldetail_other_mainBody.switchTab(_is_selected)
                 })
             }
-            var P = _dom.get("#detail");
-            if (P) {
-                for (P = P.nextSibling; P; P = P.nextSibling) {
-                    if (P.nodeType != 1) {
+            var _dom_layout = _dom.get("#detail");
+            if (_dom_layout) {
+                for (_dom_layout = _dom_layout.nextSibling; _dom_layout; _dom_layout = _dom_layout.nextSibling) {
+                    if (_dom_layout.nodeType != 1) {
                         continue
                     }
-                    TShop.addLazyCallback(P, function () {
+                    TShop.addLazyCallback(_dom_layout, function () {
                         TShop.onMainBody()
                     })
                 }

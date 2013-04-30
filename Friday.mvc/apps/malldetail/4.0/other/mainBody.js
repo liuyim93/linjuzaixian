@@ -7,8 +7,8 @@
             })
         },
         refreshLazy: function () {
-            _kissy_imp.use("malldetail/other/lazy", function (G, F) {
-                F.refresh()
+            _kissy_imp.use("malldetail/other/lazy", function (_kissy_G, _malldetail_other_lazy) {
+                _malldetail_other_lazy.refresh()
             })
         },
         init: function (_to_be_extended_collections) {
@@ -177,8 +177,8 @@
                 }, 4)
             })
         },
-        switchTab: function (F) {
-            _malldetail_tabbar_tabbar.switchTo(F);
+        switchTab: function (_selected_tab) {
+            _malldetail_tabbar_tabbar.switchTo(_selected_tab);
             _malldetail_tabbar_tabbar.scrollIntoView()
         },
         showTryDetail: function () {

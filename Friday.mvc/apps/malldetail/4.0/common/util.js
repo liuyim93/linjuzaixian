@@ -1,7 +1,7 @@
 ﻿KISSY.add("malldetail/common/util", function (_kissy, _dom, _event) {
     var D = {};
     return { createLoader: function (_loader_fn) {
-        var _t_AssemblyObject, _is_fn_load, _iterator_handle_queue_array = [], _t_iterator_handle_fn;
+        var _t_AssemblyObject, _is_fn_load, _filter_fn_array = [], _t_filter_fn;
         return function (_filter_fn, _state) {
             if (_state !== 0 && !_state) {
                 _state = 1
@@ -10,8 +10,8 @@
                 _is_fn_load = true;
                 _loader_fn(function (_assemblyObject) {
                     _t_AssemblyObject = _assemblyObject;
-                    while (_t_iterator_handle_fn = _iterator_handle_queue_array.shift()) {
-                        _t_iterator_handle_fn && _t_iterator_handle_fn.apply(null, [_t_AssemblyObject])
+                    while (_t_filter_fn = _filter_fn_array.shift()) {
+                        _t_filter_fn && _t_filter_fn.apply(null, [_t_AssemblyObject])
                     }
                 })
             }
@@ -20,7 +20,7 @@
                 return _t_AssemblyObject
             }
             if (!(_state & 2)) {
-                _filter_fn && _iterator_handle_queue_array.push(_filter_fn)
+                _filter_fn && _filter_fn_array.push(_filter_fn)
             }
             return _t_AssemblyObject
         }

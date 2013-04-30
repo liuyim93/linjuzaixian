@@ -1,7 +1,7 @@
 ﻿KISSY.add("malldetail/tabbar/tabbar", function (_kissy, _dom, _event) {
     var _g_config = window.g_config;
     return _kissy.mods.TabBar = (function () {
-        var F, K, J = "h4.hd",
+        var _ulNode, _contEL, J = "h4.hd",
 			_Selected_STR = "selected",
 			_Display_STR = "display",
 			_None_STR = "none",
@@ -17,7 +17,7 @@
             var O = false;
             var T = function () {
                 var V = function () {
-                    _dom.css(F, {
+                    _dom.css(_ulNode, {
                         display: "block",
                         top: _dom.scrollTop(_document),
                         position: "absolute"
@@ -25,12 +25,12 @@
                     O = false
                 };
                 if (P == -1) {
-                    P = _dom.offset(F).top
+                    P = _dom.offset(_ulNode).top
                 }
                 if (P <= _dom.scrollTop(_document)) {
                     if (_kissy_UA.ie <= 6) {
                         if (!O) {
-                            _dom.hide(F);
+                            _dom.hide(_ulNode);
                             O = true
                         }
                         if (U) {
@@ -39,7 +39,7 @@
                         U = setTimeout(V, 100)
                     } else {
                         if (!_false) {
-                            _dom.css(F, {
+                            _dom.css(_ulNode, {
                                 position: "fixed",
                                 top: 0
                             })
@@ -56,7 +56,7 @@
                         if (U) {
                             clearTimeout(U)
                         }
-                        _dom.css(F, {
+                        _dom.css(_ulNode, {
                             position: "static",
                             display: "block"
                         });
@@ -67,53 +67,53 @@
                     }
                 }
             };
-            _dom.insertAfter(_dom.create("<div class='tabbar-placeholder' id='J_Tabbar_placeholder' style='height:0; margin-top:0;overflow:hidden;'></div>"), F);
+            _dom.insertAfter(_dom.create("<div class='tabbar-placeholder' id='J_Tabbar_placeholder' style='height:0; margin-top:0;overflow:hidden;'></div>"), _ulNode);
             _event.on(_window, "scroll", T);
             T()
         };
         return _kissy.mods.TabBar = {
-            init: function (P) {
-                F = P.ulNode;
-                K = P.contEl;
-                if (!F || !K) {
+            init: function (_cfg) {
+                _ulNode = _cfg.ulNode;
+                _contEL = _cfg.contEl;
+                if (!_ulNode || !_contEL) {
                     return
                 }
-                var R = _dom.parent(F);
-                _kissy.use("malldetail/data/data", function (U, T) {
-                    T.onReviewCount(function (W) {
-                        U.each(_dom.query("#J_TabBar em.J_ReviewsCountNum"), function (X) {
-                            X.innerHTML = W.rateTotal;
-                            _dom.show(_dom.parent(X))
+                var _ulNode_parent = _dom.parent(_ulNode);
+                _kissy.use("malldetail/data/data", function (_kissy_U, _malldetail_data_data) {
+                    _malldetail_data_data.onReviewCount(function (_review_cfg) {
+                        _kissy_U.each(_dom.query("#J_TabBar em.J_ReviewsCountNum"), function (_dom_reviewsCountNum_item) {
+                            _dom_reviewsCountNum_item.innerHTML = _review_cfg.rateTotal;
+                            _dom.show(_dom.parent(_dom_reviewsCountNum_item))
                         })
                     });
-                    var V = _dom.get(".J_MonSalesNum", "#J_TabBar");
-                    if (V) {
-                        T.onSalesCount(function (W) {
-                            V.innerHTML = W.monTotal;
-                            _dom.show(_dom.parent(V, ".J_MonSales"))
+                    var _dom_class_J_MonSalesNum = _dom.get(".J_MonSalesNum", "#J_TabBar");
+                    if (_dom_class_J_MonSalesNum) {
+                        _malldetail_data_data.onSalesCount(function (_salescount_cfg) {
+                            _dom_class_J_MonSalesNum.innerHTML = _salescount_cfg.monTotal;
+                            _dom.show(_dom.parent(_dom_class_J_MonSalesNum, ".J_MonSales"))
                         })
                     }
                 });
-                var Q = this,
-					S;
-                Q.handles = [];
-                _event.on(F, "click", function (T) {
-                    T.preventDefault();
-                    if ((S = T.target) && (S.nodeName !== "UL") && (S.nodeName !== "LI")) {
-                        while (S.nodeName !== "A") {
-                            S = S.parentNode
+                var _tabbar = this,
+					_target;
+                _tabbar.handles = [];
+                _event.on(_ulNode, "click", function (_event) {
+                    _event.preventDefault();
+                    if ((_target = _event.target) && (_target.nodeName !== "UL") && (_target.nodeName !== "LI")) {
+                        while (_target.nodeName !== "A") {
+                            _target = _target.parentNode
                         }
 
-                        Q.switchTo(S.href.split("#")[1]);
+                        _tabbar.switchTo(_target.href.split("#")[1]);
                         if (_false) {
-                            Q.scrollIntoView()
+                            _tabbar.scrollIntoView()
                         }
                     }
-                }, Q);
-                _kissy.each(F.getElementsByTagName("a"), function (U) {
-                    var _tab_id = U.href.split("#")[1],
-						_li = _dom.parent(U, "li");
-                    Q.onSwitch(function (_current_tab_id) {
+                }, _tabbar);
+                _kissy.each(_ulNode.getElementsByTagName("a"), function (_dom_a) {
+                    var _tab_id = _dom_a.href.split("#")[1],
+						_li = _dom.parent(_dom_a, "li");
+                    _tabbar.onSwitch(function (_current_tab_id) {
                         if (_tab_id == _current_tab_id) {
                             _dom.addClass(_li, _Selected_STR)
                         } else {
@@ -121,35 +121,35 @@
                         }
                     })
                 });
-                var O;
-                Q.onSwitch(function (T, U) {
-                    if (!O) {
-                        O = {};
-                        _kissy.each(F.getElementsByTagName("a"), function (V) {
-                            var W = V.href.split("#")[1];
-                            O[W] = _dom.get("#" + W, K)
+                var _contEL_array;
+                _tabbar.onSwitch(function (_current_tab_id, _last_tab_id) {
+                    if (!_contEL_array) {
+                        _contEL_array = {};
+                        _kissy.each(_ulNode.getElementsByTagName("a"), function (_dom_a) {
+                            var _tab_id = _dom_a.href.split("#")[1];
+                            _contEL_array[_tab_id] = _dom.get("#" + _tab_id, _contEL)
                         })
                     }
-                    _kissy.each(O, function (W, V) {
-                        if (V == U) {
-                            _dom.removeClass(W, "tm-curTab")
+                    _kissy.each(_contEL_array, function (_contEL_item, _tab_id_item) {
+                        if (_tab_id_item == _last_tab_id) {
+                            _dom.removeClass(_contEL_item, "tm-curTab")
                         } else {
-                            if (V == T) {
-                                _dom.addClass(W, "tm-curTab")
+                            if (_tab_id_item == _current_tab_id) {
+                                _dom.addClass(_contEL_item, "tm-curTab")
                             }
                         }
                     })
                 });
-                Q.onSwitch(function (T) {
-                    if (T == "description") {
-                        _dom.removeClass(R, "tm-tabOther")
+                _tabbar.onSwitch(function (_current_tab_id) {
+                    if (_current_tab_id == "description") {
+                        _dom.removeClass(_ulNode_parent, "tm-tabOther")
                     } else {
-                        _dom.addClass(R, "tm-tabOther")
+                        _dom.addClass(_ulNode_parent, "tm-tabOther")
                     }
                 });
-                Q.onSwitch(function (V) {
+                _tabbar.onSwitch(function (_current_tab_id) {
                     //根据选中的tab_id找到tab的panel页并请求
-                    var _transfer_page_config = {
+                    var _atpanel_page_config = {
                         description: "tmalldetail.4.7",
                         J_Reviews: "tmalldetail.4.1",
                         J_DealRecord: "tmalldetail.4.2",
@@ -157,10 +157,10 @@
                         J_SellerInfo: "tmalldetail.4.3",
                         J_AfterSales: "tmalldetail.4.5"
                     };
-                    var T = _transfer_page_config[V];
-                    T && _kissy.sendAtpanel(T);
+                    var _atpanel = _atpanel_page_config[_current_tab_id];
+                    _atpanel && _kissy.sendAtpanel(_atpanel);
                     if (_g_config.D950) {
-                        if (V == "J_TabRecommends") {
+                        if (_current_tab_id == "J_TabRecommends") {
                             if (_kissy.cfg("tag").isHasAttr) {
                                 _kissy.sendAcAtpanel("tmalldetail.10.12")
                             } else {
@@ -169,25 +169,25 @@
                         }
                     }
                 });
-                _dom.query("." + _Selected_STR, K).each(function (T) {
-                    if (_dom.parent(T) == K) {
-                        Q.switchTo(T.id || "description");
-                        if (T.id != "description") {
-                            F.scrollIntoView(true)
+                _dom.query("." + _Selected_STR, _contEL).each(function (_contEL_selected_item) {
+                    if (_dom.parent(_contEL_selected_item) == _contEL) {
+                        _tabbar.switchTo(_contEL_selected_item.id || "description");
+                        if (_contEL_selected_item.id != "description") {
+                            _ulNode.scrollIntoView(true)
                         }
                     }
                 });
-                P.success && P.success();
+                _cfg.success && _cfg.success();
                 setTimeout(function () {
                     G()
                 }, 1500)
             },
             switchTo: function (_selected_tab_id_str) {
                 //将当前tab的id设为选中的值
-                var O = this,
-					R;
+                var _tabbar = this,
+					_last_tab_id;
                 var _tab_config = {
-                    desc: "descriptio",
+                    desc: "description",
                     reviews: "J_Reviews",
                     records: "J_DealRecord",
                     recommends: "J_TabRecommends",
@@ -198,23 +198,23 @@
                 if (_current_tab_id == _selected_tab_id_str) {
                     return
                 }
-                R = _current_tab_id;
+                _last_tab_id = _current_tab_id;
                 _current_tab_id = _selected_tab_id_str;
-                _kissy.each(this.handles, function (S) {
-                    S(_current_tab_id, R)
+                _kissy.each(this.handles, function (_handle_fn) {
+                    _handle_fn(_current_tab_id, _last_tab_id)
                 })
             },
             curIndex: function () {
                 return _current_tab_id || "description"
             },
-            onSwitch: function (O) {
-                if (_kissy.isFunction(O)) {
-                    this.handles.push(O)
+            onSwitch: function (_handle_fn) {
+                if (_kissy.isFunction(_handle_fn)) {
+                    this.handles.push(_handle_fn)
                 }
             },
             scrollIntoView: function () {
-                var O = _kissy.get("#J_Tabbar_placeholder") || _kissy.get("#J_TabBar");
-                _dom.scrollTop(_dom.offset(O).top - (_dom.height(O) ? 0 : (_dom.height("#J_TabBar") + 1)))
+                var _placeholder = _kissy.get("#J_Tabbar_placeholder") || _kissy.get("#J_TabBar");
+                _dom.scrollTop(_dom.offset(_placeholder).top - (_dom.height(_placeholder) ? 0 : (_dom.height("#J_TabBar") + 1)))
             }
         }
     })()
