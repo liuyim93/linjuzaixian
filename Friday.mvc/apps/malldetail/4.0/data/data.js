@@ -25,7 +25,8 @@
         _cfg.systemTime = _defaultMode.miscDO["systemTime"];
         _cfg.is1111 = (_cfg.systemTime >= 1352563200000 && _cfg.systemTime < 1352649600000)
     }
-    var _malldetail_data_data = { setMdskip: function (_defaultModelObject, _elapsed_time) {
+    var _malldetail_data_data = {
+        setMdskip: function (_defaultModelObject, _elapsed_time) {
         if (_elapsed_time >= 0) {
             if (_defaultModelObject) {
                 _kissy.sendAcAtpanel("tmalldetail.15.1", { tl: _elapsed_time })
@@ -36,9 +37,12 @@
         _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_defaultModelObject || {}) : function (_iterator_queue_fn) {
             _iterator_queue_fn(_defaultModelObject || {})
         }
-    }, onMdskip: _loader_fn_factory, setMdskipTimeout: function (_timeout) {
+    },
+        onMdskip: _loader_fn_factory,
+        setMdskipTimeout: function (_timeout) {
         _time = _timeout
-    }, onModel: function (_success_callback_fn, _state) {
+    },
+        onModel: function (_success_callback_fn, _state) {
         if (!_createAsyn_wrapper) {
             _createAsyn_wrapper = _malldetail_common_util.createAsyn(_loader_fn_factory, _time || 3000);
             _createAsyn_wrapper(function (_defaultModelObject) {

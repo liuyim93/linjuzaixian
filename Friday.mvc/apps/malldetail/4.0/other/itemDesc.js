@@ -3,29 +3,29 @@
 		_dom = _kissy.DOM;
     var _window = window;
 
-    function B(_desc) {
+    function _add_desc_lazy(_desc) {
         var _str_J_ItemDesc = "#J_ItemDesc";
         var _dom_id_J_ItemDesc = _kissy.get(_str_J_ItemDesc);
         var _dom_id_J_ItemDesc_clone;
-        var I = /(<img[^>]*)(src *= *("[^"]*"|'[^']*'|[^ >]*))/g;
-        var L = 0;
+        var _regex = /(<img[^>]*)(src *= *("[^"]*"|'[^']*'|[^ >]*))/g;
+        var _image_count = 0;
         var _spaceball = "http://l.tbcdn.cn/kissy/1.0.0/build/imglazyload/spaceball.gif";
-        var M = "_q75.jpg";
+        var _q75_prefix = "_q75.jpg";
         if (!_dom_id_J_ItemDesc) {
             return
         }
-        _desc = _desc.replace(I, function (O, T, R, Q) {
-            L++;
-            if (_kissy_imp.cfg("detail").cdn75 && /img0[1-8]\.taobaocdn\.com/.test(Q)) {
-                var S = Q.length;
-                var P = Q.substr(S - 1);
-                if (P == "'" || P == '"') {
-                    Q = Q.substr(0, S - 1) + M + P
+        _desc = _desc.replace(_regex, function (_wholeMatched, _imgMatched, _srcMatched, _srcStrippedMatched) {
+            _image_count++;
+            if (_kissy_imp.cfg("detail").cdn75 && /img0[1-8]\.taobaocdn\.com/.test(_srcStrippedMatched)) {
+                var _srcStrippedMatched_len = _srcStrippedMatched.length;
+                var _the_last_char = _srcStrippedMatched.substr(_srcStrippedMatched_len - 1);
+                if (_the_last_char == "'" || _the_last_char == '"') {
+                    _srcStrippedMatched = _srcStrippedMatched.substr(0, _srcStrippedMatched_len - 1) + _q75_prefix + _the_last_char
                 } else {
-                    Q += M
+                    _srcStrippedMatched += _q75_prefix
                 }
             }
-            return [T, 'src="' + _spaceball + '" data-ks-lazyload=', Q].join("")
+            return [_imgMatched, 'src="' + _spaceball + '" data-ks-lazyload=', _srcStrippedMatched].join("")
         });
         if (_kissy.UA.IE) {
             _dom.html(_str_J_ItemDesc, _desc)
@@ -35,8 +35,8 @@
             _dom_id_J_ItemDesc.parentNode.replaceChild(_dom_id_J_ItemDesc_clone, _dom_id_J_ItemDesc);
             _dom_id_J_ItemDesc = _dom_id_J_ItemDesc_clone
         }
-        _kissy_imp.use("malldetail/other/lazy", function (O, P) {
-            P.addElements(_dom_id_J_ItemDesc)
+        _kissy_imp.use("malldetail/other/lazy", function (O, _malldetail_other_lazy) {
+            _malldetail_other_lazy.addElements(_dom_id_J_ItemDesc)
         })
     }
     function _init(_itemDesc_config) {
@@ -46,7 +46,7 @@
                 setTimeout(arguments.callee, 100);
                 return
             } else {
-                B(_window.desc)
+                _add_desc_lazy(_window.desc)
             }
             _itemDesc_config.success && _itemDesc_config.success()
         }

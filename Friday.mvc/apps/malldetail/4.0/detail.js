@@ -260,13 +260,13 @@
             if (_onMainBody != TShop.onMainBody) {
                 return
             }
-            TShop.onMainBody = _malldetail_common_util.createLoader(function (L) {
+            TShop.onMainBody = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
                 _kissy_imp_t.use("malldetail/other/mainBody", function (_kissy_imp_t_t, _malldetail_other_mainBody) {
                     _malldetail_other_mainBody.init({ onTabBarReady: function () {
                         TShop.poc("tabbar")
                     }
                     });
-                    L(_malldetail_other_mainBody)
+                    _filter_pipeline_dry_fn(_malldetail_other_mainBody)
                 })
             });
             TShop.onMainBody.apply(null, _arguments)
