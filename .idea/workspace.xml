@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -43,6 +44,14 @@
 =======
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="" />
 >>>>>>> add breadcrumb controller
+=======
+    <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/ExtensionController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/ExtensionController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/ExtensionModel.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/ExtensionModel.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
+    </list>
+>>>>>>> finish merchant extension controller
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367396364906" ignored="false" />
@@ -113,12 +122,17 @@
 >>>>>>> add quick-search
 =======
     <file path="/Extension.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367397877684" ignored="false" />
+<<<<<<< HEAD
     <file path="/bread.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367397648649" ignored="false" />
 <<<<<<< HEAD
 >>>>>>> rename breadcrumb
 =======
     <file path="/attributes.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367398604231" ignored="false" />
 >>>>>>> small changes
+=======
+    <file path="/bread.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367402972863" ignored="false" />
+    <file path="/attributes.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367403585327" ignored="false" />
+>>>>>>> finish merchant extension controller
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -256,7 +270,7 @@
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js">
 >>>>>>> rename breadcrumb
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="13" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
+            <state line="2" column="31" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
               <folding />
 >>>>>>> small change
             </state>
@@ -298,7 +312,7 @@
       <file leaf-file-name="Extension.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="52" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0">
+            <state line="28" column="27" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
               <folding />
 >>>>>>> rename breadcrumb
             </state>
@@ -329,11 +343,15 @@
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> rename breadcrumb
 =======
             <state line="31" column="49" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.3987993">
 >>>>>>> small changes
+=======
+            <state line="4" column="33" selection-start="263" selection-end="263" vertical-scroll-proportion="0.051457975">
+>>>>>>> finish merchant extension controller
               <folding />
             </state>
           </provider>
@@ -562,11 +580,14 @@
 =======
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> rename breadcrumb
 =======
+=======
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
+>>>>>>> finish merchant extension controller
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js" />
 >>>>>>> small changes
       </list>
@@ -1100,11 +1121,15 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942791" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2826087" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> mark no use for part of leftSlide code
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35354692" sideWeight="0.7807443" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> add quick-search
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21853547" sideWeight="0.7807443" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> finish merchant extension controller
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32951945" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1481,21 +1506,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="13" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
+        <state line="2" column="31" selection-start="171" selection-end="171" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="52" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0">
+        <state line="28" column="27" selection-start="1213" selection-end="1213" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="49" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.3987993">
+        <state line="4" column="33" selection-start="263" selection-end="263" vertical-scroll-proportion="0.051457975">
           <folding />
         </state>
       </provider>
