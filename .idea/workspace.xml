@@ -7,6 +7,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
@@ -49,11 +50,18 @@
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
+>>>>>>> rename breadcrumb
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367389294085" ignored="false" />
+    <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367396364906" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367337526535" ignored="false" />
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367222364877" ignored="false" />
@@ -101,7 +109,12 @@
     <file path="/a.dummy" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367392364446" ignored="false" />
     <file path="/init.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367391232826" ignored="false" />
     <file path="/head-seed.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367395137563" ignored="false" />
+<<<<<<< HEAD
 >>>>>>> add quick-search
+=======
+    <file path="/Extension.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367397877684" ignored="false" />
+    <file path="/bread.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367397648649" ignored="false" />
+>>>>>>> rename breadcrumb
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +134,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="dealRecord.js" pinned="false" current="false" current-in-tab="false">
@@ -162,14 +176,21 @@
 =======
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+      <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="553" column="41" selection-start="25827" selection-end="25827" vertical-scroll-proportion="0.0">
+>>>>>>> rename breadcrumb
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="areaSeletor.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
+      <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -191,19 +212,24 @@
                 <marker date="1363270185079" expanded="false" signature="17782:17825" placeholder="..." />
               </folding>
 >>>>>>> small change
+=======
+            <state line="8" column="53" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> rename breadcrumb
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+      <file leaf-file-name="bread.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
+            <state line="2" column="13" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="sellerinfo.js" pinned="false" current="false" current-in-tab="false">
@@ -234,10 +260,18 @@
                 <element signature="e#28428#28811#0" expanded="false" />
 >>>>>>> add quick-search
               </folding>
+=======
+      <file leaf-file-name="Extension.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="52" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> rename breadcrumb
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="reviewsTmall.js" pinned="false" current="false" current-in-tab="false">
@@ -271,12 +305,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="9" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0">
 >>>>>>> add quick-search
+=======
+      <file leaf-file-name="attributes.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+>>>>>>> rename breadcrumb
               <folding />
 >>>>>>> rename tabbar
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -291,15 +332,19 @@
 >>>>>>> small change
 =======
       <file leaf-file-name="head-seed.js" pinned="false" current="true" current-in-tab="true">
+=======
+      <file leaf-file-name="head-seed.js" pinned="false" current="false" current-in-tab="false">
+>>>>>>> rename breadcrumb
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js">
 >>>>>>> add quick-search
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.6815643">
+            <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
@@ -316,11 +361,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="17" column="28" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
 >>>>>>> add quick-search
+=======
+      <file leaf-file-name="quick-search.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/common/quick-search.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="16" selection-start="2346" selection-end="2346" vertical-scroll-proportion="0.0">
+>>>>>>> rename breadcrumb
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -352,14 +404,19 @@
 =======
       <file leaf-file-name="global-v2.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/p/mall/base/global-v2.js">
+=======
+      <file leaf-file-name="quick-search.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/common/quick-search.js">
+>>>>>>> rename breadcrumb
           <provider selected="true" editor-type-id="text-editor">
-            <state line="86" column="76" selection-start="5390" selection-end="5438" vertical-scroll-proportion="0.0">
+            <state line="20" column="55" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0">
               <folding />
 >>>>>>> add quick-search
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -376,16 +433,21 @@
 =======
       <file leaf-file-name="leftSlide.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js">
+=======
+      <file leaf-file-name="HomeController.cs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/Areas/Category/Controllers/HomeController.cs">
+>>>>>>> rename breadcrumb
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="8" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0">
+            <state line="17" column="28" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="common.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/recommend/common.js">
+      <file leaf-file-name="global-v2.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/p/mall/base/global-v2.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> mark no use for part of leftSlide code
               <folding />
@@ -397,6 +459,9 @@
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="264" column="67" selection-start="13982" selection-end="13995" vertical-scroll-proportion="0.0">
+=======
+            <state line="86" column="76" selection-start="5390" selection-end="5438" vertical-scroll-proportion="0.0">
+>>>>>>> rename breadcrumb
               <folding />
             </state>
           </provider>
@@ -426,6 +491,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar-fly.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
@@ -445,6 +511,8 @@
 >>>>>>> add quick-search
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js" />
+=======
+>>>>>>> rename breadcrumb
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
 <<<<<<< HEAD
 =======
@@ -466,11 +534,18 @@
 >>>>>>> mark no use for part of leftSlide code
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> small change
 =======
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" />
 >>>>>>> add quick-search
+=======
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" />
+>>>>>>> rename breadcrumb
       </list>
     </option>
   </component>
@@ -544,6 +619,7 @@
 <<<<<<< HEAD
     <panes>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <pane id="Scope" />
 >>>>>>> rename tabbar
@@ -551,6 +627,8 @@
     <panes>
       <pane id="Scope" />
 >>>>>>> auto create thumb viewer zoom
+=======
+>>>>>>> rename breadcrumb
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -719,10 +797,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tmall" />
+              <option name="myItemId" value="malldetail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -834,6 +913,9 @@
 =======
               <option name="myItemId" value="shop" />
 >>>>>>> add quick-search
+=======
+              <option name="myItemId" value="4.0" />
+>>>>>>> rename breadcrumb
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -855,20 +937,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tmall" />
+              <option name="myItemId" value="malldetail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="header" />
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="Scope" />
 =======
 >>>>>>> rename tabbar
+=======
+      <pane id="Scope" />
+>>>>>>> rename breadcrumb
     </panes>
 =======
     <panes />
@@ -885,8 +975,8 @@
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="last_opened_file_path" value="D:/workspace/1213第二学期" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -937,12 +1027,11 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
+    <frame x="-9" y="-9" width="918" height="1410" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21925566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942791" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -975,12 +1064,16 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31235155" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 =======
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31103948" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> rename thumbViewer
 =======
 >>>>>>> mark no use for part of leftSlide code
+=======
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21925566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+>>>>>>> rename breadcrumb
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24828376" sideWeight="0.67021275" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1047,6 +1140,7 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1166,12 +1260,14 @@
 >>>>>>> add quick-search
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
 >>>>>>> small change
+=======
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
+>>>>>>> rename breadcrumb
       <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="35" selection-start="4082" selection-end="4082" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js">
@@ -1182,14 +1278,16 @@
 =======
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/dealRecord.js">
 >>>>>>> small change
+=======
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbarAttr.js">
+>>>>>>> rename breadcrumb
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/localData.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
         <state line="8" column="27" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
 >>>>>>> rename tabbar
@@ -1292,90 +1390,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="38" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/recommend/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+>>>>>>> rename breadcrumb
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="167" column="17" selection-start="9036" selection-end="9036" vertical-scroll-proportion="2.1391973">
 =======
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1367336993928" expanded="false" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbarAttr.js">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
->>>>>>> rename tabbar
 =======
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
->>>>>>> small change
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1363270185079" expanded="false" signature="17782:17825" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/recommend/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js">
+>>>>>>> rename breadcrumb
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="8" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="551" column="65" selection-start="25720" selection-end="25720" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#25978#27244#0" expanded="false" />
-            <element signature="e#27289#27421#0" expanded="false" />
-            <element signature="e#27463#27840#0" expanded="false" />
-            <element signature="e#27882#28005#0" expanded="false" />
-            <element signature="e#28043#28392#0" expanded="false" />
-            <element signature="e#28428#28811#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/Areas/Category/Controllers/HomeController.cs">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+<<<<<<< HEAD
+        <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
+>>>>>>> rename tabbar
+=======
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+>>>>>>> small change
+=======
         <state line="17" column="28" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
+>>>>>>> rename breadcrumb
           <folding />
         </state>
       </provider>
@@ -1389,7 +1448,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.6815643">
+        <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/common/quick-search.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="16" selection-start="2346" selection-end="2346" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/common/quick-search.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="55" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="553" column="41" selection-start="25827" selection-end="25827" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="53" selection-start="712" selection-end="712" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="13" selection-start="134" selection-end="134" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="52" selection-start="637" selection-end="637" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
