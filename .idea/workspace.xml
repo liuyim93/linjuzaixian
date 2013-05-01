@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Detail/Index.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Detail/Index.cshtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367396364906" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
-    <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367337526535" ignored="false" />
-    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367222364877" ignored="false" />
+    <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367416248972" ignored="false" />
+    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367417063152" ignored="false" />
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367411478846" ignored="false" />
     <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
     <file path="/sellerinfo.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367228583690" ignored="false" />
@@ -115,10 +110,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dc.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="dc.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="120" column="27" selection-start="3896" selection-end="3896" vertical-scroll-proportion="0.7941681">
+            <state line="120" column="27" selection-start="3896" selection-end="3896" vertical-scroll-proportion="0.0">
               <folding>
                 <marker date="1367411818442" expanded="false" signature="3088:3101" placeholder="..." />
               </folding>
@@ -126,19 +121,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="head-seed.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js">
+      <file leaf-file-name="reviewsTmall.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="290" column="27" selection-start="12702" selection-end="12702" vertical-scroll-proportion="-0.45197254">
+              <folding>
+                <marker date="1367417065538" expanded="true" signature="2795:2826" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="9515:9556" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="9628:9682" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="9880:9912" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="23553:23581" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="24919:24930" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="25779:25791" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="25978:26012" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="26097:26131" placeholder="..." />
+                <marker date="1367417065538" expanded="false" signature="26241:26275" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="quick-search.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/common/quick-search.css">
+      <file leaf-file-name="mainBody.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="16" selection-start="2346" selection-end="2346" vertical-scroll-proportion="0.0">
+            <state line="104" column="51" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -172,12 +178,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js" />
@@ -188,6 +192,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
       </list>
     </option>
   </component>
@@ -412,6 +418,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="other" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="dc" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -561,18 +597,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/recommend/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -673,9 +697,34 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="120" column="27" selection-start="3896" selection-end="3896" vertical-scroll-proportion="0.7941681">
+        <state line="120" column="27" selection-start="3896" selection-end="3896" vertical-scroll-proportion="0.0">
           <folding>
             <marker date="1367411818442" expanded="false" signature="3088:3101" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="51" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="290" column="27" selection-start="12702" selection-end="12702" vertical-scroll-proportion="-0.45197254">
+          <folding>
+            <marker date="1367417065538" expanded="true" signature="2795:2826" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="9515:9556" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="9628:9682" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="9880:9912" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="23553:23581" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="24919:24930" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="25779:25791" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="25978:26012" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="26097:26131" placeholder="..." />
+            <marker date="1367417065538" expanded="false" signature="26241:26275" placeholder="..." />
           </folding>
         </state>
       </provider>
