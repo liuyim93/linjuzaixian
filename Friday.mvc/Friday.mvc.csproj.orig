@@ -124,13 +124,24 @@
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\DcController.cs" />
     <Compile Include="Areas\Merchant\Controllers\DetailController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\ExtensionController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
     <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
+    <Compile Include="Areas\Merchant\Models\DcModel.cs" />
+    <Compile Include="Areas\Merchant\Models\DefaultModelObject.cs" />
+<<<<<<< HEAD
+    <Compile Include="Areas\Merchant\Models\DSRModel.cs" />
+=======
+>>>>>>> add breadcrumb controller
+    <Compile Include="Areas\Merchant\Models\ExtensionModel.cs" />
+    <Compile Include="Areas\Merchant\Models\RateDetailModelObject.cs" />
     <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
     <Compile Include="Areas\Merchant\Models\DetailModel.cs" />
+    <Compile Include="Areas\Merchant\Models\RecommendDetailModel.cs" />
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
@@ -211,6 +222,13 @@
     </Compile>
     <Compile Include="weblogin\commodity\pEditCommodity.aspx.designer.cs">
       <DependentUpon>pEditCommodity.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\commodity\pCommodityDetail.aspx.cs">
+      <DependentUpon>pCommodityDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\commodity\pCommodityDetail.aspx.designer.cs">
+      <DependentUpon>pCommodityDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\feedBack\pAddFeedBack.aspx.cs">
       <DependentUpon>pAddFeedBack.aspx</DependentUpon>
@@ -417,6 +435,13 @@
     </Compile>
     <Compile Include="weblogin\ListMyHouseOrder.aspx.designer.cs">
       <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\ListPropID.aspx.cs">
+      <DependentUpon>ListPropID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListPropID.aspx.designer.cs">
+      <DependentUpon>ListPropID.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListSystemUser.aspx.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
@@ -673,6 +698,41 @@
     <Compile Include="weblogin\permission\pSystemFunctionObjectDetail.aspx.designer.cs">
       <DependentUpon>pSystemFunctionObjectDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\propID\pAddPropID.aspx.cs">
+      <DependentUpon>pAddPropID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propID\pAddPropID.aspx.designer.cs">
+      <DependentUpon>pAddPropID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\propID\pEditPropID.aspx.cs">
+      <DependentUpon>pEditPropID.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propID\pEditPropID.aspx.designer.cs">
+      <DependentUpon>pEditPropID.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\propID\pPropIDList.aspx.cs">
+      <DependentUpon>pPropIDList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propID\pPropIDList.aspx.designer.cs">
+      <DependentUpon>pPropIDList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\propValue\pAddPropValue.aspx.cs">
+      <DependentUpon>pAddPropValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propValue\pAddPropValue.aspx.designer.cs">
+      <DependentUpon>pAddPropValue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\propValue\pEditPropValue.aspx.cs">
+      <DependentUpon>pEditPropValue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propValue\pEditPropValue.aspx.designer.cs">
+      <DependentUpon>pEditPropValue.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\rentStatistic\pRentStatisticDetail.aspx.cs">
       <DependentUpon>pRentStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -805,6 +865,48 @@
     </Compile>
     <Compile Include="weblogin\shopStatistic\pShopStatisticList.aspx.designer.cs">
       <DependentUpon>pShopStatisticList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pAddSkuProp.aspx.cs">
+      <DependentUpon>pAddSkuProp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pAddSkuProp.aspx.designer.cs">
+      <DependentUpon>pAddSkuProp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pEditSkuProp.aspx.cs">
+      <DependentUpon>pEditSkuProp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pEditSkuProp.aspx.designer.cs">
+      <DependentUpon>pEditSkuProp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pSkuPropList.aspx.cs">
+      <DependentUpon>pSkuPropList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\skuProp\pSkuPropList.aspx.designer.cs">
+      <DependentUpon>pSkuPropList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\sku\pAddSku.aspx.cs">
+      <DependentUpon>pAddSku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\sku\pAddSku.aspx.designer.cs">
+      <DependentUpon>pAddSku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\sku\pEditSku.aspx.cs">
+      <DependentUpon>pEditSku.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\sku\pEditSku.aspx.designer.cs">
+      <DependentUpon>pEditSku.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\sku\pSkuList.aspx.cs">
+      <DependentUpon>pSkuList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\sku\pSkuList.aspx.designer.cs">
+      <DependentUpon>pSkuList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\systemRole\pAddSystemRole.aspx.cs">
       <DependentUpon>pAddSystemRole.aspx</DependentUpon>
@@ -1064,6 +1166,13 @@
     </Compile>
     <Compile Include="weblogin\systemUser\pSystemUserList.aspx.designer.cs">
       <DependentUpon>pSystemUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pAnonymousUserList.aspx.cs">
+      <DependentUpon>pAnonymousUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\systemUser\pAnonymousUserList.aspx.designer.cs">
+      <DependentUpon>pAnonymousUserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
@@ -1352,6 +1461,13 @@
     <Compile Include="weblogin\valuingOfMyHouseOrder\pValuingOfMyHouseOrderList.aspx.designer.cs">
       <DependentUpon>pValuingOfMyHouseOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\propValue\pPropValueList.aspx.cs">
+      <DependentUpon>pPropValueList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\propValue\pPropValueList.aspx.designer.cs">
+      <DependentUpon>pPropValueList.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1494,6 +1610,8 @@
     <Content Include="apps\tmall\fp\2012\mods\floor.js" />
     <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
     <Content Include="apps\tmall\fp\2012\util\util.js" />
+    <Content Include="apps\tmall\header\common\quick-search.css" />
+    <Content Include="apps\tmall\header\common\quick-search.js" />
     <Content Include="apps\tmall\header\shop\bg.jpg" />
     <Content Include="apps\tmall\header\shop\bg1.jpg" />
     <Content Include="apps\tmall\header\shop\common.css" />
@@ -1511,7 +1629,7 @@
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
     <Content Include="app\shop\skin\ark_black.css" />
     <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
-    <Content Include="apps\tmall\tml\1.0\tml\tml-min.js" />
+    <Content Include="apps\tmall\tml\1.0\tml\tml.js" />
     <Content Include="app\shop\skin\ark_detail.css" />
     <Content Include="comet.htm" />
     <Content Include="cps\trace.js" />
@@ -1575,48 +1693,7 @@
     <Content Include="socket.io\socket.io.js" />
     <Content Include="s\aplus_v2.js" />
     <Content Include="s\fdc\spm.js" />
-    <Content Include="s\kissy\1.3.0\ajax-min.js" />
-    <Content Include="s\kissy\1.3.0\anim-min.js" />
-    <Content Include="s\kissy\1.3.0\base-min.js" />
-    <Content Include="s\kissy\1.3.0\component\base-min.js" />
-    <Content Include="s\kissy\1.3.0\component\extension-min.js" />
-    <Content Include="s\kissy\1.3.0\cookie-min.js" />
-    <Content Include="s\kissy\1.3.0\dom\base-min.js" />
-    <Content Include="s\kissy\1.3.0\event\base-min.js" />
-    <Content Include="s\kissy\1.3.0\event\custom-min.js" />
-    <Content Include="s\kissy\1.3.0\event\dom\base-min.js" />
-    <Content Include="s\kissy\1.3.0\event\dom\focusin-min.js" />
-    <Content Include="s\kissy\1.3.0\datalazyload-min.js" />
-    <Content Include="s\kissy\1.3.0\json-min.js" />
-    <Content Include="s\kissy\1.3.0\node-min.js" />
-    <Content Include="s\kissy\1.3.0\overlay-min.js" />
-    <Content Include="s\kissy\1.3.0\rich-base-min.js" />
-    <Content Include="s\kissy\1.3.0\suggest-min.js" />
-    <Content Include="s\kissy\1.3.0\component\base-min.js" />
-    <Content Include="s\kissy\1.3.0\component\extension-min.js" />
-    <Content Include="s\kissy\1.3.0\component\rich-base-min.js" />
-    <Content Include="s\kissy\1.3.0\dom\base-min.js" />
-    <Content Include="s\kissy\1.3.0\event\ajax-min.js" />
-    <Content Include="s\kissy\1.3.0\event\anim-min.js" />
-    <Content Include="s\kissy\1.3.0\event\base-min.js" />
-    <Content Include="s\kissy\1.3.0\event\cookie-min.js" />
-    <Content Include="s\kissy\1.3.0\event\custom-min.js" />
-    <Content Include="s\kissy\1.3.0\event\datalazyload-min.js" />
-    <Content Include="s\kissy\1.3.0\event\dom\base-min.js" />
-    <Content Include="s\kissy\1.3.0\event\dom\focusin-min.js" />
-    <Content Include="s\kissy\1.3.0\event\imagezoom-min.js" />
-    <Content Include="s\kissy\1.3.0\event\json-min.js" />
-    <Content Include="s\kissy\1.3.0\event\node-min.js" />
-    <Content Include="s\kissy\1.3.0\event\overlay-min.js" />
-    <Content Include="s\kissy\1.3.0\event\swf-min.js" />
-    <Content Include="s\kissy\1.3.0\event\template-min.js" />
-    <Content Include="s\kissy\1.3.0\seed-min.js" />
-<<<<<<< HEAD
-    <Content Include="s\kissy\1.3.0\switchable-min.js" />
     <Content Include="s\tb-tracer-min.js" />
-=======
-    <Content Include="s\kissy\1.3.0\waterfall-min.js" />
->>>>>>> index have bug
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
     <Content Include="uploadimage\b11.jpg" />
@@ -1723,6 +1800,7 @@
     <Content Include="weblogin\commodity\pCommodityList.aspx" />
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
     <Content Include="Content\adminLogin.css" />
+    <Content Include="weblogin\commodity\pCommodityDetail.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\feedBack\pAddFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />
@@ -1810,6 +1888,7 @@
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
     <Content Include="weblogin\ListMyFoodOrder.aspx" />
     <Content Include="weblogin\ListMyHouseOrder.aspx" />
+    <Content Include="weblogin\ListPropID.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyFoodOrder.aspx" />
@@ -1845,6 +1924,11 @@
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
+    <Content Include="weblogin\propID\pAddPropID.aspx" />
+    <Content Include="weblogin\propID\pEditPropID.aspx" />
+    <Content Include="weblogin\propID\pPropIDList.aspx" />
+    <Content Include="weblogin\propValue\pAddPropValue.aspx" />
+    <Content Include="weblogin\propValue\pEditPropValue.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticDetail.aspx" />
     <Content Include="weblogin\rentStatistic\pRentStatisticList.aspx" />
     <Content Include="weblogin\restaurantGoodsType\pRestaurantGoodsTypeList.aspx" />
@@ -1864,6 +1948,12 @@
     <Content Include="weblogin\scoreOfItemInHouseOrder\pScoreOfItemInHouseOrderList.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
+    <Content Include="weblogin\skuProp\pAddSkuProp.aspx" />
+    <Content Include="weblogin\skuProp\pEditSkuProp.aspx" />
+    <Content Include="weblogin\skuProp\pSkuPropList.aspx" />
+    <Content Include="weblogin\sku\pAddSku.aspx" />
+    <Content Include="weblogin\sku\pEditSku.aspx" />
+    <Content Include="weblogin\sku\pSkuList.aspx" />
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
@@ -1902,6 +1992,7 @@
     <Content Include="weblogin\systemUser\pResetSystemUserPassword.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserDetail.aspx" />
     <Content Include="weblogin\systemUser\pSystemUserList.aspx" />
+    <Content Include="weblogin\systemUser\pAnonymousUserList.aspx" />
     <Content Include="weblogin\themes\azure\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\azure\images\account_info_bg.png" />
     <Content Include="weblogin\themes\azure\images\alert\alertpanel.png" />
@@ -2667,6 +2758,7 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\merchantGoodsType\pMerchantGoodsTypeList.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
+    <Content Include="weblogin\propValue\pPropValueList.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2676,7 +2768,6 @@
     <Folder Include="Areas\Cart\Views\Shared\" />
     <Folder Include="Areas\Category\Models\" />
     <Folder Include="Areas\Category\Views\Shared\" />
-    <Folder Include="Areas\Merchant\Views\Shared\" />
     <Folder Include="Areas\Message\Models\" />
     <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Logs\" />
@@ -2712,6 +2803,9 @@
     <Content Include="Areas\Message\Views\Web.config" />
     <Content Include="Areas\Merchant\Views\Search\Index.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\Index.cshtml" />
+    <Content Include="Areas\Merchant\Views\Shared\_MallDetailScript.cshtml" />
+    <Content Include="Areas\Merchant\Views\Shared\_MallDetailMeta.cshtml" />
+    <Content Include="Areas\Merchant\Views\Detail\seller_info_partial.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />
