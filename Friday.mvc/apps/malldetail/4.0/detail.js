@@ -549,9 +549,9 @@
                 }
                 T.init({ wangpuConfig: Q })
             });
-            TShop.use("malldetail/other/init", function (Q) {
-                Q.mix(Q, Q.EventTarget);
-                Q.mods.footinit.init()
+            TShop.use("malldetail/other/init", function (_kissy_Q) {
+                _kissy_Q.mix(_kissy_Q, _kissy_Q.EventTarget);
+                _kissy_Q.mods.footinit.init()
             });
             //2013-05-01 basilwang below is no use , cause _foot_cfg is always null begin
             if (_foot_cfg.showShoplist) {

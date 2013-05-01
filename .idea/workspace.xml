@@ -48,7 +48,8 @@
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336581776" ignored="false" />
 =======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,11 +58,15 @@
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367337526535" ignored="false" />
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367222364877" ignored="false" />
 <<<<<<< HEAD
+<<<<<<< HEAD
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367389685133" ignored="false" />
 >>>>>>> small change
 =======
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367390810882" ignored="false" />
 >>>>>>> mark no use for part of leftSlide code
+=======
+    <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367391007032" ignored="false" />
+>>>>>>> add quick-search
     <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
     <file path="/sellerinfo.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367228583690" ignored="false" />
     <file path="/lazy.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367230254229" ignored="false" />
@@ -89,8 +94,14 @@
 >>>>>>> auto create thumb viewer zoom
 =======
     <file path="/leftSlide.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367390278413" ignored="false" />
+<<<<<<< HEAD
     <file path="/a.dummy" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367390407493" ignored="false" />
 >>>>>>> mark no use for part of leftSlide code
+=======
+    <file path="/a.dummy" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367392364446" ignored="false" />
+    <file path="/init.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367391232826" ignored="false" />
+    <file path="/head-seed.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367395137563" ignored="false" />
+>>>>>>> add quick-search
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +121,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="dealRecord.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/dealRecord.js">
@@ -132,6 +144,10 @@
 >>>>>>> mark no use for part of leftSlide code
       <file leaf-file-name="localData.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/localData.js">
+=======
+      <file leaf-file-name="tabbarAttr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbarAttr.js">
+>>>>>>> add quick-search
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -151,9 +167,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="reviewsTmall.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
+      <file leaf-file-name="areaSeletor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -167,32 +184,27 @@
               <folding />
 =======
             <state line="245" column="49" selection-start="10809" selection-end="10809" vertical-scroll-proportion="0.0">
+=======
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+>>>>>>> add quick-search
               <folding>
-                <marker date="1367222861742" expanded="false" signature="2702:2733" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="9405:9446" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="9518:9572" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="9770:9802" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="23144:23172" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="24510:24521" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="25370:25382" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="25569:25603" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="25688:25722" placeholder="..." />
-                <marker date="1367222861742" expanded="false" signature="25832:25866" placeholder="..." />
+                <marker date="1363270185079" expanded="false" signature="17782:17825" placeholder="..." />
               </folding>
 >>>>>>> small change
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sellerinfo.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js">
+      <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="38" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
+            <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="sellerinfo.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js">
@@ -203,16 +215,30 @@
 =======
       <file leaf-file-name="tabbar.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js">
+=======
+      <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+>>>>>>> add quick-search
           <provider selected="true" editor-type-id="text-editor">
-            <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="0.0">
+            <state line="551" column="65" selection-start="25720" selection-end="25720" vertical-scroll-proportion="0.0">
               <folding>
+<<<<<<< HEAD
                 <marker date="1367336993928" expanded="false" signature="2535:2574" placeholder="..." />
 >>>>>>> small change
+=======
+                <element signature="e#25978#27244#0" expanded="false" />
+                <element signature="e#27289#27421#0" expanded="false" />
+                <element signature="e#27463#27840#0" expanded="false" />
+                <element signature="e#27882#28005#0" expanded="false" />
+                <element signature="e#28043#28392#0" expanded="false" />
+                <element signature="e#28428#28811#0" expanded="false" />
+>>>>>>> add quick-search
               </folding>
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="reviewsTmall.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
@@ -239,12 +265,19 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+      <file leaf-file-name="init.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0">
+>>>>>>> add quick-search
               <folding />
 >>>>>>> rename tabbar
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="socket.io.js" pinned="false" current="false" current-in-tab="false">
@@ -256,15 +289,18 @@
       <file leaf-file-name="areaSeletor.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
 >>>>>>> small change
+=======
+      <file leaf-file-name="head-seed.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js">
+>>>>>>> add quick-search
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1363270185079" expanded="false" signature="17782:17825" placeholder="..." />
-              </folding>
+            <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.6815643">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
 >>>>>>> rename tabbar
@@ -274,11 +310,18 @@
 =======
             <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
 >>>>>>> small change
+=======
+      <file leaf-file-name="HomeController.cs" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/Areas/Category/Controllers/HomeController.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="28" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
+>>>>>>> add quick-search
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
       <file leaf-file-name="dealRecord.js" pinned="false" current="false" current-in-tab="false">
@@ -306,6 +349,13 @@
                 <element signature="e#28393#28776#0" expanded="false" />
               </folding>
 >>>>>>> mark no use for part of leftSlide code
+=======
+      <file leaf-file-name="global-v2.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/p/mall/base/global-v2.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="76" selection-start="5390" selection-end="5438" vertical-scroll-proportion="0.0">
+              <folding />
+>>>>>>> add quick-search
             </state>
           </provider>
         </entry>
@@ -375,6 +425,7 @@
       <list>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandfollow.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/department/common/brandbar-fly.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/fp/2012/mods/brand.js" />
@@ -390,6 +441,8 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
+=======
+>>>>>>> add quick-search
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
@@ -412,7 +465,12 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js" />
 >>>>>>> mark no use for part of leftSlide code
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
+<<<<<<< HEAD
 >>>>>>> small change
+=======
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js" />
+>>>>>>> add quick-search
       </list>
     </option>
   </component>
@@ -691,6 +749,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
               <option name="myItemId" value="malldetail" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -752,13 +811,17 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="malldetail" />
+=======
+              <option name="myItemId" value="tmall" />
+>>>>>>> add quick-search
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="4.0" />
+              <option name="myItemId" value="header" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               <option name="myItemId" value="other" />
@@ -768,6 +831,9 @@
 =======
               <option name="myItemId" value="spu" />
 >>>>>>> small change
+=======
+              <option name="myItemId" value="shop" />
+>>>>>>> add quick-search
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -789,15 +855,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="malldetail" />
+              <option name="myItemId" value="tmall" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="4.0" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="recommend" />
+              <option name="myItemId" value="header" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -880,8 +942,9 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3106796" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21925566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942791" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -895,6 +958,9 @@
 =======
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2826087" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
 >>>>>>> mark no use for part of leftSlide code
+=======
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35354692" sideWeight="0.7807443" order="0" side_tool="false" content_ui="combo" />
+>>>>>>> add quick-search
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
       <window_info id="Hierarchy" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24883178" sideWeight="0.67021275" order="3" side_tool="false" content_ui="combo" />
@@ -981,6 +1047,7 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1095,6 +1162,8 @@
         <state line="19" column="67" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
+=======
+>>>>>>> add quick-search
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
 >>>>>>> small change
       <provider selected="true" editor-type-id="text-editor">
@@ -1159,6 +1228,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="245" column="49" selection-start="10809" selection-end="10809" vertical-scroll-proportion="0.0">
           <folding>
+<<<<<<< HEAD
 =======
 >>>>>>> small change
             <marker date="1367222861742" expanded="false" signature="2702:2733" placeholder="..." />
@@ -1171,6 +1241,18 @@
             <marker date="1367222861742" expanded="false" signature="25569:25603" placeholder="..." />
             <marker date="1367222861742" expanded="false" signature="25688:25722" placeholder="..." />
             <marker date="1367222861742" expanded="false" signature="25832:25866" placeholder="..." />
+=======
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="-1:-1" placeholder="..." />
+>>>>>>> add quick-search
           </folding>
         </state>
       </provider>
@@ -1223,7 +1305,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="124" column="72" selection-start="5306" selection-end="5306" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1367336993928" expanded="false" signature="2535:2574" placeholder="..." />
+            <marker date="1367336993928" expanded="false" signature="-1:-1" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1272,15 +1354,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="554" column="46" selection-start="25812" selection-end="25812" vertical-scroll-proportion="0.6930946">
+        <state line="551" column="65" selection-start="25720" selection-end="25720" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#25943#27209#0" expanded="false" />
-            <element signature="e#27254#27386#0" expanded="false" />
-            <element signature="e#27428#27805#0" expanded="false" />
-            <element signature="e#27847#27970#0" expanded="false" />
-            <element signature="e#28008#28357#0" expanded="false" />
-            <element signature="e#28393#28776#0" expanded="false" />
+            <element signature="e#25978#27244#0" expanded="false" />
+            <element signature="e#27289#27421#0" expanded="false" />
+            <element signature="e#27463#27840#0" expanded="false" />
+            <element signature="e#27882#28005#0" expanded="false" />
+            <element signature="e#28043#28392#0" expanded="false" />
+            <element signature="e#28428#28811#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="28" selection-start="741" selection-end="741" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/Areas/Category/Controllers/HomeController.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="28" selection-start="371" selection-end="371" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/p/mall/base/global-v2.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="76" selection-start="5390" selection-end="5438" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/shop/head-seed.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="82" column="52" selection-start="3620" selection-end="3620" vertical-scroll-proportion="0.6815643">
+          <folding />
         </state>
       </provider>
     </entry>
