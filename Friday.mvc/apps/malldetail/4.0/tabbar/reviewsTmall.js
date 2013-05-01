@@ -4,7 +4,7 @@
 		_reviewsTmall_cfg;
     var _dom_id_J_Reviews, M, U, _is_loaded = false,
 		I = false,
-		P, N, _document = document,
+		_gradeAvg, N, _document = document,
 		B, _STR_J_Reviews = "#J_Reviews";
     var L = {
         tags: null,
@@ -93,7 +93,7 @@
             _cfg.tmallRateType = 0
         }
         _dom.insertAfter(_dom_div_id_bd, _dom.get("h4.hd", "#J_Reviews"));
-        p();
+        _bind_click_for_bd();
         l();
 
         function Z(z) {
@@ -232,26 +232,26 @@
         }
         function l() {
             B = v.append;
-            _kissy.use("malldetail/data/data", function (z, _malldetail_data_data) {
-                _malldetail_data_data.onReviewCount(function (AA) {
-                    P = AA.gradeAvg;
+            _kissy.use("malldetail/data/data", function (_kissy_z, _malldetail_data_data) {
+                _malldetail_data_data.onReviewCount(function (_review_cfg) {
+                    _gradeAvg = _review_cfg.gradeAvg;
                     _ajax({
                         url: _cfg.url.rate + "/list_detail_rate.htm",
                         data: v,
                         dataType: "jsonp",
-                        success: function (AB) {
-                            window.TB.detailRate = AB.rateDetail;
+                        success: function (_results) {
+                            window.TB.detailRate = _results.rateDetail;
                             if (!I) {
                                 _dom_div_id_bd.innerHTML = n(m(window.TB.detailRate));
                                 d();
-                                M = z.get("#J_Show-rate-table");
+                                M = _kissy_z.get("#J_Show-rate-table");
                                 b();
                                 q(1)
                             } else {
                                 M.innerHTML = n(m(window.TB.detailRate))
                             }
                             if (!E) {
-                                E = z.get("#J_Graph")
+                                E = _kissy_z.get("#J_Graph")
                             }
                             i();
                             window.TB.detailRate = null;
@@ -286,7 +286,7 @@
             }
             return AA
         }
-        function p() {
+        function _bind_click_for_bd() {
             _event.on(_dom_div_id_bd, "click", function (_event_t) {
                 var _target = _event_t.target,
 					z;
@@ -595,7 +595,7 @@
                 if (_cfg.tmallRateType) {
                     AB.push('<div class="rate-meiz">')
                 }
-                if (!_kissy.cfg("detail").rateCloudDisable && !_kissy.isUndefined(P)) {
+                if (!_kissy.cfg("detail").rateCloudDisable && !_kissy.isUndefined(_gradeAvg)) {
                     AB.push(_template(AC.scoreInfo).render(AF))
                 }
                 AB.push(_template(AC.rateListInfo).render(AF));
@@ -625,12 +625,12 @@
         }
         function e(z) {
             var _rating_combo = {};
-            if (!_kissy.isUndefined(P)) {
-                _rating_combo.merchandisScore = P;
-                _rating_combo.width = P / 5 * 100;
-                _rating_combo.rateStar = P.replace(".0", "").replace(".", "d");
+            if (!_kissy.isUndefined(_gradeAvg)) {
+                _rating_combo.merchandisScore = _gradeAvg;
+                _rating_combo.width = _gradeAvg / 5 * 100;
+                _rating_combo.rateStar = _gradeAvg.replace(".0", "").replace(".", "d");
                 _rating_combo.scoreSummaryTitle = _str_review;
-                if (P === "0.0") {
+                if (_gradeAvg === "0.0") {
                     _rating_combo.merchandisScore = "";
                     _rating_combo.merchandisScoreSuffix = "";
                     _rating_combo.hideMerchandisScore = 'style="display:none"'
