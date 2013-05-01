@@ -46,7 +46,6 @@
 >>>>>>> add breadcrumb controller
 =======
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
     </list>
 >>>>>>> finish merchant extension controller
@@ -71,8 +70,12 @@
 =======
 =======
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367416248972" ignored="false" />
+<<<<<<< HEAD
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367417063152" ignored="false" />
 >>>>>>> small changes
+=======
+    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367417601862" ignored="false" />
+>>>>>>> small change
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367411478846" ignored="false" />
 >>>>>>> remove custom dc
     <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
@@ -447,24 +450,25 @@
       <file leaf-file-name="reviewsTmall.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="290" column="27" selection-start="12702" selection-end="12702" vertical-scroll-proportion="-0.45197254">
+            <state line="245" column="39" selection-start="11018" selection-end="11018" vertical-scroll-proportion="0.5048373">
               <folding>
-                <marker date="1367417065538" expanded="true" signature="2795:2826" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="9515:9556" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="9628:9682" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="9880:9912" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="23553:23581" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="24919:24930" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="25779:25791" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="25978:26012" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="26097:26131" placeholder="..." />
-                <marker date="1367417065538" expanded="false" signature="26241:26275" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="2803:2834" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="9540:9581" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="9653:9707" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="9905:9937" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="23654:23682" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="25020:25031" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="25880:25892" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="26079:26113" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="26198:26232" placeholder="..." />
+                <marker date="1367417603490" expanded="true" signature="26342:26376" placeholder="..." />
               </folding>
 >>>>>>> small changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -494,11 +498,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="104" column="51" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.0">
 >>>>>>> small changes
+=======
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="129" column="7" selection-start="6852" selection-end="6852" vertical-scroll-proportion="0.0">
+>>>>>>> small change
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -535,8 +546,12 @@
       <file leaf-file-name="quick-search.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/tmall/header/common/quick-search.js">
 >>>>>>> rename breadcrumb
+=======
+      <file leaf-file-name="mainBody.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+>>>>>>> small change
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="55" selection-start="1862" selection-end="1862" vertical-scroll-proportion="0.0">
+            <state line="104" column="51" selection-start="5174" selection-end="5174" vertical-scroll-proportion="0.0">
               <folding />
 >>>>>>> add quick-search
             </state>
@@ -1283,6 +1298,7 @@
 >>>>>>> small change
 =======
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21925566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942791" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1308,12 +1324,15 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24838188" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 =======
 >>>>>>> mark no use for part of leftSlide code
 =======
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21925566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 >>>>>>> rename breadcrumb
+=======
+>>>>>>> small change
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.075514875" sideWeight="0.67021275" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1380,6 +1399,7 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -1577,6 +1597,8 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
 >>>>>>> small change
 =======
+=======
+>>>>>>> small change
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="67" column="8" selection-start="3023" selection-end="3023" vertical-scroll-proportion="0.0">
@@ -1731,20 +1753,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="129" column="7" selection-start="6852" selection-end="6852" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="290" column="27" selection-start="12702" selection-end="12702" vertical-scroll-proportion="-0.45197254">
+        <state line="245" column="39" selection-start="11018" selection-end="11018" vertical-scroll-proportion="0.5048373">
           <folding>
-            <marker date="1367417065538" expanded="true" signature="2795:2826" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="9515:9556" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="9628:9682" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="9880:9912" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="23553:23581" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="24919:24930" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="25779:25791" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="25978:26012" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="26097:26131" placeholder="..." />
-            <marker date="1367417065538" expanded="false" signature="26241:26275" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="2803:2834" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="9540:9581" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="9653:9707" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="9905:9937" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="23654:23682" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="25020:25031" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="25880:25892" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="26079:26113" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="26198:26232" placeholder="..." />
+            <marker date="1367417603490" expanded="true" signature="26342:26376" placeholder="..." />
           </folding>
         </state>
       </provider>
