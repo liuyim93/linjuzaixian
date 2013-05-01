@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailMeta.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailMeta.cshtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367361299634" ignored="false" />
+    <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367389294085" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367337526535" ignored="false" />
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367222364877" ignored="false" />
-    <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336581776" ignored="false" />
+    <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367389685133" ignored="false" />
     <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
     <file path="/sellerinfo.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367228583690" ignored="false" />
     <file path="/lazy.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367230254229" ignored="false" />
@@ -43,46 +42,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="mainBody.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="thumbViewer.js" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="109" column="34" selection-start="5311" selection-end="5311" vertical-scroll-proportion="0.69257045">
-              <folding>
-                <marker date="1367376785481" expanded="true" signature="1939:1972" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="61" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="util.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="67" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lazy.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js">
+      <file leaf-file-name="dealRecord.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/dealRecord.js">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
@@ -90,21 +51,39 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dc.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
+      <file leaf-file-name="localData.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/localData.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="118" column="10" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="reviewsTmall.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="245" column="49" selection-start="10809" selection-end="10809" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1367311290722" expanded="false" signature="3074:3087" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="2702:2733" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="9405:9446" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="9518:9572" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="9770:9802" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="23144:23172" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="24510:24521" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="25370:25382" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="25569:25603" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="25688:25722" placeholder="..." />
+                <marker date="1367222861742" expanded="false" signature="25832:25866" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+      <file leaf-file-name="sellerinfo.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="523" column="69" selection-start="24077" selection-end="24077" vertical-scroll-proportion="0.0">
+            <state line="41" column="38" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -121,22 +100,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+      <file leaf-file-name="tabbarAttr.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbarAttr.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="27" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setup.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+      <file leaf-file-name="areaSeletor.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="206" column="32" selection-start="9295" selection-end="9295" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1367330012131" expanded="false" signature="24586:24598" placeholder="..." />
+                <marker date="1363270185079" expanded="false" signature="17782:17825" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="shop.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="302" column="50" selection-start="15177" selection-end="15177" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leftSlide.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="52" column="54" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.58833617">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -171,11 +177,11 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js" />
       </list>
     </option>
   </component>
@@ -375,6 +381,36 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Friday.mvc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="apps" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="malldetail" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="4.0" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spu" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -385,8 +421,8 @@
     <property name="options.lastSelected" value="editor.preferences.appearance" />
     <property name="last_opened_file_path" value="D:/workspace/1213第二学期" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -443,7 +479,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24942791" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.35926774" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27803203" sideWeight="0.6876485" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32951945" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -519,71 +555,73 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/socket.io/socket.io.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="8" selection-start="1944" selection-end="1944" vertical-scroll-proportion="0.0" />
+        <state line="118" column="10" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="206" column="32" selection-start="9295" selection-end="9295" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="61" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="67" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="35" selection-start="4082" selection-end="4082" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/dealRecord.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="38" selection-start="1725" selection-end="1725" vertical-scroll-proportion="-22.777779" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="245" column="49" selection-start="10809" selection-end="10809" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="52" selection-start="2311" selection-end="2311" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="31" selection-start="5466" selection-end="5466" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/lazy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/localData.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="118" column="10" selection-start="3743" selection-end="3743" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1367311290722" expanded="false" signature="3074:3087" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="27" selection-start="403" selection-end="403" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="32" selection-start="9295" selection-end="9295" vertical-scroll-proportion="0.0">
+        <state line="245" column="49" selection-start="10809" selection-end="10809" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1367330012131" expanded="false" signature="24586:24598" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="2702:2733" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="9405:9446" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="9518:9572" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="9770:9802" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="23144:23172" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="24510:24521" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="25370:25382" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="25569:25603" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="25688:25722" placeholder="..." />
+            <marker date="1367222861742" expanded="false" signature="25832:25866" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/sellerinfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="523" column="69" selection-start="24077" selection-end="24077" vertical-scroll-proportion="0.0">
+        <state line="41" column="38" selection-start="1725" selection-end="1725" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -597,33 +635,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbarAttr.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="43" selection-start="1199" selection-end="1199" vertical-scroll-proportion="0.0">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/areaSeletor.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="61" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/common/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="67" selection-start="843" selection-end="843" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="34" selection-start="5311" selection-end="5311" vertical-scroll-proportion="0.69257045">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1367376785481" expanded="true" signature="1939:1972" placeholder="..." />
+            <marker date="1363270185079" expanded="false" signature="17782:17825" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="65" selection-start="613" selection-end="613" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="302" column="50" selection-start="15177" selection-end="15177" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/leftSlide.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="54" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.58833617">
+          <folding />
         </state>
       </provider>
     </entry>
