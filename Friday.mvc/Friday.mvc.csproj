@@ -124,12 +124,14 @@
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
     <Compile Include="Areas\Category\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\DcController.cs" />
     <Compile Include="Areas\Merchant\Controllers\DetailController.cs" />
     <Compile Include="Areas\Merchant\Controllers\ExtensionController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
     <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
+    <Compile Include="Areas\Merchant\Models\DcModel.cs" />
     <Compile Include="Areas\Merchant\Models\DefaultModelObject.cs" />
     <Compile Include="Areas\Merchant\Models\ExtensionModel.cs" />
     <Compile Include="Areas\Merchant\Models\RateDetailModelObject.cs" />
