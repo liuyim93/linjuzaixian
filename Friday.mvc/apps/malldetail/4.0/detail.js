@@ -293,23 +293,23 @@
         })
     },
             onLeftSlide: function () {
-        var H = arguments, I = TShop.onLeftSlide;
-        _kissy.use("malldetail/common/util", function (J, K) {
-            if (I != TShop.onLeftSlide) {
+        var _arguments = arguments, _leftSlide = TShop.onLeftSlide;
+        _kissy.use("malldetail/common/util", function (_kissy_J, _malldetail_common_util) {
+            if (_leftSlide != TShop.onLeftSlide) {
                 return
             }
-            TShop.onLeftSlide = K.createLoader(function (L) {
-                J.use("malldetail/other/leftSlide", function (N, M) {
-                    M.init({ onReviewClick: function () {
-                        TShop.onMainBody(function (O) {
-                            O.switchTab("J_Reviews")
+            TShop.onLeftSlide = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
+                _kissy_J.use("malldetail/other/leftSlide", function (_kissy_N, _malldetail_other_leftSlide) {
+                    _malldetail_other_leftSlide.init({ onReviewClick: function () {
+                        TShop.onMainBody(function (_mainbody_o) {
+                            _mainbody_o.switchTab("J_Reviews")
                         })
                     }
                     });
-                    L(M)
+                    _filter_pipeline_dry_fn(_malldetail_other_leftSlide)
                 })
             });
-            TShop.onLeftSlide.apply(null, H)
+            TShop.onLeftSlide.apply(null, _arguments)
         })
     },
             loadMdskip: function (_url) {
