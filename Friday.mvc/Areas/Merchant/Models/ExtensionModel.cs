@@ -51,6 +51,33 @@ namespace Friday.mvc.Areas.Merchant.Models
     }
     public class SpuMaintainerDO
     {
-
+        public List<Spu> providerList
+        {
+            get;
+            set;
+        }
+        public List<Spu> reviewerList
+        {
+            get;
+            set;
+        }
+        public List<Spu> maintainerList
+        {
+            get;
+            set;
+        }
+    }
+    public class Spu
+    {
+       public string shopUrl
+       {
+           get;
+           set;
+       }
+       public string shopName
+       {
+           get;
+           set;
+       }
     }
 }

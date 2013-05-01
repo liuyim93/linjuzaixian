@@ -24,12 +24,20 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             var breadCrumb=new List<string[]>();
             breadCrumb.Add(new string[]{"邻居网","http://www.linju.com"});
             breadCrumb.Add(new string[] { "Nike/&#32784;&#20811;", "http://list.tmall.com/search_product.htm?q=Nike%2F%C4%CD%BF%CB" });
+            var providerList = new List<Spu>();
+            providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小熊在线" });
+            providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小马在线" });
+            providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小狗在线" });
+            
             var extensionModel = new ExtensionModel()
             {
                 breadCrumbDO = new BreadCrumbDO()
                 {
                     breadCrumb = breadCrumb
                 }, 
+                spuMaintainerDO=new SpuMaintainerDO{
+                    providerList=providerList
+                },
                 success =true
                 
             };
