@@ -219,14 +219,12 @@
                         string imagePath = Model.Commodity.Image;
                         string[] images = imagePath.Split(';');
                         
-                        var src_0 = "http://localhost:7525/weblogin" + images[0]; 
+                       
                         
-                        <a href="@src_0" target="_blank"><span class="ks-imagezoom-wrap">
+                        <a href="#" target="_blank">
                         <img id="J_ImgBooth" data-haszoom="700">
                      
-                        <span class="ks-imagezoom-icon" style=""></span><span style="position: absolute;
-                            top: 0px; left: 184.7249999999999px; width: 274.27500000000003px; height: 192.625px;
-                            display: none;" class="ks-imagezoom-lens"></span></span></a>
+                        </a>
                       }  
             </div>
             <ul id="J_UlThumb" class="tb-thumb tm-clear">
@@ -234,25 +232,26 @@
 
                 for (int a=0;a< images.Length;a++)
                 {
-                    var src = "http://localhost:7525/weblogin"+images[a]+"_60x60.jpg";                    
+                    var src = "http://localhost:7525/"+images[a];     
+                                   
                     if(a==0)
                     {
                         @*<image data-ks-lazyload="@src_0" />*@
                 
-                        <li class="tb-selected" data-size="{&quot;w&quot;:600,&quot;h&quot;:600,&quot;zm&quot;:0}">
+                        <li class="tb-selected" data-size="{&quot;w&quot;:600,&quot;h&quot;:600,&quot;zm&quot;:1}">
                             <div class="tb-pic tb-s60">
                                 <a href="#">
-                                    <img data-ks-lazyload="@src_0"></a>
+                                    <img src="@src"></a>
                             </div>
                         </li>
                     }
                     else
                     {
 
-                         <li data-size="{&quot;w&quot;:600,&quot;h&quot;:600,&quot;zm&quot;:0}">
+                         <li data-size="{&quot;w&quot;:600,&quot;h&quot;:600,&quot;zm&quot;:1}">
                             <div class="tb-pic tb-s60">
                                 <a href="#">
-                                    <img data-ks-lazyload="@src_0"></a>
+                                    <img src="@src"></a>
                             </div>
                         </li>  
                     }
