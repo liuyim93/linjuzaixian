@@ -22,22 +22,22 @@
         }
         _filter_pipeline_dry_fn(_imagezoom)
     });
-    function C(_url, W, V) {
-        var S = C.images || (C.images = {});
-        S[_url] = S[_url] || (S[_url] = _malldetail_common_util.createLoader(function (_imagezoom_t) {
+    function _auto_set_zm(_url, _fn, V) {
+        var _images = _auto_set_zm.images || (_auto_set_zm.images = {});
+        _images[_url] = _images[_url] || (_images[_url] = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
             var _images = new Image();
             _event.on(_images, "load", function () {
-                _imagezoom_t(_images)
+                _filter_pipeline_dry_fn(_images)
             });
             _images.src = _url;
-            var Y = C.elem;
-            if (!Y) {
-                Y = C.elem = _dom.create('<div style="width:0;height:0;overflow:hidden;">');
-                _body.insertBefore(Y, _body.firstChild)
+            var _images_container = _auto_set_zm.elem;
+            if (!_images_container) {
+                _images_container = _auto_set_zm.elem = _dom.create('<div style="width:0;height:0;overflow:hidden;">');
+                _body.insertBefore(_images_container, _body.firstChild)
             }
-            Y.appendChild(_images)
+            _images_container.appendChild(_images)
         }));
-        return S[_url](W, V)
+        return _images[_url](_fn, V)
     }
     function _remove_img_size_to_url(_img) {
         var _url = _img.src || _dom.attr(_img, "data-ks-lazyload");
@@ -103,10 +103,11 @@
         if (_data_size) {
             _set_zm(_data_size)
         } else {
-            C(_url_to_be_added_img_size, function (a) {
-                Z.zm = (a.width >= _zoomlevel) ? 1 : 0;
-                _dom.attr(_dom_li, { "data-size": _json.stringify(Z) });
-                _set_zm(Z)
+            _auto_set_zm(_url_to_be_added_img_size, function (_image_to_be_auto_created) {
+                var _t_cfg = {w: _image_to_be_auto_created.width,h: _image_to_be_auto_created.height};
+                _t_cfg.zm = (_image_to_be_auto_created.width >= _zoomlevel) ? 1 : 0;
+                _dom.attr(_dom_li, { "data-size": _json.stringify(_t_cfg) });
+                _set_zm(_t_cfg)
             })
         }
     }, show: function (_url) {
