@@ -1,5 +1,5 @@
 ﻿KISSY.add("malldetail/dc/dc", function (_kissy_F, _ajax, _dom, _ua, _malldetail_shop_shop, _malldetail_other_lazy) {
-    var K, B, G;
+    var K, _dc_cfg_wrapper, G;
 
     function J(N) {
         _ajax({
@@ -103,12 +103,12 @@
     function K() {
         _kissy_F.use("malldetail/shop/shop", function (N, O) {
             if (!N.mods.Token) {
-                O.init(B);
+                O.init(_dc_cfg_wrapper);
                 return
             }
             setTimeout(function () {
                 N.mods.Token.onInited(function () {
-                    O.init(B)
+                    O.init(_dc_cfg_wrapper)
                 })
             }, 30)
         });
@@ -116,11 +116,11 @@
         return K()
     }
     return {
-        init: function (O) {
-            B = O;
-            var N = _kissy_F.cfg("api").fetchDcUrl;
-            if (N) {
-                J(N)
+        init: function (_dc_cfg_wrapper_t) {
+            _dc_cfg_wrapper = _dc_cfg_wrapper_t;
+            var _fetchDcUrl = _kissy_F.cfg("api").fetchDcUrl;
+            if (_fetchDcUrl) {
+                J(_fetchDcUrl)
             } else {
                 K()
             }

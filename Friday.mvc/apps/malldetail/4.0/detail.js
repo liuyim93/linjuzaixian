@@ -542,12 +542,13 @@
             TShop.addLazyCallback(_dom.get(".col-sub", "#content"), function () {
                 TShop.onLeftSlide()
             });
-            TShop.use("malldetail/dc/dc", function (U, T) {
-                var R = U._TMD_Config, Q = { assetsHost: _url, pageType: "tmalldetail", lazyContainers: ["#hd"] };
-                if (R && R.itemDO) {
-                    Q.isvParams = U.mix({ nickName: R.itemDO.sellerNickName, userId: R.itemDO.userId, shopId: "", itemId: "", itemNumId: R.itemDO.itemId, shopStats: R.itemDO.feature, validatorUrl: R.itemDO.validatorUrl, templateName: R.itemDO.templateName, templateId: R.itemDO.templateId }, R.isv)
+            TShop.use("malldetail/dc/dc", function (_kissy_U, _malldetail_dc_dc) {
+                var _TMD_Config_t = _kissy_U._TMD_Config,
+                    _dc_cfg = { assetsHost: _url, pageType: "tmalldetail", lazyContainers: ["#hd"] };
+                if (_TMD_Config_t && _TMD_Config_t.itemDO) {
+                    _dc_cfg.isvParams = _kissy_U.mix({ nickName: _TMD_Config_t.itemDO.sellerNickName, userId: _TMD_Config_t.itemDO.userId, shopId: "", itemId: "", itemNumId: _TMD_Config_t.itemDO.itemId, shopStats: _TMD_Config_t.itemDO.feature, validatorUrl: _TMD_Config_t.itemDO.validatorUrl, templateName: _TMD_Config_t.itemDO.templateName, templateId: _TMD_Config_t.itemDO.templateId }, _TMD_Config_t.isv)
                 }
-                T.init({ wangpuConfig: Q })
+                _malldetail_dc_dc.init({ wangpuConfig: _dc_cfg })
             });
             TShop.use("malldetail/other/init", function (_kissy_Q) {
                 _kissy_Q.mix(_kissy_Q, _kissy_Q.EventTarget);
