@@ -1602,6 +1602,8 @@
     <Content Include="apps\tmall\fp\2012\mods\floor.js" />
     <Content Include="apps\tmall\fp\2012\mods\slide2.js" />
     <Content Include="apps\tmall\fp\2012\util\util.js" />
+    <Content Include="apps\tmall\header\common\quick-search.css" />
+    <Content Include="apps\tmall\header\common\quick-search.js" />
     <Content Include="apps\tmall\header\shop\bg.jpg" />
     <Content Include="apps\tmall\header\shop\bg1.jpg" />
     <Content Include="apps\tmall\header\shop\common.css" />

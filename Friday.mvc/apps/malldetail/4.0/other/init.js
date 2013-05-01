@@ -9,6 +9,7 @@
             if (!_g_config.offlineShop) {
                 TMall.Head.init()
             }
+            //2013-05-01 basilwang seems no use
             _malldetail_other_Extension.init();
             _malldetail_tabbar_tabbarAttr.init();
             _malldetail_other_staticMods.init();
