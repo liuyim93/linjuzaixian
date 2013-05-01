@@ -103,14 +103,14 @@
             _mainBody.addLazyCallback("#J_Reviews", function () {
                 _kissy_imp.use("malldetail/data/data", function (_kissy_imp_data, _malldetail_data_data) {
                     _malldetail_data_data.onReviewCount(function (P) {
-                        _kissy_imp_data.each(_dom.query("#J_Reviews em.J_ReviewsCountNum"), function (Q) {
-                            Q.innerHTML = P.rateTotal;
-                            _dom.show(_dom.parent(Q))
+                        _kissy_imp_data.each(_dom.query("#J_Reviews em.J_ReviewsCountNum"), function (_em_item) {
+                            _em_item.innerHTML = P.rateTotal;
+                            _dom.show(_dom.parent(_em_item))
                         })
                     })
                 });
-                _kissy_imp.use("malldetail/tabbar/reviewsTmall", function (O, N) {
-                    N.init({
+                _kissy_imp.use("malldetail/tabbar/reviewsTmall", function (_kissy_O, _malldetail_tabbar_reviewsTmall) {
+                    _malldetail_tabbar_reviewsTmall.init({
                         switchTab: function (P) {
                             _malldetail_tabbar_tabbar.switchTo(P);
                             _malldetail_tabbar_tabbar.scrollIntoView()
@@ -118,7 +118,7 @@
                     });
                     if (!_dom.get("iframe", "#J_Reviews") && _malldetail_tabbar_tabbar.curIndex() == "J_Reviews" && !K && !J) {
                         revRecommendloaded = true;
-                        O.use("malldetail/tabbar/newRecommend", function (Q, P) {
+                        _kissy_O.use("malldetail/tabbar/newRecommend", function (Q, P) {
                             P.onHtml(function (S) {
                                 var R = _dom.create(S);
                                 _dom.append(R, "#J_Reviews");

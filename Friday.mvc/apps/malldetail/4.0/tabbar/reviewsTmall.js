@@ -1,11 +1,11 @@
 ﻿KISSY.add("malldetail/tabbar/reviewsTmall", function (_kissy, _ajax, _dom, _event, _template) {
-    var W;
+    var _cfg;
     var _g_config = window.g_config,
-		F;
-    var T, M, U, R = false,
+		_reviewsTmall_cfg;
+    var _dom_id_J_Reviews, M, U, _is_loaded = false,
 		I = false,
 		P, N, _document = document,
-		B, J = "#J_Reviews";
+		B, _STR_J_Reviews = "#J_Reviews";
     var L = {
         tags: null,
         selectedTag: {
@@ -68,31 +68,31 @@
 			Z = d[S][c];
         if (Z) {
             _kissy.sendAtpanel(Z, {
-                shopid: W.rstShopId,
-                itemid: W.itemDO.itemId,
-                categoryId: W.itemDO.categoryId
+                shopid: _cfg.rstShopId,
+                itemid: _cfg.itemDO.itemId,
+                categoryId: _cfg.itemDO.categoryId
             })
         }
     }
     function A() {
         var v = {
-            itemId: W.itemDO.itemId,
-            spuId: W.itemDO.spuId,
-            sellerId: W.itemDO.userId,
+            itemId: _cfg.itemDO.itemId,
+            spuId: _cfg.itemDO.spuId,
+            sellerId: _cfg.itemDO.userId,
             order: 0,
             forShop: 1
         }, t = null,
 			u = 0,
-			f = _g_config.isSpu,
+			_isSpu = _g_config.isSpu,
 			_str_review = "与描述相符",
-			x, h, g = _dom.create('<div class="bd">正在加载 ...<br /><div style="min-height:400px;_height:400px;"></div></div>');
-        if (W.isMeiz) {
-            W.tmallRateType = 1
+			x, h, _dom_div_id_bd = _dom.create('<div class="bd">正在加载 ...<br /><div style="min-height:400px;_height:400px;"></div></div>');
+        if (_cfg.isMeiz) {
+            _cfg.tmallRateType = 1
         }
-        if (W.closeTmallRate) {
-            W.tmallRateType = 0
+        if (_cfg.closeTmallRate) {
+            _cfg.tmallRateType = 0
         }
-        _dom.insertAfter(g, _dom.get("h4.hd", "#J_Reviews"));
+        _dom.insertAfter(_dom_div_id_bd, _dom.get("h4.hd", "#J_Reviews"));
         p();
         l();
 
@@ -120,9 +120,9 @@
         function d() {
             I = true;
             _ajax({
-                url: W.url.rate + "/listTagClouds.htm",
+                url: _cfg.url.rate + "/listTagClouds.htm",
                 data: {
-                    itemId: W.itemDO.itemId,
+                    itemId: _cfg.itemDO.itemId,
                     isAll: "true",
                     isInner: "true"
                 },
@@ -138,13 +138,13 @@
                     };
                     L.tags = AH.tags.tagClouds;
                     if (AO.tags.length) {
-                        if (W.tmallRateType == 1) {
+                        if (_cfg.tmallRateType == 1) {
                             O({
                                 from: "meiz",
                                 type: "tagView"
                             })
                         } else {
-                            if (W.tmallRateType == 2) {
+                            if (_cfg.tmallRateType == 2) {
                                 O({
                                     from: "muying",
                                     type: "myTag"
@@ -223,8 +223,8 @@
                         }
                         if (AM > 20) {
                             var y = _dom.create('<div class="persentInfo">');
-                            y.innerHTML = _kissy.Template('<div class="hd">\u5927\u5bb6\u8ba4\u4e3a</div><div class="bd tb-clearfix">								{{#each tags.innerTagCloudList as tag}}<label>{{tag.dimenName}}: </label><p>									{{#each tag.tagScaleList as scale index}}										{{#if scale.proportion}}										<s class="level_{{scale._order}}" style="left:{{scale._position-25}}px;width:50px;">{{scale.scale}}</s>										<i class="level_{{scale._order}}" style="left:{{scale._ahead*2+scale._proportion-3+index*2}}px;"></i>										<span class="level_{{scale._order}} {{#if index==0}}edge-left{{/if}} {{#if index==tag.tagScaleList.length-1}}edge-right{{/if}} " title="{{scale.scale}}:{{scale.proportion}}%" style="width: {{scale._proportion*2}}px">											{{#if scale._order==0}}{{scale.proportion}}%{{/if}}										</span>										{{/if}}									{{/each}}								</p>{{/each}}								</div>').render(AH);
-                            _dom.insertAfter(y, _dom.get("#J_RateScore", g))
+                            y.innerHTML = _kissy.Template('<div class="hd">大家认为</div><div class="bd tb-clearfix">								{{#each tags.innerTagCloudList as tag}}<label>{{tag.dimenName}}: </label><p>									{{#each tag.tagScaleList as scale index}}										{{#if scale.proportion}}										<s class="level_{{scale._order}}" style="left:{{scale._position-25}}px;width:50px;">{{scale.scale}}</s>										<i class="level_{{scale._order}}" style="left:{{scale._ahead*2+scale._proportion-3+index*2}}px;"></i>										<span class="level_{{scale._order}} {{#if index==0}}edge-left{{/if}} {{#if index==tag.tagScaleList.length-1}}edge-right{{/if}} " title="{{scale.scale}}:{{scale.proportion}}%" style="width: {{scale._proportion*2}}px">											{{#if scale._order==0}}{{scale.proportion}}%{{/if}}										</span>										{{/if}}									{{/each}}								</p>{{/each}}								</div>').render(AH);
+                            _dom.insertAfter(y, _dom.get("#J_RateScore", _dom_div_id_bd))
                         }
                     }
                 }
@@ -236,13 +236,13 @@
                 _malldetail_data_data.onReviewCount(function (AA) {
                     P = AA.gradeAvg;
                     _ajax({
-                        url: W.url.rate + "/list_detail_rate.htm",
+                        url: _cfg.url.rate + "/list_detail_rate.htm",
                         data: v,
                         dataType: "jsonp",
                         success: function (AB) {
                             window.TB.detailRate = AB.rateDetail;
                             if (!I) {
-                                g.innerHTML = n(m(window.TB.detailRate));
+                                _dom_div_id_bd.innerHTML = n(m(window.TB.detailRate));
                                 d();
                                 M = z.get("#J_Show-rate-table");
                                 b();
@@ -255,7 +255,7 @@
                             }
                             i();
                             window.TB.detailRate = null;
-                            var AC = f ? "spudetail" : "itemdetail";
+                            var AC = _isSpu ? "spudetail" : "itemdetail";
                             O({
                                 from: "all",
                                 type: AC
@@ -287,15 +287,15 @@
             return AA
         }
         function p() {
-            _event.on(g, "click", function (AB) {
-                var AA = AB.target,
+            _event.on(_dom_div_id_bd, "click", function (_event_t) {
+                var _target = _event_t.target,
 					z;
                 switch (true) {
-                    case AA.tagName === "A" && _dom.hasClass(AA, "act-showmore"):
+                    case _target.tagName === "A" && _dom.hasClass(_target, "act-showmore"):
                         v.ismore = "1";
                         l();
                         break;
-                    case AA.tagName === "A" && ((z = AA.getAttribute("data-page")) != null):
+                    case _target.tagName === "A" && ((z = _target.getAttribute("data-page")) != null):
                         if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "J_Reviews") {
                             _kissy.sendAtpanel("tmalldetail.12.2")
                         } else {
@@ -303,16 +303,16 @@
                         }
                         o(z);
                         break;
-                    case (AA.tagName === "A" || AA.tagName === "EM") && ((z = AA.getAttribute("data-forShop")) != null):
-                        AB.preventDefault();
-                        if (W.tmallRateType) {
+                    case (_target.tagName === "A" || _target.tagName === "EM") && ((z = _target.getAttribute("data-forShop")) != null):
+                        _event_t.preventDefault();
+                        if (_cfg.tmallRateType) {
                             v.append = 0
                         }
                         q(z);
                         break;
-                    case (AA.tagName === "A" || AA.tagName === "EM") && ((z = AA.getAttribute("data-tagid")) != null):
-                        AB.preventDefault();
-                        if (L.selectedTag.id == z && L.selectedTag.posi == (AA.getAttribute("data-tagtype") == "true")) {
+                    case (_target.tagName === "A" || _target.tagName === "EM") && ((z = _target.getAttribute("data-tagid")) != null):
+                        _event_t.preventDefault();
+                        if (L.selectedTag.id == z && L.selectedTag.posi == (_target.getAttribute("data-tagtype") == "true")) {
                             if (_dom.get("#J_allShop")) {
                                 _dom.get("#J_allShop").className = "curr"
                             }
@@ -325,23 +325,23 @@
                             L.selectedTag.name = "";
                             l()
                         } else {
-                            if (W.tmallRateType) {
+                            if (_cfg.tmallRateType) {
                                 v.append = 0
                             }
                             v.append = 0;
                             _dom.removeClass("#J_toggletype a", "curr");
-                            c(z, AA.getAttribute("data-tagtype"));
+                            c(z, _target.getAttribute("data-tagtype"));
                             _dom.removeClass("#J_Graph a", "selected");
-                            _dom.addClass(AA, "selected");
+                            _dom.addClass(_target, "selected");
                             _dom.get("#J_addComment").checked = false;
                             L.selectedTag.id = z;
-                            L.selectedTag.posi = AA.getAttribute("data-tagtype") == "true" ? true : false;
+                            L.selectedTag.posi = _target.getAttribute("data-tagtype") == "true" ? true : false;
                             L.selectedTag.name = k()
                         }
                         break;
-                    case _dom.hasClass(AA, "J_Reviews2recommend"):
-                        AB.preventDefault();
-                        if (!F.switchTab) {
+                    case _dom.hasClass(_target, "J_Reviews2recommend"):
+                        _event_t.preventDefault();
+                        if (!_reviewsTmall_cfg.switchTab) {
                             return
                         }
                         if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "J_Reviews") {
@@ -349,10 +349,10 @@
                         } else {
                             _kissy.sendAtpanel("tmalldetail.12.5")
                         }
-                        F.switchTab("J_TabRecommends");
+                        _reviewsTmall_cfg.switchTab("J_TabRecommends");
                         break;
-                    case _dom.hasClass(AA, "pay-toggler"):
-                        AB.preventDefault();
+                    case _dom.hasClass(_target, "pay-toggler"):
+                        _event_t.preventDefault();
                         if (K) {
                             Z(K = false);
                             _dom.removeClass("#J_RateScore", "tglistOpen")
@@ -361,23 +361,23 @@
                             _dom.addClass("#J_RateScore", "tglistOpen")
                         }
                         break;
-                    case AA.tagName === "A" && _dom.hasClass(AA, "b-showMore"):
-                        var y = AA.parentNode.previousSibling;
+                    case _target.tagName === "A" && _dom.hasClass(_target, "b-showMore"):
+                        var y = _target.parentNode.previousSibling;
                         if (_dom.hasClass(y, "rate-haveMoreContentShow")) {
                             _dom.removeClass(y, "rate-haveMoreContentShow");
-                            AA.title = "展开全文";
-                            _dom.removeClass(AA, "b-showMore-open")
+                            _target.title = "展开全文";
+                            _dom.removeClass(_target, "b-showMore-open")
                         } else {
                             _dom.addClass(y, "rate-haveMoreContentShow");
-                            AA.title = "缩进全文";
-                            _dom.addClass(AA, "b-showMore-open")
+                            _target.title = "缩进全文";
+                            _dom.addClass(_target, "b-showMore-open")
                         }
                         break
                 }
             })
         }
         function b() {
-            var y = _dom.query("#J_commentOrder a", g);
+            var y = _dom.query("#J_commentOrder a", _dom_div_id_bd);
             _event.on(y, "click", function () {
                 _dom.removeClass(y, "curr");
                 _dom.addClass(this, "curr");
@@ -403,7 +403,7 @@
                         delete v.posi;
                         _dom.removeClass("#J_Graph a", "selected")
                     }
-                    if (W.tmallRateType == 2) {
+                    if (_cfg.tmallRateType == 2) {
                         O({
                             from: "muying",
                             type: "myAppend"
@@ -411,13 +411,13 @@
                     }
                 } else {
                     v.order = z;
-                    if (W.tmallRateType == 1) {
+                    if (_cfg.tmallRateType == 1) {
                         O({
                             from: "meiz",
                             type: "order" + v.order
                         })
                     } else {
-                        if (W.tmallRateType == 2) {
+                        if (_cfg.tmallRateType == 2) {
                             O({
                                 from: "muying",
                                 type: "myOrder" + v.order
@@ -450,13 +450,13 @@
                     type: "tmRate-bad"
                 })
             }
-            if (W.tmallRateType == 1) {
+            if (_cfg.tmallRateType == 1) {
                 O({
                     from: "meiz",
                     type: "tag" + y
                 })
             } else {
-                if (W.tmallRateType == 2) {
+                if (_cfg.tmallRateType == 2) {
                     O({
                         from: "muying",
                         type: "myTag" + y
@@ -504,7 +504,7 @@
             delete v.tagId;
             delete v.posi;
             _dom.removeClass("#J_Graph a", "selected");
-            if (z > 0 && W.tmallRateType == 1) {
+            if (z > 0 && _cfg.tmallRateType == 1) {
                 O({
                     from: "meiz",
                     type: "forshop1"
@@ -525,13 +525,13 @@
                 v.currentPage = AA;
                 v.ismore = 1;
                 _kissy.later(function () {
-                    if (W.tmallRateType == 1) {
+                    if (_cfg.tmallRateType == 1) {
                         O({
                             from: "meiz",
                             type: "page"
                         })
                     } else {
-                        if (W.tmallRateType == 2) {
+                        if (_cfg.tmallRateType == 2) {
                             O({
                                 from: "muying",
                                 type: "myPage"
@@ -539,7 +539,7 @@
                         }
                     }
                     l();
-                    var AB = f ? "spupage" : "itempage";
+                    var AB = _isSpu ? "spupage" : "itempage";
                     O({
                         from: "all",
                         type: AB
@@ -548,7 +548,7 @@
                         from: "all",
                         type: "tmRate-page"
                     });
-                    _kissy.scrollToElem(T)
+                    _kissy.scrollToElem(_dom_id_J_Reviews)
                 }, 0)
             } else {
                 alert(z);
@@ -563,7 +563,7 @@
                 rateListInfo: '<div class="rate-select tm-clear"><ul class="act-toggletype" id="J_toggletype">{{#if showChooseTopic}}<li><a href="#" data-forShop="0" >\u7cbe\u9009\u8bc4\u4ef7</a></li><li><a href="#" data-forShop="1" class="curr" id="J_allShop">\u672c\u5e97\u6240\u6709\u8bc4\u4ef7</a></li>{{/if}}<input type="checkbox" id="J_addComment"></input><label class="addLabel" for="J_addComment">\u67e5\u770b\u8ffd\u52a0{{#if rateCount && rateCount.used}}({{rateCount.used}}){{/if}}</label></ul><div id="J_TagSelected" style="float:left;"></div><ul class="act-changetype" aria-labelledby="\u9009\u62e9\u8981\u663e\u793a\u7684\u8bc4\u4ef7" id="J_commentOrder"><li><div class="ui-msg tb-clearfix"><div class="ui-msg-tip"> \u6709\u5185\u5bb9\u8bc4\u4ef7(10\u5b57\u53ca\u4ee5\u4e0a)  <s class="ui-msg-icon"></s> </div> <s class="ui-msg-arrow ui-msg-arrow-right"></s></div><a href="#" value="0" class="curr" {{commType.isShowAll}}}>\u9ed8\u8ba4</a></li><li><a href="#" value="1" {{commType.isHasContent}}>\u6309\u65f6\u95f4<i></i></a></li><li><a href="#" value="2" {{commType.isNoContent}}>\u6309\u4fe1\u7528<i></i></a></li></ul></div>',
                 tfoot: '<tfoot><tr><td colspan="5">' + AA + '<div class="pagination"> {prevPageLink} {prevMore}%pages1%<span class="page-cur">{page}</span>%pages2%{nextMore}{nextPageLink} </div></td></tr></tfoot>',
                 table: '<table style="width: 100%;" class="show-rate-table"><tbody>%rateList%</tbody>%tfoot%</table>',
-                rateList: '<tr><td class="cmt">									{{#if rateContent && serviceRateContent }}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u5546\u54c1: </s>{{rateContent}}</p>										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u670d\u52a1: </s>{{serviceRateContent}}</p>									{{#else}}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto">{{rateContent}}{{serviceRateContent}}</p>									{{/if}}									{{#if reply }}<p class="reply rate-auto"><span class="appendTitle">\u89e3\u91ca: </span>{{reply}}</p>{{/if}}								</td><td class="sku">									{{#if auctionSku }}									<p class="cmtInfo">{{#each auctionSku.split(";") as item}}<span class="actSku">										<span class="title">{{item.split(":",2)[0]}}</span><span>: {{item.split(":",2)[1]}}</span>									</span>{{/each}}</p>									{{/if}}                                </td><td class="buyer" data-spm="1000822">									{{#if ' + (_g_config.offlineShop ? "true" : "false") + " }}										<a>{{displayUserNick}}</a> 									{{#elseif !fromMall }}										<p>{{displayUserNick1}}</p>										{{#if " + (W.isMeiz ? "true" : "false") + ' && cmsSource }}<p class="from">\u6765\u81ea\uff1a{{cmsSource}}</p>{{/if}}									{{#elseif (fromMall && anony) || !(displayUserNumId > 0)}}										<p>{{displayUserNick1}}  &nbsp;<span class="tb-anonymous">(\u533f\u540d)</span></p>									{{#else}}										<p><a target="_blank" href="{{displayUserLink}}">{{displayUserNick}}</a></p>									{{/if}}									{{#if (tamllSweetLevel||userVipLevel) && tamllSweetLevel>0 }}										<a href="' + (_g_config.offlineShop ? "#" : "http://vip.tmall.com") + '" target="_blank" class="tmallVip"><img src="http://l.tbcdn.cn/apps/membermanager/v2/image/{{tmallSweetPic}}" alt=""/></a>									{{/if}}									{{#if fromMall }}										<span><a											{{#if ' + (_g_config.offlineShop ? "true" : "false") + ' && !anony && displayUserNumId>0}} href="http://rate.taobao.com/user-rate-{{displayUserNumId}}.htm?buyerOrSeller=1" target="_blank"{{/if}}											>{{grade}}</a></span>									{{/if}}									{{#if attributes&&attributes.indexOf("giftBillId")!=-1 }}										<p class="userGift">\u83b7\u8ba4\u771f\u8bc4\u4ef7\u5956  <i class="tb-icon-gift"></i></p>									{{/if}}								</td></tr><tr class="baseline"><td class="time">									<span class="date">[{{rateDate}}]</span>									{{#if appendComment.content }}										<div class="cmt-append"><i class="cmt-append-horn"></i>										<p class="appendRate rate-auto">											<span class="appendTime">{{#if appendComment.days === 0 }}\u5f53\u5929\u8ffd\u52a0: {{#elseif appendComment.days }}{{appendComment.days}}\u5929\u540e\u8ffd\u52a0: {{#else}}{{appendComment.commentTime}}\u8ffd\u52a0: {{/if}}</span>											{{appendComment.content}}										</p>										{{#if appendComment.reply }}<p class="appendReply rate-auto"><span class="appendTitle">\u89e3\u91ca\uff1a</span>{{appendComment.reply}}</p>{{/if}}										</div>									{{/if}}								</td><td class="user">									{{#if userInfo }}<p class="cmtInfo">{{#each userInfo.split(";") as item}}										 {{item.split(":",2)[1]}}									{{/each}}</p>{{/if}}                                </td><td class="times">									{{#if buyTimes }}										\u5728\u672c\u5e97\u4e70\u8fc7<span class="buyTimes">{{buyTimes}}</span>\u6b21									{{/if}}								</td></tr>',
+                rateList: '<tr><td class="cmt">									{{#if rateContent && serviceRateContent }}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u5546\u54c1: </s>{{rateContent}}</p>										<p style="text-align: left; max-width: 100%;" class="rate rate-auto"><s>\u670d\u52a1: </s>{{serviceRateContent}}</p>									{{#else}}										<p style="text-align: left; max-width: 100%;" class="rate rate-auto">{{rateContent}}{{serviceRateContent}}</p>									{{/if}}									{{#if reply }}<p class="reply rate-auto"><span class="appendTitle">\u89e3\u91ca: </span>{{reply}}</p>{{/if}}								</td><td class="sku">									{{#if auctionSku }}									<p class="cmtInfo">{{#each auctionSku.split(";") as item}}<span class="actSku">										<span class="title">{{item.split(":",2)[0]}}</span><span>: {{item.split(":",2)[1]}}</span>									</span>{{/each}}</p>									{{/if}}                                </td><td class="buyer" data-spm="1000822">									{{#if ' + (_g_config.offlineShop ? "true" : "false") + " }}										<a>{{displayUserNick}}</a> 									{{#elseif !fromMall }}										<p>{{displayUserNick1}}</p>										{{#if " + (_cfg.isMeiz ? "true" : "false") + ' && cmsSource }}<p class="from">\u6765\u81ea\uff1a{{cmsSource}}</p>{{/if}}									{{#elseif (fromMall && anony) || !(displayUserNumId > 0)}}										<p>{{displayUserNick1}}  &nbsp;<span class="tb-anonymous">(\u533f\u540d)</span></p>									{{#else}}										<p><a target="_blank" href="{{displayUserLink}}">{{displayUserNick}}</a></p>									{{/if}}									{{#if (tamllSweetLevel||userVipLevel) && tamllSweetLevel>0 }}										<a href="' + (_g_config.offlineShop ? "#" : "http://vip.tmall.com") + '" target="_blank" class="tmallVip"><img src="http://l.tbcdn.cn/apps/membermanager/v2/image/{{tmallSweetPic}}" alt=""/></a>									{{/if}}									{{#if fromMall }}										<span><a											{{#if ' + (_g_config.offlineShop ? "true" : "false") + ' && !anony && displayUserNumId>0}} href="http://rate.taobao.com/user-rate-{{displayUserNumId}}.htm?buyerOrSeller=1" target="_blank"{{/if}}											>{{grade}}</a></span>									{{/if}}									{{#if attributes&&attributes.indexOf("giftBillId")!=-1 }}										<p class="userGift">\u83b7\u8ba4\u771f\u8bc4\u4ef7\u5956  <i class="tb-icon-gift"></i></p>									{{/if}}								</td></tr><tr class="baseline"><td class="time">									<span class="date">[{{rateDate}}]</span>									{{#if appendComment.content }}										<div class="cmt-append"><i class="cmt-append-horn"></i>										<p class="appendRate rate-auto">											<span class="appendTime">{{#if appendComment.days === 0 }}\u5f53\u5929\u8ffd\u52a0: {{#elseif appendComment.days }}{{appendComment.days}}\u5929\u540e\u8ffd\u52a0: {{#else}}{{appendComment.commentTime}}\u8ffd\u52a0: {{/if}}</span>											{{appendComment.content}}										</p>										{{#if appendComment.reply }}<p class="appendReply rate-auto"><span class="appendTitle">\u89e3\u91ca\uff1a</span>{{appendComment.reply}}</p>{{/if}}										</div>									{{/if}}								</td><td class="user">									{{#if userInfo }}<p class="cmtInfo">{{#each userInfo.split(";") as item}}										 {{item.split(":",2)[1]}}									{{/each}}</p>{{/if}}                                </td><td class="times">									{{#if buyTimes }}										\u5728\u672c\u5e97\u4e70\u8fc7<span class="buyTimes">{{buyTimes}}</span>\u6b21									{{/if}}								</td></tr>',
                 page: ' <a href="javascript:void(0);" data-page="{page}">{page}</a> '
             }, AB = [],
 				AE = [],
@@ -592,14 +592,14 @@
             AG = AG.join("");
             AC.table = AC.table.replace("%tfoot%", AC.tfoot).replace("%pages1%", AE).replace("%pages2%", AD).replace("%rateList%", AG);
             if (!I) {
-                if (W.tmallRateType) {
+                if (_cfg.tmallRateType) {
                     AB.push('<div class="rate-meiz">')
                 }
                 if (!_kissy.cfg("detail").rateCloudDisable && !_kissy.isUndefined(P)) {
                     AB.push(_template(AC.scoreInfo).render(AF))
                 }
                 AB.push(_template(AC.rateListInfo).render(AF));
-                if (W.tmallRateType) {
+                if (_cfg.tmallRateType) {
                     AB.push("</div>")
                 }
                 AB.push('<div id="J_Show-rate-table">')
@@ -608,13 +608,13 @@
             if (!I) {
                 AB.push("</div")
             }
-            if (!W.tmallRateType) {
+            if (!_cfg.tmallRateType) {
                 h = null
             }
-            if (W.tmallRateType) {
+            if (_cfg.tmallRateType) {
                 if (typeof v.append != "undefined" && v.append == 0) {
-                    if (_dom.get("select.act-changetype", g)) {
-                        var z = _dom.get("select.act-changetype", g);
+                    if (_dom.get("select.act-changetype", _dom_div_id_bd)) {
+                        var z = _dom.get("select.act-changetype", _dom_div_id_bd);
                         if (z.options[z.selectedIndex].value == 3) {
                             z.options[0].selected = true
                         }
@@ -646,7 +646,7 @@
 				AL = AJ.rateList;
             AJ.showChooseTopic = AJ.rateDanceInfo.showChooseTopic;
             AJ.scoreInfo = e(AJ);
-            AJ.tmallRateType = W.tmallRateType;
+            AJ.tmallRateType = _cfg.tmallRateType;
             _kissy.each(AL, function (AO) {
                 var AM = AO;
                 var AN = AO;
@@ -725,7 +725,7 @@
                 AH = null
             }
             AJ.paginator = AH;
-            AJ.tmallRateType = W.tmallRateType;
+            AJ.tmallRateType = _cfg.tmallRateType;
             return AJ
         }
         function w(z, AA) {
@@ -772,35 +772,35 @@
         }
     }
     return {
-        init: function (S) {
-            F = S || {};
-            if (!R) {
-                W = _kissy.cfg();
-                if (!(T = _dom.get(J))) {
+        init: function (_reviewsTmall_cfg_t) {
+            _reviewsTmall_cfg = _reviewsTmall_cfg_t || {};
+            if (!_is_loaded) {
+                _cfg = _kissy.cfg();
+                if (!(_dom_id_J_Reviews = _dom.get(_STR_J_Reviews))) {
                     return
                 }
-                var Z = _dom.get("iframe", T);
-                if (Z) {
+                var _iframe_in_J_Reviews = _dom.get("iframe", _dom_id_J_Reviews);
+                if (_iframe_in_J_Reviews) {
                     _kissy.use("malldetail/common/crossDomain", function () {
                         window.XD.receiveMessage(function (a) {
                             switch (a.action) {
                                 case "setHeight":
-                                    _dom.height(Z, a.height);
+                                    _dom.height(_iframe_in_J_Reviews, a.height);
                                     break;
                                 case "setScrollTop":
-                                    document[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = _dom.offset(Z).top * 1 + a.scrollTop * 1;
+                                    document[_kissy.UA.webkit ? "body" : "documentElement"].scrollTop = _dom.offset(_iframe_in_J_Reviews).top * 1 + a.scrollTop * 1;
                                     break
                             }
                         })
                     });
-                    R = true;
+                    _is_loaded = true;
                     return
                 }
                 if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "description") {
                     _kissy.sendAcAtpanel("tmalldetail.4.1")
                 }
                 A();
-                R = true
+                _is_loaded = true
             }
         }
     }
