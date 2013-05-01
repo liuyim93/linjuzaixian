@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
@@ -33,6 +29,7 @@
     <file path="/head-seed.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367395137563" ignored="false" />
     <file path="/Extension.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367397877684" ignored="false" />
     <file path="/bread.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367397648649" ignored="false" />
+    <file path="/attributes.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367398604231" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +88,7 @@
       <file leaf-file-name="attributes.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+            <state line="31" column="49" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.3987993">
               <folding />
             </state>
           </provider>
@@ -161,7 +158,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/itemDesc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
@@ -177,6 +173,7 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/bread.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/Extension.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js" />
       </list>
     </option>
   </component>
@@ -438,7 +435,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="918" height="1410" extended-state="7" />
+    <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -619,7 +616,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/attributes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="31" column="49" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.3987993">
           <folding />
         </state>
       </provider>
