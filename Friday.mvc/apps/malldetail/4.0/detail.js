@@ -1,7 +1,10 @@
 ﻿(function (_kissy) {
     //var F = document, E = window, A = E.g_config, C = A.assetsHost || "http://l.tbcdn.cn";
-    var _document = document, _window = window, _g_config = _window.g_config, _url = _g_config.assetsHost || "http://localhost:7525";
-    _g_config.t = _g_config.t + "d4";
+    var _document = document,
+        _window = window,
+        _g_config = _window.g_config,
+        _url = _g_config.assetsHost || "http://localhost:7525";
+     _g_config.t = _g_config.t + "d4";
     _kissy.config(
          { combine: false,
            map: [
@@ -506,7 +509,7 @@
         }
         (_window._poc = _window._poc || []).push(["_trackCustomTime", "tt_" + H, new Date().valueOf()])
     };
-    TShop.initFoot = function (H) {
+    TShop.initFoot = function (_foot_cfg) {
         _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (_kissy_imp_t_x, _dom, _malldetail_common_util) {
             _malldetail_common_util.initHover();
             _malldetail_common_util.loadAssets("apps/tmall/common/tgallery.js?t=20121028");
@@ -550,11 +553,12 @@
                 Q.mix(Q, Q.EventTarget);
                 Q.mods.footinit.init()
             });
-            if (H.showShoplist) {
+            //2013-05-01 basilwang below is no use , cause _foot_cfg is always null begin
+            if (_foot_cfg.showShoplist) {
                 _kissy_imp_t_x.use(["event", "dom"], function (T, W, X) {
                     W.delegate(document, "click", ".J_atpanelClick", function (Z) {
                         var S = Z.target;
-                        document.createElement("img").src = "http://www.atpanel.com/mallsearch?" + H.aLog + "&itemid=" + S.getAttribute("itemId") + "&itemcat=" + S.getAttribute("categoryId") + "&itemspu=" + S.getAttribute("spuId") + "&machineid=" + H.trackid + "&type=1&clickid=" + S.getAttribute("itemId") + "&shopid=" + S.getAttribute("shopID");
+                        document.createElement("img").src = "http://www.atpanel.com/mallsearch?" + _foot_cfg.aLog + "&itemid=" + S.getAttribute("itemId") + "&itemcat=" + S.getAttribute("categoryId") + "&itemspu=" + S.getAttribute("spuId") + "&machineid=" + _foot_cfg.trackid + "&type=1&clickid=" + S.getAttribute("itemId") + "&shopid=" + S.getAttribute("shopID");
                         return true
                     });
                     var V = X.get(".shop-shoplist"), Y = X.query(".layer", V);
@@ -570,12 +574,12 @@
                     }
                 })
             }
-            if (H.showRelativeSpus) {
+            if (_foot_cfg.showRelativeSpus) {
                 TShop.onLeftSlide(function (Q) {
-                    Q.initRelative(H)
+                    Q.initRelative(_foot_cfg)
                 }, 0)
             }
-            if (H.showPaimaiBid) {
+            if (_foot_cfg.showPaimaiBid) {
                 _kissy_imp_t_x.use(["dom", "json"], function (R, U, Q) {
                     try {
                         if (window.TAOBAO_PAIMAI_BIDSAU) {
@@ -585,12 +589,12 @@
                     }
                 })
             }
-            if (H.showTryDetail) {
+            if (_foot_cfg.showTryDetail) {
                 TShop.onMainBody(function (Q) {
                     Q.showTryDetail()
                 }, 0)
             }
-            if (H.setDomain) {
+            if (_foot_cfg.setDomain) {
                 var M = function (S) {
                     var R = S.split(".");
                     var Q = R.length;
@@ -601,12 +605,13 @@
                 };
                 document.domain = M(location.hostname)
             }
-            if (H.bidInit) {
+            if (_foot_cfg.bidInit) {
                 _kissy_imp_t_x.getScript(_url + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + _g_config.ver + "/css/auction.css?t=" + _kissy_imp_t_x.t());
                 _kissy_imp_t_x.use("malldetail/bid/bid", function (R, Q) {
                     Q.init("#tbid-container", { isCustom: false, isMpp: true })
                 })
             }
+            //2013-05-01 basilwang below is no use , cause _foot_cfg is always null   end
         })
     }
 })(KISSY);
