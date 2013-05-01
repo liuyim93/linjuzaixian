@@ -1,28 +1,28 @@
 ﻿KISSY.add("malldetail/common/util", function (_kissy, _dom, _event) {
     var D = {};
     return { createLoader: function (_loader_fn) {
-        var _t_AssemblyObject, _is_fn_load, _filter_fn_array = [], _t_filter_fn;
+        var _t_object, _is_fn_load, _filter_fn_array = [], _t_filter_fn;
         return function (_filter_fn, _state) {
             if (_state !== 0 && !_state) {
                 _state = 1
             }
             if ((_state & 1) && !_is_fn_load) {
                 _is_fn_load = true;
-                _loader_fn(function (_assemblyObject) {
-                    _t_AssemblyObject = _assemblyObject;
+                _loader_fn(function (object) {
+                    _t_object = object;
                     while (_t_filter_fn = _filter_fn_array.shift()) {
-                        _t_filter_fn && _t_filter_fn.apply(null, [_t_AssemblyObject])
+                        _t_filter_fn && _t_filter_fn.apply(null, [_t_object])
                     }
                 })
             }
-            if (_t_AssemblyObject) {
-                _filter_fn && _filter_fn.apply(null, [_t_AssemblyObject]);
-                return _t_AssemblyObject
+            if (_t_object) {
+                _filter_fn && _filter_fn.apply(null, [_t_object]);
+                return _t_object
             }
             if (!(_state & 2)) {
                 _filter_fn && _filter_fn_array.push(_filter_fn)
             }
-            return _t_AssemblyObject
+            return _t_object
         }
     }, createAsyn: function (_loader_fn, _time) {
         var _is_fn_load, _t_defaultModelObject, _is_already_load_defaultModelObject, _callback_fn_object, _iterate_handle_queue = [];
