@@ -2,6 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+<<<<<<< HEAD
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js" />
+>>>>>>> add demo image for thumb viewer
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
@@ -21,6 +25,7 @@
     <file path="/dc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367411815755" ignored="false" />
     <file path="/shop.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367311738646" ignored="false" />
     <file path="/tabbar.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367336993364" ignored="false" />
+<<<<<<< HEAD
     <file path="/thumbViewer.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367376780760" ignored="false" />
     <file path="/leftSlide.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367390278413" ignored="false" />
     <file path="/a.dummy" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367673176415" ignored="false" />
@@ -36,6 +41,9 @@
     <file path="/3c.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367670114706" ignored="false" />
     <file path="/stock.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367645986219" ignored="false" />
     <file path="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailMeta.cshtml" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367674458749" ignored="false" />
+=======
+    <file path="/thumbViewer.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367374197953" ignored="false" />
+>>>>>>> add demo image for thumb viewer
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,8 +72,24 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="detail.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/detail.js">
+=======
+      <file leaf-file-name="thumbViewer.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/thumbViewer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="43" column="8" selection-start="2101" selection-end="2101" vertical-scroll-proportion="0.40990606">
+              <folding>
+                <marker date="1367374717519" expanded="true" signature="1788:1821" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+>>>>>>> add demo image for thumb viewer
           <provider selected="true" editor-type-id="text-editor">
             <state line="342" column="32" selection-start="17060" selection-end="17074" vertical-scroll-proportion="0.0">
               <folding />
@@ -618,7 +642,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
+<<<<<<< HEAD
     <editor active="false" />
+=======
+    <editor active="true" />
+>>>>>>> add demo image for thumb viewer
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928804" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -800,9 +828,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state line="156" column="27" selection-start="6841" selection-end="6841" vertical-scroll-proportion="0.012864494">
           <folding>
             <marker date="1367675226997" expanded="false" signature="24930:24942" placeholder="..." />
+=======
+        <state line="43" column="8" selection-start="2101" selection-end="2101" vertical-scroll-proportion="0.40990606">
+          <folding>
+            <marker date="1367374717519" expanded="true" signature="1788:1821" placeholder="..." />
+>>>>>>> add demo image for thumb viewer
           </folding>
         </state>
       </provider>
