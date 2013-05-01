@@ -4,7 +4,7 @@
         _dom_id_J_UlThumb,
         _dom_li_array,
         _later_fn,
-        L = 100,
+        _time = 100,
         _str_classname_tb_selected = "tb-selected",
         _STR_HIDDEN = "hidden",
         _zoomlevel,
@@ -41,9 +41,7 @@
     }
     function _remove_img_size_to_url(_img) {
         var _url = _img.src || _dom.attr(_img, "data-ks-lazyload");
-        //return _url.replace(new RegExp("_" + _size_config.smallSize.join("x") + "\\.(jpg|png|gif)$"), "")
-        //2013-05-01 basilwang don't filter _60*60
-        return _url.replace(new RegExp("\\.(jpg|png|gif)$"), "")
+        return _url.replace(new RegExp("_" + _size_config.smallSize.join("x") + "\\.(jpg|png|gif)$"), "")
     }
     return { init: function () {
         var _thumbviewer = this;
@@ -69,7 +67,7 @@
             _later_fn = _kissy.later(function () {
                 _thumbviewer._switchTo(_e.target);
                 _kissy.sendAtpanel("tmalldetail.13.6")
-            }, L)
+            }, _time)
         });
         _event.on(_dom_li_array, "mouseleave", function () {
             _later_fn && _later_fn.cancel()
