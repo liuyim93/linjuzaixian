@@ -261,7 +261,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return JavaScript(script);
         }
 
-        public ActionResult ListDetailRate(string itemId)
+        public ActionResult ListDetailRate(string itemId,string callback)
         {
 
             dynamic rateList = new Dictionary<string, List<Rate>>();
@@ -331,7 +331,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 rateDetail = rateDetailModel
             };
             string json = jsonResult.FormatResult();
-            string script = "jsonp347(" + json + ")";
+            string script = callback + "(" + json + ")";
 
             return JavaScript(script);
         }
