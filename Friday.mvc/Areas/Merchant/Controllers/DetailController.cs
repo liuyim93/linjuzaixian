@@ -264,41 +264,41 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         public ActionResult ListDetailRate(string itemId,string callback)
         {
 
-            dynamic rateList = new Dictionary<string, List<Rate>>();
-       
+            var rateList = new List<Rate>();
+
             for (int i = 0; i < 10; i++)
             {
-                rateList.Add(i.ToString(), new Rate()
+                rateList.Add(new Rate()
                   {
-                         aliMallSeller=false,
-			             anony=true,
-			             appendComment= i.ToString(),
-			             attributes= i.ToString(),
-			             auctionSku="颜色分类:"+i.ToString()+"激光紫色/帆白;尺码:37.5/6.5",
-			             buyCount= 0,
-			             cmsSource="天猫",
-			             displayRatePic="b_red_1.gif",
-			             displayRateSum=5,
-			             displayUserLink="",
-			             displayUserNick="h***7",
-			             displayUserNumId="",
-			             displayUserRateLink="",
-			             dsr=5.0,
-			             fromMall=true,
-			             fromMemory=0,
-			             id=i.ToString(),
-               			 position="",
-			             rateContent=i.ToString()+"很好的鞋子，适合夏天穿",
-			             rateDate="2013-04-04 12:00:01",
-			             reply="",
-			             serviceRateContent="",
-			             tamllSweetLevel=2,
-			             tmallSweetPic="tmall-grade-t2-18.png",
-			             useful=true,
-			             userInfo="",
-			             userVipLevel=0,
-			             userVipPic=""
-                        });
+                      aliMallSeller = false,
+                      anony = true,
+                      appendComment = i.ToString(),
+                      attributes = i.ToString(),
+                      auctionSku = "颜色分类:" + i.ToString() + "激光紫色/帆白;尺码:37.5/6.5",
+                      buyCount = 0,
+                      cmsSource = "天猫",
+                      displayRatePic = "b_red_1.gif",
+                      displayRateSum = 5,
+                      displayUserLink = "",
+                      displayUserNick = "h***7",
+                      displayUserNumId = "",
+                      displayUserRateLink = "",
+                      dsr = 5.0,
+                      fromMall = true,
+                      fromMemory = 0,
+                      id = i.ToString(),
+                      position = "",
+                      rateContent = i.ToString() + "很好的鞋子，适合夏天穿",
+                      rateDate = "2013-04-04 12:00:01",
+                      reply = "",
+                      serviceRateContent = "",
+                      tamllSweetLevel = 2,
+                      tmallSweetPic = "tmall-grade-t2-18.png",
+                      useful = true,
+                      userInfo = "",
+                      userVipLevel = 0,
+                      userVipPic = ""
+                  });
             }
 
             RateDetailModelObject rateDetailModel = new RateDetailModelObject()
@@ -322,7 +322,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 			       showChooseTopic=false,
 			       storeType=1
                },
-               rateList ="["+rateList+"]",
+               rateList = rateList,
                tags=""
            };
             FormatJsonResult jsonResult = new FormatJsonResult();

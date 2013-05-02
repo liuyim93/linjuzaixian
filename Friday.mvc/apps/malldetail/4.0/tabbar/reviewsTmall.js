@@ -242,13 +242,13 @@
                         success: function (_results) {
                             window.TB.detailRate = _results.rateDetail;
                             if (!I) {
-                                _dom_div_id_bd.innerHTML = n(m(window.TB.detailRate));
+                                _dom_div_id_bd.innerHTML = n(_populate_detailRate(window.TB.detailRate));
                                 d();
                                 M = _kissy_z.get("#J_Show-rate-table");
                                 b();
                                 q(1)
                             } else {
-                                M.innerHTML = n(m(window.TB.detailRate))
+                                M.innerHTML = n(_populate_detailRate(window.TB.detailRate))
                             }
                             if (!E) {
                                 E = _kissy_z.get("#J_Graph")
@@ -641,7 +641,7 @@
             }
             return _rating_combo
         }
-        function m(_detailRate) {
+        function _populate_detailRate(_detailRate) {
             var _paginator = _detailRate.paginator,
 				_rateList = _detailRate.rateList;
             _detailRate.showChooseTopic = _detailRate.rateDanceInfo.showChooseTopic;
@@ -672,17 +672,17 @@
                 _rateItem.displayUserNick1 = _rateItem.displayUserNick.replace(/(\*+)/, '<span class="tb-anonymous">$1</span>');
                 _rateItem.fromMall = _rateItem.fromMall || (typeof _rateItem.fromMall == "undefined")
             });
-            var z = "selected='selected'";
+            var _selected_class_snippet = "selected='selected'";
             _detailRate.commType = {
-                isShowAll: v.showContent === "" ? z : "",
-                isHasContent: v.showContent === "1" ? z : "",
-                isNoContent: v.showContent === "0" ? z : "",
-                isHasAppend: v.showContent === "2" ? z : ""
+                isShowAll: v.showContent === "" ? _selected_class_snippet : "",
+                isHasContent: v.showContent === "1" ? _selected_class_snippet : "",
+                isNoContent: v.showContent === "0" ? _selected_class_snippet : "",
+                isHasAppend: v.showContent === "2" ? _selected_class_snippet : ""
             };
             var AH = {};
             if (_paginator.lastPage > 0) {
                 var AE = _paginator.page,
-					AC, AF = '<span class="page-break">...</span>';
+					AC, _page_break_snippet = '<span class="page-break">...</span>';
                 _paginator.lastPage = _paginator.lastPage > 99 ? 99 : _paginator.lastPage;
                 if (AE == 1) {
                     u = _paginator.lastPage
@@ -693,8 +693,8 @@
                     AC = _paginator.lastPage
                 }
                 AH.page = AE;
-                AH.prevPageLink = AE > 1 ? S(AE - 1, "&lt;&lt;\u4e0a\u4e00\u9875", "page-prev") : '<span class="page-start">&lt;&lt;\u4e0a\u4e00\u9875</span>';
-                AH.nextPageLink = (AE < AC) ? S(AE + 1, "\u4e0b\u4e00\u9875&gt;&gt;", "page-next") : '<span class="page-end">\u4e0b\u4e00\u9875&gt;&gt;</span>';
+                AH.prevPageLink = AE > 1 ? _get_link(AE - 1, "&lt;&lt;上一页", "page-prev") : '<span class="page-start">&lt;&lt;上一页</span>';
+                AH.nextPageLink = (AE < AC) ? _get_link(AE + 1, "下一页&gt;&gt;", "page-next") : '<span class="page-end">下一页&gt;&gt;</span>';
                 var AA, AB, y, AD, AK, AG = {
                     1: 4,
                     2: 4,
@@ -719,8 +719,8 @@
                 AH.pages2 = AB;
                 AD = AE == 1 ? AE : AH.pages1[0].page;
                 AK = AE == AC ? AE : AH.pages2[AH.pages2.length - 1].page;
-                AH.prevMore = AD > 1 ? S(1, "1") + (AD > 2 ? S(2, "2") : "") + (AD > 3 ? AF : "") : "";
-                AH.nextMore = (AK <= AC && AE != AC && u >= 5) ? AF : ""
+                AH.prevMore = AD > 1 ? _get_link(1, "1") + (AD > 2 ? _get_link(2, "2") : "") + (AD > 3 ? _page_break_snippet : "") : "";
+                AH.nextMore = (AK <= AC && AE != AC && u >= 5) ? _page_break_snippet : ""
             } else {
                 AH = null
             }
@@ -767,8 +767,8 @@
             _rank_block = _rank_block.join(" - ");
             return _displayRateSum >= 4 ? ['<img align="absmiddle" class="rank" title="', _rank_block, '买家信用积分，请点击查看详情" src="http://a.tbcdn.cn/sys/common/icon/rank_s/', _displayRatePic, '" alt="', _rank_block, '" />'].join("") : ""
         }
-        function S(z, AA, y) {
-            return "<a" + (y ? ' class="' + y + '"' : "") + ' href="javascript:void(0);" data-page="' + z + '">' + (AA || z) + "</a>"
+        function _get_link(_page_index, _title, _class) {
+            return "<a" + (_class ? ' class="' + _class + '"' : "") + ' href="javascript:void(0);" data-page="' + _page_index + '">' + (_title || _page_index) + "</a>"
         }
     }
     return {
