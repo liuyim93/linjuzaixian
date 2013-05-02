@@ -5,7 +5,7 @@
     var _dom_id_J_Reviews, M, U, _is_loaded = false,
 		I = false,
 		_gradeAvg, N, _document = document,
-		B, _STR_J_Reviews = "#J_Reviews";
+		_append, _STR_J_Reviews = "#J_Reviews";
     var L = {
         tags: null,
         selectedTag: {
@@ -231,12 +231,12 @@
             })
         }
         function l() {
-            B = v.append;
+            _append = v.append;
             _kissy.use("malldetail/data/data", function (_kissy_z, _malldetail_data_data) {
                 _malldetail_data_data.onReviewCount(function (_review_cfg) {
                     _gradeAvg = _review_cfg.gradeAvg;
                     _ajax({
-                        url: _cfg.url.rate + "/list_detail_rate.htm",
+                        url: _cfg.url.rate + "/Merchant/Detail/ListDetailRate",
                         data: v,
                         dataType: "jsonp",
                         success: function (_results) {
@@ -623,7 +623,7 @@
             }
             return AB.join("")
         }
-        function e(z) {
+        function _set_rating_combo(_detailRate) {
             var _rating_combo = {};
             if (!_kissy.isUndefined(_gradeAvg)) {
                 _rating_combo.merchandisScore = _gradeAvg;
@@ -641,56 +641,56 @@
             }
             return _rating_combo
         }
-        function m(AJ) {
-            var AI = AJ.paginator,
-				AL = AJ.rateList;
-            AJ.showChooseTopic = AJ.rateDanceInfo.showChooseTopic;
-            AJ.scoreInfo = e(AJ);
-            AJ.tmallRateType = _cfg.tmallRateType;
-            _kissy.each(AL, function (AO) {
-                var AM = AO;
-                var AN = AO;
-                AO.grade = r(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://img03.taobaocdn.com/tps/i3/T1PbuIXclkXXXXXXXX-16-16.png", "http://img04.taobaocdn.com/tps/i4/T1FHuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1GYuIXcRkXXXXXXXX-16-16.png", "http://img02.taobaocdn.com/tps/i2/T1HbuIXcNkXXXXXXXX-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
-                AO.rateDate = a(AO.rateDate);
-                if (typeof AO.appendComment == "object") {
-                    AO.appendComment.commentTime = a(AO.appendComment.commentTime);
-                    if (AO.appendComment.content) {
-                        AO.appendComment.content = Q(AO.appendComment.content)
+        function m(_detailRate) {
+            var _paginator = _detailRate.paginator,
+				_rateList = _detailRate.rateList;
+            _detailRate.showChooseTopic = _detailRate.rateDanceInfo.showChooseTopic;
+            _detailRate.scoreInfo = _set_rating_combo(_detailRate);
+            _detailRate.tmallRateType = _cfg.tmallRateType;
+            _kissy.each(_rateList, function (_rateItem) {
+                var AM = _rateItem;
+                var AN = _rateItem;
+                _rateItem.grade = r(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://img03.taobaocdn.com/tps/i3/T1PbuIXclkXXXXXXXX-16-16.png", "http://img04.taobaocdn.com/tps/i4/T1FHuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1GYuIXcRkXXXXXXXX-16-16.png", "http://img02.taobaocdn.com/tps/i2/T1HbuIXcNkXXXXXXXX-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
+                _rateItem.rateDate = a(_rateItem.rateDate);
+                if (typeof _rateItem.appendComment == "object") {
+                    _rateItem.appendComment.commentTime = a(_rateItem.appendComment.commentTime);
+                    if (_rateItem.appendComment.content) {
+                        _rateItem.appendComment.content = Q(_rateItem.appendComment.content)
                     }
-                    if (AO.appendComment.reply) {
-                        AO.appendComment.reply = Q(AO.appendComment.reply)
+                    if (_rateItem.appendComment.reply) {
+                        _rateItem.appendComment.reply = Q(_rateItem.appendComment.reply)
                     }
-                    while (AO.appendComment.days < 0) {
-                        AO.appendComment.days += 365
+                    while (_rateItem.appendComment.days < 0) {
+                        _rateItem.appendComment.days += 365
                     }
                 }
-                AO.rateContent = Q(AO.rateContent);
-                AO.serviceRateContent = Q(AO.serviceRateContent);
-                if (AO.reply) {
-                    AO.reply = Q(AO.reply)
+                _rateItem.rateContent = Q(_rateItem.rateContent);
+                _rateItem.serviceRateContent = Q(_rateItem.serviceRateContent);
+                if (_rateItem.reply) {
+                    _rateItem.reply = Q(_rateItem.reply)
                 }
-                AO.displayUserNick1 = AO.displayUserNick.replace(/(\*+)/, '<span class="tb-anonymous">$1</span>');
-                AO.fromMall = AO.fromMall || (typeof AO.fromMall == "undefined")
+                _rateItem.displayUserNick1 = _rateItem.displayUserNick.replace(/(\*+)/, '<span class="tb-anonymous">$1</span>');
+                _rateItem.fromMall = _rateItem.fromMall || (typeof _rateItem.fromMall == "undefined")
             });
             var z = "selected='selected'";
-            AJ.commType = {
+            _detailRate.commType = {
                 isShowAll: v.showContent === "" ? z : "",
                 isHasContent: v.showContent === "1" ? z : "",
                 isNoContent: v.showContent === "0" ? z : "",
                 isHasAppend: v.showContent === "2" ? z : ""
             };
             var AH = {};
-            if (AI.lastPage > 0) {
-                var AE = AI.page,
+            if (_paginator.lastPage > 0) {
+                var AE = _paginator.page,
 					AC, AF = '<span class="page-break">...</span>';
-                AI.lastPage = AI.lastPage > 99 ? 99 : AI.lastPage;
+                _paginator.lastPage = _paginator.lastPage > 99 ? 99 : _paginator.lastPage;
                 if (AE == 1) {
-                    u = AI.lastPage
+                    u = _paginator.lastPage
                 }
                 if (AE < 5) {
-                    AC = AI.lastPage > u ? AI.lastPage : u
+                    AC = _paginator.lastPage > u ? _paginator.lastPage : u
                 } else {
-                    AC = AI.lastPage
+                    AC = _paginator.lastPage
                 }
                 AH.page = AE;
                 AH.prevPageLink = AE > 1 ? S(AE - 1, "&lt;&lt;\u4e0a\u4e00\u9875", "page-prev") : '<span class="page-start">&lt;&lt;\u4e0a\u4e00\u9875</span>';
@@ -724,9 +724,9 @@
             } else {
                 AH = null
             }
-            AJ.paginator = AH;
-            AJ.tmallRateType = _cfg.tmallRateType;
-            return AJ
+            _detailRate.paginator = AH;
+            _detailRate.tmallRateType = _cfg.tmallRateType;
+            return _detailRate
         }
         function w(z, AA) {
             var y;
