@@ -2,7 +2,7 @@
     var _cfg;
     var _g_config = window.g_config,
 		_reviewsTmall_cfg;
-    var _dom_id_J_Reviews, M, U, _is_loaded = false,
+    var _dom_id_J_Reviews, _dom_id_J_Show_rate_table, U, _is_loaded = false,
 		I = false,
 		_gradeAvg, N, _document = document,
 		_append, _STR_J_Reviews = "#J_Reviews";
@@ -22,7 +22,7 @@
         }
     };
     var K = false;
-    var E;
+    var _dom_id_J_Graph;
 
     function O(b) {
         var a = "http://log.mmstat.com/";
@@ -112,7 +112,7 @@
             if (!z) {
                 y = y.slice(0, 8)
             }
-            _dom.html(_dom.get(".btag-list", E), _kissy.Template(_snippet).render({
+            _dom.html(_dom.get(".btag-list", _dom_id_J_Graph), _kissy.Template(_snippet).render({
                 tags: y.sort(AA),
                 selectedTag: L.selectedTag
             }))
@@ -156,7 +156,7 @@
                             AC += AO.tags[AI].count
                         }
                         if (AC >= 20) {
-                            E.innerHTML = '<ul class="btag-list"></ul>' + (AO.tags.length > 8 ? '<em class="pay-toggler" title="\u663e\u793a\u6240\u6709\u4fe1\u606f"></em>' : "");
+                            _dom_id_J_Graph.innerHTML = '<ul class="btag-list"></ul>' + (AO.tags.length > 8 ? '<em class="pay-toggler" title="\u663e\u793a\u6240\u6709\u4fe1\u606f"></em>' : "");
                             Z(false)
                         } else {
                             _dom.removeClass("#J_RateScore", "tm-tagRate-info");
@@ -244,32 +244,32 @@
                             if (!I) {
                                 _dom_div_id_bd.innerHTML = n(_populate_detailRate(window.TB.detailRate));
                                 d();
-                                M = _kissy_z.get("#J_Show-rate-table");
+                                _dom_id_J_Show_rate_table = _kissy_z.get("#J_Show-rate-table");
                                 b();
                                 q(1)
                             } else {
-                                M.innerHTML = n(_populate_detailRate(window.TB.detailRate))
+                                _dom_id_J_Show_rate_table.innerHTML = n(_populate_detailRate(window.TB.detailRate))
                             }
-                            if (!E) {
-                                E = _kissy_z.get("#J_Graph")
+                            if (!_dom_id_J_Graph) {
+                                _dom_id_J_Graph = _kissy_z.get("#J_Graph")
                             }
-                            i();
+                            _show_expand_button();
                             window.TB.detailRate = null;
-                            var AC = _isSpu ? "spudetail" : "itemdetail";
+                            var _detail_type = _isSpu ? "spudetail" : "itemdetail";
                             O({
                                 from: "all",
-                                type: AC
+                                type: _detail_type
                             })
                         }
                     })
                 })
             })
         }
-        function i() {
-            _kissy.each(_kissy.query("#J_Show-rate-table .rate-auto"), function (y) {
-                if (y.offsetHeight / 18 > 10) {
-                    _dom.insertAfter(_dom.create("<div class='rate-btn'><a href='javascript:;' title='\u5c55\u5f00\u5168\u6587' class='b-showMore'>&nbsp;</a></div>"), y);
-                    _dom.addClass(y, "rate-haveMoreContent")
+        function _show_expand_button() {
+            _kissy.each(_kissy.query("#J_Show-rate-table .rate-auto"), function (_rate_item) {
+                if (_rate_item.offsetHeight / 18 > 10) {
+                    _dom.insertAfter(_dom.create("<div class='rate-btn'><a href='javascript:;' title='展开全文' class='b-showMore'>&nbsp;</a></div>"), _rate_item);
+                    _dom.addClass(_rate_item, "rate-haveMoreContent")
                 }
             })
         }
