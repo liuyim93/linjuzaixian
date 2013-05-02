@@ -47,11 +47,8 @@
 =======
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/RateDetailModelObject.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/RateDetailModelObject.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" afterPath="$PROJECT_DIR$/Friday.mvc/Friday.mvc.csproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
 >>>>>>> finish merchant extension controller
     <ignored path="Friday.iws" />
@@ -459,6 +456,7 @@
         </entry>
       </file>
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> remove custom dc
       <file leaf-file-name="head-seed.js" pinned="false" current="false" current-in-tab="false">
 >>>>>>> rename breadcrumb
@@ -469,9 +467,12 @@
 >>>>>>> add quick-search
 =======
       <file leaf-file-name="reviewsTmall.js" pinned="false" current="true" current-in-tab="true">
+=======
+      <file leaf-file-name="reviewsTmall.js" pinned="false" current="false" current-in-tab="false">
+>>>>>>> replace list_dsr_info.htm with ListDsrInfo
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="253" column="67" selection-start="11525" selection-end="11525" vertical-scroll-proportion="0.5672823">
+            <state line="238" column="29" selection-start="10687" selection-end="10702" vertical-scroll-proportion="-14.4827585">
               <folding>
                 <marker date="1367481734398" expanded="true" signature="2871:2902" placeholder="..." />
                 <marker date="1367481734398" expanded="true" signature="9608:9649" placeholder="..." />
@@ -489,6 +490,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -529,6 +531,12 @@
 =======
             <state line="135" column="65" selection-start="7204" selection-end="7204" vertical-scroll-proportion="0.0">
 >>>>>>> replace list_detail_rate.htm  with  ListDetailRate
+=======
+      <file leaf-file-name="data.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="141" column="32" selection-start="7443" selection-end="7443" vertical-scroll-proportion="0.6012007">
+>>>>>>> replace list_dsr_info.htm with ListDsrInfo
               <folding />
             </state>
           </provider>
@@ -735,9 +743,12 @@
 >>>>>>> remove custom dc
 =======
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
+<<<<<<< HEAD
 >>>>>>> small changes
+=======
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
+>>>>>>> replace list_dsr_info.htm with ListDsrInfo
       </list>
     </option>
   </component>
@@ -1800,16 +1811,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="65" selection-start="7204" selection-end="7204" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="253" column="67" selection-start="11525" selection-end="11525" vertical-scroll-proportion="0.5672823">
+        <state line="238" column="29" selection-start="10687" selection-end="10702" vertical-scroll-proportion="-14.4827585">
           <folding>
             <marker date="1367481734398" expanded="true" signature="2871:2902" placeholder="..." />
             <marker date="1367481734398" expanded="true" signature="9608:9649" placeholder="..." />
@@ -1822,6 +1826,13 @@
             <marker date="1367481734398" expanded="true" signature="26320:26354" placeholder="..." />
             <marker date="1367481734398" expanded="true" signature="26464:26498" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="141" column="32" selection-start="7443" selection-end="7443" vertical-scroll-proportion="0.6012007">
+          <folding />
         </state>
       </provider>
     </entry>
