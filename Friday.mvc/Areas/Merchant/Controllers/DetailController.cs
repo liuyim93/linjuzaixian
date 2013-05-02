@@ -260,7 +260,29 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
+        public ActionResult ListDsrInfo(string itemId,string sellerId, string callback)
+        {
+            DSRModel dsrModel = new DSRModel()
+            {
+                dsr = new DSR()
+                {
+                  gradeAvg=4.8f,
+                   itemId=itemId,
+                   peopleNum=16,
+                   periodSoldQuantity=0,
+                   rateTotal=40,
+                  sellerId = sellerId,
+                  spuId = "203480309",
+                  totalSoldQuantity=0
+                }
+            };
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = dsrModel;
+            string json = jsonResult.FormatResult();
+            string script = callback + "(" + json + ")";
 
+            return JavaScript(script);
+        }
         public ActionResult ListDetailRate(string itemId,string callback)
         {
 

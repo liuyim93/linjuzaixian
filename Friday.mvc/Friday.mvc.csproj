@@ -133,6 +133,7 @@
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Merchant\Models\DcModel.cs" />
     <Compile Include="Areas\Merchant\Models\DefaultModelObject.cs" />
+    <Compile Include="Areas\Merchant\Models\DSRModel.cs" />
     <Compile Include="Areas\Merchant\Models\ExtensionModel.cs" />
     <Compile Include="Areas\Merchant\Models\RateDetailModelObject.cs" />
     <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
