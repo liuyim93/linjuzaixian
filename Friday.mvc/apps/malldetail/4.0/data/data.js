@@ -139,7 +139,7 @@
                 _url = "http://ratecount.tbcdn.cn/counter7?keys=" + M
             }
         } else {
-            _url = "http://rate.tmall.com" + "/list_dsr_info.htm";
+            _url = _cfg.url.rate + "/Merchant/Detail/ListDsrInfo";
             _data = { itemId: _itemDO.itemId, spuId: _itemDO.spuId, sellerId: _itemDO.userId }
         }
         _ajax({ url: _url, data: _data, dataType: "jsonp", success: function (_results) {
