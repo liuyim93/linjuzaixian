@@ -1,21 +1,22 @@
-﻿KISSY.add("malldetail/sku/linkbasket", function (A, C, B) {
-    var D = A.mods.SKU;
-    D.LinkBasket = new D.Util.BuyLinkStatu("#J_LinkBasket", 3);
-    D.BasketHandler = function () {
-        var H = KISSY, R = H.DOM, P = H.Event, N = document, I = N.body, F = {}, E, G = H.merge({}, H.EventTarget), L = false;
+﻿KISSY.add("malldetail/sku/linkbasket", function (_kissy_A, _malldetail_sku_skuMsg, _malldetail_sku_validator) {
+    var _mods_SKU = _kissy_A.mods.SKU;
+    _mods_SKU.LinkBasket = new _mods_SKU.Util.BuyLinkStatu("#J_LinkBasket", 3);
+    _mods_SKU.BasketHandler = function () {
+        var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, _document = document, _body = _document.body,
+            F = {}, E, _eventTarget = _kissy.merge({}, _kissy.EventTarget), L = false;
         var T = null;
         function Q() {
-            if (!(F = A.cfg()) || !(E = F.linkBasket)) {
+            if (!(F = _kissy_A.cfg()) || !(E = F.linkBasket)) {
                 return
             }
             O(function () {
-                A.use("TMiniCart", function () {
-                    P.on(E, "click", M)
+                _kissy_A.use("TMiniCart", function () {
+                    _event.on(E, "click", M)
                 })
             })
         }
         function O(V) {
-            if (!H.isFunction(V)) {
+            if (!_kissy.isFunction(V)) {
                 V = function () {
                     return
                 }
@@ -27,11 +28,11 @@
                         U++;
                         setTimeout(arguments.callee, 200)
                     } else {
-                        D.basketAnim.init();
+                        _mods_SKU.basketAnim.init();
                         V()
                     }
                 } else {
-                    A.sendErr("Cart200")
+                    _kissy_A.sendErr("Cart200")
                 }
             };
             S()
@@ -42,8 +43,8 @@
                 L = false;
                 J(U);
                 setTimeout(function () {
-                    P.on(".Tms_Comm_Login", "click", function () {
-                        H.onLogin(function () {
+                    _event.on(".Tms_Comm_Login", "click", function () {
+                        _kissy.onLogin(function () {
                             K(U)
                         })
                     })
@@ -51,8 +52,8 @@
                 if (F.divKeyProp) {
                     F.divKeyProp.close()
                 }
-                A.flush();
-                A.use("malldetail/recommend/basketrecommend", function (V, W) {
+                _kissy_A.flush();
+                _kissy_A.use("malldetail/recommend/basketrecommend", function (V, W) {
                     if (T) {
                         clearTimeout(T)
                     }
@@ -67,60 +68,60 @@
             var V = W.target;
             var U = this;
             if (V.tagName == "B") {
-                V = R.parent(V)
+                V = _dom.parent(V)
             }
-            if (R.hasClass(V, "noPost")) {
+            if (_dom.hasClass(V, "noPost")) {
                 return
             }
             var S = function () {
-                R.addClass(U, "tb-act");
-                A.sendAtpanel("tmalljy.1.1", { shopid: F.rstShopId, itemid: F.itemDO.itemId, pos: "detailclickadd" });
-                if (L || !B.run(true) || !D.dqCity.getOrder()) {
+                _dom.addClass(U, "tb-act");
+                _kissy_A.sendAtpanel("tmalljy.1.1", { shopid: F.rstShopId, itemid: F.itemDO.itemId, pos: "detailclickadd" });
+                if (L || !_malldetail_sku_validator.run(true) || !_mods_SKU.dqCity.getOrder()) {
                     return false
                 }
-                G.fire("beforesubmit");
+                _eventTarget.fire("beforesubmit");
                 var Y = F.frmBid, Z;
                 var X = Y.buy_param.value;
                 X = X.split("_");
-                A.mods.Token.onInited(function () {
-                    var a = { _tb_token_: F.valToken, add: H.mix({ deliveryCityCode: Y.destination.value, campaignId: F.varPromotionId, items: [{ itemId: X[0], skuId: X[2], quantity: X[1], serviceInfo: X[3] || ""}] }, F.addToCartParames) };
-                    D.Util.getTrackID(function (b) {
+                _kissy_A.mods.Token.onInited(function () {
+                    var a = { _tb_token_: F.valToken, add: _kissy.mix({ deliveryCityCode: Y.destination.value, campaignId: F.varPromotionId, items: [{ itemId: X[0], skuId: X[2], quantity: X[1], serviceInfo: X[3] || ""}] }, F.addToCartParames) };
+                    _mods_SKU.Util.getTrackID(function (b) {
                         a.tsid = b;
                         K(a)
                     })
                 })
             };
-            !!F.detail.loginBeforeCart ? A.onLogin(S) : S();
-            A.sendAtpanel("tmalldetail.50.3")
+            !!F.detail.loginBeforeCart ? _kissy_A.onLogin(S) : S();
+            _kissy_A.sendAtpanel("tmalldetail.50.3")
         }
         function J(U) {
             if (U.error) {
                 switch (U.errorCode) {
                     case "BuyerNeedLogin":
-                        A.onLogin(function () {
+                        _kissy_A.onLogin(function () {
                             window.location.reload()
                         });
                         break;
                     case "TrackCartIsFull":
                         var S = U.error;
-                        S = S.replace(/<a\s+[^>]+>\u767b\u5f55<\/a>/, '<a class="Tms_Comm_Login" href="#">\u767b\u5f55</a>');
-                        C.show(S);
+                        S = S.replace(/<a\s+[^>]+>登录<\/a>/, '<a class="Tms_Comm_Login" href="#">登录</a>');
+                        _malldetail_sku_skuMsg.show(S);
                         break;
                     default:
-                        C.show(U.error);
+                        _malldetail_sku_skuMsg.show(U.error);
                         break
                 }
                 return
             }
-            D.basketAnim.run(E);
+            _mods_SKU.basketAnim.run(E);
             if (U.warn) {
-                C.show(U.warn, "attention")
+                _malldetail_sku_skuMsg.show(U.warn, "attention")
             }
         }
         return { onBeforeSubmit: function (S) {
-            G.on("beforesubmit", S)
+            _eventTarget.on("beforesubmit", S)
         }, init: function () {
-            H.ready(function () {
+            _kissy.ready(function () {
                 Q()
             })
         }, load: function (S) {
