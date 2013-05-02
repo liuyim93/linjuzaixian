@@ -2,14 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/RateDetailModelObject.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Models/RateDetailModelObject.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Friday.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367474176915" ignored="false" />
     <file path="$USER_HOME$/WebstormProjects/untitled/ark" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1363744916043" ignored="false" />
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367416248972" ignored="false" />
-    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367478020155" ignored="false" />
+    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367479415342" ignored="false" />
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367411478846" ignored="false" />
     <file path="/itemDesc.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367290119071" ignored="false" />
     <file path="/sellerinfo.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367228583690" ignored="false" />
@@ -116,18 +121,18 @@
       <file leaf-file-name="reviewsTmall.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="665" column="31" selection-start="34492" selection-end="34492" vertical-scroll-proportion="0.46174142">
+            <state line="253" column="67" selection-start="11525" selection-end="11525" vertical-scroll-proportion="0.5672823">
               <folding>
-                <marker date="1367478021421" expanded="true" signature="2871:2902" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="9608:9649" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="9721:9775" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="9973:10005" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="23738:23766" placeholder="..." />
-                <marker date="1367478021421" expanded="true" signature="25104:25115" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="25964:25976" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="26163:26197" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="26282:26316" placeholder="..." />
-                <marker date="1367478021421" expanded="false" signature="26426:26460" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="2871:2902" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="9608:9649" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="9721:9775" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="9973:10005" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="23776:23804" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="25142:25153" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="26002:26014" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="26201:26235" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="26320:26354" placeholder="..." />
+                <marker date="1367481734398" expanded="true" signature="26464:26498" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -136,7 +141,7 @@
       <file leaf-file-name="data.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="7" selection-start="6852" selection-end="6852" vertical-scroll-proportion="0.0">
+            <state line="135" column="65" selection-start="7204" selection-end="7204" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -170,7 +175,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/fastlogin.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/shop/shop.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/sku/setup.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/tabbar.js" />
@@ -185,6 +189,7 @@
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/init.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/dc/dc.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/other/mainBody.js" />
+        <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js" />
         <option value="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
       </list>
     </option>
@@ -699,25 +704,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/data/data.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="7" selection-start="6852" selection-end="6852" vertical-scroll-proportion="0.0">
+        <state line="135" column="65" selection-start="7204" selection-end="7204" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="665" column="31" selection-start="34492" selection-end="34492" vertical-scroll-proportion="0.46174142">
+        <state line="253" column="67" selection-start="11525" selection-end="11525" vertical-scroll-proportion="0.5672823">
           <folding>
-            <marker date="1367478021421" expanded="true" signature="2871:2902" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="9608:9649" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="9721:9775" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="9973:10005" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="23738:23766" placeholder="..." />
-            <marker date="1367478021421" expanded="true" signature="25104:25115" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="25964:25976" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="26163:26197" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="26282:26316" placeholder="..." />
-            <marker date="1367478021421" expanded="false" signature="26426:26460" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="2871:2902" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="9608:9649" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="9721:9775" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="9973:10005" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="23776:23804" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="25142:25153" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="26002:26014" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="26201:26235" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="26320:26354" placeholder="..." />
+            <marker date="1367481734398" expanded="true" signature="26464:26498" placeholder="..." />
           </folding>
         </state>
       </provider>
