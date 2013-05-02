@@ -14,11 +14,11 @@
             name: ""
         }
     };
-    var Q = function (S) {
-        if (typeof S == "string") {
-            return S.replace(/\\n/gi, "<br/>").replace(/\\r/gi, "")
+    var _change_enter_to_br = function (_rateContent) {
+        if (typeof _rateContent == "string") {
+            return _rateContent.replace(/\\n/gi, "<br/>").replace(/\\r/gi, "")
         } else {
-            return S
+            return _rateContent
         }
     };
     var K = false;
@@ -650,24 +650,24 @@
             _kissy.each(_rateList, function (_rateItem) {
                 var AM = _rateItem;
                 var AN = _rateItem;
-                _rateItem.grade = r(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://img03.taobaocdn.com/tps/i3/T1PbuIXclkXXXXXXXX-16-16.png", "http://img04.taobaocdn.com/tps/i4/T1FHuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1GYuIXcRkXXXXXXXX-16-16.png", "http://img02.taobaocdn.com/tps/i2/T1HbuIXcNkXXXXXXXX-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
-                _rateItem.rateDate = a(_rateItem.rateDate);
+                _rateItem.grade = _show_rank_pic(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://img03.taobaocdn.com/tps/i3/T1PbuIXclkXXXXXXXX-16-16.png", "http://img04.taobaocdn.com/tps/i4/T1FHuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1GYuIXcRkXXXXXXXX-16-16.png", "http://img02.taobaocdn.com/tps/i2/T1HbuIXcNkXXXXXXXX-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
+                _rateItem.rateDate = _get_date(_rateItem.rateDate);
                 if (typeof _rateItem.appendComment == "object") {
-                    _rateItem.appendComment.commentTime = a(_rateItem.appendComment.commentTime);
+                    _rateItem.appendComment.commentTime = _get_date(_rateItem.appendComment.commentTime);
                     if (_rateItem.appendComment.content) {
-                        _rateItem.appendComment.content = Q(_rateItem.appendComment.content)
+                        _rateItem.appendComment.content = _change_enter_to_br(_rateItem.appendComment.content)
                     }
                     if (_rateItem.appendComment.reply) {
-                        _rateItem.appendComment.reply = Q(_rateItem.appendComment.reply)
+                        _rateItem.appendComment.reply = _change_enter_to_br(_rateItem.appendComment.reply)
                     }
                     while (_rateItem.appendComment.days < 0) {
                         _rateItem.appendComment.days += 365
                     }
                 }
-                _rateItem.rateContent = Q(_rateItem.rateContent);
-                _rateItem.serviceRateContent = Q(_rateItem.serviceRateContent);
+                _rateItem.rateContent = _change_enter_to_br(_rateItem.rateContent);
+                _rateItem.serviceRateContent = _change_enter_to_br(_rateItem.serviceRateContent);
                 if (_rateItem.reply) {
-                    _rateItem.reply = Q(_rateItem.reply)
+                    _rateItem.reply = _change_enter_to_br(_rateItem.reply)
                 }
                 _rateItem.displayUserNick1 = _rateItem.displayUserNick.replace(/(\*+)/, '<span class="tb-anonymous">$1</span>');
                 _rateItem.fromMall = _rateItem.fromMall || (typeof _rateItem.fromMall == "undefined")
@@ -735,37 +735,37 @@
             }
             return z
         }
-        function a(AC) {
-            var AB = AC.split(" ")[0].split("-"),
-				AA = new Date(),
-				AE, z, AD;
-            AE = AB[0];
-            z = AB[1];
-            AD = AB[2];
-            if (AE == AA.getFullYear() && z - 1 == AA.getMonth() && AD == AA.getDate()) {
-                return "\u4eca\u5929"
+        function _get_date(_rateDate) {
+            var _date_set = _rateDate.split(" ")[0].split("-"),
+				_now = new Date(),
+				_year, _month, _day;
+            _year = _date_set[0];
+            _month = _date_set[1];
+            _day = _date_set[2];
+            if (_year == _now.getFullYear() && _month - 1 == _now.getMonth() && _day == _now.getDate()) {
+                return "今天"
             } else {
-                return (AE < AA.getFullYear() ? AE + "." : "") + z + "." + AD
+                return (_year < _now.getFullYear() ? _year + "." : "") + _month + "." + _day
             }
         }
-        function r(AB, z) {
-            var y = [0, 4, 11, 41, 91, 151, 251, 501, 1001, 2001, 5001, 10001, 20001, 50001, 100001, 200001, 500001, 1000001, 2000001, 5000001, 10000001],
-				AD = [0, 0];
-            var AC = 0,
+        function _show_rank_pic(_displayRateSum, _displayRatePic) {
+            var _rank_array = [0, 4, 11, 41, 91, 151, 251, 501, 1001, 2001, 5001, 10001, 20001, 50001, 100001, 200001, 500001, 1000001, 2000001, 5000001, 10000001],
+				_rank_block = [0, 0];
+            var _rank_index = 0,
 				AA;
-            while (AC < y.length && AB >= y[AC]) {
-                AD[0] = y[AC];
-                ++AC;
-                AD[1] = y[AC]
-            } --AC;
-            if (!AD[1]) {
-                AD.pop();
-                AD[0] += "\u4ee5\u4e0a"
+            while (_rank_index < _rank_array.length && _displayRateSum >= _rank_array[_rank_index]) {
+                _rank_block[0] = _rank_array[_rank_index];
+                ++_rank_index;
+                _rank_block[1] = _rank_array[_rank_index]
+            } --_rank_index;
+            if (!_rank_block[1]) {
+                _rank_block.pop();
+                _rank_block[0] += "以上"
             } else {
-                AD[1] = (AD[1] - 1) + "\u4e2a"
+                _rank_block[1] = (_rank_block[1] - 1) + "个"
             }
-            AD = AD.join(" - ");
-            return AB >= 4 ? ['<img align="absmiddle" class="rank" title="', AD, '\u4e70\u5bb6\u4fe1\u7528\u79ef\u5206\uff0c\u8bf7\u70b9\u51fb\u67e5\u770b\u8be6\u60c5" src="http://a.tbcdn.cn/sys/common/icon/rank_s/', z, '" alt="', AD, '" />'].join("") : ""
+            _rank_block = _rank_block.join(" - ");
+            return _displayRateSum >= 4 ? ['<img align="absmiddle" class="rank" title="', _rank_block, '买家信用积分，请点击查看详情" src="http://a.tbcdn.cn/sys/common/icon/rank_s/', _displayRatePic, '" alt="', _rank_block, '" />'].join("") : ""
         }
         function S(z, AA, y) {
             return "<a" + (y ? ' class="' + y + '"' : "") + ' href="javascript:void(0);" data-page="' + z + '">' + (AA || z) + "</a>"

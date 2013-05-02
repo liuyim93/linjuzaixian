@@ -70,11 +70,7 @@
 >>>>>>> add breadcrumb controller
 =======
     <list default="true" id="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.suo" afterPath="$PROJECT_DIR$/Friday.suo" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Controllers/DetailController.cs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" afterPath="$PROJECT_DIR$/Friday.mvc/Areas/Merchant/Views/Shared/_MallDetailScript.cshtml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" afterPath="$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
 >>>>>>> finish merchant extension controller
     <ignored path="Friday.iws" />
@@ -100,6 +96,7 @@
     <file path="/mainBody.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367416248972" ignored="false" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367417063152" ignored="false" />
 >>>>>>> small changes
 =======
@@ -107,6 +104,9 @@
 >>>>>>> small change
 =======
     <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367476643491" ignored="false" />
+>>>>>>> small changes
+=======
+    <file path="/reviewsTmall.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367478020155" ignored="false" />
 >>>>>>> small changes
     <file path="/detail.js" changelist="0fa65d9d-43fa-4b12-903d-0bb7bacb0dd4" time="1367411478846" ignored="false" />
 >>>>>>> remove custom dc
@@ -449,18 +449,18 @@
         <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
 >>>>>>> small changes
           <provider selected="true" editor-type-id="text-editor">
-            <state line="662" column="66" selection-start="34265" selection-end="34265" vertical-scroll-proportion="0.58223397">
+            <state line="665" column="31" selection-start="34492" selection-end="34492" vertical-scroll-proportion="0.46174142">
               <folding>
-                <marker date="1367476655992" expanded="true" signature="2809:2840" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="9546:9587" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="9659:9713" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="9911:9943" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="23676:23704" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="25042:25053" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="25902:25914" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="26101:26135" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="26220:26254" placeholder="..." />
-                <marker date="1367476655992" expanded="false" signature="26364:26398" placeholder="..." />
+                <marker date="1367478021421" expanded="true" signature="2871:2902" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="9608:9649" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="9721:9775" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="9973:10005" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="23738:23766" placeholder="..." />
+                <marker date="1367478021421" expanded="true" signature="25104:25115" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="25964:25976" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="26163:26197" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="26282:26316" placeholder="..." />
+                <marker date="1367478021421" expanded="false" signature="26426:26460" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -1261,7 +1261,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="918" height="1410" extended-state="7" />
+    <frame x="-9" y="-9" width="918" height="1410" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1795,18 +1795,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Friday.mvc/apps/malldetail/4.0/tabbar/reviewsTmall.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="662" column="66" selection-start="34265" selection-end="34265" vertical-scroll-proportion="0.58223397">
+        <state line="665" column="31" selection-start="34492" selection-end="34492" vertical-scroll-proportion="0.46174142">
           <folding>
-            <marker date="1367476655992" expanded="true" signature="2809:2840" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="9546:9587" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="9659:9713" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="9911:9943" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="23676:23704" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="25042:25053" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="25902:25914" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="26101:26135" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="26220:26254" placeholder="..." />
-            <marker date="1367476655992" expanded="false" signature="26364:26398" placeholder="..." />
+            <marker date="1367478021421" expanded="true" signature="2871:2902" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="9608:9649" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="9721:9775" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="9973:10005" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="23738:23766" placeholder="..." />
+            <marker date="1367478021421" expanded="true" signature="25104:25115" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="25964:25976" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="26163:26197" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="26282:26316" placeholder="..." />
+            <marker date="1367478021421" expanded="false" signature="26426:26460" placeholder="..." />
           </folding>
         </state>
       </provider>
