@@ -24,9 +24,9 @@
     var K = false;
     var _dom_id_J_Graph;
 
-    function O(b) {
-        var a = "http://log.mmstat.com/";
-        var d = {
+    function _send_log(_log_cfg) {
+        var _log_url = "http://log.mmstat.com/";
+        var _log_map = {
             meiz: {
                 tagtrue: "tmallmz.2.6",
                 tagfalse: "tmallmz.2.5",
@@ -63,11 +63,11 @@
                 myTag: "tmallrate.6.1.1"
             }
         };
-        var S = b.from,
-			c = b.type,
-			Z = d[S][c];
-        if (Z) {
-            _kissy.sendAtpanel(Z, {
+        var _from = _log_cfg.from,
+			_type = _log_cfg.type,
+			_log_item = _log_map[_from][_type];
+        if (_log_item) {
+            _kissy.sendAtpanel(_log_item, {
                 shopid: _cfg.rstShopId,
                 itemid: _cfg.itemDO.itemId,
                 categoryId: _cfg.itemDO.categoryId
@@ -129,7 +129,7 @@
                 dataType: "jsonp",
                 jsonpCallback: "loadtagjsoncallback",
                 success: function (AH) {
-                    O({
+                    _send_log({
                         from: "all",
                         type: "tmRate-cloud"
                     });
@@ -139,13 +139,13 @@
                     L.tags = AH.tags.tagClouds;
                     if (AO.tags.length) {
                         if (_cfg.tmallRateType == 1) {
-                            O({
+                            _send_log({
                                 from: "meiz",
                                 type: "tagView"
                             })
                         } else {
                             if (_cfg.tmallRateType == 2) {
-                                O({
+                                _send_log({
                                     from: "muying",
                                     type: "myTag"
                                 })
@@ -256,7 +256,7 @@
                             _show_expand_button();
                             window.TB.detailRate = null;
                             var _detail_type = _isSpu ? "spudetail" : "itemdetail";
-                            O({
+                            _send_log({
                                 from: "all",
                                 type: _detail_type
                             })
@@ -384,13 +384,13 @@
                 v.currentPage = 1;
                 var z = _dom.attr(this, "value");
                 if (z == 1) {
-                    O({
+                    _send_log({
                         from: "all",
                         type: "tmRate-time"
                     })
                 } else {
                     if (z == 2) {
-                        O({
+                        _send_log({
                             from: "all",
                             type: "tmRate-xy"
                         })
@@ -404,7 +404,7 @@
                         _dom.removeClass("#J_Graph a", "selected")
                     }
                     if (_cfg.tmallRateType == 2) {
-                        O({
+                        _send_log({
                             from: "muying",
                             type: "myAppend"
                         })
@@ -412,13 +412,13 @@
                 } else {
                     v.order = z;
                     if (_cfg.tmallRateType == 1) {
-                        O({
+                        _send_log({
                             from: "meiz",
                             type: "order" + v.order
                         })
                     } else {
                         if (_cfg.tmallRateType == 2) {
-                            O({
+                            _send_log({
                                 from: "muying",
                                 type: "myOrder" + v.order
                             })
@@ -440,24 +440,24 @@
             v.currentPage = 1;
             v.posi = y == "true" ? "1" : "-1";
             if (y == "true") {
-                O({
+                _send_log({
                     from: "all",
                     type: "tmRate-good"
                 })
             } else {
-                O({
+                _send_log({
                     from: "all",
                     type: "tmRate-bad"
                 })
             }
             if (_cfg.tmallRateType == 1) {
-                O({
+                _send_log({
                     from: "meiz",
                     type: "tag" + y
                 })
             } else {
                 if (_cfg.tmallRateType == 2) {
-                    O({
+                    _send_log({
                         from: "muying",
                         type: "myTag" + y
                     })
@@ -480,7 +480,7 @@
                         _dom.get("#J_allShop").className = "curr"
                     }
                 }
-                O({
+                _send_log({
                     from: "all",
                     type: "tmRate-add"
                 });
@@ -505,7 +505,7 @@
             delete v.posi;
             _dom.removeClass("#J_Graph a", "selected");
             if (z > 0 && _cfg.tmallRateType == 1) {
-                O({
+                _send_log({
                     from: "meiz",
                     type: "forshop1"
                 })
@@ -526,13 +526,13 @@
                 v.ismore = 1;
                 _kissy.later(function () {
                     if (_cfg.tmallRateType == 1) {
-                        O({
+                        _send_log({
                             from: "meiz",
                             type: "page"
                         })
                     } else {
                         if (_cfg.tmallRateType == 2) {
-                            O({
+                            _send_log({
                                 from: "muying",
                                 type: "myPage"
                             })
@@ -540,11 +540,11 @@
                     }
                     l();
                     var AB = _isSpu ? "spupage" : "itempage";
-                    O({
+                    _send_log({
                         from: "all",
                         type: AB
                     });
-                    O({
+                    _send_log({
                         from: "all",
                         type: "tmRate-page"
                     });
