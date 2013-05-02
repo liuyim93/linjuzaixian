@@ -443,7 +443,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
         })
     }
-    function _render_form_wrapper(w) {
+    function _render_form_wrapper(_defaultModel) {
         var _fn_getUrlParams = _kissy_imp.getUrlParams;
         var _dom_form_id_J_FrmBid = _sku_cfg.frmBid;
         if (!_dom_form_id_J_FrmBid) {
@@ -472,26 +472,26 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             return this
         }
         };
-        if (w.secKillDO && w.secKillDO.timeKillKeyName && typeof w.secKillDO.timeKillKey != "undefined") {
-            if (_g_config.isSpu || (_sku_cfg.itemDO.isOnline && (_sku_cfg.itemDO.isSecondKillFromPC || _sku_cfg.itemDO.isSecondKillFromPCAndWap || (_sku_cfg.detail.timeKillAuction && w.userInfoDO.loginUserType)))) {
-                _form_wrapper.set(w.secKillDO.timeKillKeyName, w.secKillDO.timeKillKey)
+        if (_defaultModel.secKillDO && _defaultModel.secKillDO.timeKillKeyName && typeof _defaultModel.secKillDO.timeKillKey != "undefined") {
+            if (_g_config.isSpu || (_sku_cfg.itemDO.isOnline && (_sku_cfg.itemDO.isSecondKillFromPC || _sku_cfg.itemDO.isSecondKillFromPCAndWap || (_sku_cfg.detail.timeKillAuction && _defaultModel.userInfoDO.loginUserType)))) {
+                _form_wrapper.set(_defaultModel.secKillDO.timeKillKeyName, _defaultModel.secKillDO.timeKillKey)
             }
         }
-        if (w.gatewayDO.trade) {
-            for (var v in w.gatewayDO.trade.addToBuyNow) {
-                _form_wrapper.set(v, w.gatewayDO.trade.addToBuyNow[v])
+        if (_defaultModel.gatewayDO.trade) {
+            for (var v in _defaultModel.gatewayDO.trade.addToBuyNow) {
+                _form_wrapper.set(v, _defaultModel.gatewayDO.trade.addToBuyNow[v])
             }
-            delete w.gatewayDO.trade.addToBuyNow
+            delete _defaultModel.gatewayDO.trade.addToBuyNow
         }
         var y = _sku_cfg.itemDO.quantity || "", x;
-        if (w.itemPriceResultDO.promType == 1 && (x = _mods_SKU.getCurrentPromotion()) && x.amountRestriction && x.amountRestriction < y) {
+        if (_defaultModel.itemPriceResultDO.promType == 1 && (x = _mods_SKU.getCurrentPromotion()) && x.amountRestriction && x.amountRestriction < y) {
             y = x.amountRestriction
         }
         _form_wrapper.set("allow_quantity", y);
         _form_wrapper.set("quantity", 1, "quantity");
         _form_wrapper.set("skuId", "", "skuId");
         _form_wrapper.set("skuInfo", "", "skuInfo");
-        if (w.itemPriceResultDO.promType == 1) {
+        if (_defaultModel.itemPriceResultDO.promType == 1) {
             _form_wrapper.set("key", _fn_getUrlParams("key"))
         }
         if (!_g_config.isSpu) {
