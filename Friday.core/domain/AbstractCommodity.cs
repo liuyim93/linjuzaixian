@@ -106,6 +106,11 @@ namespace friday.core
             get;
             set;
         }
-          
+
+        public virtual string Description
+        {
+            get;
+            set;
+        }
     }
 }
