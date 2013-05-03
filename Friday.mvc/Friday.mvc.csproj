@@ -130,6 +130,7 @@
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
     <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
     <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\SearchProductController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Merchant\Models\DcModel.cs" />
     <Compile Include="Areas\Merchant\Models\DefaultModelObject.cs" />
@@ -2803,6 +2804,7 @@
     <Content Include="Areas\Merchant\Views\Shared\_MallDetailScript.cshtml" />
     <Content Include="Areas\Merchant\Views\Shared\_MallDetailMeta.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\seller_info_partial.cshtml" />
+    <Content Include="Areas\Merchant\Views\SearchProduct\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />
