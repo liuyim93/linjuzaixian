@@ -34,8 +34,8 @@
                 _kissy.sendErr("mdskipTimeout", { tl: _elapsed_time })
             }
         }
-        _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_defaultModelObject || {}) : function (_iterator_queue_fn) {
-            _iterator_queue_fn(_defaultModelObject || {})
+        _iterator_queue_fn_wrapper = _iterator_queue_fn_wrapper ? _iterator_queue_fn_wrapper(_defaultModelObject || {}) : function (_filter_pipeline_dry_fn) {
+            _filter_pipeline_dry_fn(_defaultModelObject || {})
         }
     },
         onMdskip: _loader_fn_factory,

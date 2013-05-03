@@ -24,15 +24,15 @@
             }
             return _t_object
         }
-    }, createAsyn: function (_loader_fn, _time) {
-        var _is_fn_load, _t_defaultModelObject, _is_already_load_defaultModelObject, _callback_fn_object, _iterate_handle_queue = [];
-        _loader_fn(function (_defaultModelObject) {
+    }, createAsyn: function (_asyn_loader_fn, _time) {
+        var _is_fn_load, _t_defaultModelObject, _is_already_load_defaultModelObject, _t_child_filter_fn, _child_filter_fn_array = [];
+        _asyn_loader_fn(function (_defaultModelObject) {
             _t_defaultModelObject = _defaultModelObject;
-            while (_callback_fn_object = _iterate_handle_queue.shift()) {
-                _callback_fn_object.handle.apply(null, [_t_defaultModelObject])
+            while (_t_child_filter_fn = _child_filter_fn_array.shift()) {
+                _t_child_filter_fn.handle.apply(null, [_t_defaultModelObject])
             }
         }, 0);
-        return function (_callback_fn, _state) {
+        return function (_asyn_child_filter_fn, _state) {
             if (_state !== 0 && !_state) {
                 _state = 1
             }
@@ -42,30 +42,30 @@
                         return
                     }
                     _is_already_load_defaultModelObject = true;
-                    for (var _index = 0; _index < _iterate_handle_queue.length; _index++) {
-                        _iterate_handle_queue[_index].handle.apply(null, [_t_defaultModelObject]);
-                        if (!(_iterate_handle_queue[_index].type & 8)) {
-                            _iterate_handle_queue.splice(_index, 1);
+                    for (var _index = 0; _index < _child_filter_fn_array.length; _index++) {
+                        _child_filter_fn_array[_index].handle.apply(null, [_t_defaultModelObject]);
+                        if (!(_child_filter_fn_array[_index].type & 8)) {
+                            _child_filter_fn_array.splice(_index, 1);
                             _index--
                         }
                     }
                 }, _time || 200);
-                _loader_fn(null, _state)
+                _asyn_loader_fn(null, _state)
             }
-            if (!_callback_fn) {
+            if (!_asyn_child_filter_fn) {
                 return
             }
             if (_t_defaultModelObject !== undefined || !(_state & 4)) {
-                _loader_fn(_callback_fn, _state);
+                _asyn_loader_fn(_asyn_child_filter_fn, _state);
                 return
             }
             if (_is_already_load_defaultModelObject) {
-                _callback_fn();
+                _asyn_child_filter_fn();
                 if (_state & 8) {
-                    _loader_fn(_callback_fn, _state)
+                    _asyn_loader_fn(_asyn_child_filter_fn, _state)
                 }
             } else {
-                _iterate_handle_queue.push({ handle: _callback_fn, type: _state })
+                _child_filter_fn_array.push({ handle: _asyn_child_filter_fn, type: _state })
             }
         }
     }, loadAssets: function (_url, L, F) {
