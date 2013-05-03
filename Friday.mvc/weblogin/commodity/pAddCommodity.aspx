@@ -96,7 +96,7 @@
                 <input id="Logo" type="file" class="textInput gray" runat="server" />
             </p>
             <p style="color: red">
-                请上传大小为190×142的食物图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+                请上传商品图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
             </p>
 
             <div style="clear:left; margin-top:230px" >
