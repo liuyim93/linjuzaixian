@@ -83,6 +83,26 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchProductModel.Commoditys = commList;
             searchProductModel.count = commList.Count;
 
+            //需要根据 commlist  找出其对应的 Merchants
+            
+            foreach (var i in commList)
+            {
+                bool flag = true;
+                foreach (var j in  searchProductModel.Merchants)
+                {
+                    if (i.Shop.Name == j.Name)
+                    {
+                        flag = false;
+                    }
+                }
+
+                if(flag)
+                {             
+                  searchProductModel.Merchants.Add(i.Shop);
+                }
+            }
+
+
             searchProductModel.currentPage = currentPage;
             searchProductModel.pageNum = total / numPerPageValue + 1;
             searchProductModel.count = total;

@@ -18,11 +18,15 @@ namespace Friday.mvc.Models
             int currentPage;
             int pageNum;
             int prodCount;
-    
+            
+            Merchants = new List<Merchant>();
+
             IList<Food> Foods = new List<Food>();
             IList<House> Houses = new List<House>();
             IList<Commodity> Commoditys = new List<Commodity>();
         }
+
+        public IList<Merchant> Merchants { get; set; }
 
         public int prodCount { get; set; }
 

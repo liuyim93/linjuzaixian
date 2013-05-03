@@ -296,13 +296,21 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  <input type="text" value="" placeholder="搜索&nbsp;品牌名称" style="color: rgb(191, 191, 191); ">
  </div>
   <ul class="av-collapse" data-atp="{loc},{brand},,,{f},4,{c},">
+      
+      @for (var index = 0; index < Model.Merchants.Count(); index++)
+                       {
+                           var item = Model.Merchants.ElementAt(index);    
+                  
+ 
   <li>
- <a data-f="spu-brand-qp" data-c="brand-qp" href="http://list.tmall.com/search_product.htm?from=sn_1_brand-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;brand=29462&amp;cat=2#J_crumbs" title="Aokang/奥康" atpanel="1,29462,,,spu-brand-qp,4,brand-qp,">
- <img src="http://img02.taobaocdn.com/bao/uploaded/i2/T1TczUXlpfXXXQXDnq-90-45.png" alt="Aokang/奥康">
- Aokang/奥康
+ <a data-f="spu-brand-qp" data-c="brand-qp" href="http://localhost:7525/merchant/search?scid=@item.Id" title="@item.Name" atpanel="1,29462,,,spu-brand-qp,4,brand-qp,">
+ <img src="http://localhost:7525/merchant/search?scid=@item.Id" alt="@item.Name">
+         @item.Name
  </a>
  </li>
-  <li>
+          }
+
+ @* <li>
  <a data-f="spu-brand-qp" data-c="brand-qp" href="http://list.tmall.com/search_product.htm?from=sn_1_brand-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;brand=10127352&amp;cat=2#J_crumbs" title="Exull依思Q" atpanel="2,10127352,,,spu-brand-qp,4,brand-qp,">
  <img src="http://img01.taobaocdn.com/bao/uploaded/i1/T1OUHUXb8aXXXQXDnq-90-45.png" alt="Exull依思Q">
  Exull依思Q
@@ -385,7 +393,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  <img src="http://img04.taobaocdn.com/bao/uploaded/i4/T1fbLnXn0eXXXQXDnq-90-45.png" alt="FAR.1984">
  FAR.1984
  </a>
- </li>
+ </li>*@
   </ul>
   <div class="av-options">
  <a class="j_Multiple avo-multiple" href="javascript:;" atpanel="0,brand-multi,,,,20,brand,">多选<i></i></a>
@@ -886,7 +894,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  </div>
 </div>
 
-<form action="http://list.tmall.com/search_product.htm" id="J_FForm">
+<form action="http://localhost:7525/merchant/searchproduct?keyword=@ViewData["skeyword"]" id="J_FForm" method=get>
  <div class="fRange">
    <b class="fR-text">默认排序</b>
    <i class="f-ico-triangle-rb"></i>
@@ -919,12 +927,12 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  <div class="fP-box">
  <b class="fPb-item">
  <i class="ui-price-plain">¥</i>
- <input type="text" name="start_price" autocomplete="off" maxlength="8" value="" class="j_FPInput">
+ <input type="text" name="price1" autocomplete="off" maxlength="8" value="@ViewData["sprice1"]" class="j_FPInput">
  </b>
  <i class="fPb-split"></i>
  <b class="fPb-item">
  <i class="ui-price-plain">¥</i>
- <input type="text" name="end_price" autocomplete="off" value="" maxlength="8" class="j_FPInput">
+ <input type="text" name="price2" autocomplete="off" value="@ViewData["sprice2"]" maxlength="8" class="j_FPInput">
  </b>
  </div>
 
@@ -948,7 +956,11 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
    <a href="javascript:;" class="fType-g fType-cur" atpanel=",g,,,,20,filter,">大图<i class="fTg-ico"></i></a>
  <a href=" http://list.tmall.com/search_product.htm?area_code=370100&amp;style=l&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=2" class="fType-l " atpanel=",l,,,,20,filter,">小图<i class="fTl-ico"></i></a>
    <input type="hidden" name="search_condition" value="16">
-   <input type="hidden" name="cat" value="2">      <input type="hidden" name="sort" value="s"><input type="hidden" name="style" value="g"><input type="hidden" name="vmarket" value="0">  <input name="q" type="hidden" value="鞋">
+   <input type="hidden" name="cat" value="2">      
+   <input type="hidden" name="sort" value="s">
+   <input type="hidden" name="style" value="g">
+   <input type="hidden" name="vmarket" value="0">  
+   <input name="keyword" type="hidden" value="@ViewData["skeyword"]">
 </form>
  <p class="ui-page-s">
 <b class="ui-page-s-len"> @Model.currentPage/@Model.pageNum</b>
