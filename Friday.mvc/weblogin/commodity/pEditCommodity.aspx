@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditCommodity.aspx.cs" Inherits="Friday.mvc.weblogin.pEditCommodity" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" validateRequest="false" CodeBehind="pEditCommodity.aspx.cs" Inherits="Friday.mvc.weblogin.pEditCommodity" %>
 
 <div class="pageFormContent">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">

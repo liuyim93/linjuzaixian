@@ -109,8 +109,10 @@ namespace friday.core.components
             catch (System.Exception Ex)
             {
             }
-
-            return "/uploadimage/" + ParentPath + "/" + filesnewName;
+            if (filesnewName == "")
+                return null;
+            else
+                return "/uploadimage/" + ParentPath + "/" + filesnewName;
         }
     }
 }

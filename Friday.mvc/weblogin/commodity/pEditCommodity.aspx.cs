@@ -61,7 +61,10 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(f);
-            f.Image = CommodityUploadImage.UploadImage(HttpContext.Current.Request.Files, "commodityImage");
+             
+            string imageStr = CommodityUploadImage.UploadImage(HttpContext.Current.Request.Files, "commodityImage");
+            if (imageStr != null)
+            { f.Image = imageStr; }
 
             Shop shop = iShopService.Load(mid);
             f.Shop = shop;

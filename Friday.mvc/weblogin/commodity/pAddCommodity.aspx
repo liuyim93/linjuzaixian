@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddCommodity.aspx.cs" Inherits="Friday.mvc.weblogin.pAddCommodity" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" validateRequest="false" CodeBehind="pAddCommodity.aspx.cs" Inherits="Friday.mvc.weblogin.pAddCommodity" %>
 
 
 <div class="pageFormContent">
-    <form id="form" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this,navTabAjaxDone)" enctype="multipart/form-data" runat="server">
+    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
     <div class="panel collapse">
             <h1>
                 商品基本信息</h1>
@@ -93,7 +93,7 @@
             <p>
                 <label>
                     附件上传：</label>
-                <input id="Logo" type="file" class="textInput gray" runat="server" />
+                <input id="Logo" type="file" class="required textInput gray" runat="server" />
             </p>
             <p style="color: red">
                 请上传商品图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
