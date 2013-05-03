@@ -83,8 +83,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchProductModel.Commoditys = commList;
             searchProductModel.count = commList.Count;
 
-            //需要根据 commlist  找出其对应的 Merchants
-            
+            //需要根据 commlist  找出其对应的 Merchants            
             foreach (var i in commList)
             {
                 bool flag = true;
@@ -101,7 +100,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                   searchProductModel.Merchants.Add(i.Shop);
                 }
             }
-
+            //您是不是想找。。。
+            IList<MerchantGoodsType> mehtGdsTpList = iMerchantGoodsTypeService.GetSimilarGoodsTypeListByKeyword();
 
             searchProductModel.currentPage = currentPage;
             searchProductModel.pageNum = total / numPerPageValue + 1;
