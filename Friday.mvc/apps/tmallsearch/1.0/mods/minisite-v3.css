@@ -1,0 +1,60 @@
+﻿.mv3{position:relative;height:166px;margin-bottom:10px;margin-top:-10px}
+.mv3 a{text-decoration:none}
+.mv3 .minisite-con{position:absolute;width:100%;height:100%;clip:rect(0 9999px 166px -9999px);clip:rect(0,9999px,166px,-9999px)}
+.mv3 .minisite-banner{position:absolute;left:50%;height:100%}
+.mv3 .minisite-banner a{*display:block}
+.mv3 .minisite-banner a img{position:relative;left:-50%;-ms-interpolation-mode:bicubic}
+.mv3 .minisite-banner a .minisite-banner-anim{width:1780px;margin-left:70px}
+.mv3 .minisite-banner .minisite-mask{position:absolute;top:106px;height:60px;width:100%;_width:9999px;margin:0;margin-left:-50%;padding:0;background-color:rgba(255,255,255,0.87);background:url(about:blank) transparent\0;filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#deffffff,endcolorstr=#deffffff);*zoom:1}
+.mv3 .minisite-logo{position:absolute;left:0;bottom:45px;margin:0;padding:0;-webkit-box-shadow:0 2px 2px -1px #c8c8c8;-moz-box-shadow:0 2px 2px -1px #c8c8c8;-ms-box-shadow:0 2px 2px -1px #c8c8c8;-o-box-shadow:0 2px 2px -1px #c8c8c8;box-shadow:0 2px 2px -1px #c8c8c8;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;*border:1px solid #f2f2f2;*border-bottom:1px solid #c8c8c8}
+.mv3 .minisite-logo a{background:#fff;width:96px;height:96px;display:table-cell;*display:inline-block;*font-size:66px;text-align:center;vertical-align:middle;border-radius:3px;-webkit-border-radius:3px;-moz-border-radius:3px;-ms-border-radius:3px;*cursor:expression(function(el){if(/msie(6|7)/i.test(navigator.userAgent)){el.setAttribute('hideFocus','true');el.style.cursor='pointer'}
+}
+(this))}
+.mv3 .minisite-logo a:focus{outline:0}
+.mv3 .minisite-logo a img{width:90px;-ms-interpolation-mode:bicubic}
+.mv3 .minisite-portal{position:absolute;bottom:0;width:100%;margin:16px 0 6px;height:38px;line-height:38px;border-collapse:collapse;overflow:hidden}
+.mv3 .minisite-portal h3{display:inline-block;margin-left:6px;font-size:14px;line-height:38px;cursor:pointer;max-width:140px;_width:expression(function(el){if(/msie 6/i.test(navigator.userAgent))el.style.width =(el.clientWidth>140) ? '140px':'auto'}
+(this));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mv3 .minisite-portal .minisite-prev,.mv3 .minisite-portal .minisite-next{position:absolute;font-weight:bold;text-decoration:none;font-family:\5b8b\4f53;font-size:22px;visibility:hidden;outline:0;opacity:0;filter:Alpha(opactiy=0);-webkit-transition:all .2s ease-in 0s;-moz-transition:all .2s ease-in 0s;-ms-transition:all .2s ease-in 0s;-o-transition:all .2s ease-in 0s;transition:all .2s ease-in 0s;*cursor:expression(function(el){if(/msie(6|7)/i.test(navigator.userAgent)){el.setAttribute('hideFocus','true');el.style.cursor='pointer'}
+}
+(this))}
+.mv3 .minisite-portal .minisite-prev:focus,.mv3 .minisite-portal .minisite-next:focus{outline:0}
+.mv3 .minisite-portal .minisite-prev{left:10px}
+.mv3 .minisite-portal .minisite-next{right:10px}
+.mv3 .minisite-portal .minisite-fav,.mv3 .minisite-portal .minisite-brandsite,.mv3 .minisite-portal .minisite-shops{height:38px}
+.mv3 .minisite-portal .minisite-brandsite,.mv3 .minisite-portal .minisite-shops{position:relative;border-left:1px solid #cfd0d1;padding:0 20px}
+.mv3 .minisite-portal .minisite-brandsite li,.mv3 .minisite-portal .minisite-shop li{list-style-type:disc;list-style-position:inside;padding:0 0 0 15px;max-width:120px;_width:expression(function(el){if(/msie 6/i.test(navigator.userAgent))el.style.width =(el.clientWidth>120) ? '120px':'auto'}
+(this));white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mv3 .minisite-portal .minisite-brandsite li a:hover,.mv3 .minisite-portal .minisite-shop li a:hover{color:#c10001;text-decoration:underline}
+.mv3 .minisite-portal .minisite-brandsite a,.mv3 .minisite-portal .minisite-shop a{float:none}
+.mv3 .minisite-portal .minisite-brandsite a:hover h3,.mv3 .minisite-portal .minisite-shop a:hover h3{color:#c10001;text-decoration:underline}
+.mv3 .minisite-portal .minisite-fav{width:205px}
+.mv3 .minisite-portal .minisite-fav .minisite-fav-btn{float:left;position:relative;display:table-cell;*display:inline-block;*font-size:25px;text-align:center;vertical-align:middle;width:96px}
+.mv3 .minisite-portal .minisite-fav .minisite-fav-btn a{background:#e10000;border-radius:11px;color:#fff;cursor:pointer;font-size:12px;line-height:18px;display:inline-block;height:20px;_height:18px;padding:0 10px}
+.mv3 .minisite-portal .minisite-fav .minisite-fav-btn a.minisite-fav-collected{background:#9a9a9a}
+.mv3 .minisite-portal .minisite-fav .minisite-fav-btn i{display:inline-block;height:12px;line-height:12px;margin:0 4px -2px 0;width:12px;overflow:hidden;background:url(http://img04.taobaocdn.com/tps/i4/T1b7lxXBJeXXcmZd7.-12-12.png)}
+.mv3 .minisite-portal .minisite-fav .minisite-fav-num{line-height:16px;width:109px;color:#272727;margin:0 auto;padding:2px 0 6px;float:left;text-align:center}
+.mv3 .minisite-portal .minisite-fav .minisite-fav-num em{font-family:arail;font-weight:bold;font-size:18px;font-style:normal}
+.mv3 .minisite-portal .minisite-brandsite{white-space:nowrap;position:relative;top:-2px;top:0\9;max-width:310px;*min-width:175px}
+.mv3 .minisite-portal .minisite-brandsite *{color:#7b5c4d}
+.mv3 .minisite-portal .minisite-brandsite>*{display:inline-block;vertical-align:middle}
+.mv3 .minisite-portal .minisite-brandsite>a{height:38px;max-width:10em;margin-right:10px}
+.mv3 .minisite-portal .minisite-brandsite h3{_display:inline}
+.mv3 .minisite-portal .minisite-brandsite ul{display:inline-block;height:38px;overflow:hidden;float:none;padding-right:10px;*display:inline;*padding-left:15px}
+.mv3 .minisite-portal .minisite-brandsite ul li{*padding-left:0;width:10em;_display:inline}
+.mv3 .minisite-portal .minisite-brandsite ul li a{*zoom:1;*vertical-align:baseline}
+.mv3 .minisite-portal .minisite-brandsite .i-brandsite{background-position:-29px -181px;display:inline-block;vertical-align:middle;height:27px;width:24px}
+.mv3 .minisite-portal .minisite-shops{padding:0 30px}
+.mv3 .minisite-portal .minisite-shops:hover .minisite-prev,.mv3 .minisite-portal .minisite-shops.hover .minisite-prev,.mv3 .minisite-portal .minisite-shops:hover .minisite-next,.mv3 .minisite-portal .minisite-shops.hover .minisite-next{opacity:1;filter:Alpha(opactiy=100)}
+.mv3 .minisite-portal .minisite-shops *{color:#7b5c4d;float:left}
+.mv3 .minisite-portal .minisite-shops .minisite-btn-disable{color:#ccc}
+.mv3 .minisite-portal .minisite-shops .minisite-shops-inner{position:relative;overflow:hidden;height:38px;width:100%}
+.mv3 .minisite-portal .minisite-shops .minisite-shop{background:0;width:auto;height:auto;padding:0;position:static;overflow:hidden}
+.mv3 .minisite-portal .minisite-shops .minisite-shop a{font-size:100%;display:inline;margin:0;font-weight:normal}
+.mv3 .minisite-portal .minisite-shops .minisite-shop li a{*list-style-type:disc;*list-style-position:inside;*display:list-item}
+.mv3 .minisite-portal .minisite-shops .minisite-shop .i-shop{background-position:0 -181px;width:24px;height:27px;position:relative;top:4px}
+.mv3 .minisite-portal .minisite-shops .minisite-shop .i-flagship{background-position:-64px -192px;width:51px;height:14px;padding-bottom:12px;text-indent:-9999px;overflow:hidden;position:relative;top:12px;margin:0 10px}
+.ie9 .mv3 .minisite-banner a img,.ie10 .mv3 .minisite-banner a img{left:auto;margin-left:-50%}
+.ie9 .mv3 .minisite-portal .minisite-fav .minisite-fav-btn a{line-height:21px}
+.ie9 .mv3 .minisite-brandsite{overflow:hidden}
+.hasMv3 .aldRight{top:166px}

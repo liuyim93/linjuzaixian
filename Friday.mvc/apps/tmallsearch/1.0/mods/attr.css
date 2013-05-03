@@ -1,0 +1,111 @@
+﻿.attrs a{outline:0}
+.attr,.attr ul{zoom:1}
+.attr:after,.attr:before,.attr ul:after,.attr ul:before{display:table;content:"";overflow:hidden;clear:both}
+.attrs{border-top:1px solid #e6e2e1;_zoom:1}
+.attr{background-color:#f7f5f5;border-color:#e6e2e1 #e6e2e1 #d1ccc7;border-style:solid solid dotted;border-width:0 1px 1px}
+.attrKey{float:left;padding:7px 0 0 0;width:10%;color:#b0a59f;text-indent:13px}
+.attrKey,.attrKey a{display:block;height:16px;line-height:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.attrKey a{color:#806f66}
+.attrValues{position:relative;float:left;background-color:#fff;width:90%;padding:4px 0 0;overflow:hidden}
+.attrValues ul{position:relative;margin-right:105px;margin-left:25px}
+.attrValues li{float:left;height:22px;line-height:22px}
+.attrValues li a{position:relative;color:#806f66;display:inline-block;padding:1px 20px 1px 4px;line-height:20px;height:20px;white-space:nowrap}
+.attrValues li a:hover{color:#c10001;text-decoration:none}
+.attrValues li.av-selected a{border:1px solid #b0a59f;padding:0 19px 0 3px}
+.attrValues li.av-selected a:hover{border-color:#a10002}
+.attrValues li.av-selected i{visibility:visible}
+.attrValues li a i{position:absolute;display:inline-block;background-position:0 0;font-size:1px;height:13px;width:13px;right:3px;top:4px;visibility:hidden}
+.attrValues li a:hover i{background-position:-13px 0}
+.attr .av-scroll{height:145px;margin-bottom:5px;overflow-x:hidden;overflow-y:scroll}
+.av-expand{height:auto;*margin-bottom:5px}
+.av-collapse{overflow:hidden}
+.propAttrs .av-collapse{height:25px}
+.cateAttrs .av-collapse{height:auto;max-height:58px;_height:expression(function(el){if(/msie 6/i.test(navigator.userAgent))el.style.height =(el.scrollHeight>58) ? '58px':'auto'}
+(this))}
+.av-options{position:absolute;right:0;top:2px;width:105px;z-index:1}
+.avo-multiple{float:left;background-color:#f2f0ef;border:1px solid #efebe9;color:#806f66;cursor:pointer;line-height:14px!important;line-height:15px;margin:5px 5px 5px 0;padding-right:3px;position:relative;text-align:right;width:43px}
+.avo-multiple:hover{text-decoration:none;border-color:#dedad8}
+.attr .avo-multiple i{background-position:-32px -13px;display:block;height:8px;left:4px;line-height:8px;overflow:hidden;position:absolute;top:4px;vertical-align:middle;width:8px}
+.avo-multiple:hover i{background-position:-22px -13px}
+.avo-more{display:none;float:right}
+.av-btns{display:none;padding-bottom:5px;text-align:center}
+.av-btns a{margin:1px 5px}
+.av-btns a:first-child{margin:0 5px}
+.attrs-border{position:relative;top:-1px;border-top:1px solid #d1ccc7;height:0;overflow:hidden;z-index:2}
+.brandAttr .attr{border:2px solid #d1ccc7;margin-top:-1px}
+.brandAttr .attrKey{padding-top:9px}
+.brandAttr .attrValues{padding-top:6px}
+.brandAttr .av-expand{margin-right:30px}
+.brandAttr .av-collapse{overflow:hidden;max-height:5em;_height:expression(function(el){if(/msie 6/i.test(navigator.userAgent))el.style.height =(el.scrollHeight>60) ? '60px':'auto'}
+(this))}
+.brandAttr ul{*margin-bottom:5px}
+.brandAttr .av-search{background-position:0 -86px;display:none;height:20px;position:relative;width:131px;margin-bottom:10px;margin-left:25px}
+.brandAttr .av-search input{background:none repeat scroll 0 0 transparent;border:0 none;font-size:12px;height:20px;left:22px;line-height:20px;position:absolute;width:105px;z-index:1}
+.brandAttr li{margin:0 8px 8px 0}
+.brandAttr li a{text-overflow:ellipsis;overflow:hidden}
+.brandAttr .av-expand li a{width:150px}
+.brandAttr .av-options{top:4px}
+.brandAttr li a img{display:none}
+.brandAttr .showLogo li a i{right:0;top:-1px}
+.brandAttr .showLogo ul{padding-top:1px}
+.brandAttr .attr .showLogo .av-scroll{height:265px}
+.brandAttr .showLogo li{border:1px solid #e1e1e1;width:104px;text-align:center;height:52px;line-height:52px;overflow:hidden;margin:0;margin-right:-1px;margin-top:-1px}
+.brandAttr .showLogo .av-collapse{max-height:106px;_height:expression(function(el){if(/msie 6/i.test(navigator.userAgent))el.style.height =(el.scrollHeight>106) ? '106px':'auto'}
+(this))}
+.brandAttr .showLogo ul{margin-bottom:5px;_margin-bottom:0;_padding-bottom:5px}
+.brandAttr .showLogo li a{padding:0;line-height:52px;height:50px;width:102px;overflow:hidden;border:1px solid transparent;_border:1px solid white;float:left}
+.brandAttr .showLogo li a img{display:inline;width:80px;height:40px;margin:6px 12px}
+.brandAttr .showLogo li.av-selected,.brandAttr .showLogo li.av-selected a{border-color:#b0a59f}
+.brandAttr .showLogo li:hover,.brandAttr .showLogo li.li-hover,.brandAttr .showLogo li.av-selected{position:relative}
+.brandAttr .showLogo li:hover,.brandAttr .showLogo li.li-hover,.brandAttr .showLogo li:hover a,.brandAttr .showLogo li.li-hover a{_border:1px solid;border-color:#a10002;z-index:1}
+.brandAttr .showLogo li:hover a img,.brandAttr .showLogo li.li-hover a img{display:none}
+.cateAttrs .attrKey{background-position:-112px -42px;*background-position:-112px -43px;padding:0;margin-top:7px;text-indent:27px;width:10%}
+.cateAttrs .attrValues ul{margin-right:50px}
+.cateAttrs li{display:block;margin:0 5px 8px 0;*margin-bottom:0;*padding-bottom:8px;width:180px;overflow:hidden}
+.cateAttrs li span{color:#bfbfbf}
+.cateAttrs .avo-multiple{visibility:hidden}
+.cateAttrs .reinforced a{background:#f9f9f9;border:1px solid #dfdad4;padding:0 5px;line-height:17px;height:18px;vertical-align:top}
+.cateAttrs .reinforced a:hover{background:#9e8d86;border-color:#9e8d86;color:white}
+.cateAttrs .reinforced a:hover span{color:white}
+.cateAttrs .d5c li{width:20%;margin:1px 0 3px 0;*margin-bottom:0;*padding-bottom:3px}
+.cateAttrs .d5c li a{margin-right:5px}
+.cateAttrs .av-collapse .nonQPCate{display:none}
+.cateAttrs .av-expand .nonQPCate{display:block}
+.propAttrs{border-top:1px solid #d1ccc7;margin-top:-1px}
+.propAttrs li{margin:0 25px 10px 0}
+.propAttrs .forMultiple .attrValues{background-color:#efeceb}
+.propAttrs .showLogo .av-collapse{height:75px}
+.propAttrs .showLogo li{height:auto;text-align:center}
+.propAttrs .showLogo li a{padding-left:13px;padding-right:13px;margin-top:50px}
+.propAttrs .showLogo li.av-selected a{padding-left:4px;padding-right:20px}
+.propAttrs .showLogo span{display:block;position:absolute;top:-47px;left:0;width:100%;_width:auto;_left:1px;cursor:pointer;*cursor:default}
+.propAttrs .showLogo li.av-selected a span{top:-48px;_left:0}
+.propAttrs .showLogo img{height:45px;vertical-align:middle}
+.miniAttrs{background-color:#f7f5f5;border-color:#e6e2e1;border-style:solid;border-width:0 1px;*padding-right:1px}
+.miniAttrs .miniAttr{float:left;position:relative;height:32px;width:33.33%;*width:33.32%;z-index:2}
+.miniAttrs .miniAttr:hover,.miniAttrs .miniAttr-hover{z-index:11;+zoom:1}
+.miniAttr .attr{position:absolute;width:99.5%;border-right-width:0;border-left-width:0;margin:0 1px}
+.miniAttrs .miniAttr:hover .attr,.miniAttrs .miniAttr-hover .attr,.miniAttr .forMultiple{border-right-width:1px;border-left-width:1px;border-style:solid solid solid;margin:0}
+.miniAttr .attrKey{width:30%}
+.miniAttr .attrValues{list-style:none;display:block;width:70%;padding:3px 0}
+.miniAttr .attrValues ul{margin-right:0}
+.miniAttr .av-options{top:auto;bottom:5px}
+.miniAttr .av-options .avo-multiple{visibility:hidden}
+.miniAttr .av-options .avo-more{font-size:0;*text-indent:-99999px}
+.miniAttr li{margin:0 5px 8px 0}
+.miniAttrs .miniAttr .attr.forMultiple ul{padding-bottom:0}
+.miniAttrs .miniAttr:hover .multipleRow,.miniAttrs .miniAttr-hover .multipleRow{height:auto;z-index:2}
+.miniAttrs .miniAttr:hover .forMultipleBtn,.miniAttrs .miniAttr-hover .forMultipleBtn{padding-bottom:30px;z-index:1}
+.miniAttrs .miniAttr:hover .attrValues .av-options,.miniAttrs .miniAttr-hover .attrValues .av-options{right:33%}
+.miniAttrs .miniAttr:hover .attrValues .avo-multiple,.miniAttrs .miniAttr-hover .attrValues .avo-multiple{visibility:visible}
+.miniAttrs .miniAttr:hover .attrValues .avo-more,.miniAttrs .miniAttr-hover .attrValues .avo-more{visibility:hidden}
+.attrExtra{display:block;height:29px;position:relative;top:-1px;z-index:2}
+.attrExtra-border{background:#efebea;border:1px solid #ebe4de;border-top:0;display:block;font-size:0;height:4px;line-height:2px;overflow:hidden}
+.attrExtra-more{background-color:#efeceb;border-color:#efeceb #e6e2e1 #e6e2e1;border-style:solid;border-width:1px;position:absolute;top:4px;right:0;z-index:1;display:block;height:16px;width:85px;color:#806f66;font-size:12px;line-height:14px;text-indent:12px;vertical-align:middle;cursor:pointer}
+.attrExtra-more:hover{text-decoration:none}
+.attrExtra-more i{background-position:-58px -13px;display:block;height:5px;position:absolute;right:10px;top:5px;width:10px;overflow:hidden}
+.attrExtra-more-drop i{background-position:-48px -13px}
+.attrTrigger{width:27px;height:27px;position:absolute;z-index:99999;cursor:pointer;right:0;top:-30px;background-position:-130px -74px;background-color:#f9f9f9;outline:0}
+.hasDecor .attrTrigger{top:-40px}
+.container .expand{background-position:-130px -101px}
+.navForm{position:relative}

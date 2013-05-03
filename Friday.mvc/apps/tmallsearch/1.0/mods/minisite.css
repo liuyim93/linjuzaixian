@@ -1,0 +1,43 @@
+﻿.minisite{z-index:9;margin-bottom:5px;position:relative;height:80px}
+.minisite-logo{margin-left:20px}
+.minisite-logo,.minisite-info,.minisite-shop{float:left;padding-top:15px}
+.minisite-link{left:0;top:0;position:absolute;display:block;width:984px;height:74px;border:3px solid #d1ccc7}
+.minisite-link:hover,.minisite-link-hover{border-color:#806f66;text-decoration:none}
+.minisite-link a,.minisite-link a:visited{outline:0;text-decoration:none}
+.minisite-link *{*cursor:pointer}
+.minisite-info{line-height:1.5;color:#595959;height:60px;padding:10px 0 0 0;width:500px;margin-left:25px;overflow:hidden}
+.minisite-info h2{font-size:14px}
+.minisite-info a,.minisite-shop a{color:#595959;font-size:14px;display:block;margin-bottom:5px;font-weight:bolder}
+.minisite-shop{float:right;background-color:#f7f5f5;width:250px;height:64px;padding:10px 30px 0 20px;color:#595959;position:relative}
+.minisite-shop a:hover{text-decoration:underline}
+.minisite-shop h3{color:#806f66;font-size:14px;*line-height:20px}
+.minisite-shop p{height:36px;overflow:hidden}
+.minisite-shop p a{float:left;display:inline-block;width:120px;margin:0;padding-right:5px;white-space:nowrap;line-height:1.5;font-size:12px;font-weight:normal;text-overflow:ellipsis;overflow:hidden}
+.minisite-drop-btn,.minisite-expand-btn{display:block;position:absolute;height:48px;width:10px;cursor:pointer;padding:26px 5px 0 5px;border-left:1px solid #f2f2f2;background-color:#DDD;right:3px;top:3px}
+.minisite-drop-btn i,.minisite-expand-btn i{background:0;font-size:0;width:0;height:0;border-width:5px;border-color:#000 #DDD #DDD #DDD;border-style:solid;display:block}
+.minisite-expand-btn i{border-color:#ddd #ddd #000 #ddd}
+.minisite-more{position:absolute;z-index:12;background-color:#f7f5f5;top:77px;right:0;display:none;border:3px solid #d1ccc7;border-width:0 3px 3px 3px}
+.minisite-more li{padding:0 30px 0 20px;width:250px;border-top:1px solid #d1ccc7;text-align:center}
+.minisite-more a{font-size:12px;color:#806f66}
+.minisite-expand .minisite-more{display:block}
+.minisite-expand .minisite-shop{border-left:3px solid #d1ccc7}
+.mv2{height:100px;border:1px solid #e5e5e5;overflow:hidden}
+.mv2:hover,.mv2-hover{border-color:#ccc}
+.mv2 .minisite-banner,.mv2 .minisite-logo,.mv2 .minisite-shop{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box}
+.mv2 .minisite-banner{width:100%;padding-left:140px;padding-right:350px;*position:absolute;*top:0;*padding:0}
+.mv2 .minisite-logo{background-color:white;float:left;margin:0;width:140px;padding-left:30px;padding-right:30px;text-align:center;height:100%;*width:80px}
+.mv2 .minisite-logo a{color:#666;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:inline-block;width:80px}
+.mv2 .minisite-shop{width:268px;height:100%;padding:10px 0 10px 10px;background-color:rgba(0,0,0,0.3);background:transparent\9;filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#4C000000,endcolorstr=#4C000000);*zoom:1;overflow:hidden;position:absolute;top:0;right:0;*height:80px;z-index:1}
+.mv2 .minisite-shop,.mv2 .minisite-shop h3,.mv2 .minisite-shop a{color:white}
+.mv2 .minisite-shop span{*cursor:pointer}
+.mv2 .minisite-shop p{margin-top:15px;height:44px}
+.mv2 .minisite-shop p a{width:120px;line-height:22px}
+.mv2 .minisite-prev,.mv2 .minisite-next{position:absolute;font-size:16px;font-weight:bold;font-family:\5b8b\4f53;z-index:2;top:50%;margin-top:-31px;width:17px;height:61px;line-height:61px;text-align:center;text-decoration:none;background:rgba(0,0,0,0);color:transparent;filter:Alpha(Opacity=0)\9;outline:0;-webkit-transition:all .2s ease-in;-moz-transition:all .2s ease-in;-o-transition:all .2s ease-in;transition:all .2s ease-in;-webkit-backface-visibility:hidden;-webkit-transform-style:preserve-3d}
+.mv2:hover .minisite-prev,.mv2-hover .minisite-prev,.mv2:hover .minisite-next,.mv2-hover .minisite-next{color:white;background:rgba(0,0,0,0.2);background:transparent\9;filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#33000000,endcolorstr=#33000000);*zoom:1}
+.mv2 .minisite-prev:hover,.mv2 .minisite-next:hover{text-decoration:none}
+.mv2 .minisite-prev{left:0;border-radius:0 2px 2px 0;border-left:none}
+.mv2 .minisite-next{right:0;border-radius:2px 0 0 2px;border-right:0}
+.mv2 .minisite-disable{cursor:no-drop}
+.mv2 .minisite-con,.mv2 .minisite-panel{height:100%}
+.mv2 .minisite-con{position:absolute;left:0;width:9999px}
+.mv2 .minisite-panel{position:relative;float:left;width:988px}

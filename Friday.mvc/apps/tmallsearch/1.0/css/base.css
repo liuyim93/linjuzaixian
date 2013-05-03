@@ -1,0 +1,59 @@
+﻿span.H{float:none!important;display:inline!important}
+strong,b{font-weight:normal}
+i,s{font-style:normal}
+.page{background:#fff;overflow:hidden;_zoom:1;position:relative;min-width:990px;_width:expression(function(el){if(/msie 6/i.test(navigator.userAgent))el.style.width =(el.clientWidth < 990) ? '990px':'auto'}
+(this))}
+#content{margin:0;width:100%}
+.main{position:relative;margin:auto;width:990px;*z-index:1}
+.aldRight{display:none;position:absolute;background-color:white;top:0;right:-200px;z-index:10}
+.aldItem{margin-bottom:10px}
+.hasAld .aldRight{top:0;right:0;width:190px;overflow:hidden}
+.aldItem{margin-bottom:10px}
+.hasAld .aldRight .ald-inner{width:auto!important}
+.aldRight-loading{height:200px;background:url(http://a.tbcdn.cn/apps/tmall/mui/loading/img/loading.gif) no-repeat scroll 50% 50%}
+#navbar a i,.crumbDelete,.crumbSearch-label,.crumbSearch-btn,.fArea,.fRange,.fSort i,.fType-w i,.fType-g i,.fType-l i,.fR-list i,.fR-cur i,.fPb-split,.fT-cat,.fT-arrow,.flagship-icon,.drop-icon,.expand-icon,.shopDropBtn i,.btmFeed,.brandAttr .av-search,.attr li i,.attr .avo-multiple i,.attrExtra i,.cateAttrs .attrKey,.attrTrigger,.crumbSlide-prev,.crumbSlide-next,.crumbSlide-prev-shadow,.crumbSlide-next-shadow,.crumbDrop i,.i-brandsite,.i-shop,.i-flagship{background:url(http://img04.taobaocdn.com/tps/i4/T1GcmeXEJXXXXUVs6Z-165-206.png) no-repeat 9999px 9999px}
+.flagship-icon{background-position:-16px -112px;display:inline-block;float:left;width:62px;height:18px;line-height:50px;overflow:hidden;margin:2px 5px 0 0}
+.shop-icon{display:inline-block;background-color:#efeceb;padding:0 3px;border-radius:2px;color:gray}
+.drop-icon,.expand-icon{background-position:-48px -13px;position:absolute;width:9px;height:5px;right:22px;top:10px;overflow:hidden}
+.drop-icon{background-position:-59px -13px}
+.shopDsr-title{color:#666;height:20px;font-weight:bold}
+.shopDsr-title span{margin-left:20px}
+.sDc-num{color:#407e8f;font-weight:bold}
+.shopDsr-con b{display:inline-block;margin:0 5px 0 13px;line-height:15px;padding:1px 2px 1px 3px;vertical-align:middle;font-weight:normal;color:white;background:#a1001a;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;padding-top:2px\9}
+.shopDsr-con li{color:#666;height:22px;line-height:22px}
+b.sDc-low{background:#217311}
+.sDc-high,.sDc-low{color:#a1001a;font-weight:bold}
+.sDc-low{color:#217311}
+.btmSearch-loading{height:100px;background:url(http://a.tbcdn.cn/apps/tmall/mui/loading/img/loading.gif) no-repeat scroll 50% 50%}
+.btmSearch-loading textarea{display:none}
+.btmSearch{padding:27px 0;background-color:#f4f4f4;margin-top:20px}
+.btmSearch-main{width:530px;margin:0 auto}
+.btmSearch-form{z-index:9999;background-position:-2px -16px;background-color:#fff}
+.btmSearch-input{height:26px;overflow:hidden;position:relative;border:2px solid #ba1324}
+.btmSearch-mq-label{visibility:visible;position:absolute;left:8px;top:1px;z-index:1;color:#666;font-size:12px;line-height:24px;height:24px}
+.btmSearch-mq{float:left;display:block;color:black;font-weight:900;line-height:17px;width:423px;height:17px;padding:5px 2px 4px 4px;border-width:0;margin:0;_margin-right:-3px}
+.btmSearch-btnSubmit{float:right;display:block;color:black;font-weight:900;font-size:14px;line-height:26px;width:94px;height:26px;cursor:pointer;overflow:hidden;background:#fed24d;border:0;border-left:1px solid #ba1324}
+.btmSearch-btnSubmit s{position:absolute;top:0;right:0;width:94px;height:24px}
+.tmFeed{position:fixed;_position:absolute;display:block;bottom:263px;right:11px;width:58px;height:52px;z-index:999;background:url(http://img03.taobaocdn.com/tps/i3/T1r8_hXaliXXbMkkg8-122-52.png) no-repeat;text-indent:-999px;overflow:hidden;outline:0}
+.tmFeed:hover{background-position:-64px 0}
+.btmFeed{color:#333;padding-left:20px;margin:10px 0;background-position:-113px -23px}
+.btmFeed a{color:#36C}
+.recommend{margin:10px 0}
+.recommend-hd{padding:8px 10px 9px 10px;font-size:12px;height:12px;line-height:12px;vertical-align:middle;color:#595959;border:1px solid #eae5e1;border-width:1px 1px 0 1px}
+.recommend-con{height:280px;overflow:hidden;border:1px solid #e6e2e1}
+.recommend-con .product{position:static;width:160px;padding:30px 19px 20px 18px;display:block;float:left}
+.recommend-con .productPrice{text-align:center;clear:both}
+.recommend .productImg{display:block;overflow:hidden;height:160px;width:160px;float:none}
+.productTitle em{color:#C60}
+.recommend .productTitle a{color:#666}
+.recommendRight{display:none;border:1px solid #eae5e1}
+.recRight-hd{height:26px;line-height:26px;background:#e9e3e3;color:#817164;padding-left:10px;font-weight:bold}
+.recRight-item{height:80px;overflow:hidden;padding:10px;margin-bottom:10px}
+.rR-item-img{height:80px;width:80px;overflow:hidden;border:1px solid #eee;float:left}
+.rR-item-title{color:#999;max-height:60px;_height:40px;overflow:hidden;word-break:break-all}
+.rR-item-title,.recRight-item .ui-price{margin-left:10px;display:block;width:120px;float:left}
+.relKeyRec{padding:5px 100px 0 10px;height:18px;line-height:20px;overflow:hidden}
+.relKeyRec span{color:#b0a59f;margin-right:24px}
+.relKeyRec a{border-right:1px solid #dcccc4;color:#806f66;padding:0 15px;white-space:nowrap}
+.relKeyRec a:hover{color:#c10001;text-decoration:none}
+.relKeyRec-btm{border:1px solid #f3f0ee;padding-bottom:5px}

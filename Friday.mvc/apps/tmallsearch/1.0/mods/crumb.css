@@ -1,0 +1,53 @@
+﻿.crumb{height:30px;background:#8e0000 url("data:image/gif;base64,R0lGODlhAQAeAIAAAI4AAI8BACH5BAAAAAAALAAAAAABAB4AAAIHRGChy+2KCgA7");margin-bottom:10px}
+.crumbCon{width:990px;margin:0 auto;line-height:27px;position:relative;z-index:10001}
+.crumbSlide-con .crumbTitle{color:#b0a59f}
+.crumbSlide{height:30px;margin-left:25px;margin-right:180px;position:relative}
+.spuCrumbCon .crumbSlide{margin-left:0}
+.crumbClip{position:absolute;width:100%;height:100%;clip:rect(0 100% 1000px 0);clip:rect(0,auto,1000px,0)}
+.crumbSlide-con{position:absolute;margin-left:-9px;width:9999px}
+.crumbSlide-con li{padding-left:9px;color:#fff;float:left}
+.crumbSlide-prev,.crumbSlide-next{position:absolute;top:3px;visibility:hidden;cursor:pointer;width:21px;height:25px;z-index:9;text-indent:-99999px;overflow:hidden}
+.crumbSlide-prev{background-position:-144px -104px;left:-21px}
+.crumbSlide-next{background-position:-144px -80px;right:-21px}
+.crumbSlide-prev-shadow,.crumbSlide-next-shadow{display:none;position:absolute;top:3px;cursor:pointer;width:5px;height:25px;z-index:-1}
+.crumbSlide-prev-shadow{background-position:-138px -79px;left:-2px}
+.crumbSlide-next-shadow{background-position:-138px -104px;right:-2px}
+.crumbSlide-attr{cursor:pointer;position:relative}
+.crumbArrow{color:#af4a4a;margin-left:3px;font-style:normal;font-family:\5b8b\4f53;vertical-align:middle;margin-top:2px;display:inline-block}
+.crumbSlide-con a{color:#fff}
+.crumbSlide-con a:hover{color:#f2dcc7}
+.crumbDelete{position:relative;top:3px;*top:0;_margin-top:4px;display:inline-block;width:14px;height:14px;overflow:hidden;background-position:-14px -71px}
+.crumbSlide-con a.crumbStrong{display:inline-block;overflow:hidden;max-width:9.25em;max-width:none\0;*max-width:none;text-overflow:ellipsis;white-space:nowrap;vertical-align:middle;+vertical-align:baseline}
+:root .crumbSlide-con a.crumbStrong{max-width:9.25em;\9}
+.crumbStrong{font-weight:bold}
+.crumbAttr{background:#a00000;height:22px;line-height:21px;margin:4px 0 4px 10px;padding-right:5px;border-radius:2px}
+.crumbAttr-hover,.crumbAttr:hover{background:#c50000}
+.crumbAttr-hover .crumbDelete,.crumbAttr:hover .crumbDelete,.crumbDelete:hover{background-position:0 -71px}
+.crumbAttr-hover a,.crumbAttr:hover a{color:#fff;text-decoration:none}
+.crumbAttr a:hover{text-decoration:none}
+.crumbSearch{position:relative}
+::-ms-clear,::-ms-reveal{display:none}
+.crumbSearch-label{float:left;position:relative;background-position:0 -154px;border:0;width:125px;height:20px;line-height:21px;color:#666;padding:0 25px 0 12px;margin-right:15px;top:5px}
+.crumbSearch-label.focus{background-position:0 -132px}
+.crumbSearch-input{background-color:transparent;border:0;color:#757575;outline:0;float:left;line-height:20px;*line-height:21px;_line-height:20px;height:20px}
+.crumbSearch-input:focus,.crumbSearch-input.focus{color:black}
+.crumbSearch-btn{border:0;background-position:0 -47px;display:inline-block;width:12px;height:12px;position:absolute;top:9px;right:25px;float:left;cursor:pointer;text-indent:-9999px;-webkit-border-radius:0 2px 2px 0;-moz-border-radius:0 2px 2px 0;-ms-border-radius:0 2px 2px 0;-o-border-radius:0 2px 2px 0;border-radius:0 2px 2px 0}
+.crumbSearch-btn:hover,.crumbSearch-btn-hover{cursor:pointer;background-position:-15px -47px}
+.crumbTitle{display:inline-block;position:absolute;color:#f1b4a6;top:4px;right:0;line-height:22px;line-height:23px\9;height:19px;overflow:hidden}
+.crumbTitle span{color:white;font-family:Arial;font-weight:bold;margin:0 5px;position:relative;top:1px}
+.crumbDrop{position:relative;float:left;margin-top:4px;border-radius:2px;line-height:19px;*line-height:23px;_line-height:21px}
+.crumbDrop-hd{display:inline-block;padding-left:5px;padding-right:20px;color:#fefefc;font-weight:bold}
+.crumbDrop-hd{text-decoration:none;outline:0}
+.crumbDrop i{background-position:-135px -62px;position:absolute;display:inline-block;right:1px;top:4px;width:15px;height:15px;border-radius:50%;cursor:pointer}
+.crumbDrop-hover i{background-position:-150px -62px}
+.crumbDrop-hover{position:relative}
+.crumbDrop-hover .crumbDrop-bd{display:block}
+.crumbDrop-bd{display:none;padding-top:14px;padding-bottom:5px;background:rgba(0,0,0,0.8);background:url(about:blank) transparent\9;filter:progid:DXImageTransform.Microsoft.gradient(startcolorstr=#CC000000,endcolorstr=#CC000000);*zoom:1;border:1px solid #dbdbdb;border-radius:3px;margin-top:-1px;overflow:hidden;position:absolute;left:0;top:30px}
+:root .crumbDrop-bd{background:url(about:blank) transparent\9}
+.crumbDrop-bd ul{float:left;border-left:1px dashed #d5d5d5;margin-left:-1px;margin-bottom:15px;height:132px}
+.crumbDrop-bd li{float:none;padding-right:20px;padding-left:16px}
+.crumbDrop-bd a{display:block;color:white;height:22px;line-height:22px;overflow:hidden;text-indent:5px;text-overflow:ellipsis;white-space:nowrap;background:url(about:blank);width:102px}
+.crumbDrop-bd a:hover{text-decoration:underline}
+.crumb-goHome{display:none}
+.crumbDrop-bd a.crumbDrop-disable{color:#9a9b9a;font-weight:bold;cursor:default}
+.crumbDrop-bd a.crumbDrop-disable:hover{text-decoration:none;color:#9a9b9a}
