@@ -2,7 +2,7 @@
 
 
 <div class="pageFormContent">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+    <form id="form" method="post" class="pageForm required-validate" onsubmit="return validateCallback(this,navTabAjaxDone)" enctype="multipart/form-data" runat="server">
     <div class="panel collapse">
             <h1>
                 商品基本信息</h1>
@@ -98,9 +98,17 @@
             <p style="color: red">
                 请上传大小为190×142的食物图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
             </p>
-          
-         </div>         
 
+            <div style="clear:left; margin-top:230px" >
+             <p>
+                 <label>详细内容：</label>
+                <div>
+				 	<textarea id="Description" name="Description" rows="20" cols="200" style="width: 100%" runat="server"></textarea>
+				</div>
+                </p>        
+            </div> 
+
+         </div>         
             <div class="formBar">
                 <ul>
                     <li>
@@ -137,6 +145,7 @@
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
             debugger;
+            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {

@@ -64,8 +64,8 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="commodity/pAddCommodity.aspx?shop_id=<%=Request.Params["shop_id"] %>" title="增加商品" target="dialog" width="900" height="480" rel="" ><span>增加商品</span></a></li>
-        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}&shop_id=<%=Request.Params["shop_id"] %>" title="修改商品" rel="" width="900" height="480" target="dialog"><span>修改商品</span></a></li>
+        <li><a class="add" href="commodity/pAddCommodity.aspx?shop_id=<%=Request.Params["shop_id"] %>" title="增加商品" target="dialog" width="870" height="750" rel="" ><span>增加商品</span></a></li>
+        <li><a class="edit" href="commodity/pEditCommodity.aspx?uid={commodityid}&shop_id=<%=Request.Params["shop_id"] %>" title="修改商品" rel="" width="870" height="750" target="dialog"><span>修改商品</span></a></li>
         <li><a class="delete" href="commodity/pCommodityList.aspx?flag=alldelete&commodity_id={commodityid}" target="ajaxTodo"
             title="确定要删除吗?"><span>删除商品</span></a></li>
         <li class="line">line</li>
