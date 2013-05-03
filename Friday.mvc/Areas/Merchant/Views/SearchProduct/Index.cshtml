@@ -957,7 +957,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  *@                                 @if (Model.currentPage == 1 && Model.pageNum != 1)
                                   { 
                                               <b class="ui-page-s-prev" title="上一页">&lt;</b>
-                                              <a href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
+                                              <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
                                   }
                                   else if (Model.currentPage == 1 && Model.pageNum == 1)
                                   {
@@ -967,13 +967,13 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                                   }
                                     else if (Model.currentPage == Model.pageNum && Model.pageNum != 1)
                                     {                                            
-                                      <a href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
+                                      <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
                                             <b class="ui-page-s-next"  title="下一页">&gt;</b>
                                     }
                                     else
                                     {
-                                      <a href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
-                                     <a href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
+                                      <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
+                                     <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
                                     }
 
 </p>
@@ -1040,7 +1040,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 
     
 <div class="ui-page">
- <div class="ui-page-wrap">   <b class="ui-page-num">
+ <div class="ui-page-wrap">   
+@* <b class="ui-page-num">
    <b class="ui-page-prev">&lt;&lt;上一页</b>
                  <b class="ui-page-cur">1</b>
        <a href="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=60&amp;cat=2#J_Filter" atpanel="2,,,,,20,footer,">2</a>
@@ -1049,18 +1050,57 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
      <a class="ui-page-next" href="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=60&amp;cat=2#J_Filter" atpanel="2,pagedn,,,,20,footer,">下一页&gt;&gt;</a>
    </b>
  <b class="ui-page-skip">
- <form name="filterPageForm" method="get" action="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=2">
+ <form name="filterPageForm" method="get" action="http://localhost:7525/merchant/searchproduct?orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
  <input type="hidden" name="fromF5">
    <input type="hidden" name="keyword" value="@ViewData["skeyword"]">
-       <input type="hidden" name="totalPage" value="100">
+    <input type="hidden" name="totalPage" value="100">
    <input type="hidden" name="cat" value="2">        
    <input type="hidden" name="sort" value="s">
    <input type="hidden" name="style" value="g">
    <input type="hidden" name="vmarket" value="0">  
-   <input type="hidden" name="area_code" value="370100">  共100页，到第<input type="text" name="jumpto" class="ui-page-skipTo" size="3" value="1">页
+   <input type="hidden" name="area_code" value="370100">  共100页，
+   到第<input type="text" name="page" class="ui-page-skipTo" size="3" value="1">页
  <button type="submit" class="ui-btn-s" atpanel="2,pageton,,,,20,footer,">确定</button>
  </form>
- </b>
+ </b>*@
+
+ <b class="ui-page-num">
+                @if (Model.currentPage > 1)
+                {
+                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
+                }
+                else
+                {
+                    <b class="ui-page-prev"><< 上一页</b>
+                }
+                @for (int i = 1; i <= Model.pageNum; i++)
+                {
+                    if (i == Model.currentPage)
+                    {
+                        <b class="ui-page-cur">@i</b>
+                    }
+                    else
+                    {
+                        <a href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="j_PageChange" data-page="@i">@i</a>
+                    }
+                }
+                
+              @*  <b class="ui-page-break">...</b>*@
+
+                @if (Model.currentPage < Model.pageNum)
+                {
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"> 下一页>></a>
+                }
+                else
+                {
+                    <b class="ui-page-next">下一页 >></b>
+                }
+                    </b>
+
+                    <b class="ui-page-skip">共@(Model.pageNum)页，去第
+                        <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
+                        页
+                        <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> 
  </div>
 </div>
 <div id="J_Recommend" data-p4p-cfg="{'name':'tbuad','o':'j','count':'5','catid':'','keyword':'%D0%AC','offset':'0','propertyid':'','pid':'419108_1006','p4p':'','frontcatid':'','gprice':'0%2C100000000','bigpic':'1','ismall':'1','loc':'','sort':'','sbid':'13','q2cused':'0','page':'1'}" data-atpanel="-2,{{vo.RESOURCEID}},,,spu,1,p4p," style=""><div class="recommend"> <h3 class="recommend-hd">商家热卖：</h3> <div class="recommend-con clearfix recommend-con-6">     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=xqVDPou1J7%2BngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrGC6gxNfZ3nE3HsstIC0TTXJo7qLOHMgN78fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGi7T6gv3jjnaSNbcI2Q1%2BFsEqsj%2BniZ2aXwOVpJRYCOYVvBeHdMTc3jgx%2FYBuHMnpf3miGkl0GIjr4KVmkSKFt" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">             <img src="http://img03.taobaocdn.com/bao/uploaded/i3/1023628423/T20t9WXolbXXXXXXXX_!!1023628423.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥318.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=xqVDPou1J7%2BngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrGC6gxNfZ3nE3HsstIC0TTXJo7qLOHMgN78fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGi7T6gv3jjnaSNbcI2Q1%2BFsEqsj%2BniZ2aXwOVpJRYCOYVvBeHdMTc3jgx%2FYBuHMnpf3miGkl0GIjr4KVmkSKFt" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">夏季时尚潮流休闲<em>鞋</em>反绒皮<em>鞋</em>男士板<em>鞋</em>英伦</a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=du9RlQ83seqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrFWcHWAmw0clOmeiXMB1MX6axyfVu%2BDDZX8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLH5lrBtQCGX4XOuNDGU%2FWafC4Q8JFb%2FCXnI9K9GQoI00Ht7iROOrbrhIk9MubuKX7aa0C4m1BGC8Tr4KVmkSKFt" target="_blank" atpanel="-2,13667678728,,,spu,1,p4p," class="productImg">             <img src="http://img01.taobaocdn.com/bao/uploaded/i1/444339490/T2MtuoXgJcXXXXXXXX_!!444339490.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥225.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=du9RlQ83seqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrFWcHWAmw0clOmeiXMB1MX6axyfVu%2BDDZX8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLH5lrBtQCGX4XOuNDGU%2FWafC4Q8JFb%2FCXnI9K9GQoI00Ht7iROOrbrhIk9MubuKX7aa0C4m1BGC8Tr4KVmkSKFt" atpanel="-2,13667678728,,,spu,1,p4p," target="_blank">Simier斯米尔男<em>鞋</em>时尚透气低帮<em>鞋</em>子男休闲<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=JOLI6%2FLUOq6ngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I2Lo2cm1nt66tTuZBWQ0vKf8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLEbrwiZOoQjYvnNuL0Y6L3v8sccxR2LIwEvLF2gtTGDDjt%2BL7wxOKM5yqGCfXhLQ739viM4DgnCdMBoeIrqDgCR" target="_blank" atpanel="-2,19976807398,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/10532023814927952/T1_IGgXwBXXXXXXXXX_!!0-item_pic.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥499.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=JOLI6%2FLUOq6ngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I2Lo2cm1nt66tTuZBWQ0vKf8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLEbrwiZOoQjYvnNuL0Y6L3v8sccxR2LIwEvLF2gtTGDDjt%2BL7wxOKM5yqGCfXhLQ739viM4DgnCdMBoeIrqDgCR" atpanel="-2,19976807398,,,spu,1,p4p," target="_blank">新款秒杀！真皮低帮<em>鞋</em>韩版潮流男士皮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=guhkXk20exqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I3bzGHrWZyi%2B8xDwKARPliL8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGbPFKmy%2B050cfoxlvZd1fF8sccxR2LIwGXpBah%2BCadIg4gTHQ%2BOFscZ%2FX%2BcJU83WUtp1fFrLSxDMBoeIrqDgCR" target="_blank" atpanel="-2,17636009126,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/687880532/T23__lXcVbXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥399.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=guhkXk20exqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I3bzGHrWZyi%2B8xDwKARPliL8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGbPFKmy%2B050cfoxlvZd1fF8sccxR2LIwGXpBah%2BCadIg4gTHQ%2BOFscZ%2FX%2BcJU83WUtp1fFrLSxDMBoeIrqDgCR" atpanel="-2,17636009126,,,spu,1,p4p," target="_blank">限时5折！Mr.ing夏季休闲男<em>鞋</em>皮克时尚皮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=Bkw5M%2FbTpNmngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45Iw4VxGfz7PxCjemLoI2zLfP8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFehkwamkCbzl3Hl2EncO0t8sccxR2LIwHIvpSb9o9ZrLRR8RthbTHqEROsSCEviYMA6VeRbv%2FdFMBoeIrqDgCR" target="_blank" atpanel="-2,17658798485,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/687880532/T2JcnNXl8XXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥599.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=Bkw5M%2FbTpNmngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45Iw4VxGfz7PxCjemLoI2zLfP8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFehkwamkCbzl3Hl2EncO0t8sccxR2LIwHIvpSb9o9ZrLRR8RthbTHqEROsSCEviYMA6VeRbv%2FdFMBoeIrqDgCR" atpanel="-2,17658798485,,,spu,1,p4p," target="_blank">限时5折 ！雅士休闲男<em>鞋</em>春夏新品男士低帮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=F5J2l8g22uOngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45IxFTkySk7X7LbOGdQCrooU38fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFOtrukI0iw8tghszJ7zpTs8sccxR2LIwH%2BCcctyJ8cZIp%2BgARkSrsiWGtCBRHAauriOFr%2Bziyl1sBoeIrqDgCR" target="_blank" atpanel="-2,24577280865,,,spu,1,p4p," class="productImg">             <img src="http://img01.taobaocdn.com/bao/uploaded/i1/687880532/T2eaHVXgBaXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥399.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=F5J2l8g22uOngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45IxFTkySk7X7LbOGdQCrooU38fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFOtrukI0iw8tghszJ7zpTs8sccxR2LIwH%2BCcctyJ8cZIp%2BgARkSrsiWGtCBRHAauriOFr%2Bziyl1sBoeIrqDgCR" atpanel="-2,24577280865,,,spu,1,p4p," target="_blank">Mr.ing米斯特因 ！ 休闲男<em>鞋</em>英伦板<em>鞋</em>低帮<em>鞋</em></a></p>     </div>  </div></div></div>
