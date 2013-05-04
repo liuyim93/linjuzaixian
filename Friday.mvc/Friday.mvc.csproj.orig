@@ -133,10 +133,7 @@
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Merchant\Models\DcModel.cs" />
     <Compile Include="Areas\Merchant\Models\DefaultModelObject.cs" />
-<<<<<<< HEAD
     <Compile Include="Areas\Merchant\Models\DSRModel.cs" />
-=======
->>>>>>> add breadcrumb controller
     <Compile Include="Areas\Merchant\Models\ExtensionModel.cs" />
     <Compile Include="Areas\Merchant\Models\RateDetailModelObject.cs" />
     <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
@@ -1473,6 +1470,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="apps\cartshare\shareplugin\sharePlugin.js" />
+    <Content Include="apps\cart\130411\cart\cart-min.css" />
+    <Content Include="apps\cart\130411\cart\cart-min.js" />
+    <Content Include="apps\cart\130411\core\core.js" />
+    <Content Include="apps\cart\mini\minicart-min.js" />
     <Content Include="apps\department\brand\2.0\css\az.css" />
     <Content Include="apps\department\brand\2.0\css\cat.css" />
     <Content Include="apps\department\brand\2.0\css\fav.css" />
@@ -1582,6 +1584,7 @@
     <Content Include="apps\mods\login\safemode.js" />
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\support\robot\js\minerva_ask_V2.js" />
     <Content Include="apps\tmallbuy\razer\mini\core.js" />
     <Content Include="apps\tmall\ald\effect.js" />
     <Content Include="apps\tmall\ald\use.js" />
@@ -1654,12 +1657,19 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="p\et\et.js" />
+<<<<<<< HEAD
+=======
+    <Content Include="p\global\1.0\global-min.css" />
+    <Content Include="p\global\1.0\global-min.js" />
+>>>>>>> js css
     <Content Include="p\mall\2.0\js\zeroclipboard.js" />
     <Content Include="p\header\adapter-min.js" />
     <Content Include="p\header\webww-min.js" />
     <Content Include="p\mall\base\global-v2.css" />
     <Content Include="p\mall\base\global-v2.js" />
     <Content Include="p\mall\base\header-v2.css" />
+    <Content Include="p\recentview\index.js" />
     <Content Include="p\shop\3.0\wangpu\base-min.js" />
     <Content Include="p\shop\3.0\wangpu\init-min.js" />
     <Content Include="p\shop\3.0\wangpu\mods\official\c2c-head-min.js" />
@@ -1687,12 +1697,14 @@
     <Content Include="p\shop\3.0\wangpu\mods\official\shopinsearch-head-min.js" />
     <Content Include="p\shop\3.0\wangpu\mods\official\top-list-min.js" />
     <Content Include="p\shop\StyleSheet1.css" />
+    <Content Include="p\snsdk\core.js" />
     <Content Include="p\tlabs\1.0.0\tlabs-min.js" />
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
     <Content Include="socket.io\socket.io.js" />
     <Content Include="s\aplus_v2.js" />
     <Content Include="s\fdc\spm.js" />
+    <Content Include="s\fdc\spmact.js" />
     <Content Include="s\tb-tracer-min.js" />
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />

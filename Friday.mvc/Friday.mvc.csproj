@@ -120,6 +120,8 @@
     <Compile Include="App_Start\RewriteFormHtmlTextWriter.cs" />
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CartPay\CartPayAreaRegistration.cs" />
+    <Compile Include="Areas\CartPay\Controllers\HomeController.cs" />
     <Compile Include="Areas\Cart\CartAreaRegistration.cs" />
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
@@ -1658,6 +1660,7 @@
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
     <Content Include="p\et\et.js" />
+    <Content Include="p\global\1.0\global-min.js" />
     <Content Include="p\mall\2.0\js\zeroclipboard.js" />
     <Content Include="p\header\adapter-min.js" />
     <Content Include="p\header\webww-min.js" />
