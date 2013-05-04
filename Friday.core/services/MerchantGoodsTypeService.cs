@@ -66,5 +66,9 @@ namespace friday.core.services
         {
             return iMerchantGoodsTypeRepository.GetAll();
         }
+        public IList<MerchantGoodsType> GetSimilarGoodsTypeListByKeyword(string keyword) 
+        {
+            return iMerchantGoodsTypeRepository.GetSimilarGoodsTypeListByKeyword(keyword);
+        }
     }
 }

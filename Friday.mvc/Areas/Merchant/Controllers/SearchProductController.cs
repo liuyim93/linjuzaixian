@@ -101,7 +101,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 }
             }
             //您是不是想找。。。
-            IList<MerchantGoodsType> mehtGdsTpList = iMerchantGoodsTypeService.GetSimilarGoodsTypeListByKeyword();
+            IList<MerchantGoodsType> mehtGdsTpList = iMerchantGoodsTypeService.GetSimilarGoodsTypeListByKeyword(keyword);
+            searchProductModel.merchantGoodsTypes = mehtGdsTpList;
 
             searchProductModel.currentPage = currentPage;
             searchProductModel.pageNum = total / numPerPageValue + 1;

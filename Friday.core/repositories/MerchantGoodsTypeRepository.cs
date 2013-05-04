@@ -25,6 +25,11 @@ namespace friday.core.repositories
             var m = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.Merchant.Id == mid && o.GoodsType == mname && o.IsDelete == false).SingleOrDefault();
             return m;
         }
+        public IList<MerchantGoodsType> GetSimilarGoodsTypeListByKeyword(string keyword)
+        {
+            var m = (from x in this.Session.Query<MerchantGoodsType>() select x).Where(o => o.GoodsType.Contains(keyword) && o.IsDelete == false).ToList();
+            return m;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(MerchantGoodsType)); }
