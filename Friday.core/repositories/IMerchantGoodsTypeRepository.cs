@@ -11,6 +11,7 @@ namespace friday.core.repositories
         MerchantGoodsType GetGoodsTypeByTypeNameAndMerchantID(string mname, string mid);
         IList<MerchantGoodsType> Search(List<DataFilter> termList);
         IList<MerchantGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<MerchantGoodsType> GetSimilarGoodsTypeListByKeyword(string keyword);
         bool IsHaveTheSameName(string name);
     }
 }

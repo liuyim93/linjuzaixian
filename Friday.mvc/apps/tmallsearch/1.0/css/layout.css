@@ -1,0 +1,125 @@
+﻿.w1 #sn-bd,.w1 #header .headerLayout,.w1 #header .headerCon,.w1 .crumb .crumbCon,.w1 .main{width:1190px;}
+.w1 #site-nav .sn-container{width:968px;}
+.w1 #site-nav .sn-edge{right:968px;}
+.w1 .sn-mcate-ctn-con{width:1190px;}
+.w1 #site-nav .sn-container{width:968px;}
+.w1 .sn-mcate-bd .sn-mcate-ctn{width:1255px;}
+.w1 .sn-mcate-bd .sn-mcate-ctn li{padding-right:58px;}
+.w1 #mallSearch{width:620px;}
+.w1 #mq{width:530px;}
+.w1 .minisite .minisite-link{width:1184px;}
+.w1 .mv2 .minisite-con .minisite-panel{width:1188px;}
+.w1 .main .filter-fix{width:1180px;}
+.w1 .filter .filterMenu{width:auto;max-width:494px;_width:494px;_border:1px solid #ccc;_height:22px;}
+.w1 .filter .filterMenu .filterMenu-con{position:static;_border:none;}
+.w1 .filterMenu .ui-more-drop-l,.w1 .filterMenu .ui-more-expand-l{display:none;}
+.w1 .main .view .product,.w1 .main .ald-03046 .ald-inner .ald-itemlist li{margin-left:7px;margin-right:1px;}
+.w1 .hasAld .view .product,.w1 .hasAld .ald-03046 .ald-inner .ald-itemlist li{margin-left:8px;margin-right:8px;}
+.w1 .hasAld .ald-03046 .ald-inner{padding-right:200px;}
+.w1 .lv3 .productImg{width:18%!important;}
+.w1 .lv3 .productInfo{width:53%!important;}
+.w1 .lv3 .productSell{width:19%!important;}
+.w1 .hasAld .minisite-link{width:984px;}
+.w1 .hasAld .filter-fix{width:980px;}
+.w1 .hasAld .filter .filterMenu{width:255px;}
+.w1 .hasAld .filterMenu .ui-more-drop-l,.w1 .hasAld .filterMenu .ui-more-expand-l{display:inline-block;}
+.w1 .recommend-con-5 .product{margin-right:20px;margin-left:20px;}
+.w1 .aldRight{display:block;}
+.w1 .hasAld .container{position:relative;padding-right:200px;}
+.w1 .shopHeader .shopHeader-info{width:380px;}
+.w1 .shopHeader .shopHeader-enter{padding-left:140px;}
+.w1 .shopBox .sBr-con{padding-left:5px;}
+.w2 #sn-bd,.w2 #header .headerLayout,.w2 #header .headerCon,.w2 .crumb .crumbCon,.w2 .main{width:1390px;}
+.w2 #site-nav .sn-container{width:1228px;}
+.w2 #site-nav .sn-edge{right:1228px;}
+.w2 .sn-mcate-bd .sn-mcate-ctn-con{width:1390px;}
+.w2 .sn-mcate-bd .sn-mcate-ctn{width:1455px;}
+.w2 #mallSearch{width:720px;}
+.w2 #mq{width:630px;}
+.w2 .minisite .minisite-link{width:1384px;}
+.w2 .mv2 .minisite-con .minisite-panel{width:1388px;}
+.w2 .main .filter-fix{width:1380px;}
+.w2 .main .view{margin-left:7px;}
+.w2 .main .view .product,.w2 .main .ald-03046 .ald-inner .ald-itemlist li{margin-left:0;margin-right:0;}
+.w2 .hasAld .view{margin-left:0;}
+.w2 .hasAld .view .product,.w2 .hasAld .ald-03046 .ald-inner .ald-itemlist li{margin-left:7px;margin-right:1px;}
+.w2 .hasAld .ald-03046 .ald-inner{padding-right:200px;}
+.w2 .lv3 .productImg{width:15%!important;}
+.w2 .lv3 .productInfo{width:64%!important;}
+.w2 .lv3 .productSell{width:14%!important;}
+.w2 .lv5 .product{width:25%!important;}
+.w2 .hasAld .minisite-link{width:1184px;}
+.w2 .hasAld .filter-fix{width:1180px;}
+.w2 .filter .filterMenu{width:auto;_border:1px solid #ccc;_height:22px;}
+.w2 .filter .filterMenu .filterMenu-con{position:static;_border:none;_height:auto;}
+.w2 .filterMenu .ui-more-drop-l,.w2 .filterMenu .ui-more-expand-l{display:none;}
+.w2 .recommend-con-5 .product{margin-right:40px;margin-left:40px;}
+.w2 .recommend-con-6 .product{margin-right:17px;margin-left:17px;}
+.w2 .aldRight{display:block;}
+.w2 .hasAld .container{position:relative;padding-right:200px;}
+.w2 .shopHeader .shopHeader-info{width:450px;}
+.w2 .shopHeader .shopHeader-enter{padding-left:260px;}
+.w2 .shopBox .sBr-con .product{padding-left:0;}
+@media(min-width :1227px) and /*!YUI-Compressor */(max-width:1427px){#sn-bd,#header .headerLayout,#header .headerCon,.crumb .crumbCon,.main{width:1190px!important;}
+#site-nav .sn-container{width:968px;}
+#site-nav .sn-edge{right:968px;}
+.sn-mcate-bd .sn-mcate-ctn-con{width:1190px;}
+.sn-mcate-bd .sn-mcate-ctn{width:1255px;}
+.sn-mcate-bd .sn-mcate-ctn li{padding-right:59px;}
+#mallSearch{width:620px;}
+#mq{width:530px;}
+.minisite .minisite-link{width:1184px;}
+.mv2 .minisite-con .minisite-panel{width:1188px;}
+.main .filter-fix{width:1180px;}
+.filter .filterMenu{width:auto;max-width:494px;}
+.filter .filterMenu .filterMenu-con{position:static;}
+.filterMenu .ui-more-drop-l,.filterMenu .ui-more-expand-l{display:none;}
+.main .view .product,.main .ald-03046 .ald-inner .ald-itemlist li{margin-left:7px;margin-right:1px;}
+.hasAld .view .product,.hasAld .ald-03046 .ald-inner .ald-itemlist li{margin-left:8px;margin-right:8px;}
+.hasAld .ald-03046 .ald-inner{padding-right:200px;}
+.lv3 .productImg{width:18%!important;}
+.lv3 .productInfo{width:54%!important;}
+.lv3 .productSell{width:19%!important;}
+.hasAld .minisite-link{width:984px;}
+.hasAld .filter-fix{width:980px;}
+.hasAld .filter .filterMenu{width:255px;}
+.hasAld .filterMenu .ui-more-drop-l,.hasAld .filterMenu .ui-more-expand-l{display:inline-block;}
+.recommend .recommend-con-5 .product{margin-right:20px;margin-left:20px;}
+.aldRight{display:block;}
+.hasAld .container{position:relative;padding-right:200px;}
+.shopHeader .shopHeader-info{width:380px;}
+.shopHeader .shopHeader-enter{padding-left:140px;}
+.shopBox .sBr-con{padding-left:5px;}
+}
+@media(min-width :1427px){#sn-bd,#header .headerLayout,#header .headerCon,.crumb .crumbCon,.main{width:1390px!important;}
+#site-nav .sn-container{width:1228px;}
+#site-nav .sn-edge{right:1228px;}
+.sn-mcate-bd .sn-mcate-ctn-con{width:1390px;}
+.sn-mcate-bd .sn-mcate-ctn{width:1455px;}
+#mallSearch{width:720px;}
+#mq{width:630px;}
+.minisite .minisite-link{width:1384px;}
+.mv2 .minisite-con .minisite-panel{width:1388px;}
+.main .filter-fix{width:1380px;}
+.main .view{margin-left:7px;}
+.main .view .product,.main .ald-03046 .ald-inner .ald-itemlist li{margin-left:0;margin-right:0;}
+.hasAld .view{margin-left:0;}
+.hasAld .view .product,.hasAld .ald-03046 .ald-inner .ald-itemlist li{margin-left:7px;margin-right:1px;}
+.hasAld .ald-03046 .ald-inner{padding-right:200px;}
+.lv3 .productImg{width:15%!important;}
+.lv3 .productInfo{width:64%!important;}
+.lv3 .productSell{width:14%!important;}
+.lv5 .product{width:25%!important;}
+.hasAld .minisite-link{width:1184px;}
+.hasAld .filter-fix{width:1180px;}
+.filter .filterMenu{width:auto;}
+.filter .filterMenu .filterMenu-con{position:static;}
+.filterMenu .ui-more-drop-l,.filterMenu .ui-more-expand-l{display:none;}
+.recommend .recommend-con-5 .product{margin-left:40px;margin-right:40px;}
+.recommend .recommend-con-6 .product{margin-right:17px;margin-left:17px;}
+.aldRight{display:block;}
+.hasAld .container{position:relative;padding-right:200px;}
+.shopHeader .shopHeader-info{width:450px;}
+.shopHeader .shopHeader-enter{padding-left:260px;}
+.shopBox .sBr-con{padding-left:0;}
+}

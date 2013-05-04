@@ -117,7 +117,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             SearchModel searchModel = new SearchModel();
 
-            scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
+            //scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
             friday.core.Merchant merchant = iMerchantService.Load(scid);
             searchModel.SingleMerchant =merchant;
             if (!string.IsNullOrEmpty(goodTypeId))

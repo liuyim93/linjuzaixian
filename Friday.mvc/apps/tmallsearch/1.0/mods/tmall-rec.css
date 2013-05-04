@@ -1,0 +1,10 @@
+﻿.tmallRecommend{height:320px;line-height:20px;border:2px solid #d4d0cb;margin-bottom:10px;}
+.tmallRec-item{position:relative;*display:inline;float:left;width:16%;*width:15.5%;margin:20px 2%;}
+.tRi-img{display:block;text-align:center;vertical-align:center;overflow:hidden;height:160px;width:160px;}
+.tRi-price{font-family:'arial','verdana',sans-serif!important;font-size:14px;font-weight:bold;margin-top:10px;color:#c00;}
+.tRi-title{height:44px;line-height:22px;overflow:hidden;}
+.tRi-title a{color:#666;}
+.tRi-sell{color:#a7a7a7;}
+.tRi-sell em{font-weight:bold;color:#c49173;}
+.tRi-extra a{color:#568396;margin-right:3px;}
+
