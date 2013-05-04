@@ -1,165 +1,168 @@
-﻿KISSY.add("malldetail/sku/freight", function (B, Z) {
-    var K = B.mods.SKU, D = KISSY, R = D.DOM, b = D.Event;
-    var A, L, E, I, C, Q, F, W, O, P, X = '<p><i class="i-prescription"></i>{{#if name}}<span class="tb-label">{{name}}</span>{{/if}}{{#if money}}<em>&yen;{{money}}\u5143</em> {{/if}}{{#if signText}}<b>{{signText}}</b>{{/if}}</p>', V = "{{#if name}}{{name}}: {{/if}}{{#if money}}{{money}}\u5143 {{/if}}{{#if signText}}<b>({{signText}})</b>{{/if}}", U = "<span>{{postage}}</span>";
-    var a = document, H = a.body;
+﻿KISSY.add("malldetail/sku/freight", function (_kissy_B, _template) {
+    var _mods_SKU = _kissy_B.mods.SKU, _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event;
+    var _dom_id_info, _deliveryDO_t, _selectSkuId_t, _set_info_html_fn, C, _template_snippet_t, F, _cfg, O, P,
+        _prescription_template = '<p><i class="i-prescription"></i>{{#if name}}<span class="tb-label">{{name}}</span>{{/if}}{{#if money}}<em>&yen;{{money}}\u5143</em> {{/if}}{{#if signText}}<b>{{signText}}</b>{{/if}}</p>',
+        _signText_template = "{{#if name}}{{name}}: {{/if}}{{#if money}}{{money}}\u5143 {{/if}}{{#if signText}}<b>({{signText}})</b>{{/if}}",
+        _postage_template = "<span>{{postage}}</span>";
+    var _document = document, _body = _document.body;
     function G() {
-        if (!L || !L.deliverySkuMap) {
+        if (!_deliveryDO_t || !_deliveryDO_t.deliverySkuMap) {
             return
         }
-        var d = L.deliverySkuMap;
-        var e = "";
-        var T = U, g;
-        c = K.selectSkuId;
-        var S = c && d[c] ? c : "default";
-        g = d[S];
-        if (typeof g == "undefined") {
-            for (var c in d) {
-                if (typeof d[c] == "object") {
-                    g = d[c];
+        var _deliverySkuMap = _deliveryDO_t.deliverySkuMap;
+        var _template_snippet = "";
+        var _selected_template = _postage_template, _deliverySku;
+        _selectSkuId_t = _mods_SKU.selectSkuId;
+        var S = _selectSkuId_t && _deliverySkuMap[_selectSkuId_t] ? _selectSkuId_t : "default";
+        _deliverySku = _deliverySkuMap[S];
+        if (typeof _deliverySku == "undefined") {
+            for (var _selectSkuId_t in _deliverySkuMap) {
+                if (typeof _deliverySkuMap[_selectSkuId_t] == "object") {
+                    _deliverySku = _deliverySkuMap[_selectSkuId_t];
                     break
                 }
             }
         }
-        if (g) {
-            var f = g[0] ? g[0]["type"] : g.type;
-            f == 1 && (T = X);
-            if (g.length) {
-                D.each(g, function (h) {
-                    e += Z(T).render(h)
+        if (_deliverySku) {
+            var _type = _deliverySku[0] ? _deliverySku[0]["type"] : _deliverySku.type;
+            _type == 1 && (_selected_template = _prescription_template);
+            if (_deliverySku.length) {
+                _kissy.each(_deliverySku, function (_deliverySku_item) {
+                    _template_snippet += _template(_selected_template).render(_deliverySku_item)
                 })
             } else {
-                e += Z(T).render(g)
+                _template_snippet += _template(_selected_template).render(_deliverySku)
             }
         }
-        N(e)
+        _renderNoSell(_template_snippet)
     }
-    function Y() {
+    function _render() {
         if (!P) {
             P = 1;
-            if (!K.dqCity.getFirstAreaSold() || !K.areaSell.getFirstAreaSold()) {
-                K.dqCity.notSell();
+            if (!_mods_SKU.dqCity.getFirstAreaSold() || !_mods_SKU.areaSell.getFirstAreaSold()) {
+                _mods_SKU.dqCity.notSell();
                 return false
             }
         }
-        if (!K.Price.getAreaSold(K.selectSkuId)) {
-            K.dqCity.notSell()
+        if (!_mods_SKU.Price.getAreaSold(_mods_SKU.selectSkuId)) {
+            _mods_SKU.dqCity.notSell()
         } else {
-            if (K.Service.getHouseService()) {
-                N("")
+            if (_mods_SKU.Service.getHouseService()) {
+                _renderNoSell("")
             } else {
                 G()
             }
-            K.dqCity.sell()
+            _mods_SKU.dqCity.sell()
         }
     }
-    function N(T, S) {
-        if (A) {
+    function _renderNoSell(_template_snippet, S) {
+        if (_dom_id_info) {
             if (S) {
-                C = T
+                C = _template_snippet
             }
-            Q = C || T;
-            if (I) {
-                clearTimeout(I)
+            _template_snippet_t = C || _template_snippet;
+            if (_set_info_html_fn) {
+                clearTimeout(_set_info_html_fn)
             }
-            I = setTimeout(function () {
-                A.html(Q);
+            _set_info_html_fn = setTimeout(function () {
+                _dom_id_info.html(_template_snippet_t);
                 C = null;
-                Q = null;
-                I = null
+                _template_snippet_t = null;
+                _set_info_html_fn = null
             }, 100)
         }
     }
     function J() {
-        var S = D.one("#J_dqPostAgeCont");
-        if (S) {
-            var d = D.one("#friInfo");
-            var T = D.one("#info");
-            var c = S.parent();
-            d.show();
-            d.html("\u786e\u8ba4\u6536\u8d27\u5730\uff0c\u4ee5\u786e\u4fdd\u5728\u5546\u5bb6\u9500\u552e\u533a\u57df");
-            T.hide();
-            c.addClass(".tb-postLight");
+        var _dom_id_J_dqPostAgeCont = _kissy.one("#J_dqPostAgeCont");
+        if (_dom_id_J_dqPostAgeCont) {
+            var _dom_id_friInfo = _kissy.one("#friInfo");
+            var _dom_id_info = _kissy.one("#info");
+            var _dom_class_postAge = _dom_id_J_dqPostAgeCont.parent();
+            _dom_id_friInfo.show();
+            _dom_id_friInfo.html("确认收货地，以确保在商家销售区域");
+            _dom_id_info.hide();
+            _dom_class_postAge.addClass(".tb-postLight");
             setTimeout(function () {
-                c.removeClass(".tb-postLight");
-                T.show();
-                d.hide();
-                c = d = T = null
+                _dom_class_postAge.removeClass(".tb-postLight");
+                _dom_id_info.show();
+                _dom_id_friInfo.hide();
+                _dom_class_postAge = _dom_id_friInfo = _dom_id_info = null
             }, 4000)
         }
     }
-    function M(e) {
-        if (typeof e == "undefined") {
-            L = {};
+    function _init(_deliveryDO) {
+        if (typeof _deliveryDO == "undefined") {
+            _deliveryDO_t = {};
             return
         }
-        L = e;
-        W = B.cfg();
-        E = K.selectSkuId;
-        if (!A) {
-            var d = D.one("#J_dqPostAgeCont") || D.one("#J_TreeSelectTrigger");
-            if (d) {
-                var c = D.one("#J_PostageToggleCont");
-                c.html("<div id='friInfo'  style='display:none;'></div><div id='info' class='tmallPost'></div>");
-                A = D.one("#info")
+        _deliveryDO_t = _deliveryDO;
+        _cfg = _kissy_B.cfg();
+        _selectSkuId_t = _mods_SKU.selectSkuId;
+        if (!_dom_id_info) {
+            var _dom_id_J_dqPostAgeCont = _kissy.one("#J_dqPostAgeCont") || _kissy.one("#J_TreeSelectTrigger");
+            if (_dom_id_J_dqPostAgeCont) {
+                var _dom_id_J_PostageToogleCont = _kissy.one("#J_PostageToggleCont");
+                _dom_id_J_PostageToogleCont.html("<div id='friInfo'  style='display:none;'></div><div id='info' class='tmallPost'></div>");
+                _dom_id_info = _kissy.one("#info")
             } else {
-                A = D.one("#info")
+                _dom_id_info = _kissy.one("#info")
             }
         }
-        Y();
+        _render();
         if (!O) {
             O = 1;
-            K.PropertyHandler.onSkuChange(function () {
-                if (W.isSupportCity) {
-                    Y()
+            _mods_SKU.PropertyHandler.onSkuChange(function () {
+                if (_cfg.isSupportCity) {
+                    _render()
                 }
             });
-            if (A) {
-                var T, f, S;
-                var g = null;
-                b.on(A, "mouseenter", function (i) {
-                    var h = R.get("#J_Tmpost");
-                    if (h) {
-                        if (g) {
-                            clearTimeout(g)
+            if (_dom_id_info) {
+                var _dom_span, _dom_span_inner1, _dom_span_inner2;
+                var _set_invisible_timeout_fn = null;
+                _event.on(_dom_id_info, "mouseenter", function (_e) {
+                    var _dom_id_J_Tmpost = _dom.get("#J_Tmpost");
+                    if (_dom_id_J_Tmpost) {
+                        if (_set_invisible_timeout_fn) {
+                            clearTimeout(_set_invisible_timeout_fn)
                         }
-                        if (!T) {
-                            T = R.create("<span>");
-                            T.className = "coin-popup";
-                            T.style.cssText = "top:" + (R.offset(h).top + 18) + "px;left:" + (R.offset(h).left - 24) + "px;display:none";
-                            f = R.create("<span>");
-                            f.className = "cor";
-                            S = R.create("<span>");
-                            S.className = "con";
-                            S.innerHTML = '\u5168\u529b\u4e3a\u60a8\u51c6\u65f6\u9001\u8fbe~<a href="http://bbs.taobao.com/catalog/thread/567766-257748016.htm" target="_blank">\u66f4\u591a\u7269\u6d41\u4fdd\u969c&gt;&gt;</a>';
-                            T.appendChild(f);
-                            T.appendChild(S);
-                            H.insertBefore(T, H.firstChild);
-                            b.on(T, "mouseenter", function () {
-                                if (g) {
-                                    clearTimeout(g)
+                        if (!_dom_span) {
+                            _dom_span = _dom.create("<span>");
+                            _dom_span.className = "coin-popup";
+                            _dom_span.style.cssText = "top:" + (_dom.offset(_dom_id_J_Tmpost).top + 18) + "px;left:" + (_dom.offset(_dom_id_J_Tmpost).left - 24) + "px;display:none";
+                            _dom_span_inner1 = _dom.create("<span>");
+                            _dom_span_inner1.className = "cor";
+                            _dom_span_inner2 = _dom.create("<span>");
+                            _dom_span_inner2.className = "con";
+                            _dom_span_inner2.innerHTML = '全力为您准时送达~<a href="http://bbs.taobao.com/catalog/thread/567766-257748016.htm" target="_blank">更多物流保障&gt;&gt;</a>';
+                            _dom_span.appendChild(_dom_span_inner1);
+                            _dom_span.appendChild(_dom_span_inner2);
+                            _body.insertBefore(_dom_span, _body.firstChild);
+                            _event.on(_dom_span, "mouseenter", function () {
+                                if (_set_invisible_timeout_fn) {
+                                    clearTimeout(_set_invisible_timeout_fn)
                                 }
-                                T.style.display = "inline"
+                                _dom_span.style.display = "inline"
                             });
-                            b.on(T, "mouseleave", function () {
-                                T.style.display = "none"
+                            _event.on(_dom_span, "mouseleave", function () {
+                                _dom_span.style.display = "none"
                             })
                         }
-                        T.style.display = "inline"
+                        _dom_span.style.display = "inline"
                     }
                 });
-                b.on(A, "mouseleave", function () {
-                    g = setTimeout(function () {
-                        if (T) {
-                            T.style.display = "none"
+                _event.on(_dom_id_info, "mouseleave", function () {
+                    _set_invisible_timeout_fn = setTimeout(function () {
+                        if (_dom_span) {
+                            _dom_span.style.display = "none"
                         }
                     }, 100)
                 })
             }
         }
-        if (!F && W.isAreaSell && W.tradeType == 2) {
+        if (!F && _cfg.isAreaSell && _cfg.tradeType == 2) {
             J();
             F = true
         }
     }
-    return { init: M, render: Y, renderNoSell: N }
+    return { init: _init, render: _render, renderNoSell: _renderNoSell }
 }, { requires: ["template"] }); /*pub-1|2013-02-28 21:14:23*/

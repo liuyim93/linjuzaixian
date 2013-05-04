@@ -1,166 +1,166 @@
-﻿KISSY.add("malldetail/sku/stock", function (E, Y, I) {
-    var J = E.mods.SKU;
-    var F = KISSY, V = F.DOM, Z = F.Event;
-    var D;
+﻿KISSY.add("malldetail/sku/stock", function (_kissy_E, _template, _malldetail_sku_skuMsg) {
+    var _mods_SKU = _kissy_E.mods.SKU;
+    var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event;
+    var _emStock;
     var H, M = true, G = true, L;
     var R, A = false;
-    var W;
+    var _cfg;
     var Q;
-    var O = { "1": { errMsg: "\u6b64\u5546\u54c1\u6682\u65f6\u7f3a\u8d27" }, "2": { stock: "\u5e93\u5b58\u5145\u8db3", errMsg: "\u6b64\u533a\u57df\u6682\u65f6\u7f3a\u8d27\uff0c\u8bf7\u67e5\u770b\u5176\u4ed6\u533a\u57df" }, "3": { stock: 0, errMsg: "\u6709\u4eba\u8fd8\u672a\u4ed8\u6b3e\uff0c\u82e515\u5206\u949f\u540e\u4ecd\u672a\u4ed8\u6b3e\uff0c\u60a8\u5c06\u6709\u8d2d\u4e70\u673a\u4f1a"} };
-    function B(S) {
-        E.cfg("valStock", S)
+    var _errMsg_map = { "1": { errMsg: "此商品暂时缺货" }, "2": { stock: "库存充足", errMsg: "此区域暂时缺货，请查看其他区域" }, "3": { stock: 0, errMsg: "有人还未付款，若15分钟后仍未付款，您将有购买机会"} };
+    function _set_valStock_value(_stock_value) {
+        _kissy_E.cfg("valStock", _stock_value)
     }
-    function U(d, a) {
-        var T = (typeof d) == "number" ? "default" : "diy";
+    function _rander(d, a) {
+        var _render_type = (typeof d) == "number" ? "default" : "diy";
         var a = a || "";
-        var S = { "default": "(\u5e93\u5b58{{str}}\u4ef6)", diy: '<span class="{{className}}">{{str}}</span>' };
-        var b = { str: d, className: a };
-        var c = Y(S[T]).render(b);
-        if (!F.isUndefined(L) && E.cfg("valStock") > L) {
-            E.cfg("limited", L);
+        var _render_type_template = { "default": "(库存{{str}}件)", diy: '<span class="{{className}}">{{str}}</span>' };
+        var _meta = { str: d, className: a };
+        var _stock_snippet = _template(_render_type_template[_render_type]).render(_meta);
+        if (!_kissy.isUndefined(L) && _kissy_E.cfg("valStock") > L) {
+            _kissy_E.cfg("limited", L);
             if (L > 0) {
-                c = c.replace(")", ",\u9650\u8d2d" + L + "\u4ef6)");
-                c = c.replace("\u5e93\u5b58\u5145\u8db3", "(\u5e93\u5b58\u5145\u8db3,\u9650\u8d2d" + L + "\u4ef6)")
+                _stock_snippet = _stock_snippet.replace(")", ",限购" + L + "件)");
+                _stock_snippet = _stock_snippet.replace("库存充足", "(库存充足" + L + "件)")
             }
         }
-        D.innerHTML = c
+        _emStock.innerHTML = _stock_snippet
     }
-    function P(a, S) {
-        if (!D) {
+    function P(_icTotalQuantity, _valItemInfo_type) {
+        if (!_emStock) {
             return
         }
-        if (S == 3) {
+        if (_valItemInfo_type == 3) {
             if (!R) {
-                var T = V.parent(W.linkBuy, 2);
-                R = V.create('<span class="ui-btn-l-primary ui-btn-disable">\u8fd8\u6709\u673a\u4f1a</span>');
-                V.append(R, T)
+                var T = _dom.parent(_cfg.linkBuy, 2);
+                R = _dom.create('<span class="ui-btn-l-primary ui-btn-disable">还有机会</span>');
+                _dom.append(R, T)
             }
             if (!A) {
-                J.LinkBuy.statu("chaoMai", "hide");
-                J.LinkBasket.statu("chaoMai", "hide");
-                J.LinkAdd.statu("chaoMai", "hide");
-                V.show(R)
+                _mods_SKU.LinkBuy.statu("chaoMai", "hide");
+                _mods_SKU.LinkBasket.statu("chaoMai", "hide");
+                _mods_SKU.LinkAdd.statu("chaoMai", "hide");
+                _dom.show(R)
             }
             A = true
         } else {
             if (A) {
-                V.hide(R);
-                J.LinkBuy.statu("chaoMai", "show");
-                J.LinkBasket.statu("chaoMai", "show");
-                J.LinkAdd.statu("chaoMai", "show")
+                _dom.hide(R);
+                _mods_SKU.LinkBuy.statu("chaoMai", "show");
+                _mods_SKU.LinkBasket.statu("chaoMai", "show");
+                _mods_SKU.LinkAdd.statu("chaoMai", "show")
             }
             A = false
         }
-        if (a == 0) {
+        if (_icTotalQuantity == 0) {
             M = false;
-            I.show(O[S]["errMsg"], "stop", "stock");
-            V.hide(W.emStock);
-            J.LinkBuy.statu("stock", "disabled");
-            J.LinkBasket.statu("stock", "disabled");
-            J.LinkAdd.statu("stock", "hide")
+            _malldetail_sku_skuMsg.show(_errMsg_map[_valItemInfo_type]["errMsg"], "stop", "stock");
+            _dom.hide(_cfg.emStock);
+            _mods_SKU.LinkBuy.statu("stock", "disabled");
+            _mods_SKU.LinkBasket.statu("stock", "disabled");
+            _mods_SKU.LinkAdd.statu("stock", "hide")
         } else {
             M = true;
-            I.hide("stock");
-            V.show(W.emStock);
-            J.LinkBuy.statu("stock", "enabled");
-            J.LinkBasket.statu("stock", "enabled");
-            J.LinkAdd.statu("stock", "show");
-            if (S == 2 && G) {
-                U(a)
+            _malldetail_sku_skuMsg.hide("stock");
+            _dom.show(_cfg.emStock);
+            _mods_SKU.LinkBuy.statu("stock", "enabled");
+            _mods_SKU.LinkBasket.statu("stock", "enabled");
+            _mods_SKU.LinkAdd.statu("stock", "show");
+            if (_valItemInfo_type == 2 && G) {
+                _rander(_icTotalQuantity)
             }
         }
-        if (S > 0 && (S != 2 || !G)) {
-            if (typeof O[S]["stock"] != "undefined") {
-                U(O[S]["stock"])
+        if (_valItemInfo_type > 0 && (_valItemInfo_type != 2 || !G)) {
+            if (typeof _errMsg_map[_valItemInfo_type]["stock"] != "undefined") {
+                _rander(_errMsg_map[_valItemInfo_type]["stock"])
             } else {
-                U(a)
+                _rander(_icTotalQuantity)
             }
         }
     }
     function X() {
-        var b;
-        var S = J.selectSkuId;
-        var T = C();
-        if (S) {
-            var a = H.skuQuantity[S];
+        var _icTotalQuantity;
+        var _selectSkuId = _mods_SKU.selectSkuId;
+        var _valItemInfo_type = _get_valItemInfo_type();
+        if (_selectSkuId) {
+            var a = H.skuQuantity[_selectSkuId];
             if (a) {
-                b = a.quantity;
-                B(b);
-                P(b, T)
+                _icTotalQuantity = a.quantity;
+                _set_valStock_value(_icTotalQuantity);
+                P(_icTotalQuantity, _valItemInfo_type)
             }
         } else {
-            b = H.icTotalQuantity;
-            B(b);
-            P(b, T)
+            _icTotalQuantity = H.icTotalQuantity;
+            _set_valStock_value(_icTotalQuantity);
+            P(_icTotalQuantity, _valItemInfo_type)
         }
-        F.use("malldetail/sku/price", function (d, c) {
-            c.limitBuy()
+        _kissy.use("malldetail/sku/price", function (_kissy_d, _malldetail_sku_price) {
+            _malldetail_sku_price.limitBuy()
         })
     }
-    function C() {
-        var a;
-        var S = J.selectSkuId;
-        if (S) {
-            var T = W.valItemInfo.skuQuantity;
-            if (T[S]) {
-                a = T[S]["type"]
+    function _get_valItemInfo_type() {
+        var _type;
+        var _selectSkuId = _mods_SKU.selectSkuId;
+        if (_selectSkuId) {
+            var _skuQuantity = _cfg.valItemInfo.skuQuantity;
+            if (_skuQuantity[_selectSkuId]) {
+                _type = _skuQuantity[_selectSkuId]["type"]
             }
         } else {
-            a = W.valItemInfo["type"]
+            _type = _cfg.valItemInfo["type"]
         }
-        if (typeof a == "undefined") {
-            a = 0
+        if (typeof _type == "undefined") {
+            _type = 0
         }
-        return a
+        return _type
     }
-    function K() {
-        if (!W) {
-            W = E.cfg()
+    function _getStockStatus() {
+        if (!_cfg) {
+            _cfg = _kissy_E.cfg()
         }
         if (!M) {
-            var S = C();
-            J.Msg.show(O[S]["errMsg"], "stop", "stock");
-            V.hide(W.emStock);
-            J.LinkBuy.statu("stock", "disabled");
-            J.LinkBasket.statu("stock", "disabled");
-            J.LinkAdd.statu("stock", "hide")
+            var S = _get_valItemInfo_type();
+            _mods_SKU.Msg.show(_errMsg_map[S]["errMsg"], "stop", "stock");
+            _dom.hide(_cfg.emStock);
+            _mods_SKU.LinkBuy.statu("stock", "disabled");
+            _mods_SKU.LinkBasket.statu("stock", "disabled");
+            _mods_SKU.LinkAdd.statu("stock", "hide")
         }
         return M
     }
-    function N(b) {
-        var T = b.inventoryDO, S = b.soldAreaDO, a = J.getCurrentPromotion();
-        if (a) {
-            T = T ? T : {}
+    function _init(_defaultModel) {
+        var _inventoryDO = _defaultModel.inventoryDO, _soldAreaDO = _defaultModel.soldAreaDO, _currentPromotion = _mods_SKU.getCurrentPromotion();
+        if (_currentPromotion) {
+            _inventoryDO = _inventoryDO ? _inventoryDO : {}
         }
-        if (typeof T == "undefined") {
+        if (typeof _inventoryDO == "undefined") {
             H = {};
             return
         }
-        T.skuQuantity = T.skuQuantity || {};
-        W = E.cfg();
-        F.each(W.valItemInfo.skuMap, function (c) {
-            if (T.skuQuantity[c.skuId]) {
-                c.stock = T.skuQuantity[c.skuId].quantity
+        _inventoryDO.skuQuantity = _inventoryDO.skuQuantity || {};
+        _cfg = _kissy_E.cfg();
+        _kissy.each(_cfg.valItemInfo.skuMap, function (_skuMap_item) {
+            if (_inventoryDO.skuQuantity[_skuMap_item.skuId]) {
+                _skuMap_item.stock = _inventoryDO.skuQuantity[_skuMap_item.skuId].quantity
             }
         });
-        D = W.emStock;
-        H = T;
+        _emStock = _cfg.emStock;
+        H = _inventoryDO;
         if (!Q) {
-            G = S ? S.allAreaSold : true;
-            if (a && a.amountRestriction) {
-                L = a.amountRestriction
+            G = _soldAreaDO ? _soldAreaDO.allAreaSold : true;
+            if (_currentPromotion && _currentPromotion.amountRestriction) {
+                L = _currentPromotion.amountRestriction
             }
         }
         X();
         if (!Q) {
             Q = 1;
-            J.PropertyHandler.onSkuChange(function () {
-                var c = J.selectSkuId;
-                if (c && W.isSupportCity) {
+            _mods_SKU.PropertyHandler.onSkuChange(function () {
+                var c = _mods_SKU.selectSkuId;
+                if (c && _cfg.isSupportCity) {
                     X()
                 }
             })
         }
     }
-    return { init: N, getStockStatus: K, rander: U }
+    return { init: _init, getStockStatus: _getStockStatus, rander: _rander }
 }, { requires: ["template", "malldetail/sku/skuMsg"] }); /*pub-1|2013-01-06 16:13:19*/

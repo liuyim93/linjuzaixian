@@ -1,14 +1,14 @@
 ﻿
-KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
-    var G = KISSY, A = KISSY.DOM, M = KISSY.DOM, L = KISSY.Event, J = G.UA, C = F.mods.SKU, K = document, H = K.body;
-    C.L2Selector = { selector: null, init: function () {
-        var O = this;
-        var D = F.cfg();
-        this.selector = new B({ node: G.get("#J_dqPostAgeCont"), selectCity: D.destination })
+KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector, _malldetail_sku_freight, _malldetail_sku_stock, _malldetail_sku_skuMsg) {
+    var _kissy = KISSY, _dom_A = KISSY.DOM, _dom_M = KISSY.DOM, _event = KISSY.Event, _ua = _kissy.UA, _mods_SKU = _kissy_F.mods.SKU, _document = document, _body = _document.body;
+    _mods_SKU.L2Selector = { selector: null, init: function () {
+        var _l2selector = this;
+        var _cfg = _kissy_F.cfg();
+        this.selector = new _malldetail_sku_areaSelector({ node: _kissy.get("#J_dqPostAgeCont"), selectCity: _cfg.destination })
     } 
     };
-    C.dqCity = function () {
-        var S, X, U = true;
+    _mods_SKU.dqCity = function () {
+        var _cfg, X, U = true;
         var R;
         var a;
         var P;
@@ -36,23 +36,23 @@ KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
                 }
             }
         }, sell: function () {
-            if (!S) {
-                S = F.cfg()
+            if (!_cfg) {
+                _cfg = _kissy_F.cfg()
             }
-            M.show(S.emStock);
-            C.LinkBuy.statu("areaSold", "enabled");
-            C.LinkBasket.statu("areaSold", "enabled");
-            C.LinkAdd.statu("areaSold", "show")
+            _dom_M.show(_cfg.emStock);
+            _mods_SKU.LinkBuy.statu("areaSold", "enabled");
+            _mods_SKU.LinkBasket.statu("areaSold", "enabled");
+            _mods_SKU.LinkAdd.statu("areaSold", "show")
         }, notSell: function () {
-            if (!S) {
-                S = F.cfg()
+            if (!_cfg) {
+                _cfg = _kissy_F.cfg()
             }
-            N.renderNoSell('<span class="error">\u6b64\u533a\u57df\u4e0d\u9500\u552e\uff0c\u8bf7\u67e5\u770b\u5176\u4ed6\u533a\u57df</span>');
-            M.hide(S.emStock);
-            E.hide();
-            C.LinkBuy.statu("areaSold", "disabled");
-            C.LinkBasket.statu("areaSold", "disabled");
-            C.LinkAdd.statu("areaSold", "hide")
+            _malldetail_sku_freight.renderNoSell('<span class="error">此区域不销售，请查看其他区域</span>');
+            _dom_M.hide(_cfg.emStock);
+            _malldetail_sku_skuMsg.hide();
+            _mods_SKU.LinkBuy.statu("areaSold", "disabled");
+            _mods_SKU.LinkBasket.statu("areaSold", "disabled");
+            _mods_SKU.LinkAdd.statu("areaSold", "hide")
         }, checkAreaSell: function () {
             var e = this;
             var d = T();
@@ -76,7 +76,7 @@ KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
         };
         var Z = function () {
             var c = {};
-            G.all("#J_regionSellServer li").each(function () {
+            _kissy.all("#J_regionSellServer li").each(function () {
                 if (this.hasClass("tb-selected")) {
                     if (this.attr("date-value").split("-").length > 1) {
                         if (typeof c[this.attr("date-value").split("-")[0]] == "undefined") {
@@ -98,9 +98,9 @@ KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
             }
         };
         var D = function () {
-            var d = C.selectSkuId;
+            var d = _mods_SKU.selectSkuId;
             var c = true;
-            if (!C.Price.getAreaSold(d)) {
+            if (!_mods_SKU.Price.getAreaSold(d)) {
                 return false
             }
             if (X && !W && !R) {
@@ -108,7 +108,7 @@ KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
                     return false
                 }
             }
-            if (!I.getStockStatus()) {
+            if (!_malldetail_sku_stock.getStockStatus()) {
                 return false
             }
             return c
@@ -117,13 +117,13 @@ KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
             if (!V) {
                 return true
             }
-            var d = C.selectSkuId;
-            var c = G.one("#J_IptAmount").val();
+            var d = _mods_SKU.selectSkuId;
+            var c = _kissy.one("#J_IptAmount").val();
             var f = [a, c, d];
             if (P) {
                 var g = Z();
                 var e = [];
-                G.each(g, function (i, h) {
+                _kissy.each(g, function (i, h) {
                     e.push(h + "|" + i)
                 });
                 if (e.length > 0) {
@@ -148,34 +148,34 @@ KISSY.add("malldetail/sku/3c", function (F, B, N, I, E) {
         }, getOrder: function () {
             return b()
         }, init: function (c) {
-            S = F.cfg();
-            X = S.isAreaSell;
-            a = S.itemDO.itemId;
-            P = S.isService;
-            V = S.frmBid;
-            O = C.L2Selector.selector;
+            _cfg = _kissy_F.cfg();
+            X = _cfg.isAreaSell;
+            a = _cfg.itemDO.itemId;
+            P = _cfg.isService;
+            V = _cfg.frmBid;
+            O = _mods_SKU.L2Selector.selector;
             Q.init(c);
             O.onSelectBlackCityCallBack(function () {
-                N.renderNoSell('<span class="error">\u6b64\u533a\u57df\u4e0d\u9500\u552e\uff0c\u8bf7\u67e5\u770b\u5176\u4ed6\u533a\u57df</span>');
-                M.hide(S.emStock);
-                E.hide();
-                C.LinkBuy.statu("areaSold", "disabled");
-                C.LinkBasket.statu("areaSold", "disabled");
-                C.LinkAdd.statu("areaSold", "hide");
+                _malldetail_sku_freight.renderNoSell('<span class="error">此区域不销售，请查看其他区域</span>');
+                _dom_M.hide(_cfg.emStock);
+                _malldetail_sku_skuMsg.hide();
+                _mods_SKU.LinkBuy.statu("areaSold", "disabled");
+                _mods_SKU.LinkBasket.statu("areaSold", "disabled");
+                _mods_SKU.LinkAdd.statu("areaSold", "hide");
                 O.close();
-                S.isSupportCity = false
+                _cfg.isSupportCity = false
             });
             O.onCityChange(function () {
-                if (!S.isDoule11) {
-                    N.renderNoSell("")
+                if (!_cfg.isDoule11) {
+                    _malldetail_sku_freight.renderNoSell("")
                 }
-                C.LinkBuy.statu("areaSold", "enabled");
-                C.LinkBasket.statu("areaSold", "enabled");
-                C.LinkAdd.statu("areaSold", "show");
+                _mods_SKU.LinkBuy.statu("areaSold", "enabled");
+                _mods_SKU.LinkBasket.statu("areaSold", "enabled");
+                _mods_SKU.LinkAdd.statu("areaSold", "show");
                 O.close();
-                S.isSupportCity = true;
+                _cfg.isSupportCity = true;
                 var d = { areaId: O.selectCity };
-                C.changeLocation(d)
+                _mods_SKU.changeLocation(d)
             })
         } 
         }

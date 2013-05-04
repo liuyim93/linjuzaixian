@@ -240,10 +240,10 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
             D.yikouPriceShow()
         }
     }
-    function k() {
+    function _limitBuy() {
         var T = _mods_sku.getCurrentPromotion();
         if (T) {
-            var S = L();
+            var S = _getPromType();
             if (S == 1) {
                 _dom.attr(_cfg.iptAmount, "data-type", "ju")
             }
@@ -286,20 +286,20 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
             }
         }
     }
-    function O(S) {
+    function _getAreaSold(_selectSkuId_t) {
         var T;
-        if (_kissy_imp.cfg("detailMode") != "skipError" && S && (T = _mods_sku.getPriceInfo(S))) {
+        if (_kissy_imp.cfg("detailMode") != "skipError" && _selectSkuId_t && (T = _mods_sku.getPriceInfo(_selectSkuId_t))) {
             return T.areaSold
         } else {
             return true
         }
     }
-    function W() {
+    function _getCampaignInfo() {
         if (_itemPriceResultDO_t && _itemPriceResultDO_t.campaignInfo) {
             return _itemPriceResultDO_t.campaignInfo
         }
     }
-    function L() {
+    function _getPromType() {
         if (_itemPriceResultDO_t && _itemPriceResultDO_t.promType) {
             return _itemPriceResultDO_t.promType
         }
@@ -422,7 +422,7 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
         return _updatePointsBuyPrice(_price)
     };
-    return _mods_sku.Price = { init: _init, getAreaSold: O, getCampaignInfo: W, getPromType: L, limitBuy: k, updatePointsBuyPrice: function (_price) {
+    return _mods_sku.Price = { init: _init, getAreaSold: _getAreaSold, getCampaignInfo: _getCampaignInfo, getPromType: _getPromType, limitBuy: _limitBuy, updatePointsBuyPrice: function (_price) {
         return _updatePointsBuyPrice(_price)
     } 
     }

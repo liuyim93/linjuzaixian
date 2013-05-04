@@ -1,15 +1,15 @@
 ﻿KISSY.add("malldetail/sku/util", function (_kissy_imp) {
     var _mods_SKU = _kissy_imp.mods.SKU, _kissy = KISSY, _ua = _kissy.UA, _dom = _kissy.DOM, _window = window;
-    function I(M) {
+    function _clearNodes(M) {
         while (M.lastChild) {
             M.removeChild(M.lastChild)
         }
     }
-    function D(M) {
+    function _halt(M) {
         alert(M);
         return false
     }
-    function J(P, N, M) {
+    function _monitorBuyServer(P, N, M) {
         var O = "http://asyncwebserver.monitor.taobao.com/item?";
         var Q = ["src=" + P, "type=" + N, "rq=" + encodeURIComponent(M), "t=" + (+new Date())];
         new Image().src = O + (O.lastIndexOf("?") != -1 ? "&" : "?") + Q.join("&")
@@ -23,40 +23,40 @@
     }
     _kissy.augment(_buylinkstatus, { getStatu: function () {
         return this.curstatu
-    }, statu: function (M, Q) {
+    }, statu: function (_prop, _value) {
         if (!this.ele) {
             return
         }
-        var N = this;
+        var self = this;
         var P = null;
-        var R = { show: 3, hide: 2, disabled: 1, enabled: 3 };
+        var _status_map = { show: 3, hide: 2, disabled: 1, enabled: 3 };
         var O = ["tb-hidden", "noPost"];
         function S() {
             var T;
             var U = 0;
-            for (var V in N.app) {
+            for (var V in self.app) {
                 if (U > 0) {
-                    T = T & N.app[V]
+                    T = T & self.app[V]
                 } else {
-                    T = N.app[V]
+                    T = self.app[V]
                 }
                 U++
             }
             return T
         }
-        this.app[M] = R[Q];
+        this.app[_prop] = _status_map[_value];
         if (P) {
             clearTimeout(P)
         }
         P = setTimeout(function () {
             var U = S();
-            if (U != N.curstatu) {
-                var T = N.curstatu & parseInt(1, 2);
-                var W = N.curstatu & parseInt(10, 2);
+            if (U != self.curstatu) {
+                var T = self.curstatu & parseInt(1, 2);
+                var W = self.curstatu & parseInt(10, 2);
                 var Y = U & parseInt(1, 2);
                 var X = U & parseInt(10, 2);
                 if (T !== Y) {
-                    var V = _dom.parent(N.ele);
+                    var V = _dom.parent(self.ele);
                     if (Y == 1) {
                         if (V) {
                             _dom.removeClass(V, "tb-hidden")
@@ -71,17 +71,17 @@
                 }
                 if (W !== X) {
                     if (X == 2) {
-                        _dom.removeClass(N.ele, "noPost")
+                        _dom.removeClass(self.ele, "noPost")
                     } else {
-                        _dom.addClass(N.ele, "noPost")
+                        _dom.addClass(self.ele, "noPost")
                     }
                 }
-                N.curstatu = U
+                self.curstatu = U
             }
         }, 100)
     } 
     });
-    function A(N) {
+    function _getTrackID(N) {
         var M = _kissy_imp.cfg("url").tbskip + "/json/get_tb_ck_ps.htm";
         _kissy.use("cookie", function (P, O) {
             O = O || P.Cookie;
@@ -100,7 +100,7 @@
             })
         })
     }
-    function K(O, N) {
+    function _formatDate(O, N) {
         if (O.indexOf("-") > -1) {
             return O
         }
@@ -120,6 +120,6 @@
         return N
     }
     _mods_SKU.Util = function () {
-        return { halt: D, clearNodes: I, monitorBuyServer: J, BuyLinkStatu: _buylinkstatus, getTrackID: A, formatDate: K }
+        return { halt: _halt, clearNodes: _clearNodes, monitorBuyServer: _monitorBuyServer, BuyLinkStatu: _buylinkstatus, getTrackID: _getTrackID, formatDate: _formatDate }
     } ()
 }, { requires: [] }); /*pub-1|2013-02-20 11:13:13*/

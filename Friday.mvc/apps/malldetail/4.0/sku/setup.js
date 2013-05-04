@@ -152,7 +152,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     }
     function _toggleStockArea(_isRemoveClass) {
         //2013-04-10 王海川  set _isRemoveClass default value
-        _isRemoveClass = (_isRemoveClass == undefined) ? true : false;
+        //_isRemoveClass = (_isRemoveClass == undefined) ? true : false;
 
         var _id_array_to_be_hidden = ["#J_RSPostageCont", "#J_EmStock"];
         var _str_class = _isRemoveClass ? "removeClass" : "addClass";
@@ -216,24 +216,24 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         if (_mods_SKU.selectSkuId) {
             return [_mods_SKU.selectSkuId]
         }
-        var _selArr = _mods_SKU.selArr || [], S = [], _skuMap = _sku_cfg.valItemInfo.skuMap;
+        var _selArr = _mods_SKU.selArr || [], _sku_list = [], _skuMap = _sku_cfg.valItemInfo.skuMap;
         if (!_skuMap) {
             return null
         }
         for (var _skuMapItem in _skuMap) {
-            var v = true;
+            var _is_in_selArr = true;
             for (var _index = 0; _index < _selArr.length; _index++) {
-                var w = new RegExp(";" + _selArr[_index] + ";");
-                if (!_sku_cfg.detail.isDownShelf && !w.test(_skuMapItem)) {
-                    v = false;
+                var _selArr_regex = new RegExp(";" + _selArr[_index] + ";");
+                if (!_sku_cfg.detail.isDownShelf && !_selArr_regex.test(_skuMapItem)) {
+                    _is_in_selArr = false;
                     break
                 }
             }
-            if (v) {
-                S.push(_skuMap[_skuMapItem]["skuId"])
+            if (_is_in_selArr) {
+                _sku_list.push(_skuMap[_skuMapItem]["skuId"])
             }
         }
-        return S
+        return _sku_list
     };
     _mods_SKU.getCurrentPromotion = function () {
         var S;
@@ -263,9 +263,9 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _mods_SKU.onPromotionList(T, S)
         })
     };
-    _mods_SKU.getPriceInfo = function (S) {
+    _mods_SKU.getPriceInfo = function (_sku_id) {
         var T;
-        _mods_SKU.onPriceInfo(S, function (v) {
+        _mods_SKU.onPriceInfo(_sku_id, function (v) {
             T = v
         });
         return T
@@ -292,13 +292,13 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         var _areaid = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
         _malldetail_data_data.onPriceInfo({ areaId: _areaid }, T, 13)
     };
-    _mods_SKU.onPriceInfo = function (S, T) {
+    _mods_SKU.onPriceInfo = function (_sku_id, T) {
         _mods_SKU.onPriceData(function (v) {
-            if ((typeof S) == "object") {
-                T(S);
+            if ((typeof _sku_id) == "object") {
+                T(_sku_id);
                 return
             }
-            T(v[S || "def"])
+            T(v[_sku_id || "def"])
         }, 13)
     };
     _mods_SKU.getCurrentPriceInfo = function () {
@@ -322,12 +322,12 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     };
     _mods_SKU.onCurrentPriceInfoList = function (S) {
         _mods_SKU.onPriceData(function (_priceInfoArray) {
-            var T = _mods_SKU.getCurrentSkuList();
+            var _currentSkuList = _mods_SKU.getCurrentSkuList();
             var v = [];
-            if (T) {
-                _kissy.each(T, function (x) {
-                    if (_priceInfoArray[x]) {
-                        v.push(_priceInfoArray[x])
+            if (_currentSkuList) {
+                _kissy.each(_currentSkuList, function (_sku_item) {
+                    if (_priceInfoArray[_sku_item]) {
+                        v.push(_priceInfoArray[_sku_item])
                     }
                 })
             } else {
