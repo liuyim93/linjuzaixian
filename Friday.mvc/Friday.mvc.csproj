@@ -1703,6 +1703,8 @@
     <Content Include="s\aplus_v2.js" />
     <Content Include="s\fdc\spm.js" />
     <Content Include="s\fdc\spmact.js" />
+    <Content Include="s\kissy\1.3.0\datalazyload-min.js" />
+    <Content Include="s\kissy\1.3.0\switchable-min.js" />
     <Content Include="s\tb-tracer-min.js" />
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
