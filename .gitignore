@@ -4,4 +4,4 @@ obj/
 *.debug
 *.suo
 *.orig
-workspace.xml
+.idea/workspace.xml
