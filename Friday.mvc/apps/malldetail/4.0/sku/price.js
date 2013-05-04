@@ -260,24 +260,24 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
     }
     function U() {
-        var u = _itemPriceResultDO_t.campaignInfo;
-        if (!u || _g_config.offlineShop || (typeof u.serviceType == "undefined") || u.serviceType == 2) {
+        var _campaignInfo = _itemPriceResultDO_t.campaignInfo;
+        if (!_campaignInfo || _g_config.offlineShop || (typeof _campaignInfo.serviceType == "undefined") || _campaignInfo.serviceType == 2) {
             return
         }
-        u.isTeMai = _cfg.detail.isTeMai;
-        var S = '<dl><dt>{{#if serviceType == 1}}<i></i>{{#else}}<i class="tb-act-normal"></i>{{/if}}<a target="_blank" href="{{campaignURL}}"><strong>{{campaignName}}</strong><br />更多促销</a></dt><dd class="tb-act-time">{{#if !isWarmUp && leftDays >= 30}}此活动长期有效{{#else}}{{#if isWarmUp}}{{#if startTime && endTime}}<p>起：{{startTime}} <em>即将开始</em></p><p>\u6b62\uff1a{{endTime}} <em>\u656c\u8bf7\u6536\u85cf</em></p>{{#else}}\u6b64\u6d3b\u52a8\u5373\u5c06\u5f00\u59cb{{/if}}{{#else}}{{#if leftDays == 1}}\u6b64\u6d3b\u52a8\u4ec5\u5269\u4e00\u5929 {{#else}}{{#if startTime}}<p>\u8d77\uff1a{{startTime}}</p>{{/if}}{{#if endTime}}<p>\u6b62\uff1a{{endTime}}</p>{{/if}}{{/if}}{{/if}}{{/if}}</dd>{{#if promotionPlan}}<dd class="tb-act-promotion">{{#each promotionPlan as plan index}}{{#if index%2 == 0}}<p>{{/if}}{{plan}} &nbsp;&nbsp;{{#if index%2 == 1 || index == promotionPlan.length - 1}}</p>{{/if}}{{/each}}</dd>{{/if}}{{#if serviceType == 1}}<dd class="tb-act-service"><a target="_blank" href="http://service.tmall.com/support/tmall/knowledge-4920180.htm">\u5168\u573a\u514d\u90ae</a><a class="service-24" target="_blank" href="http://service.tmall.com/support/tmall/knowledge-4781817.htm?pptm=24hour">24\u5c0f\u65f6\u53d1\u8d27</a></dd>{{/if}}</dl>';
+        _campaignInfo.isTeMai = _cfg.detail.isTeMai;
+        var _template_snippet = '<dl><dt>{{#if serviceType == 1}}<i></i>{{#else}}<i class="tb-act-normal"></i>{{/if}}<a target="_blank" href="{{campaignURL}}"><strong>{{campaignName}}</strong><br />更多促销</a></dt><dd class="tb-act-time">{{#if !isWarmUp && leftDays >= 30}}此活动长期有效{{#else}}{{#if isWarmUp}}{{#if startTime && endTime}}<p>起：{{startTime}} <em>即将开始</em></p><p>止：{{endTime}} <em>敬请收藏</em></p>{{#else}}此活动即将开始{{/if}}{{#else}}{{#if leftDays == 1}}此活动仅剩一天 {{#else}}{{#if startTime}}<p>起：{{startTime}}</p>{{/if}}{{#if endTime}}<p>止：{{endTime}}</p>{{/if}}{{/if}}{{/if}}{{/if}}</dd>{{#if promotionPlan}}<dd class="tb-act-promotion">{{#each promotionPlan as plan index}}{{#if index%2 == 0}}<p>{{/if}}{{plan}} &nbsp;&nbsp;{{#if index%2 == 1 || index == promotionPlan.length - 1}}</p>{{/if}}{{/each}}</dd>{{/if}}{{#if serviceType == 1}}<dd class="tb-act-service"><a target="_blank" href="http://service.tmall.com/support/tmall/knowledge-4920180.htm">全场免邮</a><a class="service-24" target="_blank" href="http://service.tmall.com/support/tmall/knowledge-4781817.htm?pptm=24hour">24小时发货</a></dd>{{/if}}</dl>';
         var t = _dom.create('<div class="tb-activity" id="J_Activity"></div>');
-        u.isWarmUp = u.isWarmUp || false;
-        if (u.startTime) {
-            u.startTime = _mods_sku.Util.formatDate(u.startTime)
+        _campaignInfo.isWarmUp = _campaignInfo.isWarmUp || false;
+        if (_campaignInfo.startTime) {
+            _campaignInfo.startTime = _mods_sku.Util.formatDate(_campaignInfo.startTime)
         }
-        if (u.endTime) {
-            u.endTime = _mods_sku.Util.formatDate(u.endTime)
+        if (_campaignInfo.endTime) {
+            _campaignInfo.endTime = _mods_sku.Util.formatDate(_campaignInfo.endTime)
         }
-        _dom.html(t, _template(S).render(u));
-        var T = _kissy.get("#J_SaleCombo");
-        if (T) {
-            _dom.insertBefore(t, T)
+        _dom.html(t, _template(_template_snippet).render(_campaignInfo));
+        var _dom_id_J_SaleCombo = _kissy.get("#J_SaleCombo");
+        if (_dom_id_J_SaleCombo) {
+            _dom.insertBefore(t, _dom_id_J_SaleCombo)
         } else {
             if (_g_config.D950) {
                 _dom.prepend(t, _dom.get("#mainwrap") || _dom.parent("#J_TabBar"))
