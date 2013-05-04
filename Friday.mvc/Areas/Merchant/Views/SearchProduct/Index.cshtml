@@ -1007,7 +1007,10 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  <div class="product" data-id="18965187927">
 <div class="product-iWrap">
 <div class="productImg-wrap">
-  <a href="http://detail.tmall.com/item.htm?id=18965187927&amp;user_id=260030441&amp;is_b=1&amp;cat_id=2&amp;q=%D0%AC&amp;rn=47b7f16145e0c52544ef258e078d200c" class="productImg" target="_blank" data-p="1" data-i="18965187927" data-is="214204412" data-ci="50012906" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">
+  @*<a href="http://detail.tmall.com/item.htm?id=18965187927&amp;user_id=260030441&amp;is_b=1&amp;cat_id=2&amp;q=%D0%AC&amp;rn=47b7f16145e0c52544ef258e078d200c" class="productImg" target="_blank" data-p="1" data-i="18965187927" data-is="214204412" data-ci="50012906" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">
+ *@
+  <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" class="productImg" target="_blank" data-p="1" data-i="18965187927" data-is="214204412" data-ci="50012906" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">
+
  @*<img src="http://img03.taobaocdn.com/bao/uploaded/i3/10441021291756753/T1nhJ5XtJaXXXXXXXX_!!0-item_pic.jpg_b.jpg">*@
  <img src="@item.Image" style="width:220px;height:220px" />
  </a>
@@ -1016,10 +1019,14 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <div class="proThumb-wrap">
 <p class="ks-switchable-content">
 <b data-sku="1627207:132069" class="proThumb-img ">
-<img src="http://img01.taobaocdn.com/bao/uploaded/i1/260030441/T23bKQXjlbXXXXXXXX_!!260030441.jpg_30x30.jpg" atpanel="1-1,18965187927,,,spu/shop,20,itemsku,">
+@*<img src="http://img01.taobaocdn.com/bao/uploaded/i1/260030441/T23bKQXjlbXXXXXXXX_!!260030441.jpg_30x30.jpg" atpanel="1-1,18965187927,,,spu/shop,20,itemsku,">
+*@
+<img src="@item.Image" atpanel="1-1,18965187927,,,spu/shop,20,itemsku,">
+
 <i></i>
 </b>
 <b data-sku="1627207:28341" class="proThumb-img ">
+
 <img src="http://img01.taobaocdn.com/bao/uploaded/i1/260030441/T2le94Xf4bXXXXXXXX_!!260030441.jpg_30x30.jpg" atpanel="1-2,18965187927,,,spu/shop,20,itemsku,">
 <i></i>
 </b>
