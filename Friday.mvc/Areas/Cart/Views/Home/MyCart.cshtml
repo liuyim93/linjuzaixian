@@ -70,7 +70,10 @@
             _zoom: expression(function(el) {el.style.zoom = 1;window.onscroll = function() {el.className = el.className;};}(this));
         }
     </style>
-    <script type="text/javascript" async="" src="http://a.tbcdn.cn/s/fdc/??spm.js,spmact.js?v=20130502"></script>
+
+    <script src=@Url.Content("/s/fdc/spm.js")></script>
+    <script src=@Url.Content("/s/fdc/spmact.js")></script>
+
     <style>
         .ww-light
         {

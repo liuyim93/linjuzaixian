@@ -3,47 +3,52 @@
 }
 <html class="ks-webkit537 ks-webkit ks-chrome26 ks-chrome">
 <head>
-    <script src="http://a.tbcdn.cn/p/header/adapter-min.js?t=379904"></script>
-    <script src="http://a.tbcdn.cn/p/header/webww-min.js?t=20110629.js" async=""></script>
-    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/datalazyload-min.js?t=20130415115744"
-        async="" charset="utf-8"></script>
-    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/switchable-min.js?t=20130415115744"
-        async="" charset="utf-8"></script>
-    <script src="http://ald.taobao.com/recommend.htm?appId=03005&amp;itemID=17579720278&amp;callback=recommend.renderInterestItemList&amp;136765517882430"
-        async=""></script>
-    <script src="http://ald.taobao.com/recommend.htm?appId=03007&amp;itemID=17579720278&amp;callback=recommend.renderDiscountItemList&amp;136765517882429"
-        async=""></script>
-    <script src="http://ald.taobao.com/recommend.htm?appId=03006&amp;itemID=17579720278&amp;callback=recommend.renderHotItemList&amp;136765517882428"
-        async=""></script>
-    <script src="http://ald.taobao.com/recommend.htm?appId=03004&amp;callback=recommend.renderRecentViewItemList&amp;136765517882427"
-        async=""></script>
-    <script src="http://a.tbcdn.cn/apps/tmallbuy/pub/cart/1.1.1/recommend.js" async=""
-        charset="gbk"></script>
-    <script src="http://a.tbcdn.cn/apps/cart/mini/minicart-min.js?t=20130328.js" async=""></script>
-    <script src="http://a.tbcdn.cn/apps/matrix-mission/feedback/feedback.js" async=""></script>
-    <script src="http://a.tbcdn.cn/apps/tmallbuy/pub/cart/1.1.1/??global.js,app.js,model.js,view.js,topsearch.js,feedback.js"
-        async=""></script>
-    <script src="http://www.taobao.com/go/app/tmall/login-api.php?t=1367655178724" async=""></script>
-    <script async="" src="/cart/json/asyncRenderCart.do?varName=mcartdata"></script>
+
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/p/mall/base/global-v2.js")></script>  
+    <script src=@Url.Content("/p/header/adapter-min.js")></script>
+    <script src=@Url.Content("/p/tlabs/1.0.0/tlabs-min.js")></script>
+    <script src=@Url.Content("/p/header/webww-min.js")></script>
+    <script src=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/recommend.js")></script>
+    <script src=@Url.Content("/apps/cart/mini/minicart-min.js")></script>
+
+    <script src=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/global.js")></script>
+    <script src=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/app.js")></script>
+    <script src=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/view.js")></script>
+    <script src=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/topsearch.js")></script>
+    <script src=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/feedback.js")></script>
+
+
+
     <meta charset="gbk">
     <title>购物车-Tmall.com天猫</title>
-    <script>        window.g_config = { appId: 19, toolbar: false, startTime: new Date() }; window._poc = [['_setRate', 100]]; function lcd() { var doc = document, head = doc.getElementsByTagName('head')[0] || doc.documentElement, node = doc.createElement('script'); node.async = true; node.src = '/cart/json/asyncRenderCart.do?varName=mcartdata'; head.insertBefore(node, head.firstChild); g_mcart_request = +new Date() } lcd()</script>
+    <script>        window.g_config = { appId: 19, toolbar: false, startTime: new Date() }; window._poc = [['_setRate', 100]]; function lcd() { var doc = document, head = doc.getElementsByTagName('head')[0] || doc.documentElement, node = doc.createElement('script'); node.async = true; node.src = '/CartPay/Home/Render_Cart?varName=mcartdata'; head.insertBefore(node, head.firstChild); g_mcart_request = +new Date() } lcd()</script>
+@*  <script>        window.g_config = { appId: 19, toolbar: false, startTime: new Date() }; window._poc = [['_setRate', 100]]; function lcd() { var doc = document, head = doc.getElementsByTagName('head')[0] || doc.documentElement, node = doc.createElement('script'); node.async = true; node.src = '/CartPay/Home/Render_Cart?varName=mcartdata'; head.insertBefore(node, head.firstChild); g_mcart_request = +new Date() } lcd()</script>*@    
     <meta name="description" content="中国最大、最安全的网上交易社区，尽享淘宝乐趣！">
     <meta name="keywords" content="淘宝,掏宝,网上购物,购物,论坛,联盟,买,卖,1元,一元,电脑,视听,MP3,MD,CD,VCD,DV,耗材,化妆,相机,数码,配件,珠宝,手表,艺术,宠物,求购,出租,出售,二手,汽车,音响,保健,讨价换价,一口价,拍卖,auction,sell,buy,price,bid">
     <meta name="format-detection" content="telephone=no">
     <link href="http://img03.taobaocdn.com/tps/i3/T1Xwi6XfVXXXXXXXXX-16-16.png" rel="shortcut icon"
         type="image/x-icon">
     <!-- start vmc css 3.1-->
-    <link rel="stylesheet" href="http://a.tbcdn.cn/??p/global/1.0/global-min.css,p/c2c/header-top-min.css?t=20110728.css">
+    <link rel="stylesheet" href=@Url.Content("/p/global/1.0/global-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
+        <link rel="stylesheet" href=@Url.Content("/tbsp/tbsp.css") />
+    <link rel="stylesheet" href=@Url.Content("/sys/p4p/css/p4pthemes.css") />
     <!-- end vmc css 3.1-->
-    <script src="http://a.tbcdn.cn/??s/kissy/1.3.0/kissy-min.js,p/global/1.0/global-min.js"></script>
+    <script src=@Url.Content("/p/global/1.0/global-min.js")></script>
     <script>        TB.Global.run = function () { }</script>
     <script>        siteStyle = 'tb';</script>
-    <link rel="stylesheet" href="http://a.tbcdn.cn/apps/tmallbuy/pub/cart/1.1.1/??global.css,core.css,recommend.css">
+
+    <link rel="stylesheet" href=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/global.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/core.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmallbuy/pub/cart/1.1.1/recommend.css") />
+
     <meta name="spm-id" content="a220l.18">
-    <script type="text/javascript" async="" id="tb-beacon-aplus" exparams="category=&amp;userid=123072695&amp;aplus"
-        src="http://a.tbcdn.cn/s/aplus_v2.js"></script>
-    <script type="text/javascript" async="" src="http://a.tbcdn.cn/s/fdc/??spm.js,spmact.js?v=20130502"></script>
+
+    <script src=@Url.Content("/s/aplus_v2.js")></script> 
+    <script src=@Url.Content("/s/fdc/spm.js")></script>
+    <script src=@Url.Content("/s/fdc/spmact.js")></script>
+
     <style>
         .ww-light
         {
