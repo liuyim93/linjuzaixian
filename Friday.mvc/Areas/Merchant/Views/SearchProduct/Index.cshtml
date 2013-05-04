@@ -38,7 +38,7 @@
 <meta charset="gbk">
 <meta name="description" content="鞋,品类齐全，欢迎选购！">
 <meta name="keywords" content="鞋,淘宝,淘宝商城,taobao">
-<title>鞋-天猫Tmall.com-上天猫，就购了</title>
+<title>天猫Tmall.com-上天猫，就购了</title>
 <script>    window.g_config = { appId: 7 };</script>
 
 @*<link rel="shortcut icon" href="http://a.tbcdn.cn/p/mall/base/favicon.ico" type="image/x-icon">
@@ -785,7 +785,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
    <p class="relKeyRec" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
  <span>您是不是想找</span>         @for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
                        {
-                           var item = Model.merchantGoodsTypes.ElementAt(index);    <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
+                           var item = Model.merchantGoodsTypes.ElementAt(index); 
+           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
         
                        } 
             @*       <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">平底鞋</a>
@@ -1139,7 +1140,13 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 </div>
 </div><p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
  <span>您是不是想找</span>
-             <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC">平底鞋</a>
+  @for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
+                       {
+                           var item = Model.merchantGoodsTypes.ElementAt(index); 
+           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
+        
+                       } 
+           @*  <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC">平底鞋</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC">高跟鞋</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC">豆豆鞋</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC">松糕鞋</a>
@@ -1147,7 +1154,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE">鞋女2013新款</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1">鞋女韩版潮</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC">懒人鞋</a>
-     </p>
+     *@</p>
 </textarea>
 </div>
 <p class="btmFeed">
