@@ -2848,6 +2848,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Account\Views\Shared\" />
+    <Folder Include="Areas\CartPay\Models\" />
+    <Folder Include="Areas\CartPay\Views\Shared\" />
     <Folder Include="Areas\Cart\Models\" />
     <Folder Include="Areas\Cart\Views\Shared\" />
     <Folder Include="Areas\Category\Models\" />
@@ -2891,6 +2893,8 @@
     <Content Include="Areas\Merchant\Views\Shared\_MallDetailMeta.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\seller_info_partial.cshtml" />
     <Content Include="Areas\Merchant\Views\SearchProduct\Index.cshtml" />
+    <Content Include="Areas\CartPay\Views\Web.config" />
+    <Content Include="Areas\CartPay\Views\Home\MyCartPay.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />
