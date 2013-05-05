@@ -145,19 +145,19 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
         return t
     }
-    function K(t) {
-        var S;
-        t.sort(function (w, v) {
-            return w - v
+    function _get_price_range_snippet(_range_array) {
+        var _snippet;
+        _range_array.sort(function (x, y) {
+            return x - y
         });
-        var T = t[0];
-        var u = t[t.length - 1];
-        if (T == u) {
-            S = T
+        var _first = _range_array[0];
+        var _last = _range_array[_range_array.length - 1];
+        if (_first == _last) {
+            _snippet = _first
         } else {
-            S = T + " - " + u
+            _snippet = _first + " - " + _last
         }
-        return S
+        return _snippet
     }
     var Z = function () {
         _dom.insertBefore(_dom.create('<img id="tm-d12icon" src="http://img02.taobaocdn.com/tps/i2/T1wqMjXoFXXXb6Jk6m-72-17.png" alt="12.12心愿价">'), _cfg.strPrice);
@@ -165,40 +165,40 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         };
         return Z()
     };
-    function h() {
+    function _get_price_range_combo() {
         var _currentPriceInfo = _mods_sku.getCurrentPriceInfo(), _currentPromotionList = _mods_sku.getCurrentPromotionList(), _currentPromotion = _mods_sku.getCurrentPromotion();
-        var w = {};
+        var _priceRange_combo = {};
         var AE = _cfg.valMode & 1;
         if (_currentPriceInfo) {
-            var x = _mods_sku.getCurrentPriceInfoList(), AB = [], t = [];
+            var _currentPriceInfoList = _mods_sku.getCurrentPriceInfoList(), _price_range_array = [], _prom_price_range_array = [];
             if (_currentPromotionList) {
                 for (var v = 0, u = _currentPromotionList.length; v < u; v++) {
                     var AF = _currentPromotionList[v];
                     AF.addInfo = [AF.add, AF.gift, AF.limitTime].join("")
                 }
             }
-            for (var v in x) {
-                if (x[v].price) {
-                    AB.push(x[v].price)
+            for (var _index in _currentPriceInfoList) {
+                if (_currentPriceInfoList[_index].price) {
+                    _price_range_array.push(_currentPriceInfoList[_index].price)
                 }
-                _mods_sku.onPromotionList(x[v], function (AG) {
-                    if (AG && AG[0] && AG[0].price) {
-                        t.push(AG[0].price)
+                _mods_sku.onPromotionList(_currentPriceInfoList[_index], function (_price_info_item) {
+                    if (_price_info_item && _price_info_item[0] && _price_info_item[0].price) {
+                        _prom_price_range_array.push(_price_info_item[0].price)
                     }
                 })
             }
-            w = { priceRange: K(AB), promPriceRange: K(t) }
+            _priceRange_combo = { priceRange: _get_price_range_snippet(_price_range_array), promPriceRange: _get_price_range_snippet(_prom_price_range_array) }
         } else {
-            var AA = _cfg.valItemInfo.skuMap;
-            var AB = [];
-            for (var v in AA) {
-                if (AA[v].price) {
-                    AB.push(AA[v].price)
+            var _skuMap_t = _cfg.valItemInfo.skuMap;
+            var _price_range_array = [];
+            for (var _sku_item in _skuMap_t) {
+                if (_skuMap_t[_sku_item].price) {
+                    _price_range_array.push(_skuMap_t[_sku_item].price)
                 }
             }
-            w = { priceRange: K(AB), promPriceRange: null }
+            _priceRange_combo = { priceRange: _get_price_range_snippet(_price_range_array), promPriceRange: null }
         }
-        var z = { subData: _currentPriceInfo, priceRange: w, promotionList: _currentPromotionList };
+        var z = { subData: _currentPriceInfo, priceRange: _priceRange_combo, promotionList: _currentPromotionList };
         var y = n.getYikouPrice(z);
         if (typeof y != "undefined") {
             D.allPrice(y)
@@ -214,8 +214,8 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
         var S = _mods_sku.getCurrentPromotion() || {};
         var T = S.price;
-        if (w.promPriceRange && !S.promText) {
-            T = w.promPriceRange
+        if (_priceRange_combo.promPriceRange && !S.promText) {
+            T = _priceRange_combo.promPriceRange
         }
         if (S.promText) {
             T = null
@@ -398,12 +398,12 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
                 _price_cfg.inited = true;
                 _mods_sku.PropertyHandler.onPropertyChange(function (_e) {
                     if (_cfg.isSupportCity) {
-                        h()
+                        _get_price_range_combo()
                     }
                 });
                 U()
             }
-            h();
+            _get_price_range_combo();
             if (_itemPriceResultDO_t.wanrentuanInfo && _itemPriceResultDO_t.wanrentuanInfo.status == 0) {
                 _mods_sku.LinkBuy.statu("wanrenturn", "disabled")
             }

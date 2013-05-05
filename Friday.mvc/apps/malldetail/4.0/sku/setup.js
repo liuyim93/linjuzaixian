@@ -288,9 +288,9 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _set_current_promotion_list_fn(_promotionList)
         })
     };
-    _mods_SKU.onPriceData = function (_on_sort_sku_priceinfo_array_fn) {
+    _mods_SKU.onPriceData = function (_on_price_data_callback_fn) {
         var _areaid = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
-        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, _on_sort_sku_priceinfo_array_fn, 13)
+        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, _on_price_data_callback_fn, 13)
     };
     _mods_SKU.onPriceInfo = function (_sku_id, _set_sku_priceinfo) {
         _mods_SKU.onPriceData(function (_price_info_array) {
@@ -314,11 +314,11 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         })
     };
     _mods_SKU.getCurrentPriceInfoList = function () {
-        var S;
-        _mods_SKU.onCurrentPriceInfoList(function (T) {
-            S = T
+        var _price_list;
+        _mods_SKU.onCurrentPriceInfoList(function (_price_list_t) {
+            _price_list = _price_list_t
         });
-        return S
+        return _price_list
     };
     _mods_SKU.onCurrentPriceInfoList = function (_set_current_priceinfo_from_array_fn) {
         _mods_SKU.onPriceData(function (_priceInfoArray) {
