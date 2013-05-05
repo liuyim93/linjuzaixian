@@ -157,7 +157,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         {
                             money=skulist[i].price.ToString(),
                             name=skulist[i].Commodity.Name,
-                            postage="快递: 0.00 ",
+                            postage="快递: 13.00 EMS: 22.00 ",
                             postageFree=false,
                             signText=skulist[i].stock.ToString(),
                             type=0
@@ -183,7 +183,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 deliveryDO = new DeliveryDO()
                 {
+                    deliveryAddress="广东广州",
                     deliverySkuMap = deliverySkuMap,
+                    hasHomeDeliveryService=false,
                     otherServiceList = "[]"
                 },
                 gatewayDO = new GatewayDO()
@@ -241,7 +243,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     cspuSellCountMap = new { },
                     sellCount = 32
                 },
-                specialServiceList = "{}",
+                specialServiceList = "[]",
                 tradeResult = new TradeResult()
                 {
                     cartEnable = true,
@@ -268,6 +270,77 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             };
             string json = jsonResult.FormatResult();
             string script = "onMdskip("   +  json +  ")";
+
+            return JavaScript(script);
+        }
+        public ActionResult changeLocation(string itemId)
+        {
+            IList<Sku> skulist = new List<Sku>();
+            Commodity commodity = iCommodityService.Load(itemId);
+            skulist = commodity.Skus.ToList<Sku>();
+
+            var sku_list = new List<SKUDO>();
+            dynamic skuQuantity = new Dictionary<string, SkuQuantity>();
+            int totalquty = 0;
+
+            dynamic deliverySkuMap = new Dictionary<string, List<SKUDO>>();
+            for (int i = 0; i < skulist.Count; i++)
+            {
+                deliverySkuMap.Add(skulist[i].skuId.ToString(), new List<SKUDO>(){new SKUDO()
+                        {
+                            money=skulist[i].price.ToString(),
+                            name=skulist[i].Commodity.Name,
+                            postage="快递:"+ i+" EMS:"+i*2 ,
+                            postageFree=false,
+                            signText=skulist[i].stock.ToString(),
+                            type=0
+                        }});
+                skuQuantity.Add(skulist[i].skuId.ToString(), new SkuQuantity()
+                {
+                    quantity = skulist[i].stock,
+                    type = skulist[i].Commodity.Version
+                });
+                totalquty = totalquty + skulist[i].stock;
+            };
+
+            DefaultModel defaultModel = new DefaultModel()
+            {
+                deliveryDO = new DeliveryDO()
+                {
+                    deliveryAddress = "山东滕州",
+                    deliverySkuMap = deliverySkuMap,
+                    hasHomeDeliveryService = false,
+                    otherServiceList = "[]"
+                },
+           
+                inventoryDO = new InventoryDO()
+                {
+                    icTotalQuantity = totalquty,
+                    skuQuantity = skuQuantity,
+                    success = true,
+                    totalQuantity = totalquty,
+                    type = 1
+                },               
+                memberRightDO = new MemberRightDO()
+                {
+                    discount = 0,
+                    freePostage = false,
+                    gradeName = null,
+                    level = 0,
+                    shopMember = false,
+                    success = false,
+                    times = 0
+                },
+                specialServiceList = "[]",
+            };
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = new
+            {
+                isSuccess = true,
+                defaultModel = defaultModel
+            };
+            string json = jsonResult.FormatResult();
+            string script = "onMdskip(" + json + ")";
 
             return JavaScript(script);
         }

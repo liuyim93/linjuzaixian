@@ -74,7 +74,17 @@ namespace Friday.mvc.Areas.Merchant.Models
     }
     public class DeliveryDO
     {
+        public string deliveryAddress
+        {
+            get;
+            set;
+        }
         public Object deliverySkuMap
+        {
+            get;
+            set;
+        }
+        public bool hasHomeDeliveryService
         {
             get;
             set;
