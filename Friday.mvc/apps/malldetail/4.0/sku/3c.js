@@ -8,15 +8,15 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
     } 
     };
     _mods_SKU.dqCity = function () {
-        var _cfg, X, U = true;
+        var _cfg, _isAreaSell, U = true;
         var R;
-        var a;
-        var P;
-        var O;
+        var _itemId;
+        var _isService;
+        var _L2Selector_selector;
         var W;
-        var V;
-        var Q = { areaList: [], area: {}, skuList: {}, price: 0, SkuChange: false, init: function (g) {
-            if (X) {
+        var _frmBid;
+        var _dqCity_core = { areaList: [], area: {}, skuList: {}, price: 0, SkuChange: false, init: function (g) {
+            if (_isAreaSell) {
                 var f = this;
                 if (typeof g == "undefined") {
                     R = true
@@ -27,9 +27,9 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
                         var d = g.soldAreas;
                         var c = d.slice(0);
                         for (var e = 0; e < d.length; e++) {
-                            c.push(O.getFatherAndChildren(d[e]))
+                            c.push(_L2Selector_selector.getFatherAndChildren(d[e]))
                         }
-                        O.setWhite(c);
+                        _L2Selector_selector.setWhite(c);
                         this.areaList = g.soldAreas;
                         f.checkAreaSell()
                     }
@@ -55,10 +55,10 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
             _mods_SKU.LinkAdd.statu("areaSold", "hide")
         }, checkAreaSell: function () {
             var e = this;
-            var d = T();
-            if (d != 0) {
+            var _selected_city = _get_selected_city();
+            if (_selected_city != 0) {
                 for (var c = 0; c < e.areaList.length; c++) {
-                    if (d == e.areaList[c]) {
+                    if (_selected_city == e.areaList[c]) {
                         e.sell();
                         U = true;
                         return true
@@ -71,8 +71,8 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
             return true
         } 
         };
-        var T = function () {
-            return O.selectCity
+        var _get_selected_city = function () {
+            return _L2Selector_selector.selectCity
         };
         var Z = function () {
             var c = {};
@@ -90,21 +90,21 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
             });
             return c
         };
-        var Y = function (e, c, d) {
-            if (e[c]) {
-                e[c].value = d
+        var _create_or_update_frmBid_item_value = function (_frmBid, _name, _value) {
+            if (_frmBid[_name]) {
+                _frmBid[_name].value = _value
             } else {
-                e.innerHTML += '<input type="hidden" name="' + c + '" value="' + d + '">'
+                _frmBid.innerHTML += '<input type="hidden" name="' + _name + '" value="' + _value + '">'
             }
         };
         var D = function () {
-            var d = _mods_SKU.selectSkuId;
+            var _selectSkuId = _mods_SKU.selectSkuId;
             var c = true;
-            if (!_mods_SKU.Price.getAreaSold(d)) {
+            if (!_mods_SKU.Price.getAreaSold(_selectSkuId)) {
                 return false
             }
-            if (X && !W && !R) {
-                if (!Q.checkAreaSell()) {
+            if (_isAreaSell && !W && !R) {
+                if (!_dqCity_core.checkAreaSell()) {
                     return false
                 }
             }
@@ -113,69 +113,69 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
             }
             return c
         };
-        var b = function () {
-            if (!V) {
+        var _getOrder = function () {
+            if (!_frmBid) {
                 return true
             }
-            var d = _mods_SKU.selectSkuId;
-            var c = _kissy.one("#J_IptAmount").val();
-            var f = [a, c, d];
-            if (P) {
+            var _selectSkuId = _mods_SKU.selectSkuId;
+            var _amount = _kissy.one("#J_IptAmount").val();
+            var _buy_param_array = [_itemId, _amount, _selectSkuId];
+            if (_isService) {
                 var g = Z();
                 var e = [];
                 _kissy.each(g, function (i, h) {
                     e.push(h + "|" + i)
                 });
                 if (e.length > 0) {
-                    f.push(e.join("-"))
+                    _buy_param_array.push(e.join("-"))
                 }
             }
-            Y(V, "buyer_from", "ecity");
-            Y(V, "use_cod", "false");
-            Y(V, "buy_param", f.join("_"));
-            Y(V, "_input_charset", "UTF-8");
-            if (T() != 0) {
-                Y(V, "destination", T())
+            _create_or_update_frmBid_item_value(_frmBid, "buyer_from", "ecity");
+            _create_or_update_frmBid_item_value(_frmBid, "use_cod", "false");
+            _create_or_update_frmBid_item_value(_frmBid, "buy_param", _buy_param_array.join("_"));
+            _create_or_update_frmBid_item_value(_frmBid, "_input_charset", "UTF-8");
+            if (_get_selected_city() != 0) {
+                _create_or_update_frmBid_item_value(_frmBid, "destination", _get_selected_city())
             }
             return D()
         };
         return { getFirstAreaSold: function () {
             return U
         }, notSell: function () {
-            return Q.notSell()
+            return _dqCity_core.notSell()
         }, sell: function () {
-            return Q.sell()
+            return _dqCity_core.sell()
         }, getOrder: function () {
-            return b()
+            return _getOrder()
         }, init: function (c) {
             _cfg = _kissy_F.cfg();
-            X = _cfg.isAreaSell;
-            a = _cfg.itemDO.itemId;
-            P = _cfg.isService;
-            V = _cfg.frmBid;
-            O = _mods_SKU.L2Selector.selector;
-            Q.init(c);
-            O.onSelectBlackCityCallBack(function () {
+            _isAreaSell = _cfg.isAreaSell;
+            _itemId = _cfg.itemDO.itemId;
+            _isService = _cfg.isService;
+            _frmBid = _cfg.frmBid;
+            _L2Selector_selector = _mods_SKU.L2Selector.selector;
+            _dqCity_core.init(c);
+            _L2Selector_selector.onSelectBlackCityCallBack(function () {
                 _malldetail_sku_freight.renderNoSell('<span class="error">此区域不销售，请查看其他区域</span>');
                 _dom_M.hide(_cfg.emStock);
                 _malldetail_sku_skuMsg.hide();
                 _mods_SKU.LinkBuy.statu("areaSold", "disabled");
                 _mods_SKU.LinkBasket.statu("areaSold", "disabled");
                 _mods_SKU.LinkAdd.statu("areaSold", "hide");
-                O.close();
+                _L2Selector_selector.close();
                 _cfg.isSupportCity = false
             });
-            O.onCityChange(function () {
+            _L2Selector_selector.onCityChange(function () {
                 if (!_cfg.isDoule11) {
                     _malldetail_sku_freight.renderNoSell("")
                 }
                 _mods_SKU.LinkBuy.statu("areaSold", "enabled");
                 _mods_SKU.LinkBasket.statu("areaSold", "enabled");
                 _mods_SKU.LinkAdd.statu("areaSold", "show");
-                O.close();
+                _L2Selector_selector.close();
                 _cfg.isSupportCity = true;
-                var d = { areaId: O.selectCity };
-                _mods_SKU.changeLocation(d)
+                var _areaid = { areaId: _L2Selector_selector.selectCity };
+                _mods_SKU.changeLocation(_areaid)
             })
         } 
         }

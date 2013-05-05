@@ -11,16 +11,16 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     var p = {};
     _mods_SKU.selectSkuId = 0;
     _mods_SKU.valSkuInfo = "";
-    var _get_skuQuantity = function (_inventoryDO) {
-        var w = _sku_cfg.valItemInfo.skuMap;
+    var _set_valItemInfo_type_and_skuQuantity = function (_inventoryDO) {
+        var _skuMap = _sku_cfg.valItemInfo.skuMap;
         if (_inventoryDO && _inventoryDO.success) {
             var _skuQuantity = _inventoryDO.skuQuantity;
             if (_sku_cfg.valMode & 1 && _skuQuantity) {
-                for (var v in w) {
-                    var S = w[v]["skuId"];
-                    if (_skuQuantity[S]) {
-                        w[v].type = _skuQuantity[S]["type"];
-                        w[v].stock = _skuQuantity[S]["quantity"]
+                for (var _sku_item in _skuMap) {
+                    var _sku_id = _skuMap[_sku_item]["skuId"];
+                    if (_skuQuantity[_sku_id]) {
+                        _skuMap[_sku_item].type = _skuQuantity[_sku_id]["type"];
+                        _skuMap[_sku_item].stock = _skuQuantity[_sku_id]["quantity"]
                     }
                 }
             }
@@ -86,7 +86,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             })
         }
     }
-    function _item_visible_check(_defaultMode) {
+    function _sku_item_permission_check(_defaultMode) {
         var _visible = false;
         var _auctionStatus = _sku_cfg.itemDO.auctionStatus;
         var _is_AuthSeller = _sku_cfg.detail.isAuthSeller;
@@ -163,7 +163,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     function _sku_cfg_step3() {
         var _form_init = function (_defaultMode) {
             var _valMode = _sku_cfg.valMode;
-            _item_visible_check(_defaultMode);
+            _sku_item_permission_check(_defaultMode);
             _render_form_wrapper(_defaultMode);
             if (!_mods_SKU.LinkBuy) {
                 _mods_SKU.LinkBuy = new _mods_SKU.Util.BuyLinkStatu("#J_LinkBuy", 3)
@@ -206,7 +206,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         _malldetail_data_data.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
         _malldetail_data_data.onModel(function (_defaultModel) {
             if (_defaultModel.isSuccess) {
-                _get_skuQuantity(_defaultModel.inventoryDO)
+                _set_valItemInfo_type_and_skuQuantity(_defaultModel.inventoryDO)
             }
             _form_init(_defaultModel);
             _toggleStockArea(_defaultModel.isSuccess)
@@ -264,11 +264,11 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         })
     };
     _mods_SKU.getPriceInfo = function (_sku_id) {
-        var T;
-        _mods_SKU.onPriceInfo(_sku_id, function (v) {
-            T = v
+        var _sku_price_info;
+        _mods_SKU.onPriceInfo(_sku_id, function (_sku_price_info_t) {
+            _sku_price_info = _sku_price_info_t
         });
-        return T
+        return _sku_price_info
     };
     _mods_SKU.onPromotionList = function (S, T) {
         _mods_SKU.onPriceInfo(S, function (y) {
@@ -288,29 +288,29 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             T(w)
         })
     };
-    _mods_SKU.onPriceData = function (T) {
+    _mods_SKU.onPriceData = function (_get_sku_priceinfo_from_array) {
         var _areaid = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
-        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, T, 13)
+        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, _get_sku_priceinfo_from_array, 13)
     };
-    _mods_SKU.onPriceInfo = function (_sku_id, T) {
-        _mods_SKU.onPriceData(function (v) {
+    _mods_SKU.onPriceInfo = function (_sku_id, _set_sku_priceinfo) {
+        _mods_SKU.onPriceData(function (_price_info_array) {
             if ((typeof _sku_id) == "object") {
-                T(_sku_id);
+                _set_sku_priceinfo(_sku_id);
                 return
             }
-            T(v[_sku_id || "def"])
+            _set_sku_priceinfo(_price_info_array[_sku_id || "def"])
         }, 13)
     };
     _mods_SKU.getCurrentPriceInfo = function () {
-        var S;
-        _mods_SKU.onCurrentPriceInfo(function (T) {
-            S = T
+        var _cheapest_priceInfo;
+        _mods_SKU.onCurrentPriceInfo(function (_cheapest_priceInfo_t) {
+            _cheapest_priceInfo = _cheapest_priceInfo_t
         });
-        return S
+        return _cheapest_priceInfo
     };
     _mods_SKU.onCurrentPriceInfo = function (S) {
-        _mods_SKU.onCurrentPriceInfoList(function (T) {
-            S(T[0])
+        _mods_SKU.onCurrentPriceInfoList(function (_priceList) {
+            S(_priceList[0])
         })
     };
     _mods_SKU.getCurrentPriceInfoList = function () {
@@ -323,46 +323,46 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     _mods_SKU.onCurrentPriceInfoList = function (S) {
         _mods_SKU.onPriceData(function (_priceInfoArray) {
             var _currentSkuList = _mods_SKU.getCurrentSkuList();
-            var v = [];
+            var _priceList = [];
             if (_currentSkuList) {
                 _kissy.each(_currentSkuList, function (_sku_item) {
                     if (_priceInfoArray[_sku_item]) {
-                        v.push(_priceInfoArray[_sku_item])
+                        _priceList.push(_priceInfoArray[_sku_item])
                     }
                 })
             } else {
-                _kissy.each(_priceInfoArray, function (x) {
-                    if (x) {
-                        v.push(x)
+                _kissy.each(_priceInfoArray, function (_priceInfo_item) {
+                    if (_priceInfo_item) {
+                        _priceList.push(_priceInfo_item)
                     }
                 })
             }
-            v = v.sort(function (y, x) {
+            _priceList = _priceList.sort(function (y, x) {
                 return (y.promPrice ? y.promPrice.price : y.price) - (x.promPrice ? x.promPrice.price : x.price)
             });
-            S(v)
+            S(_priceList)
         })
     };
     _mods_SKU.changeLocation = function (w) {
         _mods_SKU.buyerLocation = w;
-        var v = _sku_cfg.changeLocationApi;
-        var T = _kissy_imp.getUrlParams;
-        var x = p.gatewayDO;
-        var S = T(["campaignId", "abt", "key"]);
+        var _changeLocationApi = _sku_cfg.changeLocationApi;
+        var _urlParams = _kissy_imp.getUrlParams;
+        var _gatewayDO = p.gatewayDO;
+        var S = _urlParams(["campaignId", "abt", "key"]);
         S.ref = encodeURIComponent(_document.referrer);
         S.areaId = w ? w.areaId : "";
-        if (v.indexOf("tmallBuySupport") == -1) {
+        if (_changeLocationApi.indexOf("tmallBuySupport") == -1) {
             S.tmallBuySupport = _sku_cfg.tradeType == 2 ? "true" : "false"
         }
-        if (x && x.changeLocationGateway) {
-            _kissy.mix(S, x.changeLocationGateway)
+        if (_gatewayDO && _gatewayDO.changeLocationGateway) {
+            _kissy.mix(S, _gatewayDO.changeLocationGateway)
         }
         _kissy.use("ajax", function (z, y) {
-            y.jsonp(v, S, function (AA) {
+            y.jsonp(_changeLocationApi, S, function (AA) {
                 if (AA.isSuccess) {
                     var AB = AA.defaultModel;
                     _malldetail_data_data.setLocationModel(w.areaId, AB);
-                    _get_skuQuantity(AB.inventoryDO);
+                    _set_valItemInfo_type_and_skuQuantity(AB.inventoryDO);
                     _mods_SKU.Price.init(AB.itemPriceResultDO, AB.inventoryDO);
                     _mods_SKU.Service.init(AB.serviceDO);
                     _malldetail_sku_stock.init(AB);
@@ -483,11 +483,11 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
             delete _defaultModel.gatewayDO.trade.addToBuyNow
         }
-        var y = _sku_cfg.itemDO.quantity || "", x;
-        if (_defaultModel.itemPriceResultDO.promType == 1 && (x = _mods_SKU.getCurrentPromotion()) && x.amountRestriction && x.amountRestriction < y) {
-            y = x.amountRestriction
+        var _allow_quantity = _sku_cfg.itemDO.quantity || "", _currentPromotion;
+        if (_defaultModel.itemPriceResultDO.promType == 1 && (_currentPromotion = _mods_SKU.getCurrentPromotion()) && _currentPromotion.amountRestriction && _currentPromotion.amountRestriction < _allow_quantity) {
+            _allow_quantity = _currentPromotion.amountRestriction
         }
-        _form_wrapper.set("allow_quantity", y);
+        _form_wrapper.set("allow_quantity", _allow_quantity);
         _form_wrapper.set("quantity", 1, "quantity");
         _form_wrapper.set("skuId", "", "skuId");
         _form_wrapper.set("skuInfo", "", "skuInfo");
@@ -496,9 +496,9 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         }
         if (!_g_config.isSpu) {
             _form_wrapper.set("activity", _fn_getUrlParams("activity"));
-            var AA = _fn_getUrlParams("buytraceid");
-            if (AA) {
-                _form_wrapper.set("buytraceid", AA)
+            var _buytraceid = _fn_getUrlParams("buytraceid");
+            if (_buytraceid) {
+                _form_wrapper.set("buytraceid", _buytraceid)
             }
         }
         _form_wrapper.set("bankfrom", _fn_getUrlParams("bankfrom"));

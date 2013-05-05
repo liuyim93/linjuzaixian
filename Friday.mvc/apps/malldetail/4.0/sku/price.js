@@ -241,17 +241,17 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
     }
     function _limitBuy() {
-        var T = _mods_sku.getCurrentPromotion();
-        if (T) {
-            var S = _getPromType();
-            if (S == 1) {
+        var _currentPromotion = _mods_sku.getCurrentPromotion();
+        if (_currentPromotion) {
+            var _promotionType = _getPromType();
+            if (_promotionType == 1) {
                 _dom.attr(_cfg.iptAmount, "data-type", "ju")
             }
-            if (T.amountRestriction && (S == 1 || T.type == "\u9650\u65f6\u6253\u6298")) {
-                if (_kissy_imp.cfg("valStock") >= T.amountRestriction) {
-                    _kissy_imp.cfg("valStock", T.amountRestriction);
-                    _dom.html(_cfg.emStock, "(\u6bcf\u4eba\u9650\u8d2d" + T.amountRestriction + "\u4ef6)");
-                    if (T.type == "\u9650\u65f6\u6253\u6298") {
+            if (_currentPromotion.amountRestriction && (_promotionType == 1 || _currentPromotion.type == "限时打折")) {
+                if (_kissy_imp.cfg("valStock") >= _currentPromotion.amountRestriction) {
+                    _kissy_imp.cfg("valStock", _currentPromotion.amountRestriction);
+                    _dom.html(_cfg.emStock, "(每人限购" + _currentPromotion.amountRestriction + "件)");
+                    if (_currentPromotion.type == "限时打折") {
                         _cfg.isLimitProm = true
                     }
                     return true
@@ -287,9 +287,9 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         }
     }
     function _getAreaSold(_selectSkuId_t) {
-        var T;
-        if (_kissy_imp.cfg("detailMode") != "skipError" && _selectSkuId_t && (T = _mods_sku.getPriceInfo(_selectSkuId_t))) {
-            return T.areaSold
+        var _sku_price_info;
+        if (_kissy_imp.cfg("detailMode") != "skipError" && _selectSkuId_t && (_sku_price_info = _mods_sku.getPriceInfo(_selectSkuId_t))) {
+            return _sku_price_info.areaSold
         } else {
             return true
         }
