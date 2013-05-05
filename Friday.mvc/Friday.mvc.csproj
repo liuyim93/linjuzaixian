@@ -1478,6 +1478,8 @@
     <Content Include="apps\cart\130411\cart\cart-min.css" />
     <Content Include="apps\cart\130411\cart\cart-min.js" />
     <Content Include="apps\cart\130411\core\core.js" />
+    <Content Include="apps\cart\global-min.css" />
+    <Content Include="apps\cart\header-top-min.css" />
     <Content Include="apps\cart\mini\minicart-min.js" />
     <Content Include="apps\department\brand\2.0\css\az.css" />
     <Content Include="apps\department\brand\2.0\css\cat.css" />
@@ -1589,6 +1591,17 @@
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
     <Content Include="apps\support\robot\js\minerva_ask_V2.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\app.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\core.css" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\feedback.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\global.css" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\global.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\init.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\model.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\recommend.css" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\recommend.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\topsearch.js" />
+    <Content Include="apps\tmallbuy\pub\cart\1.1.1\view.js" />
     <Content Include="apps\tmallbuy\razer\mini\core.js" />
     <Content Include="apps\tmallsearch\1.0\city-codes.js" />
     <Content Include="apps\tmallsearch\1.0\core.js" />
@@ -1697,7 +1710,9 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
+    <Content Include="p\global\1.0\global-min.css" />
     <Content Include="p\global\1.0\global-min.js" />
     <Content Include="Images\button.png" />
     <Content Include="Images\T11_lyXBReXXXO1L3_-130-80.jpg" />
@@ -1757,10 +1772,12 @@
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
     <Content Include="socket.io\socket.io.js" />
+    <Content Include="sys\p4p\css\p4pthemes.css" />
     <Content Include="s\aplus_v2.js" />
     <Content Include="s\fdc\spm.js" />
     <Content Include="s\fdc\spmact.js" />
     <Content Include="s\tb-tracer-min.js" />
+    <Content Include="tbsp\tbsp.css" />
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
     <Content Include="uploadimage\b11.jpg" />
@@ -2831,6 +2848,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Account\Views\Shared\" />
+    <Folder Include="Areas\CartPay\Models\" />
+    <Folder Include="Areas\CartPay\Views\Shared\" />
     <Folder Include="Areas\Cart\Models\" />
     <Folder Include="Areas\Cart\Views\Shared\" />
     <Folder Include="Areas\Category\Models\" />
@@ -2875,6 +2894,8 @@
     <Content Include="Areas\Merchant\Views\Detail\seller_info_partial.cshtml" />
     <Content Include="Areas\Merchant\Views\SearchProduct\Index.cshtml" />
     <Content Include="Areas\Account\Views\Home\token.cshtml" />
+    <Content Include="Areas\CartPay\Views\Web.config" />
+    <Content Include="Areas\CartPay\Views\Home\MyCartPay.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />

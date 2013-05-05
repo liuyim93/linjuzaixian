@@ -1,679 +1,597 @@
-﻿/*pub-1|2013-03-15 09:32:18*/
-(function() {
-	var AS = window,
-		n = document,
-		w = (new Date()).getTime(),
-		A = "g_tb_aplus_loaded";
-	if (!n.getElementsByTagName("body").length) {
-		setTimeout(arguments.callee, 50);
-		return
-	}
-	if (AS[A]) {
-		return
-	}
-	AS[A] = 1;
-	var p = "http://a.tbcdn.cn/s/fdc/lsproxy.js?v=20130106";
-	var AQ = "6",
-		J = location,
-		f = "https:" == J.protocol,
-		h = parent !== self,
-		AB = 1,
-		X = (AB ? "0.0" : ""),
-		I = J.pathname,
-		H = J.hostname,
-		Au = (f ? "https://" : "http://") + "log.mmstat.com/",
-		Ah = Au + y(J.hostname) + ".gif",
-		k = [
-			["logtype", h ? 0 : 1]
-		],
-		Aa = location.href,
-		AR = n.referrer,
-		Ag = f && (Aa.indexOf("login.taobao.com") >= 0 || Aa.indexOf("login.tmall.com") >= 0),
-		AJ = !! n.attachEvent,
-		AO = "attachEvent",
-		O = "addEventListener",
-		Ac = AJ ? AO : O,
-		G = false,
-		At = true,
-		AC = "::-plain-::",
-		AU = "data-spm",
-		Ai = "data-spm-protocol",
-		Ad = "goldlog_queue",
-		l, AT = W(),
-		N, P, AX = Y("cna"),
-		z = {}, b, AW = {}, t, j, L, AV, Al, AN, V = G,
-		Aq = AS._SPM_a,
-		Ap = AS._SPM_b,
-		AD, AA, Ak, T, e = G,
-		Z;
-	AR = (function() {
-		var A0, Az = "wm_referrer",
-			Ay = "refer_pv_id",
-			Ax = AS.name || "",
-			Av = r(Ax),
-			A1 = Av[Az],
-			Aw = Av.wm_old_value;
-		A0 = n.referrer || C(A1);
-		l = Av[Ay];
-		if (!Ag) {
-			if (!g(Aw)) {
-				AS.name = C(Aw)
-			} else {
-				if (!g(A1)) {
-					AS.name = Ax.replace(/&?\bwm_referrer=[^&]*/g, "")
-				}
-			}
-		}
-		return A0
-	})();
-
-	function y(Az) {
-		if (h) {
-			return "y"
-		}
-		var Av = "o",
-			A0 = [
-				["ju.taobao.com", "4"],
-				["juhuasuan.com", "4"],
-				["alipay.com", "5"],
-				["china.alibaba.com", "6"],
-				["alibaba.com", "7"],
-				["aliloan.com", "8"],
-				["cnzz.com", "9"],
-				["net.cn", "a"],
-				["hichina.com", "a"],
-				["phpwind.com", "b"],
-				["aliyun.com", "c"],
-				["tao123.com", "d"],
-				["alimama.com", "e"],
-				["taobao.com", "1"],
-				["tmall.com", "2"],
-				["etao.com", "3"],
-				["*", Av]
-			],
-			Ax = A0.length,
-			Aw, Ay;
-		for (Aw = 0; Aw < Ax; Aw++) {
-			Ay = A0[Aw];
-			if (Am(Az, Ay[0])) {
-				return Ay[1]
-			}
-		}
-		return Av
-	}
-	function Am(Aw, Av) {
-		return Aw.indexOf(Av) > -1
-	}
-	function AF(Aw, Av) {
-		return Aw.indexOf(Av) == 0
-	}
-	function AH(Ay, Ax) {
-		var Aw = Ay.length,
-			Av = Ax.length;
-		return Aw >= Av && Ay.indexOf(Ax) == (Aw - Av)
-	}
-	function An(Av) {
-		return Ar(Av) ? Av.replace(/^\s+|\s+$/g, "") : ""
-	}
-	function C(Ay, Aw) {
-		var Av = Aw || "";
-		if (Ay) {
-			try {
-				Av = decodeURIComponent(Ay)
-			} catch (Ax) {}
-		}
-		return Av
-	}
-	function c(Ay) {
-		var Av = [],
-			Ax, Aw;
-		for (Ax in Ay) {
-			if (Ay.hasOwnProperty(Ax)) {
-				Aw = "" + Ay[Ax];
-				Av.push(AF(Ax, AC) ? Aw : (Ax + "=" + encodeURIComponent(Aw)))
-			}
-		}
-		return Av.join("&")
-	}
-	function AY(Aw) {
-		var Ax = [],
-			Az, Ay, A0, Av = Aw.length;
-		for (A0 = 0; A0 < Av; A0++) {
-			Az = Aw[A0][0];
-			Ay = Aw[A0][1];
-			Ax.push(AF(Az, AC) ? Ay : (Az + "=" + encodeURIComponent(Ay)))
-		}
-		return Ax.join("&")
-	}
-	function Ae(Aw) {
-		var Ax = {}, Av;
-		for (Av in Aw) {
-			if (Aw.hasOwnProperty(Av)) {
-				Ax[Av] = Aw[Av]
-			}
-		}
-		return Ax
-	}
-	function U(Ax, Aw) {
-		for (var Av in Aw) {
-			if (Aw.hasOwnProperty(Av)) {
-				Ax[Av] = Aw[Av]
-			}
-		}
-		return Ax
-	}
-	function r(A0) {
-		var Aw = A0.split("&"),
-			Ax = 0,
-			Av = Aw.length,
-			Ay, Az = {};
-		for (; Ax < Av; Ax++) {
-			Ay = Aw[Ax].split("=");
-			Az[Ay[0]] = C(Ay[1])
-		}
-		return Az
-	}
-	function u(Av) {
-		return typeof Av == "number"
-	}
-	function g(Av) {
-		return typeof Av == "undefined"
-	}
-	function Ar(Av) {
-		return typeof Av == "string"
-	}
-	function B(Av) {
-		return Object.prototype.toString.call(Av) === "[object Array]"
-	}
-	function m(Av, Aw) {
-		return Av && Av.getAttribute ? (Av.getAttribute(Aw) || "") : ""
-	}
-	function AE(Aw) {
-		var Av;
-		try {
-			Av = An(Aw.getAttribute("href", 2))
-		} catch (Ax) {}
-		return Av || ""
-	}
-	function M() {
-		var Az = n.getElementById("tb-beacon-aplus");
-		var Ax = m(Az, "exparams");
-		if (!Ax) {
-			return Ax
-		}
-		var Aw = ["taobao.com", "tmall.com", "etao.com", "hitao.com", "taohua.com", "juhuasuan.com", "alimama.com"];
-		var Ay;
-		var Av;
-		if (h) {
-			Av = Aw.length;
-			for (Ay = 0; Ay < Av; Ay++) {
-				if (Am(H, Aw[Ay])) {
-					return Ax
-				}
-			}
-			Ax = Ax.replace(/\buserid=\w*&?/, "")
-		}
-		return Ax
-	}
-	function D() {
-		N = N || n.getElementsByTagName("head")[0];
-		return P || (N ? (P = N.getElementsByTagName("meta")) : [])
-	}
-	function As(A0, A1) {
-		var Ax = A0.split(";"),
-			Ay, Aw = Ax.length,
-			Av, Az;
-		for (Ay = 0; Ay < Aw; Ay++) {
-			Av = Ax[Ay].split("=");
-			Az = An(Av[0]);
-			if (Az) {
-				A1[Az] = C(An(Av[1]))
-			}
-		}
-	}
-	function Y(Av) {
-		var Aw = n.cookie.match(new RegExp("\\b" + Av + "=([^;]+)"));
-		return Aw ? Aw[1] : ""
-	}
-	function AZ() {
-		return Math.floor(Math.random() * 268435456).toString(16)
-	}
-	function x() {
-		var Aw, Az, Ax = D(),
-			Av = Ax.length,
-			Ay;
-		for (Aw = 0; Aw < Av; Aw++) {
-			Az = Ax[Aw];
-			if (m(Az, "name") == "microscope-data") {
-				Ay = m(Az, "content");
-				As(Ay, z);
-				e = At
-			}
-		}
-		b = c(z);
-		Al = z.pageId;
-		L = z.shopId;
-		AV = z.siteInstanceId;
-		AN = z.siteCategory;
-		j = AV || L
-	}
-	function AI() {
-		var Aw, Az, Ax = D(),
-			Av = Ax.length,
-			Ay;
-		for (Aw = 0; Aw < Av; Aw++) {
-			Az = Ax[Aw];
-			if (m(Az, "name") == "atp-beacon") {
-				Ay = m(Az, "content");
-				As(Ay, AW)
-			}
-		}
-		t = c(AW)
-	}
-	function Af() {
-		var Az = D(),
-			Ax, Aw, Ay, Av;
-		for (Ax = 0, Aw = Az.length; Ax < Aw; Ax++) {
-			Ay = Az[Ax];
-			Av = m(Ay, "name");
-			if (Av == AU) {
-				AD = m(Ay, Ai)
-			}
-		}
-	}
-	function o(A0) {
-		var A2 = D(),
-			Az, Ax, Aw, A1, Av, Ay;
-		if (A2) {
-			for (Az = 0, Ax = A2.length; Az < Ax; Az++) {
-				A1 = A2[Az];
-				Av = m(A1, "name");
-				if (Av == A0) {
-					Ak = m(A1, "content");
-					if (Ak.indexOf(":") >= 0) {
-						Aw = Ak.split(":");
-						AD = Aw[0] == "i" ? "i" : "u";
-						Ak = Aw[1]
-					}
-					Ay = m(A1, Ai);
-					if (Ay) {
-						AD = (Ay == "i" ? "i" : "u")
-					}
-					T = AF(Ak, "110");
-					AA = (T ? X : Ak);
-					return At
-				}
-			}
-		}
-		return G
-	}
-	function Ao() {
-		if (!g(AA)) {
-			return AA
-		}
-		if (Aq && Ap) {
-			Aq = Aq.replace(/^{(\w+)}$/g, "$1");
-			Ap = Ap.replace(/^{(\w+)}$/g, "$1");
-			V = At;
-			AA = Aq + "." + Ap;
-			Af();
-			Z.spm_ab = [Aq, Ap];
-			return AA
-		}
-		var Ax = n.getElementsByTagName("head")[0],
-			Aw;
-		o(AU) || o("spm-id");
-		AA = AA || X;
-		if (!AA) {
-			return AA
-		}
-		var Av = n.getElementsByTagName("body");
-		var Ay;
-		Aw = AA.split(".");
-		Z.spm_ab = Aw;
-		Av = Av && Av.length ? Av[0] : null;
-		if (Av) {
-			Ay = m(Av, AU);
-			if (Ay) {
-				AA = Aw[0] + "." + Ay;
-				Z.spm_ab = [Aw[0], Ay]
-			}
-		}
-		return AA
-	}
-	function W() {
-		var Av = "g_aplus_pv_id",
-			Ax = "",
-			Aw = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		if (!AS[Av]) {
-			while (Ax.length < 6) {
-				Ax += Aw.substr(Mat...exOf("=") == -1) {
-					Av.wm_old_value = Aw;
-					AS.name = c(Av)
-				} else {
-					if (Ag && Aw.match(/&?\bwm_referrer=[^&]+/)) {
-						delete Av.wm_referrer
-					}
-					Aw = r(Aw);
-					U(Aw, Av);
-					AS.name = c(Aw)
-				}
-			}
-			function v(Aw, Ax, Av) {
-				Aw[Ac]((AJ ? "on" : "") + Ax, function(Az) {
-					Az = Az || AS.event;
-					var Ay = Az.target || Az.srcElement;
-					Av(Az, Ay)
-				}, G)
-			}
-			function Aj() {
-				var Aw, Av, Ay = ["/theme/info/info", "/promo/co_header.php", "fast_buy.htm", "/add_collection.htm", "/taobao_digital_iframe", "/promo/co_header_taoinfo.php", "/list_forum", "/theme/info/info"];
-				for (Aw = 0, Av = Ay.length; Aw < Av; Aw++) {
-					if (I.indexOf(Ay[Aw]) != -1) {
-						return At
-					}
-				}
-				var Ax = /^https?:\/\/[\w\.]+\.taobao\.com/i;
-				return !Ax.test(AR)
-			}
-			function F() {
-				var Az = AS[Ad],
-					Aw, Ay, Av;
-				if (!Az || !B(Az) || !Az.length) {
-					return
-				}
-				while (Aw = Az.shift()) {
-					if (!Aw || !Aw.action || !Ar(Aw.action) || !Aw.arguments || !B(Aw.arguments)) {
-						continue
-					}
-					Av = Aw.action.split(".");
-					Ay = AS;
-					while (Av.length) {
-						Ay = Ay[Av.shift()];
-						if (!Ay) {
-							return
-						}
-					}
-					if (typeof Ay == "function") {
-						try {
-							Ay.apply(Ay, Aw.arguments)
-						} catch (Ax) {}
-					}
-				}
-			}
-			function AP() {
-				var Av = function() {
-					F();
-					setTimeout(Av, 200)
-				};
-				Av();
-				v(AS, "beforeunload", F)
-			}
-			function i(Av, Aw) {
-				if (!Aw) {
-					return
-				}
-				if (!R()) {
-					return Z.send(Av, Aw)
-				} else {
-					return AK({
-						url: q(Av, Aw),
-						js: p
-					})
-				}
-			}
-			function Ab() {
-				return AC + Math.random()
-			}
-			function s(Aw) {
-				var Av = Aw.match(new RegExp("\\?.*spm=([\\w\\.\\-\\*]+)")),
-					Ax;
-				return (Av && (Ax = Av[1]) && Ax.split(".").length == 5) ? Ax : null
-			}
-			function K(A1, A0) {
-				var Ay, Av = A0.length,
-					Az, Ax, Aw;
-				for (Ay = 0; Ay < Av; Ay++) {
-					Az = A0[Ay];
-					Ax = Az[0];
-					Aw = Az[1];
-					if (Aw) {
-						A1.push([Ax, Aw])
-					}
-				}
-			}
-			function a() {
-				if (Math.random() < 0.0001) {
-					E("sample.js?v=120910")
-				}
-				E("spm.js?v=121030");
-				if (AV && L && (!AN || AN != "1")) {
-					E("wp-beacon.js?v=121010")
-				}
-				if (Math.random() < 0.0001 && !h && Am(H, "www.taobao.com")) {
-					E("exposure.js?v=121227")
-				}
-			}
-			function AG(Ax, Av) {
-				var Aw = n.createElement("script");
-				Aw.type = "text/javascript";
-				Aw.async = true;
-				Aw.src = f ? Av : Ax;
-				n.getElementsByTagName("head")[0].appendChild(Aw)
-			}
-			function E(Ax) {
-				var Aw = "http://a.tbcdn.cn/s/fdc/",
-					Av = "https://s.tbcdn.cn/s/fdc/";
-				AG(Aw + Ax, Av + Ax)
-			}
-			function AM(Ay, Aw) {
-				var Ax = document.createElement("iframe");
-				Ax.style.width = "1px";
-				Ax.style.height = "1px";
-				Ax.style.position = "absolute";
-				Ax.style.display = "none";
-				Ax.src = Ay;
-				if (Aw) {
-					Ax.name = Aw
-				}
-				var Av = document.getElementsByTagName("body")[0];
-				Av.appendChild(Ax);
-				return Ax
-			}
-			function R() {
-				if (f) {
-					return false
-				}
-				var Aw = navigator.userAgent;
-				var Av = Aw.split(" Safari/");
-				if (Av.length != 2) {
-					return false
-				}
-				return AS.localStorage && AS.postMessage && Av[1].match(/[\d\.]+/) && Aw.indexOf("AppleWebKit") > -1 && Aw.match(/\bVersion\/\d+/) && !Aw.match(/\bChrome\/\d+/)
-			}
-			function AK(Av) {
-				var Aw = "http://cdn.mmstat.com/aplus-proxy.html?v=20130115";
-				AM(Aw, JSON.stringify(Av));
-				if (AS.addEventListener && AS.JSON) {
-					AS.addEventListener("message", function(Ax) {
-						var A1 = Ax.data;
-
-						function A4() {
-							var A7 = H.split(".");
-							var A6 = A7.length;
-							if (A6 > 1) {
-								return A7[A6 - 2] + "." + A7[A6 - 1]
-							} else {
-								return H
-							}
-						}
-						try {
-							A1 = JSON.parse(A1)
-						} catch (A3) {
-							return
-						}
-						var A5, Ay, A0;
-						for (var A2 = 0, Az = A1.length; A2 < Az; A2++) {
-							A5 = A1[A2];
-							A0 = A5.k;
-							Ay = encodeURIComponent(A0) + "=" + (A0 == "cna" ? A5.v : encodeURIComponent(A5.v)) + "; domain=." + A4() + "; path=/; expires=" + (new Date(A5.t)).toGMTString();
-							n.cookie = Ay
-						}
-					})
-				}
-			}
-			function q(Aw, Ay) {
-				var Ax = Aw.indexOf("?") == -1 ? "?" : "&",
-					Av = Ay ? (B(Ay) ? AY(Ay) : c(Ay)) : "";
-				return Av ? (Aw + Ax + Av) : Aw
-			}
-			Z = {
-				version: AQ,
-				pvid: AT,
-				referrer: AR,
-				_d: {},
-				_microscope_data: z,
-				on: v,
-				DOMReady: S,
-				getCookie: Y,
-				tryToGetAttribute: m,
-				tryToGetHref: AE,
-				isNumber: u,
-				send: function(Aw, Ax) {
-					var Av = new Image(),
-						Az = "_img_" + Math.random(),
-						Ay = q(Aw, Ax);
-					AS[Az] = Av;
-					Av.onload = Av.onerror = function() {
-						AS[Az] = null
-					};
-					Av.src = Ay;
-					Av = null;
-					return Ay
-				},
-				emit: function(Ay, Ax) {
-					var Av, Aw = "ued.1.1.2?type=9";
-					if (B(Ax)) {
-						Av = ([
-							["_gm:id", Ay]
-						]).concat(Ax)
-					} else {
-						Av = Ae(Ax);
-						Av["_gm:id"] = Ay
-					}
-					return Z.send(Au + Aw, Av)
-				},
-				record: function(Aw, A2, Ay, Av) {
-					Av = arguments[3] || "";
-					var Ax, A1 = "?",
-						A0 = G,
-						Az;
-					if (Aw == "ac") {
-						Ax = "http://ac.atpanel.com/1.gif";
-						A0 = AF(Av, "A") && (Av.substring(1) == AL(A2))
-					} else {
-						if (AF(Aw, "/")) {
-							A0 = AF(Av, "H") && (Av.substring(1) == AL(Aw));
-							Ax = Au + Aw.substring(1);
-							Az = At
-						} else {
-							if (AH(Aw, ".gif")) {
-								Ax = Au + Aw
-							} else {
-								return G
-							}
-						}
-					}
-					if (!A0 && Av != "%" && AL(Aa) != Av) {
-						return G
-					}
-					Ax += A1 + "cache=" + AZ() + "&gmkey=" + encodeURIComponent(A2) + "&gokey=" + encodeURIComponent(Ay) + "&cna=" + AX + "&isbeta=" + AQ;
-					if (Az) {
-						Ax += "&logtype=2"
-					}
-					if (!R()) {
-						return Z.send(Ax)
-					} else {
-						return AK({
-							url: Ax,
-							js: p
-						})
-					}
-				}
-			};
-			AS.goldlog = Z;
-			AS.goldminer = {
-				record: Z.emit
-			};
-			if (!AS[Ad] || !B(AS[Ad])) {
-				AS[Ad] = []
-			}
-			AP();
-			x();
-			Ao();
-			a();
-			(function() {
-				var A1, Az = Y("tracknick"),
-					Ay = z.prototypeId,
-					A0 = s(Aa),
-					A2 = s(AR);
-				if (!h || Aj()) {
-					A1 = [
-						[Ab(), "title=" + escape(n.title)],
-						["pre", AR],
-						["cache", AZ()],
-						["scr", screen.width + "x" + screen.height],
-						["isbeta", AQ]
-					];
-					if (AX) {
-						A1.push([Ab(), "cna=" + AX])
-					}
-					if (Az) {
-						A1.push([Ab(), "nick=" + Az])
-					}
-					K(A1, [
-						["wm_pageid", Al],
-						["wm_prototypeid", Ay],
-						["wm_instanceid", AV],
-						["wm_sid", L],
-						["spm-url", A0],
-						["spm-pre", A2]
-					]);
-					if (AB) {
-						A1.push(["spm-cnt", (AA || "0.0") + ".0.0." + AT])
-					} else {
-						if (AA) {
-							A1.push(["spm-cnt", AA])
-						}
-					}
-					k = k.concat(A1);
-					k.push([Ab(), M()]);
-					AS.g_aplus_pv_req = i(Ah, k)
-				}
-				if (h) {
-					AI();
-					var Aw, Av = AW.on,
-						Ax = (Av == "1" ? "http://ac.atpanel.com/y.gif" : Ah);
-					if ((Av == "1" || Av == "2") && (Aw = AW.chksum) && Aw === AL(Aa).toString()) {
-						i(Ax, k)
-					}
-				}
-				if (Ag) {
-					Q()
-				} else {
-					v(AS, "beforeunload", function() {
-						Q()
-					})
-				}
-			})();
-			var d = (new Date()).getTime();
-			setTimeout(function() {
-				if (Math.random() > 0.0001) {
-					return
-				}
-				Z.emit("global_sample", {
-					type: "timer",
-					t: d - w
-				})
-			}, 1)
-		})();
+﻿/*pub-1|2013-05-02 15:25:04*/(function () {
+    var at = window, N = document, W = (new Date()).getTime(), a = "g_tb_aplus_loaded";
+    if (!N.getElementsByTagName("body").length) {
+        setTimeout(arguments.callee, 50);
+        return
+    }
+    if (at[a]) {
+        return
+    }
+    at[a] = 1;
+    var P = "http://a.tbcdn.cn/s/fdc/lsproxy.js?v=20130106";
+    var aq = "7", j = location, F = "https:" == j.protocol, H = parent !== self, ab = 1, x = (ab ? "0.0" : ""), i = j.pathname, h = j.hostname, aV = (F ? "https://" : "http://") + "log.mmstat.com/", aI = aV + Y(j.hostname) + ".gif", K = [["logtype", H ? 0 : 1]], aB = location.href, ar = N.referrer, aH = F && (aB.indexOf("login.taobao.com") >= 0 || aB.indexOf("login.tmall.com") >= 0), aj = !!N.attachEvent, ao = "attachEvent", o = "addEventListener", aD = aj ? ao : o, g = false, aU = true, ac = "::-plain-::", av = "data-spm", aJ = "data-spm-protocol", aE = "goldlog_queue", L, au = w(), n, p, ay = y("cna"), Z = {}, B, ax = {}, T, J, l, aw, aM, an, v = g, aR = at._SPM_a, aQ = at._SPM_b, ad, aa, aL, t, E = g, z;
+    ar = (function () {
+        var a1, a0 = "wm_referrer", aZ = "refer_pv_id", aY = at.name || "", aW = R(aY), a2 = aW[a0], aX = aW.wm_old_value;
+        a1 = N.referrer || c(a2);
+        L = aW[aZ];
+        if (!aH) {
+            if (!G(aX)) {
+                at.name = c(aX)
+            } else {
+                if (!G(a2)) {
+                    at.name = aY.replace(/&?\bwm_referrer=[^&]*/g, "")
+                }
+            }
+        }
+        return a1
+    })();
+    function Y(a0) {
+        if (H) {
+            return "y"
+        }
+        var aW = "o", a1 = [["ju.taobao.com", "4"], ["juhuasuan.com", "4"], ["alipay.com", "5"], ["china.alibaba.com", "6"], ["1688.com", "6"], ["alibaba.com", "7"], ["aliloan.com", "8"], ["cnzz.com", "9"], ["net.cn", "a"], ["hichina.com", "a"], ["phpwind.com", "b"], ["aliyun.com", "c"], ["tao123.com", "d"], ["alimama.com", "e"], ["taobao.com", "1"], ["tmall.com", "2"], ["etao.com", "3"], ["*", aW]], aY = a1.length, aX, aZ;
+        for (aX = 0; aX < aY; aX++) {
+            aZ = a1[aX];
+            if (aN(a0, aZ[0])) {
+                return aZ[1]
+            }
+        }
+        return aW
+    }
+    function aN(aX, aW) {
+        return aX.indexOf(aW) > -1
+    }
+    function af(aX, aW) {
+        return aX.indexOf(aW) == 0
+    }
+    function ah(aZ, aY) {
+        var aX = aZ.length, aW = aY.length;
+        return aX >= aW && aZ.indexOf(aY) == (aX - aW)
+    }
+    function aO(aW) {
+        return aS(aW) ? aW.replace(/^\s+|\s+$/g, "") : ""
+    }
+    function c(aZ, aX) {
+        var aW = aX || "";
+        if (aZ) {
+            try {
+                aW = decodeURIComponent(aZ)
+            } catch (aY) {
+            }
+        }
+        return aW
+    }
+    function C(aZ) {
+        var aW = [], aY, aX;
+        for (aY in aZ) {
+            if (aZ.hasOwnProperty(aY)) {
+                aX = "" + aZ[aY];
+                aW.push(af(aY, ac) ? aX : (aY + "=" + encodeURIComponent(aX)))
+            }
+        }
+        return aW.join("&")
+    }
+    function az(aX) {
+        var aY = [], a0, aZ, a1, aW = aX.length;
+        for (a1 = 0; a1 < aW; a1++) {
+            a0 = aX[a1][0];
+            aZ = aX[a1][1];
+            aY.push(af(a0, ac) ? aZ : (a0 + "=" + encodeURIComponent(aZ)))
+        }
+        return aY.join("&")
+    }
+    function aF(aX) {
+        var aY = {}, aW;
+        for (aW in aX) {
+            if (aX.hasOwnProperty(aW)) {
+                aY[aW] = aX[aW]
+            }
+        }
+        return aY
+    }
+    function u(aY, aX) {
+        for (var aW in aX) {
+            if (aX.hasOwnProperty(aW)) {
+                aY[aW] = aX[aW]
+            }
+        }
+        return aY
+    }
+    function R(a1) {
+        var aX = a1.split("&"), aY = 0, aW = aX.length, aZ, a0 = {};
+        for (; aY < aW; aY++) {
+            aZ = aX[aY].split("=");
+            a0[aZ[0]] = c(aZ[1])
+        }
+        return a0
+    }
+    function U(aW) {
+        return typeof aW == "number"
+    }
+    function G(aW) {
+        return typeof aW == "undefined"
+    }
+    function aS(aW) {
+        return typeof aW == "string"
+    }
+    function b(aW) {
+        return Object.prototype.toString.call(aW) === "[object Array]"
+    }
+    function M(aW, aX) {
+        return aW && aW.getAttribute ? (aW.getAttribute(aX) || "") : ""
+    }
+    function ae(aX) {
+        var aW;
+        try {
+            aW = aO(aX.getAttribute("href", 2))
+        } catch (aY) {
+        }
+        return aW || ""
+    }
+    function m() {
+        var a0 = N.getElementById("tb-beacon-aplus");
+        var aY = M(a0, "exparams");
+        if (!aY) {
+            return aY
+        }
+        var aX = ["taobao.com", "tmall.com", "etao.com", "hitao.com", "taohua.com", "juhuasuan.com", "alimama.com"];
+        var aZ;
+        var aW;
+        if (H) {
+            aW = aX.length;
+            for (aZ = 0; aZ < aW; aZ++) {
+                if (aN(h, aX[aZ])) {
+                    return aY
+                }
+            }
+            aY = aY.replace(/\buserid=\w*&?/, "")
+        }
+        aY = aY.replace(/\buserid=/, "uidaplus=");
+        return aY
+    }
+    function d() {
+        n = n || N.getElementsByTagName("head")[0];
+        return p || (n ? (p = n.getElementsByTagName("meta")) : [])
+    }
+    function aT(a1, a3) {
+        var aY = a1.split(";"), aZ, aX = aY.length, aW, a0;
+        for (aZ = 0; aZ < aX; aZ++) {
+            aW = aY[aZ].split("=");
+            a0 = aO(aW[0]);
+            if (a0) {
+                a3[a0] = c(aO(aW[1]))
+            }
+        }
+    }
+    function y(aW) {
+        var aX = N.cookie.match(new RegExp("\\b" + aW + "=([^;]+)"));
+        return aX ? aX[1] : ""
+    }
+    function aA() {
+        return Math.floor(Math.random() * 268435456).toString(16)
+    }
+    function X() {
+        var aX, a0, aY = d(), aW = aY.length, aZ;
+        for (aX = 0; aX < aW; aX++) {
+            a0 = aY[aX];
+            if (M(a0, "name") == "microscope-data") {
+                aZ = M(a0, "content");
+                aT(aZ, Z);
+                E = aU
+            }
+        }
+        B = C(Z);
+        aM = Z.pageId;
+        l = Z.shopId;
+        aw = Z.siteInstanceId;
+        an = Z.siteCategory;
+        J = aw || l
+    }
+    function ai() {
+        var aX, a0, aY = d(), aW = aY.length, aZ;
+        for (aX = 0; aX < aW; aX++) {
+            a0 = aY[aX];
+            if (M(a0, "name") == "atp-beacon") {
+                aZ = M(a0, "content");
+                aT(aZ, ax)
+            }
+        }
+        T = C(ax)
+    }
+    function aG() {
+        var a0 = d(), aY, aX, aZ, aW;
+        for (aY = 0, aX = a0.length; aY < aX; aY++) {
+            aZ = a0[aY];
+            aW = M(aZ, "name");
+            if (aW == av) {
+                ad = M(aZ, aJ)
+            }
+        }
+    }
+    function O(a1) {
+        var a3 = d(), a0, aY, aX, a2, aW, aZ;
+        if (a3) {
+            for (a0 = 0, aY = a3.length; a0 < aY; a0++) {
+                a2 = a3[a0];
+                aW = M(a2, "name");
+                if (aW == a1) {
+                    aL = M(a2, "content");
+                    if (aL.indexOf(":") >= 0) {
+                        aX = aL.split(":");
+                        ad = aX[0] == "i" ? "i" : "u";
+                        aL = aX[1]
+                    }
+                    aZ = M(a2, aJ);
+                    if (aZ) {
+                        ad = (aZ == "i" ? "i" : "u")
+                    }
+                    t = af(aL, "110");
+                    aa = (t ? x : aL);
+                    return aU
+                }
+            }
+        }
+        return g
+    }
+    function aP() {
+        if (!G(aa)) {
+            return aa
+        }
+        if (aR && aQ) {
+            aR = aR.replace(/^{(\w+)}$/g, "$1");
+            aQ = aQ.replace(/^{(\w+)}$/g, "$1");
+            v = aU;
+            aa = aR + "." + aQ;
+            aG();
+            z.spm_ab = [aR, aQ];
+            return aa
+        }
+        var aY = N.getElementsByTagName("head")[0], aX;
+        O(av) || O("spm-id");
+        aa = aa || x;
+        if (!aa) {
+            return aa
+        }
+        var aW = N.getElementsByTagName("body");
+        var aZ;
+        aX = aa.split(".");
+        z.spm_ab = aX;
+        aW = aW && aW.length ? aW[0] : null;
+        if (aW) {
+            aZ = M(aW, av);
+            if (aZ) {
+                aa = aX[0] + "." + aZ;
+                z.spm_ab = [aX[0], aZ]
+            }
+        }
+        return aa
+    }
+    function w() {
+        var aW = "g_aplus_pv_id", aY = "", aX = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        if (!at[aW]) {
+            while (aY.length < 6) {
+                aY += aX.substr(Math.floor(Math.random() * 62), 1)
+            }
+            at[aW] = aY
+        }
+        return at[aW]
+    }
+    function al(aX) {
+        aX = (aX || "").split("#")[0].split("?")[0];
+        var aW = aX.length, aY = function (a2) {
+            var a1, aZ = a2.length, a0 = 0;
+            for (a1 = 0; a1 < aZ; a1++) {
+                a0 = a0 * 31 + a2.charCodeAt(a1)
+            }
+            return a0
+        };
+        return aW ? aY(aW + "#" + aX.charCodeAt(aW - 1)) : -1
+    }
+    function s(aW) {
+        var aX = at.KISSY;
+        if (aX) {
+            aX.ready(aW)
+        } else {
+            if (at.jQuery) {
+                jQuery(N).ready(aW)
+            } else {
+                if (N.readyState === "complete") {
+                    aW()
+                } else {
+                    V(at, "load", aW)
+                }
+            }
+        }
+    }
+    function q() {
+        if (H) {
+            return
+        }
+        var aX = at.name || "", aY = aH ? (N.referrer || aB) : aB, aW = { refer_pv_id: au };
+        if (F) {
+            aW.wm_referrer = aY
+        }
+        if (aX.indexOf("=") == -1) {
+            aW.wm_old_value = aX;
+            at.name = C(aW)
+        } else {
+            if (aH && aX.match(/&?\bwm_referrer=[^&]+/)) {
+                delete aW.wm_referrer
+            }
+            aX = R(aX);
+            u(aX, aW);
+            at.name = C(aX)
+        }
+    }
+    function V(aX, aY, aW) {
+        aX[aD]((aj ? "on" : "") + aY, function (a0) {
+            a0 = a0 || at.event;
+            var aZ = a0.target || a0.srcElement;
+            aW(a0, aZ)
+        }, g)
+    }
+    function aK() {
+        var aX, aW, aZ = ["/theme/info/info", "/promo/co_header.php", "fast_buy.htm", "/add_collection.htm", "/taobao_digital_iframe", "/promo/co_header_taoinfo.php", "/list_forum", "/theme/info/info"];
+        for (aX = 0, aW = aZ.length; aX < aW; aX++) {
+            if (i.indexOf(aZ[aX]) != -1) {
+                return aU
+            }
+        }
+        var aY = /^https?:\/\/[\w\.]+\.taobao\.com/i;
+        return !aY.test(ar)
+    }
+    function f() {
+        var a0 = at[aE], aX, aZ, aW;
+        if (!a0 || !b(a0) || !a0.length) {
+            return
+        }
+        while (aX = a0.shift()) {
+            if (!aX || !aX.action || !aS(aX.action) || !aX.arguments || !b(aX.arguments)) {
+                continue
+            }
+            aW = aX.action.split(".");
+            aZ = at;
+            while (aW.length) {
+                aZ = aZ[aW.shift()];
+                if (!aZ) {
+                    return
+                }
+            }
+            if (typeof aZ == "function") {
+                try {
+                    aZ.apply(aZ, aX.arguments)
+                } catch (aY) {
+                }
+            }
+        }
+    }
+    function ap() {
+        var aW = function () {
+            f();
+            setTimeout(aW, 200)
+        };
+        aW();
+        V(at, "beforeunload", f)
+    }
+    function I(aW, aX) {
+        if (!aX) {
+            return
+        }
+        if (!r()) {
+            return z.send(aW, aX)
+        } else {
+            return ak({ url: Q(aW, aX), js: P })
+        }
+    }
+    function aC() {
+        return ac + Math.random()
+    }
+    function S(aX) {
+        var aW = aX.match(new RegExp("\\?.*spm=([\\w\\.\\-\\*]+)")), aY;
+        return (aW && (aY = aW[1]) && aY.split(".").length == 5) ? aY : null
+    }
+    function k(a2, a1) {
+        var aZ, aW = a1.length, a0, aY, aX;
+        for (aZ = 0; aZ < aW; aZ++) {
+            a0 = a1[aZ];
+            aY = a0[0];
+            aX = a0[1];
+            if (aX) {
+                a2.push([aY, aX])
+            }
+        }
+    }
+    function A() {
+        if (Math.random() < 0.0001) {
+            e("sample.js?v=120910")
+        }
+        var aW = ".tbcdn.cn/s/fdc/??spm.js,spmact.js?v=20130502";
+        ag("http://a" + aW, "https://s" + aW);
+        if (aw && l && (!an || an != "1")) {
+            e("wp-beacon.js?v=121010")
+        }
+        if (Math.random() < 0.0001 && !H && aN(h, "www.taobao.com")) {
+            e("exposure.js?v=121227")
+        }
+    }
+    function ag(aY, aW) {
+        var aX = N.createElement("script");
+        aX.type = "text/javascript";
+        aX.async = true;
+        aX.src = F ? aW : aY;
+        N.getElementsByTagName("head")[0].appendChild(aX)
+    }
+    function e(aY) {
+        var aX = "http://a.tbcdn.cn/s/fdc/", aW = "https://s.tbcdn.cn/s/fdc/";
+        ag(aX + aY, aW + aY)
+    }
+    function am(aZ, aX) {
+        var aY = document.createElement("iframe");
+        aY.style.width = "1px";
+        aY.style.height = "1px";
+        aY.style.position = "absolute";
+        aY.style.display = "none";
+        aY.src = aZ;
+        if (aX) {
+            aY.name = aX
+        }
+        var aW = document.getElementsByTagName("body")[0];
+        aW.appendChild(aY);
+        return aY
+    }
+    function r() {
+        if (F) {
+            return false
+        }
+        var aX = navigator.userAgent;
+        var aW = aX.split(" Safari/");
+        if (aW.length != 2) {
+            return false
+        }
+        return at.localStorage && at.postMessage && aW[1].match(/[\d\.]+/) && aX.indexOf("AppleWebKit") > -1 && aX.match(/\bVersion\/\d+/) && !aX.match(/\bChrome\/\d+/)
+    }
+    function ak(aW) {
+        var aX = "http://cdn.mmstat.com/aplus-proxy.html?v=20130115";
+        am(aX, JSON.stringify(aW));
+        if (at.addEventListener && at.JSON) {
+            at.addEventListener("message", function (aY) {
+                var a2 = aY.data;
+                function a5() {
+                    var a8 = h.split(".");
+                    var a7 = a8.length;
+                    if (a7 > 1) {
+                        return a8[a7 - 2] + "." + a8[a7 - 1]
+                    } else {
+                        return h
+                    }
+                }
+                try {
+                    a2 = JSON.parse(a2)
+                } catch (a4) {
+                    return
+                }
+                var a6, aZ, a1;
+                for (var a3 = 0, a0 = a2.length; a3 < a0; a3++) {
+                    a6 = a2[a3];
+                    a1 = a6.k;
+                    aZ = encodeURIComponent(a1) + "=" + (a1 == "cna" ? a6.v : encodeURIComponent(a6.v)) + "; domain=." + a5() + "; path=/; expires=" + (new Date(a6.t)).toGMTString();
+                    N.cookie = aZ
+                }
+            })
+        }
+    }
+    function Q(aX, aZ) {
+        var aY = aX.indexOf("?") == -1 ? "?" : "&", aW = aZ ? (b(aZ) ? az(aZ) : C(aZ)) : "";
+        return aW ? (aX + aY + aW) : aX
+    }
+    z = { version: aq, pvid: au, referrer: ar, _d: {}, _microscope_data: Z, on: V, DOMReady: s, getCookie: y, tryToGetAttribute: M, tryToGetHref: ae, isNumber: U, send: function (aX, aY) {
+        var aW = new Image(), a0 = "_img_" + Math.random(), aZ = Q(aX, aY);
+        at[a0] = aW;
+        aW.onload = aW.onerror = function () {
+            at[a0] = null
+        };
+        aW.src = aZ;
+        aW = null;
+        return aZ
+    }, emit: function (aZ, aY) {
+        var aW, aX = "ued.1.1.2?type=9";
+        if (b(aY)) {
+            aW = ([["_gm:id", aZ]]).concat(aY)
+        } else {
+            aW = aF(aY);
+            aW["_gm:id"] = aZ
+        }
+        return z.send(aV + aX, aW)
+    }, record: function (a0, aZ, a3, a4) {
+        a4 = arguments[3] || "";
+        var aW, aY = "?", aX = g, a1;
+        var a2 = "http://ac.atpanel.com/";
+        if (a0 == "ac") {
+            aW = a2 + "1.gif";
+            aX = af(a4, "A") && (a4.substr(1) == al(a0))
+        } else {
+            if (af(a0, "ac-")) {
+                aW = a2 + a0.substr(3);
+                aX = af(a4, "A") && (a4.substr(1) == al(a0))
+            } else {
+                if (af(a0, "/")) {
+                    aX = af(a4, "H") && (a4.substr(1) == al(a0));
+                    aW = aV + a0.substr(1);
+                    a1 = aU
+                } else {
+                    if (ah(a0, ".gif")) {
+                        aW = aV + a0
+                    } else {
+                        return g
+                    }
+                }
+            }
+        }
+        if (!aX && a4 != "%" && al(aB) != a4) {
+            return g
+        }
+        aW += aY + "cache=" + aA() + "&gmkey=" + encodeURIComponent(aZ) + "&gokey=" + encodeURIComponent(a3) + "&cna=" + ay + "&isbeta=" + aq;
+        if (a1) {
+            aW += "&logtype=2"
+        }
+        if (!r()) {
+            return z.send(aW)
+        } else {
+            return ak({ url: aW, js: P })
+        }
+    } 
+    };
+    at.goldlog = z;
+    at.goldminer = { record: z.emit };
+    if (!at[aE] || !b(at[aE])) {
+        at[aE] = []
+    }
+    ap();
+    X();
+    aP();
+    A();
+    (function () {
+        var a2, a0 = y("tracknick"), aZ = Z.prototypeId, a1 = S(aB), a3 = S(ar);
+        if (!H || aK()) {
+            a2 = [[aC(), "title=" + escape(N.title)], ["pre", ar], ["cache", aA()], ["scr", screen.width + "x" + screen.height], ["isbeta", aq]];
+            if (ay) {
+                a2.push([aC(), "cna=" + ay])
+            }
+            if (a0) {
+                a2.push([aC(), "nick=" + a0])
+            }
+            k(a2, [["wm_pageid", aM], ["wm_prototypeid", aZ], ["wm_instanceid", aw], ["wm_sid", l], ["spm-url", a1], ["spm-pre", a3]]);
+            if (ab) {
+                a2.push(["spm-cnt", (aa || "0.0") + ".0.0." + au])
+            } else {
+                if (aa) {
+                    a2.push(["spm-cnt", aa])
+                }
+            }
+            K = K.concat(a2);
+            K.push([aC(), m()]);
+            at.g_aplus_pv_req = I(aI, K)
+        }
+        if (H) {
+            ai();
+            var aX, aW = ax.on, aY = (aW == "1" ? "http://ac.atpanel.com/y.gif" : aI);
+            if ((aW == "1" || aW == "2") && (aX = ax.chksum) && aX === al(aB).toString()) {
+                I(aY, K)
+            }
+        }
+        if (aH) {
+            q()
+        } else {
+            V(at, "beforeunload", function () {
+                q()
+            })
+        }
+    })();
+    var D = (new Date()).getTime();
+    setTimeout(function () {
+        if (Math.random() > 0.0001) {
+            return
+        }
+        z.emit("global_sample", { type: "timer", t: D - W })
+    }, 1)
+})();

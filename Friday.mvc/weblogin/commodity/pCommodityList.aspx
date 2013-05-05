@@ -2,7 +2,6 @@
 <form id="pagerForm" action="#rel#">
 <input type="hidden" id="p" name="pageNum" value="<%=pageNum %>" />
 <input type="hidden" name="prefix" value='<%=Request.Params["prefix"] %>' />
-<input type="hidden" name="shop_id" value='<%=Request.Params["shop_id"] %>' />
 <input type="hidden" name="numPerPage" value="<%=numPerPageValue%>" />
 <input type="hidden" name="orderField" value='<%=Request.Params["orderField"] %>' /><!--【可选】查询排序-->
 <input type="hidden" name="orderDirection" value='<%=Request.Params["orderDirection"] %>' /><!--【可选】升序降序-->
