@@ -160,20 +160,20 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
         return S
     }
     var Z = function () {
-        _dom.insertBefore(_dom.create('<img id="tm-d12icon" src="http://img02.taobaocdn.com/tps/i2/T1wqMjXoFXXXb6Jk6m-72-17.png" alt="12.12\u5fc3\u613f\u4ef7">'), _cfg.strPrice);
+        _dom.insertBefore(_dom.create('<img id="tm-d12icon" src="http://img02.taobaocdn.com/tps/i2/T1wqMjXoFXXXb6Jk6m-72-17.png" alt="12.12心愿价">'), _cfg.strPrice);
         Z = function () {
         };
         return Z()
     };
     function h() {
-        var AC = _mods_sku.getCurrentPriceInfo(), AD = _mods_sku.getCurrentPromotionList(), S = _mods_sku.getCurrentPromotion();
+        var _currentPriceInfo = _mods_sku.getCurrentPriceInfo(), _currentPromotionList = _mods_sku.getCurrentPromotionList(), _currentPromotion = _mods_sku.getCurrentPromotion();
         var w = {};
         var AE = _cfg.valMode & 1;
-        if (AC) {
+        if (_currentPriceInfo) {
             var x = _mods_sku.getCurrentPriceInfoList(), AB = [], t = [];
-            if (AD) {
-                for (var v = 0, u = AD.length; v < u; v++) {
-                    var AF = AD[v];
+            if (_currentPromotionList) {
+                for (var v = 0, u = _currentPromotionList.length; v < u; v++) {
+                    var AF = _currentPromotionList[v];
                     AF.addInfo = [AF.add, AF.gift, AF.limitTime].join("")
                 }
             }
@@ -198,15 +198,15 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
             }
             w = { priceRange: K(AB), promPriceRange: null }
         }
-        var z = { subData: AC, priceRange: w, promotionList: AD };
+        var z = { subData: _currentPriceInfo, priceRange: w, promotionList: _currentPromotionList };
         var y = n.getYikouPrice(z);
         if (typeof y != "undefined") {
             D.allPrice(y)
         }
-        if (!AC) {
+        if (!_currentPriceInfo) {
             return b()
         }
-        if (!S) {
+        if (!_currentPromotion) {
             if (_itemPriceResultDO_t.umpBigPromotionItem) {
                 Z()
             }

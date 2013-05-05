@@ -1,11 +1,11 @@
 ﻿KISSY.add("malldetail/sku/freight", function (_kissy_B, _template) {
     var _mods_SKU = _kissy_B.mods.SKU, _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event;
     var _dom_id_info, _deliveryDO_t, _selectSkuId_t, _set_info_html_fn, C, _template_snippet_t, F, _cfg, O, P,
-        _prescription_template = '<p><i class="i-prescription"></i>{{#if name}}<span class="tb-label">{{name}}</span>{{/if}}{{#if money}}<em>&yen;{{money}}\u5143</em> {{/if}}{{#if signText}}<b>{{signText}}</b>{{/if}}</p>',
+        _prescription_template = '<p><i class="i-prescription"></i>{{#if name}}<span class="tb-label">{{name}}</span>{{/if}}{{#if money}}<em>&yen;{{money}}元</em> {{/if}}{{#if signText}}<b>{{signText}}</b>{{/if}}</p>',
         _signText_template = "{{#if name}}{{name}}: {{/if}}{{#if money}}{{money}}\u5143 {{/if}}{{#if signText}}<b>({{signText}})</b>{{/if}}",
         _postage_template = "<span>{{postage}}</span>";
     var _document = document, _body = _document.body;
-    function G() {
+    function _calculate_freight() {
         if (!_deliveryDO_t || !_deliveryDO_t.deliverySkuMap) {
             return
         }
@@ -34,7 +34,7 @@
                 _template_snippet += _template(_selected_template).render(_deliverySku)
             }
         }
-        _renderNoSell(_template_snippet)
+        _render_freight(_template_snippet)
     }
     function _render() {
         if (!P) {
@@ -48,14 +48,14 @@
             _mods_SKU.dqCity.notSell()
         } else {
             if (_mods_SKU.Service.getHouseService()) {
-                _renderNoSell("")
+                _render_freight("")
             } else {
-                G()
+                _calculate_freight()
             }
             _mods_SKU.dqCity.sell()
         }
     }
-    function _renderNoSell(_template_snippet, S) {
+    function _render_freight(_template_snippet, S) {
         if (_dom_id_info) {
             if (S) {
                 C = _template_snippet
@@ -164,5 +164,5 @@
             F = true
         }
     }
-    return { init: _init, render: _render, renderNoSell: _renderNoSell }
+    return { init: _init, render: _render, renderNoSell: _render_freight }
 }, { requires: ["template"] }); /*pub-1|2013-02-28 21:14:23*/

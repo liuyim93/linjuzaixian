@@ -94,17 +94,17 @@
         _createAsyn_wrapper(function () {
             _success_callback_fn && _success_callback_fn(_global_defaultModel)
         }, _state)
-    }, onPriceInfo: function (_areaObj, _get_sku_priceinfo_from_array, _state) {
+    }, onPriceInfo: function (_areaObj, _on_sort_sku_priceinfo_array_fn, _state) {
         _areaObj = _areaObj || {};
         _malldetail_data_data.onModel(function (_defaultModelObject) {
             var _itemPriceResultDO = _defaultModelObject.itemPriceResultDO;
             if (_areaObj.areaId && _itemPriceResultDO && _areaObj.areaId != _itemPriceResultDO.areaId) {
                 _malldetail_data_data.onLocationModel(_areaObj.areaId, function (P) {
-                    _get_sku_priceinfo_from_array && _get_sku_priceinfo_from_array((P && P.itemPriceResultDO && P.itemPriceResultDO.priceInfo) || (_itemPriceResultDO && _itemPriceResultDO.priceInfo))
+                    _on_sort_sku_priceinfo_array_fn && _on_sort_sku_priceinfo_array_fn((P && P.itemPriceResultDO && P.itemPriceResultDO.priceInfo) || (_itemPriceResultDO && _itemPriceResultDO.priceInfo))
                 });
                 return
             }
-            _get_sku_priceinfo_from_array && _get_sku_priceinfo_from_array(_itemPriceResultDO && _itemPriceResultDO.priceInfo)
+            _on_sort_sku_priceinfo_array_fn && _on_sort_sku_priceinfo_array_fn(_itemPriceResultDO && _itemPriceResultDO.priceInfo)
         }, _state)
     }, onLocationModel: function (L, M, K) {
         if (!_malldetail_data_data.locLM) {

@@ -236,31 +236,31 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         return _sku_list
     };
     _mods_SKU.getCurrentPromotion = function () {
-        var S;
-        _mods_SKU.onCurrentPromotion(function (T) {
-            S = T
+        var _current_promotion;
+        _mods_SKU.onCurrentPromotion(function (_current_promotion_t) {
+            _current_promotion = _current_promotion_t
         });
-        return S
+        return _current_promotion
     };
-    _mods_SKU.onCurrentPromotion = function (S) {
+    _mods_SKU.onCurrentPromotion = function (_set_current_promotion_fn) {
         _mods_SKU.onCurrentPromotionList(function (T) {
             if (!T) {
-                S();
+                _set_current_promotion_fn();
                 return
             }
-            S(T[0])
+            _set_current_promotion_fn(T[0])
         })
     };
     _mods_SKU.getCurrentPromotionList = function () {
-        var S;
-        _mods_SKU.onCurrentPromotionList(function (T) {
-            S = T
+        var _current_promotion_list;
+        _mods_SKU.onCurrentPromotionList(function (_current_promotion_list_t) {
+            _current_promotion_list = _current_promotion_list_t
         });
-        return S
+        return _current_promotion_list
     };
-    _mods_SKU.onCurrentPromotionList = function (S) {
-        _mods_SKU.onCurrentPriceInfo(function (T) {
-            _mods_SKU.onPromotionList(T, S)
+    _mods_SKU.onCurrentPromotionList = function (_set_current_promotion_list_fn) {
+        _mods_SKU.onCurrentPriceInfo(function (_price_info) {
+            _mods_SKU.onPromotionList(_price_info, _set_current_promotion_list_fn)
         })
     };
     _mods_SKU.getPriceInfo = function (_sku_id) {
@@ -270,27 +270,27 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         });
         return _sku_price_info
     };
-    _mods_SKU.onPromotionList = function (S, T) {
-        _mods_SKU.onPriceInfo(S, function (y) {
-            if (!y) {
-                T();
+    _mods_SKU.onPromotionList = function (_price_info, _set_current_promotion_list_fn) {
+        _mods_SKU.onPriceInfo(_price_info, function (_price_info_t) {
+            if (!_price_info_t) {
+                _set_current_promotion_list_fn();
                 return
             }
-            var v = y.promPrice, w = y.promotionList;
-            if (v) {
-                var x = [v];
-                if (w) {
-                    x = x.concat(w)
+            var _promPrice = _price_info_t.promPrice, _promotionList = _price_info_t.promotionList;
+            if (_promPrice) {
+                var x = [_promPrice];
+                if (_promotionList) {
+                    x = x.concat(_promotionList)
                 }
-                T(x);
+                _set_current_promotion_list_fn(x);
                 return
             }
-            T(w)
+            _set_current_promotion_list_fn(_promotionList)
         })
     };
-    _mods_SKU.onPriceData = function (_get_sku_priceinfo_from_array) {
+    _mods_SKU.onPriceData = function (_on_sort_sku_priceinfo_array_fn) {
         var _areaid = _mods_SKU.buyerLocation && _mods_SKU.buyerLocation.areaId;
-        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, _get_sku_priceinfo_from_array, 13)
+        _malldetail_data_data.onPriceInfo({ areaId: _areaid }, _on_sort_sku_priceinfo_array_fn, 13)
     };
     _mods_SKU.onPriceInfo = function (_sku_id, _set_sku_priceinfo) {
         _mods_SKU.onPriceData(function (_price_info_array) {
@@ -302,15 +302,15 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         }, 13)
     };
     _mods_SKU.getCurrentPriceInfo = function () {
-        var _cheapest_priceInfo;
-        _mods_SKU.onCurrentPriceInfo(function (_cheapest_priceInfo_t) {
-            _cheapest_priceInfo = _cheapest_priceInfo_t
+        var _current_priceInfo;
+        _mods_SKU.onCurrentPriceInfo(function (_current_priceInfo_t) {
+            _current_priceInfo = _current_priceInfo_t
         });
-        return _cheapest_priceInfo
+        return _current_priceInfo
     };
-    _mods_SKU.onCurrentPriceInfo = function (S) {
+    _mods_SKU.onCurrentPriceInfo = function (_current_priceinfo_callback_fn) {
         _mods_SKU.onCurrentPriceInfoList(function (_priceList) {
-            S(_priceList[0])
+            _current_priceinfo_callback_fn(_priceList[0])
         })
     };
     _mods_SKU.getCurrentPriceInfoList = function () {
@@ -320,7 +320,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         });
         return S
     };
-    _mods_SKU.onCurrentPriceInfoList = function (S) {
+    _mods_SKU.onCurrentPriceInfoList = function (_set_current_priceinfo_from_array_fn) {
         _mods_SKU.onPriceData(function (_priceInfoArray) {
             var _currentSkuList = _mods_SKU.getCurrentSkuList();
             var _priceList = [];
@@ -340,7 +340,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _priceList = _priceList.sort(function (y, x) {
                 return (y.promPrice ? y.promPrice.price : y.price) - (x.promPrice ? x.promPrice.price : x.price)
             });
-            S(_priceList)
+            _set_current_priceinfo_from_array_fn(_priceList)
         })
     };
     _mods_SKU.changeLocation = function (w) {
