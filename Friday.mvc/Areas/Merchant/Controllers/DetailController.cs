@@ -157,7 +157,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         {
                             money=skulist[i].price.ToString(),
                             name=skulist[i].Commodity.Name,
-                            postage="快递: 0.00 ",
+                            postage="快递: 13.00 EMS: 22.00 ",
                             postageFree=false,
                             signText=skulist[i].stock.ToString(),
                             type=0
@@ -183,7 +183,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 deliveryDO = new DeliveryDO()
                 {
+                    deliveryAddress="广东广州",
                     deliverySkuMap = deliverySkuMap,
+                    hasHomeDeliveryService=false,
                     otherServiceList = "[]"
                 },
                 gatewayDO = new GatewayDO()
