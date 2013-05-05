@@ -110,6 +110,11 @@ namespace Friday.mvc.Areas.Account.Controllers
         {
             return View();
         }
+        public ActionResult token()
+        {
+            string t = Guid.NewGuid().ToString();
+            return View();
+        }
 
 
     }

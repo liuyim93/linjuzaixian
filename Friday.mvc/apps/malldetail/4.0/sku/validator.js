@@ -2,17 +2,17 @@
     var _mods_SKU = _kissy_C.mods.SKU, _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, R = "";
     var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event, _STR_empty = "";
     var _cfg, O, F, H = 200;
-    var M = function (S) {
-        if (S) {
-            var T = _dom.get("#J_Select_region");
-            if (T && (T.value == null || T.value == _STR_empty)) {
+    var _check_select_region = function (_needValidate) {
+        if (_needValidate) {
+            var _dom_id_J_Select_region = _dom.get("#J_Select_region");
+            if (_dom_id_J_Select_region && (_dom_id_J_Select_region.value == null || _dom_id_J_Select_region.value == _STR_empty)) {
                 alert("请选择商品兑换地!");
                 return false
             }
         }
         return true
     };
-    function I() {
+    function _check_EC_or_OfflineShop() {
         if ((g_config.isEC || g_config.offlineShop) && !_cfg.isHouseholdService) {
             if (!_mods_SKU.dqCity.getOrder()) {
                 return false
@@ -20,8 +20,8 @@
         }
         return true
     }
-    var A = function (_needValidate) {
-        return I() && M(_needValidate)
+    var _check_order_and_region = function (_needValidate) {
+        return _check_EC_or_OfflineShop() && _check_select_region(_needValidate)
     };
     var _validate_limit_buy = function () {
         var _show_msg = _STR_empty;
@@ -52,29 +52,29 @@
             return true
         }
     };
-    var K = function (S) {
+    var _validator_run_core = function (_needValidate) {
         if (_cfg.valMode & 1) {
-            K = function (T) {
-                return G(T) && A(T)
+            _validator_run_core = function (_needValidate) {
+                return _check_prop_selected(_needValidate) && _check_order_and_region(_needValidate)
             }
         } else {
             if (null !== _cfg.iptAmount) {
-                K = function (T) {
-                    var U = A(T);
-                    if (!U) {
+                _validator_run_core = function (_needValidate) {
+                    var is_order_and_region_ok = _check_order_and_region(_needValidate);
+                    if (!is_order_and_region_ok) {
                         return false
                     }
                     return _validate_limit_buy() && _validate_limit_time()
                 }
             } else {
-                K = function (T) {
-                    return A(T)
+                _validator_run_core = function (_needValidate) {
+                    return _check_order_and_region(_needValidate)
                 }
             }
         }
-        return K(S)
+        return _validator_run_core(_needValidate)
     };
-    var G = function (_needValidate) {
+    var _check_prop_selected = function (_needValidate) {
         _needValidate = _needValidate || false;
         var _elmProps_length = _cfg.elmProps.length;
         var _selected_prop_and_value_array = [], _unselected_prop_array = [], _index;
@@ -101,7 +101,7 @@
             }
             return false
         } else {
-            return _validate_limit_time() && A(_needValidate)
+            return _validate_limit_time() && _check_order_and_region(_needValidate)
         }
     };
     function _validate_limit_time() {
@@ -127,11 +127,11 @@
         }
         return true
     }
-    return { run: function (S) {
+    return { run: function (_needValidate) {
         if (!_cfg && !(_cfg = _kissy_C.cfg())) {
             return
         }
-        return K(S)
+        return _validator_run_core(_needValidate)
     } 
     }
 }, { requires: ["malldetail/sku/skuMsg"] }); /*pub-1|2013-01-30 22:24:59*/

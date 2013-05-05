@@ -1760,7 +1760,6 @@
     <Content Include="s\aplus_v2.js" />
     <Content Include="s\fdc\spm.js" />
     <Content Include="s\fdc\spmact.js" />
-
     <Content Include="s\tb-tracer-min.js" />
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
@@ -2875,6 +2874,7 @@
     <Content Include="Areas\Merchant\Views\Shared\_MallDetailMeta.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\seller_info_partial.cshtml" />
     <Content Include="Areas\Merchant\Views\SearchProduct\Index.cshtml" />
+    <Content Include="Areas\Account\Views\Home\token.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />

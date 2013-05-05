@@ -97,9 +97,9 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
                 _frmBid.innerHTML += '<input type="hidden" name="' + _name + '" value="' + _value + '">'
             }
         };
-        var D = function () {
+        var _check_area_and_stock = function () {
             var _selectSkuId = _mods_SKU.selectSkuId;
-            var c = true;
+            var _is_ok = true;
             if (!_mods_SKU.Price.getAreaSold(_selectSkuId)) {
                 return false
             }
@@ -111,7 +111,7 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
             if (!_malldetail_sku_stock.getStockStatus()) {
                 return false
             }
-            return c
+            return _is_ok
         };
         var _getOrder = function () {
             if (!_frmBid) {
@@ -137,7 +137,7 @@ KISSY.add("malldetail/sku/3c", function (_kissy_F, _malldetail_sku_areaSelector,
             if (_get_selected_city() != 0) {
                 _create_or_update_frmBid_item_value(_frmBid, "destination", _get_selected_city())
             }
-            return D()
+            return _check_area_and_stock()
         };
         return { getFirstAreaSold: function () {
             return U

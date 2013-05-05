@@ -564,40 +564,41 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         _kissy_imp.mods.Token.init()
     }
     _kissy_imp.mods.Token = { counter: 0, init: function () {
-        var S = _sku_cfg.isDaily ? "daily.taobao.net" : "tmall.com";
-        var T = "http://www." + (_sku_cfg.isDaily ? "daily.tmall.net" : "tmall.com") + "/go/rgn/tmall/t.php?t=20121104";
+        //var S = _sku_cfg.isDaily ? "daily.taobao.net" : "tmall.com";
+        //var T = "http://www." + (_sku_cfg.isDaily ? "daily.tmall.net" : "tmall.com") + "/go/rgn/tmall/t.php?t=20121104";
+        var T="http://localhost:7525/Account/Home/token?t=20121104"
         var v = _dom.create('<iframe style="display:none" width="0" onload="TShop.mods.Token.getIfrToken(this)" height="0" src="' + T + '"></iframe>');
         _document.domain = _document.domain.split(".").slice(-2).join(".");
         _body.insertBefore(v, _body.firstChild)
-    }, onInited: function (S) {
-        if (_kissy.isFunction(S)) {
+    }, onInited: function (_token_inited_callback_fn) {
+        if (_kissy.isFunction(_token_inited_callback_fn)) {
             if (this.inited) {
-                S()
+                _token_inited_callback_fn()
             } else {
-                _kissy_imp.on("tokenInited", S)
+                _kissy_imp.on("tokenInited", _token_inited_callback_fn)
             }
         }
     }, getIfrToken: function (z) {
         var y = null;
-        var T = this;
+        var _token = this;
         var S = function () {
             if (y) {
                 clearTimeout(y)
             }
             _sku_cfg.valToken = z.contentWindow.getToken();
             _kissy.log("TMLOG::tbtoken inited =" + _sku_cfg.valToken, "info");
-            T.inited = true;
+            _token.inited = true;
             _kissy_imp.fire("tokenInited")
         };
         try {
             var v = z.contentWindow.getToken();
             S()
         } catch (x) {
-            T.counter++;
-            if (T.counter < 10) {
+            _token.counter++;
+            if (_token.counter < 10) {
                 var w = arguments.callee;
                 y = setTimeout(function () {
-                    w.apply(T, [z])
+                    w.apply(_token, [z])
                 }, 50)
             } else {
                 _kissy_imp.fire("tokenInited");

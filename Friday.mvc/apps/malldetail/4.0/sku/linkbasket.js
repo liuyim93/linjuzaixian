@@ -81,10 +81,10 @@
                 }
                 _eventTarget.fire("beforesubmit");
                 var _frmBid = _cfg.frmBid, Z;
-                var X = _frmBid.buy_param.value;
-                X = X.split("_");
+                var _buy_param = _frmBid.buy_param.value;
+                _buy_param = _buy_param.split("_");
                 _kissy_A.mods.Token.onInited(function () {
-                    var a = { _tb_token_: _cfg.valToken, add: _kissy.mix({ deliveryCityCode: _frmBid.destination.value, campaignId: _cfg.varPromotionId, items: [{ itemId: X[0], skuId: X[2], quantity: X[1], serviceInfo: X[3] || ""}] }, _cfg.addToCartParames) };
+                    var a = { _tb_token_: _cfg.valToken, add: _kissy.mix({ deliveryCityCode: _frmBid.destination.value, campaignId: _cfg.varPromotionId, items: [{ itemId: _buy_param[0], skuId: _buy_param[2], quantity: _buy_param[1], serviceInfo: _buy_param[3] || ""}] }, _cfg.addToCartParames) };
                     _mods_SKU.Util.getTrackID(function (b) {
                         a.tsid = b;
                         K(a)
