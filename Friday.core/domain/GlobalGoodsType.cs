@@ -7,15 +7,10 @@ using friday.core.EnumType;
 
 namespace friday.core.domain
 {
-    public class GlobalGoodsType:Entity
+    public class GlobalGoodsType: TreeNode
     {
-        public virtual string GoodsType
-        {
-            get;
 
-            set;
-        }
-        public virtual MerchantTypeEnum MerchantType
+        public virtual string Description
         {
             get;
 

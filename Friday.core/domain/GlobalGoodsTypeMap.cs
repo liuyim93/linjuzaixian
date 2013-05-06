@@ -18,10 +18,10 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.EntityIndex);
 
-            Map(o=>o.GoodsType);
-            Map(o => o.MerchantType).CustomType<MerchantTypeEnum>();
-           
-
+            Map(o => o.ParentID);
+            Map(o => o.TLevel);
+            Map(o => o.Name);
+            Map(o => o.Leaf);
         }
     }
 }
