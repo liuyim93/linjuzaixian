@@ -131,15 +131,15 @@
     <Compile Include="Areas\Merchant\Controllers\ExtensionController.cs" />
     <Compile Include="Areas\Merchant\Controllers\FavoriteController.cs" />
     <Compile Include="Areas\Merchant\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Merchant\Controllers\SearchController.cs" />
+    <Compile Include="Areas\Merchant\Controllers\IndexController.cs" />
     <Compile Include="Areas\Merchant\Controllers\SearchProductController.cs" />
     <Compile Include="Areas\Merchant\MerchantAreaRegistration.cs" />
     <Compile Include="Areas\Merchant\Models\DcModel.cs" />
     <Compile Include="Areas\Merchant\Models\DefaultModelObject.cs" />
     <Compile Include="Areas\Merchant\Models\DSRModel.cs" />
     <Compile Include="Areas\Merchant\Models\ExtensionModel.cs" />
+    <Compile Include="Areas\Merchant\Models\IndexModel.cs" />
     <Compile Include="Areas\Merchant\Models\RateDetailModelObject.cs" />
-    <Compile Include="Areas\Merchant\Models\SearchModel.cs" />
     <Compile Include="Areas\Merchant\Models\DetailModel.cs" />
     <Compile Include="Areas\Merchant\Models\RecommendDetailModel.cs" />
     <Compile Include="Areas\Merchant\Models\SearchProductModel.cs" />
@@ -1249,6 +1249,7 @@
     <Content Include="Images\adminLogin\user_top_c.gif" />
     <Content Include="Images\adminLogin\user_top_l.gif" />
     <Content Include="Images\adminLogin\user_top_r.gif" />
+    <Content Include="Images\T1dVzWXbpjXXb12rTm-218-32.png" />
     <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
     <Content Include="p\global\1.0\global-min.css" />
@@ -2361,7 +2362,7 @@
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
     <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Message\Views\Web.config" />
-    <Content Include="Areas\Merchant\Views\Search\Index.cshtml" />
+    <Content Include="Areas\Merchant\Views\Index\Index.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\Index.cshtml" />
     <Content Include="Areas\Merchant\Views\Shared\_MallDetailScript.cshtml" />
     <Content Include="Areas\Merchant\Views\Shared\_MallDetailMeta.cshtml" />

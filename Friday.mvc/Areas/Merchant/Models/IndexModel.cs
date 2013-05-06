@@ -9,9 +9,9 @@ using MvcPaging;
 
 namespace Friday.mvc.Models
 {
-    public class SearchModel
+    public class IndexModel
     {
-        public SearchModel()
+        public IndexModel()
         {
             int count ;
             int pageSize;
