@@ -60,7 +60,7 @@ namespace Friday.Test2
             //添加全局商品类型
             add_GlobalGoodsType();
             //添加商店分类
-            add_MerchantCategory();
+            //add_MerchantCategory();
             //添加商铺的相关信息
             //add_RestaurantInfo();
             //add_RentInfo();
@@ -1280,8 +1280,7 @@ namespace Friday.Test2
         //添加全局商品类型
         private void   add_GlobalGoodsType()
         {
-
-
+            
 
 
        }

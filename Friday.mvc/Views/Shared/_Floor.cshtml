@@ -3,7 +3,7 @@
 }
 @using Friday.mvc.Models
 @model MainModel
-<div class="floor-loading" id="floorLink1">
+@*<div class="floor-loading" id="floorLink1">
     <textarea class="floor-area ks-datalazyload">
     <div>
         <div class="floor" id="floor1" data-spm="3.359242.295813">
@@ -127,7 +127,7 @@
         })
 </script>
 </textarea>
-</div>
+</div>*@
 <div class="floor-loading" id="floorLink2">
     <textarea class="floor-area ks-datalazyload">
     <div>
@@ -148,9 +148,9 @@
                 <div class="floorCon-logo j_aldLogo">
                     <ul class="fCl-slide">
                         @{
-                            count = Model.Shops.Count();
-                            num_per_page = 5;
-                            page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
+                            var count = Model.Shops.Count();
+                            var num_per_page = 5;
+                            var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
                             for (var page_index = 0; page_index < page_num; page_index++)
                             {
                             <li style="display: block; float: left;">
@@ -222,7 +222,7 @@
 </script>
  </textarea>
 </div>
-<div class="floor-loading" id="floorLink3">
+@*<div class="floor-loading" id="floorLink3">
     <textarea class="floor-area ks-datalazyload">
     <div>
         <div class="floor" id="floor3" data-spm="3.359254.295828">
@@ -308,4 +308,4 @@
         })
 </script>
  </textarea>
-</div>
+</div>*@

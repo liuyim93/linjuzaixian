@@ -94,6 +94,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PopulateFakeActivityDataTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PopulateFakeMerchantAndGoodsPictureDataTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PopulateRealPermissionDataTest.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -5,7 +5,7 @@ using System.Text;
 using friday.core.domain;
 using friday.core.EnumType;
 
-namespace friday.core
+namespace friday.core.domain
 {
     public class GlobalGoodsType:Entity
     {

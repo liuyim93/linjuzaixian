@@ -5,6 +5,7 @@ using System.Text;
 using friday.core.components;
 using friday.core.repositories;
 using friday.core.utils;
+using friday.core.domain;
 
 namespace friday.core.services
 {
