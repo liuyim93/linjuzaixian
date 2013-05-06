@@ -47,12 +47,12 @@ namespace Friday.mvc.weblogin
                 BindingHelper.ObjectToControl(f, this);
                 Shop rst = iShopService.Load(mid);
                 IList<GlobalGoodsType> goodsTypes =iGlobalGoodsTypeService.GetAll();
-                foreach (var i in goodsTypes)
-                {
-                    this.GoodsType.Items.Add(i.GoodsType);
-                }
-                GlobalGoodsType golbalGoodsType = iGlobalGoodsTypeService.Load(f.GlobalGoodsType.Id);
-                this.GoodsType.Value = golbalGoodsType.GoodsType;
+                //foreach (var i in goodsTypes)
+                //{
+                //    this.GoodsType.Items.Add(i.GoodsType);
+                //}
+                //GlobalGoodsType golbalGoodsType = iGlobalGoodsTypeService.Load(f.GlobalGoodsType.Id);
+                //this.GoodsType.Value = golbalGoodsType.GoodsType;
 
             }
         }

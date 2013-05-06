@@ -50,11 +50,11 @@ namespace Friday.mvc.weblogin
             {
 
                 Shop rst = iShopService.Load(mid);
-                IList<GlobalGoodsType> goodsTypes = iGlobalGoodsTypeService.GetAll();//.GetGoodsTypeByMerchantID(rst.Id);
-                foreach (var i in goodsTypes)
-                {
-                    this.GoodsType.Items.Add(i.GoodsType);
-                }
+                //IList<GlobalGoodsType> goodsTypes = iGlobalGoodsTypeService.GetAll();//.GetGoodsTypeByMerchantID(rst.Id);
+                //foreach (var i in goodsTypes)
+                //{
+                //    this.GoodsType.Items.Add(i.GoodsType);
+                //}
             }
 
         }
