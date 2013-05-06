@@ -9,19 +9,13 @@ using friday.core;
 using friday.core.domain;
 using friday.core.components;
 using friday.core.services;
+using System.Web.Services;
 
 namespace Friday.mvc.weblogin
 {
     public partial class pGlobalGoodsTypeList : BasePage
     {
-
-        protected long total;
-        protected int pageNum;
-        protected int numPerPageValue;
-
-        protected string goodsType;
-
-        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
+        private IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,10 +28,6 @@ namespace Friday.mvc.weblogin
                 this.liDelete.Visible = false;
             }
 
-            if (!this.PermissionValidate(PermissionTag.Edit))
-            {
-                this.liEdit.Visible = false;
-            }
 
             if (Request.Params["flag"] == "alldelete")
             {
@@ -54,62 +44,69 @@ namespace Friday.mvc.weblogin
                     Response.End();
                 }
 
-                DeleteGlobalGoodsType();
-
-            }
-            else
-            {
-                numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-                pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-                int start = (pageNum - 1) * numPerPageValue;
-                int limit = numPerPageValue;
-                List<DataFilter> filterList = new List<DataFilter>();
-
-                filterList.Add(new DataFilter()
-                {
-                    type = "IsDelete"
-                });
-
-                if (!string.IsNullOrEmpty(Request.Form["GoodsType"]))
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "GoodsType",
-                        value = goodsType = Request.Form["GoodsType"]
-
-                    });
-
-                if (!string.IsNullOrEmpty(Request.Form["MerchantType"]))
-                    filterList.Add(new DataFilter()
-                    {
-                        type = "MerchantType",
-                        value = Request.Form["MerchantType"]
-
-                    });
-                List<DataFilter> dflForOrder = new List<DataFilter>();
-                string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
-                string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
-                dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
-                filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
-
-                IList<GlobalGoodsType> globalGoodsTypeList = iGlobalGoodsTypeService.Search(filterList, start, limit, out total);
-
-                repeater.DataSource = globalGoodsTypeList;
-                repeater.DataBind();
-
-                numPerPage.Value = numPerPageValue.ToString();
+                DeleteMenu();
             }
         }
 
-        private void DeleteGlobalGoodsType()
+
+        private void DeleteMenu()
         {
-            iGlobalGoodsTypeService.Delete(Request.Params["uid"]);
+            string TreeId = iGlobalGoodsTypeService.Load(Request.Params["code"]).Id;
+            iGlobalGoodsTypeService.Delete(TreeId);
             AjaxResult result = new AjaxResult();
+
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "操作成功";
+            //result.navTabId = "MenuButtonManage";
+            //result.callbackType = "forward";
+            //result.forwardUrl = "RolePowerManage/MenuButtonManage.aspx";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
+
+
+        }
+
+        [WebMethod]
+        public static string GetGlobalGoodsType(IList<nvl> nvls)
+        {
+            List<JsonTree> list = new List<JsonTree>();
+            var nodeID = (from c in nvls where c.name == "id" select c.value).FirstOrDefault();
+
+            list = GetMenuJsonTreeByParentID(nodeID == "0" ? null : nodeID);
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = list;
+            return jsonResult.FormatResult();
+        }
+
+        private static List<JsonTree> GetMenuJsonTreeByParentID(string ParentID)
+        {
+            IGlobalGoodsTypeRepository categoryRepo = new GlobalGoodsTypeRepository();
+            IList<GlobalGoodsType> firstList = categoryRepo.GetChildrenFromParentID(ParentID);
+            List<JsonTree> list = new List<JsonTree>();
+
+            for (int i = 0; i < firstList.Count; i++)
+            {
+                JsonTree jt = new JsonTree();
+                GlobalGoodsType model = firstList[i];
+                bool haveChild = categoryRepo.IsHaveChild(model);
+
+                jt.id = model.Id;
+                jt.text = model.Name;
+                jt.value = model.ParentID;
+                jt.isexpand = true;
+                //jt.showcheck = true;
+                //jt.checkstate = Convert.ToByte(checkState);
+                jt.hasChildren = haveChild;
+                jt.ChildNodes = GetMenuJsonTreeByParentID(model.Id);
+                jt.complete = true;
+                list.Add(jt);
+
+            }
+            return list;
+
         }
     }
 }
