@@ -1283,10 +1283,10 @@ namespace Friday.Test2
             IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
             //添加1级目录
-            string[] firstCatg = { "国际品牌", "服装/内衣/配件", "鞋/箱包", "珠宝饰品/手表眼镜", "化妆品/个人护理 ", "手机数码", "家用电器", "家具建材", "家纺/居家", "母婴玩具", "食品", "医药保健", "全新整车/汽车配件", "图书音像", "文化娱乐", "充值/合约机/通信" };
+            string[] firstCatg = { "国际品牌", "服装/内衣/配件", "鞋/箱包", "珠宝饰品/手表眼镜", "食品", "化妆品/个人护理 ", "手机数码", "家用电器", "家具建材", "家纺/居家", "母婴玩具", "医药保健", "全新整车/汽车配件", "图书音像", "文化娱乐", "充值/合约机/通信" };
             foreach (var i in firstCatg)
             {
-                GlobalGoodsType gt = new GlobalGoodsType()
+                GlobalGoodsType fgt = new GlobalGoodsType()
                 {
                     Name = i,
                     Leaf = false,
@@ -1294,31 +1294,340 @@ namespace Friday.Test2
                     IsDelete = false,
                     Description = "1级目录"
                 };
-              iGlobalGoodsTypeService.Save(gt);
+              iGlobalGoodsTypeService.Save(fgt);
             }
             
-            //添加2级目录
+            //------添加2级目录---------
             //2级"国际品牌"
             string[] SecdForNational={"优衣库","Adidas GAP","飞利浦","微软","新百伦","Nike","兰芝","ELLE","Karicare"};
             for (int i = 0; i < SecdForNational.Length;i++ )
             {
 
-                GlobalGoodsType gt = new GlobalGoodsType()
+                GlobalGoodsType sgtn = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("国际品牌").Id,
                     Name = SecdForNational[i],
                     Leaf = false,
-                    TLevel = 0,
+                    TLevel = 1,
                     IsDelete = false,
                     Description = "2级目录—国际名牌"
                 };
-                iGlobalGoodsTypeService.Save(gt);
+                iGlobalGoodsTypeService.Save(sgtn);
             }
             //2级"服装/内衣/配件"
+            string[] SecdForClothes = { "女装","男装","内衣","连衣裙","针织衫","T恤","文胸","睡衣","男T恤","牛仔裤"};
+            for (int i = 0; i < SecdForClothes.Length; i++)
+            {
+
+                GlobalGoodsType sgtc = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("服装/内衣/配件").Id,
+                    Name = SecdForClothes[i],
+                    Leaf = false,
+                    TLevel = 1,
+                    IsDelete = false,
+                    Description = "2级目录—服装/内衣/配件"
+                };
+                iGlobalGoodsTypeService.Save(sgtc);
+            }
+            //2级"鞋/箱包"
+            string[] SecdForShoes = { "女鞋","男鞋","单鞋","休闲鞋","帆布鞋","女包","男包","旅行箱","帆布包","撞色包" };
+            for (int i = 0; i < SecdForShoes.Length; i++)
+            {
+
+                GlobalGoodsType sgts = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("鞋/箱包").Id,
+                    Name = SecdForShoes[i],
+                    Leaf = false,
+                    TLevel = 1,
+                    IsDelete = false,
+                    Description = "2级目录—鞋/箱包"
+                };
+                iGlobalGoodsTypeService.Save(sgts);
+            }
+            //2级"珠宝饰品/手表眼镜"
+            string[] SecdForJewelry  = { "珠宝","手表","饰品","太阳镜","ZIPPO","钻石","珍珠","黄金","项链","手镯" };
+            for (int i = 0; i < SecdForJewelry.Length; i++)
+            {
+
+                GlobalGoodsType sgtj = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝饰品/手表眼镜").Id,
+                    Name = SecdForJewelry[i],
+                    Leaf = false,
+                    TLevel = 1,
+                    IsDelete = false,
+                    Description = "2级目录—珠宝饰品/手表眼镜"
+                };
+                iGlobalGoodsTypeService.Save(sgtj);
+            }
+            //2级"食品"
+            string[] SecdForFood  = { "零食","粮油","生鲜","茶叶","坚果","冲饮","酒水","巧克力","进口食品" };
+            for (int i = 0; i < SecdForFood.Length; i++)
+            {
+
+                GlobalGoodsType sgtf = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("食品").Id,
+                    Name = SecdForFood[i],
+                    Leaf = false,
+                    TLevel = 1,
+                    IsDelete = false,
+                    Description = "2级目录—食品"
+                };
+                iGlobalGoodsTypeService.Save(sgtf);
+            }
 
 
+            //2级"化妆品/个人护理"
+            string[] SecdForMakeup = { "护肤", "彩妆", "洗护", "男士护肤", "卫生巾", "乳液", "面膜", "香水", "精华液", "BB霜" };
+            for (int i = 0; i < SecdForMakeup.Length; i++)
+            {
 
+                GlobalGoodsType sgtm = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("化妆品/个人护理").Id,
+                    Name = SecdForMakeup[i],
+                    Leaf = false,
+                    TLevel = 1,
+                    IsDelete = false,
+                    Description = "2级目录—化妆品/个人护理"
+                };
+                iGlobalGoodsTypeService.Save(sgtm);
+            }
 
+            //------添加3级详细目录---------
+            //3级“服装/内衣/配件”
+            //"女装"
+            string[] ThrdForWomenClothes = { "连衣裙","T恤","裤子","雪纺衫","衬衫","半身裙","吊带/背心","制服/校服","中老年服装","短外套","牛仔裤","大码女装","婚纱/礼服/旗袍","针织衫男士","唐装/中式服装","小西装","马甲","卫衣","风衣","PU外套" };
+            for (int i = 0; i < ThrdForWomenClothes.Length; i++)
+            {
+                GlobalGoodsType sgwc = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女装").Id,
+                    Name = ThrdForWomenClothes[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—精品女装"
+                };
+                iGlobalGoodsTypeService.Save(sgwc);
+            }
+            //"男装"
+            string[] ThrdForMenClothes = { "热卖T恤","衬衫","POLO衫","休闲短裤","牛仔短裤","工装裤","针织衫男士","卫衣","西装夹克","风衣","背心/马甲","西裤","西服","套装","大码男装","中老年男装","设计潮牌"};
+            for (int i = 0; i < ThrdForMenClothes.Length; i++)
+            {
+                GlobalGoodsType sgmc = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男装").Id,
+                    Name = ThrdForMenClothes[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—精品男装"
+                };
+                iGlobalGoodsTypeService.Save(sgmc);
+            }
+            //"内衣"
+            string[] ThrdForWomenInCloh = { "精品文胸","女式内裤","男式内裤","船袜","连裤袜","美腿塑形袜","塑身上衣","全棉内裤","聚拢文胸","光面文胸","少女文胸","塑身裤" };
+            for (int i = 0; i < ThrdForWomenInCloh.Length; i++)
+            {
+                GlobalGoodsType sgwic = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("内衣").Id,
+                    Name = ThrdForWomenInCloh[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—精致内衣"
+                };
+                iGlobalGoodsTypeService.Save(sgwic);
+            }
+            //"服饰配件"
+            string[] ThrdForClothesOrnament = { "女士腰带", "男士皮带", "女士围巾", "男士围巾", "帽子", "手套", "领带/领结/袖扣毛线" };
+            for (int i = 0; i < ThrdForClothesOrnament.Length; i++)
+            {
+                GlobalGoodsType tgtco = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("针织衫").Id,
+                    Name = ThrdForClothesOrnament[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—服饰配件"
+                };
+                iGlobalGoodsTypeService.Save(tgtco);
+            }
+            //3级“鞋/箱包”
+            //"女鞋"
+            string[] ThrdForWomenShoes = { "凉鞋","坡跟","凉鞋","鱼嘴","凉鞋","凉拖","单鞋","帆布鞋","高跟鞋","坡跟单鞋","鱼嘴单鞋","豆豆鞋","婚鞋","松糕鞋","真皮鞋","妈妈鞋","透气鞋","大码鞋","高帮鞋","靴子短靴","长靴","马丁靴","流苏靴","内增高","雨鞋/雨靴" };
+            for (int i = 0; i < ThrdForWomenShoes.Length; i++)
+            {
+                GlobalGoodsType tgtwc = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女鞋").Id,
+                    Name = ThrdForWomenShoes[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—时尚女鞋"
+                };
+                iGlobalGoodsTypeService.Save(tgtwc);
+            }
+            //"男鞋"
+            string[] ThrdForMenShoes = { "低帮鞋","驾车鞋","透气鞋","帆船鞋","帆布鞋","日常休闲","运动休闲","商务正装","皮鞋","大码鞋","高帮鞋","内增高" };
+            for (int i = 0; i < ThrdForMenShoes.Length; i++)
+            {
+                GlobalGoodsType tgtmc = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男鞋").Id,
+                    Name = ThrdForMenShoes[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—时尚男鞋"
+                };
+                iGlobalGoodsTypeService.Save(tgtmc);
+            }
+            //"女包"
+            string[] ThrdForWomenBag = { "单肩包","手提包","斜挎包","手拿包","钱包","双肩包","帆布包","PU女包","欧美包","真皮包","撞色包","糖果包" };
+            for (int i = 0; i < ThrdForWomenBag.Length; i++)
+            {
+                GlobalGoodsType tgtwb = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女包").Id,
+                    Name = ThrdForWomenBag[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—时尚女包"
+                };
+                iGlobalGoodsTypeService.Save(tgtwb);
+            }
+            //"男包"
+            string[] ThrdForMenBag = { "单肩包","手提包","斜挎包","手拿包","腰包","双肩包" };
+            for (int i = 0; i < ThrdForMenBag.Length; i++)
+            {
+                GlobalGoodsType tgtmb = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男包").Id,
+                    Name = ThrdForMenBag[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—时尚男包"
+                };
+                iGlobalGoodsTypeService.Save(tgtmb);
+            }
+
+            //3级“珠宝饰品/手表眼镜”
+            //"珠宝"
+            string[] ThrdForJawlery = { "黄金","钻石","翡翠","珍珠","铂金","玉石","宝石","琥珀","戒指","吊坠","项链","手镯","手链","耳环","金条" };
+            for (int i = 0; i < ThrdForJawlery.Length; i++)
+            {
+                GlobalGoodsType tgtjw = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝").Id,
+                    Name = ThrdForJawlery[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—珠宝"
+                };
+                iGlobalGoodsTypeService.Save(tgtjw);
+            }
+            //"太阳镜"
+            string[] ThrdForSunGlass = { "男士太阳镜","女士太阳镜","近视眼镜","老花镜","电脑护目镜","3D眼镜夜视镜" };
+            for (int i = 0; i < ThrdForSunGlass.Length; i++)
+            {
+                GlobalGoodsType tgtsg= new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("太阳镜").Id,
+                    Name = ThrdForSunGlass[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—珠宝"
+                };
+                iGlobalGoodsTypeService.Save(tgtsg);
+            }
+            //"饰品"
+            string[] ThrdForDecoration = { "项链", "手链", "饰品戒指", "耳饰", "项坠", "发饰", "手镯", "胸针", "摆件", "首饰", "盒银饰", "天然水晶", "合金", "人造水晶", "珍珠", "母贝", "水钻", "钛钢" };
+            for (int i = 0; i < ThrdForDecoration.Length; i++)
+            {
+                GlobalGoodsType tgtdt = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("饰品").Id,
+                    Name = ThrdForDecoration[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—饰品"
+                };
+                iGlobalGoodsTypeService.Save(tgtdt);
+            }
+            //"手表"
+            string[] ThrdForWatch = { "石英表","机械表","电子表","光能表","男表","女表","情侣表","儿童表","复古表","果冻表","水钻表","陶瓷表" };
+            for (int i = 0; i < ThrdForWatch.Length; i++)
+            {
+                GlobalGoodsType tgtw = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("手表").Id,
+                    Name = ThrdForWatch[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—手表"
+                };
+                iGlobalGoodsTypeService.Save(tgtw);
+            }
+            //3 级  食品
+            //"酒水"
+            string[] ThrdForDrinks = { "白酒", "葡萄酒", "洋酒", "黄酒", "啤酒", "威士忌", "干红", "冰酒", "香槟", "药酒", "进口红酒", "起泡酒", "黑啤冰甜" };
+            for (int i = 0; i < ThrdForDrinks.Length; i++)
+            {
+                GlobalGoodsType tgtd = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("酒水").Id,
+                    Name = ThrdForDrinks[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—酒水"
+                };
+                iGlobalGoodsTypeService.Save(tgtd);
+            }
+            //"茶叶"
+            string[] ThrdForTea = { "铁观音","普洱","红茶","养生茶","绿茶","花草茶","水果茶","黑茶","白茶" };
+            for (int i = 0; i < ThrdForTea.Length; i++)
+            {
+                GlobalGoodsType tgttea = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("茶叶").Id,
+                    Name = ThrdForTea[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—茶叶"
+                };
+                iGlobalGoodsTypeService.Save(tgttea);
+            }
+            //"生鲜"
+            string[] ThrdForShengXian = { "鲜肉","蔬菜","水果","火腿","蛋及制品","海参","螃蟹","牛排","寿司","新鲜蛋糕" };
+            for (int i = 0; i < ThrdForShengXian.Length; i++)
+            {
+                GlobalGoodsType tgtsx = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("生鲜").Id,
+                    Name = ThrdForShengXian[i],
+                    Leaf = false,
+                    TLevel = 2,
+                    IsDelete = false,
+                    Description = "3级详细目录—生鲜"
+                };
+                iGlobalGoodsTypeService.Save(tgtsx);
+            }
 
         }
         //商店商品目录添加
@@ -2530,8 +2839,9 @@ namespace Friday.Test2
         public void add_ShopInfo()
         {
         
-         IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+            IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
             IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
+            IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
 
             Shop shop1 = new Shop()
             {
@@ -2553,10 +2863,10 @@ namespace Friday.Test2
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                 MerchantType = MerchantTypeEnum.百货
             };
-            GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
-            new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_1);
-            GlobalGoodsType shopCommodityTye_2 = new GlobalGoodsType() { Name = "特供蔬菜" };
-            new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_2);
+            //GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
+            //new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_1);
+            //GlobalGoodsType shopCommodityTye_2 = new GlobalGoodsType() { Name = "特供蔬菜" };
+            //new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_2);
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_1);
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
             new ShopRepository().SaveOrUpdate(shop1);
@@ -2601,7 +2911,7 @@ namespace Friday.Test2
                     Image = "/uploadimage/c1.jpg",
                     IsDiscount = false,
                     InventoryCount = 100,
-                    GlobalGoodsType = shopCommodityTye_1,
+                    GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("白酒"),
                     Shop= shop1,
 
                 };
@@ -2615,7 +2925,7 @@ namespace Friday.Test2
                     IsDiscount = true,
                     InventoryCount = 200,
                     DiscountInventoryCount = 100,
-                    GlobalGoodsType = shopCommodityTye_2,
+                    GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("蔬菜"),
                     DiscountPrice = 10,
                     Shop= shop1,
                     IsLimited = true,
@@ -2726,10 +3036,10 @@ namespace Friday.Test2
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                MerchantType = MerchantTypeEnum.百货
            };
-           GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() { Name = "金制品" };
-           new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_12);
-           GlobalGoodsType shopCommodityTye_22 = new GlobalGoodsType() { Name = "茶叶" };
-           new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_22);
+           //GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() { Name = "金制品" };
+           //new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_12);
+           //GlobalGoodsType shopCommodityTye_22 = new GlobalGoodsType() { Name = "茶叶" };
+           //new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_22);
            //shop2.MerchantGoodsTypes.Add(shopCommodityTye_12);
            //shop2.MerchantGoodsTypes.Add(shopCommodityTye_22);
            new ShopRepository().SaveOrUpdate(shop2);
@@ -2771,7 +3081,7 @@ namespace Friday.Test2
                Image = "/uploadimage/c3.jpg",
                IsDiscount = false,
                InventoryCount = 100,
-               GlobalGoodsType = shopCommodityTye_12,
+               GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("戒指"),
                Shop= shop2,
            };
            shop1.Commodities.Add(commodity_12);
@@ -2784,7 +3094,7 @@ namespace Friday.Test2
                IsDiscount = true,
                InventoryCount = 200,
                DiscountInventoryCount = 100,
-               GlobalGoodsType = shopCommodityTye_22,
+               GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("铁观音"),
                DiscountPrice = 10,
                Shop= shop2,
                IsLimited = true,
