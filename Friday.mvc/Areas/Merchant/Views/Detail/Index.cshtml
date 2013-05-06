@@ -125,10 +125,10 @@
 					<div id="shop-info">
 						<div class="main-info">
 							<h3 class="shop-title">
-								<a target="_blank" href="http://nike.tmall.com/">NIKE官方旗舰店</a>
+								<a target="_blank" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name 官方旗舰店</a>
 							</h3>
 							<p class="shop-status">
-								<a class="i" target="_blank" href="http://www.tmall.com/go/chn/mall2010/promise.php#PPZX">品牌直销</a>
+								<a class="i" target="_blank" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">品牌直销</a>
 								<span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
                                         data-tnick="" data-encode="true" data-display="inline">
 									<a href="http://www.taobao.com/webww/?ver=1&amp;&amp;touid=cntaobaonike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;siteid=cntaobao&amp;status=2&amp;portalId=&amp;gid=&amp;itemsId="
@@ -187,7 +187,7 @@
 									<ul>
 										<li class="shopkeeper">
 											<label>掌 柜：</label>
-											<a href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm">nike官方旗舰店</a>
+											<a href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name 官方旗舰店</a>
 										</li>
 										<li>
 											<label>客 服：</label>
@@ -201,11 +201,11 @@
 										</li>
 										<li>
 											<label>公 司 名：</label>
-											上海宝尊电子商务有限公司
+											@Model.Merchant.Name
 										</li>
 										<li class="locus">
 											<label>所 在 地：</label>
-											上海
+											@Model.Merchant.Address
 										</li>
 									</ul>
 								</div>
