@@ -159,7 +159,7 @@ namespace friday.coretest
                     Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
                     IsDiscount = false,
                     //InventoryCount = 100,
-                    GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("半身裙"),
+                    GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("连衣裙"),
                     Shop = shop,
                     ValuingCount = i,
                     Amount = i * 10,
