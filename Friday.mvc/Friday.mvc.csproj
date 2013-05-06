@@ -328,6 +328,13 @@
     <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
       <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListGlobalGoodsType.aspx.cs">
+      <DependentUpon>ListGlobalGoodsType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListGlobalGoodsType.aspx.designer.cs">
+      <DependentUpon>ListGlobalGoodsType.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListMerchantByMerchantType.aspx.cs">
       <DependentUpon>ListMerchantByMerchantType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1487,6 +1494,7 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListCommodityByMerchant.aspx" />
+    <Content Include="weblogin\ListGlobalGoodsType.aspx" />
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
     <Content Include="weblogin\ListPropID.aspx" />
