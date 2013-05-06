@@ -142,7 +142,7 @@ namespace Friday.mvc.weblogin.commodity
                 type = "IsDelete"
             });
 
-            goodsType = Request.Form["mGoodsType"];
+            //goodsType = Request.Form["mGoodsType"];
             //if (!string.IsNullOrEmpty(goodsType))
             //{
             //    MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, shopId);

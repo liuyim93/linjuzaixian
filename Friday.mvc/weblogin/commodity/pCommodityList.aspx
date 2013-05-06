@@ -18,14 +18,14 @@
                             名称:</label>
                         <input id="Name" type="text" name="Name" value="<%=name%>" />
                     </td>
-                    <td>
+<%--                    <td>
                              <label>
                             类型:</label>
                         <select name="mGoodsType" id="mGoodsType" runat="server">
                             <option value="" >不限</option>
                        
                         </select>
-                    </td> 
+                    </td>--%> 
                 </tr>
                 <tr>
                     <td>
