@@ -27,15 +27,15 @@ namespace friday.core.repositories
         }
         public IList<Food> GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string restaurantID, string merchantGoodTypeID, int start, int limit, out int total)
         {
-            var s = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.MerchantGoodsType.Id == merchantGoodTypeID && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
-            total = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.MerchantGoodsType.Id == merchantGoodTypeID && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Count();
+            var s = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.GlobalGoodsType.Id == merchantGoodTypeID && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+            total = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.GlobalGoodsType.Id == merchantGoodTypeID && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Count();
             return s;
         }
         public IList<Food> GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(string restaurantID, string keyword, double price1, double price2,string goodTypeId, string orderType, int start, int limit, out int total)
         {
 
-            var s = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.MerchantGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
-            total = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.MerchantGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).Count();
+            var s = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.GlobalGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+            total = (from x in this.Session.Query<Food>() select x).Where(o => o.Restaurant.Id == restaurantID && o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.GlobalGoodsType.Id == goodTypeId || goodTypeId == "0") && o.IsDelete == false).Count();
                 return s;          
 
         }

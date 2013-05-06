@@ -15,7 +15,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //
         // GET: /Merchant/Search/
         private IMerchantService iMerchantService;
-        private IMerchantGoodsTypeService iMerchantGoodsTypeService;
+        private IGlobalGoodsTypeService iGlobalGoodsTypeService;
         private IRestaurantService iRestaurantService;
         private IRentService iRentService;
         private IShopService iShopService;
@@ -23,10 +23,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
-        public SearchProductController(IMerchantService iMerchantService, IMerchantGoodsTypeService iMerchantGoodsTypeService, IRestaurantService iRestaurantService, IRentService iRentService, IShopService iShopService, ICommodityService iCommodityService, IHouseService iHouseService, IFoodService iFoodService)
+        public SearchProductController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IRestaurantService iRestaurantService, IRentService iRentService, IShopService iShopService, ICommodityService iCommodityService, IHouseService iHouseService, IFoodService iFoodService)
         {
             this.iMerchantService = iMerchantService;
-            this.iMerchantGoodsTypeService = iMerchantGoodsTypeService;
+            this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
             this.iRentService = iRentService;
             this.iRestaurantService = iRestaurantService;
             this.iShopService = iShopService;
@@ -101,8 +101,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 }
             }
             //您是不是想找。。。
-            IList<MerchantGoodsType> mehtGdsTpList = iMerchantGoodsTypeService.GetSimilarGoodsTypeListByKeyword(keyword);
-            searchProductModel.merchantGoodsTypes = mehtGdsTpList;
+            //IList<MerchantGoodsType> mehtGdsTpList = iMerchantGoodsTypeService.GetSimilarGoodsTypeListByKeyword(keyword);
+            //searchProductModel.merchantGoodsTypes = mehtGdsTpList;
 
             searchProductModel.currentPage = currentPage;
             searchProductModel.pageNum = total / numPerPageValue + 1;

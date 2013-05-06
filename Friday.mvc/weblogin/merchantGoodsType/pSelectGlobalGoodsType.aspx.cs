@@ -15,10 +15,10 @@ namespace Friday.mvc.weblogin
     public partial class pSelectGlobalGoodsType : BasePage
     {
         IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
-        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        //IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
        // IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
-        private MerchantGoodsType merchantGoodsType;
+       // private MerchantGoodsType merchantGoodsType;
         private string mid;
         private string mtype="";
         private Merchant merchant;
@@ -59,18 +59,18 @@ namespace Friday.mvc.weblogin
             string[] sNameArray = mGoodsNameSet.Split(',');
             foreach (var i in sNameArray)
             {
-                if (iMerchantGoodsTypeService.IsHaveTheSameName(i))
-                {
-                    //result.statusCode = "300";
-                    //result.message = "已存在此商品类型";
-                }
-                else 
-                {                  
-                    merchantGoodsType = new MerchantGoodsType();
-                    merchantGoodsType.Merchant = iMerchantService.Load(mid);
-                    merchantGoodsType.GoodsType =i;
-                    iMerchantGoodsTypeService.Save(merchantGoodsType);
-                }
+                //if (iMerchantGoodsTypeService.IsHaveTheSameName(i))
+                //{
+                //    //result.statusCode = "300";
+                //    //result.message = "已存在此商品类型";
+                //}
+                //else 
+                //{                  
+                //    merchantGoodsType = new MerchantGoodsType();
+                //    merchantGoodsType.Merchant = iMerchantService.Load(mid);
+                //    merchantGoodsType.GoodsType =i;
+                //    iMerchantGoodsTypeService.Save(merchantGoodsType);
+                //}
             }
 
             AjaxResult result = new AjaxResult();

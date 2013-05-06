@@ -94,42 +94,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PopulateFakeMerchantAndGoodsPictureDataTest.cs" />
-    <Compile Include="PopulateFakeRestaurantDataTest.cs" />
+    <Compile Include="PopulateRealPermissionDataTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SystemTest.cs" />
-    <Compile Include="Test_Commodity.cs" />
-    <Compile Include="Test_Merchant.cs" />
-    <Compile Include="Test_GlobalGoodsType.cs" />
-    <Compile Include="PopulateRealPermissionDataTest.cs" />
-    <Compile Include="Test_Shop.cs" />
-    <Compile Include="Test_SchoolOfMerchant.cs" />
-    <Compile Include="Test_Permission.cs" />
-    <Compile Include="User_Service_Test.cs" />
-    <Compile Include="Test_Activity.cs" />
-    <Compile Include="Test_MerchantCategory.cs" />
-    <Compile Include="PopulateFakeShopDataTest.cs" />
-    <Compile Include="Test_SystemUser.cs" />
-    <Compile Include="PopulateFakeRentDataTest.cs" />
-    <Compile Include="Test_Message.cs" />
-    <Compile Include="Test_RestaurantMultiSearch.cs" />
-    <Compile Include="PopulateFakePermissionDataTest.cs" />
-    <Compile Include="Test_ShopMultiSearch.cs" />
-    <Compile Include="Test_RentMultiSearch.cs" />
-    <Compile Include="Test_MessageMultiSearch.cs" />
-    <Compile Include="Test_FeedBackSearch.cs" />
-    <Compile Include="Test_FoodStatistic.cs" />
-    <Compile Include="Test_RestaurantStatistic.cs" />
-    <Compile Include="Test_HouseStatistic.cs" />
-    <Compile Include="Test_CommodityStatistic.cs" />
-    <Compile Include="Test_ShopStatistic.cs" />
-    <Compile Include="Test_RentStatistic.cs" />
-    <Compile Include="Test_ValuingOfMyFoodOrder.cs" />
-    <Compile Include="Test_ValuingOfMyHouseOrder.cs" />
-    <Compile Include="Test_ValuingOfMyCommodityOrder.cs" />
-    <Compile Include="PopulateFakeActivityDataTest.cs" />
-    <Compile Include="Test_Prop.cs" />
-    <Compile Include="Test_Sku.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="uploadImage\activityImage\jpeg1.jpg" />

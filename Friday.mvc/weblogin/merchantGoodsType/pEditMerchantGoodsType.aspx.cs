@@ -15,47 +15,47 @@ namespace Friday.mvc.weblogin
 {
     public partial class pEditMerchantGoodsType : BasePage
     {
-        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
-        private MerchantGoodsType merchantGoodsType;
+        //IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        //private MerchantGoodsType merchantGoodsType;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string uid = Request.Params["uid"].ToString();
+            //string uid = Request.Params["uid"].ToString();
 
-            tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
-            this.PermissionCheck();
+            //tagName = systemFunctionObjectService.基本信息模块.自定义商品类型维护.TagName;
+            //this.PermissionCheck();
 
-            merchantGoodsType = iMerchantGoodsTypeService.Load(uid);
-            if (Request.Params["__EVENTVALIDATION"] != null)
-            {
+            //merchantGoodsType = iMerchantGoodsTypeService.Load(uid);
+            //if (Request.Params["__EVENTVALIDATION"] != null)
+            //{
 
-                SaveMerchantGoodsType();
-            }
-            else
-            {
-                BindingHelper.ObjectToControl(merchantGoodsType, this);
-            }
+            //    SaveMerchantGoodsType();
+            //}
+            //else
+            //{
+            //    BindingHelper.ObjectToControl(merchantGoodsType, this);
+            //}
         }
 
         private void SaveMerchantGoodsType()
         {
 
-            BindingHelper.RequestToObject(merchantGoodsType);
-            iMerchantGoodsTypeService.Update(merchantGoodsType);
+            //BindingHelper.RequestToObject(merchantGoodsType);
+            //iMerchantGoodsTypeService.Update(merchantGoodsType);
 
-            AjaxResult result = new AjaxResult();
-            result.statusCode = "200";
-            result.message = "修改成功";
-            result.navTabId = "referer";
-            if (Request.Params["rel_hook"] != null)
-            {
-                result.panelId = Request.Params["rel_hook"];
-            }
-            result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = result;
-            Response.Write(jsonResult.FormatResult());
-            Response.End();
+            //AjaxResult result = new AjaxResult();
+            //result.statusCode = "200";
+            //result.message = "修改成功";
+            //result.navTabId = "referer";
+            //if (Request.Params["rel_hook"] != null)
+            //{
+            //    result.panelId = Request.Params["rel_hook"];
+            //}
+            //result.callbackType = "closeCurrent";
+            //FormatJsonResult jsonResult = new FormatJsonResult();
+            //jsonResult.Data = result;
+            //Response.Write(jsonResult.FormatResult());
+            //Response.End();
 
 
 

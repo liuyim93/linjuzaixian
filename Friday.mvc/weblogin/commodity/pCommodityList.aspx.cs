@@ -27,7 +27,7 @@ namespace Friday.mvc.weblogin.commodity
         public string mid;
 
         IShopService iShopService = UnityHelper.UnityToT<IShopService>();
-        IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        //IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
         ICommodityService iCommodityService = UnityHelper.UnityToT<ICommodityService>();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -143,12 +143,12 @@ namespace Friday.mvc.weblogin.commodity
             });
 
             goodsType = Request.Form["mGoodsType"];
-            if (!string.IsNullOrEmpty(goodsType))
-            {
-                MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, shopId);
-                string mectGTypeID = mectGType.Id;
-                dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
-            }
+            //if (!string.IsNullOrEmpty(goodsType))
+            //{
+            //    MerchantGoodsType mectGType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(goodsType, shopId);
+            //    string mectGTypeID = mectGType.Id;
+            //    dfl.Add(new DataFilter() { type = "GoodsType", value = mectGTypeID });
+            //}
 
             List<DataFilter> dflForOrder = new List<DataFilter>();
             string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
@@ -162,20 +162,20 @@ namespace Friday.mvc.weblogin.commodity
 
             if (Request.Params["__EVENTVALIDATION"] == null)
             {
-                Shop rst =new Shop();// iShopService.Load(shopId);
-                IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
-                if (!this.CurrentUser.IsAdmin)
-                {
-                    goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
-                }
-                else
-                {
-                    goodsTypes = iMerchantGoodsTypeService.GetAll();
-                }
-                foreach (var i in goodsTypes)
-                {
-                    this.mGoodsType.Items.Add(i.GoodsType);
-                }
+                //Shop rst =new Shop();// iShopService.Load(shopId);
+                //IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
+                //if (!this.CurrentUser.IsAdmin)
+                //{
+                //    goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id);
+                //}
+                //else
+                //{
+                //    goodsTypes = iMerchantGoodsTypeService.GetAll();
+                //}
+                //foreach (var i in goodsTypes)
+                //{
+                //    this.mGoodsType.Items.Add(i.GoodsType);
+                //}
 
             }
             numPerPage.Value = numPerPageValue.ToString();

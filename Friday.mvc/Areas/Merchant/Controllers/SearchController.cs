@@ -15,7 +15,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //
         // GET: /Merchant/Search/
         private IMerchantService iMerchantService;
-        private IMerchantGoodsTypeService iMerchantGoodsTypeService;
+        private IGlobalGoodsTypeService iGlobalGoodsTypeService;
         private IRestaurantService iRestaurantService;
         private IRentService iRentService;
         private IShopService iShopService;
@@ -23,10 +23,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
-        public SearchController(IMerchantService iMerchantService, IMerchantGoodsTypeService iMerchantGoodsTypeService, IRestaurantService iRestaurantService, IRentService iRentService, IShopService iShopService, ICommodityService iCommodityService, IHouseService iHouseService, IFoodService iFoodService)
+        public SearchController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IRestaurantService iRestaurantService, IRentService iRentService, IShopService iShopService, ICommodityService iCommodityService, IHouseService iHouseService, IFoodService iFoodService)
         {
             this.iMerchantService = iMerchantService;
-            this.iMerchantGoodsTypeService = iMerchantGoodsTypeService;
+            this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
             this.iRentService = iRentService;
             this.iRestaurantService = iRestaurantService;
             this.iShopService = iShopService;
@@ -45,13 +45,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchModel.SingleMerchant = merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
             {
-                searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodTypeId);
+                //searchModel.SingleMerchantGoodsType = iGlobalGoodsTypeService.Load(goodTypeId);
             }
             else 
             {
                 goodTypeId = "0";
             }
-            searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
+            //searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 20;
             int total;
@@ -122,13 +122,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchModel.SingleMerchant =merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
             {
-                searchModel.SingleMerchantGoodsType = iMerchantGoodsTypeService.Load(goodTypeId);
+                //searchModel.SingleMerchantGoodsType = iGlobalGoodsTypeService.Load(goodTypeId);
             }
             else 
             {
                 goodTypeId = "0";
             }
-            searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
+            //searchModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 20;
             int total;
