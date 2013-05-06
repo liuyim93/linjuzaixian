@@ -45,15 +45,16 @@ namespace Friday.mvc.weblogin
             else
             {
                 BindingHelper.ObjectToControl(f, this);
-                Shop rst = iShopService.Load(mid);
-                IList<GlobalGoodsType> goodsTypes =iGlobalGoodsTypeService.GetAll();
+                //Shop rst = iShopService.Load(mid);
+                //IList<GlobalGoodsType> goodsTypes =iGlobalGoodsTypeService.GetAll();
                 //foreach (var i in goodsTypes)
                 //{
                 //    this.GoodsType.Items.Add(i.GoodsType);
                 //}
                 //GlobalGoodsType golbalGoodsType = iGlobalGoodsTypeService.Load(f.GlobalGoodsType.Id);
                 //this.GoodsType.Value = golbalGoodsType.GoodsType;
-
+                GoodsType.Value = f.GlobalGoodsType.Name;
+                GoodsTypeID.Value = f.GlobalGoodsType.Id;
             }
         }
 
@@ -68,7 +69,7 @@ namespace Friday.mvc.weblogin
 
             Shop shop = iShopService.Load(mid);
             f.Shop = shop;
-            //f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
+            f.GlobalGoodsType = iGlobalGoodsTypeService.Load(GoodsTypeID.Value);
 
             iCommodityService.Update(f);
 
