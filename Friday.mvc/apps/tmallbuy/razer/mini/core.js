@@ -199,7 +199,7 @@
                             }
                         }
                     }, error: function () {
-                        b.call(_tMiniCartModel, { error: "\u670d\u52a1\u5668\u54cd\u5e94\u8d85\u65f6" })
+                        b.call(_tMiniCartModel, { error: "服务器响应超时" })
                     } 
                     })
                 };

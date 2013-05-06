@@ -109,11 +109,11 @@
         var _frmBid = _cfg.frmBid;
         _cookie.remove("cookie2", "");
         _kissy_D.getScript(_buy_url + "&t=" + _kissy_D.now(), { success: function () {
-            var g = _window.login_indicator;
-            var f = _cfg.linkBuy;
-            var h = (f) ? _dom.attr(f, "data-noFastBuy") : false;
-            if (g.success && g.token && g.token.length > 0) {
-                var e = g.token, d;
+            var _login_indicator = _window.login_indicator;
+            var _linkBuy = _cfg.linkBuy;
+            var h = (_linkBuy) ? _dom.attr(_linkBuy, "data-noFastBuy") : false;
+            if (_login_indicator.success && _login_indicator.token && _login_indicator.token.length > 0) {
+                var e = _login_indicator.token, d;
                 for (var c = 0, b = e.length; c < b; c++) {
                     if (!_dom.get("#J_" + e[c][0])) {
                         d = _dom.create('<input id="J_' + e[c][0] + '" type="hidden" name="' + e[c][0] + '">');
@@ -124,13 +124,13 @@
                     d.value = e[c][1]
                 }
             }
-            g.fastBuy = g.fastBuy && _fastbuy_cfg.fastbuy;
-            if ((g.success && g.hasLoggedIn) || !g.success) {
+            _login_indicator.fastBuy = _login_indicator.fastBuy && _fastbuy_cfg.fastbuy;
+            if ((_login_indicator.success && _login_indicator.hasLoggedIn) || !_login_indicator.success) {
                 a()
             } else {
-                if (!g.hasLoggedIn) {
-                    if (g.fastBuy) {
-                        a(g)
+                if (!_login_indicator.hasLoggedIn) {
+                    if (_login_indicator.fastBuy) {
+                        a(_login_indicator)
                     } else {
                         _kissy_D.onLogin(function () {
                             a()
