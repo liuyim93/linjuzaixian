@@ -315,7 +315,7 @@ KISSY.add("malldetail/sku/price", function (_kissy_imp, _template) {
                 var v;
                 if (w.indexOf("-") != -1) {
                     w = w.split("-");
-                    v = Math.floor(w[0] * u) + "<span>\u8d77</span>"
+                    v = Math.floor(w[0] * u) + "<span>起</span>"
                 } else {
                     v = Math.floor(w * u)
                 }

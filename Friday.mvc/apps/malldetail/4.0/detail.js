@@ -266,7 +266,9 @@
             onLogin: function (L, I) {
         var J = (_g_config.assetsHost.indexOf("taobao.net") != -1);
         var K = J ? "daily.tmall.net" : "tmall.com";
-        var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
+        //2013-05-06 basilwang use our own
+        //var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
+        var H = _kissy.mix({ proxyURL: "http://localhost:7525/Account/Home/XCrossIframe?type=minilogin&t=" + _kissy.t() }, I);
         _kissy.use("tml/minilogin", function (M, N) {
             N.show(L, H)
         })

@@ -48,7 +48,7 @@ button::-moz-focus-inner{border:0;padding:0;margin:0;}
 #seller dt span{background-position:0 -60px;}
 #mall-desc{position:relative;text-align:left;zoom:1;padding:30px 0 20px;}
 #mall-desc:after{content:"";display:block;clear:both;height:0;}
-#mall-desc dl{float:left;width:139px;padding-left:50px;border-right:1px dotted #e6e6e6;height:120px;}
+#mall-desc dl{float:left;width:135px;padding-left:50px;border-right:1px dotted #e6e6e6;height:120px;}
 #mall-desc dl#payment{margin-left:190px;border-left:1px dotted #e6e6e6;_display:inline;}
 #mall-desc dl#seller{float:right;border-right:none;}
 #mall-desc dt{margin-bottom:3px;padding-bottom:4px;font-family:\5fae\8f6f\96c5\9ed1;font-size:18px;font-weight:500;}
