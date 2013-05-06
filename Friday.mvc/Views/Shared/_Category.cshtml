@@ -42,40 +42,53 @@
                     </p>
                    
                 <s class="menuIcon"></s></li>*@
-            <li class="item item2 j_MenuItem">
+       
+             @for (var Tlevel = 0; Tlevel < Model.GlobalGoodsTypeTlevelZero.Count(); Tlevel++)
+             {
+                 var LevelName = Model.GlobalGoodsTypeTlevelZero.ElementAt(Tlevel);
+        <li class="item item2 j_MenuItem">
                 <h3 class="item-hd item-hd2">
-                    <s></s>商铺
+                    <s></s>@LevelName.Name   
                 </h3>
-                @for (var index = 0; index < Model.MerchantShopCategories.Count(); index++)
-                    {
-                        
-                            
-                        if (index%5==0)
-                        {
-                            if (index == 0)
-                            {
+                          
+ 
+
+              @for (int sort = 0, index = 0; index < Model.GlobalGoodsTypeTlevelFirst.Count(); index++)
+              {
+                  var item = Model.GlobalGoodsTypeTlevelFirst.ElementAt(index);
+                  if (item.ParentID == LevelName.Id)
+                  {
+                      if (sort % 5 == 0)
+                      {
+                          if (sort == 0)
+                          {
                               @:<p class="item-col  itemCol1 ">
                             }
-                            else
-                            {
+                          else
+                          {
                                @:<b class="overlay even"></b></p>
                                @:<p class="item-col">
                             }
+                      }
+
+                      if (sort % 5 == 0)
+                      { 
+                        @:<a href="" target="_blank" class="item-col1">@Html.Encode(item.Name)</a>
                         }
-                        var item = Model.MerchantShopCategories.ElementAt(index);
-                        if (index % 5 == 0)
-                        {
-                        @:<a href="" target="_blank" class="item-col1">@Html.Encode(item.MerchantCategoryName)</a>
+                      else
+                      {
+                         @:<a href="" target="_blank" >@Html.Encode(item.Name)</a>
                         }
-                        else
-                        {
-                         @:<a href="" target="_blank" >@Html.Encode(item.MerchantCategoryName)</a>
-                        }
-              
-                    }
+                      sort++;
+                  }
+              }
                     <b class="overlay even"></b>
-                    </p>
-                <s class="menuIcon"></s></li>
+                 @*   </p>*@
+                <s class="menuIcon"></s>
+             </li>
+              
+            }
+              
             @*<li class="item item3 j_MenuItem">
                 <h3 class="item-hd item-hd3">
                     <s></s>餐馆

@@ -12,6 +12,7 @@ namespace Friday.mvc.Controllers
     public class HomeController : Controller
     {
         IMerchantCategoryRepository iMerchantCategoryRepository;
+        IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository;
         IActivityRepository iActivityRepository;
         //IRestaurantRepository iRestaurantRepository;
         IShopRepository iShopRepository;
@@ -20,9 +21,10 @@ namespace Friday.mvc.Controllers
         //IHouseRepository iHouseRepository;
         ICommodityRepository iCommodityRepository;
 
-        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository)
+        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository)
         {
             this.iMerchantCategoryRepository = iMerchantCategoryRepository;
+            this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
             this.iActivityRepository = iActivityRepository;
             //this.iRestaurantRepository = iRestaurantRepository;
             this.iShopRepository = iShopRepository;
@@ -37,6 +39,9 @@ namespace Friday.mvc.Controllers
             //mainModel.MerchantRentCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.租房);
             //mainModel.MerchantRestaurantCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
             mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+            mainModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+            mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+            
             long total;
             mainModel.Shops = this.iShopRepository.GetPageList(0, 15,out total);
             //mainModel.Rents = this.iRentRepository.GetPageList(0, 15, out total);

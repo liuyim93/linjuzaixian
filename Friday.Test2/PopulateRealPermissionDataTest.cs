@@ -1284,15 +1284,16 @@ namespace Friday.Test2
 
             //添加1级目录
             string[] firstCatg = { "国际品牌", "服装/内衣/配件", "鞋/箱包", "珠宝饰品/手表眼镜", "食品", "化妆品/个人护理 ", "手机数码", "家用电器", "家具建材", "家纺/居家", "母婴玩具", "医药保健", "全新整车/汽车配件", "图书音像", "文化娱乐", "充值/合约机/通信" };
-            foreach (var i in firstCatg)
+            for (int i = 0; i < firstCatg.Length; i++)
             {
                 GlobalGoodsType fgt = new GlobalGoodsType()
                 {
-                    Name = i,
+                    Name = firstCatg[i],
                     Leaf = false,
                     TLevel = 0,
                     IsDelete = false,
-                    Description = "1级目录"
+                    Description = "1级目录",
+                    EntityIndex=i  //排序
                 };
               iGlobalGoodsTypeService.Save(fgt);
             }
