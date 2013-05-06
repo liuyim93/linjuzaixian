@@ -65,6 +65,10 @@ namespace friday.core.services
         {
             return iGlobalGoodsTypeRepository.IsHaveChild(GlobalGoodsType);
         }
+        public GlobalGoodsType GetGlobalGoodsTypeByName(string Name) 
+        {
+            return iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(Name);
+        }
 
     }
 }

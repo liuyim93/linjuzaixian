@@ -1146,14 +1146,14 @@ namespace Friday.Test2
             }           
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "员工维护", "规格类型维护", "规格明细维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            string[] shopArr = { "基本信息模块", "商店模块", "商店维护,Edit", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "员工维护", "规格类型维护", "规格明细维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
             foreach (var i in shopArr)
             {
                 sysFuncObjInShopOwnerRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
             IList<SystemFunctionObjectInRole> sysFuncObjInShopEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "规格类型维护", "规格明细维护", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            string[] shopEmpArr = { "基本信息模块", "商店模块", "商品维护", "商品订单维护", "商品订单明细维护", "商店订单评价管理", "商品评价项管理,Enable", "商品评价项评分管理,Enable", "规格类型维护", "规格明细维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
             foreach (var i in shopEmpArr)
             {
                 sysFuncObjInShopEmpRolerList.Add(GetFuncObjInRoleByi(i));
@@ -1280,34 +1280,71 @@ namespace Friday.Test2
         //添加全局商品类型
         private void   add_GlobalGoodsType()
         {
+            IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
+
+            //添加1级目录
+            string[] firstCatg = { "国际品牌", "服装/内衣/配件", "鞋/箱包", "珠宝饰品/手表眼镜", "化妆品/个人护理 ", "手机数码", "家用电器", "家具建材", "家纺/居家", "母婴玩具", "食品", "医药保健", "全新整车/汽车配件", "图书音像", "文化娱乐", "充值/合约机/通信" };
+            foreach (var i in firstCatg)
+            {
+                GlobalGoodsType gt = new GlobalGoodsType()
+                {
+                    Name = i,
+                    Leaf = false,
+                    TLevel = 0,
+                    IsDelete = false,
+                    Description = "1级目录"
+                };
+              iGlobalGoodsTypeService.Save(gt);
+            }
             
+            //添加2级目录
+            //2级"国际品牌"
+            string[] SecdForNational={"优衣库","Adidas GAP","飞利浦","微软","新百伦","Nike","兰芝","ELLE","Karicare"};
+            for (int i = 0; i < SecdForNational.Length;i++ )
+            {
+
+                GlobalGoodsType gt = new GlobalGoodsType()
+                {
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("国际品牌").Id,
+                    Name = SecdForNational[i],
+                    Leaf = false,
+                    TLevel = 0,
+                    IsDelete = false,
+                    Description = "2级目录—国际名牌"
+                };
+                iGlobalGoodsTypeService.Save(gt);
+            }
+            //2级"服装/内衣/配件"
 
 
-       }
+
+
+
+        }
         //商店商品目录添加
         private void add_MerchantCategory()
          {
              IMerchantCategoryService iMerchantCategoryService = UnityHelper.UnityToT<IMerchantCategoryService>();
-             string[] restCatg = {"中餐","西餐","清真","自助餐","火锅","鲁菜","川菜","粤菜","闽菜","苏菜","湘菜","徽菜" };
-            foreach(var i in restCatg)
-            {
-                MerchantCategory restMC = new MerchantCategory()
-                {
-                    MerchantCategoryName = i,
-                    MerchantType = MerchantTypeEnum.餐馆
-                };
-                iMerchantCategoryService.Save(restMC);            
-            }
-            string[] rentCatg = { "学区房", "海景房", "洋房", "独栋别墅", "复式楼房", "筒子楼", "集体宿舍"};
-            foreach (var i in rentCatg)
-            {
-                MerchantCategory restMC = new MerchantCategory()
-                {
-                    MerchantCategoryName = i,
-                    MerchantType = MerchantTypeEnum.租房
-                };
-                iMerchantCategoryService.Save(restMC);
-            }
+            // string[] restCatg = {"中餐","西餐","清真","自助餐","火锅","鲁菜","川菜","粤菜","闽菜","苏菜","湘菜","徽菜" };
+            //foreach(var i in restCatg)
+            //{
+            //    MerchantCategory restMC = new MerchantCategory()
+            //    {
+            //        MerchantCategoryName = i,
+            //        MerchantType = MerchantTypeEnum.餐馆
+            //    };
+            //    iMerchantCategoryService.Save(restMC);            
+            //}
+            //string[] rentCatg = { "学区房", "海景房", "洋房", "独栋别墅", "复式楼房", "筒子楼", "集体宿舍"};
+            //foreach (var i in rentCatg)
+            //{
+            //    MerchantCategory restMC = new MerchantCategory()
+            //    {
+            //        MerchantCategoryName = i,
+            //        MerchantType = MerchantTypeEnum.租房
+            //    };
+            //    iMerchantCategoryService.Save(restMC);
+            //}
 
             string[] shopCatg = { "烟酒", "炒货", "果木", "熟食", "家电", "家具", "蔬菜","家纺","图书影音","电子产品","综合购物中心" };
             foreach (var i in shopCatg)
@@ -2516,9 +2553,9 @@ namespace Friday.Test2
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                 MerchantType = MerchantTypeEnum.百货
             };
-            GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() {   GoodsType = "专供酒水" };
+            GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
             new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_1);
-            GlobalGoodsType shopCommodityTye_2 = new GlobalGoodsType() {   GoodsType = "特供蔬菜" };
+            GlobalGoodsType shopCommodityTye_2 = new GlobalGoodsType() { Name = "特供蔬菜" };
             new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_2);
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_1);
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
@@ -2689,9 +2726,9 @@ namespace Friday.Test2
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                MerchantType = MerchantTypeEnum.百货
            };
-           GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() {   GoodsType = "金制品" };
+           GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() { Name = "金制品" };
            new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_12);
-           GlobalGoodsType shopCommodityTye_22 = new GlobalGoodsType() { GoodsType = "茶叶" };
+           GlobalGoodsType shopCommodityTye_22 = new GlobalGoodsType() { Name = "茶叶" };
            new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_22);
            //shop2.MerchantGoodsTypes.Add(shopCommodityTye_12);
            //shop2.MerchantGoodsTypes.Add(shopCommodityTye_22);

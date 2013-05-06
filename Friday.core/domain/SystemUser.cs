@@ -13,9 +13,9 @@ namespace friday.core.domain
             // TODO: Complete member initialization
             Orders = new Iesi.Collections.Generic.HashedSet<MyOrder>();
             Addresses = new Iesi.Collections.Generic.HashedSet<Address>();
-            RestaurantCarts = new Iesi.Collections.Generic.HashedSet<RestaurantCart>();
+            //RestaurantCarts = new Iesi.Collections.Generic.HashedSet<RestaurantCart>();
             ShoppingCarts = new Iesi.Collections.Generic.HashedSet<ShoppingCart>();
-            RentCarts = new Iesi.Collections.Generic.HashedSet<RentCart>();
+            //RentCarts = new Iesi.Collections.Generic.HashedSet<RentCart>();
         }
 
         public SystemUser(string id): this()
@@ -23,9 +23,9 @@ namespace friday.core.domain
             this.Id = id;
             Orders = new Iesi.Collections.Generic.HashedSet<MyOrder>();
             Addresses = new Iesi.Collections.Generic.HashedSet<Address>();
-            RestaurantCarts = new Iesi.Collections.Generic.HashedSet<RestaurantCart>();
+            //RestaurantCarts = new Iesi.Collections.Generic.HashedSet<RestaurantCart>();
             ShoppingCarts = new Iesi.Collections.Generic.HashedSet<ShoppingCart>();
-            RentCarts = new Iesi.Collections.Generic.HashedSet<RentCart>();
+            //RentCarts = new Iesi.Collections.Generic.HashedSet<RentCart>();
         }
 
 
@@ -43,18 +43,18 @@ namespace friday.core.domain
 
             set;
         }
-        public virtual Iesi.Collections.Generic.ISet<RestaurantCart> RestaurantCarts 
-        {
-            get;
+        //public virtual Iesi.Collections.Generic.ISet<RestaurantCart> RestaurantCarts 
+        //{
+        //    get;
 
-            set;
-        }
-        public virtual Iesi.Collections.Generic.ISet<RentCart> RentCarts
-        {
-            get;
+        //    set;
+        //}
+        //public virtual Iesi.Collections.Generic.ISet<RentCart> RentCarts
+        //{
+        //    get;
 
-            set;
-        }
+        //    set;
+        //}
         public virtual Iesi.Collections.Generic.ISet<Address> Addresses
         {
             get;

@@ -97,6 +97,7 @@
     <Compile Include="PopulateFakeActivityDataTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PopulateRealPermissionDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs">
       <SubType>Code</SubType>

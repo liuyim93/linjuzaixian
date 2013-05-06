@@ -108,33 +108,9 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
-    <Compile Include="domain\CartOfFood.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\CartOfFoodMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\CartOfHouse.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\CartOfHouseMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="domain\Category.cs" />
     <Compile Include="domain\CategoryLog.cs" />
     <Compile Include="domain\CategoryMap.cs" />
-    <Compile Include="domain\Food.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\FoodMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\FoodStatistic.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="domain\FoodStatisticMap.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="domain\Log.cs" />
     <Compile Include="domain\PropIDMap.cs" />
     <Compile Include="domain\PropValueMap.cs" />
@@ -142,10 +118,6 @@
     <Compile Include="domain\RoleInMenuMap.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrder.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrderMap.cs" />
-    <Compile Include="domain\ScoreOfItemInFoodOrder.cs" />
-    <Compile Include="domain\ScoreOfItemInFoodOrderMap.cs" />
-    <Compile Include="domain\ScoreOfItemInHouseOrder.cs" />
-    <Compile Include="domain\ScoreOfItemInHouseOrderMap.cs" />
     <Compile Include="domain\SkuMap.cs" />
     <Compile Include="domain\SkuPropMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
@@ -257,27 +229,17 @@
     <Compile Include="domain\FeedBack.cs" />
     <Compile Include="domain\FeedBackMap.cs" />
     <Compile Include="domain\GlobalGoodsType.cs" />
-    <Compile Include="domain\House.cs" />
     <Compile Include="domain\Merchant.cs" />
     <Compile Include="domain\MerchantCategory.cs" />
     <Compile Include="domain\MessageContentMap.cs" />
     <Compile Include="domain\MessageMap.cs" />
     <Compile Include="domain\MyFavorite.cs" />
     <Compile Include="domain\MyFavoriteMap.cs" />
-    <Compile Include="domain\MyFoodOrder.cs" />
-    <Compile Include="domain\MyHouseOrder.cs" />
     <Compile Include="domain\MyOrder.cs" />
-    <Compile Include="domain\MyFoodOrderMap.cs" />
     <Compile Include="domain\OrderMessage.cs" />
-    <Compile Include="domain\OrderOfFood.cs" />
-    <Compile Include="domain\OrderOfFoodMap.cs" />
-    <Compile Include="domain\OrderOfHouse.cs" />
     <Compile Include="domain\OutBox.cs" />
     <Compile Include="domain\OutBoxMap.cs" />
     <Compile Include="domain\Profit.cs" />
-    <Compile Include="domain\Rent.cs" />
-    <Compile Include="domain\Restaurant.cs" />
-    <Compile Include="domain\RestaurantMap.cs" />
     <Compile Include="domain\SystemFunctionObjectInRole.cs" />
     <Compile Include="domain\SystemFunctionObjectInRoleMap.cs" />
     <Compile Include="domain\School.cs" />
@@ -300,32 +262,17 @@
     <Compile Include="domain\LoginUserMap.cs" />
     <Compile Include="domain\LoginUserOfMerchantMap.cs" />
     <Compile Include="domain\MerchantMap.cs" />
-    <Compile Include="domain\RestaurantCartMap.cs" />
     <Compile Include="domain\CartOfCommodityMap.cs" />
     <Compile Include="domain\CommodityMap.cs" />
-    <Compile Include="domain\RentCartMap.cs" />
     <Compile Include="domain\MyCommodityOrderMap.cs" />
-    <Compile Include="domain\MyHouseOrderMap.cs" />
     <Compile Include="domain\OrderOfCommodityMap.cs" />
-    <Compile Include="domain\OrderOfHouseMap.cs" />
-    <Compile Include="domain\HouseMap.cs" />
     <Compile Include="domain\ShopMap.cs" />
-    <Compile Include="domain\RentMap.cs" />
     <Compile Include="domain\MerchantCategoryMap.cs" />
     <Compile Include="domain\GlobalGoodsTypeMap.cs" />
-    <Compile Include="domain\HouseStatisticMap.cs" />
     <Compile Include="domain\CommodityStatisticMap.cs" />
     <Compile Include="domain\ShopStatisticMap.cs" />
-    <Compile Include="domain\RestaurantStatisticMap.cs" />
-    <Compile Include="domain\RentStatisticMap.cs" />
     <Compile Include="domain\ValuingOfMyCommodityOrderMap.cs" />
-    <Compile Include="domain\ValuingOfMyFoodOrderMap.cs" />
-    <Compile Include="domain\ValuingOfMyHouseOrderMap.cs" />
-    <Compile Include="domain\ValuingItemOfMyFoodOrder.cs" />
-    <Compile Include="domain\ValuingItemOfMyHouseOrder.cs" />
     <Compile Include="domain\ValuingItemOfMyCommodityOrderMap.cs" />
-    <Compile Include="domain\ValuingItemOfMyFoodOrderMap.cs" />
-    <Compile Include="domain\ValuingItemOfMyHouseOrderMap.cs" />
     <Compile Include="domain\SystemFunctionObjectMap.cs" />
     <Compile Include="EnumType\CityNameEnum.cs" />
     <Compile Include="EnumType\FoodTypeEnum.cs" />
@@ -333,8 +280,6 @@
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
-    <Compile Include="domain\HouseCart.cs" />
-    <Compile Include="domain\HouseStatistic.cs" />
     <Compile Include="domain\MyCommodityOrder.cs" />
     <Compile Include="domain\OrderOfCommodity.cs" />
     <Compile Include="domain\LoginUser.cs" />
@@ -345,8 +290,6 @@
     <Compile Include="EnumType\UserTypeEnum.cs" />
     <Compile Include="domain\SystemFunctionObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="domain\RentCart.cs" />
-    <Compile Include="domain\RentStatistic.cs" />
     <Compile Include="repositories\ActivityRepository.cs" />
     <Compile Include="repositories\AddressRepository.cs" />
     <Compile Include="repositories\IActivityRepository.cs" />
@@ -362,8 +305,6 @@
     <Compile Include="repositories\Repository.cs" />
     <Compile Include="repositories\SystemFunctionObjectRepository.cs" />
     <Compile Include="repositories\SystemUserRepository.cs" />
-    <Compile Include="domain\RestaurantCart.cs" />
-    <Compile Include="domain\RestaurantStatistic.cs" />
     <Compile Include="repositories\SchoolOfMerchantRepository.cs" />
     <Compile Include="repositories\ISchoolOfMerchantRepository.cs" />
     <Compile Include="repositories\LoginUserRepository.cs" />
@@ -451,8 +392,6 @@
     <Compile Include="utils\Logger.cs" />
     <Compile Include="utils\MockLogger.cs" />
     <Compile Include="domain\ValuingOfMyCommodityOrder.cs" />
-    <Compile Include="domain\ValuingOfMyFoodOrder.cs" />
-    <Compile Include="domain\ValuingOfMyHouseOrder.cs" />
     <Compile Include="domain\ValuingItemOfMyCommodityOrder.cs" />
   </ItemGroup>
   <ItemGroup>
