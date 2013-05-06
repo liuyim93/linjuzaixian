@@ -55,5 +55,16 @@ namespace friday.core.services
         {
             return iGlobalGoodsTypeRepository.GetAll();
         }
+
+        public IList<GlobalGoodsType> GetChildrenFromParentID(string ParentID)
+        {
+            return iGlobalGoodsTypeRepository.GetChildrenFromParentID(ParentID);
+        }
+
+        public bool IsHaveChild(GlobalGoodsType GlobalGoodsType)
+        {
+            return iGlobalGoodsTypeRepository.IsHaveChild(GlobalGoodsType);
+        }
+
     }
 }

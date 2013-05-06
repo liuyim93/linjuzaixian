@@ -10,6 +10,8 @@ namespace friday.core.services
     public interface IGlobalGoodsTypeService
     {
         GlobalGoodsType Load(string id);
+        IList<GlobalGoodsType> GetChildrenFromParentID(string ParentID);
+        bool IsHaveChild(GlobalGoodsType GlobalGoodsType);
         void Save(GlobalGoodsType globalGoodsType);
         void Update(GlobalGoodsType globalGoodsType);
         void Delete(string id);

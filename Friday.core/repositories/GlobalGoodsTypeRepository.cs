@@ -11,6 +11,17 @@ namespace friday.core.repositories
 {
     public class GlobalGoodsTypeRepository : Repository<GlobalGoodsType>, IGlobalGoodsTypeRepository
     {
+        public IList<GlobalGoodsType> GetChildrenFromParentID(string ParentID)
+        {
+            var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
+            return list;
+        }
+
+        public bool IsHaveChild(GlobalGoodsType globalGoodsType)
+        {
+            var isHaveChild = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == globalGoodsType.Id && o.IsDelete == false).Count() > 0 ? true : false;
+            return isHaveChild;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(GlobalGoodsType)); }
