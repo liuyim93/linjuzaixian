@@ -11,7 +11,7 @@ namespace friday.core
     {
         public Merchant()
         {
-            MerchantGoodsTypes = new Iesi.Collections.Generic.HashedSet<MerchantGoodsType>();
+            //MerchantGoodsTypes = new Iesi.Collections.Generic.HashedSet<MerchantGoodsType>();
             SchoolOfMerchants = new Iesi.Collections.Generic.HashedSet<SchoolOfMerchant>();
             LoginUserOfMerchants = new Iesi.Collections.Generic.HashedSet<LoginUserOfMerchant>();
             PropIDs = new Iesi.Collections.Generic.HashedSet<PropID>();
@@ -145,12 +145,12 @@ namespace friday.core
 
             set;
         }
-        public virtual Iesi.Collections.Generic.ISet<MerchantGoodsType> MerchantGoodsTypes
-        {
-            get;
+        //public virtual Iesi.Collections.Generic.ISet<MerchantGoodsType> MerchantGoodsTypes
+        //{
+        //    get;
 
-            set;
-        }
+        //    set;
+        //}
         ///TODO add UnionGoodsTypes only get 
         //School M:N Shop
         public virtual Iesi.Collections.Generic.ISet<SchoolOfMerchant> SchoolOfMerchants

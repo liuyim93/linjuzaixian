@@ -108,9 +108,33 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
+    <Compile Include="domain\CartOfFood.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\CartOfFoodMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\CartOfHouse.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\CartOfHouseMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="domain\Category.cs" />
     <Compile Include="domain\CategoryLog.cs" />
     <Compile Include="domain\CategoryMap.cs" />
+    <Compile Include="domain\Food.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\FoodMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\FoodStatistic.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="domain\FoodStatisticMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="domain\Log.cs" />
     <Compile Include="domain\PropIDMap.cs" />
     <Compile Include="domain\PropValueMap.cs" />
@@ -224,7 +248,6 @@
     <Compile Include="components\SqlStatementInterceptor.cs" />
     <Compile Include="domain\AddressMap.cs" />
     <Compile Include="domain\CartOfCommodity.cs" />
-    <Compile Include="domain\CartOfHouse.cs" />
     <Compile Include="domain\Commodity.cs" />
     <Compile Include="domain\CommodityStatistic.cs" />
     <Compile Include="components\unity\AutoSessionStorage.cs" />
@@ -259,20 +282,14 @@
     <Compile Include="domain\BaseObject.cs" />
     <Compile Include="domain\BottmCart.cs" />
     <Compile Include="domain\CartBox.cs" />
-    <Compile Include="domain\CartOfFood.cs" />
-    <Compile Include="domain\CartOfFoodMap.cs" />
     <Compile Include="domain\AbstractCommodity.cs" />
     <Compile Include="domain\Entity.cs" />
     <Compile Include="domain\FeedBack.cs" />
     <Compile Include="domain\FeedBackMap.cs" />
-    <Compile Include="domain\Food.cs" />
-    <Compile Include="domain\FoodMap.cs" />
     <Compile Include="domain\GlobalGoodsType.cs" />
     <Compile Include="domain\House.cs" />
     <Compile Include="domain\Merchant.cs" />
     <Compile Include="domain\MerchantCategory.cs" />
-    <Compile Include="domain\MerchantGoodsType.cs" />
-    <Compile Include="domain\MerchantGoodsTypeMap.cs" />
     <Compile Include="domain\MessageContentMap.cs" />
     <Compile Include="domain\MessageMap.cs" />
     <Compile Include="domain\MyFavorite.cs" />
@@ -316,7 +333,6 @@
     <Compile Include="domain\RestaurantCartMap.cs" />
     <Compile Include="domain\CartOfCommodityMap.cs" />
     <Compile Include="domain\CommodityMap.cs" />
-    <Compile Include="domain\CartOfHouseMap.cs" />
     <Compile Include="domain\RentCartMap.cs" />
     <Compile Include="domain\MyCommodityOrderMap.cs" />
     <Compile Include="domain\MyHouseOrderMap.cs" />
@@ -327,7 +343,6 @@
     <Compile Include="domain\RentMap.cs" />
     <Compile Include="domain\MerchantCategoryMap.cs" />
     <Compile Include="domain\GlobalGoodsTypeMap.cs" />
-    <Compile Include="domain\FoodStatisticMap.cs" />
     <Compile Include="domain\HouseStatisticMap.cs" />
     <Compile Include="domain\CommodityStatisticMap.cs" />
     <Compile Include="domain\ShopStatisticMap.cs" />
@@ -348,7 +363,6 @@
     <Compile Include="EnumType\MyOrderStatusEnum.cs" />
     <Compile Include="EnumType\ShopStatusEnum.cs" />
     <Compile Include="EnumType\ShopTypeEnum.cs" />
-    <Compile Include="domain\FoodStatistic.cs" />
     <Compile Include="domain\HouseCart.cs" />
     <Compile Include="domain\HouseStatistic.cs" />
     <Compile Include="domain\MyCommodityOrder.cs" />
@@ -408,8 +422,6 @@
     <Compile Include="repositories\IRentRepository.cs" />
     <Compile Include="repositories\MyHouseOrderRepository.cs" />
     <Compile Include="repositories\IMyHouseOrderRepository.cs" />
-    <Compile Include="repositories\IMerchantGoodsTypeRepository.cs" />
-    <Compile Include="repositories\MerchantGoodsTypeRepository.cs" />
     <Compile Include="repositories\CommodityRepository.cs" />
     <Compile Include="repositories\ICommodityRepository.cs" />
     <Compile Include="repositories\HouseRepository.cs" />
@@ -458,8 +470,6 @@
     <Compile Include="services\IShopService.cs" />
     <Compile Include="services\FoodService.cs" />
     <Compile Include="services\IFoodService.cs" />
-    <Compile Include="services\MerchantGoodsTypeService.cs" />
-    <Compile Include="services\IMerchantGoodsTypeService.cs" />
     <Compile Include="services\CommodityService.cs" />
     <Compile Include="services\ICommodityService.cs" />
     <Compile Include="services\HouseService.cs" />

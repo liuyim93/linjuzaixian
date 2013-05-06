@@ -40,8 +40,8 @@ namespace friday.core.domain
             Map(o => o.AverageValuing).Default("0").Not.Nullable(); ;
             Map(o => o.MonthAmount).Default("0").Not.Nullable();
 
-            References<MerchantGoodsType>(o => o.MerchantGoodsType).Not.Nullable();
-            //References<MerchantGoodsType>(o => o.MerchantGoodsType);
+            //References<MerchantGoodsType>(o => o.MerchantGoodsType).Not.Nullable();
+            References<GlobalGoodsType>(o => o.GlobalGoodsType).Not.Nullable();
             References<Rent>(o => o.Rent).Not.Nullable();//Shop 1 :N Food
             //HasMany<MyFavorite>(o => o.Favorite).Inverse().Cascade.All();
         }

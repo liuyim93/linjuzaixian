@@ -79,13 +79,18 @@ namespace friday.core
 
        
 
-        public virtual MerchantGoodsType MerchantGoodsType
+        //public virtual MerchantGoodsType MerchantGoodsType
+        //{
+        //    get;
+
+        //    set;
+        //}
+        public virtual GlobalGoodsType GlobalGoodsType
         {
             get;
 
             set;
         }
-
         public virtual decimal Amount
         {
             get;
