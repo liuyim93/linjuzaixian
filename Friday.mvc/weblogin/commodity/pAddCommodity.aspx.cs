@@ -69,7 +69,7 @@ namespace Friday.mvc.weblogin
 
             Shop shop = iShopService.Load(mid);
             f.Shop = shop;
-         ///   f.MerchantGoodsType = iMerchantGoodsTypeService.GetGoodsTypeByTypeNameAndMerchantID(this.GoodsType.Value, shop.Id);
+            f.GlobalGoodsType = iGlobalGoodsTypeService.Load(GoodsTypeID.Value);
 
             iCommodityService.Save(f);
 
