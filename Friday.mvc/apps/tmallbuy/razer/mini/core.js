@@ -231,7 +231,25 @@
             return TMiniCartModel
         });
         KISSY.add("TMiniCartView", function (w) {
-            var AG = w.DOM, n = w.Event, y = w.Cookie, a, AH = window, e = document, T, AS = w.Node, Af = KISSY.UA.ie, l = (Af == 6 ? true : false), AC, u = location.hostname.indexOf(".net") > -1, Ak = u ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/", AQ = Ak + "cart/myCart.htm", AT = u ? "{app}.daily.tmall.net" : "{app}.tmall.com", d = u ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/", AJ = d + "my_cart.htm", AE = u ? "http://buy.daily.tmall.net/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8" : "http://buy.tmall.com/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8", AR = AG.viewportHeight(e), W, Ac, J, r, P, AK, t, Aa, AU, j, U, AP, AW, k, Ad, z, AN, Z = false, Al = false, Aj = false, b = 62, Y = 283, AZ = false, O, AF, AO, Q, AA;
+            var AG = w.DOM,
+                n = w.Event,
+                y = w.Cookie,
+                a,
+                AH = window,
+                e = document,
+                T,
+                AS = w.Node,
+                Af = KISSY.UA.ie,
+                l = (Af == 6 ? true : false),
+                AC,
+                u = location.hostname.indexOf(".net") > -1,
+                Ak = u ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/",
+                AQ = Ak + "cart/myCart.htm",
+                AT = u ? "{app}.daily.tmall.net" : "{app}.tmall.com",
+                d = u ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/",
+                AJ = d + "my_cart.htm",
+                AE = u ? "http://buy.daily.tmall.net/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8" : "http://buy.tmall.com/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8",
+                AR = AG.viewportHeight(e), W, Ac, J, r, P, AK, t, Aa, AU, j, U, AP, AW, k, Ad, z, AN, Z = false, Al = false, Aj = false, b = 62, Y = 283, AZ = false, O, AF, AO, Q, AA;
             function AI(S) {
                 AG.width(W, S);
                 AG.css(U, "display", S === Y ? "block" : "none")
