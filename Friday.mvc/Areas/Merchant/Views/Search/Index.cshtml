@@ -198,24 +198,25 @@ background-repeat:repeat-x;
                                                                                     <em>产品系列</em></a>
                                                                                     </li>*@
                                    
-                                       @foreach (var i in Model.merchantGoodsTypes)
-                                       {
+                                       @*@foreach (var i in Model.merchantGoodsTypes)
+                                       {*@
                                                      
                                    <li class="top_nav01  first-trigger-nav01"  >
-                                                <a  href="http://localhost:7525/merchant/search/SearchGoods?scid=@ViewData["sscid"]&goodTypeId=@i.Id">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">
-                                                    @i.GoodsType
+                                                <a  href="http://localhost:7525/merchant/search/SearchGoods?scid=@ViewData["sscid"]">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">
+                                                @*<a  href="http://localhost:7525/merchant/search/SearchGoods?scid=@ViewData["sscid"]&goodTypeId=@i.Id">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">*@
+                                                    @*@i.GoodsType*@
                                                 </span>          </a>                        
                                                                                     </li>
-                                       }
-                                                   @foreach (var i in Model.merchantGoodsTypes)
-                                                   {
+                                       @*}*@
+                                                   @*@foreach (var i in Model.merchantGoodsTypes)
+                                                   {*@
                                                      
                                    <li class="top_nav01 first-trigger-nav01"  >
                                                                     <a  href="#">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">
-                                                    @i.GoodsType
+                                                    @*@i.GoodsType*@
                                                  </span>          </a>    
                                                                                     </li>
-                                                   }
+                                                   @*}*@
 
                                                   <li class="top_nav05">
                                                   <a href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467010&amp;viewType=grid&amp;orderType=_newOn&amp;prt=1341396525549&amp;prc=1">
@@ -279,7 +280,7 @@ background-repeat:repeat-x;
                                             <div class="hesper-cats" id="J_HesperCats" role="tablist">
                                                 <ol>
                                                   <!---  商品的分类名称 女子--->
-                                                    
+@*                                                    
                                                     @if (ViewData["sgoodTypeId"].ToString()!="0")
                                                     {
                                                        <li> @Model.SingleMerchantGoodsType.GoodsType</li>
@@ -287,7 +288,7 @@ background-repeat:repeat-x;
                                                     else
                                                     {
                                                     <li>全部商品列表</li>
-                                                    }
+                                                    }*@
 
 
                                                 </ol>
