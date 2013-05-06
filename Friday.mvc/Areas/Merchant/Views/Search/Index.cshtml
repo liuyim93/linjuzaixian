@@ -457,77 +457,7 @@ background-repeat:repeat-x;
                                                    }                                               
                                             </ul>
                                               }
-                                              @if (Model.SingleMerchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
-                                              {      
-                                            <ul class="shop-list">
-                                     
-                                                   @for (var index = 0; index < Model.Houses.Count(); index++)
-                                                   {
-                                                       var item = Model.Houses.ElementAt(index);
-                                                <li>
-                                                    <div class="item">
-                                                        <div class="pic">
-                                                             <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id">
-                                                                <img src="@Url.Content("~/" + item.Image)"
-                                                                    src2="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="desc">
-                                                       <a target="_blank" href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" class="permalink"
-                                                                style="">@*@m.Name 官方*@ @item.Name </a>
-                                                        </div>
-                                                            
-                                                        <div class="price">
-                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
-                                                        </div>
-                                                        <div class="sales-amount">
-                                                            月销量：<em>@item.MonthAmount</em>件
-                                                        </div>
-                                                        <div class="rating">
-                                                       @*     <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                                (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;&amp;show_review=1#reviews"
-                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>*@
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                   }                                               
-                                            </ul>
-                                              }
-                                                @if (Model.SingleMerchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-                                                {      
-                                            <ul class="shop-list">
-                                     
-                                                   @for (var index = 0; index < Model.Foods.Count(); index++)
-                                                   {
-                                                       var item = Model.Foods.ElementAt(index);
-                                                <li>
-                                                    <div class="item">
-                                                        <div class="pic">
-                                                             <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id">
-                                                                <img src="@Url.Content("~/" + item.Image)"
-                                                                    src2="">
-                                                            </a>
-                                                        </div>
-                                                        <div class="desc">                                                       
-                                                        <a target="_blank" href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" class="permalink"
-                                                                style="">@*@m.Name 官方*@ @item.Name </a>
-                                                        </div>
-                                                        <div class="price">
-                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
-                                                        </div>
-                                                        <div class="sales-amount">
-                                                            月销量：<em>@item.MonthAmount</em>件
-                                                        </div>
-                                                        <div class="rating">
-                                                            @*<span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
-                                                                (<a target="_blank" href="http://detail.tmall.com/item.htm?id=22588020956&amp;&amp;show_review=1#reviews"
-                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>*@
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                   }                                               
-                                            </ul>
-                                                }
+
                                                     
                 <form action="http://localhost:7525/merchant/search?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" method="post">                       
                   <div class="brandPagination" style=" float:right">
