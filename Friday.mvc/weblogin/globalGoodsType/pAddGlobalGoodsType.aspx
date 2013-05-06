@@ -1,28 +1,31 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddGlobalGoodsType.aspx.cs" Inherits="Friday.mvc.weblogin.pAddGlobalGoodsType" %>
 
-<div class="pageFormContent" layoutH="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
-    <div class="panel collapse" defh="95">
-        <h1>
-            商品类型信息</h1>
-        <div>
+<div class="page">
+    <div class="pageContent">
+        <form id="form" method="post" runat="server" class="pageForm required-validate">
+        <div class="pageFormContent" layouth="56">
+            <asp:textbox id="Id" runat="server" style="display: none;" visibla="false"></asp:textbox>
+            <input name="TLevel" id="TLevel" type="hidden" runat="server"/>
             <p>
                 <label>
-                    商品类型：</label>
-                <input type="text" id="GoodsType" size="30" class="required textInput gray"  runat="server" />
+                    类型名称：</label>
+                <asp:textbox id="Name" runat="server" class="required textInput gray"></asp:textbox>
             </p>
             <p>
                 <label>
-                    商铺类型：</label>
-                <select id="MerchantType" class="required" runat="server">
-                    <option value="">请选择</option>
-                    <option value="餐馆">餐馆</option>
-                    <option value="租房">租房</option>
-                    <option value="百货">百货</option>
-                </select>
+                    类型描述：</label>
+                <asp:textbox id="Description" runat="server"></asp:textbox>
+            </p>
+            <p>
+                <label>
+                    是否是叶节点：</label>
+                <select id="Leaff" style="width:85px" runat="server" >
+					<option value="True">是</option>
+					<option value="False" selected="true">否</option>
+				</select>   
+                    
             </p>
         </div>
-    </div>
      <div class="formBar">
         <ul>
             <li>
@@ -45,9 +48,10 @@
             <li></li>
         </ul>
     </div>
-    </form>
-    <div class="divider"></div>
+        </form>
+    </div>
 </div>
+
 <script type="text/javascript">
 
     $(function () {
