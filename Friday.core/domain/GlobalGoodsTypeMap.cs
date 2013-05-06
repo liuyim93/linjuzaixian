@@ -22,6 +22,7 @@ namespace friday.core.domain
             Map(o => o.TLevel);
             Map(o => o.Name);
             Map(o => o.Leaf);
+            Map(o => o.Description);
         }
     }
 }
