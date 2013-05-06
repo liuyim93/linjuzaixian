@@ -16,23 +16,23 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         // GET: /Merchant/Search/
         private IMerchantService iMerchantService;
         private IGlobalGoodsTypeService iGlobalGoodsTypeService;
-        private IRestaurantService iRestaurantService;
-        private IRentService iRentService;
+        //private IRestaurantService iRestaurantService;
+        //private IRentService iRentService;
         private IShopService iShopService;
-        private IFoodService iFoodService;
-        private IHouseService iHouseService;
+        //private IFoodService iFoodService;
+        //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
-        public SearchController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IRestaurantService iRestaurantService, IRentService iRentService, IShopService iShopService, ICommodityService iCommodityService, IHouseService iHouseService, IFoodService iFoodService)
+        public SearchController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService,  IShopService iShopService, ICommodityService iCommodityService)
         {
             this.iMerchantService = iMerchantService;
             this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
-            this.iRentService = iRentService;
-            this.iRestaurantService = iRestaurantService;
+            //this.iRentService = iRentService;
+            //this.iRestaurantService = iRestaurantService;
             this.iShopService = iShopService;
             this.iCommodityService = iCommodityService;
-            this.iFoodService = iFoodService;
-            this.iHouseService = iHouseService;
+            //this.iFoodService = iFoodService;
+            //this.iHouseService = iHouseService;
         }
         public ActionResult SearchGoods(string page ,string scid,string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
@@ -58,27 +58,27 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
-            {
+            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+            //{
                 IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;
-            }
-            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            {
-                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
-                Restaurant restaurant = this.iRestaurantService.Load(scid);
-                searchModel.SingleRestaurant = restaurant;
-                searchModel.Foods = myFoods;
-            }
-            else
-            {
-                IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
-                Rent rent = this.iRentService.Load(scid);
-                searchModel.SingleRent = rent;
-                searchModel.Houses = myHouses;
-            }
+            //}
+            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+            //{
+            //    IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
+            //    Restaurant restaurant = this.iRestaurantService.Load(scid);
+            //    searchModel.SingleRestaurant = restaurant;
+            //    searchModel.Foods = myFoods;
+            //}
+            //else
+            //{
+            //    IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
+            //    Rent rent = this.iRentService.Load(scid);
+            //    searchModel.SingleRent = rent;
+            //    searchModel.Houses = myHouses;
+            //}
             searchModel.currentPage = currentPage;
             searchModel.pageNum = total / numPerPageValue + 1;
             searchModel.count = total;
@@ -136,27 +136,27 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int limit = numPerPageValue;
 
          
-            if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
-            {
+            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+            //{
                 IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId, orderType, start, limit, out total);
                 Shop shop = this.iShopService.Load(scid);
                 searchModel.SingleShop = shop;
                 searchModel.Commoditys = myCommodities;         
-            }
-            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            {
-                IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId,orderType, start, limit, out total);
-                Restaurant restaurant = this.iRestaurantService.Load(scid);
-                searchModel.SingleRestaurant = restaurant;
-                searchModel.Foods = myFoods;
-            }
-            else
-            {
-                IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId,orderType, start, limit, out total);
-                Rent rent = this.iRentService.Load(scid);
-                searchModel.SingleRent = rent;
-                searchModel.Houses = myHouses;
-            }
+            //}
+            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+            //{
+            //    IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId,orderType, start, limit, out total);
+            //    Restaurant restaurant = this.iRestaurantService.Load(scid);
+            //    searchModel.SingleRestaurant = restaurant;
+            //    searchModel.Foods = myFoods;
+            //}
+            //else
+            //{
+            //    IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId,orderType, start, limit, out total);
+            //    Rent rent = this.iRentService.Load(scid);
+            //    searchModel.SingleRent = rent;
+            //    searchModel.Houses = myHouses;
+            //}
             searchModel.currentPage = currentPage;
             searchModel.pageNum = total / numPerPageValue + 1;
             searchModel.count = total;

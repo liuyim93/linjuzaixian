@@ -15,17 +15,17 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         private IMerchantService iMerchantService;
         private IUserService iUserService;
         private IMyFavoriteService iMyFavoriteService;
-        private IFoodService iFoodService;
-        private IHouseService iHouseService;
+        //private IFoodService iFoodService;
+        //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
-        public FavoriteController(IMerchantService iMerchantService, IUserService iUserService, IMyFavoriteService iMyFavoriteService, IFoodService iFoodService, IHouseService iHouseService, ICommodityService iCommodityService)
+        public FavoriteController(IMerchantService iMerchantService, IUserService iUserService, IMyFavoriteService iMyFavoriteService,  ICommodityService iCommodityService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
             this.iMyFavoriteService = iMyFavoriteService;
-            this.iFoodService = iFoodService;
-            this.iHouseService = iHouseService;
+            //this.iFoodService = iFoodService;
+            //this.iHouseService = iHouseService;
             this.iCommodityService = iCommodityService;
         }
         public ActionResult Index()
@@ -100,19 +100,20 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 foreach (MyFavorite m in myFavorites)
                 {
                     myBrandsIndexModel.FavMerchants.Add(m.Merchant);
-                    if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-                    {
-                        IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(m.Merchant.Id);
-                        if (foods.Count > 0)
-                        {
-                            foreach (Food f in foods)
-                            {
-                                myBrandsIndexModel.Foods[foodIndex].Add(f);
-                            }
-                            foodIndex++;
-                        }
-                    }
-                    else if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+                    //if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+                    //{
+                    //    IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(m.Merchant.Id);
+                    //    if (foods.Count > 0)
+                    //    {
+                    //        foreach (Food f in foods)
+                    //        {
+                    //            myBrandsIndexModel.Foods[foodIndex].Add(f);
+                    //        }
+                    //        foodIndex++;
+                    //    }
+                    //}
+                    //else
+                        if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
                     {
                         IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(m.Merchant.Id);
                         if (commoditys.Count > 0)
@@ -124,18 +125,18 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             commodityIndex++;
                         }
                     }
-                    else if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
-                    {
-                        IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(m.Merchant.Id);
-                        if (houses.Count > 0)
-                        {
-                            foreach (House h in houses)
-                            {
-                                myBrandsIndexModel.Houses[houseIndex].Add(h);
-                            }
-                            houseIndex++;
-                        }
-                    }
+                    //else if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
+                    //{
+                    //    IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(m.Merchant.Id);
+                    //    if (houses.Count > 0)
+                    //    {
+                    //        foreach (House h in houses)
+                    //        {
+                    //            myBrandsIndexModel.Houses[houseIndex].Add(h);
+                    //        }
+                    //        houseIndex++;
+                    //    }
+                    //}
                     merchantIndex++;
                 }
             }

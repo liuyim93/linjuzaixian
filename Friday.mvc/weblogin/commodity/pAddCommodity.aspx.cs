@@ -16,7 +16,7 @@ namespace Friday.mvc.weblogin
     public partial class pAddCommodity : BasePage
     {
         IShopService iShopService = UnityHelper.UnityToT<IShopService>();
-       // IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
@@ -50,11 +50,11 @@ namespace Friday.mvc.weblogin
             {
 
                 Shop rst = iShopService.Load(mid);
-              //  IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
-                //foreach (var i in goodsTypes)
-                //{
-                //    this.GoodsType.Items.Add(i.GoodsType);
-                //}
+                IList<GlobalGoodsType> goodsTypes = iGlobalGoodsTypeService.GetAll();//.GetGoodsTypeByMerchantID(rst.Id);
+                foreach (var i in goodsTypes)
+                {
+                    this.GoodsType.Items.Add(i.GoodsType);
+                }
             }
 
         }

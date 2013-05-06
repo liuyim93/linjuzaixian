@@ -19,8 +19,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         private IMerchantService iMerchantService;
         private IUserService iUserService;
 
-        private IFoodService iFoodService;
-        private IHouseService iHouseService;
+        //private IFoodService iFoodService;
+        //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
         private ISkuService iSkuService;
@@ -29,29 +29,29 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         private IPropIDService iPropIDService;
 
         private IOrderOfCommodityService iOrderOfCommodityService;
-        private IOrderOfFoodService iOrderOfFoodService;
-        private IOrderOfHouseService iOrderOfHouseService;
+        //private IOrderOfFoodService iOrderOfFoodService;
+        //private IOrderOfHouseService iOrderOfHouseService;
 
         private IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService;
-        private IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService;
-        private IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService;
+        //private IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService;
+        //private IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService;
 
-        public DetailController(IMerchantService iMerchantService, IUserService iUserService, IFoodService iFoodService, IHouseService iHouseService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService, IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService, IOrderOfCommodityService iOrderOfCommodityService, IOrderOfFoodService iOrderOfFoodService, IOrderOfHouseService iOrderOfHouseService)
+        public DetailController(IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
 
-            this.iFoodService = iFoodService;
-            this.iHouseService = iHouseService;
+            //this.iFoodService = iFoodService;
+            //this.iHouseService = iHouseService;
             this.iCommodityService = iCommodityService;
 
             this.iValuingOfMyCommodityOrderService = iValuingOfMyCommodityOrderService;
-            this.iValuingOfMyFoodOrderService = iValuingOfMyFoodOrderService;
-            this.iValuingOfMyHouseOrderService = iValuingOfMyHouseOrderService;
+            //this.iValuingOfMyFoodOrderService = iValuingOfMyFoodOrderService;
+            //this.iValuingOfMyHouseOrderService = iValuingOfMyHouseOrderService;
 
             this.iOrderOfCommodityService = iOrderOfCommodityService;
-            this.iOrderOfFoodService = iOrderOfFoodService;
-            this.iOrderOfHouseService = iOrderOfHouseService;
+            //this.iOrderOfFoodService = iOrderOfFoodService;
+            //this.iOrderOfHouseService = iOrderOfHouseService;
         }
 
         public ActionResult Tab_Recommend(string brandId, string _ksTS, string callback)
@@ -77,25 +77,26 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             detailModel.Merchant = merchant;
             int index = 0;
 
-            if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            {
-                IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(merchant.Id);
-                if (foods.Count > 0)
-                {
-                    foreach (Food f in foods)
-                    {
-                        detailModel.Foods.Add(f);
+            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+            //{
+            //    IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(merchant.Id);
+            //    if (foods.Count > 0)
+            //    {
+            //        foreach (Food f in foods)
+            //        {
+            //            detailModel.Foods.Add(f);
 
-                        IList<ValuingOfMyFoodOrder> valuingOfMyFoodOrders = iValuingOfMyFoodOrderService.GetValuingOfMyFoodOrderByFoodID(f.Id);
-                        foreach (ValuingOfMyFoodOrder v in valuingOfMyFoodOrders)
-                        {
-                            detailModel.ValuingOfMyFoodOrders[index].Add(v);
-                        }
-                        index++;
-                    }
-                }
-            }
-            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+            //            IList<ValuingOfMyFoodOrder> valuingOfMyFoodOrders = iValuingOfMyFoodOrderService.GetValuingOfMyFoodOrderByFoodID(f.Id);
+            //            foreach (ValuingOfMyFoodOrder v in valuingOfMyFoodOrders)
+            //            {
+            //                detailModel.ValuingOfMyFoodOrders[index].Add(v);
+            //            }
+            //            index++;
+            //        }
+            //    }
+            //}
+            //else
+                if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             {
                 IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchant.Id);
                 if (commoditys.Count > 0)
@@ -113,24 +114,24 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     }
                 }
             }
-            else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
-            {
-                IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(merchant.Id);
-                if (houses.Count > 0)
-                {
-                    foreach (House h in houses)
-                    {
-                        detailModel.Houses.Add(h);
+            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
+            //{
+            //    IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(merchant.Id);
+            //    if (houses.Count > 0)
+            //    {
+            //        foreach (House h in houses)
+            //        {
+            //            detailModel.Houses.Add(h);
 
-                        IList<ValuingOfMyHouseOrder> valuingOfMyHouseOrders = iValuingOfMyHouseOrderService.GetValuingOfMyHouseOrderByHouseID(h.Id);
-                        foreach (ValuingOfMyHouseOrder v in valuingOfMyHouseOrders)
-                        {
-                            detailModel.ValuingOfMyHouseOrders[index].Add(v);
-                        }
-                        index++;
-                    }
-                }
-            }
+            //            IList<ValuingOfMyHouseOrder> valuingOfMyHouseOrders = iValuingOfMyHouseOrderService.GetValuingOfMyHouseOrderByHouseID(h.Id);
+            //            foreach (ValuingOfMyHouseOrder v in valuingOfMyHouseOrders)
+            //            {
+            //                detailModel.ValuingOfMyHouseOrders[index].Add(v);
+            //            }
+            //            index++;
+            //        }
+            //    }
+            //}
 
             return View(detailModel);
         }

@@ -40,13 +40,13 @@ namespace Friday.mvc.weblogin
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IRestaurantStatisticService iRestaurantStatisticService = UnityHelper.UnityToT<IRestaurantStatisticService>();
-            IFoodStatisticService iFoodStatisticService = UnityHelper.UnityToT<IFoodStatisticService>();
-            IList<FoodStatistic> foods = new List<FoodStatistic>();
+            //IRestaurantStatisticService iRestaurantStatisticService = UnityHelper.UnityToT<IRestaurantStatisticService>();
+            //IFoodStatisticService iFoodStatisticService = UnityHelper.UnityToT<IFoodStatisticService>();
+            //IList<FoodStatistic> foods = new List<FoodStatistic>();
 
-            IRentStatisticService iRentStatisticService = UnityHelper.UnityToT<IRentStatisticService>();
-            IHouseStatisticService iHouseStatisticService = UnityHelper.UnityToT<IHouseStatisticService>();
-            IList<HouseStatistic> houses = new List<HouseStatistic>();
+            //IRentStatisticService iRentStatisticService = UnityHelper.UnityToT<IRentStatisticService>();
+            //IHouseStatisticService iHouseStatisticService = UnityHelper.UnityToT<IHouseStatisticService>();
+            //IList<HouseStatistic> houses = new List<HouseStatistic>();
 
             IShopStatisticService iShopStatisticService = UnityHelper.UnityToT<IShopStatisticService>();
             ICommodityStatisticService iCommodityStatisticService = UnityHelper.UnityToT<ICommodityStatisticService>();
@@ -119,16 +119,16 @@ namespace Friday.mvc.weblogin
             dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
             dfl.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
-            if (merchantType == "0")
-            {
-                foods = iFoodStatisticService.Search(dfl, start, limit, out total);
-                repeater.DataSource = foods;
-            }
-            if (merchantType == "1")
-            {
-                houses = iHouseStatisticService.Search(dfl, start, limit, out total);
-                repeater.DataSource = houses;
-            }
+            //if (merchantType == "0")
+            //{
+            //    foods = iFoodStatisticService.Search(dfl, start, limit, out total);
+            //    repeater.DataSource = foods;
+            //}
+            //if (merchantType == "1")
+            //{
+            //    houses = iHouseStatisticService.Search(dfl, start, limit, out total);
+            //    repeater.DataSource = houses;
+            //}
             if (merchantType == "2")
             {
                 commoditys = iCommodityStatisticService.Search(dfl, start, limit, out total);

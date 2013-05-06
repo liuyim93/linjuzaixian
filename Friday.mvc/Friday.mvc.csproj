@@ -328,17 +328,6 @@
     <Compile Include="weblogin\ListCommodityByMerchant.aspx.designer.cs">
       <DependentUpon>ListCommodityByMerchant.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\ListFoodByRestaurant.aspx.cs">
-      <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListHouseByRent.aspx.cs">
-      <DependentUpon>ListHouseByRent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListHouseByRent.aspx.designer.cs">
-      <DependentUpon>ListHouseByRent.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\ListMerchantByMerchantType.aspx.cs">
       <DependentUpon>ListMerchantByMerchantType.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -352,20 +341,6 @@
     </Compile>
     <Compile Include="weblogin\ListMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListMyCommodityOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\ListMyFoodOrder.aspx.cs">
-      <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListMyFoodOrder.aspx.designer.cs">
-      <DependentUpon>ListMyFoodOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\ListMyHouseOrder.aspx.cs">
-      <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListMyHouseOrder.aspx.designer.cs">
-      <DependentUpon>ListMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\ListPropID.aspx.cs">
       <DependentUpon>ListPropID.aspx</DependentUpon>
@@ -387,20 +362,6 @@
     </Compile>
     <Compile Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>ListValuingItemOfMyCommodityOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.cs">
-      <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListValuingItemOfMyFoodOrder.aspx.designer.cs">
-      <DependentUpon>ListValuingItemOfMyFoodOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.cs">
-      <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListValuingItemOfMyHouseOrder.aspx.designer.cs">
-      <DependentUpon>ListValuingItemOfMyHouseOrder.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\loginUser\pLoginUserDetail.aspx.cs">
       <DependentUpon>pLoginUserDetail.aspx</DependentUpon>
@@ -447,9 +408,6 @@
     <Compile Include="weblogin\message\pMessageDetail.aspx.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\ListFoodByRestaurant.aspx.designer.cs">
-      <DependentUpon>ListFoodByRestaurant.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\message\pMessageDetail.aspx.designer.cs">
       <DependentUpon>pMessageDetail.aspx</DependentUpon>
@@ -509,48 +467,6 @@
     </Compile>
     <Compile Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx.designer.cs">
       <DependentUpon>pEditMyCommodityOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx.cs">
-      <DependentUpon>pAddMyFoodOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx.designer.cs">
-      <DependentUpon>pAddMyFoodOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pEditMyFoodOrder.aspx.cs">
-      <DependentUpon>pEditMyFoodOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pEditMyFoodOrder.aspx.designer.cs">
-      <DependentUpon>pEditMyFoodOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pAddMyHouseOrder.aspx.cs">
-      <DependentUpon>pAddMyHouseOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pAddMyHouseOrder.aspx.designer.cs">
-      <DependentUpon>pAddMyHouseOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pEditMyHouseOrder.aspx.cs">
-      <DependentUpon>pEditMyHouseOrder.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pEditMyHouseOrder.aspx.designer.cs">
-      <DependentUpon>pEditMyHouseOrder.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx.cs">
-      <DependentUpon>pMyHouseOrderDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx.designer.cs">
-      <DependentUpon>pMyHouseOrderDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx.cs">
-      <DependentUpon>pMyHouseOrderList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx.designer.cs">
-      <DependentUpon>pMyHouseOrderList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\orderOfCommodity\pEditOrderOfCommodity.aspx.cs">
       <DependentUpon>pEditOrderOfCommodity.aspx</DependentUpon>
@@ -839,20 +755,6 @@
     <Compile Include="weblogin\myFavorite\pMyFavoriteList.aspx.designer.cs">
       <DependentUpon>pMyFavoriteList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx.cs">
-      <DependentUpon>pMyFoodOrderDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx.designer.cs">
-      <DependentUpon>pMyFoodOrderDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.cs">
-      <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx.designer.cs">
-      <DependentUpon>pMyFoodOrderList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\systemUser\pAddSystemUser.aspx.cs">
       <DependentUpon>pAddSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -866,20 +768,6 @@
     </Compile>
     <Compile Include="weblogin\systemUser\pEditSystemUser.aspx.designer.cs">
       <DependentUpon>pEditSystemUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rent\pRentDetail.aspx.cs">
-      <DependentUpon>pRentDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rent\pRentDetail.aspx.designer.cs">
-      <DependentUpon>pRentDetail.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rent\pRentList.aspx.cs">
-      <DependentUpon>pRentList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rent\pRentList.aspx.designer.cs">
-      <DependentUpon>pRentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\school\pEditSchool.aspx.cs">
       <DependentUpon>pEditSchool.aspx</DependentUpon>
@@ -957,20 +845,6 @@
     </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.designer.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rent\pEditRent.aspx.cs">
-      <DependentUpon>pEditRent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rent\pEditRent.aspx.designer.cs">
-      <DependentUpon>pEditRent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\rent\pAddRent.aspx.cs">
-      <DependentUpon>pAddRent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\rent\pAddRent.aspx.designer.cs">
-      <DependentUpon>pAddRent.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\shop\pAddShop.aspx.cs">
       <DependentUpon>pAddShop.aspx</DependentUpon>
@@ -1613,17 +1487,11 @@
     <Content Include="weblogin\js\speedup.js" />
     <Content Include="weblogin\js\util.js" />
     <Content Include="weblogin\ListCommodityByMerchant.aspx" />
-    <Content Include="weblogin\ListFoodByRestaurant.aspx" />
-    <Content Include="weblogin\ListHouseByRent.aspx" />
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
-    <Content Include="weblogin\ListMyFoodOrder.aspx" />
-    <Content Include="weblogin\ListMyHouseOrder.aspx" />
     <Content Include="weblogin\ListPropID.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
-    <Content Include="weblogin\ListValuingItemOfMyFoodOrder.aspx" />
-    <Content Include="weblogin\ListValuingItemOfMyHouseOrder.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />
     <Content Include="weblogin\log\pLogDetail.aspx" />
     <Content Include="weblogin\merchantEmployee\pAddMerchantEmployee.aspx" />
@@ -1638,12 +1506,6 @@
     <Content Include="weblogin\MultiListSystemRole.aspx" />
     <Content Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx" />
     <Content Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx" />
-    <Content Include="weblogin\myFoodOrder\pAddMyFoodOrder.aspx" />
-    <Content Include="weblogin\myFoodOrder\pEditMyFoodOrder.aspx" />
-    <Content Include="weblogin\myHouseOrder\pAddMyHouseOrder.aspx" />
-    <Content Include="weblogin\myHouseOrder\pEditMyHouseOrder.aspx" />
-    <Content Include="weblogin\myHouseOrder\pMyHouseOrderDetail.aspx" />
-    <Content Include="weblogin\myHouseOrder\pMyHouseOrderList.aspx" />
     <Content Include="weblogin\orderOfCommodity\pEditOrderOfCommodity.aspx" />
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
@@ -1686,12 +1548,8 @@
     <Content Include="weblogin\myFavorite\pAddMyFavorite.aspx" />
     <Content Include="weblogin\myFavorite\pEditMyFavorite.aspx" />
     <Content Include="weblogin\myFavorite\pMyFavoriteList.aspx" />
-    <Content Include="weblogin\myFoodOrder\pMyFoodOrderDetail.aspx" />
-    <Content Include="weblogin\myFoodOrder\pMyFoodOrderList.aspx" />
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
-    <Content Include="weblogin\rent\pRentDetail.aspx" />
-    <Content Include="weblogin\rent\pRentList.aspx" />
     <Content Include="weblogin\school\pEditSchool.aspx" />
     <Content Include="weblogin\school\pSchoolDetail.aspx" />
     <Content Include="weblogin\school\pSchoolList.aspx" />
@@ -2438,8 +2296,6 @@
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wmp.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\img\wordimg.gif" />
     <Content Include="weblogin\xheditor\xheditor_skin\vista\ui.css" />
-    <Content Include="weblogin\rent\pEditRent.aspx" />
-    <Content Include="weblogin\rent\pAddRent.aspx" />
     <Content Include="weblogin\shop\pAddShop.aspx" />
     <Content Include="weblogin\school\pAddSchool.aspx" />
     <Content Include="weblogin\activity\pEditActivity.aspx" />

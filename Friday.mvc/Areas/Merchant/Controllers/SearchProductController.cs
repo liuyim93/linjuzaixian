@@ -16,23 +16,23 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         // GET: /Merchant/Search/
         private IMerchantService iMerchantService;
         private IGlobalGoodsTypeService iGlobalGoodsTypeService;
-        private IRestaurantService iRestaurantService;
-        private IRentService iRentService;
+        //private IRestaurantService iRestaurantService;
+        //private IRentService iRentService;
         private IShopService iShopService;
-        private IFoodService iFoodService;
-        private IHouseService iHouseService;
+        //private IFoodService iFoodService;
+        //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
-        public SearchProductController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IRestaurantService iRestaurantService, IRentService iRentService, IShopService iShopService, ICommodityService iCommodityService, IHouseService iHouseService, IFoodService iFoodService)
+        public SearchProductController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService,  IShopService iShopService, ICommodityService iCommodityService)
         {
             this.iMerchantService = iMerchantService;
             this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
-            this.iRentService = iRentService;
-            this.iRestaurantService = iRestaurantService;
+            //this.iRentService = iRentService;
+            //this.iRestaurantService = iRestaurantService;
             this.iShopService = iShopService;
             this.iCommodityService = iCommodityService;
-            this.iFoodService = iFoodService;
-            this.iHouseService = iHouseService;
+            //this.iFoodService = iFoodService;
+            //this.iHouseService = iHouseService;
         }
         public ActionResult SearchGoods()
         {
