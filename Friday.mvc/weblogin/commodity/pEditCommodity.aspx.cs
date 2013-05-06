@@ -19,7 +19,7 @@ namespace Friday.mvc.weblogin
         private Commodity f;
 
         IShopService iShopService = UnityHelper.UnityToT<IShopService>();
-        //  IMerchantGoodsTypeService iMerchantGoodsTypeService = UnityHelper.UnityToT<IMerchantGoodsTypeService>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
         MerchantCategory mCategory = new MerchantCategory();
         string mid;
 
@@ -46,13 +46,13 @@ namespace Friday.mvc.weblogin
             {
                 BindingHelper.ObjectToControl(f, this);
                 Shop rst = iShopService.Load(mid);
-                //IList<MerchantGoodsType> goodsTypes = iMerchantGoodsTypeService.GetGoodsTypeByMerchantID(rst.Id);
-                //foreach (var i in goodsTypes)
-                //{
-                //    this.GoodsType.Items.Add(i.GoodsType);
-                //}
-                //MerchantGoodsType merchantGoodsType = iMerchantGoodsTypeService.Load(f.MerchantGoodsType.Id);
-                //this.GoodsType.Value = merchantGoodsType.GoodsType;
+                IList<GlobalGoodsType> goodsTypes =iGlobalGoodsTypeService.GetAll();
+                foreach (var i in goodsTypes)
+                {
+                    this.GoodsType.Items.Add(i.GoodsType);
+                }
+                GlobalGoodsType golbalGoodsType = iGlobalGoodsTypeService.Load(f.GlobalGoodsType.Id);
+                this.GoodsType.Value = golbalGoodsType.GoodsType;
 
             }
         }
