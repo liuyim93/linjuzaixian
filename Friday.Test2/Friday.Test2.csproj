@@ -97,11 +97,30 @@
     <Compile Include="PopulateFakeActivityDataTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="PopulateFakeMerchantAndGoodsPictureDataTest.cs" />
     <Compile Include="PopulateRealPermissionDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Test_Activity.cs" />
+    <Compile Include="Test_Commodity.cs" />
+    <Compile Include="Test_CommodityStatistic.cs" />
+    <Compile Include="Test_FeedBackSearch.cs" />
+    <Compile Include="Test_Merchant.cs" />
+    <Compile Include="Test_MerchantCategory.cs" />
+    <Compile Include="Test_Message.cs" />
+    <Compile Include="Test_MessageMultiSearch.cs" />
+    <Compile Include="Test_Permission.cs" />
+    <Compile Include="Test_Prop.cs" />
+    <Compile Include="Test_SchoolOfMerchant.cs" />
+    <Compile Include="Test_Shop.cs" />
+    <Compile Include="Test_ShopMultiSearch.cs" />
+    <Compile Include="Test_ShopStatistic.cs" />
+    <Compile Include="Test_Sku.cs" />
+    <Compile Include="Test_SystemUser.cs" />
+    <Compile Include="Test_ValuingOfMyCommodityOrder.cs" />
+    <Compile Include="User_Service_Test.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="uploadImage\activityImage\jpeg1.jpg" />

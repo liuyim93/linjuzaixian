@@ -1348,7 +1348,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(sgts);
             }
             //2级"珠宝饰品/手表眼镜"
-            string[] SecdForJewelry  = { "珠宝","手表","饰品","太阳镜","ZIPPO","钻石","珍珠","黄金","项链","手镯" };
+            string[] SecdForJewelry = { "珠宝/黄金", "手表", "饰品", "太阳镜", "ZIPPO", "钻石", "珍珠", "项链", "手镯" };
             for (int i = 0; i < SecdForJewelry.Length; i++)
             {
 
@@ -1529,12 +1529,12 @@ namespace Friday.Test2
             {
                 GlobalGoodsType tgtjw = new GlobalGoodsType()
                 {
-                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝").Id,
+                    ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝/黄金").Id,
                     Name = ThrdForJawlery[i],
                     Leaf = false,
                     TLevel = 2,
                     IsDelete = false,
-                    Description = "3级详细目录—珠宝"
+                    Description = "3级详细目录—珠宝/黄金"
                 };
                 iGlobalGoodsTypeService.Save(tgtjw);
             }

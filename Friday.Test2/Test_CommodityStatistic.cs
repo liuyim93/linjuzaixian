@@ -34,7 +34,7 @@ namespace Friday.Test2
             ICommodityStatisticRepository iCommodityStatisticRepository = UnityHelper.UnityToT<ICommodityStatisticRepository>();
             IRepository<Commodity> iCommodityRepository = UnityHelper.UnityToT<IRepository<Commodity>>();
             IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
-            IRepository<MerchantGoodsType> iMerchantGoodsTypeRepository = UnityHelper.UnityToT<IRepository<MerchantGoodsType>>();
+            IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = new GlobalGoodsTypeRepository();
             IList<CommodityStatistic> iCommodityStatistics = new List<CommodityStatistic>();
 
             string shpName1 = Guid.NewGuid().ToString().GetHashCode().ToString();
@@ -51,12 +51,12 @@ namespace Friday.Test2
             };
             iShopRepository.SaveOrUpdate(shp1);
 
-            MerchantGoodsType mg1 = new MerchantGoodsType()
-            {
-                Merchant = shp1,
-                GoodsType = mgName1
-            };
-            iMerchantGoodsTypeRepository.SaveOrUpdate(mg1);
+            //MerchantGoodsType mg1 = new MerchantGoodsType()
+            //{
+            //    Merchant = shp1,
+            //    GoodsType = mgName1
+            //};
+            //iMerchantGoodsTypeRepository.SaveOrUpdate(mg1);
 
 
 
@@ -67,19 +67,19 @@ namespace Friday.Test2
             };
             iShopRepository.SaveOrUpdate(shp2);
 
-            MerchantGoodsType mg2 = new MerchantGoodsType()
-            {
-                Merchant = shp2,
-                GoodsType = mgName2
-            };
-            iMerchantGoodsTypeRepository.SaveOrUpdate(mg2);
+            //MerchantGoodsType mg2 = new MerchantGoodsType()
+            //{
+            //    Merchant = shp2,
+            //    GoodsType = mgName2
+            //};
+            //iMerchantGoodsTypeRepository.SaveOrUpdate(mg2);
 
             Commodity cmd1 = new Commodity()
             {
                 Name = cmdName1,
                 Amount = 100,
                 Shop = shp1,
-                MerchantGoodsType = mg1
+                GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("黄金")
             };
             iCommodityRepository.SaveOrUpdate(cmd1);
 
@@ -88,7 +88,7 @@ namespace Friday.Test2
                 Name = cmdName2,
                 Amount = 100,
                 Shop = shp2,
-                MerchantGoodsType = mg2
+                GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("钻石")
             };
             iCommodityRepository.SaveOrUpdate(cmd2);
 

@@ -19,7 +19,7 @@ namespace Friday.mvc.weblogin.sku
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            tagName = systemFunctionObjectService.基本信息模块.顾客账号维护.TagName;
+            tagName = systemFunctionObjectService.商店模块.商品维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();

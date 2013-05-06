@@ -57,10 +57,10 @@ namespace Friday.Test2
                   reposch.SaveOrUpdate(s);              
               }
 
-              IRepository<Rent> reporent = UnityHelper.UnityToT<IRepository<Rent>>();
-              IList<Rent> rents = new List<Rent>();
+              IRepository<Shop> reposhop = UnityHelper.UnityToT<IRepository<Shop>>();
+              IList<Shop> shops = new List<Shop>();
 
-              Rent r1 = new Rent()
+              Shop r1 = new Shop()
               {
                   Distance = "学校租房10",
                   Address = "学校租房erhuan10",
@@ -71,10 +71,10 @@ namespace Friday.Test2
                   Rate = 10
 
               };
-              rents.Add(r1);
+              shops.Add(r1);
 
              
-              Rent r2 = new Rent()
+              Shop r2 = new Shop()
               {
                   Distance = "学校租房20",
                   Address = "学校租房erhuan20",
@@ -84,11 +84,11 @@ namespace Friday.Test2
                   Owener = "学校租房basil20",
                   Rate = 20
               };
-              rents.Add(r2);
+              shops.Add(r2);
 
-              foreach (Rent r in rents)
+              foreach (Shop r in shops)
               {
-                  reporent.SaveOrUpdate(r);
+                  reposhop.SaveOrUpdate(r);
               }
 
               IRepository<SchoolOfMerchant> reposchofmer = UnityHelper.UnityToT<IRepository<SchoolOfMerchant>>();

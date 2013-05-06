@@ -23,16 +23,16 @@ namespace Friday.Test2
 
             IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
             IRepository<Commodity> iCommodityRepository = UnityHelper.UnityToT<IRepository<Commodity>>();
-            IRepository<Food> iFoodRepository = UnityHelper.UnityToT<IRepository<Food>>();
-            IRepository<House> iHouseRepository = UnityHelper.UnityToT<IRepository<House>>();
-            IRepository<GlobalGoodsType> iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IRepository<GlobalGoodsType>>();
+            //IRepository<Food> iFoodRepository = UnityHelper.UnityToT<IRepository<Food>>();
+            //IRepository<House> iHouseRepository = UnityHelper.UnityToT<IRepository<House>>();
+            IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository =new GlobalGoodsTypeRepository();
            
             IList<Commodity> iCommodities = new List<Commodity>();
-            IList<Food> iFoods = new List<Food>();
-            IList<House> iHouses = new List<House>();
+            //IList<Food> iFoods = new List<Food>();
+            //IList<House> iHouses = new List<House>();
             IList<Merchant> iMerchants = new List<Merchant>();
             string[] mctName = { "山东大厦", "南郊宾馆", "东郊宾馆", "中豪大酒店", "贵和皇冠酒店", "银座泉城酒店", "金马丽晶大酒店", "大润发", "银座商城", "沃尔玛", "全聚德", "安泰置业", "润华置业", "明德置业", "金汉斯", "苏宁","国美" };
-            string[] commodityName = { "男装", "女装", "外套", "内衣", "首饰", "香水", "戒指", "裙子", "运动鞋", "皮包", "洗面奶", "餐具", "家具"};
+            string[] commodityName = { "T恤热卖29元起","短袖","T恤","衬衫","POLO衫","休闲短裤","牛仔短裤","亚麻裤","夏季背心","薄针织衫","休闲长裤","牛仔长裤","卫衣","西装","夹克风衣","西裤","西服套装","大码男装","中老年男装","设计潮牌" };
             //string[] houseName = { "旋转楼梯", "总统套房", "花园别墅", "休闲卧室", "温馨餐厅", "淡雅书房", "绿色阳台"};
             //string[] foodName = { "茶叶", "蛋糕", "减肥茶", "红酒", "营养品", "花生油", "奶粉" };
 
@@ -49,18 +49,18 @@ namespace Friday.Test2
                 iMerchants.Add(mcht);
                 iMerchantRepository.SaveOrUpdate(mcht);
 
-                GlobalGoodsType globalGoodsType = new friday.core.domain.GlobalGoodsType()
-                {
-                     GoodsType = "商品"
-                };
-                iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
+                //GlobalGoodsType globalGoodsType = new friday.core.domain.GlobalGoodsType()
+                //{
+                //     GoodsType = "商品"
+                //};
+                //iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
 
                 Commodity commodity = new Commodity()
                 {
                     Name = commodityName[i],
                     Image = "/uploadimage/c" + (i+1) + ".jpg",
                     Shop = mcht,
-                    GlobalGoodsType = globalGoodsType
+                    GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士")
                 };
                 iCommodityRepository.SaveOrUpdate(commodity);
             }

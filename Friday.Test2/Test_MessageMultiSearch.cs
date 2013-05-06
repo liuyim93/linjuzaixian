@@ -40,7 +40,7 @@ namespace Friday.Test2
             IList<Message> iMessages = new List<Message>();
            IRepository<MessageContent> iMessageContentRepository = UnityHelper.UnityToT<IRepository<MessageContent>>();
             ILoginUserRepository iLoginUserRepository = UnityHelper.UnityToT<ILoginUserRepository>();
-            IRepository<Restaurant> iRestaurantRepository = UnityHelper.UnityToT<IRepository<Restaurant>>();
+            IRepository<Shop> iShopRepository = UnityHelper.UnityToT<IRepository<Shop>>();
 
             LoginUser lu1 = new LoginUser();
             lu1.LoginName = loginName;
@@ -52,13 +52,13 @@ namespace Friday.Test2
             lu2.Password = loginName2;
             iLoginUserRepository.SaveOrUpdate(lu2);
 
-            Restaurant rst1 = new Restaurant();
+            Shop rst1 = new Shop();
             rst1.Name = restName1;
-            iRestaurantRepository.SaveOrUpdate(rst1);
+            iShopRepository.SaveOrUpdate(rst1);
 
-            Restaurant rst2 = new Restaurant();
+            Shop rst2 = new Shop();
             rst2.Name = restName2;
-            iRestaurantRepository.SaveOrUpdate(rst2);
+            iShopRepository.SaveOrUpdate(rst2);
             
             MessageContent Mescnt = new MessageContent();
             Mescnt.Content = "大润发促销活动马上结束";

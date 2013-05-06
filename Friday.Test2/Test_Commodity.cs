@@ -35,8 +35,8 @@ namespace friday.coretest
             IShopRepository shoprep = new ShopRepository();
             Shop shop = shoprep.SearchByShortName("银座");
 
-            IMerchantGoodsTypeRepository merchantGoodsTyperep = new MerchantGoodsTypeRepository();
-            MerchantGoodsType mgt = merchantGoodsTyperep.GetGoodsTypeByTypeNameAndMerchantID("金制品", shop.Id);
+            IGlobalGoodsTypeRepository globalGoodsTyperep = new GlobalGoodsTypeRepository();
+            GlobalGoodsType mgt = globalGoodsTyperep.GetGlobalGoodsTypeByName("黄金");
 
             for (int i = 0; i < 40; i++) 
             {
@@ -47,7 +47,7 @@ namespace friday.coretest
                     Image = "/uploadimage/c" + (i%10+1) + ".jpg",
                     IsDiscount = false,
                     InventoryCount = 100,
-                    MerchantGoodsType = mgt,
+                    GlobalGoodsType = mgt,
                     Shop = shop,
                     ValuingCount=i,
                     Amount=i*10,
@@ -65,7 +65,7 @@ namespace friday.coretest
                     Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
                     IsDiscount = false,
                     InventoryCount = 100,
-                    MerchantGoodsType = mgt,
+                    GlobalGoodsType = mgt,
                     Shop = shop,
                     ValuingCount = i,
                     Amount = i * 10,

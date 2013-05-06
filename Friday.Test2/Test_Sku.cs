@@ -40,14 +40,14 @@ namespace friday.coretest
             IShopRepository shoprep = new ShopRepository();
             Shop shop = shoprep.SearchByShortName("银座");
 
-            IMerchantGoodsTypeRepository merchantGoodsTyperep = new MerchantGoodsTypeRepository();
+            IGlobalGoodsTypeRepository globalGoodsTyperep = new GlobalGoodsTypeRepository();
             //MerchantGoodsType mgt1 = merchantGoodsTyperep.GetGoodsTypeByTypeNameAndMerchantID("金制品", shop.Id);
-            MerchantGoodsType mgt = new MerchantGoodsType()
-            {
-                 GoodsType="服装",
-                  Merchant=shop,                   
-            };
-            merchantGoodsTyperep.SaveOrUpdate(mgt);
+            //MerchantGoodsType mgt = new MerchantGoodsType()
+            //{
+            //     GoodsType="服装",
+            //      Merchant=shop,                   
+            //};
+            //merchantGoodsTyperep.SaveOrUpdate(mgt);
 
 
             //添加规格类型
@@ -159,7 +159,7 @@ namespace friday.coretest
                     Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
                     IsDiscount = false,
                     //InventoryCount = 100,
-                    MerchantGoodsType = mgt,
+                    GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("连衣裙"),
                     Shop = shop,
                     ValuingCount = i,
                     Amount = i * 10,
