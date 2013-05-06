@@ -10,7 +10,9 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
         undel: "/cart/undelCart.do",
         loginIndicator: "http://buy." + I + "/auction/buy.htm?from=cart",
         login: "https://login." + I + "/member/login.jhtml?from=buy&style=mini&redirect_url=http%3A%2F%2Fcart." + (P ? "daily.tmall.net" : "tmall.com") + "%2Fcart%2Flogin_success.htm%3Ffrom%3Dcart&is_ignore=false",
-        go: "http://buy." + (P ? "daily.tmall.net" : "tmall.com") + "/order/confirm_order.htm?from=cart"
+        //2013-05-06 basilwang use our own
+        //go: "http://buy." + (P ? "daily.tmall.net" : "tmall.com") + "/order/confirm_order.htm?from=cart"
+        go: "http://localhost:7525/Order/Home/ComformOrder?from=cart"
     };
     if ("jz" === D.mode) {
         A.go = A.go.replace("buy.", "obuy.")
@@ -49,7 +51,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
             D.setConfig(R);
             B.init();
             this.load({
-                tip: "\u6b63\u5728\u52a0\u8f7d\u8d2d\u7269\u8f66\uff0c\u8bf7\u7a0d\u5019",
+                tip: "正在加载购物车，请稍候",
                 callback: function () {
                     var S = P ? "assets.daily.taobao.net" : "a.tbcdn.cn";
                     B.floodwood(Q.get("#cashier"));
@@ -63,7 +65,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
             });
             F.init();
             M.init({
-                title: "\u7ed9\u8d2d\u7269\u8f66\u63d0\u5efa\u8bae"
+                title: "给购物车提建议"
             })
         },
         stat: function (R) {
@@ -94,7 +96,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
             }
             var Y = function () {
                 if (V >= X) {
-                    alert("\u8bf7\u6c42\u8d85\u65f6\uff0c\u8bf7\u7a0d\u5019\u91cd\u8bd5");
+                    alert("请求超时，请稍候重试");
                     return Z()
                 }
                 var c = U.mcartdata;
@@ -106,7 +108,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                         Q.addClass(document.body, "cartReady")
                     } else {
                         var b = c.error || {};
-                        B.renderError(b.errorMessage || "\u5bf9\u4e0d\u8d77\uff0c\u7cfb\u7edf\u51fa\u9519!");
+                        B.renderError(b.errorMessage || "对不起，系统出错!");
                         R.className = "m-error";
                         Q.removeClass(document.body, "cartReady");
                         Q.addClass(document.body, "cartError")
@@ -295,7 +297,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                 }
             });
             if (S.length) {
-                S = '<div id="J_ClearHelper"><h4>\u957f\u671f\u672a\u5173\u6ce8\u5546\u54c1</h4><div class="item-list">' + S.join("") + '</div><div class="options"><a class="delSelected" href="#">\u5220\u9664\u9009\u4e2d</a><a class="moveFav" href="#">\u79fb\u5165\u6536\u85cf\u5939</a></div>';
+                S = '<div id="J_ClearHelper"><h4>长期未关注商品</h4><div class="item-list">' + S.join("") + '</div><div class="options"><a class="delSelected" href="#">\u5220\u9664\u9009\u4e2d</a><a class="moveFav" href="#">\u79fb\u5165\u6536\u85cf\u5939</a></div>';
                 var T = window.TML;
                 if (T) {
                     if (!T.Overlay) {
@@ -344,7 +346,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                     elCls: "clear-overlay",
                     width: 878,
                     skin: "gray",
-                    headerContent: "\u8d2d\u7269\u8f66\u6e05\u7406\u52a9\u624b",
+                    headerContent: "购物车清理助手",
                     bodyContent: T,
                     mask: true
                 });
@@ -352,7 +354,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                 var W = function (Z, a) {
                     R.recordClearedCarts(a);
                     var b = G.calculateStatusNum();
-                    Y.set("bodyContent", '<div class="result"><s></s>\u6e05\u7406\u6210\u529f\uff01\u8d2d\u7269\u8f66\u5269\u4f59\u5bb9\u91cf' + (b.total - a.length) + "\u4ef6</div>");
+                    Y.set("bodyContent", '<div class="result"><s></s>清理成功！购物车剩余容量' + (b.total - a.length) + "件</div>");
                     setTimeout(function () {
                         Y.hide()
                     }, 3000)
@@ -388,7 +390,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                         if (Q.hasClass(this, "delSelected")) {
                             R.stat2("2.9?clear=delete");
                             if (0 === e.length) {
-                                return U(this, "\u8bf7\u9009\u62e9\u9700\u8981\u5220\u9664\u7684\u5546\u54c1")
+                                return U(this, "请选择需要删除的商品")
                             }
                             G.async("delete", e, {
                                 success: function () {
@@ -399,7 +401,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                             if (Q.hasClass(this, "moveFav")) {
                                 R.stat2("2.9?clear=removefav");
                                 if (0 === e.length) {
-                                    return U(this, "\u8bf7\u9009\u62e9\u9700\u8981\u79fb\u5165\u6536\u85cf\u5939\u7684\u5546\u54c1")
+                                    return U(this, "请选择需要移入收藏夹的商品")
                                 }
                                 var a = [];
                                 K.each(d, function (g, f) {
@@ -422,7 +424,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                                             alert(g.error)
                                         }
                                     } else {
-                                        alert("\u7cfb\u7edf\u9519\u8bef\uff0c\u8bf7\u7a0d\u540e\u91cd\u8bd5")
+                                        alert("系统错误，请稍后重试")
                                     }
                                 })
                             }
@@ -700,7 +702,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                     var V = "<s></s>";
                     var U = Z.status;
                     if (U) {
-                        V += '<div class="msg fav-status"><p class="ok">\u6210\u529f\u79fb\u81f3\u6536\u85cf\u5939</p></div>'
+                        V += '<div class="msg fav-status"><p class="ok">成功移至收藏夹</p></div>'
                     } else {
                         var X = Z.message;
                         if (8 === X.errorCode) {
@@ -750,18 +752,18 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                             D.Event.fire("sss", U.globalData.sss)
                         }
                         R.load({
-                            tip: "\u91cd\u65b0\u52a0\u8f7d\u8d2d\u7269\u8f66\u4e2d\uff0c\u8bf7\u7a0d\u5019",
+                            tip: "重新加载购物车中，请稍候",
                             callback: function () {
                                 Q.scrollIntoView(Q.parent("#order_" + S[0], "table"))
                             }
                         })
                     } else {
                         var T = U.error;
-                        alert(T.errorMessage || "\u64a4\u9500\u672c\u6b21\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5")
+                        alert(T.errorMessage || "撤销本次删除失败，请重试")
                     }
                 },
                 error: function () {
-                    alert("\u64a4\u9500\u672c\u6b21\u5220\u9664\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5")
+                    alert("撤销本次删除失败，请重试")
                 },
                 timeout: 5
             })
@@ -770,7 +772,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
             this.stat2("2.9?action=deleteitem");
             R = B.getOrderEl(R);
             B.highlightOrder(R);
-            if (confirm("\u786e\u8ba4\u8981\u5220\u9664\u8be5\u5b9d\u8d1d\u5417\uff1f")) {
+            if (confirm("确认要删除该宝贝吗？")) {
                 this._del([R])
             } else {
                 B.unHighlightOrder(R)
@@ -780,13 +782,13 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
             var R = Q.parent(S, "table.m-trunk");
             B.highlightTrunk(R);
             this.stat2("2.9?action=deleteitem");
-            if (confirm("\u786e\u5b9a\u8981\u5220\u9664 \u9009\u4e2d \u7684\u5b9d\u8d1d\u5417\uff1f")) {
+            if (confirm("确定要删除 选中 的宝贝吗？")) {
                 this._del(Q.query("tr.m-order", R))
             }
             B.unHighlightTrunk(R)
         },
         delInvalid: function () {
-            if (confirm("\u786e\u5b9a\u8981\u6e05\u9664\u5931\u6548\u7684\u5b9d\u8d1d\u5417\uff1f")) {
+            if (confirm("确定要清除失效的宝贝吗？")) {
                 this.stat2("2.9?action=delunvalid");
                 this._del(Q.query("tr.m-invalid"), {
                     type: "deleteInvalid"
@@ -802,10 +804,10 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                 }
             });
             if (0 === R.length) {
-                alert("\u8bf7\u9009\u62e9\u5b9d\u8d1d");
+                alert("请选择宝贝");
                 return
             }
-            if (confirm("\u786e\u8ba4\u8981\u5220\u9664\u9009\u4e2d\u7684\u5b9d\u8d1d\u5417\uff1f")) {
+            if (confirm("确认要删除选中的宝贝吗？")) {
                 this._del(R)
             }
         },

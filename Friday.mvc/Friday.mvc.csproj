@@ -1509,6 +1509,7 @@
     <Content Include="apps\malldetail\4.0\data\data.js" />
     <Content Include="apps\malldetail\4.0\dc\dc.js" />
     <Content Include="apps\malldetail\4.0\detail.js" />
+    <Content Include="apps\malldetail\4.0\external\xCrossIframe.js" />
     <Content Include="apps\malldetail\4.0\mui.css" />
     <Content Include="apps\malldetail\4.0\other\atp.js" />
     <Content Include="apps\malldetail\4.0\other\attributes.css" />
@@ -1733,6 +1734,7 @@
     <Content Include="Images\T1_360XiFkXXcu5FDa-20-20.png" />
     <Content Include="Images\T2lglFXepNXXXXXXXX_!!890482188.jpg" />
     <Content Include="p\mall\2.0\js\direct-promo.js" />
+    <Content Include="p\mall\2.0\js\xdomain-agency_v2.js" />
     <Content Include="p\mall\2.0\js\zeroclipboard.js" />
     <Content Include="p\header\adapter-min.js" />
     <Content Include="p\header\webww-min.js" />
@@ -2896,6 +2898,7 @@
     <Content Include="Areas\Account\Views\Home\token.cshtml" />
     <Content Include="Areas\CartPay\Views\Web.config" />
     <Content Include="Areas\CartPay\Views\Home\MyCartPay.cshtml" />
+    <Content Include="Areas\Account\Views\Home\XCrossIframe.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />

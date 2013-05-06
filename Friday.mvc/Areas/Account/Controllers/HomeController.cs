@@ -115,6 +115,10 @@ namespace Friday.mvc.Areas.Account.Controllers
             string t = Guid.NewGuid().ToString();
             return View();
         }
+        public ActionResult XCrossIframe()
+        {
+            return View();
+        }
 
 
     }
