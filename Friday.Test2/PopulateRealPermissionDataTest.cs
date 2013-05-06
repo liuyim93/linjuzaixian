@@ -20,21 +20,21 @@ namespace Friday.Test2
         private IList<SystemMenu> adminMenuCheckList = new List<SystemMenu>();
         private IList<SystemMenu> customerMenuCheckList = new List<SystemMenu>();
         private IList<SystemMenu> shopOwnerMenuCheckList = new List<SystemMenu>();
-        private IList<SystemMenu> restaruantOwnerMenuCheckList = new List<SystemMenu>();
-        private IList<SystemMenu> rentOwnerMenuCheckList = new List<SystemMenu>();
+        //private IList<SystemMenu> restaruantOwnerMenuCheckList = new List<SystemMenu>();
+        //private IList<SystemMenu> rentOwnerMenuCheckList = new List<SystemMenu>();
         private IList<SystemMenu> shopMemberMenuCheckList = new List<SystemMenu>();
-        private IList<SystemMenu> restaurantMemberMenuCheckList = new List<SystemMenu>();
-        private IList<SystemMenu> rentMemberMenuCheckList = new List<SystemMenu>();
+        //private IList<SystemMenu> restaurantMemberMenuCheckList = new List<SystemMenu>();
+        //private IList<SystemMenu> rentMemberMenuCheckList = new List<SystemMenu>();
 
         //每个角色拥有的特点权限的功能点,需要根据实际情况维护
         private IList<SystemFunctionObject> adminSFOCheckList = new List<SystemFunctionObject>();
         private IList<SystemFunctionObject> customerSFOCheckList = new List<SystemFunctionObject>();
         private IList<SystemFunctionObject> shopOwnerSFOCheckList = new List<SystemFunctionObject>();
-        private IList<SystemFunctionObject> restaruantOwnerSFOCheckList = new List<SystemFunctionObject>();
-        private IList<SystemFunctionObject> rentOwnerSFOCheckList = new List<SystemFunctionObject>();
+        //private IList<SystemFunctionObject> restaruantOwnerSFOCheckList = new List<SystemFunctionObject>();
+        //private IList<SystemFunctionObject> rentOwnerSFOCheckList = new List<SystemFunctionObject>();
         private IList<SystemFunctionObject> shopMemberSFOCheckList = new List<SystemFunctionObject>();
-        private IList<SystemFunctionObject> restaurantMemberSFOCheckList = new List<SystemFunctionObject>();
-        private IList<SystemFunctionObject> rentMemberSFOCheckList = new List<SystemFunctionObject>();
+        //private IList<SystemFunctionObject> restaurantMemberSFOCheckList = new List<SystemFunctionObject>();
+        //private IList<SystemFunctionObject> rentMemberSFOCheckList = new List<SystemFunctionObject>();
         ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
         ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         private LoginUser adminLoginUser;
@@ -57,11 +57,13 @@ namespace Friday.Test2
             iSystemFunctionObjectService.Generate();
             //添加关联
             add_ObjectInRole();
+            //添加全局商品类型
+            add_GlobalGoodsType();
             //添加商店分类
             add_MerchantCategory();
             //添加商铺的相关信息
-            add_RestaurantInfo();
-            add_RentInfo();
+            //add_RestaurantInfo();
+            //add_RentInfo();
             add_ShopInfo();
         }
 
@@ -106,17 +108,17 @@ namespace Friday.Test2
             };
             iSystemRoleRepository.SaveOrUpdate(shopOwner);
 
-            SystemRole restaruantOwner = new SystemRole()
-            {
-                Name = "餐馆店主",
-            };
-            iSystemRoleRepository.SaveOrUpdate(restaruantOwner);
+            //SystemRole restaruantOwner = new SystemRole()
+            //{
+            //    Name = "餐馆店主",
+            //};
+            //iSystemRoleRepository.SaveOrUpdate(restaruantOwner);
 
-            SystemRole rentOwner = new SystemRole()
-            {
-                Name = "租房店主",
-            };
-            iSystemRoleRepository.SaveOrUpdate(rentOwner);
+            //SystemRole rentOwner = new SystemRole()
+            //{
+            //    Name = "租房店主",
+            //};
+            //iSystemRoleRepository.SaveOrUpdate(rentOwner);
 
             SystemRole shopMember = new SystemRole()
             {
@@ -124,17 +126,17 @@ namespace Friday.Test2
             };
             iSystemRoleRepository.SaveOrUpdate(shopMember);
 
-            SystemRole restaurantMember = new SystemRole()
-            {
-                Name = "餐馆店小二",
-            };
-            iSystemRoleRepository.SaveOrUpdate(restaurantMember);
+            //SystemRole restaurantMember = new SystemRole()
+            //{
+            //    Name = "餐馆店小二",
+            //};
+            //iSystemRoleRepository.SaveOrUpdate(restaurantMember);
 
-            SystemRole rentMember = new SystemRole()
-            {
-                Name = "租房店小二",
-            };
-            iSystemRoleRepository.SaveOrUpdate(rentMember);
+            //SystemRole rentMember = new SystemRole()
+            //{
+            //    Name = "租房店小二",
+            //};
+            //iSystemRoleRepository.SaveOrUpdate(rentMember);
         }
         //添加匿名用户
         private void add_Anonymous_SystemUsers()
@@ -174,32 +176,32 @@ namespace Friday.Test2
         {
             IRepository<SystemMenu> iSystemMenuRepository = UnityHelper.UnityToT<IRepository<SystemMenu>>();
 
-            //餐馆模块
-            SystemMenu restaurantModel = new SystemMenu()
-            {
-                Name = "餐馆模块",
-                Leaf = false,
-                ParentID = null,
-                TLevel = 0,
-                ColIndex = 1
+            ////餐馆模块
+            //SystemMenu restaurantModel = new SystemMenu()
+            //{
+            //    Name = "餐馆模块",
+            //    Leaf = false,
+            //    ParentID = null,
+            //    TLevel = 0,
+            //    ColIndex = 1
 
-            };
-            iSystemMenuRepository.SaveOrUpdate(restaurantModel);
-            adminMenuCheckList.Add(restaurantModel);
-            restaruantOwnerMenuCheckList.Add(restaurantModel);
-            restaurantMemberMenuCheckList.Add(restaurantModel);
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(restaurantModel);
+            //adminMenuCheckList.Add(restaurantModel);
+            //restaruantOwnerMenuCheckList.Add(restaurantModel);
+            //restaurantMemberMenuCheckList.Add(restaurantModel);
            
-            SystemMenu restaurantMange = new SystemMenu()
-            {
-                Name = "餐馆管理",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "restaurant/pRestaurantList.aspx",
-                TLevel = 1,
-                ColIndex = 1
-            };
-            iSystemMenuRepository.SaveOrUpdate(restaurantMange);
-            adminMenuCheckList.Add(restaurantMange);
+            //SystemMenu restaurantMange = new SystemMenu()
+            //{
+            //    Name = "餐馆管理",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "restaurant/pRestaurantList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 1
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(restaurantMange);
+            //adminMenuCheckList.Add(restaurantMange);
             //restaruantOwnerMenuCheckList.Add(restaurantMange);
 
             //SystemMenu foodOrderDetail = new SystemMenu()
@@ -217,74 +219,74 @@ namespace Friday.Test2
             //restaurantMemberMenuCheckList.Add(foodOrderDetail);
          
 
-            SystemMenu foodOrder = new SystemMenu()
-            {
-                Name = "食品订单管理",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "myFoodOrder/pMyFoodOrderList.aspx",
-                TLevel = 1,
-                ColIndex = 3
-            };
-            iSystemMenuRepository.SaveOrUpdate(foodOrder);
-            adminMenuCheckList.Add(foodOrder);
-            restaruantOwnerMenuCheckList.Add(foodOrder);
-            restaurantMemberMenuCheckList.Add(foodOrder);
+            //SystemMenu foodOrder = new SystemMenu()
+            //{
+            //    Name = "食品订单管理",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "myFoodOrder/pMyFoodOrderList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 3
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(foodOrder);
+            //adminMenuCheckList.Add(foodOrder);
+            //restaruantOwnerMenuCheckList.Add(foodOrder);
+            //restaurantMemberMenuCheckList.Add(foodOrder);
           
 
-            SystemMenu food = new SystemMenu()
-            {
-                Name = "菜品管理",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "food/pFoodList.aspx",
-                TLevel = 1,
-                ColIndex = 4
-            };
-            iSystemMenuRepository.SaveOrUpdate(food);
-            adminMenuCheckList.Add(food);
-            restaruantOwnerMenuCheckList.Add(food);
-            restaurantMemberMenuCheckList.Add(food);
+            //SystemMenu food = new SystemMenu()
+            //{
+            //    Name = "菜品管理",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "food/pFoodList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 4
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(food);
+            //adminMenuCheckList.Add(food);
+            //restaruantOwnerMenuCheckList.Add(food);
+            //restaurantMemberMenuCheckList.Add(food);
 
-            SystemMenu restaurantEditMange = new SystemMenu()
-            {
-                Name = "餐馆编辑",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "restaurant/pEditRestaurant.aspx",
-                TLevel = 1,
-                ColIndex = 5
-            };
-            iSystemMenuRepository.SaveOrUpdate(restaurantEditMange);
-            restaruantOwnerMenuCheckList.Add(restaurantEditMange);
+            //SystemMenu restaurantEditMange = new SystemMenu()
+            //{
+            //    Name = "餐馆编辑",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "restaurant/pEditRestaurant.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 5
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(restaurantEditMange);
+            //restaruantOwnerMenuCheckList.Add(restaurantEditMange);
 
-            SystemMenu valuingOfMyFoodOrder = new SystemMenu()
-            {
-                Name = "餐馆订单评价管理",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "valuingOfMyFoodOrder/pValuingOfMyFoodOrderList.aspx",
-                TLevel = 1,
-                ColIndex = 6
-            };
-            iSystemMenuRepository.SaveOrUpdate(valuingOfMyFoodOrder);
-            adminMenuCheckList.Add(valuingOfMyFoodOrder);
-            restaruantOwnerMenuCheckList.Add(valuingOfMyFoodOrder);
-            restaurantMemberMenuCheckList.Add(valuingOfMyFoodOrder);
+            //SystemMenu valuingOfMyFoodOrder = new SystemMenu()
+            //{
+            //    Name = "餐馆订单评价管理",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "valuingOfMyFoodOrder/pValuingOfMyFoodOrderList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 6
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(valuingOfMyFoodOrder);
+            //adminMenuCheckList.Add(valuingOfMyFoodOrder);
+            //restaruantOwnerMenuCheckList.Add(valuingOfMyFoodOrder);
+            //restaurantMemberMenuCheckList.Add(valuingOfMyFoodOrder);
 
-            SystemMenu valuingItemOfMyFoodOrder = new SystemMenu()
-            {
-                Name = "食品评价项管理",
-                Leaf = true,
-                ParentID = restaurantModel.Id,
-                MenuRoute = "valuingItemOfMyFoodOrder/pValuingItemOfMyFoodOrderList.aspx",
-                TLevel = 1,
-                ColIndex = 7
-            };
-            iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyFoodOrder);
-            adminMenuCheckList.Add(valuingItemOfMyFoodOrder);
-            restaruantOwnerMenuCheckList.Add(valuingItemOfMyFoodOrder);
-            restaurantMemberMenuCheckList.Add(valuingItemOfMyFoodOrder);
+            //SystemMenu valuingItemOfMyFoodOrder = new SystemMenu()
+            //{
+            //    Name = "食品评价项管理",
+            //    Leaf = true,
+            //    ParentID = restaurantModel.Id,
+            //    MenuRoute = "valuingItemOfMyFoodOrder/pValuingItemOfMyFoodOrderList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 7
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyFoodOrder);
+            //adminMenuCheckList.Add(valuingItemOfMyFoodOrder);
+            //restaruantOwnerMenuCheckList.Add(valuingItemOfMyFoodOrder);
+            //restaurantMemberMenuCheckList.Add(valuingItemOfMyFoodOrder);
 
             //基本信息模块
             SystemMenu baseInfo = new SystemMenu()
@@ -298,13 +300,13 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(baseInfo);
             adminMenuCheckList.Add(baseInfo);
-            restaruantOwnerMenuCheckList.Add(baseInfo);
+            //restaruantOwnerMenuCheckList.Add(baseInfo);
             customerMenuCheckList.Add(baseInfo);
-            restaurantMemberMenuCheckList.Add(baseInfo);
+            //restaurantMemberMenuCheckList.Add(baseInfo);
             shopOwnerMenuCheckList.Add(baseInfo);
             shopMemberMenuCheckList.Add(baseInfo);
-            rentOwnerMenuCheckList.Add(baseInfo);
-            rentMemberMenuCheckList.Add(baseInfo);
+            //rentOwnerMenuCheckList.Add(baseInfo);
+            //rentMemberMenuCheckList.Add(baseInfo);
 
             SystemMenu activity = new SystemMenu()
             {
@@ -330,23 +332,23 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(globalGoodsType);
             adminMenuCheckList.Add(globalGoodsType);
 
-            SystemMenu merchantGoodsType = new SystemMenu()
-            {
-                Name = "自定义商品类型",
-                Leaf = true,
-                ParentID = baseInfo.Id,
-                MenuRoute = "merchantGoodsType/pMerchantGoodsTypeList.aspx",
-                TLevel = 1,
-                ColIndex = 3
-            };
-            iSystemMenuRepository.SaveOrUpdate(merchantGoodsType);
-            adminMenuCheckList.Add(merchantGoodsType);
-            restaruantOwnerMenuCheckList.Add(merchantGoodsType);
-            restaurantMemberMenuCheckList.Add(merchantGoodsType);
-            shopOwnerMenuCheckList.Add(merchantGoodsType);
-            shopMemberMenuCheckList.Add(merchantGoodsType);
-            rentOwnerMenuCheckList.Add(merchantGoodsType);
-            rentMemberMenuCheckList.Add(merchantGoodsType);
+            //SystemMenu merchantGoodsType = new SystemMenu()
+            //{
+            //    Name = "自定义商品类型",
+            //    Leaf = true,
+            //    ParentID = baseInfo.Id,
+            //    MenuRoute = "merchantGoodsType/pMerchantGoodsTypeList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 3
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(merchantGoodsType);
+            //adminMenuCheckList.Add(merchantGoodsType);
+            //restaruantOwnerMenuCheckList.Add(merchantGoodsType);
+            //restaurantMemberMenuCheckList.Add(merchantGoodsType);
+            //shopOwnerMenuCheckList.Add(merchantGoodsType);
+            //shopMemberMenuCheckList.Add(merchantGoodsType);
+            //rentOwnerMenuCheckList.Add(merchantGoodsType);
+            //rentMemberMenuCheckList.Add(merchantGoodsType);
 
             SystemMenu roleMenu = new SystemMenu()
             {
@@ -397,9 +399,9 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(merchantMember);
             //adminMenuCheckList.Add(merchantMember);
-            restaruantOwnerMenuCheckList.Add(merchantMember);
+            //restaruantOwnerMenuCheckList.Add(merchantMember);
             shopOwnerMenuCheckList.Add(merchantMember);
-            rentOwnerMenuCheckList.Add(merchantMember);
+            //rentOwnerMenuCheckList.Add(merchantMember);
 
             SystemMenu loginUser = new SystemMenu()
             {
@@ -425,9 +427,9 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(logUser);
             //adminMenuCheckList.Add(logUser);
-            restaruantOwnerMenuCheckList.Add(logUser);
+            //restaruantOwnerMenuCheckList.Add(logUser);
             shopOwnerMenuCheckList.Add(logUser);
-            rentOwnerMenuCheckList.Add(logUser);
+            //rentOwnerMenuCheckList.Add(logUser);
 
             SystemMenu systemRole = new SystemMenu()
             {
@@ -478,10 +480,10 @@ namespace Friday.Test2
             adminMenuCheckList.Add(propid);
             shopOwnerMenuCheckList.Add(propid);
             shopMemberMenuCheckList.Add(propid);
-            restaruantOwnerMenuCheckList.Add(propid);
-            restaurantMemberMenuCheckList.Add(propid);
-            rentOwnerMenuCheckList.Add(propid);
-            rentMemberMenuCheckList.Add(propid);
+            //restaruantOwnerMenuCheckList.Add(propid);
+            //restaurantMemberMenuCheckList.Add(propid);
+            //rentOwnerMenuCheckList.Add(propid);
+            //rentMemberMenuCheckList.Add(propid);
 
             SystemMenu propvalue = new SystemMenu()
             {
@@ -496,10 +498,10 @@ namespace Friday.Test2
             adminMenuCheckList.Add(propvalue);
             shopOwnerMenuCheckList.Add(propvalue);
             shopMemberMenuCheckList.Add(propvalue);
-            restaruantOwnerMenuCheckList.Add(propid);
-            restaurantMemberMenuCheckList.Add(propid);
-            rentOwnerMenuCheckList.Add(propid);
-            rentMemberMenuCheckList.Add(propid);
+            //restaruantOwnerMenuCheckList.Add(propid);
+            //restaurantMemberMenuCheckList.Add(propid);
+            //rentOwnerMenuCheckList.Add(propid);
+            //rentMemberMenuCheckList.Add(propid);
 
             //SystemMenu valuingComments = new SystemMenu()
             //{
@@ -532,13 +534,13 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(messageModel);
             adminMenuCheckList.Add(messageModel);
-            restaruantOwnerMenuCheckList.Add(messageModel);
+            //restaruantOwnerMenuCheckList.Add(messageModel);
             customerMenuCheckList.Add(messageModel);
-            restaurantMemberMenuCheckList.Add(messageModel);
+            //restaurantMemberMenuCheckList.Add(messageModel);
             shopOwnerMenuCheckList.Add(messageModel);
             shopMemberMenuCheckList.Add(messageModel);
-            rentOwnerMenuCheckList.Add(messageModel);
-            rentMemberMenuCheckList.Add(messageModel);
+            //rentOwnerMenuCheckList.Add(messageModel);
+            //rentMemberMenuCheckList.Add(messageModel);
 
             SystemMenu message = new SystemMenu()
             {
@@ -551,13 +553,13 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(message);
             adminMenuCheckList.Add(message);
-            restaruantOwnerMenuCheckList.Add(message);
+            //restaruantOwnerMenuCheckList.Add(message);
             customerMenuCheckList.Add(message);
-            restaurantMemberMenuCheckList.Add(message);
+            //restaurantMemberMenuCheckList.Add(message);
             shopOwnerMenuCheckList.Add(message);
             shopMemberMenuCheckList.Add(message);
-            rentOwnerMenuCheckList.Add(message);
-            rentMemberMenuCheckList.Add(message);
+            //rentOwnerMenuCheckList.Add(message);
+            //rentMemberMenuCheckList.Add(message);
 
             //反馈模块
             SystemMenu feedBackModel = new SystemMenu()
@@ -571,13 +573,13 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(feedBackModel);
             adminMenuCheckList.Add(feedBackModel);
-            restaruantOwnerMenuCheckList.Add(feedBackModel);
+            //restaruantOwnerMenuCheckList.Add(feedBackModel);
             customerMenuCheckList.Add(feedBackModel);
-            restaurantMemberMenuCheckList.Add(feedBackModel);
+            //restaurantMemberMenuCheckList.Add(feedBackModel);
             shopOwnerMenuCheckList.Add(feedBackModel);
             shopMemberMenuCheckList.Add(feedBackModel);
-            rentOwnerMenuCheckList.Add(feedBackModel);
-            rentMemberMenuCheckList.Add(feedBackModel);
+            //rentOwnerMenuCheckList.Add(feedBackModel);
+            //rentMemberMenuCheckList.Add(feedBackModel);
 
             SystemMenu feedBack = new SystemMenu()
             {
@@ -590,13 +592,13 @@ namespace Friday.Test2
             };
             iSystemMenuRepository.SaveOrUpdate(feedBack);
             adminMenuCheckList.Add(feedBack);
-            restaruantOwnerMenuCheckList.Add(feedBack);
+            //restaruantOwnerMenuCheckList.Add(feedBack);
             customerMenuCheckList.Add(feedBack);
-            restaurantMemberMenuCheckList.Add(feedBack);
+            //restaurantMemberMenuCheckList.Add(feedBack);
             shopOwnerMenuCheckList.Add(feedBack);
             shopMemberMenuCheckList.Add(feedBack);
-            rentOwnerMenuCheckList.Add(feedBack);
-            rentMemberMenuCheckList.Add(feedBack);
+            //rentOwnerMenuCheckList.Add(feedBack);
+            //rentMemberMenuCheckList.Add(feedBack);
 
             //SystemMenu feedBackReply = new SystemMenu()
             //{
@@ -614,45 +616,45 @@ namespace Friday.Test2
             //restaurantMemberMenuCheckList.Add(feedBackReply);
 
             //租房模块
-            SystemMenu rentModel = new SystemMenu()
-            {
-                Name = "租房模块",
-                Leaf = false,
-                ParentID = null,
-                TLevel = 0,
-                ColIndex = 5
+            //SystemMenu rentModel = new SystemMenu()
+            //{
+            //    Name = "租房模块",
+            //    Leaf = false,
+            //    ParentID = null,
+            //    TLevel = 0,
+            //    ColIndex = 5
 
-            };
-            iSystemMenuRepository.SaveOrUpdate(rentModel);
-            adminMenuCheckList.Add(rentModel);
-            rentOwnerMenuCheckList.Add(rentModel);
-            rentMemberMenuCheckList.Add(rentModel);
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(rentModel);
+            //adminMenuCheckList.Add(rentModel);
+            //rentOwnerMenuCheckList.Add(rentModel);
+            //rentMemberMenuCheckList.Add(rentModel);
 
-            SystemMenu rentMange = new SystemMenu()
-            {
-                Name = "租房管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "rent/pRentList.aspx",
-                TLevel = 1,
-                ColIndex = 1
-            };
-            iSystemMenuRepository.SaveOrUpdate(rentMange);
-            adminMenuCheckList.Add(rentMange);
-            //rentOwnerMenuCheckList.Add(rentMange);
+            //SystemMenu rentMange = new SystemMenu()
+            //{
+            //    Name = "租房管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "rent/pRentList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 1
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(rentMange);
+            //adminMenuCheckList.Add(rentMange);
+            ////rentOwnerMenuCheckList.Add(rentMange);
 
-            SystemMenu rentEdit = new SystemMenu()
-            {
-                Name = "租房编辑",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "rent/pEditRent.aspx",
-                TLevel = 1,
-                ColIndex = 2
-            };
-            iSystemMenuRepository.SaveOrUpdate(rentEdit);
-            //adminMenuCheckList.Add(rentEdit);
-            rentOwnerMenuCheckList.Add(rentEdit);
+            //SystemMenu rentEdit = new SystemMenu()
+            //{
+            //    Name = "租房编辑",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "rent/pEditRent.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 2
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(rentEdit);
+            ////adminMenuCheckList.Add(rentEdit);
+            //rentOwnerMenuCheckList.Add(rentEdit);
 
             //SystemMenu houseOrderDetail = new SystemMenu()
             //{
@@ -668,33 +670,33 @@ namespace Friday.Test2
             //rentOwnerMenuCheckList.Add(houseOrderDetail);
             //rentMemberMenuCheckList.Add(houseOrderDetail);
 
-            SystemMenu houseOrder = new SystemMenu()
-            {
-                Name = "租房订单管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "myHouseOrder/pMyHouseOrderList.aspx",
-                TLevel = 1,
-                ColIndex = 4
-            };
-            iSystemMenuRepository.SaveOrUpdate(houseOrder);
-            adminMenuCheckList.Add(houseOrder);
-            rentOwnerMenuCheckList.Add(houseOrder);
-            rentMemberMenuCheckList.Add(houseOrder);
+            //SystemMenu houseOrder = new SystemMenu()
+            //{
+            //    Name = "租房订单管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "myHouseOrder/pMyHouseOrderList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 4
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(houseOrder);
+            //adminMenuCheckList.Add(houseOrder);
+            //rentOwnerMenuCheckList.Add(houseOrder);
+            //rentMemberMenuCheckList.Add(houseOrder);
 
-            SystemMenu house = new SystemMenu()
-            {
-                Name = "房屋管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "house/pHouseList.aspx",
-                TLevel = 1,
-                ColIndex = 5
-            };
-            iSystemMenuRepository.SaveOrUpdate(house);
-            adminMenuCheckList.Add(house);
-            rentOwnerMenuCheckList.Add(house);
-            rentMemberMenuCheckList.Add(house);
+            //SystemMenu house = new SystemMenu()
+            //{
+            //    Name = "房屋管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "house/pHouseList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 5
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(house);
+            //adminMenuCheckList.Add(house);
+            //rentOwnerMenuCheckList.Add(house);
+            //rentMemberMenuCheckList.Add(house);
 
             //SystemMenu rentEditManage = new SystemMenu()
             //{
@@ -707,33 +709,33 @@ namespace Friday.Test2
             //};
             //iSystemMenuRepository.SaveOrUpdate(rentEditManage);
 
-            SystemMenu valuingOfMyHouseOrder = new SystemMenu()
-            {
-                Name = "租房订单评价管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "valuingOfMyHouseOrder/pValuingOfMyHouseOrderList.aspx",
-                TLevel = 1,
-                ColIndex = 6
-            };
-            iSystemMenuRepository.SaveOrUpdate(valuingOfMyHouseOrder);
-            adminMenuCheckList.Add(valuingOfMyHouseOrder);
-            rentOwnerMenuCheckList.Add(valuingOfMyHouseOrder);
-            rentMemberMenuCheckList.Add(valuingOfMyHouseOrder);
+            //SystemMenu valuingOfMyHouseOrder = new SystemMenu()
+            //{
+            //    Name = "租房订单评价管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "valuingOfMyHouseOrder/pValuingOfMyHouseOrderList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 6
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(valuingOfMyHouseOrder);
+            //adminMenuCheckList.Add(valuingOfMyHouseOrder);
+            //rentOwnerMenuCheckList.Add(valuingOfMyHouseOrder);
+            //rentMemberMenuCheckList.Add(valuingOfMyHouseOrder);
 
-            SystemMenu valuingItemOfMyHouseOrder = new SystemMenu()
-            {
-                Name = "房屋评价项管理",
-                Leaf = true,
-                ParentID = rentModel.Id,
-                MenuRoute = "valuingItemOfMyHouseOrder/pValuingItemOfMyHouseOrderList.aspx",
-                TLevel = 1,
-                ColIndex = 7
-            };
-            iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyHouseOrder);
-            adminMenuCheckList.Add(valuingItemOfMyHouseOrder);
-            rentOwnerMenuCheckList.Add(valuingItemOfMyHouseOrder);
-            rentMemberMenuCheckList.Add(valuingItemOfMyHouseOrder);
+            //SystemMenu valuingItemOfMyHouseOrder = new SystemMenu()
+            //{
+            //    Name = "房屋评价项管理",
+            //    Leaf = true,
+            //    ParentID = rentModel.Id,
+            //    MenuRoute = "valuingItemOfMyHouseOrder/pValuingItemOfMyHouseOrderList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 7
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(valuingItemOfMyHouseOrder);
+            //adminMenuCheckList.Add(valuingItemOfMyHouseOrder);
+            //rentOwnerMenuCheckList.Add(valuingItemOfMyHouseOrder);
+            //rentMemberMenuCheckList.Add(valuingItemOfMyHouseOrder);
 
             //商店模块
             SystemMenu shopModel = new SystemMenu()
@@ -881,53 +883,53 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(dealBusiness);
             adminMenuCheckList.Add(dealBusiness);
 
-            SystemMenu restaurantStatistic = new SystemMenu()
-            {
-                Name = "餐馆统计",
-                Leaf = true,
-                ParentID = statisticModel.Id,
-                MenuRoute = "restaurantStatistic/pRestaurantStatisticList.aspx",
-                TLevel = 1,
-                ColIndex = 3
-            };
-            iSystemMenuRepository.SaveOrUpdate(restaurantStatistic);
-            adminMenuCheckList.Add(restaurantStatistic);
+            //SystemMenu restaurantStatistic = new SystemMenu()
+            //{
+            //    Name = "餐馆统计",
+            //    Leaf = true,
+            //    ParentID = statisticModel.Id,
+            //    MenuRoute = "restaurantStatistic/pRestaurantStatisticList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 3
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(restaurantStatistic);
+            //adminMenuCheckList.Add(restaurantStatistic);
 
-            SystemMenu foodStatistic = new SystemMenu()
-            {
-                Name = "食品统计",
-                Leaf = true,
-                ParentID = statisticModel.Id,
-                MenuRoute = "foodStatistic/pFoodStatisticList.aspx",
-                TLevel = 1,
-                ColIndex = 4
-            };
-            iSystemMenuRepository.SaveOrUpdate(foodStatistic);
-            adminMenuCheckList.Add(foodStatistic);
+            //SystemMenu foodStatistic = new SystemMenu()
+            //{
+            //    Name = "食品统计",
+            //    Leaf = true,
+            //    ParentID = statisticModel.Id,
+            //    MenuRoute = "foodStatistic/pFoodStatisticList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 4
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(foodStatistic);
+            //adminMenuCheckList.Add(foodStatistic);
 
-            SystemMenu rentStatistic = new SystemMenu()
-            {
-                Name = "租房统计",
-                Leaf = true,
-                ParentID = statisticModel.Id,
-                MenuRoute = "rentStatistic/pRentStatisticList.aspx",
-                TLevel = 1,
-                ColIndex = 5
-            };
-            iSystemMenuRepository.SaveOrUpdate(rentStatistic);
-            adminMenuCheckList.Add(rentStatistic);
+            //SystemMenu rentStatistic = new SystemMenu()
+            //{
+            //    Name = "租房统计",
+            //    Leaf = true,
+            //    ParentID = statisticModel.Id,
+            //    MenuRoute = "rentStatistic/pRentStatisticList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 5
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(rentStatistic);
+            //adminMenuCheckList.Add(rentStatistic);
 
-            SystemMenu houseStatistic = new SystemMenu()
-            {
-                Name = "房屋统计",
-                Leaf = true,
-                ParentID = statisticModel.Id,
-                MenuRoute = "houseStatistic/pHouseStatisticList.aspx",
-                TLevel = 1,
-                ColIndex = 6
-            };
-            iSystemMenuRepository.SaveOrUpdate(houseStatistic);
-            adminMenuCheckList.Add(houseStatistic);
+            //SystemMenu houseStatistic = new SystemMenu()
+            //{
+            //    Name = "房屋统计",
+            //    Leaf = true,
+            //    ParentID = statisticModel.Id,
+            //    MenuRoute = "houseStatistic/pHouseStatisticList.aspx",
+            //    TLevel = 1,
+            //    ColIndex = 6
+            //};
+            //iSystemMenuRepository.SaveOrUpdate(houseStatistic);
+            //adminMenuCheckList.Add(houseStatistic);
 
             SystemMenu shopStatistic = new SystemMenu()
             {
@@ -1024,28 +1026,28 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "餐馆店主":
-                        {
-                            foreach (SystemMenu sm in restaruantOwnerMenuCheckList)
-                            {
-                                RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.SystemMenu = sm;
-                                roleInMenu.SystemRole = sr;
-                                iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
-                            }
-                            break;
-                        }
-                    case "租房店主":
-                        {
-                            foreach (SystemMenu sm in rentOwnerMenuCheckList)
-                            {
-                                RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.SystemMenu = sm;
-                                roleInMenu.SystemRole = sr;
-                                iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
-                            }
-                            break;
-                        }
+                    //case "餐馆店主":
+                    //    {
+                    //        foreach (SystemMenu sm in restaruantOwnerMenuCheckList)
+                    //        {
+                    //            RoleInMenu roleInMenu = new RoleInMenu();
+                    //            roleInMenu.SystemMenu = sm;
+                    //            roleInMenu.SystemRole = sr;
+                    //            iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
+                    //        }
+                    //        break;
+                    //    }
+                    //case "租房店主":
+                    //    {
+                    //        foreach (SystemMenu sm in rentOwnerMenuCheckList)
+                    //        {
+                    //            RoleInMenu roleInMenu = new RoleInMenu();
+                    //            roleInMenu.SystemMenu = sm;
+                    //            roleInMenu.SystemRole = sr;
+                    //            iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
+                    //        }
+                    //        break;
+                    //    }
                     case "商店店小二":
                         {
                             foreach (SystemMenu sm in shopMemberMenuCheckList)
@@ -1057,28 +1059,28 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "餐馆店小二":
-                        {
-                            foreach (SystemMenu sm in restaurantMemberMenuCheckList)
-                            {
-                                RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.SystemMenu = sm;
-                                roleInMenu.SystemRole = sr;
-                                iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
-                            }
-                            break;
-                        }
-                    case "租房店小二":
-                        {
-                            foreach (SystemMenu sm in rentMemberMenuCheckList)
-                            {
-                                RoleInMenu roleInMenu = new RoleInMenu();
-                                roleInMenu.SystemMenu = sm;
-                                roleInMenu.SystemRole = sr;
-                                iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
-                            }
-                            break;
-                        }
+                    //case "餐馆店小二":
+                    //    {
+                    //        foreach (SystemMenu sm in restaurantMemberMenuCheckList)
+                    //        {
+                    //            RoleInMenu roleInMenu = new RoleInMenu();
+                    //            roleInMenu.SystemMenu = sm;
+                    //            roleInMenu.SystemRole = sr;
+                    //            iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
+                    //        }
+                    //        break;
+                    //    }
+                    //case "租房店小二":
+                    //    {
+                    //        foreach (SystemMenu sm in rentMemberMenuCheckList)
+                    //        {
+                    //            RoleInMenu roleInMenu = new RoleInMenu();
+                    //            roleInMenu.SystemMenu = sm;
+                    //            roleInMenu.SystemRole = sr;
+                    //            iRoleInMenuRepository.SaveOrUpdate(roleInMenu);
+                    //        }
+                    //        break;
+                    //    }
                 }
             }
         }
@@ -1157,33 +1159,33 @@ namespace Friday.Test2
                 sysFuncObjInShopEmpRolerList.Add(GetFuncObjInRoleByi(i));
             }
 
-            IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护,Edit", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
-            foreach (var i in restaurantArr)
-            {
-                sysFuncObjInRestaurantOwnerRolerList.Add(GetFuncObjInRoleByi(i));
-            }
+            //IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantOwnerRolerList = new List<SystemFunctionObjectInRole>();
+            //string[] restaurantArr = { "基本信息模块", "餐馆模块", "餐馆维护,Edit", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            //foreach (var i in restaurantArr)
+            //{
+            //    sysFuncObjInRestaurantOwnerRolerList.Add(GetFuncObjInRoleByi(i));
+            //}
 
-            IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
-            foreach (var i in restaurantEmpArr)
-            {
-                sysFuncObjInRestaurantEmpRolerList.Add(GetFuncObjInRoleByi(i));
-            }
+            //IList<SystemFunctionObjectInRole> sysFuncObjInRestaurantEmpRolerList = new List<SystemFunctionObjectInRole>();
+            //string[] restaurantEmpArr = { "基本信息模块", "餐馆模块", "菜品维护", "食品订单维护", "食品订单明细维护", "餐馆订单评价管理", "食品评价项管理,Enable", "食品评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            //foreach (var i in restaurantEmpArr)
+            //{
+            //    sysFuncObjInRestaurantEmpRolerList.Add(GetFuncObjInRoleByi(i));
+            //}
 
-            IList<SystemFunctionObjectInRole> sysFuncObjInRentOwnerRolerList = new List<SystemFunctionObjectInRole>();
-            string[] rentArr = { "基本信息模块", "租房模块", "租房维护,Edit", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
-            foreach (var i in rentArr)
-            {
-                sysFuncObjInRentOwnerRolerList.Add(GetFuncObjInRoleByi(i));
-            }
+            //IList<SystemFunctionObjectInRole> sysFuncObjInRentOwnerRolerList = new List<SystemFunctionObjectInRole>();
+            //string[] rentArr = { "基本信息模块", "租房模块", "租房维护,Edit", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "员工维护", "自定义商品类型维护", "商家账号维护,Edit", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            //foreach (var i in rentArr)
+            //{
+            //    sysFuncObjInRentOwnerRolerList.Add(GetFuncObjInRoleByi(i));
+            //}
 
-            IList<SystemFunctionObjectInRole> sysFuncObjInRentEmpRolerList = new List<SystemFunctionObjectInRole>();
-            string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
-            foreach (var i in rentEmpArr)
-            {
-                sysFuncObjInRentEmpRolerList.Add(GetFuncObjInRoleByi(i));
-            }
+            //IList<SystemFunctionObjectInRole> sysFuncObjInRentEmpRolerList = new List<SystemFunctionObjectInRole>();
+            //string[] rentEmpArr = { "基本信息模块", "租房模块", "房屋维护", "租房订单维护", "租房订单明细维护", "租房订单评价管理", "房屋评价项管理,Enable", "房屋评价项评分管理,Enable", "自定义商品类型维护", "评论回复管理,Enable", "消息模块", "消息维护,Enable,Delete", "反馈模块", "反馈维护,Enable" };
+            //foreach (var i in rentEmpArr)
+            //{
+            //    sysFuncObjInRentEmpRolerList.Add(GetFuncObjInRoleByi(i));
+            //}
 
             foreach (SystemRole sr in systemRoleList)
             {
@@ -1227,24 +1229,24 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "餐馆店主":
-                        {
-                            foreach (SystemFunctionObjectInRole restSFunctionInRole in sysFuncObjInRestaurantOwnerRolerList)
-                            {
-                                restSFunctionInRole.SystemRole = sr;
-                                iSystemFunctionObjectInRoleRepository.SaveOrUpdate(restSFunctionInRole);
-                            }
-                            break;
-                        }
-                    case "租房店主":
-                        {
-                            foreach (SystemFunctionObjectInRole rentSFunctionInRole in sysFuncObjInRentOwnerRolerList)
-                            {
-                                rentSFunctionInRole.SystemRole = sr;
-                                iSystemFunctionObjectInRoleRepository.SaveOrUpdate(rentSFunctionInRole);
-                            }
-                            break;
-                        }
+                    //case "餐馆店主":
+                    //    {
+                    //        foreach (SystemFunctionObjectInRole restSFunctionInRole in sysFuncObjInRestaurantOwnerRolerList)
+                    //        {
+                    //            restSFunctionInRole.SystemRole = sr;
+                    //            iSystemFunctionObjectInRoleRepository.SaveOrUpdate(restSFunctionInRole);
+                    //        }
+                    //        break;
+                    //    }
+                    //case "租房店主":
+                    //    {
+                    //        foreach (SystemFunctionObjectInRole rentSFunctionInRole in sysFuncObjInRentOwnerRolerList)
+                    //        {
+                    //            rentSFunctionInRole.SystemRole = sr;
+                    //            iSystemFunctionObjectInRoleRepository.SaveOrUpdate(rentSFunctionInRole);
+                    //        }
+                    //        break;
+                    //    }
                     case "商店店小二":
                         {
                             foreach (SystemFunctionObjectInRole shopEmpSFunctionInRole in sysFuncObjInShopEmpRolerList)
@@ -1254,27 +1256,35 @@ namespace Friday.Test2
                             }
                             break;
                         }
-                    case "餐馆店小二":
-                        {
-                            foreach (SystemFunctionObjectInRole restEmpSFunctionInRole in sysFuncObjInRestaurantEmpRolerList)
-                            {
-                                restEmpSFunctionInRole.SystemRole = sr;
-                                iSystemFunctionObjectInRoleRepository.SaveOrUpdate(restEmpSFunctionInRole);
-                            }
-                            break;
-                        }
-                    case "租房店小二":
-                        {
-                            foreach (SystemFunctionObjectInRole rentEmpSFunctionInRole in sysFuncObjInRentEmpRolerList)
-                            {
-                                rentEmpSFunctionInRole.SystemRole = sr;
-                                iSystemFunctionObjectInRoleRepository.SaveOrUpdate(rentEmpSFunctionInRole);
-                            }
-                            break;
-                        }
+                    //case "餐馆店小二":
+                    //    {
+                    //        foreach (SystemFunctionObjectInRole restEmpSFunctionInRole in sysFuncObjInRestaurantEmpRolerList)
+                    //        {
+                    //            restEmpSFunctionInRole.SystemRole = sr;
+                    //            iSystemFunctionObjectInRoleRepository.SaveOrUpdate(restEmpSFunctionInRole);
+                    //        }
+                    //        break;
+                    //    }
+                    //case "租房店小二":
+                    //    {
+                    //        foreach (SystemFunctionObjectInRole rentEmpSFunctionInRole in sysFuncObjInRentEmpRolerList)
+                    //        {
+                    //            rentEmpSFunctionInRole.SystemRole = sr;
+                    //            iSystemFunctionObjectInRoleRepository.SaveOrUpdate(rentEmpSFunctionInRole);
+                    //        }
+                    //        break;
+                    //    }
                 }
             }
         }
+        //添加全局商品类型
+        private void   add_GlobalGoodsType()
+        {
+
+
+
+
+       }
         //商店商品目录添加
         private void add_MerchantCategory()
          {
@@ -1313,1174 +1323,1174 @@ namespace Friday.Test2
 
          }
         //添加 商铺、自定义商品类型、Admin、Xiaoer、Order、OrderDetail；顾客、地址、Order等信息
-        public void add_RestaurantInfo()
-        {
-            IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
-            IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
+        //public void add_RestaurantInfo()
+        //{
+        //    IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+        //    IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
 
-            Restaurant restaurant1 = new Restaurant()
-            {
-                Activity = "五一大促销",
-                Address = "山东财经大学燕山",
-                AfternoonBeginHour = "18:20",
-                AfternoonEndHour = "19:30",
-                Bulletins = "9折优惠",
-                Cost = 2,
-                Description = "just come",
-                Distance = "100",
-                Email = "222@qq.com",
-                Logo = "/uploadimage/lrest1.png",
-                sBrand = "/uploadimage/srest1.jpg",
-                bBrand = "/uploadimage/brest1.jpg",
-                Name = "翠峰苑连锁火锅城",
-                Owener = "刘德华",
-                ShortName = "翠峰苑",   
-                Tel = "18799999992",
-                SendTime = 30,
-                Rate = 0.8,
-                SendPrice = 10,
-                ShopStatus = ShopStatusEnum.营业时间,
-                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("鲁菜"),
-                MerchantType = MerchantTypeEnum.餐馆
-            };
-            MerchantGoodsType restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "汉堡" };
-            MerchantGoodsType restaurantFoodTye_2 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "小吃" };
-            restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_1);
-            restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_2);
-            new RestaurantRepository().SaveOrUpdate(restaurant1);
+        //    Restaurant restaurant1 = new Restaurant()
+        //    {
+        //        Activity = "五一大促销",
+        //        Address = "山东财经大学燕山",
+        //        AfternoonBeginHour = "18:20",
+        //        AfternoonEndHour = "19:30",
+        //        Bulletins = "9折优惠",
+        //        Cost = 2,
+        //        Description = "just come",
+        //        Distance = "100",
+        //        Email = "222@qq.com",
+        //        Logo = "/uploadimage/lrest1.png",
+        //        sBrand = "/uploadimage/srest1.jpg",
+        //        bBrand = "/uploadimage/brest1.jpg",
+        //        Name = "翠峰苑连锁火锅城",
+        //        Owener = "刘德华",
+        //        ShortName = "翠峰苑",   
+        //        Tel = "18799999992",
+        //        SendTime = 30,
+        //        Rate = 0.8,
+        //        SendPrice = 10,
+        //        ShopStatus = ShopStatusEnum.营业时间,
+        //        MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("鲁菜"),
+        //        MerchantType = MerchantTypeEnum.餐馆
+        //    };
+        //    MerchantGoodsType restaurantFoodTye_1 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "汉堡" };
+        //    MerchantGoodsType restaurantFoodTye_2 = new MerchantGoodsType() { Merchant = restaurant1, GoodsType = "小吃" };
+        //    restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_1);
+        //    restaurant1.MerchantGoodsTypes.Add(restaurantFoodTye_2);
+        //    new RestaurantRepository().SaveOrUpdate(restaurant1);
 
-            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        //    IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        //    ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
-            LoginUser lu1 = new LoginUser();
-            lu1.LoginName = "restcuifengyuan";
-            lu1.Password = "000000";
-            iLoginUserRepository.SaveOrUpdate(lu1);
+        //    LoginUser lu1 = new LoginUser();
+        //    lu1.LoginName = "restcuifengyuan";
+        //    lu1.Password = "000000";
+        //    iLoginUserRepository.SaveOrUpdate(lu1);
             
-            LoginUserOfMerchant lum = new LoginUserOfMerchant();
-            lum.Merchant = restaurant1;
-            lum.LoginUser = lu1;
-            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+        //    LoginUserOfMerchant lum = new LoginUserOfMerchant();
+        //    lum.Merchant = restaurant1;
+        //    lum.LoginUser = lu1;
+        //    iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
 
-            UserInRole uir = new UserInRole();
-            uir.LoginUser = lu1;
-            uir.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
-            iUserInRoleRepository.SaveOrUpdate(uir);
+        //    UserInRole uir = new UserInRole();
+        //    uir.LoginUser = lu1;
+        //    uir.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
+        //    iUserInRoleRepository.SaveOrUpdate(uir);
 
-            LoginUser lu1_1 = new LoginUser();
-            lu1_1.LoginName = "restcuifengyxiaoer";
-            lu1_1.Password = "111111";
-            iLoginUserRepository.SaveOrUpdate(lu1_1);
+        //    LoginUser lu1_1 = new LoginUser();
+        //    lu1_1.LoginName = "restcuifengyxiaoer";
+        //    lu1_1.Password = "111111";
+        //    iLoginUserRepository.SaveOrUpdate(lu1_1);
 
-            LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
-            lum1_1.Merchant = restaurant1;
-            lum1_1.LoginUser = lu1_1;
-            iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
+        //    LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
+        //    lum1_1.Merchant = restaurant1;
+        //    lum1_1.LoginUser = lu1_1;
+        //    iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
 
-            UserInRole uir1_1 = new UserInRole();
-            uir1_1.LoginUser = lu1_1;
-            uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
-            iUserInRoleRepository.SaveOrUpdate(uir1_1);
+        //    UserInRole uir1_1 = new UserInRole();
+        //    uir1_1.LoginUser = lu1_1;
+        //    uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
+        //    iUserInRoleRepository.SaveOrUpdate(uir1_1);
 
-                Food food_1 = new Food()
-                {
-                    Name = "鸡腿堡",
-                    Price = 10,
-                    Image = "/uploadimage/f1.jpg",
-                    IsDiscount = false,
-                    InventoryCount = 100,
-                    MerchantGoodsType = restaurantFoodTye_1,
-                    Restaurant = restaurant1,
+        //        Food food_1 = new Food()
+        //        {
+        //            Name = "鸡腿堡",
+        //            Price = 10,
+        //            Image = "/uploadimage/f1.jpg",
+        //            IsDiscount = false,
+        //            InventoryCount = 100,
+        //            MerchantGoodsType = restaurantFoodTye_1,
+        //            Restaurant = restaurant1,
 
-                };
-                restaurant1.Foods.Add(food_1);
+        //        };
+        //        restaurant1.Foods.Add(food_1);
 
-                Food food_2 = new Food()
-                {
-                    Name = "薯条",
-                    Price = 15,
-                    Image = "/uploadimage/f2.jpg",
-                    IsDiscount = true,
-                    InventoryCount = 200,
-                    DiscountInventoryCount = 100,
-                    MerchantGoodsType = restaurantFoodTye_2,
-                    DiscountPrice = 10,
-                    Restaurant = restaurant1,
-                    IsLimited = true,
+        //        Food food_2 = new Food()
+        //        {
+        //            Name = "薯条",
+        //            Price = 15,
+        //            Image = "/uploadimage/f2.jpg",
+        //            IsDiscount = true,
+        //            InventoryCount = 200,
+        //            DiscountInventoryCount = 100,
+        //            MerchantGoodsType = restaurantFoodTye_2,
+        //            DiscountPrice = 10,
+        //            Restaurant = restaurant1,
+        //            IsLimited = true,
 
-                };
-                restaurant1.Foods.Add(food_2);
-            new RestaurantRepository().SaveOrUpdate(restaurant1);
+        //        };
+        //        restaurant1.Foods.Add(food_2);
+        //    new RestaurantRepository().SaveOrUpdate(restaurant1);
 
-            //添加顾客张国荣
-            string systemuserid = Guid.NewGuid().ToString();
-            string loginuserid = Guid.NewGuid().ToString();
-            SystemUser s1 = new SystemUser(systemuserid)
-            {
-                Tel = "13988888888",
-                Description = "erhuan10",
-                Email = "ocam10@163.com",
-                EntityIndex = 10,
-                Name = "张国荣",                 
-                IsAnonymous = false,
-            };
-            new SystemUserRepository().SaveOrUpdate(s1);          
-            Address address = new Address()
-            {
-                AddressName = "山东财经大学9号宿舍楼",
-                BackupTel = "187000000000",
-                Email ="23423@163.com",
-                Linkman = "john",
-                QQ ="3333333333",
-                Tel ="18668668686",
-                Weixin ="5862414855",
-                SystemUser=s1
-            };
-            //s1.Addresses.Add(address);
-            new AddressRepository().SaveOrUpdate(address);
-            Address address2 = new Address()
-            {
-                AddressName = "青岛大学9号宿舍楼",
-                BackupTel = "18711111111111",
-                Email = "23423@163.com",
-                Linkman = "john",
-                QQ = "66666666",
-                Tel = "18668668686",
-                Weixin = "5862414855",
-                SystemUser=s1
-            };
-            //s1.Addresses.Add(address2);
-            new AddressRepository().SaveOrUpdate(address2);
+        //    //添加顾客张国荣
+        //    string systemuserid = Guid.NewGuid().ToString();
+        //    string loginuserid = Guid.NewGuid().ToString();
+        //    SystemUser s1 = new SystemUser(systemuserid)
+        //    {
+        //        Tel = "13988888888",
+        //        Description = "erhuan10",
+        //        Email = "ocam10@163.com",
+        //        EntityIndex = 10,
+        //        Name = "张国荣",                 
+        //        IsAnonymous = false,
+        //    };
+        //    new SystemUserRepository().SaveOrUpdate(s1);          
+        //    Address address = new Address()
+        //    {
+        //        AddressName = "山东财经大学9号宿舍楼",
+        //        BackupTel = "187000000000",
+        //        Email ="23423@163.com",
+        //        Linkman = "john",
+        //        QQ ="3333333333",
+        //        Tel ="18668668686",
+        //        Weixin ="5862414855",
+        //        SystemUser=s1
+        //    };
+        //    //s1.Addresses.Add(address);
+        //    new AddressRepository().SaveOrUpdate(address);
+        //    Address address2 = new Address()
+        //    {
+        //        AddressName = "青岛大学9号宿舍楼",
+        //        BackupTel = "18711111111111",
+        //        Email = "23423@163.com",
+        //        Linkman = "john",
+        //        QQ = "66666666",
+        //        Tel = "18668668686",
+        //        Weixin = "5862414855",
+        //        SystemUser=s1
+        //    };
+        //    //s1.Addresses.Add(address2);
+        //    new AddressRepository().SaveOrUpdate(address2);
 
-            LoginUser sysLoginUser = new LoginUser(loginuserid)
-            {
-                SystemUser = s1,
-                IsAdmin = false,
-                LoginName = "restzhangguorong",
-                Password = "000000",
+        //    LoginUser sysLoginUser = new LoginUser(loginuserid)
+        //    {
+        //        SystemUser = s1,
+        //        IsAdmin = false,
+        //        LoginName = "restzhangguorong",
+        //        Password = "000000",
                  
-            };
-            //s1.LoginUser = sysLoginUser;
-            new LoginUserRepository().SaveOrUpdate(sysLoginUser);
+        //    };
+        //    //s1.LoginUser = sysLoginUser;
+        //    new LoginUserRepository().SaveOrUpdate(sysLoginUser);
 
-            UserInRole uir1 = new UserInRole();
-            uir1.LoginUser = sysLoginUser;
-            uir1.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
-            iUserInRoleRepository.SaveOrUpdate(uir1);
+        //    UserInRole uir1 = new UserInRole();
+        //    uir1.LoginUser = sysLoginUser;
+        //    uir1.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+        //    iUserInRoleRepository.SaveOrUpdate(uir1);
 
-            var add = s1.Addresses.FirstOrDefault();
-            MyFoodOrder myFoodOrder = new MyFoodOrder()
-            {
-                Address = address.AddressName,
-                Linkman = address.Linkman,
-                SystemUser = s1,
-                EntityIndex = 1,
-                Tel = address.Tel,
-                Restaurant = restaurant1,
-                OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
-                OrderStatus = MyOrderStatusEnum.成功,
-                SendTime = "11:20",
-                Description = "不要辣椒"
-            };
+        //    var add = s1.Addresses.FirstOrDefault();
+        //    MyFoodOrder myFoodOrder = new MyFoodOrder()
+        //    {
+        //        Address = address.AddressName,
+        //        Linkman = address.Linkman,
+        //        SystemUser = s1,
+        //        EntityIndex = 1,
+        //        Tel = address.Tel,
+        //        Restaurant = restaurant1,
+        //        OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+        //        OrderStatus = MyOrderStatusEnum.成功,
+        //        SendTime = "11:20",
+        //        Description = "不要辣椒"
+        //    };
 
-                OrderOfFood orderOfFood_1 = new OrderOfFood()
-               {
-                   Amount = 2,
-                   MyFoodOrder = myFoodOrder,
-                   Price = food_1.Price,
-                   Food = food_1,
-                   EntityIndex = 1
-               };
-               myFoodOrder.OrderOfFoods.Add(orderOfFood_1);
-           new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder);
+        //        OrderOfFood orderOfFood_1 = new OrderOfFood()
+        //       {
+        //           Amount = 2,
+        //           MyFoodOrder = myFoodOrder,
+        //           Price = food_1.Price,
+        //           Food = food_1,
+        //           EntityIndex = 1
+        //       };
+        //       myFoodOrder.OrderOfFoods.Add(orderOfFood_1);
+        //   new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder);
 
 
-           Restaurant restaurant2 = new Restaurant()
-           {
-               Activity = "清仓大甩卖",
-               Address = "青岛大学崂山校区",
-               AfternoonBeginHour = "18:20",
-               AfternoonEndHour = "19:30",
-               Bulletins = "9折优惠",
-               Cost = 2,
-               Description = "just come",
-               Distance = "100",
-               Email = "222@qq.com",
-               Logo = "/uploadimage/lrest2.png",
-               sBrand = "/uploadimage/srest2.jpg",
-               bBrand = "/uploadimage/brest2.jpg",
-               Name = "金汉斯自助餐连锁店",
-               Owener = "张学友",
-               ShortName = "金汉斯",
-               Tel = "18799999992",
-               SendTime = 30,
-               Rate = 0.8,
-               SendPrice = 10,
-               ShopStatus = ShopStatusEnum.营业时间,
-               MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("川菜"),
-               MerchantType = MerchantTypeEnum.餐馆
-           };
-           MerchantGoodsType restaurantFoodTye_12 = new MerchantGoodsType() { Merchant = restaurant2, GoodsType = "蛋糕" };
-           MerchantGoodsType restaurantFoodTye_22 = new MerchantGoodsType() { Merchant = restaurant2, GoodsType = "水果" };
-           restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_12);
-           restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_22);
-           new RestaurantRepository().SaveOrUpdate(restaurant2);
+        //   Restaurant restaurant2 = new Restaurant()
+        //   {
+        //       Activity = "清仓大甩卖",
+        //       Address = "青岛大学崂山校区",
+        //       AfternoonBeginHour = "18:20",
+        //       AfternoonEndHour = "19:30",
+        //       Bulletins = "9折优惠",
+        //       Cost = 2,
+        //       Description = "just come",
+        //       Distance = "100",
+        //       Email = "222@qq.com",
+        //       Logo = "/uploadimage/lrest2.png",
+        //       sBrand = "/uploadimage/srest2.jpg",
+        //       bBrand = "/uploadimage/brest2.jpg",
+        //       Name = "金汉斯自助餐连锁店",
+        //       Owener = "张学友",
+        //       ShortName = "金汉斯",
+        //       Tel = "18799999992",
+        //       SendTime = 30,
+        //       Rate = 0.8,
+        //       SendPrice = 10,
+        //       ShopStatus = ShopStatusEnum.营业时间,
+        //       MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("川菜"),
+        //       MerchantType = MerchantTypeEnum.餐馆
+        //   };
+        //   MerchantGoodsType restaurantFoodTye_12 = new MerchantGoodsType() { Merchant = restaurant2, GoodsType = "蛋糕" };
+        //   MerchantGoodsType restaurantFoodTye_22 = new MerchantGoodsType() { Merchant = restaurant2, GoodsType = "水果" };
+        //   restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_12);
+        //   restaurant2.MerchantGoodsTypes.Add(restaurantFoodTye_22);
+        //   new RestaurantRepository().SaveOrUpdate(restaurant2);
 
-           LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "restjinhansi";
-           lu2.Password = "000000";
-           iLoginUserRepository.SaveOrUpdate(lu2);
+        //   LoginUser lu2 = new LoginUser();
+        //   lu2.LoginName = "restjinhansi";
+        //   lu2.Password = "000000";
+        //   iLoginUserRepository.SaveOrUpdate(lu2);
 
-           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
-           lum2.Merchant = restaurant2;
-           lum2.LoginUser = lu2;
-           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+        //   LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+        //   lum2.Merchant = restaurant2;
+        //   lum2.LoginUser = lu2;
+        //   iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
-           UserInRole uir2 = new UserInRole();
-           uir2.LoginUser = lu2;
-           uir2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
-           iUserInRoleRepository.SaveOrUpdate(uir2);
+        //   UserInRole uir2 = new UserInRole();
+        //   uir2.LoginUser = lu2;
+        //   uir2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店主");
+        //   iUserInRoleRepository.SaveOrUpdate(uir2);
 
-           LoginUser lu1_2 = new LoginUser();
-           lu1_2.LoginName = "restxiaoerjinhansi";
-           lu1_2.Password = "111111";
-           iLoginUserRepository.SaveOrUpdate(lu1_2);
+        //   LoginUser lu1_2 = new LoginUser();
+        //   lu1_2.LoginName = "restxiaoerjinhansi";
+        //   lu1_2.Password = "111111";
+        //   iLoginUserRepository.SaveOrUpdate(lu1_2);
 
-           LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
-           lum1_2.Merchant = restaurant2;
-           lum1_2.LoginUser = lu1_2;
-           iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
+        //   LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
+        //   lum1_2.Merchant = restaurant2;
+        //   lum1_2.LoginUser = lu1_2;
+        //   iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
 
-           UserInRole uir1_2 = new UserInRole();
-           uir1_2.LoginUser = lu1_2;
-           uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
-           iUserInRoleRepository.SaveOrUpdate(uir1_2);
+        //   UserInRole uir1_2 = new UserInRole();
+        //   uir1_2.LoginUser = lu1_2;
+        //   uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("餐馆店小二");
+        //   iUserInRoleRepository.SaveOrUpdate(uir1_2);
 
-           Food food_12 = new Food()
-           {
-               Name = "生日蛋糕",
-               Price = 10,
-               Image = "/uploadimage/f3.jpg",
-               IsDiscount = false,
-               InventoryCount = 100,
-               MerchantGoodsType = restaurantFoodTye_12,
-               Restaurant = restaurant2,
+        //   Food food_12 = new Food()
+        //   {
+        //       Name = "生日蛋糕",
+        //       Price = 10,
+        //       Image = "/uploadimage/f3.jpg",
+        //       IsDiscount = false,
+        //       InventoryCount = 100,
+        //       MerchantGoodsType = restaurantFoodTye_12,
+        //       Restaurant = restaurant2,
 
-           };
-           restaurant1.Foods.Add(food_12);
+        //   };
+        //   restaurant1.Foods.Add(food_12);
 
-           Food food_22 = new Food()
-           {
-               Name = "香蕉",
-               Price = 15,
-               Image = "/uploadimage/f4.jpg",
-               IsDiscount = true,
-               InventoryCount = 200,
-               DiscountInventoryCount = 100,
-               MerchantGoodsType = restaurantFoodTye_22,
-               DiscountPrice = 10,
-               Restaurant = restaurant2,
-               IsLimited = true,
+        //   Food food_22 = new Food()
+        //   {
+        //       Name = "香蕉",
+        //       Price = 15,
+        //       Image = "/uploadimage/f4.jpg",
+        //       IsDiscount = true,
+        //       InventoryCount = 200,
+        //       DiscountInventoryCount = 100,
+        //       MerchantGoodsType = restaurantFoodTye_22,
+        //       DiscountPrice = 10,
+        //       Restaurant = restaurant2,
+        //       IsLimited = true,
 
-           };
-           restaurant2.Foods.Add(food_22);
-           new RestaurantRepository().SaveOrUpdate(restaurant2);
+        //   };
+        //   restaurant2.Foods.Add(food_22);
+        //   new RestaurantRepository().SaveOrUpdate(restaurant2);
 
-           //添加顾客张卫健
-           SystemUser s2 = new SystemUser()
-           {
-               Tel = "13988888888",
-               Description = "erhuan10",
-               Email = "ocam10@163.com",
-               EntityIndex = 10,
-               Name = "张卫健",
-               IsAnonymous = false,
-           };
-           new SystemUserRepository().SaveOrUpdate(s2);
-           Address address12 = new Address()
-           {
-               AddressName = "青岛大学崂山校区1号宿舍楼",
-               BackupTel = "187000000000",
-               Email = "23423@163.com",
-               Linkman = "john",
-               QQ = "3333333333",
-               Tel = "18668668686",
-               Weixin = "5862414855",
-               SystemUser = s2
-           };
-           //s1.Addresses.Add(address);
-           new AddressRepository().SaveOrUpdate(address12);
-           Address address22 = new Address()
-           {
-               AddressName = "中国海洋大学2号宿舍楼",
-               BackupTel = "18711111111111",
-               Email = "23423@163.com",
-               Linkman = "john",
-               QQ = "66666666",
-               Tel = "18668668686",
-               Weixin = "5862414855",
-               SystemUser = s2
-           };
-           //s1.Addresses.Add(address2);
-           new AddressRepository().SaveOrUpdate(address22);
+        //   //添加顾客张卫健
+        //   SystemUser s2 = new SystemUser()
+        //   {
+        //       Tel = "13988888888",
+        //       Description = "erhuan10",
+        //       Email = "ocam10@163.com",
+        //       EntityIndex = 10,
+        //       Name = "张卫健",
+        //       IsAnonymous = false,
+        //   };
+        //   new SystemUserRepository().SaveOrUpdate(s2);
+        //   Address address12 = new Address()
+        //   {
+        //       AddressName = "青岛大学崂山校区1号宿舍楼",
+        //       BackupTel = "187000000000",
+        //       Email = "23423@163.com",
+        //       Linkman = "john",
+        //       QQ = "3333333333",
+        //       Tel = "18668668686",
+        //       Weixin = "5862414855",
+        //       SystemUser = s2
+        //   };
+        //   //s1.Addresses.Add(address);
+        //   new AddressRepository().SaveOrUpdate(address12);
+        //   Address address22 = new Address()
+        //   {
+        //       AddressName = "中国海洋大学2号宿舍楼",
+        //       BackupTel = "18711111111111",
+        //       Email = "23423@163.com",
+        //       Linkman = "john",
+        //       QQ = "66666666",
+        //       Tel = "18668668686",
+        //       Weixin = "5862414855",
+        //       SystemUser = s2
+        //   };
+        //   //s1.Addresses.Add(address2);
+        //   new AddressRepository().SaveOrUpdate(address22);
 
-           LoginUser sysLoginUser2 = new LoginUser()
-           {
-               SystemUser = s2,
-               IsAdmin = false,
-               LoginName = "restzhangweijian",
-               Password = "000000",
+        //   LoginUser sysLoginUser2 = new LoginUser()
+        //   {
+        //       SystemUser = s2,
+        //       IsAdmin = false,
+        //       LoginName = "restzhangweijian",
+        //       Password = "000000",
 
-           };
-           //s1.LoginUser = sysLoginUser;
-           new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
+        //   };
+        //   //s1.LoginUser = sysLoginUser;
+        //   new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
 
-           UserInRole uir12 = new UserInRole();
-           uir12.LoginUser = sysLoginUser2;
-           uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
-           iUserInRoleRepository.SaveOrUpdate(uir12);
+        //   UserInRole uir12 = new UserInRole();
+        //   uir12.LoginUser = sysLoginUser2;
+        //   uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+        //   iUserInRoleRepository.SaveOrUpdate(uir12);
 
-           var add2 = s2.Addresses.FirstOrDefault();
-           MyFoodOrder myFoodOrder2 = new MyFoodOrder()
-           {
-               Address = address22.AddressName,
-               Linkman = address22.Linkman,
-               SystemUser = s2,
-               EntityIndex = 1,
-               Tel = address22.Tel,
-               Restaurant = restaurant2,
-               OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
-               OrderStatus = MyOrderStatusEnum.成功,
-               SendTime = "11:20",
-               Description = "不要辣椒"
-           };
+        //   var add2 = s2.Addresses.FirstOrDefault();
+        //   MyFoodOrder myFoodOrder2 = new MyFoodOrder()
+        //   {
+        //       Address = address22.AddressName,
+        //       Linkman = address22.Linkman,
+        //       SystemUser = s2,
+        //       EntityIndex = 1,
+        //       Tel = address22.Tel,
+        //       Restaurant = restaurant2,
+        //       OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+        //       OrderStatus = MyOrderStatusEnum.成功,
+        //       SendTime = "11:20",
+        //       Description = "不要辣椒"
+        //   };
 
-           OrderOfFood orderOfFood_12 = new OrderOfFood()
-           {
-               Amount = 2,
-               MyFoodOrder = myFoodOrder2,
-               Price = food_12.Price,
-               Food = food_12,
-               EntityIndex = 1
-           };
-           myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
+        //   OrderOfFood orderOfFood_12 = new OrderOfFood()
+        //   {
+        //       Amount = 2,
+        //       MyFoodOrder = myFoodOrder2,
+        //       Price = food_12.Price,
+        //       Food = food_12,
+        //       EntityIndex = 1
+        //   };
+        //   myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
 
-           OrderOfFood orderOfFood_22 = new OrderOfFood()
-           {
-               Amount = 2,
-               MyFoodOrder = myFoodOrder2,
-               Price = food_22.Price,
-               Food = food_22,
-               EntityIndex = 1
-           };
-           myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
-           new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder2);        
+        //   OrderOfFood orderOfFood_22 = new OrderOfFood()
+        //   {
+        //       Amount = 2,
+        //       MyFoodOrder = myFoodOrder2,
+        //       Price = food_22.Price,
+        //       Food = food_22,
+        //       EntityIndex = 1
+        //   };
+        //   myFoodOrder2.OrderOfFoods.Add(orderOfFood_12);
+        //   new MyFoodOrderRepository().SaveOrUpdate(myFoodOrder2);        
 
-          //添加评价数据Valuing、ValuingComments、Score、ValuingItem
-           IRepository<MyFoodOrder> iMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
+        //  //添加评价数据Valuing、ValuingComments、Score、ValuingItem
+        //   IRepository<MyFoodOrder> iMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<MyFoodOrder>>();
 
-           IValuingOfMyFoodOrderRepository iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IValuingOfMyFoodOrderRepository>();
-           IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
-           IRepository<ScoreOfItemInFoodOrder> iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInFoodOrder>>();
-           IList<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderOrders = new List<ValuingItemOfMyFoodOrder>();
+        //   IValuingOfMyFoodOrderRepository iValuingOfMyFoodOrderRepository = UnityHelper.UnityToT<IValuingOfMyFoodOrderRepository>();
+        //   IRepository<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyFoodOrder>>();
+        //   IRepository<ScoreOfItemInFoodOrder> iScoreOfItemInFoodOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInFoodOrder>>();
+        //   IList<ValuingItemOfMyFoodOrder> iValuingItemOfMyFoodOrderOrders = new List<ValuingItemOfMyFoodOrder>();
 
-           string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
-           foreach (var i in vItemArray)
-           {
-               ValuingItemOfMyFoodOrder vluItemOfFd = new ValuingItemOfMyFoodOrder()
-               {
-                   ValuingItemName = i
-               };
-               iValuingItemOfMyFoodOrderRepository.SaveOrUpdate(vluItemOfFd);
-               iValuingItemOfMyFoodOrderOrders.Add(vluItemOfFd);
-           };
+        //   string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
+        //   foreach (var i in vItemArray)
+        //   {
+        //       ValuingItemOfMyFoodOrder vluItemOfFd = new ValuingItemOfMyFoodOrder()
+        //       {
+        //           ValuingItemName = i
+        //       };
+        //       iValuingItemOfMyFoodOrderRepository.SaveOrUpdate(vluItemOfFd);
+        //       iValuingItemOfMyFoodOrderOrders.Add(vluItemOfFd);
+        //   };
 
-           ValuingComments valucmmt1_1 = new ValuingComments()
-           {
-               Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
-               Direction = 0,
-               TrackIndex = 1,
-           };
-           ValuingComments valucmmt1_2 = new ValuingComments()
-           {
-               Comments = "能不能退货",
-               Direction = 0,
-               TrackIndex = 2,
-           };
-               ValuingOfMyFoodOrder vluOfFd1_1 = new ValuingOfMyFoodOrder()
-               {
-                   LoginUser = sysLoginUser,
-                   Merchant = restaurant1,
-                   MyFoodOrder =myFoodOrder ,
-                   ValuingContent =  "送货速度慢，产品质量差，服务态度恶劣",
+        //   ValuingComments valucmmt1_1 = new ValuingComments()
+        //   {
+        //       Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+        //       Direction = 0,
+        //       TrackIndex = 1,
+        //   };
+        //   ValuingComments valucmmt1_2 = new ValuingComments()
+        //   {
+        //       Comments = "能不能退货",
+        //       Direction = 0,
+        //       TrackIndex = 2,
+        //   };
+        //       ValuingOfMyFoodOrder vluOfFd1_1 = new ValuingOfMyFoodOrder()
+        //       {
+        //           LoginUser = sysLoginUser,
+        //           Merchant = restaurant1,
+        //           MyFoodOrder =myFoodOrder ,
+        //           ValuingContent =  "送货速度慢，产品质量差，服务态度恶劣",
                    
-               };
-               new ValuingOfMyFoodOrderRepository().SaveOrUpdate(vluOfFd1_1);
+        //       };
+        //       new ValuingOfMyFoodOrderRepository().SaveOrUpdate(vluOfFd1_1);
 
-               valucmmt1_1.Valuing = vluOfFd1_1;
-               valucmmt1_2.Valuing = vluOfFd1_1;
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_1);
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_2);
+        //       valucmmt1_1.Valuing = vluOfFd1_1;
+        //       valucmmt1_2.Valuing = vluOfFd1_1;
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_1);
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_2);
   
-               for (int j = 0; j < 3; j++)
-               {
-                   ScoreOfItemInFoodOrder scoreOfItFd1_1 = new ScoreOfItemInFoodOrder()
-                   {
-                       Score = j,
-                       ValuingOfMyFoodOrder = vluOfFd1_1,
-                       ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderOrders[j],
-                   };
-                   vluOfFd1_1.ScoreOfItemInFoodOrders.Add(scoreOfItFd1_1);
-                   iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd1_1);
-               };
-               iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd1_1);
+        //       for (int j = 0; j < 3; j++)
+        //       {
+        //           ScoreOfItemInFoodOrder scoreOfItFd1_1 = new ScoreOfItemInFoodOrder()
+        //           {
+        //               Score = j,
+        //               ValuingOfMyFoodOrder = vluOfFd1_1,
+        //               ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderOrders[j],
+        //           };
+        //           vluOfFd1_1.ScoreOfItemInFoodOrders.Add(scoreOfItFd1_1);
+        //           iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd1_1);
+        //       };
+        //       iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd1_1);
 
 
-               //第二个用户对第二个餐馆的valuing
-               ValuingComments valucmmt2_1 = new ValuingComments()
-               {
-                   Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
-                   Direction = 0,
-                   TrackIndex = 1,
-               };
-               ValuingComments valucmmt2_2 = new ValuingComments()
-               {
-                   Comments = "能不能退货",
-                   Direction = 0,
-                   TrackIndex = 2,
-               };
-               ValuingOfMyFoodOrder vluOfFd2_1 = new ValuingOfMyFoodOrder()
-               {
-                   LoginUser = sysLoginUser2,
-                   Merchant = restaurant2,
-                   MyFoodOrder = myFoodOrder2,
-                   ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
+        //       //第二个用户对第二个餐馆的valuing
+        //       ValuingComments valucmmt2_1 = new ValuingComments()
+        //       {
+        //           Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+        //           Direction = 0,
+        //           TrackIndex = 1,
+        //       };
+        //       ValuingComments valucmmt2_2 = new ValuingComments()
+        //       {
+        //           Comments = "能不能退货",
+        //           Direction = 0,
+        //           TrackIndex = 2,
+        //       };
+        //       ValuingOfMyFoodOrder vluOfFd2_1 = new ValuingOfMyFoodOrder()
+        //       {
+        //           LoginUser = sysLoginUser2,
+        //           Merchant = restaurant2,
+        //           MyFoodOrder = myFoodOrder2,
+        //           ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
 
-               };
-               new ValuingOfMyFoodOrderRepository().SaveOrUpdate(vluOfFd2_1);
+        //       };
+        //       new ValuingOfMyFoodOrderRepository().SaveOrUpdate(vluOfFd2_1);
 
-               valucmmt2_1.Valuing = vluOfFd2_1;
-               valucmmt2_2.Valuing = vluOfFd2_1;
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_1);
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_2);
+        //       valucmmt2_1.Valuing = vluOfFd2_1;
+        //       valucmmt2_2.Valuing = vluOfFd2_1;
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_1);
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_2);
 
-               for (int j = 0; j < 3; j++)
-               {
-                   ScoreOfItemInFoodOrder scoreOfItFd2_1 = new ScoreOfItemInFoodOrder()
-                   {
-                       Score = j,
-                       ValuingOfMyFoodOrder = vluOfFd2_1,
-                       ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderOrders[j],
-                   };
-                   vluOfFd2_1.ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
-                   iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
-               };
-               iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd2_1);
+        //       for (int j = 0; j < 3; j++)
+        //       {
+        //           ScoreOfItemInFoodOrder scoreOfItFd2_1 = new ScoreOfItemInFoodOrder()
+        //           {
+        //               Score = j,
+        //               ValuingOfMyFoodOrder = vluOfFd2_1,
+        //               ValuingItemOfMyFoodOrder = iValuingItemOfMyFoodOrderOrders[j],
+        //           };
+        //           vluOfFd2_1.ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
+        //           iValuingItemOfMyFoodOrderOrders[j].ScoreOfItemInFoodOrders.Add(scoreOfItFd2_1);
+        //       };
+        //       iValuingOfMyFoodOrderRepository.SaveOrUpdate(vluOfFd2_1);
              
-            //添加Message模块
-               IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
-               MessageContent mc1_1 = new MessageContent()
-               {
-                   Content = "阿里巴巴员工2013年初收到了史上最丰厚的年终大礼包。"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc1_1);
+        //    //添加Message模块
+        //       IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
+        //       MessageContent mc1_1 = new MessageContent()
+        //       {
+        //           Content = "阿里巴巴员工2013年初收到了史上最丰厚的年终大礼包。"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc1_1);
 
-               Message mess1_1 = new Message()
-               {
-                    Direction=0,
-                    Merchant = restaurant1,
-                    LoginUser = sysLoginUser,
-                    MessageContent=mc1_1,
-                    IsNew=true,
-                    ThreadIndex="年终大礼包",
-                    TrackIndex="0"
-               };
-               new MessageRepository().SaveOrUpdate(mess1_1);
+        //       Message mess1_1 = new Message()
+        //       {
+        //            Direction=0,
+        //            Merchant = restaurant1,
+        //            LoginUser = sysLoginUser,
+        //            MessageContent=mc1_1,
+        //            IsNew=true,
+        //            ThreadIndex="年终大礼包",
+        //            TrackIndex="0"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess1_1);
 
-               MessageContent mc1_2 = new MessageContent()
-               {
-                   Content = "年终大礼包赠送的都有哪些东西？"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc1_2);
+        //       MessageContent mc1_2 = new MessageContent()
+        //       {
+        //           Content = "年终大礼包赠送的都有哪些东西？"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc1_2);
 
-               Message mess1_2 = new Message()
-               {
-                   Direction = 1,
-                   Merchant = restaurant1,
-                   LoginUser = sysLoginUser,
-                   MessageContent = mc1_2,
-                   IsNew = true,
-                   ThreadIndex = "年终大礼包",
-                   TrackIndex = "1"
-               };
-               new MessageRepository().SaveOrUpdate(mess1_2);
-              //第二个人的消息模块
-               MessageContent mc2_1 = new MessageContent()
-               {
-                   Content = "亲爱的天猫达人，今天是您的生日，天猫俱乐部祝您生日快乐。"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc2_1);
+        //       Message mess1_2 = new Message()
+        //       {
+        //           Direction = 1,
+        //           Merchant = restaurant1,
+        //           LoginUser = sysLoginUser,
+        //           MessageContent = mc1_2,
+        //           IsNew = true,
+        //           ThreadIndex = "年终大礼包",
+        //           TrackIndex = "1"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess1_2);
+        //      //第二个人的消息模块
+        //       MessageContent mc2_1 = new MessageContent()
+        //       {
+        //           Content = "亲爱的天猫达人，今天是您的生日，天猫俱乐部祝您生日快乐。"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc2_1);
 
-               Message mess2_1 = new Message()
-               {
-                   Direction = 0,
-                   Merchant = restaurant2,
-                   LoginUser = sysLoginUser2,
-                   MessageContent = mc2_1,
-                   IsNew = true,
-                   ThreadIndex = "生日礼物",
-                   TrackIndex = "0"
-               };
-               new MessageRepository().SaveOrUpdate(mess2_1);
+        //       Message mess2_1 = new Message()
+        //       {
+        //           Direction = 0,
+        //           Merchant = restaurant2,
+        //           LoginUser = sysLoginUser2,
+        //           MessageContent = mc2_1,
+        //           IsNew = true,
+        //           ThreadIndex = "生日礼物",
+        //           TrackIndex = "0"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess2_1);
 
-               MessageContent mc2_2 = new MessageContent()
-               {
-                   Content = "感谢您一直以来对天猫的支持。今天是双倍积分卡有效期的最后一天，您的积分赚够了么？"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc2_2);
+        //       MessageContent mc2_2 = new MessageContent()
+        //       {
+        //           Content = "感谢您一直以来对天猫的支持。今天是双倍积分卡有效期的最后一天，您的积分赚够了么？"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc2_2);
 
-               Message mess2_2 = new Message()
-               {
-                   Direction = 1,
-                   Merchant = restaurant2,
-                   LoginUser = sysLoginUser2,
-                   MessageContent = mc2_2,
-                   IsNew = true,
-                   ThreadIndex = "生日礼物",
-                   TrackIndex = "1"
-               };
-               new MessageRepository().SaveOrUpdate(mess2_2);
+        //       Message mess2_2 = new Message()
+        //       {
+        //           Direction = 1,
+        //           Merchant = restaurant2,
+        //           LoginUser = sysLoginUser2,
+        //           MessageContent = mc2_2,
+        //           IsNew = true,
+        //           ThreadIndex = "生日礼物",
+        //           TrackIndex = "1"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess2_2);
             
-            ////添加FeedBack
-               IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
-              // LoginUser adminLoginUser=iLoginUserRepository.s
-               FeedBack fb1 = new FeedBack()
-               {
-                   Type = "1",
-                   Contents = "送货速度很慢啊！！！！！！",
-                   LoginUser = sysLoginUser
-               };
-               iFeedBackRepository.SaveOrUpdate(fb1);
+        //    ////添加FeedBack
+        //       IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+        //      // LoginUser adminLoginUser=iLoginUserRepository.s
+        //       FeedBack fb1 = new FeedBack()
+        //       {
+        //           Type = "1",
+        //           Contents = "送货速度很慢啊！！！！！！",
+        //           LoginUser = sysLoginUser
+        //       };
+        //       iFeedBackRepository.SaveOrUpdate(fb1);
 
-               FeedBack fb2 = new FeedBack()
-               {
-                   Type = "2",
-                   Contents = "面包质量有问题。。。",
-                   LoginUser = sysLoginUser2
-               };
-               FeedBack fb3 = new FeedBack()
-               {
-                   Type = "2",
-                   Contents = "面包质量有问题自己解决",
-                   ParentFeedBack = fb2,
-                   LoginUser = adminLoginUser
-               };
-               // iFeedBackRepository.SaveOrUpdate(fb3);
-               fb2.ChildFeedBacks.Add(fb3);
-               iFeedBackRepository.SaveOrUpdate(fb2);
+        //       FeedBack fb2 = new FeedBack()
+        //       {
+        //           Type = "2",
+        //           Contents = "面包质量有问题。。。",
+        //           LoginUser = sysLoginUser2
+        //       };
+        //       FeedBack fb3 = new FeedBack()
+        //       {
+        //           Type = "2",
+        //           Contents = "面包质量有问题自己解决",
+        //           ParentFeedBack = fb2,
+        //           LoginUser = adminLoginUser
+        //       };
+        //       // iFeedBackRepository.SaveOrUpdate(fb3);
+        //       fb2.ChildFeedBacks.Add(fb3);
+        //       iFeedBackRepository.SaveOrUpdate(fb2);
 
 
 
-               FeedBack fb4 = new FeedBack()
-               {
-                   Type = "3",
-                   Contents = "有优惠活动吗？",
-                   LoginUser = sysLoginUser
-               };
+        //       FeedBack fb4 = new FeedBack()
+        //       {
+        //           Type = "3",
+        //           Contents = "有优惠活动吗？",
+        //           LoginUser = sysLoginUser
+        //       };
 
-               FeedBack fb5 = new FeedBack()
-               {
-                   Type = "3",
-                   Contents = "没有有优惠活动",
-                   ParentFeedBack = fb4,
-                   LoginUser = adminLoginUser
-               };
-               //   iFeedBackRepository.SaveOrUpdate(fb4);
-               fb4.ChildFeedBacks.Add(fb5);
-               iFeedBackRepository.SaveOrUpdate(fb4);
+        //       FeedBack fb5 = new FeedBack()
+        //       {
+        //           Type = "3",
+        //           Contents = "没有有优惠活动",
+        //           ParentFeedBack = fb4,
+        //           LoginUser = adminLoginUser
+        //       };
+        //       //   iFeedBackRepository.SaveOrUpdate(fb4);
+        //       fb4.ChildFeedBacks.Add(fb5);
+        //       iFeedBackRepository.SaveOrUpdate(fb4);
 
-        }
-         public void add_RentInfo()
-        {
-            IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
-            IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
+        //}
+        // public void add_RentInfo()
+        //{
+        //    IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+        //    IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
 
-            Rent rent1 = new Rent()
-            {
-                Activity = "五一大促销",
-                Address = "二环东路7366号",
-                Bulletins = "9折促销",
-                Description = "just come",
-                Distance = "100",
-                Email = "7366@qq.com",
-                Logo = "/uploadimage/lret1.png",
-                sBrand = "/uploadimage/sret1.jpg",
-                bBrand = "/uploadimage/bret1.jpg",
-                Name = "济南安泰置业有限公司",
-                Owener = "任贤齐",
-                ShortName = "安泰",
-                Tel = "18799999992",
-                Rate = 0.8,
-                ShopStatus = ShopStatusEnum.营业时间,
-                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("学区房"),
-                MerchantType = MerchantTypeEnum.租房
-            };
-            MerchantGoodsType rentHouseTye_1 = new MerchantGoodsType() { Merchant = rent1, GoodsType = "高校学区房" };
-            MerchantGoodsType rentHouseTye_2 = new MerchantGoodsType() { Merchant = rent1, GoodsType = "中学学区房" };
-            rent1.MerchantGoodsTypes.Add(rentHouseTye_1);
-            rent1.MerchantGoodsTypes.Add(rentHouseTye_2);
-            new RentRepository().SaveOrUpdate(rent1);
+        //    Rent rent1 = new Rent()
+        //    {
+        //        Activity = "五一大促销",
+        //        Address = "二环东路7366号",
+        //        Bulletins = "9折促销",
+        //        Description = "just come",
+        //        Distance = "100",
+        //        Email = "7366@qq.com",
+        //        Logo = "/uploadimage/lret1.png",
+        //        sBrand = "/uploadimage/sret1.jpg",
+        //        bBrand = "/uploadimage/bret1.jpg",
+        //        Name = "济南安泰置业有限公司",
+        //        Owener = "任贤齐",
+        //        ShortName = "安泰",
+        //        Tel = "18799999992",
+        //        Rate = 0.8,
+        //        ShopStatus = ShopStatusEnum.营业时间,
+        //        MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("学区房"),
+        //        MerchantType = MerchantTypeEnum.租房
+        //    };
+        //    MerchantGoodsType rentHouseTye_1 = new MerchantGoodsType() { Merchant = rent1, GoodsType = "高校学区房" };
+        //    MerchantGoodsType rentHouseTye_2 = new MerchantGoodsType() { Merchant = rent1, GoodsType = "中学学区房" };
+        //    rent1.MerchantGoodsTypes.Add(rentHouseTye_1);
+        //    rent1.MerchantGoodsTypes.Add(rentHouseTye_2);
+        //    new RentRepository().SaveOrUpdate(rent1);
 
-            IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
-            ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
+        //    IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
+        //    ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
 
-            LoginUser lu1 = new LoginUser();
-            lu1.LoginName = "rentantai";
-            lu1.Password = "000000";
-            iLoginUserRepository.SaveOrUpdate(lu1);
+        //    LoginUser lu1 = new LoginUser();
+        //    lu1.LoginName = "rentantai";
+        //    lu1.Password = "000000";
+        //    iLoginUserRepository.SaveOrUpdate(lu1);
             
-            LoginUserOfMerchant lum = new LoginUserOfMerchant();
-            lum.Merchant = rent1;
-            lum.LoginUser = lu1;
-            iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
+        //    LoginUserOfMerchant lum = new LoginUserOfMerchant();
+        //    lum.Merchant = rent1;
+        //    lum.LoginUser = lu1;
+        //    iLoginUserOfMerchantRepository.SaveOrUpdate(lum);
 
-            UserInRole uir = new UserInRole();
-            uir.LoginUser = lu1;
-            uir.SystemRole = iSystemRoleRepository.GetRoleByName("租房店主");
-            iUserInRoleRepository.SaveOrUpdate(uir);
+        //    UserInRole uir = new UserInRole();
+        //    uir.LoginUser = lu1;
+        //    uir.SystemRole = iSystemRoleRepository.GetRoleByName("租房店主");
+        //    iUserInRoleRepository.SaveOrUpdate(uir);
 
-            LoginUser lu1_1 = new LoginUser();
-            lu1_1.LoginName = "rentantaixiaoer";
-            lu1_1.Password = "111111";
-            iLoginUserRepository.SaveOrUpdate(lu1_1);
+        //    LoginUser lu1_1 = new LoginUser();
+        //    lu1_1.LoginName = "rentantaixiaoer";
+        //    lu1_1.Password = "111111";
+        //    iLoginUserRepository.SaveOrUpdate(lu1_1);
 
-            LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
-            lum1_1.Merchant = rent1;
-            lum1_1.LoginUser = lu1_1;
-            iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
+        //    LoginUserOfMerchant lum1_1 = new LoginUserOfMerchant();
+        //    lum1_1.Merchant = rent1;
+        //    lum1_1.LoginUser = lu1_1;
+        //    iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_1);
 
-            UserInRole uir1_1 = new UserInRole();
-            uir1_1.LoginUser = lu1_1;
-            uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("租房店小二");
-            iUserInRoleRepository.SaveOrUpdate(uir1_1);
+        //    UserInRole uir1_1 = new UserInRole();
+        //    uir1_1.LoginUser = lu1_1;
+        //    uir1_1.SystemRole = iSystemRoleRepository.GetRoleByName("租房店小二");
+        //    iUserInRoleRepository.SaveOrUpdate(uir1_1);
 
-                House house_1 = new House()
-                {
-                    Name = "财大学区房",
-                    Price = 10,
-                    Image = "/uploadimage/h1.jpg",
-                    IsDiscount = false,
-                    InventoryCount = 100,
-                    MerchantGoodsType = rentHouseTye_1,
-                    Rent = rent1,
-                   TimeOfRentFrom=DateTime.Now,
-                   TimeOfRentTO=DateTime.Now
+        //        House house_1 = new House()
+        //        {
+        //            Name = "财大学区房",
+        //            Price = 10,
+        //            Image = "/uploadimage/h1.jpg",
+        //            IsDiscount = false,
+        //            InventoryCount = 100,
+        //            MerchantGoodsType = rentHouseTye_1,
+        //            Rent = rent1,
+        //           TimeOfRentFrom=DateTime.Now,
+        //           TimeOfRentTO=DateTime.Now
 
-                };
-                rent1.Houses.Add(house_1);
+        //        };
+        //        rent1.Houses.Add(house_1);
 
-                House house_2 = new House()
-                {
-                    Name = "甸柳一小学区房",
-                    Price = 15,
-                    Image = "/uploadimage/h2.jpg",
-                    IsDiscount = true,
-                    InventoryCount = 200,
-                    DiscountInventoryCount = 100,
-                    MerchantGoodsType = rentHouseTye_2,
-                    DiscountPrice = 10,
-                    Rent = rent1,
-                    IsLimited = true,
-                    TimeOfRentFrom = DateTime.Now,
-                    TimeOfRentTO = DateTime.Now
-                };
-                rent1.Houses.Add(house_2);
-            new RentRepository().SaveOrUpdate(rent1);
+        //        House house_2 = new House()
+        //        {
+        //            Name = "甸柳一小学区房",
+        //            Price = 15,
+        //            Image = "/uploadimage/h2.jpg",
+        //            IsDiscount = true,
+        //            InventoryCount = 200,
+        //            DiscountInventoryCount = 100,
+        //            MerchantGoodsType = rentHouseTye_2,
+        //            DiscountPrice = 10,
+        //            Rent = rent1,
+        //            IsLimited = true,
+        //            TimeOfRentFrom = DateTime.Now,
+        //            TimeOfRentTO = DateTime.Now
+        //        };
+        //        rent1.Houses.Add(house_2);
+        //    new RentRepository().SaveOrUpdate(rent1);
 
-            //添加顾客李自成
-            string systemuserid = Guid.NewGuid().ToString();
-            string loginuserid = Guid.NewGuid().ToString();
-            SystemUser s1 = new SystemUser(systemuserid)
-            {
-                Tel = "13988888888",
-                Description = "erhuan10",
-                Email = "ocam10@163.com",
-                EntityIndex = 10,
-                Name = "李自成",                 
-                IsAnonymous = false,
-            };
-            new SystemUserRepository().SaveOrUpdate(s1);          
-            Address address = new Address()
-            {
-                AddressName = "济南市历下区燕子山小区9#116",
-                BackupTel = "187000000000",
-                Email ="23423@163.com",
-                Linkman = "john",
-                QQ ="3333333333",
-                Tel ="18668668686",
-                Weixin ="5862414855",
-                SystemUser=s1
-            };
-            //s1.Addresses.Add(address);
-            new AddressRepository().SaveOrUpdate(address);
-            Address address2 = new Address()
-            {
-                AddressName = "济南市市中区军安和平山庄9#116",
-                BackupTel = "18711111111111",
-                Email = "23423@163.com",
-                Linkman = "john",
-                QQ = "66666666",
-                Tel = "18668668686",
-                Weixin = "5862414855",
-                SystemUser=s1
-            };
-            //s1.Addresses.Add(address2);
-            new AddressRepository().SaveOrUpdate(address2);
+        //    //添加顾客李自成
+        //    string systemuserid = Guid.NewGuid().ToString();
+        //    string loginuserid = Guid.NewGuid().ToString();
+        //    SystemUser s1 = new SystemUser(systemuserid)
+        //    {
+        //        Tel = "13988888888",
+        //        Description = "erhuan10",
+        //        Email = "ocam10@163.com",
+        //        EntityIndex = 10,
+        //        Name = "李自成",                 
+        //        IsAnonymous = false,
+        //    };
+        //    new SystemUserRepository().SaveOrUpdate(s1);          
+        //    Address address = new Address()
+        //    {
+        //        AddressName = "济南市历下区燕子山小区9#116",
+        //        BackupTel = "187000000000",
+        //        Email ="23423@163.com",
+        //        Linkman = "john",
+        //        QQ ="3333333333",
+        //        Tel ="18668668686",
+        //        Weixin ="5862414855",
+        //        SystemUser=s1
+        //    };
+        //    //s1.Addresses.Add(address);
+        //    new AddressRepository().SaveOrUpdate(address);
+        //    Address address2 = new Address()
+        //    {
+        //        AddressName = "济南市市中区军安和平山庄9#116",
+        //        BackupTel = "18711111111111",
+        //        Email = "23423@163.com",
+        //        Linkman = "john",
+        //        QQ = "66666666",
+        //        Tel = "18668668686",
+        //        Weixin = "5862414855",
+        //        SystemUser=s1
+        //    };
+        //    //s1.Addresses.Add(address2);
+        //    new AddressRepository().SaveOrUpdate(address2);
 
-            LoginUser sysLoginUser = new LoginUser(loginuserid)
-            {
-                SystemUser = s1,
-                IsAdmin = false,
-                LoginName = "rentlizicheng",
-                Password = "000000",
+        //    LoginUser sysLoginUser = new LoginUser(loginuserid)
+        //    {
+        //        SystemUser = s1,
+        //        IsAdmin = false,
+        //        LoginName = "rentlizicheng",
+        //        Password = "000000",
                  
-            };
-            //s1.LoginUser = sysLoginUser;
-            new LoginUserRepository().SaveOrUpdate(sysLoginUser);
+        //    };
+        //    //s1.LoginUser = sysLoginUser;
+        //    new LoginUserRepository().SaveOrUpdate(sysLoginUser);
 
-            UserInRole uir1 = new UserInRole();
-            uir1.LoginUser = sysLoginUser;
-            uir1.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
-            iUserInRoleRepository.SaveOrUpdate(uir1);
+        //    UserInRole uir1 = new UserInRole();
+        //    uir1.LoginUser = sysLoginUser;
+        //    uir1.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+        //    iUserInRoleRepository.SaveOrUpdate(uir1);
 
-            var add = s1.Addresses.FirstOrDefault();
-            MyHouseOrder myHouseOrder = new MyHouseOrder()
-            {
-                Address = address.AddressName,
-                Linkman = address.Linkman,
-                SystemUser = s1,
-                EntityIndex = 1,
-                Tel = address.Tel,
-                Rent = rent1,
-                OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
-                OrderStatus = MyOrderStatusEnum.成功,
-                SendTime = "11:20",
-                Description = "价格不能超过3000"
-            };
+        //    var add = s1.Addresses.FirstOrDefault();
+        //    MyHouseOrder myHouseOrder = new MyHouseOrder()
+        //    {
+        //        Address = address.AddressName,
+        //        Linkman = address.Linkman,
+        //        SystemUser = s1,
+        //        EntityIndex = 1,
+        //        Tel = address.Tel,
+        //        Rent = rent1,
+        //        OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+        //        OrderStatus = MyOrderStatusEnum.成功,
+        //        SendTime = "11:20",
+        //        Description = "价格不能超过3000"
+        //    };
 
-                OrderOfHouse orderOfHouse_1 = new OrderOfHouse()
-               {
-                   Amount = 2,
-                   MyHouseOrder = myHouseOrder,
-                   Price = house_1.Price,
-                   House = house_1,
-                   EntityIndex = 1
-               };
-               myHouseOrder.OrderOfHouses.Add(orderOfHouse_1);
-           new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder);
+        //        OrderOfHouse orderOfHouse_1 = new OrderOfHouse()
+        //       {
+        //           Amount = 2,
+        //           MyHouseOrder = myHouseOrder,
+        //           Price = house_1.Price,
+        //           House = house_1,
+        //           EntityIndex = 1
+        //       };
+        //       myHouseOrder.OrderOfHouses.Add(orderOfHouse_1);
+        //   new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder);
 
 
-           Rent rent2 = new Rent()
-           {
-               Activity = "优质房源",
-               Address = "济南市市中区舜耕路30号",
-               Bulletins = "9折优惠",
-               Description = "just come",
-               Distance = "100",
-               Email = "222@qq.com",
-               Logo = "/uploadimage/lret2.png",
-               sBrand = "/uploadimage/sret2.jpg",
-               bBrand = "/uploadimage/bret2.jpg",
-               Name = "济南润华置业公司",
-               Owener = "杨千嬅",
-               ShortName = "润华",
-               Tel = "18799999992",
-               Rate = 0.8,
-               ShopStatus = ShopStatusEnum.营业时间,
-               MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("海景房"),
-               MerchantType = MerchantTypeEnum.租房
-           };
-           MerchantGoodsType rentHouseTye_12 = new MerchantGoodsType() { Merchant = rent2, GoodsType = "烟台海景房" };
-           MerchantGoodsType rentHouseTye_22 = new MerchantGoodsType() { Merchant = rent2, GoodsType = "威海海景房" };
-           rent2.MerchantGoodsTypes.Add(rentHouseTye_12);
-           rent2.MerchantGoodsTypes.Add(rentHouseTye_22);
-           new RentRepository().SaveOrUpdate(rent2);
+        //   Rent rent2 = new Rent()
+        //   {
+        //       Activity = "优质房源",
+        //       Address = "济南市市中区舜耕路30号",
+        //       Bulletins = "9折优惠",
+        //       Description = "just come",
+        //       Distance = "100",
+        //       Email = "222@qq.com",
+        //       Logo = "/uploadimage/lret2.png",
+        //       sBrand = "/uploadimage/sret2.jpg",
+        //       bBrand = "/uploadimage/bret2.jpg",
+        //       Name = "济南润华置业公司",
+        //       Owener = "杨千嬅",
+        //       ShortName = "润华",
+        //       Tel = "18799999992",
+        //       Rate = 0.8,
+        //       ShopStatus = ShopStatusEnum.营业时间,
+        //       MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("海景房"),
+        //       MerchantType = MerchantTypeEnum.租房
+        //   };
+        //   MerchantGoodsType rentHouseTye_12 = new MerchantGoodsType() { Merchant = rent2, GoodsType = "烟台海景房" };
+        //   MerchantGoodsType rentHouseTye_22 = new MerchantGoodsType() { Merchant = rent2, GoodsType = "威海海景房" };
+        //   rent2.MerchantGoodsTypes.Add(rentHouseTye_12);
+        //   rent2.MerchantGoodsTypes.Add(rentHouseTye_22);
+        //   new RentRepository().SaveOrUpdate(rent2);
 
-           LoginUser lu2 = new LoginUser();
-           lu2.LoginName = "rentrunhua";
-           lu2.Password = "000000";
-           iLoginUserRepository.SaveOrUpdate(lu2);
+        //   LoginUser lu2 = new LoginUser();
+        //   lu2.LoginName = "rentrunhua";
+        //   lu2.Password = "000000";
+        //   iLoginUserRepository.SaveOrUpdate(lu2);
 
-           LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
-           lum2.Merchant = rent2;
-           lum2.LoginUser = lu2;
-           iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
+        //   LoginUserOfMerchant lum2 = new LoginUserOfMerchant();
+        //   lum2.Merchant = rent2;
+        //   lum2.LoginUser = lu2;
+        //   iLoginUserOfMerchantRepository.SaveOrUpdate(lum2);
 
-           UserInRole uir2 = new UserInRole();
-           uir2.LoginUser = lu2;
-           uir2.SystemRole = iSystemRoleRepository.GetRoleByName("租房店主");
-           iUserInRoleRepository.SaveOrUpdate(uir2);
+        //   UserInRole uir2 = new UserInRole();
+        //   uir2.LoginUser = lu2;
+        //   uir2.SystemRole = iSystemRoleRepository.GetRoleByName("租房店主");
+        //   iUserInRoleRepository.SaveOrUpdate(uir2);
 
-           LoginUser lu1_2 = new LoginUser();
-           lu1_2.LoginName = "rentrunhuaxiaoer";
-           lu1_2.Password = "111111";
-           iLoginUserRepository.SaveOrUpdate(lu1_2);
+        //   LoginUser lu1_2 = new LoginUser();
+        //   lu1_2.LoginName = "rentrunhuaxiaoer";
+        //   lu1_2.Password = "111111";
+        //   iLoginUserRepository.SaveOrUpdate(lu1_2);
 
-           LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
-           lum1_2.Merchant = rent2;
-           lum1_2.LoginUser = lu1_2;
-           iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
+        //   LoginUserOfMerchant lum1_2 = new LoginUserOfMerchant();
+        //   lum1_2.Merchant = rent2;
+        //   lum1_2.LoginUser = lu1_2;
+        //   iLoginUserOfMerchantRepository.SaveOrUpdate(lum1_2);
 
-           UserInRole uir1_2 = new UserInRole();
-           uir1_2.LoginUser = lu1_2;
-           uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("租房店小二");
-           iUserInRoleRepository.SaveOrUpdate(uir1_2);
+        //   UserInRole uir1_2 = new UserInRole();
+        //   uir1_2.LoginUser = lu1_2;
+        //   uir1_2.SystemRole = iSystemRoleRepository.GetRoleByName("租房店小二");
+        //   iUserInRoleRepository.SaveOrUpdate(uir1_2);
 
-           House house_12 = new House()
-           {
-               Name = "烟大海景房",
-               Price = 10,
-               Image = "/uploadimage/h3.jpg",
-               IsDiscount = false,
-               InventoryCount = 100,
-               MerchantGoodsType = rentHouseTye_12,
-               Rent = rent2,
-               TimeOfRentFrom = DateTime.Now,
-               TimeOfRentTO = DateTime.Now
-           };
-           rent1.Houses.Add(house_12);
+        //   House house_12 = new House()
+        //   {
+        //       Name = "烟大海景房",
+        //       Price = 10,
+        //       Image = "/uploadimage/h3.jpg",
+        //       IsDiscount = false,
+        //       InventoryCount = 100,
+        //       MerchantGoodsType = rentHouseTye_12,
+        //       Rent = rent2,
+        //       TimeOfRentFrom = DateTime.Now,
+        //       TimeOfRentTO = DateTime.Now
+        //   };
+        //   rent1.Houses.Add(house_12);
 
-           House house_22 = new House()
-           {
-               Name = "山大威海校区海景房",
-               Price = 15,
-               Image = "/uploadimage/h4.jpg",
-               IsDiscount = true,
-               InventoryCount = 200,
-               DiscountInventoryCount = 100,
-               MerchantGoodsType = rentHouseTye_22,
-               DiscountPrice = 10,
-               Rent = rent2,
-               IsLimited = true,
-               TimeOfRentFrom = DateTime.Now,
-               TimeOfRentTO = DateTime.Now
-           };
-           rent2.Houses.Add(house_22);
-           new RentRepository().SaveOrUpdate(rent2);
+        //   House house_22 = new House()
+        //   {
+        //       Name = "山大威海校区海景房",
+        //       Price = 15,
+        //       Image = "/uploadimage/h4.jpg",
+        //       IsDiscount = true,
+        //       InventoryCount = 200,
+        //       DiscountInventoryCount = 100,
+        //       MerchantGoodsType = rentHouseTye_22,
+        //       DiscountPrice = 10,
+        //       Rent = rent2,
+        //       IsLimited = true,
+        //       TimeOfRentFrom = DateTime.Now,
+        //       TimeOfRentTO = DateTime.Now
+        //   };
+        //   rent2.Houses.Add(house_22);
+        //   new RentRepository().SaveOrUpdate(rent2);
 
-           //添加顾客王志文
-           SystemUser s2 = new SystemUser()
-           {
-               Tel = "13988888888",
-               Description = "erhuan10",
-               Email = "ocam10@163.com",
-               EntityIndex = 10,
-               Name = "王志文",
-               IsAnonymous = false,
-           };
-           new SystemUserRepository().SaveOrUpdate(s2);
-           Address address12 = new Address()
-           {
-               AddressName = "北京市海淀区和平校区3220",
-               BackupTel = "187000000000",
-               Email = "23423@163.com",
-               Linkman = "john",
-               QQ = "3333333333",
-               Tel = "18668668686",
-               Weixin = "5862414855",
-               SystemUser = s2
-           };
-           //s1.Addresses.Add(address);
-           new AddressRepository().SaveOrUpdate(address12);
-           Address address22 = new Address()
-           {
-               AddressName = "青岛市四方区贵和校区4112",
-               BackupTel = "18711111111111",
-               Email = "23423@163.com",
-               Linkman = "john",
-               QQ = "66666666",
-               Tel = "18668668686",
-               Weixin = "5862414855",
-               SystemUser = s2
-           };
-           //s1.Addresses.Add(address2);
-           new AddressRepository().SaveOrUpdate(address22);
+        //   //添加顾客王志文
+        //   SystemUser s2 = new SystemUser()
+        //   {
+        //       Tel = "13988888888",
+        //       Description = "erhuan10",
+        //       Email = "ocam10@163.com",
+        //       EntityIndex = 10,
+        //       Name = "王志文",
+        //       IsAnonymous = false,
+        //   };
+        //   new SystemUserRepository().SaveOrUpdate(s2);
+        //   Address address12 = new Address()
+        //   {
+        //       AddressName = "北京市海淀区和平校区3220",
+        //       BackupTel = "187000000000",
+        //       Email = "23423@163.com",
+        //       Linkman = "john",
+        //       QQ = "3333333333",
+        //       Tel = "18668668686",
+        //       Weixin = "5862414855",
+        //       SystemUser = s2
+        //   };
+        //   //s1.Addresses.Add(address);
+        //   new AddressRepository().SaveOrUpdate(address12);
+        //   Address address22 = new Address()
+        //   {
+        //       AddressName = "青岛市四方区贵和校区4112",
+        //       BackupTel = "18711111111111",
+        //       Email = "23423@163.com",
+        //       Linkman = "john",
+        //       QQ = "66666666",
+        //       Tel = "18668668686",
+        //       Weixin = "5862414855",
+        //       SystemUser = s2
+        //   };
+        //   //s1.Addresses.Add(address2);
+        //   new AddressRepository().SaveOrUpdate(address22);
 
-           LoginUser sysLoginUser2 = new LoginUser()
-           {
-               SystemUser = s2,
-               IsAdmin = false,
-               LoginName = "rentwangzhiwen",
-               Password = "000000",
+        //   LoginUser sysLoginUser2 = new LoginUser()
+        //   {
+        //       SystemUser = s2,
+        //       IsAdmin = false,
+        //       LoginName = "rentwangzhiwen",
+        //       Password = "000000",
 
-           };
-           //s1.LoginUser = sysLoginUser;
-           new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
+        //   };
+        //   //s1.LoginUser = sysLoginUser;
+        //   new LoginUserRepository().SaveOrUpdate(sysLoginUser2);
 
-           UserInRole uir12 = new UserInRole();
-           uir12.LoginUser = sysLoginUser2;
-           uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
-           iUserInRoleRepository.SaveOrUpdate(uir12);
+        //   UserInRole uir12 = new UserInRole();
+        //   uir12.LoginUser = sysLoginUser2;
+        //   uir12.SystemRole = iSystemRoleRepository.GetRoleByName("顾客");
+        //   iUserInRoleRepository.SaveOrUpdate(uir12);
 
-           var add2 = s2.Addresses.FirstOrDefault();
-           MyHouseOrder myHouseOrder2 = new MyHouseOrder()
-           {
-               Address = address22.AddressName,
-               Linkman = address22.Linkman,
-               SystemUser = s2,
-               EntityIndex = 1,
-               Tel = address22.Tel,
-               Rent = rent2,
-               OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
-               OrderStatus = MyOrderStatusEnum.成功,
-               SendTime = "11:20",
-               Description = ""
-           };
+        //   var add2 = s2.Addresses.FirstOrDefault();
+        //   MyHouseOrder myHouseOrder2 = new MyHouseOrder()
+        //   {
+        //       Address = address22.AddressName,
+        //       Linkman = address22.Linkman,
+        //       SystemUser = s2,
+        //       EntityIndex = 1,
+        //       Tel = address22.Tel,
+        //       Rent = rent2,
+        //       OrderNumber = DateTime.Now.ToString("yyyyMMddhhmmssfff"),  //2013-02-10 TODO basilwang need use id policy
+        //       OrderStatus = MyOrderStatusEnum.成功,
+        //       SendTime = "11:20",
+        //       Description = ""
+        //   };
 
-           OrderOfHouse orderOfHouse_12 = new OrderOfHouse()
-           {
-               Amount = 2,
-               MyHouseOrder = myHouseOrder2,
-               Price = house_12.Price,
-               House = house_12,
-               EntityIndex = 1
-           };
-           myHouseOrder2.OrderOfHouses.Add(orderOfHouse_12);
+        //   OrderOfHouse orderOfHouse_12 = new OrderOfHouse()
+        //   {
+        //       Amount = 2,
+        //       MyHouseOrder = myHouseOrder2,
+        //       Price = house_12.Price,
+        //       House = house_12,
+        //       EntityIndex = 1
+        //   };
+        //   myHouseOrder2.OrderOfHouses.Add(orderOfHouse_12);
 
-           OrderOfHouse orderOfHouse_22 = new OrderOfHouse()
-           {
-               Amount = 2,
-               MyHouseOrder = myHouseOrder2,
-               Price = house_22.Price,
-               House = house_22,
-               EntityIndex = 1
-           };
-           myHouseOrder2.OrderOfHouses.Add(orderOfHouse_12);
-           new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder2);
+        //   OrderOfHouse orderOfHouse_22 = new OrderOfHouse()
+        //   {
+        //       Amount = 2,
+        //       MyHouseOrder = myHouseOrder2,
+        //       Price = house_22.Price,
+        //       House = house_22,
+        //       EntityIndex = 1
+        //   };
+        //   myHouseOrder2.OrderOfHouses.Add(orderOfHouse_12);
+        //   new MyHouseOrderRepository().SaveOrUpdate(myHouseOrder2);
        
 
-              //添加评价数据Valuing、ValuingComments、Score、ValuingItem
-           IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
+        //      //添加评价数据Valuing、ValuingComments、Score、ValuingItem
+        //   IRepository<MyHouseOrder> iMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<MyHouseOrder>>();
 
-           IValuingOfMyHouseOrderRepository iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IValuingOfMyHouseOrderRepository>();
-           IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
-           IRepository<ScoreOfItemInHouseOrder> iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInHouseOrder>>();
-           IList<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderOrders = new List<ValuingItemOfMyHouseOrder>();
+        //   IValuingOfMyHouseOrderRepository iValuingOfMyHouseOrderRepository = UnityHelper.UnityToT<IValuingOfMyHouseOrderRepository>();
+        //   IRepository<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderRepository = UnityHelper.UnityToT<IRepository<ValuingItemOfMyHouseOrder>>();
+        //   IRepository<ScoreOfItemInHouseOrder> iScoreOfItemInHouseOrderRepository = UnityHelper.UnityToT<IRepository<ScoreOfItemInHouseOrder>>();
+        //   IList<ValuingItemOfMyHouseOrder> iValuingItemOfMyHouseOrderOrders = new List<ValuingItemOfMyHouseOrder>();
 
-           string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
-           foreach (var i in vItemArray)
-           {
-               ValuingItemOfMyHouseOrder vluItemOfFd = new ValuingItemOfMyHouseOrder()
-               {
-                   ValuingItemName = i
-               };
-               iValuingItemOfMyHouseOrderRepository.SaveOrUpdate(vluItemOfFd);
-               iValuingItemOfMyHouseOrderOrders.Add(vluItemOfFd);
-           };
+        //   string[] vItemArray = { "送货速度", "服务态度", "商品质量" };
+        //   foreach (var i in vItemArray)
+        //   {
+        //       ValuingItemOfMyHouseOrder vluItemOfFd = new ValuingItemOfMyHouseOrder()
+        //       {
+        //           ValuingItemName = i
+        //       };
+        //       iValuingItemOfMyHouseOrderRepository.SaveOrUpdate(vluItemOfFd);
+        //       iValuingItemOfMyHouseOrderOrders.Add(vluItemOfFd);
+        //   };
 
-           ValuingComments valucmmt1_1 = new ValuingComments()
-           {
-               Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
-               Direction = 0,
-               TrackIndex = 1,
-           };
-           ValuingComments valucmmt1_2 = new ValuingComments()
-           {
-               Comments = "能不能退货",
-               Direction = 0,
-               TrackIndex = 2,
-           };
-               ValuingOfMyHouseOrder vluOfFd1_1 = new ValuingOfMyHouseOrder()
-               {
-                   LoginUser = sysLoginUser,
-                   Merchant = rent1,
-                   MyHouseOrder =myHouseOrder ,
-                   ValuingContent =  "送货速度慢，产品质量差，服务态度恶劣",
+        //   ValuingComments valucmmt1_1 = new ValuingComments()
+        //   {
+        //       Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+        //       Direction = 0,
+        //       TrackIndex = 1,
+        //   };
+        //   ValuingComments valucmmt1_2 = new ValuingComments()
+        //   {
+        //       Comments = "能不能退货",
+        //       Direction = 0,
+        //       TrackIndex = 2,
+        //   };
+        //       ValuingOfMyHouseOrder vluOfFd1_1 = new ValuingOfMyHouseOrder()
+        //       {
+        //           LoginUser = sysLoginUser,
+        //           Merchant = rent1,
+        //           MyHouseOrder =myHouseOrder ,
+        //           ValuingContent =  "送货速度慢，产品质量差，服务态度恶劣",
                    
-               };
-               new ValuingOfMyHouseOrderRepository().SaveOrUpdate(vluOfFd1_1);
+        //       };
+        //       new ValuingOfMyHouseOrderRepository().SaveOrUpdate(vluOfFd1_1);
 
-               valucmmt1_1.Valuing = vluOfFd1_1;
-               valucmmt1_2.Valuing = vluOfFd1_1;
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_1);
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_2);
+        //       valucmmt1_1.Valuing = vluOfFd1_1;
+        //       valucmmt1_2.Valuing = vluOfFd1_1;
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_1);
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt1_2);
   
-               for (int j = 0; j < 3; j++)
-               {
-                   ScoreOfItemInHouseOrder scoreOfItFd1_1 = new ScoreOfItemInHouseOrder()
-                   {
-                       Score = j,
-                       ValuingOfMyHouseOrder = vluOfFd1_1,
-                       ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderOrders[j],
-                   };
-                   vluOfFd1_1.ScoreOfItemInHouseOrders.Add(scoreOfItFd1_1);
-                   iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItFd1_1);
-               };
-               iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfFd1_1);
+        //       for (int j = 0; j < 3; j++)
+        //       {
+        //           ScoreOfItemInHouseOrder scoreOfItFd1_1 = new ScoreOfItemInHouseOrder()
+        //           {
+        //               Score = j,
+        //               ValuingOfMyHouseOrder = vluOfFd1_1,
+        //               ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderOrders[j],
+        //           };
+        //           vluOfFd1_1.ScoreOfItemInHouseOrders.Add(scoreOfItFd1_1);
+        //           iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItFd1_1);
+        //       };
+        //       iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfFd1_1);
 
 
-               //第二个用户对第二个餐馆的valuing
-               ValuingComments valucmmt2_1 = new ValuingComments()
-               {
-                   Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
-                   Direction = 0,
-                   TrackIndex = 1,
-               };
-               ValuingComments valucmmt2_2 = new ValuingComments()
-               {
-                   Comments = "能不能退货",
-                   Direction = 0,
-                   TrackIndex = 2,
-               };
-               ValuingOfMyHouseOrder vluOfFd2_1 = new ValuingOfMyHouseOrder()
-               {
-                   LoginUser = sysLoginUser2,
-                   Merchant = rent2,
-                   MyHouseOrder = myHouseOrder2,
-                   ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
+        //       //第二个用户对第二个餐馆的valuing
+        //       ValuingComments valucmmt2_1 = new ValuingComments()
+        //       {
+        //           Comments = "商品的包装跟网页显示的不一样，质量很差，快递员送货不及时",
+        //           Direction = 0,
+        //           TrackIndex = 1,
+        //       };
+        //       ValuingComments valucmmt2_2 = new ValuingComments()
+        //       {
+        //           Comments = "能不能退货",
+        //           Direction = 0,
+        //           TrackIndex = 2,
+        //       };
+        //       ValuingOfMyHouseOrder vluOfFd2_1 = new ValuingOfMyHouseOrder()
+        //       {
+        //           LoginUser = sysLoginUser2,
+        //           Merchant = rent2,
+        //           MyHouseOrder = myHouseOrder2,
+        //           ValuingContent = "送货速度慢，产品质量差，服务态度恶劣",
 
-               };
-               new ValuingOfMyHouseOrderRepository().SaveOrUpdate(vluOfFd2_1);
+        //       };
+        //       new ValuingOfMyHouseOrderRepository().SaveOrUpdate(vluOfFd2_1);
 
-               valucmmt2_1.Valuing = vluOfFd2_1;
-               valucmmt2_2.Valuing = vluOfFd2_1;
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_1);
-               new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_2);
+        //       valucmmt2_1.Valuing = vluOfFd2_1;
+        //       valucmmt2_2.Valuing = vluOfFd2_1;
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_1);
+        //       new ValuingCommentsRepository().SaveOrUpdate(valucmmt2_2);
 
-               for (int j = 0; j < 3; j++)
-               {
-                   ScoreOfItemInHouseOrder scoreOfItFd2_1 = new ScoreOfItemInHouseOrder()
-                   {
-                       Score = j,
-                       ValuingOfMyHouseOrder = vluOfFd2_1,
-                       ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderOrders[j],
-                   };
-                   vluOfFd2_1.ScoreOfItemInHouseOrders.Add(scoreOfItFd2_1);
-                   iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItFd2_1);
-               };
-               iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfFd2_1);
+        //       for (int j = 0; j < 3; j++)
+        //       {
+        //           ScoreOfItemInHouseOrder scoreOfItFd2_1 = new ScoreOfItemInHouseOrder()
+        //           {
+        //               Score = j,
+        //               ValuingOfMyHouseOrder = vluOfFd2_1,
+        //               ValuingItemOfMyHouseOrder = iValuingItemOfMyHouseOrderOrders[j],
+        //           };
+        //           vluOfFd2_1.ScoreOfItemInHouseOrders.Add(scoreOfItFd2_1);
+        //           iValuingItemOfMyHouseOrderOrders[j].ScoreOfItemInHouseOrders.Add(scoreOfItFd2_1);
+        //       };
+        //       iValuingOfMyHouseOrderRepository.SaveOrUpdate(vluOfFd2_1);
 
-               //添加Message模块
-               IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
-               MessageContent mc1_1 = new MessageContent()
-               {
-                   Content = "选择家，选择专家。资深置业顾问毛建军为您解决烦恼。用专业的眼光来审视每一个优质的房源。心与心的沟通，一次成交一辈子的朋友"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc1_1);
+        //       //添加Message模块
+        //       IMessageRepository iMessageRepository = UnityHelper.UnityToT<IMessageRepository>();
+        //       MessageContent mc1_1 = new MessageContent()
+        //       {
+        //           Content = "选择家，选择专家。资深置业顾问毛建军为您解决烦恼。用专业的眼光来审视每一个优质的房源。心与心的沟通，一次成交一辈子的朋友"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc1_1);
 
-               Message mess1_1 = new Message()
-               {
-                   Direction = 0,
-                   Merchant = rent1,
-                   LoginUser = sysLoginUser,
-                   MessageContent = mc1_1,
-                   IsNew = true,
-                   ThreadIndex = "全套家具大户型出租",
-                   TrackIndex = "0"
-               };
-               new MessageRepository().SaveOrUpdate(mess1_1);
+        //       Message mess1_1 = new Message()
+        //       {
+        //           Direction = 0,
+        //           Merchant = rent1,
+        //           LoginUser = sysLoginUser,
+        //           MessageContent = mc1_1,
+        //           IsNew = true,
+        //           ThreadIndex = "全套家具大户型出租",
+        //           TrackIndex = "0"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess1_1);
 
-               MessageContent mc1_2 = new MessageContent()
-               {
-                   Content = "超大客厅 约70平 非常适合公司老总等 高端人士居住，里有类似房源多套 可供选择",
-               };
-               new MessageContentRepository().SaveOrUpdate(mc1_2);
+        //       MessageContent mc1_2 = new MessageContent()
+        //       {
+        //           Content = "超大客厅 约70平 非常适合公司老总等 高端人士居住，里有类似房源多套 可供选择",
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc1_2);
 
-               Message mess1_2 = new Message()
-               {
-                   Direction = 1,
-                   Merchant = rent1,
-                   LoginUser = sysLoginUser,
-                   MessageContent = mc1_2,
-                   IsNew = true,
-                   ThreadIndex = "全套家具大户型出租",
-                   TrackIndex = "1"
-               };
-               new MessageRepository().SaveOrUpdate(mess1_2);
-               //第二个人的消息模块
-               MessageContent mc2_1 = new MessageContent()
-               {
-                   Content = "高档社区规范物业 高层 带电梯，室内精装修 超大客厅适合商住两用，靠近山大路科技市场 解放路 历山路 交通方便"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc2_1);
+        //       Message mess1_2 = new Message()
+        //       {
+        //           Direction = 1,
+        //           Merchant = rent1,
+        //           LoginUser = sysLoginUser,
+        //           MessageContent = mc1_2,
+        //           IsNew = true,
+        //           ThreadIndex = "全套家具大户型出租",
+        //           TrackIndex = "1"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess1_2);
+        //       //第二个人的消息模块
+        //       MessageContent mc2_1 = new MessageContent()
+        //       {
+        //           Content = "高档社区规范物业 高层 带电梯，室内精装修 超大客厅适合商住两用，靠近山大路科技市场 解放路 历山路 交通方便"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc2_1);
 
-               Message mess2_1 = new Message()
-               {
-                   Direction = 0,
-                   Merchant = rent2,
-                   LoginUser = sysLoginUser2,
-                   MessageContent = mc2_1,
-                   IsNew = true,
-                   ThreadIndex = "绿景嘉园精装修出租房",
-                   TrackIndex = "0"
-               };
-               new MessageRepository().SaveOrUpdate(mess2_1);
+        //       Message mess2_1 = new Message()
+        //       {
+        //           Direction = 0,
+        //           Merchant = rent2,
+        //           LoginUser = sysLoginUser2,
+        //           MessageContent = mc2_1,
+        //           IsNew = true,
+        //           ThreadIndex = "绿景嘉园精装修出租房",
+        //           TrackIndex = "0"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess2_1);
 
-               MessageContent mc2_2 = new MessageContent()
-               {
-                   Content = "山大南路科技市场附近绿景嘉园双气精装超大客厅错层适合商住办公"
-               };
-               new MessageContentRepository().SaveOrUpdate(mc2_2);
+        //       MessageContent mc2_2 = new MessageContent()
+        //       {
+        //           Content = "山大南路科技市场附近绿景嘉园双气精装超大客厅错层适合商住办公"
+        //       };
+        //       new MessageContentRepository().SaveOrUpdate(mc2_2);
 
-               Message mess2_2 = new Message()
-               {
-                   Direction = 1,
-                   Merchant = rent2,
-                   LoginUser = sysLoginUser2,
-                   MessageContent = mc2_2,
-                   IsNew = true,
-                   ThreadIndex = "绿景嘉园精装修出租房",
-                   TrackIndex = "1"
-               };
-               new MessageRepository().SaveOrUpdate(mess2_2);
+        //       Message mess2_2 = new Message()
+        //       {
+        //           Direction = 1,
+        //           Merchant = rent2,
+        //           LoginUser = sysLoginUser2,
+        //           MessageContent = mc2_2,
+        //           IsNew = true,
+        //           ThreadIndex = "绿景嘉园精装修出租房",
+        //           TrackIndex = "1"
+        //       };
+        //       new MessageRepository().SaveOrUpdate(mess2_2);
 
-               //添加FeedBack
-               IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
-               FeedBack fb1 = new FeedBack()
-               {
-                   Type = "1",
-                   Contents = "急寻月租在1200以下的100平房屋出租！",
-                   LoginUser = sysLoginUser
-               };
-               iFeedBackRepository.SaveOrUpdate(fb1);
+        //       //添加FeedBack
+        //       IFeedBackRepository iFeedBackRepository = UnityHelper.UnityToT<IFeedBackRepository>();
+        //       FeedBack fb1 = new FeedBack()
+        //       {
+        //           Type = "1",
+        //           Contents = "急寻月租在1200以下的100平房屋出租！",
+        //           LoginUser = sysLoginUser
+        //       };
+        //       iFeedBackRepository.SaveOrUpdate(fb1);
 
-               FeedBack fb2 = new FeedBack()
-               {
-                   Type = "2",
-                   Contents = "房屋的实际装修与网上的图片效果差远了，店主坑人啊！",
-                   LoginUser = sysLoginUser2
-               };
-               FeedBack fb3 = new FeedBack()
-               {
-                   Type = "2",
-                   Contents = "网上的效果是PS的,这位顾客，您的期望太高了啊！",
-                   ParentFeedBack = fb2,
-                   LoginUser = adminLoginUser
-               };
-               // iFeedBackRepository.SaveOrUpdate(fb3);
-               fb2.ChildFeedBacks.Add(fb3);
-               iFeedBackRepository.SaveOrUpdate(fb2);
+        //       FeedBack fb2 = new FeedBack()
+        //       {
+        //           Type = "2",
+        //           Contents = "房屋的实际装修与网上的图片效果差远了，店主坑人啊！",
+        //           LoginUser = sysLoginUser2
+        //       };
+        //       FeedBack fb3 = new FeedBack()
+        //       {
+        //           Type = "2",
+        //           Contents = "网上的效果是PS的,这位顾客，您的期望太高了啊！",
+        //           ParentFeedBack = fb2,
+        //           LoginUser = adminLoginUser
+        //       };
+        //       // iFeedBackRepository.SaveOrUpdate(fb3);
+        //       fb2.ChildFeedBacks.Add(fb3);
+        //       iFeedBackRepository.SaveOrUpdate(fb2);
 
 
 
-               FeedBack fb4 = new FeedBack()
-               {
-                   Type = "3",
-                   Contents = "此房屋中介机构推荐的房源都是些优质房源，顶！",
-                   LoginUser = sysLoginUser
-               };
+        //       FeedBack fb4 = new FeedBack()
+        //       {
+        //           Type = "3",
+        //           Contents = "此房屋中介机构推荐的房源都是些优质房源，顶！",
+        //           LoginUser = sysLoginUser
+        //       };
 
-               FeedBack fb5 = new FeedBack()
-               {
-                   Type = "3",
-                   Contents = "谢谢您的赞扬，我们会竭诚努力，精益求精！",
-                   ParentFeedBack = fb4,
-                   LoginUser = adminLoginUser
-               };
-               //   iFeedBackRepository.SaveOrUpdate(fb4);
-               fb4.ChildFeedBacks.Add(fb5);
-               iFeedBackRepository.SaveOrUpdate(fb4);
-        }
+        //       FeedBack fb5 = new FeedBack()
+        //       {
+        //           Type = "3",
+        //           Contents = "谢谢您的赞扬，我们会竭诚努力，精益求精！",
+        //           ParentFeedBack = fb4,
+        //           LoginUser = adminLoginUser
+        //       };
+        //       //   iFeedBackRepository.SaveOrUpdate(fb4);
+        //       fb4.ChildFeedBacks.Add(fb5);
+        //       iFeedBackRepository.SaveOrUpdate(fb4);
+        //}
         public void add_ShopInfo()
         {
         
@@ -2507,10 +2517,12 @@ namespace Friday.Test2
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                 MerchantType = MerchantTypeEnum.百货
             };
-            MerchantGoodsType shopCommodityTye_1 = new MerchantGoodsType() { Merchant = shop1, GoodsType = "专供酒水" };
-            MerchantGoodsType shopCommodityTye_2 = new MerchantGoodsType() { Merchant = shop1, GoodsType = "特供蔬菜" };
-            shop1.MerchantGoodsTypes.Add(shopCommodityTye_1);
-            shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
+            GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() {   GoodsType = "专供酒水" };
+            new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_1);
+            GlobalGoodsType shopCommodityTye_2 = new GlobalGoodsType() {   GoodsType = "特供蔬菜" };
+            new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_2);
+            //shop1.MerchantGoodsTypes.Add(shopCommodityTye_1);
+            //shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
             new ShopRepository().SaveOrUpdate(shop1);
 
             IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
@@ -2553,7 +2565,7 @@ namespace Friday.Test2
                     Image = "/uploadimage/c1.jpg",
                     IsDiscount = false,
                     InventoryCount = 100,
-                    MerchantGoodsType = shopCommodityTye_1,
+                    GlobalGoodsType = shopCommodityTye_1,
                     Shop= shop1,
 
                 };
@@ -2567,7 +2579,7 @@ namespace Friday.Test2
                     IsDiscount = true,
                     InventoryCount = 200,
                     DiscountInventoryCount = 100,
-                    MerchantGoodsType = shopCommodityTye_2,
+                    GlobalGoodsType = shopCommodityTye_2,
                     DiscountPrice = 10,
                     Shop= shop1,
                     IsLimited = true,
@@ -2678,10 +2690,12 @@ namespace Friday.Test2
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                MerchantType = MerchantTypeEnum.百货
            };
-           MerchantGoodsType shopCommodityTye_12 = new MerchantGoodsType() { Merchant = shop2, GoodsType = "金制品" };
-           MerchantGoodsType shopCommodityTye_22 = new MerchantGoodsType() { Merchant = shop2, GoodsType = "茶叶" };
-           shop2.MerchantGoodsTypes.Add(shopCommodityTye_12);
-           shop2.MerchantGoodsTypes.Add(shopCommodityTye_22);
+           GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() {   GoodsType = "金制品" };
+           new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_12);
+           GlobalGoodsType shopCommodityTye_22 = new GlobalGoodsType() { GoodsType = "茶叶" };
+           new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_22);
+           //shop2.MerchantGoodsTypes.Add(shopCommodityTye_12);
+           //shop2.MerchantGoodsTypes.Add(shopCommodityTye_22);
            new ShopRepository().SaveOrUpdate(shop2);
 
            LoginUser lu2 = new LoginUser();
@@ -2721,7 +2735,7 @@ namespace Friday.Test2
                Image = "/uploadimage/c3.jpg",
                IsDiscount = false,
                InventoryCount = 100,
-               MerchantGoodsType = shopCommodityTye_12,
+               GlobalGoodsType = shopCommodityTye_12,
                Shop= shop2,
            };
            shop1.Commodities.Add(commodity_12);
@@ -2734,7 +2748,7 @@ namespace Friday.Test2
                IsDiscount = true,
                InventoryCount = 200,
                DiscountInventoryCount = 100,
-               MerchantGoodsType = shopCommodityTye_22,
+               GlobalGoodsType = shopCommodityTye_22,
                DiscountPrice = 10,
                Shop= shop2,
                IsLimited = true,
