@@ -36,13 +36,18 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         public ActionResult Render_Cart(string varName)
         {
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
-            ShoppingCart shoppingCart = iShoppingCartService.getShoppingCartBySystemUser(systemUser.Id);
-            IList<friday.core.CartOfCommodity> cartOfCommoditys = iCartOfCommodityService.getCommoditiesByShoppingCart(shoppingCart.Id);
+            List<ShoppingCart> shoppingCarts = iShoppingCartService.getShoppingCartBySystemUser(systemUser.Id);
+            List<friday.core.CartOfCommodity> cartOfCommoditys = new List<friday.core.CartOfCommodity>();
+            foreach (ShoppingCart shoppingCart in shoppingCarts)
+            {
+                cartOfCommoditys.AddRange(iCartOfCommodityService.getCommoditiesByShoppingCart(shoppingCart.Id));
+            }
+
             Shop shop;
 
             globalData globalData = new globalData()
             {
-                totalSize = 3,
+                totalSize = cartOfCommoditys.Count,
                 invalidSize = 0,
                 isAllCItem = false,
                 diffTairCount = 0,
@@ -69,6 +74,8 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             }
 
             List<listItem> listItems = new List<listItem>();
+
+            int merchantNum = 0;
             foreach (string key in merchantListItem.Keys.ToList())
             {
                 shop = iShopService.Load(key);
@@ -86,23 +93,24 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                 IList<order> orders = new List<order>();
 
+                int commodityNum = 0;
                 foreach (friday.core.CartOfCommodity cartOfCommodity in merchantListItem[key])
                 {
 
                     price price = new price()
                     {
-                        now = 11800,
-                        origin = 18900,
+                        now = Convert.ToInt16(cartOfCommodity.Commodity.Price*100),
+                        origin = Convert.ToInt16(cartOfCommodity.Commodity.OldPrice * 100),
                         descend = 0,
-                        save = 7100,
-                        sum = 11800,
+                        save = Convert.ToInt16(cartOfCommodity.Commodity.OldPrice * 100) - Convert.ToInt16(cartOfCommodity.Commodity.Price * 100),
+                        sum = Convert.ToInt16(cartOfCommodity.Commodity.Price * 100) * cartOfCommodity.Amount,
                         actual = 0
                     };
 
                     amount amount = new amount()
                     {
-                        now = 1,
-                        max = 598
+                        now = cartOfCommodity.Amount,
+                        max = Convert.ToInt16(cartOfCommodity.Commodity.InventoryCount)
                     };
 
                     List<ItemIconMeta> itemIconMetas = new List<ItemIconMeta>();
@@ -131,10 +139,10 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                     order order = new order()
                     {
-                        id = "0_0",
+                        id = merchantNum+"_"+commodityNum,
                         itemId = cartOfCommodity.Commodity.Id,
                         skuId = 41878380917,
-                        cartId = "27930479013",
+                        cartId = cartOfCommodity.Commodity.Id,
                         isValid = true,
                         url = "http://localhost:7525/merchant/detail/index?brandid=" + cartOfCommodity.Commodity.Id,
                         pic = cartOfCommodity.Commodity.Image,
@@ -151,6 +159,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                     };
                    
                     orders.Add(order);
+                    commodityNum++;
                 }
 
                 List<Bundles> bundles = new List<Bundles>();
@@ -161,6 +170,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                 listItem.bundles = bundles;
                 listItems.Add(listItem);
+                merchantNum++;
             }
 
             Mcartdata mcartdata = new Mcartdata()
