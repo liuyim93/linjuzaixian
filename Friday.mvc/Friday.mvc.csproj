@@ -122,6 +122,7 @@
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Areas\CartPay\CartPayAreaRegistration.cs" />
     <Compile Include="Areas\CartPay\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CartPay\Models\Mcartdata.cs" />
     <Compile Include="Areas\Cart\CartAreaRegistration.cs" />
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
     <Compile Include="Areas\Category\CategoryAreaRegistration.cs" />
@@ -2343,7 +2344,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Account\Views\Shared\" />
-    <Folder Include="Areas\CartPay\Models\" />
     <Folder Include="Areas\CartPay\Views\Shared\" />
     <Folder Include="Areas\Cart\Models\" />
     <Folder Include="Areas\Cart\Views\Shared\" />
