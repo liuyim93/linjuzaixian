@@ -106,7 +106,7 @@ html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("Ba
 .sn-mcate-bd .sn-mcate-ctn .sn-mcate-item-bd{line-height:22px;height:44px;overflow:hidden;padding-top:1px;_padding-top:3px;}
 .sn-mcate-bd .sn-mcate-ctn .sn-mcate-item-bd a{margin-right:10px;color:#ccc;display:inline-block;}
 .sn-mcate-unready{min-height:335px;height:auto!important;height:335px;line-height:335px;font-size:16px;color:#fff;text-align:center;}
-.sn-quick-menu .cart{width:36px;position:relative;text-align:center;padding:6px 5px 0 30px;padding-top:5px \9;*padding-top:7px;_padding-top:6px;text-decoration:none;}
+.sn-quick-menu .cart{width:46px;position:relative;text-align:center;padding:6px 5px 0 30px;padding-top:5px \9;*padding-top:7px;_padding-top:6px;text-decoration:none;}
 .sn-quick-menu .mini-cart{padding-top:5px;padding-top:4px \9;*padding-top:6px;_padding-top:5px;width:70px;padding-right:0;}
 .sn-quick-menu .mini-cart .menu-hd{padding:0;position:static;text-decoration:none;}
 .sn-quick-menu .cart s{position:absolute;left:7px;top:9px;top:7px \9;width:16px;height:18px;background-position:-2px -2px;}
