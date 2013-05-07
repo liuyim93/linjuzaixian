@@ -3,17 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Friday.mvc.Areas.Category.Models;
+using Friday.mvc.Controllers;
+using friday.core.services;
+using friday.core.repositories;
 
 namespace Friday.mvc.Areas.Category.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : FridayController
     {
-        //
-        // GET: /Category/Home/
+        IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository;
+        public HomeController(IUserService iUserService, ISystemUserRepository iSystemUserRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository)
+            : base(iUserService, iSystemUserRepository)
+        {
+            this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
 
+        } 
         public ActionResult all_cat_asyn()
         {
-            return View();
+            CategoryModel categoryModel = new CategoryModel();
+            //mainModel.MerchantRentCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.租房);
+            //mainModel.MerchantRestaurantCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
+            categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+            categoryModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+            categoryModel.GlobalGoodsTypeTlevelSecond = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(2);
+            
+            return View(categoryModel);
         }
         public ActionResult cat_nav_asyn(string callback)
         {

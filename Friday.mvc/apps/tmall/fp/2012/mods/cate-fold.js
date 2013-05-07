@@ -1,10 +1,10 @@
-﻿KISSY.add("2012/mods/cate-fold", function (F, Y) {
-    var W = F.DOM,
-		Z = F.Event;
-    var E = window,
-		a = document;
-    var X = E.g_config;
-    var Q = E.MFP;
+﻿KISSY.add("2012/mods/cate-fold", function (_kissy_F, _anim) {
+    var _dom = _kissy_F.DOM,
+		_event = _kissy_F.Event;
+    var _window = window,
+		_document = document;
+    var _g_config = _window.g_config;
+    var _mfp = _window.MFP;
     var A = "J_Category";
     var N = "cateFixed";
     var U = "cateLocked";
@@ -18,16 +18,16 @@
     var L = "static";
     var T = "fixed";
     var R = 200;
-    var M = W.query(".j_MenuItem");
-    var B = W.height(M[0]);
+    var M = _dom.query(".j_MenuItem");
+    var B = _dom.height(M[0]);
     var V = M.length;
-    var P = W.viewportHeight() / 10;
+    var P = _dom.viewportHeight() / 10;
 
     function C() {
         C.superclass.constructor.call(this);
         this._init()
     }
-    F.extend(C, F.Base);
+    _kissy_F.extend(C, _kissy_F.Base);
     C.ATTRS = {
         status: {
             value: L
@@ -47,43 +47,43 @@
             value: false
         }
     };
-    F.augment(C, F.EventTarget, {
-        cate: F.get("#" + A),
-        switchBtn: [F.get("." + O), F.get("." + K)],
+    _kissy_F.augment(C, _kissy_F.EventTarget, {
+        cate: _kissy_F.get("#" + A),
+        switchBtn: [_kissy_F.get("." + O), _kissy_F.get("." + K)],
         _init: function () {
             var S = this;
             if (!S.cate) {
                 return
             }
-            S.cateOffsetTop = W.offset(S.cate).top;
+            S.cateOffsetTop = _dom.offset(S.cate).top;
             S.animArr = [];
             S._bindEvent();
-            W.show(S.switchBtn);
-            S._initCateStatus(W.scrollTop(E), !!X.cateLocked);
+            _dom.show(S.switchBtn);
+            S._initCateStatus(_dom.scrollTop(_window), !!_g_config.cateLocked);
             S._hoverExpand()
         },
         _bindEvent: function () {
             var S = this;
             S.on("afterStatusChange", function (b) {
                 if (b.newVal === T) {
-                    W.addClass(S.cate, N)
+                    _dom.addClass(S.cate, N)
                 } else {
-                    W.removeClass(S.cate, N)
+                    _dom.removeClass(S.cate, N)
                 }
             });
             S.on("afterScrollTopChange", function (b) {
                 S.set("section", b.newVal)
             });
             S.on("afterSectionChange", function (b) {
-                b.newVal === V + 1 ? W.hide(S.switchBtn) : W.show(S.switchBtn);
+                b.newVal === V + 1 ? _dom.hide(S.switchBtn) : _dom.show(S.switchBtn);
                 !S.get("locked") && b.prevVal !== b.newVal && S._processFold(b.newVal)
             });
             S.on("afterLockedChange", function (b) { });
-            Z.on(S.switchBtn, "click", function (b) {
+            _event.on(S.switchBtn, "click", function (b) {
                 S._switchCat(b)
             });
-            Z.on(E, "scroll", function () {
-                var b = W.scrollTop(E);
+            _event.on(_window, "scroll", function () {
+                var b = _dom.scrollTop(_window);
                 var c = S.scrollTimer;
                 if (c) {
                     clearTimeout(c)
@@ -95,52 +95,52 @@
             })
         },
         _switchCat: function (d) {
-            if (W.hasClass(d.target, H)) {
+            if (_dom.hasClass(d.target, H)) {
                 return
             }
             var S = this;
             var c = S.switchBtn[0];
             var e = S.switchBtn[1];
             if (d.target === c) {
-                W.addClass(c, H);
-                W.removeClass(e, H);
-                if (!F.UA.ie) {
+                _dom.addClass(c, H);
+                _dom.removeClass(e, H);
+                if (!_kissy_F.UA.ie) {
                     for (var b = 0; b < V; b++) {
-                        W.css(M[b], {
+                        _dom.css(M[b], {
                             height: "auto"
                         });
-                        W.removeClass(M[b], "itemHover")
+                        _dom.removeClass(M[b], "itemHover")
                     }
                     S.set("locked", false)
                 } else {
-                    F.later(function () {
+                    _kissy_F.later(function () {
                         S._processFold(1, true);
                         S.set("locked", false)
                     }, 10)
                 }
-                Q.ATP.log("3.1", 1);
-                Q.ATP.gm({
+                _mfp.ATP.log("3.1", 1);
+                _mfp.ATP.gm({
                     cate_fold: 1
                 });
-                Q.foldBtn = false
+                _mfp.foldBtn = false
             } else {
-                W.removeClass(c, H);
-                W.addClass(e, H);
-                if (!F.UA.ie) {
+                _dom.removeClass(c, H);
+                _dom.addClass(e, H);
+                if (!_kissy_F.UA.ie) {
                     for (var b = 0; b < V; b++) {
-                        W.height(M[b], G);
-                        W.replaceClass(M[b], I, "itemHover")
+                        _dom.height(M[b], G);
+                        _dom.replaceClass(M[b], I, "itemHover")
                     }
                     S.set("locked", true)
                 } else {
                     S._processFold(V + 1, false);
                     S.set("locked", true)
                 }
-                Q.ATP.log("3.1", 2);
-                Q.ATP.gm({
+                _mfp.ATP.log("3.1", 2);
+                _mfp.ATP.gm({
                     cate_fold: 2
                 });
-                Q.foldBtn = true
+                _mfp.foldBtn = true
             }
         },
         _initCateStatus: function (f, b) {
@@ -152,19 +152,19 @@
             if (b) {
                 var d = S.switchBtn[0];
                 var e = S.switchBtn[1];
-                W.removeClass(d, H);
-                W.addClass(e, H);
-                if (!F.UA.ie) {
+                _dom.removeClass(d, H);
+                _dom.addClass(e, H);
+                if (!_kissy_F.UA.ie) {
                     for (var c = 0; c < V; c++) {
-                        W.height(M[c], G);
-                        W.replaceClass(M[c], I, "itemHover")
+                        _dom.height(M[c], G);
+                        _dom.replaceClass(M[c], I, "itemHover")
                     }
                     S.set("locked", true)
                 } else {
                     S._processFold(V + 1, false);
                     S.set("locked", true)
                 }
-                Q.foldBtn = true
+                _mfp.foldBtn = true
             }
         },
         _scrollFixed: function (b) {
@@ -173,7 +173,7 @@
         },
         _clearAnimArr: function () {
             var S = this;
-            F.each(S.animArr, function (b) {
+            _kissy_F.each(S.animArr, function (b) {
                 b && b.stop(true);
                 S.animArr.shift(b)
             })
@@ -186,59 +186,59 @@
             }
         },
         _correctCell: function (c, b, S) {
-            if (F.UA.ie) {
-                b ? W.removeClass(c, I) : "";
-                var d = new F.Anim(c, {
+            if (_kissy_F.UA.ie) {
+                b ? _dom.removeClass(c, I) : "";
+                var d = new _kissy_F.Anim(c, {
                     height: (b ? B : G) + "px"
                 }, 0.5, "linear", function () {
-                    b ? "" : W.addClass(c, I)
+                    b ? "" : _dom.addClass(c, I)
                 });
                 this.animArr.push(d);
                 setTimeout(function () {
                     d.run()
                 }, 100)
             } else {
-                F.each(F.query("." + D), function (g, e) {
+                _kissy_F.each(_kissy_F.query("." + D), function (g, e) {
                     var f;
-                    !(f = F.get("b", g)) && W.append((f = W.create('<b class="overlay ' + (e == 1 ? "odd" : "even") + '"></b>')), g)
+                    !(f = _kissy_F.get("b", g)) && _dom.append((f = _dom.create('<b class="overlay ' + (e == 1 ? "odd" : "even") + '"></b>')), g)
                 });
-                b ? W.removeClass(c, I) : W.addClass(c, I)
+                b ? _dom.removeClass(c, I) : _dom.addClass(c, I)
             }
         },
         _hoverCell: function (c, b) {
             var S = this;
-            if (F.UA.ie) {
-                b ? W.removeClass(c, I) : W.addClass(c, I)
+            if (_kissy_F.UA.ie) {
+                b ? _dom.removeClass(c, I) : _dom.addClass(c, I)
             }
-            W.height(c, (b ? B : G) + "px")
+            _dom.height(c, (b ? B : G) + "px")
         },
         _hoverExpand: function () {
             var b = this;
             var S, e;
-            F.each(M, function (g, f) {
-                Z.on(g, "mouseenter", function (h) {
+            _kissy_F.each(M, function (g, f) {
+                _event.on(g, "mouseenter", function (h) {
                     if (!b.get("locked")) {
                         return
                     }
-                    if (Q.triggerIdx !== null && Q.triggerIdx !== f) {
-                        b._hoverCell(M[Q.triggerIdx], false)
+                    if (_mfp.triggerIdx !== null && _mfp.triggerIdx !== f) {
+                        b._hoverCell(M[_mfp.triggerIdx], false)
                     }
                     b._hoverCell(g, true);
-                    Q.triggerIdx = f
+                    _mfp.triggerIdx = f
                 })
             });
-            var d = F.get(".categoryHd");
+            var d = _kissy_F.get(".categoryHd");
             var c = function () {
                 if (!b.get("locked")) {
                     return
                 }
-                Q.triggerIdx != null && b._hoverCell(M[Q.triggerIdx], false);
-                Q.triggerIdx = null
+                _mfp.triggerIdx != null && b._hoverCell(M[_mfp.triggerIdx], false);
+                _mfp.triggerIdx = null
             };
-            Z.on(b.cate, "mouseleave", function (f) {
+            _event.on(b.cate, "mouseleave", function (f) {
                 c()
             });
-            Z.on(d, "mouseenter", function (f) {
+            _event.on(d, "mouseenter", function (f) {
                 c()
             })
         }

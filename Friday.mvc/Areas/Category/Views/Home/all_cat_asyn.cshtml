@@ -1,7 +1,58 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "";
 }
+@model Friday.mvc.Areas.Category.Models.CategoryModel
 <div>
+@for (var level0 = 0; level0 < Model.GlobalGoodsTypeTlevelZero.Count(); level0++)
+             {
+                 
+                 @:<div class="subView j_SubView hidden">         
+ 
+                 var level0_obj = Model.GlobalGoodsTypeTlevelZero.ElementAt(level0);
+                 int sort=0;
+                 for (int level1 = 0; level1 < Model.GlobalGoodsTypeTlevelFirst.Count(); level1++)
+              {
+                  var level1_obj = Model.GlobalGoodsTypeTlevelFirst.ElementAt(level1);
+                  if (level1_obj.ParentID == level0_obj.Id)
+                  {
+                     if (sort % 3 == 0)
+                     {
+                         if (sort == 0)
+                         {
+                              @:<ul>
+                         }
+                         else
+                         {
+                            @:</ul>
+                            @:<ul>
+                         }
+                     }
+                     @:<li class="subItem">
+
+                     @:<h3 class="subItem-hd"><a href="" target="_blank">@level1_obj.Name</a> </h3>
+                     @:<p class="subItem-cat">
+                        for (int level2 = 0; level2 < Model.GlobalGoodsTypeTlevelSecond.Count(); level2++)
+                        {
+                            var level2_obj = Model.GlobalGoodsTypeTlevelSecond.ElementAt(level2);
+                            if (level2_obj.ParentID == level1_obj.Id)
+                            {
+                               <a href="" target="_blank">@level2_obj.Name</a>
+                            }
+
+                        }  
+                     @:</p>
+                     @:</li>
+                     sort++;
+                  }
+              }
+                 if (sort != 0)
+                 {
+                     @:</ul>
+                 }
+                 @:</div>
+              
+             }
+@*
 <div class="subView j_SubView hidden" data-spm="3.356921.294621">
 <ul>
     <li class="subItem">
@@ -712,5 +763,5 @@
 
 </ul>
 
-</div>
+</div>*@
 </div>
