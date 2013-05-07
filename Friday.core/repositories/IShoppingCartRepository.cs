@@ -9,7 +9,7 @@ namespace friday.core.repositories
 {
     public interface IShoppingCartRepository : IRepository<ShoppingCart>
     {
-        IList<ShoppingCart> getShoppingCartBySystemUser(string SystemUserID);
+        ShoppingCart getShoppingCartBySystemUser(string SystemUserID);
         //IList<ShoppingCart> Search(List<DataFilter> termList);
         //IList<ShoppingCart> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

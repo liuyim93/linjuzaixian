@@ -41,7 +41,7 @@ namespace friday.core.services
             iShoppingCartRepository.Delete(id);
         }
 
-        public IList<ShoppingCart> getShoppingCartBySystemUser(string SystemUserID)
+        public ShoppingCart getShoppingCartBySystemUser(string SystemUserID)
         {
             return iShoppingCartRepository.getShoppingCartBySystemUser(SystemUserID);
         }
