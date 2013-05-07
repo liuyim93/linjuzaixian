@@ -164,6 +164,8 @@
     <Compile Include="repositories\PropIDRepository.cs" />
     <Compile Include="repositories\PropValueRepository.cs" />
     <Compile Include="repositories\IPropValueRepository.cs" />
+    <Compile Include="repositories\ShoppingCartRepository.cs" />
+    <Compile Include="repositories\IShoppingCartRepository.cs" />
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="services\ILoginUserService.cs" />
@@ -387,6 +389,8 @@
     <Compile Include="services\PropIDService.cs" />
     <Compile Include="services\IPropValueService.cs" />
     <Compile Include="services\PropValueService.cs" />
+    <Compile Include="services\IShoppingCartService.cs" />
+    <Compile Include="services\ShoppingCartService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
