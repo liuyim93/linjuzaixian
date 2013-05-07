@@ -7,10 +7,10 @@
 .clearfix{*zoom:1;}
 .clearfix:after{content:'\20';display:block;height:0;clear:both;}
 #header,#footer{margin-left:0!important;margin-right:0!important;min-width:950px;padding-left:0!important;padding-right:0!important;width:auto!important;}
-#header{background:#b20000!important;margin-top:-30px!important;}
+#header{background:#015ca3!important;margin-top:-30px!important;}
 #headerCon,.headerNav-con{width:950px!important;margin:0 auto;}
 #mall-desc,#copyright{width:990px!important;margin:0 auto;}
-.headerNav{background:#8f0100;height:40px;}
+.headerNav{background:#015ca3;height:40px;}
 .headerCrumb{position:relative;width:350px;height:30px;overflow:hidden;left:0;top:5px;}
 .headerPromise{position:absolute;right:0;top:10px;color:#fff;}
 .headerPromise li{float:left;margin-left:15px;height:25px;width:30px;}
