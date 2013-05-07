@@ -137,21 +137,37 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult InitItemDetail(string itemId)
         {
-            IList<Sku>  skulist=new List<Sku>();
-            //string commdityId = Request.Params["itemId"].ToString();
-            //friday.core.Merchant merchant = iMerchantService.Load(brandId);
-            //string commdityId = "3804cfa1-7bcd-4aae-9ca3-e6824a3bdf7d";
-            Commodity commodity = iCommodityService.Load(itemId);
-            skulist = commodity.Skus.ToList<Sku>();
-            
+            IList<Sku> skulist = new List<Sku>();
             var sku_list = new List<SKUDO>();
-            var sku_quantityList=new List<SkuQuantity>();
+            var sku_quantityList = new List<SkuQuantity>();
             var pceInfoList = new List<PriceInfo>();
             int totalquty = 0;
 
             dynamic deliverySkuMap = new Dictionary<string, List<SKUDO>>();
             dynamic skuQuantity = new Dictionary<string, SkuQuantity>();
             dynamic priceInfo = new Dictionary<string, PriceInfo>();
+
+            //=========Test=============
+            Commodity commodity = iCommodityService.Load(itemId);
+            IList<Sku> skulistreal = new List<Sku>();
+            skulistreal = commodity.Skus.ToList<Sku>();
+
+            IList<SkuProp> skuproplistreal = new List<SkuProp>();
+            for (int i = 0; i < skulistreal.Count; i++) 
+            {
+                Sku sk = skulistreal[i];
+                skuproplistreal = sk.SKUProps.ToList<SkuProp>();
+
+                for (int j = 0; j<skuproplistreal.Count;j++ )
+                {
+                    PropID ppid = skuproplistreal[j].PropID;
+                    PropValue ppvalue = skuproplistreal[j].PropValue;                   
+
+                }           
+            }
+
+            //=========Test=============
+
             for (int i = 0; i < skulist.Count; i++)
             {          
              deliverySkuMap.Add(skulist[i].skuId.ToString(), new List<SKUDO>(){new SKUDO()
@@ -291,8 +307,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         {
                             money=skulist[i].price.ToString(),
                             name=skulist[i].Commodity.Name,
-                            postage="快递:"+ i+" EMS:"+i*2 ,
-                            postageFree=false,
+                            postage="快递:"+ i+" EMS:"+i*2, //每个Sku里面对应一个费用？或者每一种Commodity，或者全店设置
+                            postageFree=false,              //每个Sku里面对应一个费用？或者每一种Commodity，或者全店设置
                             signText=skulist[i].stock.ToString(),
                             type=0
                         }});
