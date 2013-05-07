@@ -51,7 +51,14 @@ namespace friday.coretest
                     Shop = shop,
                     ValuingCount=i,
                     Amount=i*10,
-                    MonthAmount=i,
+                    MonthAmount=i*3,
+                    AverageValuing = 4,
+                    DiscountInventoryCount = 50,
+                    DiscountPrice = 8.5,
+                    OldPrice = 15,
+                    IsEnabled = true,
+                    IsLimited = false,
+                    Description = "五一大促销"
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
@@ -69,7 +76,14 @@ namespace friday.coretest
                     Shop = shop,
                     ValuingCount = i,
                     Amount = i * 10,
-                    MonthAmount = i,
+                    MonthAmount = i*4,
+                    AverageValuing = 4,
+                    DiscountInventoryCount = 50,
+                    DiscountPrice = 8.5,
+                    OldPrice = 15,
+                    IsEnabled = true,
+                    IsLimited = false,
+                    Description = "五一大促销"
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
