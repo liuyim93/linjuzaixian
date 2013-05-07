@@ -41,9 +41,9 @@ namespace friday.core.services
             iCartOfCommodityRepository.Delete(id);
         }
 
-        public CartOfCommodity getCartOfCommodityByShoppingCart(string ShoppingCartID)
+        public List<CartOfCommodity> getCommoditiesByShoppingCart(string ShoppingCartID)
         {
-            return iCartOfCommodityRepository.getCartOfCommodityByShoppingCart(ShoppingCartID);
+            return iCartOfCommodityRepository.getCommoditiesByShoppingCart(ShoppingCartID);
         }
     }
 }

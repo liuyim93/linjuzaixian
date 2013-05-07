@@ -13,6 +13,6 @@ namespace friday.core.services
         void Save(CartOfCommodity CartOfCommodity);
         void Update(CartOfCommodity CartOfCommodity);
         void Delete(string id);
-        CartOfCommodity getCartOfCommodityByShoppingCart(string ShoppingCartID);
+        List<CartOfCommodity> getCommoditiesByShoppingCart(string ShoppingCartID);
     }
 }

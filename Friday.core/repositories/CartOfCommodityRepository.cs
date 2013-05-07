@@ -16,9 +16,9 @@ namespace friday.core.repositories
     public class CartOfCommodityRepository : Repository<CartOfCommodity>, ICartOfCommodityRepository
     {
 
-        public CartOfCommodity getCartOfCommodityByShoppingCart(string ShoppingCartID)
+        public List<CartOfCommodity> getCommoditiesByShoppingCart(string ShoppingCartID)
         {
-            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.ShoppingCart.Id == ShoppingCartID && o.IsDelete == false).SingleOrDefault();
+            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.ShoppingCart.Id == ShoppingCartID && o.IsDelete == false).ToList();
             return m;
         }
 
