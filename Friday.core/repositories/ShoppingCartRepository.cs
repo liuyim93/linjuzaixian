@@ -16,9 +16,9 @@ namespace friday.core.repositories
     public class ShoppingCartRepository : Repository<ShoppingCart>, IShoppingCartRepository
     {
 
-        public ShoppingCart getShoppingCartBySystemUser(string SystemUserID)
+        public List<ShoppingCart> getShoppingCartBySystemUser(string SystemUserID)
         {
-            var m = (from x in this.Session.Query<ShoppingCart>() select x).Where(o => o.SystemUser.Id == SystemUserID && o.IsDelete == false).SingleOrDefault();
+            var m = (from x in this.Session.Query<ShoppingCart>() select x).Where(o => o.SystemUser.Id == SystemUserID && o.IsDelete == false).ToList();
             return m;
         }
 
