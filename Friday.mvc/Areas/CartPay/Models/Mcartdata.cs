@@ -125,7 +125,7 @@ namespace Friday.mvc.Areas.CartPay.Models
 
     public class itemIcon
     {
-        List<ItemIconMeta> MALL_CART_XIAOBAO
+        public List<ItemIconMeta> MALL_CART_XIAOBAO
         {
             get;
             set;
@@ -144,7 +144,7 @@ namespace Friday.mvc.Areas.CartPay.Models
             get;
             set;
         }
-        public int skuId
+        public long skuId
         {
             get;
             set;
@@ -189,6 +189,11 @@ namespace Friday.mvc.Areas.CartPay.Models
             get;
             set;
         }
+        public long sellerId
+        {
+            get;
+            set;
+        }
         public price price
         {
             get;
@@ -215,14 +220,7 @@ namespace Friday.mvc.Areas.CartPay.Models
             set;
         }
     }
-    public class bundles
-    {
-        IList<order> orders
-        {
-            get;
-            set;
-        }
-    }
+
     public class listItem
     {
         public string id
@@ -260,12 +258,21 @@ namespace Friday.mvc.Areas.CartPay.Models
             get;
             set;
         }
-        public int gmtCompare
+        public long gmtCompare
         {
             get;
             set;
         }
-        public bundles bundles
+        public List<Bundles> bundles
+        {
+            get;
+            set;
+        }
+    }
+
+    public class Bundles
+    {
+        public IList<order> orders
         {
             get;
             set;
