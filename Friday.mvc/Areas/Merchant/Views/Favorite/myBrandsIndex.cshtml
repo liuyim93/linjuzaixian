@@ -50,7 +50,7 @@
             </ul>
 
             <a class="userInfo-photo">
-                <img src="http://wwc.taobaocdn.com/avatar/getAvatar.do?userId=70566442&amp;width=120&amp;height=120&amp;type=sns" height="48" width="48" alt="basilwang"></a>
+                <img src="http://localhost:7525/Images/avatar-120.png" height="48" width="48" alt="basilwang"></a>
 
             <div class="userInfo-text"> <strong>basilwang</strong>
                 <p>
@@ -72,7 +72,7 @@
             <div class="brandItem-info">
                 <div class="bIi-brand j_BrandItemInfo">
                     <p class="bIi-brand-logo">
-                        <a target="_blank" href="localhost:7525/Merchant/search?scid=@m.Id">
+                        <a target="_blank" href="http://localhost:7525/Merchant/index?scid=@m.Id">
                             <img height="45" width="90" alt="@m.Name" src="@m.Logo"></a> <strong>@m.Name</strong>
                     </p>
                 </div>
@@ -96,7 +96,7 @@
                 <a href="javascript:;" class="bIc-slide-prev">&lt;</a>
                 <div class="bIc-slide">
                     <ul class="bIc-slideList" style="position: absolute; width: 2160px;">
-                    @if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
+                 @*   @if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
                     {
                         for (var index = 0; index < (Model.Foods[foodIndex].Count() > 12 ? 12 : Model.Foods[foodIndex].Count()); index++)
                         {
@@ -123,7 +123,8 @@
                         }
                         foodIndex++;
                     }
-                    else if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+                    else *@
+                    @if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
                     {
                         for (var index = 0; index < (Model.Commoditys[commodityIndex].Count() > 12 ? 12 : Model.Commoditys[commodityIndex].Count()); index++)
                         {
@@ -150,7 +151,7 @@
                         }
                         commodityIndex++;
                     }
-                    else
+                    @*else
                     {
                         for (var index = 0; index < (Model.Houses[houseIndex].Count() > 12 ? 12 : Model.Houses[houseIndex].Count()); index++)
                         {
@@ -176,7 +177,7 @@
                         </li>
                         }
                         houseIndex++;
-                    }
+                    }*@
                         
                     </ul>
                 </div>
