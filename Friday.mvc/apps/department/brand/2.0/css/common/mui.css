@@ -72,7 +72,7 @@ b.ui-page-s-len {background:none;line-height:20px;font-weight:normal; }
 .ui-title-con:hover .ui-title-arrow {background-position:-173px -62px; }
 .ui-label-nbg {display:inline-block;height:20px;line-height:20px;padding:0 10px;overflow:hidden;color:#666;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;-o-border-radius:2px;-khtml-border-radius:2px; }
 .ui-label-nbg:hover,.ui-label-select {background:#333;text-decoration:none;color:#fff; }
-.ui-msg-icon,.ui-msg-close,.ui-msg-arrow {background-image:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png);background-repeat:no-repeat; }
+.ui-msg-icon,.ui-msg-close,.ui-msg-arrow {background-image:url(http://localhost:7525/Images/msg.png);background-repeat:no-repeat; }
 .ui-msg {position:relative;display:inline-block;*display:inline;*zoom:1;border:1px solid #e1e1e1;border-radius:2px;background:#f5f5f5;padding-left:24px;box-shadow:1px 1px 1px #f5f5f5; }
 .ui-msg-block {display:block; }
 .ui-msg-con {line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #e7e7e7;margin:-1px; }

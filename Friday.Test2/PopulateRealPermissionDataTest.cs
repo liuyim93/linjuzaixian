@@ -1316,7 +1316,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(sgtn);
             }
             //2级"服装/内衣/配件"
-            string[] SecdForClothes = { "女装","男装","内衣","连衣裙","针织衫","T恤","文胸","睡衣","男T恤","牛仔裤"};
+            string[] SecdForClothes = { "女装","男装","内衣","针织衫","T恤","文胸","睡衣","男T恤","牛仔裤"};
             for (int i = 0; i < SecdForClothes.Length; i++)
             {
 
@@ -2914,6 +2914,16 @@ namespace Friday.Test2
                     InventoryCount = 100,
                     GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("白酒"),
                     Shop= shop1,
+                    Amount=100,
+                    AverageValuing=4,
+                    DiscountInventoryCount=50,
+                    DiscountPrice=8.5,
+                    MonthAmount=300,
+                    OldPrice=15,
+                    ValuingCount=20,
+                    IsEnabled=true,
+                    IsLimited=false,
+                    Description="五一大促销"
 
                 };
                 shop1.Commodities.Add(commodity_1);
@@ -2930,6 +2940,13 @@ namespace Friday.Test2
                     DiscountPrice = 10,
                     Shop= shop1,
                     IsLimited = true,
+                    Amount = 100,
+                    AverageValuing = 4,
+                    MonthAmount = 300,
+                    OldPrice = 15,
+                    ValuingCount = 20,
+                    IsEnabled = true,
+                    Description = "五一大促销"
                 };
                 shop1.Commodities.Add(commodity_2);
             new ShopRepository().SaveOrUpdate(shop1);
@@ -3084,6 +3101,16 @@ namespace Friday.Test2
                InventoryCount = 100,
                GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("戒指"),
                Shop= shop2,
+               Amount = 100,
+               AverageValuing = 4,
+               DiscountInventoryCount = 50,
+               DiscountPrice = 8.5,
+               MonthAmount = 300,
+               OldPrice = 15,
+               ValuingCount = 20,
+               IsEnabled = true,
+               IsLimited = false,
+               Description = "五一大促销"
            };
            shop1.Commodities.Add(commodity_12);
 
@@ -3099,6 +3126,13 @@ namespace Friday.Test2
                DiscountPrice = 10,
                Shop= shop2,
                IsLimited = true,
+               Amount = 100,
+               AverageValuing = 4,
+               MonthAmount = 300,
+               OldPrice = 15,
+               ValuingCount = 20,
+               IsEnabled = true,
+               Description = "五一大促销"
            };
            shop2.Commodities.Add(commodity_22);
            new ShopRepository().SaveOrUpdate(shop2);

@@ -1,0 +1,677 @@
+﻿@{
+    Layout = null;
+}
+@using Friday.mvc.Models
+@model IndexModel
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/p/mall/base/global-v2.js")></script>
+    <script src=@Url.Content("/apps/tmall/fp/2012/core.js")></script>
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/common.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/searchStyle.css") />
+    <link rel="stylesheet" href="http://a.tbcdn.cn/??p/mall/base/global-v2.css,apps/tmall/header/shop/header.css,apps/tmall/header/shop/head-info.css,p/shop/1.0/base-min.css,p/shop/1.0/mods/b/head/head-min.css,p/shop/1.0/mods/b/foot/foot-min.css,p/shop/1.0/mods/b/other/shop-info-min.css,p/shop/1.0/mods/b/other/head-info-min.css,p/shop/1.0/mods/s/shop-mods-min.css,p/shop/1.0/mods/o/second-mods-min.css?t=2012122820130314201203192013010620111220.css" />	<!-- System Skin CSS-->	<link rel="stylesheet" href="http://a.tbcdn.cn/app/shop/skin/ark_black.css?1.4.css"  type="text/css"  media="screen" /><style type="text/css">			#content {
+ background-repeat:repeat-x;
+}
+#hd {
+background-color:#000000;
+background-position:left 0;
+background-repeat:repeat-x;
+}				</style>
+</head>
+<body>
+    @Html.Partial("_SiteNav")
+
+               @{
+                   var m = Model.SingleMerchant;                  
+    <div id="header">
+        <!-- flash logo -->
+        <div id="headerCon">
+            <h1 id="mallLogo">
+                <span class="mlogo"><a href="http://www.tmall.com/" title="天猫Tmall.com"><s></s>天猫Tmall.com</a></span>
+            </h1>
+            <div id="tmallSearch">
+                <form name="searchTop" action="http://list.tmall.com/search_dispatcher.htm" class="mallSearch-form">
+                <fieldset>
+                    <legend>天猫搜索</legend>
+                    <div class="mallSearch-input clearfix">
+                        <label for="mq" style="visibility: visible;">
+                            搜索 天猫 商品/店铺</label>
+                        <input type="text" name="q" data-current="http://nike.tmall.com" accesskey="s" autocomplete="off"
+                            x-webkit-speech="" x-webkit-grammar="builtin:translate" value="" id="mq">
+                        <button id="J_CurrShopBtn" class="currShopBtn" type="button">
+                            搜本店<s></s></button>
+                        <button id="J_SearchBtn" type="submit">
+                            搜天猫<s></s></button>
+                        <input id="J_Type" type="hidden" name="type" value="p">
+                        <input id="J_MallSearchStyle" type="hidden" name="style" value="">
+                        <input id="J_Cat" type="hidden" name="cat" value="all">
+                    </div>
+                </fieldset>
+                </form>
+            </div>
+        </div>
+        <div class="headerNav">
+            <div class="headerNav-con">
+                <div class="headerCrumb" id="J_HeaderCrumb">
+                </div>
+                <ul class="headerPromise">
+                    <li class="hPicon1"><a target="_blank" title="正品行货" href=" http://www.tmall.com/go/chn/mall2010/promise.php#ZPBZ">
+                        正品行货</a></li>
+                    <li class="hPicon2"><a target="_blank" title="提供发票" href=" http://www.tmall.com/go/chn/mall2010/promise.php#TGFP">
+                        提供发票</a></li>
+                    <li class="hPicon3"><a target="_blank" title="七天退换" href=" http://www.tmall.com/go/chn/mall2010/promise.php#QTTH">
+                        七天退换</a></li>
+                </ul>
+                <!-- module-cache-info: module: shop.headerArchiveNoNav:1.1-b2c,moduleId=1240656693, key: user-890482188-prototype-57-20121105 cacheArea: 49 cachedTime: 2013-03-14 15:34:45 aliveTime: 28800 AppIP:172.24.173.88 -->
+                <div id="mall-shop">
+                    <div id="shop-info">
+                        <div class="main-info">
+                            <h3 class="shop-title">
+                                <a target="_blank" href="http://nike.tmall.com/">@m.Name 官方旗舰店</a>
+                            </h3>
+                            <p class="shop-status">
+                                <a class="i" target="_blank" href="http://www.tmall.com/go/chn/mall2010/promise.php#PPZX">
+                                    品牌直销</a> <span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
+                                        data-tnick="" data-encode="true" data-display="inline"><a href="http://www.taobao.com/webww/?ver=1&amp;&amp;touid=cntaobaonike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;siteid=cntaobao&amp;status=2&amp;portalId=&amp;gid=&amp;itemsId="
+                                            target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
+                                            <span>旺旺在线</span></a></span>
+                            </p>
+                            <p class="shop-grade">
+                                <a target="_blank" href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm">
+                                    <span title="4.7/5.0，共有40778人打分" class="c-value-no c-value-4d7"></span>4.7</a>
+                            </p>
+                        </div>
+                        <div class="extra-info">
+                            <div class="bd">
+                                <div class="shop-rate">
+                                    <h4>
+                                        店铺动态评分 <span class="compare">与同行业相比</span>
+                                    </h4>
+                                    <ul>
+                                        <li>描述相符：<a target="_blank" href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
+                                            class="count" title="4.76132分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
+                                                <b>持平</b><em>--------</em> </span></a></li>
+                                        <li>服务态度：<a target="_blank" href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
+                                            class="count" title="4.74458分">4.7</em> <span class="rateinfo" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
+                                                <b class="lower">低于</b><em class="lower">1.35%</em> </span></a></li>
+                                        <li>发货速度：<a target="_blank" href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
+                                            class="count" title="4.7673分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
+                                                <b>持平</b><em>--------</em> </span></a></li>
+                                    </ul>
+                                </div>
+                                <div class="extend">
+                                    <ul>
+                                        <li class="shopkeeper">
+                                            <label>
+                                                掌 柜：</label>
+                                            <a href="http://rate.taobao.com/user-rate-54e6f94343b5d2d647fdde8a93634496.htm">@m.Name 官方旗舰店</a>
+                                        </li>
+                                        <li>
+                                            <label>
+                                                客 服：</label>
+                                            <span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
+                                                data-tnick="" data-encode="true" data-display="inline"><a href="http://www.taobao.com/webww/?ver=1&amp;&amp;touid=cntaobaonike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;siteid=cntaobao&amp;status=2&amp;portalId=&amp;gid=&amp;itemsId="
+                                                    target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
+                                                    <span>旺旺在线</span></a></span> </li>
+                                        <li>
+                                            <label>
+                                                公 司 名：
+                                            </label>
+                                            @m.Name </li>
+                                        <li class="locus">
+                                            <label>
+                                                所 在 地：
+                                            </label>
+                                            @m.Address </li>
+                                    </ul>
+                                </div>
+                                <div class="other">
+                                    <a id="xshop_collection_href" style="width: 84px;" href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
+                                        mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496"
+                                        class="J_PopupTrigger collection xshop_sc J_TDialogTrigger J_TokenSign" data-width="440"
+                                        data-height="260" data-closebtn="true"><span>收藏本店铺 </span></a>
+                                </div>
+                            </div>
+                            <div class="opt">
+                                <b id="J_InfoTrigger">展开/收起</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+    <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
+     
+                                                    
+    
+                 <p class="design-page hidden" id="J_DesignPage">
+                <a href="http://design.taobao.com/design.htm?pageId=256494988&amp;siteId=2&amp;sid=71955116&amp;curr_tab=0"
+                    target="_blank">
+                    <img src="http://localhost:7525/Images/color_pen-16-16.png">装修此页面</a>
+            </p>
+
+            
+    
+                                          
+                                          
+       <div id="hd">
+                <div class="layout grid-m">
+                    <div class="col-main">
+                        <div class="main-wrap J_TRegion" data-modules="main" data-width="h950">
+                            <!-- module-cache-info: module: shop.selfDefining:1.0-common,moduleId=7206124015, key: module-7206124015-prototype-3-80 cacheArea: 208 cachedTime: 2013-03-14 16:01:44 aliveTime: 28800 AppIP:172.24.151.133 -->
+                            <div class="box J_TBox tshop-pbsm tshop-pbsm-ssd10c" data-spm="110.0.3-7206124015"
+                                microscope-data="3-7206124015">
+                                <div class="shop-custom   no-border ">
+                                    <div class="bd">
+                                        <div class="custom-area">
+                                            <div class="tb-shop">
+                                                <div style="width: 950px; height: 51px; overflow: hidden;">
+                                                    <ul class="top_nav">
+                                                      <li>
+                                                  <a href="http://localhost:7525/merchant/index?scid=@Model.SingleMerchant.Id">
+                                                            @*   <img border="0" src="http://img02.taobaocdn.com/imgextra/i2/890482188/T2Z_x3XhxcXXXXXXXX_!!890482188.jpg"
+                                                                data-cdn-reduce-traffic="http://img02.taobaocdn.com/imgextra/i2/890482188/T2Z_x3XhxcXXXXXXXX_!!890482188.jpg_q75.jpg">
+                                                        *@ <img border="0" src="@m.Logo"  width="134px" height="50px"   >
+                                                                </a></li>
+
+                                                  @*    <li class="top_nav01 first-trigger-nav01">
+                                                      <a href="http://nike.tmall.com/search.htm?scid=493467018&amp;scname=xNDX0w%3D%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                        <em>男子</em></a></li>
+                                                      <li class="top_nav02 first-trigger-nav02">
+                                                      <a href="http://nike.tmall.com/search.htm?scid=493467022&amp;scname=xa7X0w%3D%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                            <em>女子</em></a></li>
+                                                     <li class="top_nav03 first-trigger-nav03">
+                                                     <a href="http://nike.tmall.com/search.htm?scid=493467026&amp;scname=1Mu2r7L6xrc%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                <em>运动产品</em></a></li>
+                                                       <li class="top_nav04 first-trigger-nav04">
+                                                       <a href="http://nike.tmall.com/search.htm?scid=493467032&amp;scname=svrGt8%2B1wdA%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                    <em>产品系列</em></a>
+                                                                                    </li>*@
+                                   
+                                       @*@foreach (var i in Model.merchantGoodsTypes)
+                                       {*@
+                                                     
+                                   <li class="top_nav01  first-trigger-nav01"  >
+                                                <a  href="http://localhost:7525/merchant/search/SearchGoods?scid=@ViewData["sscid"]">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">
+                                                @*<a  href="http://localhost:7525/merchant/search/SearchGoods?scid=@ViewData["sscid"]&goodTypeId=@i.Id">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">*@
+                                                    @*@i.GoodsType*@
+                                                </span>          </a>                        
+                                                                                    </li>
+                                       @*}*@
+                                                   @*@foreach (var i in Model.merchantGoodsTypes)
+                                                   {*@
+                                                     
+                                   <li class="top_nav01 first-trigger-nav01"  >
+                                                                    <a  href="#">   <span  style="color:White; font-size:18px; text-align:center; font-family:华文新魏; padding-top:5px">
+                                                    @*@i.GoodsType*@
+                                                 </span>          </a>    
+                                                                                    </li>
+                                                   @*}*@
+
+                                                  <li class="top_nav05">
+                                                  <a href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467010&amp;viewType=grid&amp;orderType=_newOn&amp;prt=1341396525549&amp;prc=1">
+                                                                                        <em>最新商品</em></a></li>
+                                                 <li class="top_nav06">
+                                                 <a href="http://nike.tmall.com/search.htm?scid=493467006&amp;scname=yMjC9MnMxrc%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                            <em>热卖商品</em></a></li>
+                                                <li class="top_nav07 first-trigger-nav06">
+                                                <a href="http://nike.tmall.com/search.htm?scid=493467014&amp;scname=08W73cnMxrc%3D&amp;checkedRange=true&amp;queryType=cat">
+                                                                                                <em>优惠商品</em></a></li>
+                                                 <li class="top_nav08">
+                                                 <a href="http://nike.tmall.com/view_page-260002965.htm?prt=1340092292125&amp;prc=1">
+                                                                                                    <em>购物须知</em></a>
+                                                </li>
+                                                <li>
+                                                <a href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=56863333b8195"
+                                                                                                        target="_blank">
+                                                                                                        <img border="0" src="http://img03.taobaocdn.com/imgextra/i3/890482188/T2FW84XcFcXXXXXXXX_!!890482188.jpg"
+                                                                                                            data-cdn-reduce-traffic="http://img03.taobaocdn.com/imgextra/i3/890482188/T2FW84XcFcXXXXXXXX_!!890482188.jpg_q75.jpg"></a></li>
+                                                 @*<li class="top_nav09 first-trigger-nav05"><a href="#"><em>旺旺</em></a></li>*@
+                                                                                                                
+                                                                                             </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                      
+ 
+                      
+ 
+            <div id="bd">
+                <div class="layout grid-m">
+                    <div class="col-main">
+                        <div class="main-wrap J_TRegion">
+                        </div>
+                    </div>
+                </div>
+                <div class="layout grid-s5m0 ">
+                    <div class="col-main clearfix">
+                        <div class="main-wrap J_TRegion">
+                            <!--ShopsystemSearchStart-->
+                            <!--搜索列表searchURL: http://inshop-search-hz.vip.tbsite.net:2088/bin/search?auction?user_id=890482188&n=20&scid=493467022&sort=starts&src=shopsystem-172.24.173.123 tairKey: $tairKey -->
+                            <div id="anchor" class="box J_TBox tshop-pbsm tshop-pbsm-ssl10w" data-spm="110.0.17-7149738473"
+                                microscope-data="17-7149738473">
+                                <div class="shop-hesper" id="J_ShopSearchResult">
+                                  
+                                    <div class="bd">
+                                  
+                                          <span id="J_ShopSearchUserParams" data-info="&amp;upicSize=160x160"></span><span
+                                            id="J_UserSearchParams" data-info="keyword=&amp;price1=&amp;price2=&amp;bannerPageTitle=分类宝贝">
+                                        </span>
+                                    <!---搜索问题--->
+                                         <!---   搜索--->
+                                       
+                                  <div class="shop-hesper-hd J_TWidget" data-widget-config="{'triggerCls': 'trigger', 'panelCls': 'hesper-content','multiple': 'true', 'activeTriggerCls': 'collapse'}"
+                                            data-widget-type="Accordion" aria-multiselectable="true">
+                                            <div class="hesper-cats" id="J_HesperCats" role="tablist">
+                                                <ol>
+                                                  <!---  商品的分类名称 女子--->
+@*                                                    
+                                                    @if (ViewData["sgoodTypeId"].ToString()!="0")
+                                                    {
+                                                       <li> @Model.SingleMerchantGoodsType.GoodsType</li>
+                                                    }
+                                                    else
+                                                    {
+                                                    <li>全部商品列表</li>
+                                                    }*@
+
+
+                                                </ol>
+                                                <div class="hesper-content ks-switchable-panel-internal658" style="display: none"
+                                                    id="ks-accordion-tab-panel661" role="tabpanel" aria-hidden="false" aria-labelledby="J_HesperCatsTrigger">
+                                                    <ul class="hesper-cats-list">
+                                                        <li><a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467023&amp;queryType=cat&amp;scname=0KzA4A%3D%3D">
+                                                            鞋类</a></li>
+                                                        <li><a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=502996984&amp;queryType=cat&amp;scname=yc%2FSwg%3D%3D">
+                                                            上衣</a></li>
+                                                        <li><a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=502996985&amp;queryType=cat&amp;scname=v%2BPXsA%3D%3D">
+                                                            裤装</a></li>
+                                                        <li><a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467025&amp;queryType=cat&amp;scname=17CxuA%3D%3D">
+                                                            装备</a></li>
+                                                    </ul>
+                                                </div>
+                                                <script>
+                                                    if (KISSY.version !== "1.30")
+                                                        if (window.TShop && window.TShop.use) {
+                                                            TShop.use('mod~search', function () {
+                                                                TShop.mods.Search.init();
+                                                            });
+                                                        }
+                                                </script>
+                                                <i id="J_HesperCatsTrigger" class="trigger collapse  ks-switchable-trigger-internal657"
+                                                    title="展开或者收缩" role="tab" aria-expanded="true" aria-selected="true" aria-controls="ks-accordion-tab-panel661"
+                                                    tabindex="0"></i>
+                                            </div>
+                                           @* <form action="http://nike.tmall.com/search.htm" id="shop-search-list" method="get">*@
+                                            <form action="http://localhost:7525/merchant/search" id="shop-search-list" method="get">
+                                          
+                                            <div class="shop-search">
+                                                <div class="search-form">
+                                                    <ul>  @*  <input type="hidden" id="J_ShopSearchFormUrl" data-info="http://nike.tmall.com/search.htm?search=y&amp;viewType=grid&amp;orderType=_newOn&amp;orderType=_newOn">
+                                                      *@ 
+                                                    
+                                                      <input type="hidden" id="J_ShopSearchFormUrl" data-info="http://localhost:7525/merchant/search?viewType=grid&keyword=wre&price1=22&price2=33&baoBeiType=1003&viewType=grid&orderType=_hotsell">
+                                                      
+                                                        <input type="hidden" name="orderType" value=@ViewData["sorderType"]>
+                                                        <input type="hidden" name="viewType" value=@ViewData["sviewType"]>
+                                                        @*<input id="baobei_type" type="hidden" name="baobei_type" value="">*@
+                                                     <input type="hidden" name="scid" value=@ViewData["sscid"]>
+                                                     <input type="hidden" name="goodTypeId" value=@ViewData["sgoodTypeId"] />
+                                                         @*  <li class="type">
+                                                            <label for="whole">
+                                                                搜索整店</label>
+                                                            <input id="whole" name="searchRange" value="all" type="checkbox" class="checkbox"
+                                                                checked="">
+                                                        </li>*@
+                                                        <li class="keyword">
+                                                            <label for="keyword">
+                                                                关键字：</label>
+                                                            <input id="keyword" name="keyword" type="text" value=@ViewData["skeyword"] >
+                                                        </li>
+                                                        <li class="price">
+                                                            <label for="price">
+                                                                价格：</label>
+                                                            <input id="price1" name="price1" type="text" class="price J_CheckInput" value=@ViewData["sprice1"]>
+                                                            到
+                                                            <input id="price2" name="price2" type="text" class="price J_CheckInput" value=@ViewData["sprice2"]>
+                                                        </li>
+                                                        <li class="submit">
+                                                            <button type="submit" class="button">
+                                                                搜索</button>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="search-result">
+                                                    共搜索到<span> @Model.count.ToString()</span>个符合条件的商品。
+                                                </div>
+                                            </div>
+                                            </form>
+                                        </div>
+                                        <div class="shop-hesper-bd grid">
+                                            <div class="shop-filter">
+                                                <div class="mode">
+                                                    <span>显示：</span> <a href="http://localhost:7525/merchant/search?search=y&amp;scid=493467022&amp;viewType=list&amp;orderType=_newOn"
+                                                        alt="列表方式" title="列表方式" class="J_SearchAsync mode-row">列表模式</a> <a href="http://localhost:7525/merchant/search?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn"
+                                                            alt="图表方式" title="图表方式" class="J_SearchAsync mode-grid">图表模式</a>
+                                                </div>
+                                                <div class="taxis">
+                                                    <span>排序：</span> 
+                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按销量排列" title="按销量排列" class="J_SearchAsync fav def">销量<i class="icon"></i></a>
+                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=CreateTime&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按新品排列" title="按新品排列" class="J_SearchAsync down">新品<i class="icon"></i></a>
+                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=Price&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按价格排列" title="按价格排列" class="J_SearchAsync def">价格<i class="icon"></i></a>
+                                                 @*   <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按收藏排列" title="按收藏排列" class="J_SearchAsync fav def">收藏<i class="icon"></i></a>*@
+                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按人气排列" title="按人气排列" class="J_SearchAsync fav def">人气<i class="icon"></i></a>
+                                                </div>
+                                                <div class="vip">
+                                                 @*   <input id="J_TBaotypeBox" name="boTypeBox" value="1003" type="checkbox" onclick="vipSubmit();"
+                                                        class="checkbox">店铺VIP商品*@
+                                                </div>
+                                                <div class="pagination pagination-mini">
+                                                    <span class="page-info">@Model.currentPage/@Model.pageNum</span> 
+                                                 @if (Model.currentPage == 1 && Model.pageNum != 1)
+                                                 { 
+                                                    <a class="disable">上一页</a> 
+                                                    
+                                                    <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        下一页</a>
+                                                 }
+                                                 else if (Model.currentPage == 1 && Model.pageNum == 1)
+                                                 {
+                                                  <a class="disable">上一页</a> 
+                                                    
+                                                    <a class="disable" > 下一页</a>
+                                                 }
+                                                 else if (Model.currentPage == Model.pageNum && Model.pageNum != 1)
+                                                 {                                            
+                                                    
+                                                    <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        上一页</a>
+                                                            <a class="disable">下一页</a> 
+                                                 }
+                                                 else
+                                                 {
+                                                     <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        上一页</a>
+                                                      <a class="J_SearchAsync next"
+                                                        href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+                                                        下一页</a>
+                                                 }
+                                                    <!--下一页-->
+                                                </div>
+                                            </div>
+                                              
+                                              @if (Model.SingleMerchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+                                              {      
+                                            <ul class="shop-list">
+                                     
+                                                   @for (var index = 0; index < Model.Commoditys.Count(); index++)
+                                                   {
+                                                       var item = Model.Commoditys.ElementAt(index);
+                                                <li>
+                                                    <div class="item">
+                                                        <div class="pic">
+                                                            <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" target="_blank" class="permalink"> 
+                                                              <img src="@Url.Content("~/" + item.Image)" >
+                                                            </a>
+                                                        </div>
+                                                       <div class="desc">
+                                                        <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" target="_blank" class="permalink"> 
+                                                            @item.Name <br />   @m.Name 官方 </a>
+                                                        </div>
+                                                        <div class="price">
+                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
+                                                        </div>
+                                                        <div class="sales-amount">
+                                                            月销量：<em>@item.MonthAmount</em>件
+                                                        </div>
+                                                        <div class="rating">
+                                                         @*   <span class="c-value-no" title="5.0分"><i style="width: 5.0em"></i></span><span class="small">
+                                                                (<a target="_blank" href="http://localhost:7525/merchant/detail/index?brandid=@item.Id"
+                                                                    title="评论列表">已有 @item.ValuingCount 人评论</a>)</span>*@
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                   }                                               
+                                            </ul>
+                                              }
+
+                                                    
+                <form action="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" method="post">                       
+                  <div class="brandPagination" style=" float:right">
+            <div class="ui-page">
+                <div class="ui-page-wrap"> <b class="ui-page-num">
+                @if (Model.currentPage > 1)
+                {
+                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/search?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
+                }
+                else
+                {
+                    <b class="ui-page-prev"><< 上一页</b>
+                }
+                @for (int i = 1; i <= Model.pageNum; i++)
+                {
+                    if (i == Model.currentPage)
+                    {
+                        <b class="ui-page-cur">@i</b>
+                    }
+                    else
+                    {
+                        <a href="http://localhost:7525/merchant/search?page=@i&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="j_PageChange" data-page="@i">@i</a>
+                    }
+                }
+                
+              @*  <b class="ui-page-break">...</b>*@
+
+                @if (Model.currentPage < Model.pageNum)
+                {
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/search?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"> 下一页>></a>
+                }
+                else
+                {
+                    <b class="ui-page-next">下一页 >></b>
+                }
+                    </b>
+
+                    <b class="ui-page-skip">共@(Model.pageNum)页，去第
+                        <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
+                        页
+                        <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> 
+                </div>
+            </div>
+        </div>
+        </form>
+                                
+                                      <!--        <div class="pagination">
+                                                <a class="disable">上一页</a> <a class="page-cur">1</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
+                                                    2</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=3#anchor">
+                                                        3</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=4#anchor">
+                                                            4</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=5#anchor">
+                                                                5</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=6#anchor">
+                                                                    6</a> <a class="J_SearchAsync next" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
+                                                                        下一页</a>
+                                                <form id="J_Pagination" action="http://nike.tmall.com/search.htm" method="get">
+                                                <input type="hidden" name="orderType" value="_newOn">
+                                                <input type="hidden" name="viewType" value="grid">
+                                                <input type="hidden" name="scid" value="493467022">
+                                                到第
+                                                <input id="J_PaginationInput" type="text" value="1" size="3" name="pageNum" class="J_CheckInput">
+                                                页
+                                                <button type="submit">
+                                                    确定</button>
+                                                </form>
+                                            </div>
+                                          end pagination-->
+                                           
+                                        </div> 
+                                               
+                                </div>
+                                     
+                                </div>
+                                <script type="text/javascript">
+                                    function vipSubmit() {
+                                        if (KISSY.version !== "1.30")
+                                            if (window.TShop && window.TShop.use) {
+                                                var baobei_type = document.getElementById('baobei_type').value;
+                                                if (baobei_type == '1003') {
+                                                    document.getElementById('baobei_type').value = "";
+                                                } else {
+                                                    document.getElementById('baobei_type').value = "1003";
+                                                }
+                                                document.getElementById('shop-search-list').submit();
+                                            }
+                                    }
+                                </script>
+                            </div>
+                            <!--ShopsystemSearchEnd-->
+                        </div>
+                    </div>
+            
+                    <div class="col-sub J_TRegion">
+                        <!-- module-cache-info: module: shop.shopArchive:1.0-b2c,moduleId=7149738464, key: user-890482188-prototype-13-20121207 cacheArea: 208 cachedTime: 2013-03-14 15:03:33 aliveTime: 28800 AppIP:172.24.3.145 -->
+                        <!--商家信息 到 进入店铺-->
+                        <div class="box J_TBox tshop-psm tshop-psm-ssa10b" id="side-shop-info" data-spm="110.0.13-7149738464"
+                            microscope-data="13-7149738464">
+                            <div class="shop-basic">
+                                <div class="hd">
+                                    <h3>
+                                        <span>商家信息</span></h3>
+                                </div>
+                                <div class="bd">
+                                    <div class="shop-promise">
+                                        <p>
+                                            <img alt="天猫，品质保证" src="http://localhost:7525/Images/small_mcht_bar-175-35.png"></p>
+                                        <ul>
+                                            <li><a href="http://www.tmall.com/go/chn/mall2010/promise.php#ZPBZ" target="_blank">
+                                                正品保障</a></li>
+                                            <li><a href="http://www.tmall.com/go/chn/mall2010/promise.php#TGFP" target="_blank">
+                                                提供发票</a></li>
+                                            <li id="J_7day" class="last"><a href="http://www.tmall.com/go/chn/mall2010/promise.php#QTTH"
+                                                target="_blank">七天退换</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="shop-intro">
+                                        <div class="name">
+                                            <span>@Model.SingleShop.Name 官方旗舰店</span>
+                                        </div>
+                                        <div class="shop-rate">
+                                            <h4>
+                                                店铺动态评分 <span class="compare">与同行业相比</span>
+                                            </h4>
+                                            <ul>
+                                                <li>描述相符：<a target="_blank" href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
+                                                    class="count" title="4.76132分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
+                                                        <b>持平</b><em>--------</em> </span></a></li>
+                                                <li>服务态度：<a target="_blank" href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
+                                                    class="count" title="4.74458分">4.7</em> <span class="rateinfo" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
+                                                        <b class="lower">低于</b><em class="lower">1.35%</em> </span></a></li>
+                                                <li>发货速度：<a target="_blank" href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
+                                                    class="count" title="4.7673分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
+                                                        <b>持平</b><em>--------</em> </span></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="extend">
+                                            <ul>
+                                                <li>
+                                                    <label>
+                                                        公 司 名：</label>
+                                                    @Model.SingleMerchant.Name
+                                                </li>
+                                                <li class="locus">
+                                                    <label>
+                                                        所 在 地：</label>
+                                                    @Model.SingleMerchant.Address
+                                                </li>
+                                                <li class="shopkeeper">
+                                                    <label>
+                                                        商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
+                                                    <a href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496--receivedOrPosted|0--buyerOrSeller|1.htm">
+                                                    </a></li>
+                                                <li>
+                                                    <label>
+                                                        客&nbsp;&nbsp;&nbsp;&nbsp;服：</label>
+                                                    <span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
+                                                        data-tnick="" data-encode="true" data-display="inline"><a href="http://www.taobao.com/webww/?ver=1&amp;&amp;touid=cntaobaonike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;siteid=cntaobao&amp;status=2&amp;portalId=&amp;gid=&amp;itemsId="
+                                                            target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
+                                                            <span>旺旺在线</span></a></span> </li>
+                                            </ul>
+                                        </div>
+                                        <div class="other">
+                                        @*    <a class="enter" href="http://nike.tmall.com/" title="进入掌柜的店铺" target="_blank"><span
+                                                style="display: none;">进入掌柜的店铺</span></a>*@
+                                            <a id="xshop_collection_href" href="http://favorite.taobao.com//popup/add_collection.htm?itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
+                                                    mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496"
+                                                    class="J_TDialogTrigger J_PopupTrigger collection xshop_sc J_TokenSign" data-width="458"
+                                                    data-height="346" data-closebtn="true" style="width: 84px"><span>收藏本店铺</span></a>
+                                        </div>
+                                    </div>
+                                    <div id="J_Shopsearch" style="display: none" class="shop-search">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- module-cache-info: module: shop.selfDefining:1.0-common,moduleId=18103299901, key: module-18103299901-prototype-3-80 cacheArea: 208 cachedTime: 2013-03-14 15:03:36 aliveTime: 28800 AppIP:172.24.151.135 -->
+                        <!--售后提示-->
+                        <div class="box J_TBox tshop-pbsm tshop-pbsm-ssd10c" data-spm="110.0.3-18103299901"
+                            microscope-data="3-18103299901">
+                            <div class="shop-custom   no-border ">
+                                <div class="bd">
+                                    <div class="custom-area">
+                                        <p>
+                                            <img src="http://localhost:7525/Images/after_sell_tip.jpg"
+                                                data-cdn-reduce-traffic="http://localhost:7525/Images/after_sell_tip.jpg_q75.jpg"></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                      
+                    </div>
+            
+                   }
+     
+            <!--保证 到 企业采购热线--->
+          <div id="ft">
+               <div class="layout grid-m">
+                <div class="col-main">
+                  
+             
+     
+          
+                                  
+            @Html.Partial("_Footer")
+
+                       </div>
+            </div>
+
+            </div> 
+               
+
+              
+</body>
+</html>

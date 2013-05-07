@@ -70,7 +70,7 @@ button.ui-btn-l-primary,button.ui-btn-l{height:30px;*height:32px;line-height:27p
 .ui-step-bar .ui-step-end,.ui-step-bar .ui-step-end-cur,.ui-step-bar .ui-step-end-done{width:26px;margin-left:-26px;margin-right:0;float:right;}
 .ui-step-bar .ui-step-end .ui-step-name,.ui-step-bar .ui-step-end-cur .ui-step-name,.ui-step-bar .ui-step-end-done .ui-step-name{_position:absolute;_margin:0;}
 .ui-step-bar .ui-step-end .ui-step-status,.ui-step-bar .ui-step-end-cur .ui-step-status,.ui-step-bar .ui-step-end-done .ui-step-status{_position:absolute;padding-left:5px;}
-.ui-msg-icon,.ui-msg-close,.ui-msg-arrow{background-image:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png);background-repeat:no-repeat;}
+.ui-msg-icon,.ui-msg-close,.ui-msg-arrow{background-image:url(http://localhost:7525/Images/msg.png);background-repeat:no-repeat;}
 .ui-msg{position:relative;display:inline-block;*display:inline;*zoom:1;border:1px solid #e1e1e1;border-radius:2px;background:#f5f5f5;padding-left:24px;box-shadow:1px 1px 1px #f5f5f5;}
 .ui-msg-block{display:block;}
 .ui-msg-con{line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #e7e7e7;margin:-1px;}

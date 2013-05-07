@@ -159,11 +159,19 @@ namespace friday.coretest
                     Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
                     IsDiscount = false,
                     //InventoryCount = 100,
-                    GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("半身裙"),
+                    GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("连衣裙"),
                     Shop = shop,
-                    ValuingCount = i,
-                    Amount = i * 10,
-                    MonthAmount = i,
+                    InventoryCount=i*20+50,
+                    ValuingCount = i*5+5,
+                    Amount = i * 100+50,
+                    MonthAmount = i*10+20,
+                    AverageValuing = 4,
+                    DiscountInventoryCount = i*5+2,
+                    DiscountPrice = 8.5,
+                    OldPrice = 15,
+                    IsEnabled = true,
+                    IsLimited = false,
+                    Description = "五一大促销"
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
