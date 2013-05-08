@@ -51,6 +51,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -122,6 +123,7 @@
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Areas\CartPay\CartPayAreaRegistration.cs" />
     <Compile Include="Areas\CartPay\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CartPay\Models\FormData.cs" />
     <Compile Include="Areas\CartPay\Models\Mcartdata.cs" />
     <Compile Include="Areas\Cart\CartAreaRegistration.cs" />
     <Compile Include="Areas\Cart\Controllers\HomeController.cs" />
