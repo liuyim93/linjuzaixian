@@ -24,6 +24,8 @@ namespace Friday.Test2
        private List<Commodity> commodityOfShop2List = new List<Commodity>();
        private IList<MerchantCategory> merchantCategoryList = new List<MerchantCategory>();
        IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
+       IGlobalGoodsTypeRepository globalGoodsTyperep = new GlobalGoodsTypeRepository();
+      
        private readonly int SYSTEM_USER_COUNT = 500;
        private readonly int MY_FAVAORITE_SHOP_COUNT = 5;
        private readonly int SHOP_COUNT = 10;  //we double SHOP_COUNT  eg  10*2
@@ -149,7 +151,7 @@ namespace Friday.Test2
                Distance = "100",
                Email = "222@qq.com",
                Logo = "image/21222.jpg",
-               Name = "银座"+index.ToString(),
+               Name = "沃尔玛"+index.ToString(),
                Owener = "haha",
                ShortName = "yinzuo"+index.ToString(),
                Tel = "18799999992",
@@ -160,10 +162,10 @@ namespace Friday.Test2
            };
 
           
-           MerchantGoodsType shopCommodityTye_1 = new MerchantGoodsType() {  Merchant = shop, GoodsType = "文具" };
-           MerchantGoodsType shopCommodityTye_2 = new MerchantGoodsType() {  Merchant = shop, GoodsType = "服饰" };
-           shop.MerchantGoodsTypes.Add(shopCommodityTye_1);
-           shop.MerchantGoodsTypes.Add(shopCommodityTye_2);
+           //MerchantGoodsType shopCommodityTye_1 = new MerchantGoodsType() {  Merchant = shop, GoodsType = "文具" };
+           //MerchantGoodsType shopCommodityTye_2 = new MerchantGoodsType() {  Merchant = shop, GoodsType = "服饰" };
+           //shop.MerchantGoodsTypes.Add(shopCommodityTye_1);
+           //shop.MerchantGoodsTypes.Add(shopCommodityTye_2);
 
            new ShopRepository().SaveOrUpdate(shop);
 
@@ -189,12 +191,12 @@ namespace Friday.Test2
                commodityid1 = Guid.NewGuid().ToString();
                Commodity commodity_1 = new Commodity(commodityid1) 
                {
-                   Name = "铅笔"+i.ToString(),
+                   Name = "铁观音"+i.ToString(),
                    Price = 10,
                    Image = "image/1212/img",
                    IsDiscount = false,
                    InventoryCount = 100,
-                   MerchantGoodsType = shopCommodityTye_1,
+                   GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("铁观音"),
                    Shop = shop,
 
                };
@@ -207,13 +209,13 @@ namespace Friday.Test2
                commodityid2 = Guid.NewGuid().ToString();
                Commodity commodity_2 = new Commodity(commodityid2)
                {
-                   Name = "橡皮" + i.ToString(),
+                   Name = "白茶" + i.ToString(),
                    Price = 15,
                    Image = "image/121.png",
                    IsDiscount = true,
                    InventoryCount = 200,
                    DiscountInventoryCount = 100,
-                   MerchantGoodsType = shopCommodityTye_2,
+                   GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("白茶"),
                    DiscountPrice = 10,
                    Shop = shop,
                    IsLimited = true,
@@ -236,7 +238,7 @@ namespace Friday.Test2
                Distance = "100",
                Email = "222@qq.com",
                Logo = "image/21222.jpg",
-               Name = "大润发" + index.ToString(),
+               Name = "家乐福" + index.ToString(),
                Owener = "baobao",
                ShortName = "darunfa" + index.ToString(),
                Tel = "18799999992",          
@@ -247,10 +249,10 @@ namespace Friday.Test2
               
            };
 
-           shopCommodityTye_1 = new MerchantGoodsType() { Merchant = shop2,  GoodsType = "食品" };
-           shopCommodityTye_2 = new MerchantGoodsType() {  Merchant = shop2,  GoodsType = "酒水" };
-           shop2.MerchantGoodsTypes.Add(shopCommodityTye_1);
-           shop2.MerchantGoodsTypes.Add(shopCommodityTye_2);
+           //shopCommodityTye_1 = new MerchantGoodsType() { Merchant = shop2,  GoodsType = "食品" };
+           //shopCommodityTye_2 = new MerchantGoodsType() {  Merchant = shop2,  GoodsType = "酒水" };
+           //shop2.MerchantGoodsTypes.Add(shopCommodityTye_1);
+           //shop2.MerchantGoodsTypes.Add(shopCommodityTye_2);
 
            new ShopRepository().SaveOrUpdate(shop2);
 
@@ -277,7 +279,7 @@ namespace Friday.Test2
                    Image = "image/1212/img",
                    IsDiscount = false,
                    InventoryCount = 100,
-                   MerchantGoodsType = shopCommodityTye_1,
+                   GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("白酒"),
                    Shop = shop2,
 
                };
@@ -290,13 +292,13 @@ namespace Friday.Test2
                commodityid2 = Guid.NewGuid().ToString();
                Commodity commodity_2 = new Commodity(commodityid2)
                {
-                   Name = "茅台" + i.ToString(),
+                   Name = "拉菲" + i.ToString(),
                    Price = 15,
                    Image = "image/121.png",
                    IsDiscount = true,
                    InventoryCount = 200,
                    DiscountInventoryCount = 100,
-                   MerchantGoodsType = shopCommodityTye_2,
+                   GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("洋酒"),
                    DiscountPrice = 10,
                    Shop = shop2,
                    IsLimited = true,
