@@ -1235,6 +1235,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Images\avatar-120.png" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\login_cart-67-64.png" />
     <Content Include="Images\fenxiang-146-77.png" />
@@ -1261,6 +1262,8 @@
     <Content Include="Images\b_red_5.gif" />
     <Content Include="Images\msg.png" />
     <Content Include="Images\popular_clothes-218-32.png" />
+    <Content Include="Images\spaceball.gif" />
+    <Content Include="Images\up.png" />
     <Content Include="Images\yihuasha.jpg" />
     <Content Include="Images\v2_member-16-16.png" />
     <Content Include="Images\v3_member-16-16.png" />
