@@ -9,6 +9,9 @@
 <head>
 
  <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+ <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
+ <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
+ <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
 @* <script src=@Url.Content("/p/mall/base/global-v2.js")></script>
  <script src=@Url.Content("/apps/tmall/fp/2012/core.js")></script>
 
@@ -46,8 +49,8 @@
 <link rel="stylesheet" href="http://l.tbcdn.cn/apps/tmallsearch/1.0/css/??layout.css,base.css,mui.css,mods/attr.css,mods/crumb.css,mods/filter.css,mods/error.css,mods/tmall-rec.css,mods/minisite.css,
 mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <link rel="shortcut icon" href=@Url.Content("/p/mall/base/favicon.ico")  type="image/x-icon"/>
-<link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
-<link rel="stylesheet" href=@Url.Content("/p/mall/base/header-v2.css") />
+@*<link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+<link rel="stylesheet" href=@Url.Content("/p/mall/base/header-v2.css") />*@
 <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/layout.css") />
 <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/base.css") />
 <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/mui.css") />
@@ -61,6 +64,9 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/mods/box-item.css") />
 <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/mods/navbar.css") />
 
+    <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
 
 <script type="text/javascript" async="" id="tb-beacon-aplus" exparams="category=2&amp;userid=&amp;b2c_orid=std%5fquery%3a%25D0%25AC%7cdefalut%5fsearch%3a1&amp;at_type=search&amp;at_bucketid=sbucket%5f13&amp;at_mall_pro_re=739714&amp;aplusat_rn=47b7f16145e0c52544ef258e078d200c&amp;at_rn=47b7f16145e0c52544ef258e078d200c&amp;" src="http://a.tbcdn.cn/s/aplus_v2.js"></script>
 <style id="ks-suggest-style">.ks-suggest-container{background:white;border:1px solid #999;z-index:99999}.ks-suggest-shim{z-index:99998}.ks-suggest-container li{color:#404040;padding:1px 0 2px;font-size:12px;line-height:18px;float:left;width:100%}.ks-suggest-container .ks-selected{background-color:#39F;cursor:default}.ks-suggest-key{float:left;text-align:left;padding-left:5px}.ks-suggest-result{float:right;text-align:right;padding-right:5px;color:green}.ks-suggest-container .ks-selected span{color:#FFF;cursor:default}.ks-suggest-footer{padding:0 5px 5px}.ks-suggest-closebtn{float:right}.ks-suggest-container li,.ks-suggest-footer{overflow:hidden;zoom:1;clear:both}.ks-suggest-container{*margin-left:2px;_margin-left:-2px;_margin-top:-3px}</style><script type="text/javascript" async="" src="http://a.tbcdn.cn/s/fdc/??spm.js,spmact.js?v=20130502"></script>
@@ -84,7 +90,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <script>    g_hb_monitor_st = +new Date; window._poc = window._poc || []; var TMPoc = { add: function (a) { window._poc.push(["_trackCustomTime", "tt_" + a, +new Date]) } }; (function () { var c = KISSY, a = c.DOM, j = c.Event, e = c.all, f = window, i = document, g = i.body, m = c.UA.ie, h = m < 9, b = m == 6, d = c.UA.core == "webkit"; if (m) { a.addClass(g, "ie" + m) } f.g_config = c.merge(f.g_config || {}, { v: "1.0", t: "20130418", aldt: "20130228", vps: d ? [1210 + 17, 1410 + 17] : [1210, 1410] }); f.LIST = f.LIST || {}; LIST.msg = c.mix({}, c.EventTarget); LIST.updateView = function (l, k) { k = k || 0; if (!l) { f.g_config.view = 0 } else { if (k == f.g_config.vps.length || l < f.g_config.vps[k]) { f.g_config.view = k } else { this.updateView(l, ++k) } } }; LIST.changeView = function (t) { var l = a.viewportWidth(), k = f.g_config.view || 0; if (t) l -= 17; this.updateView(l); if (h) { a.removeClass(g, "w" + k); a.addClass(g, "w" + f.g_config.view) } return l }; LIST.changeView(1); j.on(f, "resize", function () { var k = f.g_config.view || 0, l = LIST.changeView(); if (f.g_config.view !== k) { LIST.msg.fire("viewchange", { vp: l, view: f.g_config.view }) } }) })();</script>
  
                @{
- <div class="page">
+
 
   <!-- system-announce -->
     <!--TMall:OptClose-->
@@ -92,7 +98,10 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
     
 <!-- 1111 -->
     <!-- 新风尚顶天banner -->
-<div id="site-nav" role="navigation">
+    @Html.Partial("_SiteNav")
+    @Html.Partial("_Header")
+ <div class="page">
+@*<div id="site-nav" role="navigation">
  <div id="sn-bg">
  <div class="sn-bg-right">
  </div>
@@ -233,7 +242,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  </div>
   </div>
  </div>
-</div>
+</div>*@
   <script>      TMall.THeader.init();</script>
 
      
@@ -1180,7 +1189,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 
 <script id="J_CoreJs" data-type="list" src="http://l.tbcdn.cn/apps/tmallsearch/1.0/??core.js,atp.js,rn.js,init.js?v=1.0&amp;t=2012102920130426"></script>
       <!-- 新风尚立地banner -->
-<div id="footer">
+              @Html.Partial("_Footer")
+@*<div id="footer">
  <div id="mall-desc">
  <dl id="ensure">
         <dt><span>天猫保障</span></dt>
@@ -1249,7 +1259,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
     <!-- foot links from tms end -->
  </div>
    <div id="server-num">tmallsearch182091.cm4</div>
-</div>
+</div>*@
 <!-- foot script -->
 </div>
 
