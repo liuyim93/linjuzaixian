@@ -85,7 +85,9 @@
                     }
                     var _temp_title = _brand_to_be_applied.actDesc !== "" ? _brand_to_be_applied.actDesc : _brand_to_be_applied.brandDesc;
                     var _title = _temp_title !== "" ? _temp_title : _brand_to_be_applied.brandName;
-                    _dom.attr(_bnd, "href", _brand_to_be_applied.linkedUrl);
+                    //2013-05-08  basilwang use our own
+                    //_dom.attr(_bnd, "href", _brand_to_be_applied.linkedUrl);
+                    _dom.attr(_bnd, "href",  _dom.attr(_bnd, "href")+_brand_to_be_applied.brandId);
                     _dom.attr(_bnd, "title", _title);
                     _dom.attr(_children_of_brand[3], "data-brandid", _brand_to_be_applied.brandId);  //<p>
                     _dom.attr(_children_of_brand[3], "offset-brandfly", "17,0");        //<p>

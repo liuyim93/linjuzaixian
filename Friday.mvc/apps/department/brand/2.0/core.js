@@ -76,7 +76,7 @@
                     this.href = K;
                     this.title = O
                 } else {
-                    alert("由于您的浏览器不支持自动设置功能 请按快捷键" + (L ? "Cmd" : "Ctrl") + "+D)\u624b\u5de5\u6536\u85cf")
+                    alert("由于您的浏览器不支持自动设置功能 请按快捷键" + (L ? "Cmd" : "Ctrl") + "+D)手工收藏")
                 }
             }
         })

@@ -1,4 +1,4 @@
-KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand, _catefold, _floor, _directpromo, _act) {
+KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand, _catefold, _floor, _directpromo, _act,_brandcategory) {
     var _dom = _kissy.DOM,
         _event = _kissy.Event,
         _ua = _kissy.UA;
@@ -35,6 +35,13 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 triggers: ".j_MenuItem",
                 bottomCl: ".j_BottomMenu",
                 dataUrl: "http://" + location.host + "/category/home/all_cat_asyn"
+            });
+
+            new _brandcategory("#J_MallNavCon", {
+                viewId: "#J_BrandCategory",
+                subViews: ".j_SubView",
+                triggers: "li",
+                dataUrl: "http://" + location.host + "/category/home/brand_cate_asyn"
             });
             this._bindViewChange();
             MFP.POC.add("main")
@@ -121,5 +128,5 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
     });
     return FP
 }, {
-    requires: ["datalazyload", "2012/mods/slide2", "2012/mods/category", "2012/mods/brand", "2012/mods/cate-fold", "2012/mods/floor", "2012/mods/direct-promo", "2012/mods/act"]
+    requires: ["datalazyload", "2012/mods/slide2", "2012/mods/category", "2012/mods/brand", "2012/mods/cate-fold", "2012/mods/floor", "2012/mods/direct-promo", "2012/mods/act","2012/mods/brandcategory"]
 }); 
