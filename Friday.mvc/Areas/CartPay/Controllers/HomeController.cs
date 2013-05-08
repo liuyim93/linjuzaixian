@@ -211,7 +211,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             updateListItem.orders = new List<UpdateOrderItem>();
             foreach (CartItem cartItem in cartItems)
             {
-                cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId);
+                cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId, false);
 
                 price price = new Models.price()
                 {
@@ -231,6 +231,10 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                 updateListItem.id = cartOfCommodity.ShoppingCart.Shop.Id;
                 updateListItem.orders.Add(updateOrderItem);
+
+                cartOfCommodity.Amount = cartItem.quantity;
+                cartOfCommodity.Price = cartOfCommodity.Commodity.Price * cartItem.quantity;
+                iCartOfCommodityService.Update(cartOfCommodity);
             }
 
             globalData globalData = new Models.globalData()
@@ -348,7 +352,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             {
                 if (cartItem.cartId != operateCommodityID)
                 {
-                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId);
+                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId, false);
 
                     price price = new Models.price()
                     {
@@ -368,6 +372,12 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                     updateListItem.id = cartOfCommodity.ShoppingCart.Shop.Id;
                     updateListItem.orders.Add(updateOrderItem);
+
+                }
+                else
+                {
+                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId, false);
+                    iCartOfCommodityService.Delete(cartOfCommodity.Id);
                 }
             }
             List<UpdateListItem> updateListItems = new List<UpdateListItem>();
@@ -409,9 +419,14 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         {
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             friday.core.CartOfCommodity cartOfCommodity;
-            cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cart_ids);
+            cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cart_ids, true);
 
-            string script = "{\"success\":true,\"globalData\":{\"sss\":{\"token\":\"c9db69e31406e49e0116f8842d71ce67\",\"quantity\":"+cartOfCommodity.Amount+"},\"totalSize\":0,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":false,\"openNoAttenItem\":false}}";
+            int amount = cartOfCommodity.Amount;
+
+            cartOfCommodity.IsDelete = false;
+            iCartOfCommodityService.Update(cartOfCommodity);
+
+            string script = "{\"success\":true,\"globalData\":{\"sss\":{\"token\":\"c9db69e31406e49e0116f8842d71ce67\",\"quantity\":" + amount + "},\"totalSize\":0,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":false,\"openNoAttenItem\":false}}";
             return JavaScript(script);
         }
 
