@@ -1296,6 +1296,7 @@
     <Content Include="Images\gray_mall_head-184-38.gif" />
     <Content Include="Images\RedHeart-20-20.png" />
     <Content Include="Images\hotsell.jpg" />
+    <Content Include="p\header\adapter.js" />
     <Content Include="p\mall\2.0\js\direct-promo.js" />
     <Content Include="p\mall\2.0\js\xdomain-agency_v2.js" />
     <Content Include="p\mall\2.0\js\zeroclipboard.js" />
@@ -1305,6 +1306,13 @@
     <Content Include="p\mall\base\global-v2.js" />
     <Content Include="p\mall\base\header-v2.css" />
     <Content Include="p\recentview\index.js" />
+    <Content Include="p\shop\1.0\base-min.css" />
+    <Content Include="p\shop\1.0\mods\b\foot\foot-min.css" />
+    <Content Include="p\shop\1.0\mods\b\head\head-min.css" />
+    <Content Include="p\shop\1.0\mods\b\other\head-info-min.css" />
+    <Content Include="p\shop\1.0\mods\b\other\shop-info-min.css" />
+    <Content Include="p\shop\1.0\mods\o\second-mods-min.css" />
+    <Content Include="p\shop\1.0\mods\s\shop-mods-min.css" />
     <Content Include="p\shop\3.0\wangpu\base-min.js" />
     <Content Include="p\shop\3.0\wangpu\init-min.js" />
     <Content Include="p\shop\3.0\wangpu\mods\official\c2c-head-min.js" />
@@ -1334,6 +1342,8 @@
     <Content Include="p\shop\StyleSheet1.css" />
     <Content Include="p\snsdk\core.js" />
     <Content Include="p\tlabs\1.0.0\tlabs-min.js" />
+    <Content Include="p\tlabs\1.0.0\tlabs.js" />
+    <Content Include="p\tstart\1.0\build\tb-mpp-min.js" />
     <Content Include="p\tstart\1.0\build\tb-mpp.js" />
     <Content Include="slide2.html" />
     <Content Include="socket.io\socket.io.js" />
@@ -2354,7 +2364,6 @@
     <Folder Include="Areas\Message\Models\" />
     <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Logs\" />
-    <Folder Include="p\shop\1.0\mods\b\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\" />
   </ItemGroup>
