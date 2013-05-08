@@ -306,8 +306,8 @@
                         <span class="m-chk-box">
                             <label>
                                 <input type="checkbox" class="m-chk-all" data-job="selectCart" checked data-point-url="http://www.atpanel.com/tbcart.1.3" />全选</label></span>
-                        <span><a class="m-batch-del" data-job="batchDel" href="#batchDel" data-point-url="http://www.atpanel.com/jsclick?cartlist=bulkdelete">
-                            批量删除</a></span> <span><a class="m-del-invalid" data-job="delInvalid" href="#delInvalid"
+                        @*<span><a class="m-batch-del" data-job="batchDel" href="#batchDel" data-point-url="http://www.atpanel.com/jsclick?cartlist=bulkdelete">
+                            批量删除</a></span>*@ <span><a class="m-del-invalid" data-job="delInvalid" href="#delInvalid"
                                 data-point-url="http://www.atpanel.com/jsclick?cartlist=delunvalid">清除失效宝贝</a></span>
                     </div>
                     <div class="rgt">
@@ -324,7 +324,7 @@
             <script>
                 var cart_config = {
                     api: {
-                        fav: 'http://favorite.taobao.com/json/add_collection_for_cart.htm',
+                        fav: '/CartPay/Home/add_collection_for_cart',
                         update: '/CartPay/Home/Update_Cart',
                         'delete': '/cart/deleteCart.do',
                         check: '/cart/checkCart.do',

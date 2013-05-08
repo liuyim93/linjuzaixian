@@ -23,14 +23,16 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         private IShopService iShopService;
         private ICartOfCommodityService iCartOfCommodityService;
         private ICommodityService iCommodityService;
+        private IMyFavoriteService iMyFavoriteService;
 
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService)
+        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
             this.iShoppingCartService = iShoppingCartService;
             this.iCartOfCommodityService = iCartOfCommodityService;
             this.iCommodityService = iCommodityService;
+            this.iMyFavoriteService = iMyFavoriteService;
         }
 
         public ActionResult MyCartPay()
@@ -298,6 +300,35 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             return JavaScript(script);
         }
 
+        public ActionResult add_collection_for_cart(string callback, string itemSkuList)
+        {
+            MyFavorite myFavorite = new MyFavorite();
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            if (systemUser == null)
+            {
+                string script = callback + "({\"result\":{\"status\":false,\"message\":{\"errorCode\":1,\"error\":\"请登录后重新操作\"}}})";
+                return JavaScript(script);
+            }
+            else
+            {
+                string commodityID = itemSkuList.Substring(0,itemSkuList.IndexOf(':'));
 
+                friday.core.Commodity commodity = iCommodityService.Load(commodityID);
+                if (iMyFavoriteService.GetMyFavoriteBySystemUserAndMerchant(systemUser, commodity.Shop.Id) != null)
+                {
+                    string script = callback + "({\"result\":{\"status\":false,\"message\":{\"errorCode\":8,\"error\":\"已收藏该店铺\"}}})";
+                    return JavaScript(script);
+                }
+                else
+                {
+                    myFavorite.SystemUser = systemUser;
+                    myFavorite.Merchant = commodity.Shop;
+                    iMyFavoriteService.Save(myFavorite);
+
+                    string script = callback + "({\"result\":{\"status\":true,\"message\":{\"count\":1}}})";
+                    return JavaScript(script);
+                }
+            }
+        }
     }
 }
