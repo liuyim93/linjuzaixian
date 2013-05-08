@@ -8,6 +8,9 @@ using friday.core.domain;
 using friday.core.services;
 using Friday.mvc.Areas.CartPay.Models;
 using friday.core.components;
+using System.Runtime.Serialization.Json;
+using System.IO;
+using System.Text;
 
 namespace Friday.mvc.Areas.CartPay.Controllers
 {
@@ -191,8 +194,70 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         }
         public ActionResult Update_Cart()
         {
-            string script = "{\"success\":true,\"globalData\":{\"totalSize\":1,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":false,\"openNoAttenItem\":false},\"list\":[{\"id\":\"71955116\",\"orders\":[{\"id\":\"27740303030\",\"price\":{\"now\":76900,\"origin\":76900,\"descend\":0,\"save\":0,\"sum\":153800,\"actual\":0}}]}]}";
+            //string jsonData = Request.Form["data"];
+            //jsonData.Substring('[', jsonData.Length-3);
+            var ser = new DataContractJsonSerializer(typeof(List<FormData>));
+            var ms = new MemoryStream(Encoding.UTF8.GetBytes(Request.Form["data"]));
+            List<FormData> formData = (List<FormData>)ser.ReadObject(ms);
+            List<CartItem> cartItems =  formData.FirstOrDefault().cart;
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            friday.core.CartOfCommodity cartOfCommodity;
+
+            UpdateListItem updateListItem = new UpdateListItem();
+            updateListItem.orders = new List<UpdateOrderItem>();
+            foreach (CartItem cartItem in cartItems)
+            {
+                cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId);
+
+                price price = new Models.price()
+                {
+                    now = Convert.ToInt16(cartOfCommodity.Commodity.Price*100),
+                    origin = Convert.ToInt16(cartOfCommodity.Commodity.Price * 100),
+                    descend = 0,
+                    save = Convert.ToInt16(cartOfCommodity.Commodity.OldPrice * 100) - Convert.ToInt16(cartOfCommodity.Commodity.Price * 100),
+                    sum = Convert.ToInt16(cartOfCommodity.Commodity.Price * 100) * cartItem.quantity,
+                    actual = 0
+                };
+
+                UpdateOrderItem updateOrderItem = new UpdateOrderItem() 
+                {
+                    id = cartItem.cartId,
+                    price = price
+                };
+
+                updateListItem.id = cartOfCommodity.ShoppingCart.Shop.Id;
+                updateListItem.orders.Add(updateOrderItem);
+            }
+
+            globalData globalData = new Models.globalData()
+            {
+                totalSize = cartItems.Count,
+                invalidSize = 0,
+                isAllCItem = false,
+                diffTairCount = 0,
+                login = false,
+                openNoAttenItem = false
+            };
+
+            List<UpdateListItem> updateListItems = new List<UpdateListItem>();
+            updateListItems.Add(updateListItem);
+
+            UpdateData updateData = new UpdateData()
+            {
+                success = true,
+                globalData = globalData,
+                list = updateListItems
+            };
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = updateData;
+            string json = jsonResult.FormatResult();
+            string script = json;
+
             return JavaScript(script);
+
+            //string script = "{\"success\":true,\"globalData\":{\"totalSize\":1,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":false,\"openNoAttenItem\":false},\"list\":[{\"id\":\"71955116\",\"orders\":[{\"id\":\"27740303030\",\"price\":{\"now\":76900,\"origin\":76900,\"descend\":0,\"save\":0,\"sum\":153800,\"actual\":0}}]}]}";
+            //return JavaScript(script);
         }
 
     }
