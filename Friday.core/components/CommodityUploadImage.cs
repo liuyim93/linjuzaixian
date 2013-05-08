@@ -18,7 +18,7 @@ namespace friday.core.components
             string filesNewNameWithoutExt = "";
             string result = "";
             string genaratePicPath = "";
-            int[] imageSize = { 460, 120, 60, 30 };
+            int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 30, 30 }, new int[] { 160, 160 } };
 
             Random R = new Random();//创建产生随机数
             try
@@ -48,10 +48,10 @@ namespace friday.core.components
 
 
                         System.Drawing.Image originalImage = System.Drawing.Image.FromFile(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesnewName);
-                        foreach (int size in imageSize)
+                        foreach (int[] size in imageSize)
                         {
-                            int towidth = size;
-                            int toheight = size;
+                            int towidth = size[0];
+                            int toheight = size[1];
 
                             int x = 0;
                             int y = 0;
