@@ -22,13 +22,15 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         private IShoppingCartService iShoppingCartService;
         private IShopService iShopService;
         private ICartOfCommodityService iCartOfCommodityService;
+        private ICommodityService iCommodityService;
 
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService)
+        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
             this.iShoppingCartService = iShoppingCartService;
             this.iCartOfCommodityService = iCartOfCommodityService;
+            this.iCommodityService = iCommodityService;
         }
 
         public ActionResult MyCartPay()
@@ -259,6 +261,43 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             //string script = "{\"success\":true,\"globalData\":{\"totalSize\":1,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":false,\"openNoAttenItem\":false},\"list\":[{\"id\":\"71955116\",\"orders\":[{\"id\":\"27740303030\",\"price\":{\"now\":76900,\"origin\":76900,\"descend\":0,\"save\":0,\"sum\":153800,\"actual\":0}}]}]}";
             //return JavaScript(script);
         }
+
+        public ActionResult Recommend(string callback)
+        {
+            IList<friday.core.Commodity> commodities = new List<friday.core.Commodity>();
+            if (callback == "recommend.renderRecentViewItemList")
+            {
+                commodities = iCommodityService.GetRecentCommodity(20);
+            }
+            if (callback == "recommend.renderRecentFavList")
+            {
+                commodities = iCommodityService.GetHotCommodity(20);
+            }
+
+            RenderList renderList = new RenderList();
+
+            foreach (friday.core.Commodity commodity in commodities)
+            {
+                RenderItem renderItem = new RenderItem()
+                {
+                    area_url = "http://ac.atpanel.com/1.gif",
+                    id = commodity.Id,
+                    img = commodity.Image,
+                    price = commodity.Price,
+                    title = commodity.Name,
+                    url = "http://localhost:7525/merchant/detail/index?brandId=" + commodity.Id
+                };
+                renderList.renderItems.Add(renderItem);
+            }
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = renderList.renderItems;
+            string json = jsonResult.FormatResult();
+            string script = callback + "(" + json + ")";
+
+            return JavaScript(script);
+        }
+
 
     }
 }
