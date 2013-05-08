@@ -147,24 +147,28 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             dynamic skuQuantity = new Dictionary<string, SkuQuantity>();
             dynamic priceInfo = new Dictionary<string, PriceInfo>();
 
-            //=========Test=============
             Commodity commodity = iCommodityService.Load(itemId);
-            IList<Sku> skulistreal = new List<Sku>();
-            skulistreal = commodity.Skus.ToList<Sku>();
+            skulist = commodity.Skus.ToList<Sku>();
+           
 
-            IList<SkuProp> skuproplistreal = new List<SkuProp>();
-            for (int i = 0; i < skulistreal.Count; i++) 
-            {
-                Sku sk = skulistreal[i];
-                skuproplistreal = sk.SKUProps.ToList<SkuProp>();
+            //=========Test=============
+            //Commodity commodity = iCommodityService.Load(itemId);
+            //IList<Sku> skulistreal = new List<Sku>();
+            //skulistreal = commodity.Skus.ToList<Sku>();
 
-                for (int j = 0; j<skuproplistreal.Count;j++ )
-                {
-                    PropID ppid = skuproplistreal[j].PropID;
-                    PropValue ppvalue = skuproplistreal[j].PropValue;                   
+            //IList<SkuProp> skuproplistreal = new List<SkuProp>();
+            //for (int i = 0; i < skulistreal.Count; i++) 
+            //{
+            //    Sku sk = skulistreal[i];
+            //    skuproplistreal = sk.SKUProps.ToList<SkuProp>();
 
-                }           
-            }
+            //    for (int j = 0; j<skuproplistreal.Count;j++ )
+            //    {
+            //        PropID ppid = skuproplistreal[j].PropID;
+            //        PropValue ppvalue = skuproplistreal[j].PropValue;                   
+
+            //    }           
+            //}
 
             //=========Test=============
 
