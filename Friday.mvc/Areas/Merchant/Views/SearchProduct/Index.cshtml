@@ -1140,7 +1140,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
       <div class="product">       
        <a href="http://localhost:7525/merchant/detail/index?brandid=@hrcdty.Id" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">         
            <img src="@hrcdty.Image">         </a>  
-                  <p class="productPrice ui-price">@hrcdty.Price</p>         
+                  <p class="productPrice ui-price">¥ @hrcdty.Price</p>         
                   <p class="productTitle">
                   <a href="http://localhost:7525/merchant/detail/index?brandid=@hrcdty.Id" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">
                   @hrcdty.Name</p>     
@@ -1152,43 +1152,6 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
   </div>
   </div>
   
- @*<div id="J_BtmSearch">
-<textarea class="ks-datalazyload"> 
-<div class="btmSearch" data-spm="a220m.1000858.1000729">
-<div class="btmSearch-main">
-<form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct" target="_top" name="searchTop">
-&lt;fieldset&gt;
-<div class="btmSearch-input clearfix"> 
-<label class="btmSearch-mq-label" for="btm-mq" style="visibility:hidden">搜索 天猫 商品/店铺&lt;/label>
-<input type="text" value=" @ViewData["skeyword"] " autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="keyword">
-<button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"> 搜索 &lt;s>&lt;/s> &lt;/button>
-<input type="hidden" name="vmarket" value="0" />
-<input type="hidden" name="cat" value="all" />
-<input type="hidden" name="type" value="p" />
- </div> 
-&lt;fieldset&gt;
-</form>
-</div>
-</div><p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
- <span>您是不是想找</span>
-   @for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
-                       {
-                           var item = Model.merchantGoodsTypes.ElementAt(index); 
-           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
-        
-                       }  
-             <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC">平底鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC">高跟鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC">豆豆鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC">松糕鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%C2%B8%FA%D0%AC">坡跟鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE">鞋女2013新款</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1">鞋女韩版潮</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC">懒人鞋</a>
-     </p>
- </textarea>
-
-</div> *@
 <div class="" id="J_BtmSearch">
 <div><div class="btmSearch" data-spm="a220m.1000858.1000729">
 <div class="btmSearch-main">
@@ -1214,33 +1177,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
         
                        }  
                  </p>
-</div>@*<textarea class="" style="display: none; ">&lt;div class="btmSearch" data-spm="a220m.1000858.1000729"&gt;
-&lt;div class="btmSearch-main"&gt;
-&lt;form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct" target="_top" name="searchTop"&gt;
-&lt;fieldset&gt;
-&lt;div class="btmSearch-input clearfix"&gt;
-&lt;label class="btmSearch-mq-label" for="btm-mq" style="visibility:hidden"&gt;搜索 天猫 商品/店铺&lt;/label&gt;
-&lt;input type="text" value="@ViewData["skeyword"]" autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="q"&gt;
-&lt;button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"&gt; 搜索 &lt;s&gt;&lt;/s&gt; &lt;/button&gt;
-&lt;input type="hidden" name="vmarket" value="0" /&gt;
-&lt;input type="hidden" name="cat" value="all" /&gt;
-&lt;input type="hidden" name="type" value="p" /&gt;
-&lt;/div&gt;
-&lt;/fieldset&gt;
-&lt;/form&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,"&gt;
- &lt;span&gt;您是不是想找&lt;/span&gt;
-             &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%DD%CF%D0%D0%AC"&gt;休闲鞋&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC"&gt;平底鞋&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC"&gt;高跟鞋&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC"&gt;豆豆鞋&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC"&gt;松糕鞋&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE"&gt;鞋女2013新款&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1"&gt;鞋女韩版潮&lt;/a&gt;
-               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC"&gt;懒人鞋&lt;/a&gt;
-     &lt;/p&gt;
-</textarea>*@
+</div>
 </div>
 
 <p class="btmFeed">
