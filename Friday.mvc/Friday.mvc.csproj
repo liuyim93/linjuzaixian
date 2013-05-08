@@ -1201,6 +1201,7 @@
     <Content Include="apps\tmall\fp\2012\fp.js" />
     <Content Include="apps\tmall\fp\2012\mods\act.js" />
     <Content Include="apps\tmall\fp\2012\mods\brand.js" />
+    <Content Include="apps\tmall\fp\2012\mods\brandcategory.js" />
     <Content Include="apps\tmall\fp\2012\mods\cate-fold.js" />
     <Content Include="apps\tmall\fp\2012\mods\category.js" />
     <Content Include="apps\tmall\fp\2012\mods\direct-promo.js" />

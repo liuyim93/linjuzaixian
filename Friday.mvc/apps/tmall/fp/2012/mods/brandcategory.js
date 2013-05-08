@@ -21,7 +21,8 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
         _str_click = "click";
     var _g_config = _window.g_config;
     var _options = { showDelay: 0.1, hideDelay: 0.1, viewId: null, subViews: null, triggers: null, lazyload: true, dataUrl: null };
-    var _viewer_final_width = "755px";
+    var _viewer_final_width = "755";
+    var _viewer_final_height="400";
     var _subviewer_padding_height = 10;
     var _subviewer_shadow_padding_height_ = 10;
     var _is_hidden = true;
@@ -54,7 +55,8 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
             _kissy.each(_category.subViews, function (a) { _dom.addClass(a, _str_hidden) });
             _dom.removeClass(_subView, _str_hidden);
             var _subview_height = _dom.height(_subView);
-            _dom.height(_category.viewer, (_subview_height + _subviewer_padding_height + _subviewer_shadow_padding_height_) + "px");
+            _viewer_final_height=  _subview_height + _subviewer_padding_height + _subviewer_shadow_padding_height_;
+            _dom.width(_category.viewer, _viewer_final_width + "px");
             _category.resetPostion();
             if (!_category.shadow) { _category.shadow = _dom.get(".shadow", _category.viewer) }
             _dom.height(_category.shadow, (_subview_height + _subviewer_shadow_padding_height_) + "px")
@@ -74,10 +76,10 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
                         _category.changeTrigger(_idx);
                         _category.changeView(_selected_subView);
                         if (!_is_ie6) {
-                            new _kissy.Anim(_category.viewer, { width: _viewer_final_width }, 0.2, "linear").run()
+                            new _kissy.Anim(_category.viewer, { height: _viewer_final_height+"px" }, 0.2, "linear").run()
                         }
                         else
-                        { _dom.width(_category.viewer, _viewer_final_width) }
+                        { _dom.height(_category.viewer, _viewer_final_height+"px") }
                     }
                     , _config.showDelay * 500)
             }
