@@ -784,13 +784,13 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
   <div class="attrs-border"></div>
       <div class="attrExtra">
    <p class="relKeyRec" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
- <span>您是不是想找</span>         @*@for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
+ <span>您是不是想找</span>         @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
                        {
-                           var item = Model.merchantGoodsTypes.ElementAt(index); 
-           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
+                           var item = Model.globalGoodsTypes.ElementAt(index); 
+           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
-                       } *@
-                   <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">平底鞋</a>
+                       } 
+                  @* <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">平底鞋</a>
            <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC" atpanel="2,%B8%DF%B8%FA%D0%AC,,,spu-key,5,key,">高跟鞋</a>
                 <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC" atpanel="3,%B6%B9%B6%B9%D0%AC,,,spu-key,5,key,">豆豆鞋</a>
                 <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC" atpanel="4,%CB%C9%B8%E2%D0%AC,,,spu-key,5,key,">松糕鞋</a>
@@ -798,7 +798,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                 <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE" atpanel="6,%D0%AC+%C5%AE+2013%D0%C2%BF%EE,,,spu-key,5,key,">鞋女2013新款</a>
                 <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1" atpanel="7,%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1,,,spu-key,5,key,">鞋女韩版潮</a>
                 <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC" atpanel="8,%C0%C1%C8%CB%D0%AC,,,spu-key,5,key,">懒人鞋</a>
-     </p>
+     *@</p>
   </div>
  </div>
 <input type="hidden" name="area_code" value="370100"><input type="hidden" name="sort" value="s"><input type="hidden" name="style" value="g"><input type="hidden" name="vmarket" value="0"><input type="hidden" name="q" value="鞋">
@@ -1131,8 +1131,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  </div>
 </div>
 <div id="J_Recommend" data-p4p-cfg="{'name':'tbuad','o':'j','count':'5','catid':'','keyword':'%D0%AC','offset':'0','propertyid':'','pid':'419108_1006','p4p':'','frontcatid':'','gprice':'0%2C100000000','bigpic':'1','ismall':'1','loc':'','sort':'','sbid':'13','q2cused':'0','page':'1'}" data-atpanel="-2,{{vo.RESOURCEID}},,,spu,1,p4p," style=""><div class="recommend"> <h3 class="recommend-hd">商家热卖：</h3> <div class="recommend-con clearfix recommend-con-6">     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=xqVDPou1J7%2BngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrGC6gxNfZ3nE3HsstIC0TTXJo7qLOHMgN78fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGi7T6gv3jjnaSNbcI2Q1%2BFsEqsj%2BniZ2aXwOVpJRYCOYVvBeHdMTc3jgx%2FYBuHMnpf3miGkl0GIjr4KVmkSKFt" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">             <img src="http://img03.taobaocdn.com/bao/uploaded/i3/1023628423/T20t9WXolbXXXXXXXX_!!1023628423.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥318.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=xqVDPou1J7%2BngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrGC6gxNfZ3nE3HsstIC0TTXJo7qLOHMgN78fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGi7T6gv3jjnaSNbcI2Q1%2BFsEqsj%2BniZ2aXwOVpJRYCOYVvBeHdMTc3jgx%2FYBuHMnpf3miGkl0GIjr4KVmkSKFt" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">夏季时尚潮流休闲<em>鞋</em>反绒皮<em>鞋</em>男士板<em>鞋</em>英伦</a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=du9RlQ83seqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrFWcHWAmw0clOmeiXMB1MX6axyfVu%2BDDZX8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLH5lrBtQCGX4XOuNDGU%2FWafC4Q8JFb%2FCXnI9K9GQoI00Ht7iROOrbrhIk9MubuKX7aa0C4m1BGC8Tr4KVmkSKFt" target="_blank" atpanel="-2,13667678728,,,spu,1,p4p," class="productImg">             <img src="http://img01.taobaocdn.com/bao/uploaded/i1/444339490/T2MtuoXgJcXXXXXXXX_!!444339490.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥225.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=du9RlQ83seqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrFWcHWAmw0clOmeiXMB1MX6axyfVu%2BDDZX8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLH5lrBtQCGX4XOuNDGU%2FWafC4Q8JFb%2FCXnI9K9GQoI00Ht7iROOrbrhIk9MubuKX7aa0C4m1BGC8Tr4KVmkSKFt" atpanel="-2,13667678728,,,spu,1,p4p," target="_blank">Simier斯米尔男<em>鞋</em>时尚透气低帮<em>鞋</em>子男休闲<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=JOLI6%2FLUOq6ngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I2Lo2cm1nt66tTuZBWQ0vKf8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLEbrwiZOoQjYvnNuL0Y6L3v8sccxR2LIwEvLF2gtTGDDjt%2BL7wxOKM5yqGCfXhLQ739viM4DgnCdMBoeIrqDgCR" target="_blank" atpanel="-2,19976807398,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/10532023814927952/T1_IGgXwBXXXXXXXXX_!!0-item_pic.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥499.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=JOLI6%2FLUOq6ngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I2Lo2cm1nt66tTuZBWQ0vKf8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLEbrwiZOoQjYvnNuL0Y6L3v8sccxR2LIwEvLF2gtTGDDjt%2BL7wxOKM5yqGCfXhLQ739viM4DgnCdMBoeIrqDgCR" atpanel="-2,19976807398,,,spu,1,p4p," target="_blank">新款秒杀！真皮低帮<em>鞋</em>韩版潮流男士皮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=guhkXk20exqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I3bzGHrWZyi%2B8xDwKARPliL8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGbPFKmy%2B050cfoxlvZd1fF8sccxR2LIwGXpBah%2BCadIg4gTHQ%2BOFscZ%2FX%2BcJU83WUtp1fFrLSxDMBoeIrqDgCR" target="_blank" atpanel="-2,17636009126,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/687880532/T23__lXcVbXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥399.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=guhkXk20exqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I3bzGHrWZyi%2B8xDwKARPliL8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGbPFKmy%2B050cfoxlvZd1fF8sccxR2LIwGXpBah%2BCadIg4gTHQ%2BOFscZ%2FX%2BcJU83WUtp1fFrLSxDMBoeIrqDgCR" atpanel="-2,17636009126,,,spu,1,p4p," target="_blank">限时5折！Mr.ing夏季休闲男<em>鞋</em>皮克时尚皮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=Bkw5M%2FbTpNmngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45Iw4VxGfz7PxCjemLoI2zLfP8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFehkwamkCbzl3Hl2EncO0t8sccxR2LIwHIvpSb9o9ZrLRR8RthbTHqEROsSCEviYMA6VeRbv%2FdFMBoeIrqDgCR" target="_blank" atpanel="-2,17658798485,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/687880532/T2JcnNXl8XXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥599.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=Bkw5M%2FbTpNmngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45Iw4VxGfz7PxCjemLoI2zLfP8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFehkwamkCbzl3Hl2EncO0t8sccxR2LIwHIvpSb9o9ZrLRR8RthbTHqEROsSCEviYMA6VeRbv%2FdFMBoeIrqDgCR" atpanel="-2,17658798485,,,spu,1,p4p," target="_blank">限时5折 ！雅士休闲男<em>鞋</em>春夏新品男士低帮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=F5J2l8g22uOngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45IxFTkySk7X7LbOGdQCrooU38fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFOtrukI0iw8tghszJ7zpTs8sccxR2LIwH%2BCcctyJ8cZIp%2BgARkSrsiWGtCBRHAauriOFr%2Bziyl1sBoeIrqDgCR" target="_blank" atpanel="-2,24577280865,,,spu,1,p4p," class="productImg">             <img src="http://img01.taobaocdn.com/bao/uploaded/i1/687880532/T2eaHVXgBaXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥399.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=F5J2l8g22uOngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45IxFTkySk7X7LbOGdQCrooU38fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFOtrukI0iw8tghszJ7zpTs8sccxR2LIwH%2BCcctyJ8cZIp%2BgARkSrsiWGtCBRHAauriOFr%2Bziyl1sBoeIrqDgCR" atpanel="-2,24577280865,,,spu,1,p4p," target="_blank">Mr.ing米斯特因 ！ 休闲男<em>鞋</em>英伦板<em>鞋</em>低帮<em>鞋</em></a></p>     </div>  </div></div></div>
-<div class="btmSearch-loading" id="J_BtmSearch">
-<textarea class="ks-datalazyload">
+ @*<div id="J_BtmSearch">
+<textarea class="ks-datalazyload"> 
 <div class="btmSearch" data-spm="a220m.1000858.1000729">
 <div class="btmSearch-main">
 <form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct" target="_top" name="searchTop">
@@ -1144,18 +1144,18 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <input type="hidden" name="vmarket" value="0" />
 <input type="hidden" name="cat" value="all" />
 <input type="hidden" name="type" value="p" />
-@*</div>*@
+ </div> 
 &lt;fieldset&gt;
 </form>
 </div>
 </div><p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
  <span>您是不是想找</span>
-@*  @for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
+   @for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
                        {
                            var item = Model.merchantGoodsTypes.ElementAt(index); 
            <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
         
-                       } *@
+                       }  
              <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC">平底鞋</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC">高跟鞋</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC">豆豆鞋</a>
@@ -1165,8 +1165,63 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1">鞋女韩版潮</a>
                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC">懒人鞋</a>
      </p>
-</textarea>
+ </textarea>
+
+</div> *@
+<div class="" id="J_BtmSearch">
+<div><div class="btmSearch" data-spm="a220m.1000858.1000729">
+<div class="btmSearch-main">
+<form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct" target="_top" name="searchTop">
+<fieldset>
+<div class="btmSearch-input clearfix">
+<label class="btmSearch-mq-label" for="btm-mq" style="visibility: hidden; ">搜索 天猫 商品/店铺</label>
+<input type="text" value="@ViewData["skeyword"]" autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="keyword">
+<button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"> 搜索 <s></s> </button>
+<input type="hidden" name="vmarket" value="0">
+<input type="hidden" name="cat" value="all">
+<input type="hidden" name="type" value="p">
 </div>
+</fieldset>
+</form>
+</div>
+</div><p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
+ <span>您是不是想找</span>
+              @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
+                       {
+                           var item = Model.globalGoodsTypes.ElementAt(index); 
+           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
+        
+                       }  
+                 </p>
+</div>@*<textarea class="" style="display: none; ">&lt;div class="btmSearch" data-spm="a220m.1000858.1000729"&gt;
+&lt;div class="btmSearch-main"&gt;
+&lt;form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct" target="_top" name="searchTop"&gt;
+&lt;fieldset&gt;
+&lt;div class="btmSearch-input clearfix"&gt;
+&lt;label class="btmSearch-mq-label" for="btm-mq" style="visibility:hidden"&gt;搜索 天猫 商品/店铺&lt;/label&gt;
+&lt;input type="text" value="@ViewData["skeyword"]" autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="q"&gt;
+&lt;button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"&gt; 搜索 &lt;s&gt;&lt;/s&gt; &lt;/button&gt;
+&lt;input type="hidden" name="vmarket" value="0" /&gt;
+&lt;input type="hidden" name="cat" value="all" /&gt;
+&lt;input type="hidden" name="type" value="p" /&gt;
+&lt;/div&gt;
+&lt;/fieldset&gt;
+&lt;/form&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,"&gt;
+ &lt;span&gt;您是不是想找&lt;/span&gt;
+             &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%DD%CF%D0%D0%AC"&gt;休闲鞋&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC"&gt;平底鞋&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC"&gt;高跟鞋&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC"&gt;豆豆鞋&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC"&gt;松糕鞋&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE"&gt;鞋女2013新款&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1"&gt;鞋女韩版潮&lt;/a&gt;
+               &lt;a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC"&gt;懒人鞋&lt;/a&gt;
+     &lt;/p&gt;
+</textarea>*@
+</div>
+
 <p class="btmFeed">
 喵~在此反馈您的意见和建议吧，<a href="http://ur.taobao.com/survey/view.htm?id=187" target="_blank">立刻反馈</a>
 </p>

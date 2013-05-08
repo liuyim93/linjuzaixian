@@ -69,6 +69,9 @@ namespace friday.core.services
         {
             return iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(Name);
         }
-
+        public IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword)
+        {
+            return iGlobalGoodsTypeRepository.GetSimilarGoodsTypeListInThirdLevelByKeyword(keyword);
+        }
     }
 }

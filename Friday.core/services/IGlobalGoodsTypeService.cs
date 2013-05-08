@@ -19,5 +19,6 @@ namespace friday.core.services
         IList<GlobalGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<GlobalGoodsType> GetAll();
         GlobalGoodsType GetGlobalGoodsTypeByName(string Name);
+        IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword);
     }
 }
