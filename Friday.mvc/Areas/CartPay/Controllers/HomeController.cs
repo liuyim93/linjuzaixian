@@ -404,5 +404,16 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
             return JavaScript(script);
         }
+
+        public ActionResult undelCart(string cart_ids)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            friday.core.CartOfCommodity cartOfCommodity;
+            cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cart_ids);
+
+            string script = "{\"success\":true,\"globalData\":{\"sss\":{\"token\":\"c9db69e31406e49e0116f8842d71ce67\",\"quantity\":"+cartOfCommodity.Amount+"},\"totalSize\":0,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":false,\"openNoAttenItem\":false}}";
+            return JavaScript(script);
+        }
+
     }
 }
