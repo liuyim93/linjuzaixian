@@ -22,6 +22,12 @@ namespace friday.core.repositories
             return m;
         }
 
+        public CartOfCommodity getCommodityBySystemUserIDAndCommodityID(string SystemUserID, string CommodityID)
+        {
+            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.Commodity.Id == CommodityID && o.ShoppingCart.SystemUser.Id== SystemUserID && o.IsDelete == false).SingleOrDefault();
+            return m;
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(CartOfCommodity)); }

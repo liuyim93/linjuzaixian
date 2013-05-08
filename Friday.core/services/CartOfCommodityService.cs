@@ -45,5 +45,10 @@ namespace friday.core.services
         {
             return iCartOfCommodityRepository.getCommoditiesByShoppingCart(ShoppingCartID);
         }
+
+        public CartOfCommodity getCommodityBySystemUserIDAndCommodityID(string SystemUserID, string CommodityID)
+        {
+            return getCommodityBySystemUserIDAndCommodityID(SystemUserID, CommodityID);
+        }
     }
 }
