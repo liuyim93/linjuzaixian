@@ -20,7 +20,13 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
             _str_mouseleave = "mouseleave",
             _str_click = "click";
         var _g_config = _window.g_config;
-        var _options = { showDelay: 0.1, hideDelay: 0.1, viewId: null, subViews: null, triggers: null, lazyload: true, dataUrl: null }; var J = "755px"; var Q = 10; var O = 10; var V = true; var G = false; var I = _g_config.isTestEnv ? "http://110.75.14.52/recommend.htm?appId=12001&uid=100028393" : "http://ald.taobao.com/recommend.htm?appId=12001";
+        var _options = { showDelay: 0.1, hideDelay: 0.1, viewId: null, subViews: null, triggers: null, lazyload: true, dataUrl: null };
+        var _viewer_final_width = "755px";
+        var _subviewer_padding_height = 10;
+        var _subviewer_shadow_padding_height_ = 10;
+        var _is_hidden = true;
+        var G = false;
+        var I = _g_config.isTestEnv ? "http://110.75.14.52/recommend.htm?appId=12001&uid=100028393" : "http://ald.taobao.com/recommend.htm?appId=12001";
         function Category(_selector, _op) {
             var _category = this;
             if (!(_category instanceof Category))
@@ -43,35 +49,35 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                 _dom.addClass(_trigger_changed, _str_selected);
                 _category.triggerIdx = _index
             },
-            changeView: function (Y) {
+            changeView: function (_subView) {
                 var _category = this;
                 _kissy.each(_category.subViews, function (a) { _dom.addClass(a, _str_hidden) });
-                _dom.removeClass(Y, _str_hidden);
-                var S = _dom.height(Y);
-                _dom.height(_category.viewer, (S + Q + O) + "px");
+                _dom.removeClass(_subView, _str_hidden);
+                var _subview_height = _dom.height(_subView);
+                _dom.height(_category.viewer, (_subview_height + _subviewer_padding_height + _subviewer_shadow_padding_height_) + "px");
                 _category.resetPostion();
                 if (!_category.shadow) { _category.shadow = _dom.get(".shadow", _category.viewer) }
-                _dom.height(_category.shadow, (S + O) + "px")
+                _dom.height(_category.shadow, (_subview_height + _subviewer_shadow_padding_height_) + "px")
             }, show: function () {
                 var _category = this, _config = _category.config;
                 var _subViews = _category.subViews;
                 var _idx = _config.idx;
-                var Y = _category.isDataReady ? _subViews[_idx] : _subViews[0];
-                var c = _dom.width(_category.viewer);
+                var _selected_subView = _category.isDataReady ? _subViews[_idx] : _subViews[0];
+                var _viewer_width = _dom.width(_category.viewer);
                 if (_category.hideTimer) { clearTimeout(_category.hideTimer) }
-                if (V && c == 0) {
+                if (_is_hidden && _viewer_width == 0) {
                     if (_category.expandTimer)
                     { clearTimeout(_category.expandTimer) }
                     _category.expandTimer = setTimeout(function () {
                             G = false;
-                            V = false;
+                            _is_hidden = false;
                             _category.changeTrigger(_idx);
-                            _category.changeView(Y);
+                            _category.changeView(_selected_subView);
                             if (!_is_ie6) {
-                                new _kissy.Anim(_category.viewer, { width: J }, 0.2, "linear").run()
+                                new _kissy.Anim(_category.viewer, { width: _viewer_final_width }, 0.2, "linear").run()
                             }
                             else
-                            { _dom.width(_category.viewer, J) }
+                            { _dom.width(_category.viewer, _viewer_final_width) }
                         }
                         , _config.showDelay * 500)
                 }
@@ -82,7 +88,7 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     _category.resetTimer = setTimeout(function () {
                             if (_category.status == "visible") {
                                 _category.changeTrigger(_idx);
-                                _category.changeView(Y)
+                                _category.changeView(_selected_subView)
                             }
                         }
                         , _config.showDelay * 1000)
@@ -91,7 +97,7 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
             hide: function (_index) {
                 var _category = this, _config = _category.config, _triggers = _category.triggers, _trigger_to_hide = _triggers[_index];
                 _category.status = "hidden";
-                V = true;
+                _is_hidden = true;
                 _category.triggerIdx = null;
                 if (_category.viewer) {
                     if (_category.expandTimer) { clearTimeout(_category.expandTimer) }
@@ -102,7 +108,7 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     }, _config.hideDelay * 1000)
                 }
             }, resetPostion: function () {
-                var a = this.triggers[this.config.idx], i = _dom.offset(a).top, e = _dom.offset(this.container), g = _dom.height(a), b = _dom.height(this.viewer), k = _dom.width(a), f = _dom.viewportHeight(), Y = _dom.scrollTop(), j = i - Y, Z = f - b - j, l = f - j, S = i - e.top; if (Z <= 0) { Z = Math.abs(Z); var h = 20; if (l > g) { var d = l - g; if (d > h) { S = S - Z - h + 7 } else { S = S - Z } } else { S = S - Z + h + l + 20 } } if (S < 30) { S = 30 } var c = _kissy.UA.ie ? 0 : Q;
+                var a = this.triggers[this.config.idx], i = _dom.offset(a).top, e = _dom.offset(this.container), g = _dom.height(a), b = _dom.height(this.viewer), k = _dom.width(a), f = _dom.viewportHeight(), Y = _dom.scrollTop(), j = i - Y, Z = f - b - j, l = f - j, S = i - e.top; if (Z <= 0) { Z = Math.abs(Z); var h = 20; if (l > g) { var d = l - g; if (d > h) { S = S - Z - h + 7 } else { S = S - Z } } else { S = S - Z + h + l + 20 } } if (S < 30) { S = 30 } var c = _kissy.UA.ie ? 0 : _subviewer_padding_height;
                 if (!_is_ie6 && G) { new _kissy.Anim(this.viewer, { top: (S - c) + "px" }, 0.3, "easeOutStrong").run() }
                 else {
                     this.viewer.style.top = (S - c) + "px";
@@ -118,7 +124,7 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                         _category.shadow = _dom.get(".shadow", _category.viewer);
                         _category.isDataReady = true;
                         if (_category.status == "visible") {
-                            V = false;
+                            _is_hidden = false;
                             _category.show()
                         }
                         //2013-03-06 basiwang check direct-promo
@@ -163,7 +169,11 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                 });
                 /*2013-03-07 basilwang 所有商品分类*/
                 _event.on(".categoryHd", _str_mouseenter, function (_event) { _category.hide(_config.idx) })
-            }, getRecData: function () { var _category = this; _kissy.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } _category.renderRecData(Y); _category.RecData = Y }) }, renderRecData: function (Z) {
+            }, getRecData: function ()
+            {
+                var _category = this; _kissy.jsonp(I, { t: +new Date }, function (Y) { if (!Y) { return } _category.renderRecData(Y); _category.RecData = Y })
+            },
+            renderRecData: function (Z) {
                 if (!Z) { return } var Y = this; var S = _dom.query("p.subItem-brand", Y.subViews[Y.config.idx]); _kissy.each(S, function (d) {
                     var b = _dom.attr(d, "recommend-id");
                     var a = ""; if (b && Z[b]) { for (var c = 0; c < Z[b].length; c++) { a += '<a href="' + Z[b][c].linkedUrl + '" target="_blank">' + Z[b][c].brandName + "</a>" } _dom.html(d, a) }
