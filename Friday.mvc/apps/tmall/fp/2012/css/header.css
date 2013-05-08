@@ -2,7 +2,7 @@
 .headerCon:after,.clearfix:after{clear:both;}
 .headerCon,.clearfix{zoom:1;}
 #sn-bd{width:1190px;}
-.headerCon,.mallNav-con{margin:auto;width:1190px;}
+.headerCon,.mallNav-con{margin:auto;width:1190px;position:relative}
 #header{margin-top:-30px;background:#015ca3;min-width:990px;}
 #header .headerCon{position:relative;height:63px;padding-top:30px;margin:0 auto;}
 #mallLogo{overflow:hidden;padding-top:5px;z-index:9;float:left;}

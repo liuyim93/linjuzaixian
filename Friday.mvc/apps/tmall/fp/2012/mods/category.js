@@ -108,10 +108,47 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     }, _config.hideDelay * 1000)
                 }
             }, resetPostion: function () {
-                var a = this.triggers[this.config.idx], i = _dom.offset(a).top, e = _dom.offset(this.container), g = _dom.height(a), b = _dom.height(this.viewer), k = _dom.width(a), f = _dom.viewportHeight(), Y = _dom.scrollTop(), j = i - Y, Z = f - b - j, l = f - j, S = i - e.top; if (Z <= 0) { Z = Math.abs(Z); var h = 20; if (l > g) { var d = l - g; if (d > h) { S = S - Z - h + 7 } else { S = S - Z } } else { S = S - Z + h + l + 20 } } if (S < 30) { S = 30 } var c = _kissy.UA.ie ? 0 : _subviewer_padding_height;
-                if (!_is_ie6 && G) { new _kissy.Anim(this.viewer, { top: (S - c) + "px" }, 0.3, "easeOutStrong").run() }
+                var _trigger = this.triggers[this.config.idx],
+                    _trigger_top = _dom.offset(_trigger).top,
+                    _container_offset = _dom.offset(this.container),
+                    _trigger_height = _dom.height(_trigger),
+                    _viewer_height = _dom.height(this.viewer),
+                    _trigger_width = _dom.width(_trigger),
+                    _viewportHeight = _dom.viewportHeight(),
+                    _scrollTop = _dom.scrollTop(),
+                    _trigger_minus_scroll = _trigger_top - _scrollTop,
+                    _space_if_minus_viewerheight_and_trigger_minus_scroll = _viewportHeight - _viewer_height - _trigger_minus_scroll,
+                    _height_space_available_for_viewer = _viewportHeight - _trigger_minus_scroll,
+                    _trigger_top_from_container_top = _trigger_top - _container_offset.top;
+                if (_space_if_minus_viewerheight_and_trigger_minus_scroll <= 0)
+                {
+                    _space_if_minus_viewerheight_and_trigger_minus_scroll = Math.abs(_space_if_minus_viewerheight_and_trigger_minus_scroll);
+                    var h = 20;
+                    if (_height_space_available_for_viewer > _trigger_height)
+                    {
+                        var d = _height_space_available_for_viewer - _trigger_height;
+                        if (d > h)
+                        {
+                            _trigger_top_from_container_top = _trigger_top_from_container_top - _space_if_minus_viewerheight_and_trigger_minus_scroll - h + 7
+                        }
+                        else
+                        {
+                            _trigger_top_from_container_top = _trigger_top_from_container_top - _space_if_minus_viewerheight_and_trigger_minus_scroll
+                        }
+                    }
+                    else
+                    {
+                        _trigger_top_from_container_top = _trigger_top_from_container_top - _space_if_minus_viewerheight_and_trigger_minus_scroll + h + _height_space_available_for_viewer + 20
+                    }
+                }
+                if (_trigger_top_from_container_top < 30)
+                {
+                    _trigger_top_from_container_top = 30
+                }
+                var c = _kissy.UA.ie ? 0 : _subviewer_padding_height;
+                if (!_is_ie6 && G) { new _kissy.Anim(this.viewer, { top: (_trigger_top_from_container_top - c) + "px" }, 0.3, "easeOutStrong").run() }
                 else {
-                    this.viewer.style.top = (S - c) + "px";
+                    this.viewer.style.top = (_trigger_top_from_container_top - c) + "px";
                     G = true
                 }
             }, _load: function (_url) {
@@ -162,10 +199,10 @@ KISSY.add("2012/mods/category",function (_kissy_t, _directpromo) {
                     ;
                     _event.on(_trigger, _str_mouseleave, function (_event) { _category.status = "triggerLeave" })
                 });
-                _event.on(_category.container, _str_mouseleave, function (Z) { _category.hide(_config.idx) });
-                _event.on(_config.bottomCl, "mouseenter mouseleave", function (Z) {
+                _event.on(_category.container, _str_mouseleave, function (_event) { _category.hide(_config.idx) });
+                _event.on(_config.bottomCl, "mouseenter mouseleave", function (_event) {
                     _dom.toggleClass(_config.bottomCl, _str_selected);
-                    if (Z.type === "mouseenter") { _category.hide(_config.idx) }
+                    if (_event.type === "mouseenter") { _category.hide(_config.idx) }
                 });
                 /*2013-03-07 basilwang 所有商品分类*/
                 _event.on(".categoryHd", _str_mouseenter, function (_event) { _category.hide(_config.idx) })
