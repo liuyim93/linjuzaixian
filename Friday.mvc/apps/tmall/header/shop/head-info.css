@@ -2,7 +2,7 @@
 /*pub-1|2013-01-25 11:02:18*/.headerNav{position:relative;z-index:10000;}
 .shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:no-repeat 999em;background-image:url(http://localhost:7525/Images/merchant_spot-148-83.png)!important;}
 #mall-shop{position:relative;z-index:990;}
-#shop-info{float:left;position:absolute;top:-25px;left:440px;width:310px;border-radius:2px;background-color:#9d0100;border:1px solid #a00;}
+#shop-info{float:left;position:absolute;top:-25px;left:440px;width:310px;border-radius:2px;background-color:#9d0100;border:1px solid #00677e;}
 #shop-info .main-info{height:18px;padding:5px;width:300px;overflow:hidden;}
 #shop-info .shop-title,#shop-info .shop-status{float:left;height:18px;overflow:hidden;margin-bottom:2px;margin-right:3px;}
 #shop-info .shop-title a{color:#fff;font-weight:bold;}
@@ -65,8 +65,8 @@
 #shop-info .shop-rate .rateinfo em{*display:inline;}
 #shop-info .shop-rate b{display:inline-block;height:15px;margin:0 5px 0 13px;padding:1px 2px 1px 3px;vertical-align:middle;font-weight:normal;color:#fff;background:#a1001a;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;padding-top:2px\9;}
 #shop-info .shop-rate b.lower{border-color:#217311;background:#217311;}
-#shop-info{background-color:#9D0100!important;border:1px solid #A00!important;border-radius:2px 2px 2px 2px!important;float:left!important;left:440px!important;position:absolute!important;top:-25px!important;width:310px!important;}
-#shop-info .main-info{border:none!important;height:18px!important;overflow:hidden!important;padding:5px!important;width:300px!important;background-color:#9D0100!important;}
+#shop-info{background-color:#9D0100!important;border:1px solid ##00677e!important;border-radius:2px 2px 2px 2px!important;float:left!important;left:440px!important;position:absolute!important;top:-25px!important;width:310px!important;}
+#shop-info .main-info{border:none!important;height:18px!important;overflow:hidden!important;padding:5px!important;width:300px!important;background-color:#00477e!important;}
 #shop-info .extra-info{top:28px!important;width:310px!important;}
 #shop-info .shop-rate{padding:0!important;margin:0!important;}
 #shop-info .shop-grade{width:80px!important;}
