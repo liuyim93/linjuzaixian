@@ -31,6 +31,11 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Take(num).ToList();
             return s;
         }
+        public IList<Commodity> GetHotRecommendCommoditiesByKeyWord(string keyword)
+        {
+            var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) &&o.IsDelete == false).OrderBy(o => o.MonthAmount).ToList();
+            return s;
+        }
 
         public IList<Commodity> GetCommodityByShopIDOrderByMonthAmountDesc(string shopID)
         {

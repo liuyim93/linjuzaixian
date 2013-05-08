@@ -100,6 +100,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                   searchProductModel.Merchants.Add(i.Shop);
                 }
             }
+
+            //商品推荐
+            IList<Commodity> recommendCommdties= iCommodityService.GetHotRecommendCommoditiesByKeyWord(keyword);
+            searchProductModel.recommendComdties = recommendCommdties;
+
             //您是不是想找。。。
             IList<GlobalGoodsType> GdsTpList = iGlobalGoodsTypeService.GetSimilarGoodsTypeListInThirdLevelByKeyword(keyword);
             searchProductModel.globalGoodsTypes = GdsTpList;

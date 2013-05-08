@@ -27,6 +27,8 @@ namespace Friday.mvc.Models
             //IList<Food> Foods = new List<Food>();
             //IList<House> Houses = new List<House>();
             IList<Commodity> Commoditys = new List<Commodity>();
+
+            IList<Commodity> recommendComdties = new List<Commodity>();
         }
 
         public IList<Merchant> Merchants { get; set; }
@@ -39,7 +41,7 @@ namespace Friday.mvc.Models
 
         public IList<GlobalGoodsType> globalGoodsTypes { get; set; }
         //public IList<Food> Foods { get; set; }
-        //public IList<House> Houses { get; set; }
+        public IList<Commodity> recommendComdties { get; set; }
         public IList<Commodity> Commoditys { get; set; }
      
     }

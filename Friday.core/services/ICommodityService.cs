@@ -22,5 +22,6 @@ namespace friday.core.services
         IList<Commodity> GetCommodityByKeywordAndPrice(string page, string keyword, double price1, double price2, int start, int limit, out int total);
         IList<Commodity> GetHotCommodity(int num);
         IList<Commodity> GetRecentCommodity(int num);
+        IList<Commodity> GetHotRecommendCommoditiesByKeyWord(string keyword);
     }
 }
