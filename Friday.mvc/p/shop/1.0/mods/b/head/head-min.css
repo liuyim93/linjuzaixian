@@ -1,0 +1,416 @@
+﻿/**
+ * xiaohu@taobao.com
+ * yuyin@taobao.com
+ * tiejun@taobao.com
+ * 用GBK编码！！！
+ * @log:
+ *	   1.切换新头部 2011-03-25 tiejun 
+ *      2.页头改版 2011-11-22 guiyuan
+ */
+#header, #content, #footer {
+    width: auto;
+}
+
+#content #bd, #content #ft {
+    width: 950px;
+    margin: 0 auto;
+}
+
+/* detail 采用950px */
+.w950 #header, .w950 #footer {
+    width: 950px;
+}
+
+#page, #header, #footer {
+    width: auto !important;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    min-width: 950px;
+    background-color: transparent;
+}
+
+.mall-top-banner, #system-announce {
+    text-align: center;
+}
+
+#server-num, .server-num {
+    color: #ffffff;
+    font-size: 11px;
+    margin-top: -14px;
+    text-align: left;
+}
+
+/*common*/
+
+#mall-desc, #copyright {
+    width: 950px;
+    margin: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:after {
+    content: '\20';
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+/* header and logo:{{{ */
+
+/* header & logo & nav sprite */
+#header .headerCon,
+#mallLogo .mlogo s, #mallLogo .slogo,#mallLogo .slogoList ,#mallLogo .slogoList a {
+    background: url(http://img04.taobaocdn.com/tps/i4/T1h053XldnXXXXXXXX-240-310.png) no-repeat;
+}
+
+/* search  sprite */
+.mallSearch-type .active,
+#mallSearch button, #mallSearch button:hover{
+    background: url(http://img01.taobaocdn.com/tps/i1/T1.Au3XmVcXXXXXXXX-242-139.png) no-repeat;
+}
+
+/* sub-logo sprite */
+/*
+	需要两个id 覆盖mallist里的margin-bottom:13px样式
+	移除留白，有nav实现
+ */
+
+#header {
+    background: #980101;
+    margin-top: -27px;
+    _margin-top:-28px;
+}
+
+#header .headerCon {
+    width: 950px;
+    height: 68px;
+    padding: 27px 0 0 26px;
+    margin-left: -26px;
+    background-position: 0 -123px ;
+    _position: relative; /* 修复ie6下负margin隐藏 */
+}
+
+.headerLayout {
+    width: 950px;
+    margin: 0 auto;
+}
+
+#mallLogo {
+    z-index: 9;
+    padding-top: 8px;
+    float: left;
+    _display: inline;
+}
+
+#mallLogo .mlogo, #mallLogo .slogo {
+    position: relative;
+    float: left;
+}
+
+#mallLogo a {
+    position: relative;
+    display: block;
+    color: #fff;
+}
+
+#mallLogo s {
+    position: absolute;
+    display: block;
+    top: 0;
+    cursor: pointer;
+}
+
+#mallLogo .mlogo {
+    padding-right: 10px;
+}
+
+#mallLogo .mlogo a {
+    height: 38px;
+    font-size: 24px;
+    width: 230px;
+    overflow: hidden;
+}
+
+#mallLogo .mlogo s {
+    height: 38px;
+    width: 230px;
+    background-position: 0 -42px;
+}
+
+#mallLogo .slogo {
+    padding-top: 18px;
+    padding-left: 13px;
+    background-position:-236px -34px;
+}
+
+#mallLogo .slogo a {
+    font-size: 16px;
+    padding-right: 20px;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    width: 74px;
+}
+
+#mallLogo .slogo a i {
+    border-width: 4px;
+    border-color: #fff;
+}
+
+#mallLogo .slogoList {
+    position: absolute;
+    z-index: 2000;
+    top: 39px;
+    left: 10px;
+    display: block;
+    overflow: visible;
+    height: 0;
+    line-height: 0;
+    width: 116px;
+    padding-top: 38px;
+    background-position:-125px -84px ;
+}
+
+#mallLogo .slogoList-bg {
+    display: block;
+    font-size: 12px;
+    width: 114px;
+    position: absolute;
+    _position: static;
+    _overflow-x: hidden;
+    border: 1px solid #bf0000;
+    border-top: none;
+    background: rgba(133, 1, 1, .95);
+    background: #850101\9;
+    filter: alpha(opacity = 95);
+}
+
+#mallLogo .slogoList a {
+    height: 22px;
+    line-height: 22px;
+    background-position:-224px 1px ;
+    position: relative;
+    z-index: 20001;
+    padding-left: 20px;
+    font-weight: normal;
+    margin: -30px 0 30px 10px;
+    font-size: 12px;
+}
+
+#mallLogo .slogoList a.last {
+    margin-bottom: 0;
+    background-position:-224px -19px ;
+}
+
+#mallLogo .slogo a i {
+    border-color: #fff transparent transparent;
+}
+
+/* logo title */
+#mallLogo .slogo s {
+    height: 24px;
+    width: 74px;
+    background-position: 0 -67px;
+}
+
+/* mall search:{{{ */
+
+#mallSearch {
+    float: right;
+    border: 1px solid #8c0a07;
+    margin-top: 10px;
+    background: #a20701;
+    width: 388px;
+}
+
+.mallSearch-bg {
+    width: 380px;
+    height: 100%;
+    padding: 5px 3px 6px 3px;
+    border: 1px solid #b10a01;
+}
+
+.mallSearch-form {
+    border: 2px solid #790C0C;
+    background-color: #990000;
+    z-index: 9999;
+}
+
+#mallSearch legend {
+    display: none;
+}
+
+#mallSearch fieldset {
+    position: relative;
+}
+
+.mallSearch-type {
+    display: none;
+}
+
+.mallSearch-input {
+    background: #fff;
+    height: 26px;
+    position: relative;
+}
+
+/*
+	这里采用 label ，input 绝对定位，label在input下方方式
+	主要为了一些input的特性保持：
+	1.可以拖放文字到输入框
+	2.提示信息不让用户选择
+ */
+#mallSearch  label {
+    visibility: hidden;
+    color: #666;
+    font-size: 12px;
+    line-height: 24px;
+    height: 24px;
+    position: absolute;
+    left: 8px;
++top:1px;
+    width: 220px;
+    overflow:hidden;
+    z-index: 1;
+}
+
+#mq {
+    color: #000; /*覆盖mall tbsp css*/
+    margin: 0; /*覆盖mall base css*/
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    width: 288px;
+    height: 18px;
+    line-height: 18px;
+    padding: 4px 2px 4px 5px;
+    border: none;
+    border-left: 1px solid #ececec;
+    border-right: 2px solid #7b0f0f;
+    font-weight: 900;
+    background: url("data:image/gif;base64,R0lGODlhAQADAJEAAObm5t3d3ff39wAAACH5BAAAAAAALAAAAAABAAMAAAICDFQAOw==") repeat-x scroll 0 0 transparent;
+}
+
+#mallSearch button {
+    float: right;
+    width: 78px;
+    border: 0px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #462824;
+    background-position:-96px -26px ;
+    line-height: 26px;
+    height: 26px;
+    overflow: hidden;
+}
+
+#mallSearch button:hover {
+    background-color:#866150 ;
+    background-position:-96px 0 ;
+}
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* }}} */
+
+
+.mall-suggest-container ol li {
+    list-style: none;
+    height: 23px;
+    line-height: 23px;
+    color: #000;
+}
+
+.mall-suggest-container ol .ks-suggest-key {
+    padding-left: 10px;
+}
+
+.mall-suggest-container .ks-suggest-cate {
+    color: #7e7e7e;
+    padding-left: 10px;
+}
+.mall-suggest-container .ks-suggest-cate b{
+    font-weight: bold;
+}
+
+.mall-suggest-container ol .ks-selected {
+    background-color: #b10000;
+}
+
+.mall-suggest-container ol .ks-selected em {
+    color: #fff;
+}
+
+.mall-suggest-container .ks-suggest-footer {
+    padding: 0;
+}
+
+.mallSearch-tip p {
+    font-family: \5B8B\4F53;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 1px;
+    padding: 0 10px;
+    background: #efeceb;
+}
+
+.mallSearch-tip span {
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    color: #000;
+    cursor: pointer;
+}
+
+.mallSearch-tip b {
+    font-family: Arial;
+    display:inline-block;
+    vertical-align: middle;
+    max-width: 180px;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mallSearch-tip em {
+    margin:0 5px;
+    font-weight: bold;
+    color: #980101;
+}
+
+/* }}} */
+
+#page #footer {
+    position: static\9;
+    *position: relative;
+}
+
+/* 覆盖店铺详情样式 */
+.newMallHeader #mall-shop #shop-info {
+    top: 10px;
+    left: 321px;
+    _left: 82px;
+    border-left-color: #980101;
+    border-right: none;
+}
+
+

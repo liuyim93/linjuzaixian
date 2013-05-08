@@ -1,0 +1,26 @@
+﻿#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://img01.taobaocdn.com/tps/i1/T1.Au3XmVcXXXXXXXX-242-139.png) no-repeat;}
+#mall-desc .propose i{margin-right:.1em;background-position:-156px -52px;}
+#mall-desc dt span{display:block;height:19px;width:73px;text-indent:-999em;overflow:hidden;}
+#ensure dt span{background-position:0 -53px;}
+#beginner dt span{background-position:0 -73px;}
+#payment dt span{background-position:0 -93px;}
+#seller dt span{background-position:0 -113px;}
+#footer{padding-top:15px;background-position:0 -133px;background-repeat:repeat-x;position:relative;text-align:center;background-color:#fff;}
+#mall-desc{position:relative;margin-bottom:25px;text-align:left;zoom:1;}
+#mall-desc:after{content:"";display:block;clear:both;height:0;}
+#mall-desc dl{float:left;width:210px;}
+#mall-desc dl#payment{margin-left:145px;_display:inline;}
+#mall-desc dl#seller{float:right;width:170px;}
+#mall-desc dt{margin:0 40px 6px 0;padding-bottom:4px;border-bottom:1px solid #E2E2E2;}
+#mall-desc dl#seller dt{margin-right:0;}
+#mall-desc dd{margin-right:40px;}
+#mall-desc dl a,#mall-desc dl dd span{display:block;height:22px;line-height:1.8;color:#666;white-space:nowrap;}
+#mall-desc dl i{display:inline-block;width:16px;height:16px;vertical-align:text-bottom;overflow:hidden;background-position:-157px -117px;}
+#mall-desc .propose{clear:both;padding:0 0 8px 10px;border-bottom:1px solid #E6E6E6;text-align:left;}
+#ensure .seal{float:right;margin:-20px 10px 0 0;}
+#mall-desc .propose a,#mall-desc .join{color:#36c;}
+#mall-desc .go-home{position:absolute;left:50%;top:18px;margin-left:-74px;height:81px;width:81px;overflow:hidden;line-height:999px;background-position:-74px -52px;}
+#mall-desc .go-home a{display:block;}
+#footer p{padding:5px 0;}
+#footer p strong{font-weight:normal;}
+#footer p a{margin-right:3px;color:#36c;}
