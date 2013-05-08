@@ -123,6 +123,7 @@
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Areas\CartPay\CartPayAreaRegistration.cs" />
     <Compile Include="Areas\CartPay\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CartPay\Models\DelData.cs" />
     <Compile Include="Areas\CartPay\Models\FormData.cs" />
     <Compile Include="Areas\CartPay\Models\Mcartdata.cs" />
     <Compile Include="Areas\CartPay\Models\RenderList.cs" />
