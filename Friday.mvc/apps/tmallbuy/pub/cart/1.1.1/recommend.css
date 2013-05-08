@@ -14,7 +14,9 @@
 .recommendList li{float:left;width:160px;height:267px;padding:25px 5px 5px;margin-right:13px;overflow:hidden;}
 .recommendList .img{width:160px;height:160px;margin-bottom:5px;overflow:hidden;}
 .recommendList .img a{display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:144px;*font-family:Arial;background-color:#fff;}
-.recommendList .img img{vertical-align:middle;}
+/*2013-05-08 wanghaichuan http://localhost:7525/CartPay/Home/MyCartPay
+.recommendList .img img{vertical-align:middle;}*/
+.recommendList .img img{vertical-align:middle;width: 160px;height: 160px;}
 .recommendList .title{word-break:break-all;}
 .recommendList .price{height:21px;line-height:21px;overflow:hidden;white-space:nowrap;}
 .recommendList .price strong{color:#c00;font-weight:bold;padding-left:14px;font-size:14px;font-family:\5B8B\4F53;background-position:-113px 3px;}

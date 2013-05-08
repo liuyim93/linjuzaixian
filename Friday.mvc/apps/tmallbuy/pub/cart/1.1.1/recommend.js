@@ -37,7 +37,7 @@ KISSY.add("cart/recommend", function (H, Q, M) {
             }
             T %= 4;
             T += 2;
-            V = "http://img0" + T + ".taobaocdn.com/" + (U || "tps") + "/i" + T + "/" + V
+//          V = "http://img0" + T + ".taobaocdn.com/" + (U || "tps") + "/i" + T + "/" + V
         }
         return V
     };
@@ -100,7 +100,8 @@ KISSY.add("cart/recommend", function (H, Q, M) {
                 Z.push(O === D ? U : T)
             }
             H.each(Z, function (b) {
-                H.getScript("http://ald.taobao.com/recommend.htm?" + b.replace("{itemids}", W) + "&" + X + H.guid())
+                //H.getScript("http://ald.taobao.com/recommend.htm?" + b.replace("{itemids}", W) + "&" + X + H.guid())
+                H.getScript("http://localhost:7525/CartPay/Home/Recommend?" + b.replace("{itemids}", W) + "&" + X + H.guid())
             });
             setTimeout(function () {
                 if (G) {
