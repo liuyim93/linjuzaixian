@@ -185,14 +185,14 @@
                             {
                                 var item = Model.Commoditys.ElementAt(index);
                                 <li class="ks-switchable-panel-internal219"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
-                                <img src="@item.Image"></a></li>
+                                <img alt="@item.Name" src="@item.Image"/></a></li>
                             }
                     </ul>
                             <ul class="fCs-nav fCs-nav-even fCs-nav-num3">
                             @for (var index = 0; index < (Model.Commoditys.Count() > 3 ? 3 : Model.Commoditys.Count()); index++)
                             {
                                 var classBeforeFormat = "fCs-nav{0} ks-switchable-trigger-internal203";
-                                var classAfterFormat = string.Format(classBeforeFormat, index+1);
+                                var classAfterFormat = string.Format(classBeforeFormat, index + 1);
 
                                 var item = Model.Commoditys.ElementAt(index);
                                 <li class="@Html.Raw(classAfterFormat)"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
@@ -206,10 +206,9 @@
                                 var item = Model.Commoditys.ElementAt(index);
                                 <a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
                             class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
-                            <img src="@item.Image"></a>
+                            <img alt="@item.Name" src="@item.Image"/></a>
                             }
 
-                        </a>
                     </div>
                 </div>
             </div>
@@ -308,4 +307,4 @@
         })
 </script>
  </textarea>
-</div>*@
+</div>*@ 
