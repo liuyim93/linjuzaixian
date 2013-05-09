@@ -132,6 +132,7 @@
     <Content Include="uploadImage\activityImage\Sbujpeg4.png" />
     <Content Include="uploadImage\activityImage\SubJpeg2.png" />
     <Content Include="uploadImage\activityImage\SubJpeg4.png" />
+    <Content Include="uploadImage\commodityPic\c0.jpg" />
     <Content Include="uploadImage\commodityPic\c1.jpg" />
     <Content Include="uploadImage\commodityPic\c10.jpg" />
     <Content Include="uploadImage\commodityPic\c11.jpg" />
