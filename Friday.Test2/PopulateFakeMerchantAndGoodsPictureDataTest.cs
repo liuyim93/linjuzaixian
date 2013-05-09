@@ -61,7 +61,7 @@ namespace Friday.Test2
                         Image = "/uploadimage/c" + (i + 1) + ".jpg",
 
                         Shop = mcht,
-                        GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i])
+                        GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]),
                     //2013-05-09 basilwang 增加family
                     GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]).Family,
                     };
