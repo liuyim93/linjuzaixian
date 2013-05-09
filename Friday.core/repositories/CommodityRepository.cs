@@ -77,7 +77,7 @@ namespace friday.core.repositories
         public List<Commodity> GetCommodityByGoodsType(string goodsTypeId)
         {
             var s = (from x in this.Session.Query<Commodity>()
-                     where x.IsDelete == false && goodsTypeId.IndexOf(x.GlobalGoodsTypeFamily)!=-1
+                     where x.IsDelete == false && x.GlobalGoodsTypeFamily.Contains(goodsTypeId)
                      select x                
                     ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
             return s;

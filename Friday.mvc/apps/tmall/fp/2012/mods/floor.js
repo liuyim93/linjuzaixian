@@ -78,7 +78,7 @@
                 });
                 if (W == 2) {
                     var X = _dom.children(V)[4];
-                    Z += '<a href="' + _dom.attr(X, "href") + '" title="" target="_blank">\u66f4\u591a\u54c1\u724c>></a>'
+                    Z += '<a href="' + _dom.attr(X, "href") + '" title="" target="_blank">更多品牌>></a>'
                 }
                 _dom.html(V, Z)
             })
