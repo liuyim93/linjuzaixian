@@ -27,15 +27,17 @@ namespace Friday.Test2
             //IRepository<Food> iFoodRepository = UnityHelper.UnityToT<IRepository<Food>>();
             //IRepository<House> iHouseRepository = UnityHelper.UnityToT<IRepository<House>>();
             IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository =new GlobalGoodsTypeRepository();
-           
+            
+
             IList<Commodity> iCommodities = new List<Commodity>();
             //IList<Food> iFoods = new List<Food>();
             //IList<House> iHouses = new List<House>();
             IList<Merchant> iMerchants = new List<Merchant>();
             string[] mctName = { "沃尔玛", "翠峰苑火锅", "家乐福", "小肥羊火锅", "统一银座", "天外村酒店", "大润发", "金山林快餐店", "贵和商厦", "顺风肥牛快餐", "国美商城", "全聚德烤鸭店", "苏宁购物", "便民超市", "金汉斯自助餐", "京东商厦", "加州牛肉面" };
-            string[] commodityName = { "T恤热卖29元起","牛肉盒饭","短袖","烤全羊","T恤","土豆丝","衬衫","韭菜水饺","POLO衫","牛肉火锅","休闲短裤","北京烤鸭","海尔冰箱","苹果","巴西烤肉","薄针织衫","大碗牛肉面","牛仔长裤","卫衣","西装","夹克风衣","西裤","西服套装","大码男装","中老年男装","设计潮牌" };
+            string[] commodityName = { "T恤热卖29元起","牛肉盒饭","短袖","烤全羊","精品棉质T恤","土豆丝","棉质卫衣","鸡蛋水饺","精品特价POLO衫","牛肉火锅","休闲短裤","北京烤鸭","LV老花镜","苹果","巴西烤肉","薄针织衫","大碗牛肉面","牛仔长裤","卫衣","西装","夹克风衣","西裤","西服套装","大码男装","中老年男装","设计潮牌" };
             //string[] houseName = { "旋转楼梯", "总统套房", "花园别墅", "休闲卧室", "温馨餐厅", "淡雅书房", "绿色阳台"};
             //string[] foodName = { "茶叶", "蛋糕", "减肥茶", "红酒", "营养品", "花生油", "奶粉" };
+            string[] gloablType = { "男士衬衫", "牛排", "大码男装", "鲜肉", "热卖T恤", "蔬菜", "女士卫衣", "蛋及制品", "POLO衫", "牛排", "牛仔短裤", "火腿", "老花镜", "水果", "鲜肉", "针织衫男士", "牛排", "牛仔短裤" };
 
             for (int j = 0; j<3; j++)
             {
@@ -55,11 +57,11 @@ namespace Friday.Test2
 
                     Commodity commodity = new Commodity()
                     {
-                        Name = commodityName[i],
+                        Name = commodityName[i] + ":" + j + i,
                         Image = "/uploadimage/c" + (i + 1) + ".jpg",
 
                         Shop = mcht,
-                        GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士")
+                        GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i])
                     };
                     iCommodityRepository.SaveOrUpdate(commodity);
                 }

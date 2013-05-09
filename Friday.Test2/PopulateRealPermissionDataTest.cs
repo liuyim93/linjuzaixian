@@ -1401,7 +1401,7 @@ namespace Friday.Test2
             //------添加3级详细目录---------
             //3级“服装/内衣/配件”
             //"女装"
-            string[] ThrdForWomenClothes = { "连衣裙","T恤","裤子","雪纺衫","衬衫","半身裙","吊带/背心","制服/校服","中老年服装","短外套","牛仔裤","大码女装","婚纱/礼服/旗袍","针织衫女士","唐装/中式服装","小西装","马甲","卫衣","风衣","PU外套" };
+            string[] ThrdForWomenClothes = { "连衣裙","女士T恤","裤子","雪纺衫","女士衬衫","半身裙","吊带/背心","制服/校服","中老年服装","短外套","牛仔裤","大码女装","婚纱/礼服/旗袍","针织衫女士","唐装/中式服装","小西装","马甲","女士卫衣","女士风衣","PU外套" };
             for (int i = 0; i < ThrdForWomenClothes.Length; i++)
             {
                 GlobalGoodsType sgwc = new GlobalGoodsType()
@@ -1416,7 +1416,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(sgwc);
             }
             //"男装"
-            string[] ThrdForMenClothes = { "热卖T恤","衬衫","POLO衫","休闲短裤","牛仔短裤","工装裤","针织衫男士","卫衣","西装夹克","风衣","背心/马甲","西裤","西服","套装","大码男装","中老年男装","设计潮牌"};
+            string[] ThrdForMenClothes = { "热卖T恤","男士衬衫","POLO衫","休闲短裤","牛仔短裤","工装裤","针织衫男士","男士卫衣","西装夹克","男士风衣","背心/马甲","西裤","西服","套装","大码男装","中老年男装","设计潮牌"};
             for (int i = 0; i < ThrdForMenClothes.Length; i++)
             {
                 GlobalGoodsType sgmc = new GlobalGoodsType()
