@@ -86,6 +86,18 @@ namespace Friday.Test2
                 };
           
                  iMerchantRepository.SaveOrUpdate(mcht);
+
+                 Commodity commodity = new Commodity()
+                 {
+                     Name = commodityName[i] ,
+                     Image = "/uploadimage/c" + (i + 1) + ".jpg",
+
+                     Shop = mcht,
+                     GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]),
+                     //2013-05-09 basilwang 增加family
+                     GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]).Family,
+                 };
+                 iCommodityRepository.SaveOrUpdate(commodity);
               }
 
 
