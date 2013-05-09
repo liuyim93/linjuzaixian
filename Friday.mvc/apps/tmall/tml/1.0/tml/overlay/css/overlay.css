@@ -1,11 +1,11 @@
 .tml-overlay{position:absolute;left:-9999px;top:-9999px}
 .tml-ext-mask{background-color:#000;opacity:.5;filter:alpha(opacity=50)}
-.tml-dialog .tml-stdmod-header,.tml-dialog .tml-ext-close{background:url(http://img01.taobaocdn.com/tps/i1/T1U6rrXlNqXXaZ_F7_-126-41.png) no-repeat}
+.tml-dialog .tml-stdmod-header,.tml-dialog .tml-ext-close{background:url(http://localhost:7525/Images/loginhead-126-41.png) no-repeat}
 .tml-dialog{padding:10px}
 .tml-dialog-skin{background:#716564;opacity:.4;filter:alpha(opacity=40);position:absolute;height:100%;width:100%;_padding:0 20px 0 0;top:0;left:0}
 .tml-dialog-hasmask .tml-dialog-skin{background:#fff}
 .tml-contentbox{position:relative;z-index:2;height:100%;background:#fff;border:1px solid #908b8b;overflow:hidden}
-.tml-dialog .tml-stdmod-header{height:35px;line-height:35px;padding-left:10px;border-bottom:1px solid #8c0400;background-color:#b6000c;background-position:20px 10px;font-size:14px;font-weight:700}
+.tml-dialog .tml-stdmod-header{height:35px;line-height:35px;padding-left:10px;border-bottom:1px solid #061966;background-color:#015CA3;background-position:20px 10px;font-size:14px;font-weight:700}/*#8c0400 #b6000c*/
 .tml-dialog .tml-stdmod-body{overflow:hidden}
 .tml-dialog .tml-ext-close{outline:medium none;position:absolute;z-index:3;right:20px;top:20px;overflow:hidden;display:block;height:16px;width:16px;line-height:99em;background-position:0 -25px}
 .tml-dialog .tml-ext-close:hover{background-position:-16px -25px}

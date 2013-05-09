@@ -171,7 +171,7 @@
                                 @for (var item_index = page_index * num_per_page; item_index < (page_index + 1) * num_per_page; item_index++)
                                 {
                                     var item = Model.Shops.ElementAt(item_index);                               
-                                    <a href="localhost:7525/Merchant/search?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
+                                    <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
                                         <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
                                     </a>
                             

@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="../apps/mods/login/css/full-pkg.css" />
     }
     <script src="https://s.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/foot/foot-min.css") />
     <script>
         KISSY.config({
             map: [
@@ -134,7 +135,7 @@
         </div>
         @if (!(bool)ViewData["IsMini"])
         {
-            <div id="footer">
+            @*<div id="footer">
                 <div class="g_foot">
                     <div class="g_foot-ali">
                         <a href="javascript:void(0)" target="_self" class="g_foot-nohover">阿里巴巴集团</a> <b>|</b>
@@ -158,7 +159,21 @@
                 </div>
                 <div id="server-num">
                     login151141.cm4</div>
+            </div>*@
+                <div id="ft">
+               <div class="layout grid-m">
+                <div class="col-main">
+                  
+             
+     
+          
+                                  
+            @Html.Partial("_Footer")
+
+                       </div>
             </div>
+
+            </div> 
         }
     </div>
     <script>
