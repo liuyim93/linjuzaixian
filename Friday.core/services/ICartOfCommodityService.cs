@@ -13,6 +13,7 @@ namespace friday.core.services
         void Save(CartOfCommodity CartOfCommodity);
         void Update(CartOfCommodity CartOfCommodity);
         void Delete(string id);
+        void PhysicsDelete(string id);
         List<CartOfCommodity> getCommoditiesByShoppingCart(string ShoppingCartID);
         CartOfCommodity getCommodityBySystemUserIDAndSkuID(string SystemUserID, string SkuID, bool isDelete);
     }

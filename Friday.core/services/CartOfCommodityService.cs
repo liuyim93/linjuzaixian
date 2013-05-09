@@ -41,6 +41,12 @@ namespace friday.core.services
             iCartOfCommodityRepository.Delete(id);
         }
 
+        public void PhysicsDelete(string id)
+        {
+            iLogger.LogMessage("物理删除CartOfCommodity数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iCartOfCommodityRepository.PhysicsDelete(id);
+        }
+
         public List<CartOfCommodity> getCommoditiesByShoppingCart(string ShoppingCartID)
         {
             return iCartOfCommodityRepository.getCommoditiesByShoppingCart(ShoppingCartID);
