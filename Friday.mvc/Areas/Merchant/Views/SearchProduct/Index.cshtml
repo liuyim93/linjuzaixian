@@ -299,8 +299,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
   <ul class="av-collapse" data-atp="{loc},{brand},,,{f},4,{c},">
       
       @for (var index = 0; index < Model.Merchants.Count(); index++)
-                       {
-                           var item = Model.Merchants.ElementAt(index);    
+      {
+          var item = Model.Merchants.ElementAt(index);    
                   
  
   <li>
@@ -309,7 +309,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
          @item.Name
  </a>
  </li>
-          }
+      }
 
  @* <li>
  <a data-f="spu-brand-qp" data-c="brand-qp" href="http://list.tmall.com/search_product.htm?from=sn_1_brand-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;brand=10127352&amp;cat=2#J_crumbs" title="Exull依思Q" atpanel="2,10127352,,,spu-brand-qp,4,brand-qp,">
@@ -785,11 +785,11 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
       <div class="attrExtra">
    <p class="relKeyRec" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
  <span>您是不是想找</span>         @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
-                       {
-                           var item = Model.globalGoodsTypes.ElementAt(index); 
+                             {
+                                 var item = Model.globalGoodsTypes.ElementAt(index); 
            <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
-                       } 
+                             } 
            </p>
   </div>
  </div>
@@ -962,6 +962,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
    <input type="hidden" name="style" value="g">
    <input type="hidden" name="vmarket" value="0">  
    <input name="keyword" type="hidden" value="@ViewData["skeyword"]">
+   
 </form>
  <p class="ui-page-s">
 <b class="ui-page-s-len"> @Model.currentPage/@Model.pageNum</b>
@@ -1060,7 +1061,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                             
 </div>
 
-    
+  <form  action="http://localhost:7525/merchant/searchproduct" method=get>
+  
 <div class="ui-page">
  <div class="ui-page-wrap">   
 @* <b class="ui-page-num">
@@ -1085,46 +1087,169 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  <button type="submit" class="ui-btn-s" atpanel="2,pageton,,,,20,footer,">确定</button>
  </form>
  </b>*@
-
+      
  <b class="ui-page-num">
-                @if (Model.currentPage > 1)
+
+         @if (Model.pageNum <= 8)
+         {
+             if (Model.currentPage > 1)
+             {
+                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+             }
+             else
+             {
+                    <b class="ui-page-prev"><< 上一页</b>
+             }
+             for (int i = 1; i <= Model.pageNum; i++)
+             {
+                 if (i == Model.currentPage)
+                 {
+                        <b class="ui-page-cur">@i</b>
+                 }
+                 else
+                 {
+                        <a href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                 }
+             }
+
+
+             if (Model.currentPage < Model.pageNum)
+             {
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+             }
+             else
+             {
+                    <b class="ui-page-next">下一页 >></b>
+             }
+
+
+
+         }
+        @if (Model.pageNum > 8)
+        {
+            if (Model.currentPage < 7)
+            {
+                if (Model.currentPage > 1)
                 {
-                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
+                     <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+                   
+                    for (int p = 1; p < Model.currentPage + 3; p++)
+                    {
+                        if (p != Model.currentPage)
+                        {
+                         <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @p</a>
+         
+                        }
+                        else
+                        {
+                               <b class="ui-page-prev">@Model.currentPage</b>
+                        }
+                    }
+                       <b class="ui-page-break">...</b>
+                     <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+         
                 }
-                else
+                else if (Model.currentPage == 1)
                 {
                     <b class="ui-page-prev"><< 上一页</b>
-                }
-                @for (int i = 1; i <= Model.pageNum; i++)
-                {
-                    if (i == Model.currentPage)
+                    <b class="ui-page-prev">1</b>
+                    for (int p = 2; p < 4; p++)
                     {
-                        <b class="ui-page-cur">@i</b>
+                          <a class="ui-page-prev j_PageChange "  data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >@p</a>
+                    }
+                       <b class="ui-page-break">...</b>
+                      <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+         
+                }
+
+            }
+
+            if (Model.currentPage >= 7 && Model.currentPage + 2 < Model.pageNum)
+            {
+              
+                 <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+                   
+                for (int p = 1; p < 3; p++)
+                {                      
+                 <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @p</a>
+                }
+                 <b class="ui-page-break">...</b>
+               
+                for (int p = -2, i = 0; p < Model.currentPage + 3 && i < Model.pageNum; p++)
+                {
+                    i = p + Model.currentPage;
+
+                    if (p != Model.currentPage)
+                    {
+                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
+         
                     }
                     else
                     {
-                        <a href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="j_PageChange" data-page="@i">@i</a>
+                               <b class="ui-page-prev">@Model.currentPage</b>
                     }
                 }
-                
-              @*  <b class="ui-page-break">...</b>*@
-
-                @if (Model.currentPage < Model.pageNum)
-                {
-                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"> 下一页>></a>
+                <b class="ui-page-break">...</b>
+                <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+         
+            }
+            if (Model.currentPage >= 7 && Model.currentPage + 2 >= Model.pageNum)
+            {
+                      <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+                   
+                for (int p = 1; p < 3; p++)
+                {                      
+                 <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @p</a>
                 }
-                else
+                 <b class="ui-page-break">...</b>
+             
+                for (int p = -2, i = 0; p < Model.currentPage + 3 && i < Model.pageNum; p++)
+                {
+                    i = p + Model.currentPage;
+
+                    if (i != Model.currentPage)
+                    {
+                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
+         
+                    }
+                    else
+                    {
+                               <b class="ui-page-prev">@Model.currentPage</b>
+                    }
+                }
+                if (Model.currentPage == Model.pageNum)
                 {
                     <b class="ui-page-next">下一页 >></b>
                 }
-                    </b>
+                else
+                {
+                       <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+           
+                }
 
-                    <b class="ui-page-skip">共@(Model.pageNum)页，去第
+            }
+
+
+
+
+        }       
+                 </b>
+   
+               <b class="ui-page-skip">共@(Model.pageNum)页，去第
                         <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
+                        <input type="hidden" value="@Model.pageNum"   size="3" class="ui-page-skipTo j_PageChangeInput" name="pagenum">
+                        <input type="hidden" value="@ViewData["skeyword"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="keyword">
+                        <input type="hidden" value="@ViewData["sprice1"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="price1">
+                        <input type="hidden" value="@ViewData["sprice2"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="price2">
+                     
                         页
                         <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> 
+          
+             
  </div>
 </div>
+</form>
+           
 @*
 <div id="J_Recommend" data-p4p-cfg="{'name':'tbuad','o':'j','count':'5','catid':'','keyword':'%D0%AC','offset':'0','propertyid':'','pid':'419108_1006','p4p':'','frontcatid':'','gprice':'0%2C100000000','bigpic':'1','ismall':'1','loc':'','sort':'','sbid':'13','q2cused':'0','page':'1'}" data-atpanel="-2,{{vo.RESOURCEID}},,,spu,1,p4p," style="">
 *@
@@ -1132,7 +1257,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <div class="recommend"> <h3 class="recommend-hd">商家热卖：</h3> 
    <div class="recommend-con clearfix recommend-con-6">     
 
-   @for (int i = 0; i<6 && i< Model.recommendComdties.Count;i++ )
+   @for (int i = 0; i < 6 && i < Model.recommendComdties.Count; i++)
    {
        var hrcdty = @Model.recommendComdties.ElementAt(i);
       <div class="product">       
@@ -1160,6 +1285,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 <input type="text" value="@ViewData["skeyword"]" autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="keyword">
 <button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"> 搜索 <s></s> </button>
 <input type="hidden" name="vmarket" value="0">
+ 
+                       
 <input type="hidden" name="cat" value="all">
 <input type="hidden" name="type" value="p">
 </div>
@@ -1169,11 +1296,11 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 </div><p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
  <span>您是不是想找</span>
               @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
-                       {
-                           var item = Model.globalGoodsTypes.ElementAt(index); 
+              {
+                  var item = Model.globalGoodsTypes.ElementAt(index); 
            <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
-                       }  
+              }  
                  </p>
 </div>
 </div>

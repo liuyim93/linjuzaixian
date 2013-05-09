@@ -41,7 +41,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View();
         }
 
-        public ActionResult Index(string page,string keyword, string price1, string price2 )
+        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum)
         {
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -78,6 +78,26 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int total;
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
+
+            //page 边界限定
+            if (!String.IsNullOrEmpty(page) && !String.IsNullOrEmpty(pagenum))
+            {
+                if (Convert.ToInt16(page) <= 1)
+                {
+                    currentPage = 1;
+                    page = "1";
+                }
+                else if (Convert.ToInt16(page) >= Convert.ToInt16(pagenum))  //pageCount即PageNum
+                {
+                    currentPage = Convert.ToInt16(pagenum);
+                    page = pagenum;
+                }
+              
+            }
+            else 
+            {
+                currentPage = 1;
+            }
 
             IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total);
             searchProductModel.Commoditys = commList;
@@ -116,7 +136,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["skeyword"] = keyword;
             ViewData["sprice1"] = price1;
             ViewData["sprice2"] = price2;
-
+            ViewData["pagenum"] = total / numPerPageValue + 1;
 
             return View(searchProductModel);
         }
