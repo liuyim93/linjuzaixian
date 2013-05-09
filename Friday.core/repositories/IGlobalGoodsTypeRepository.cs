@@ -15,6 +15,7 @@ namespace friday.core.repositories
         IList<GlobalGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total);
         GlobalGoodsType GetGlobalGoodsTypeByName(string Name);
         IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevel(int level);
+        IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword);
          
     }
 }

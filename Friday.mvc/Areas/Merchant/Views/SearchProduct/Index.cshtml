@@ -308,8 +308,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
   <ul class="av-collapse" data-atp="{loc},{brand},,,{f},4,{c},">
       
       @for (var index = 0; index < Model.Merchants.Count(); index++)
-                       {
-                           var item = Model.Merchants.ElementAt(index);    
+      {
+          var item = Model.Merchants.ElementAt(index);    
                   
  
   <li>
@@ -318,7 +318,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
          @item.Name
  </a>
  </li>
-          }
+      }
 
  @* <li>
  <a data-f="spu-brand-qp" data-c="brand-qp" href="http://list.tmall.com/search_product.htm?from=sn_1_brand-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;brand=10127352&amp;cat=2#J_crumbs" title="Exull依思Q" atpanel="2,10127352,,,spu-brand-qp,4,brand-qp,">
@@ -793,24 +793,19 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
   <div class="attrs-border"></div>
       <div class="attrExtra">
    <p class="relKeyRec" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
- <span>您是不是想找</span>         @*@for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
-                       {
-                           var item = Model.merchantGoodsTypes.ElementAt(index); 
-           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
+ <span>您是不是想找</span>         @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
+                             {
+                                 var item = Model.globalGoodsTypes.ElementAt(index); 
+           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
-                       } *@
-                   <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">平底鞋</a>
-           <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC" atpanel="2,%B8%DF%B8%FA%D0%AC,,,spu-key,5,key,">高跟鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC" atpanel="3,%B6%B9%B6%B9%D0%AC,,,spu-key,5,key,">豆豆鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC" atpanel="4,%CB%C9%B8%E2%D0%AC,,,spu-key,5,key,">松糕鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%C2%B8%FA%D0%AC" atpanel="5,%C6%C2%B8%FA%D0%AC,,,spu-key,5,key,">坡跟鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE" atpanel="6,%D0%AC+%C5%AE+2013%D0%C2%BF%EE,,,spu-key,5,key,">鞋女2013新款</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1" atpanel="7,%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1,,,spu-key,5,key,">鞋女韩版潮</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC" atpanel="8,%C0%C1%C8%CB%D0%AC,,,spu-key,5,key,">懒人鞋</a>
-     </p>
+                             } 
+           </p>
   </div>
  </div>
-<input type="hidden" name="area_code" value="370100"><input type="hidden" name="sort" value="s"><input type="hidden" name="style" value="g"><input type="hidden" name="vmarket" value="0"><input type="hidden" name="q" value="鞋">
+<input type="hidden" name="area_code" value="370100">
+<input type="hidden" name="sort" value="s">
+<input type="hidden" name="style" value="g">
+<input type="hidden" name="vmarket" value="0"><input type="hidden" name="q" value="">
 <input type="hidden" name="cat" value="2"><input type="hidden" name="brand" value="">
 <input type="hidden" name="prop" value="">
 </form>
@@ -976,6 +971,7 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
    <input type="hidden" name="style" value="g">
    <input type="hidden" name="vmarket" value="0">  
    <input name="keyword" type="hidden" value="@ViewData["skeyword"]">
+   
 </form>
  <p class="ui-page-s">
 <b class="ui-page-s-len"> @Model.currentPage/@Model.pageNum</b>
@@ -1074,7 +1070,8 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                             
 </div>
 
-    
+  <form  action="http://localhost:7525/merchant/searchproduct" method=get>
+  
 <div class="ui-page">
  <div class="ui-page-wrap">   
 @* <b class="ui-page-num">
@@ -1099,92 +1096,233 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
  <button type="submit" class="ui-btn-s" atpanel="2,pageton,,,,20,footer,">确定</button>
  </form>
  </b>*@
-
+      
  <b class="ui-page-num">
-                @if (Model.currentPage > 1)
+
+         @if (Model.pageNum <= 8)
+         {
+             if (Model.currentPage > 1)
+             {
+                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+             }
+             else
+             {
+                    <b class="ui-page-prev"><< 上一页</b>
+             }
+             for (int i = 1; i <= Model.pageNum; i++)
+             {
+                 if (i == Model.currentPage)
+                 {
+                        <b class="ui-page-cur">@i</b>
+                 }
+                 else
+                 {
+                        <a href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                 }
+             }
+
+
+             if (Model.currentPage < Model.pageNum)
+             {
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+             }
+             else
+             {
+                    <b class="ui-page-next">下一页 >></b>
+             }
+
+
+
+         }
+        @if (Model.pageNum > 8)
+        {
+            if (Model.currentPage < 7)
+            {
+                if (Model.currentPage > 1)
                 {
-                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
+                     <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+                   
+                    for (int p = 1; p < Model.currentPage + 3; p++)
+                    {
+                        if (p != Model.currentPage)
+                        {
+                         <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @p</a>
+         
+                        }
+                        else
+                        {
+                               <b class="ui-page-prev">@Model.currentPage</b>
+                        }
+                    }
+                       <b class="ui-page-break">...</b>
+                     <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+         
                 }
-                else
+                else if (Model.currentPage == 1)
                 {
                     <b class="ui-page-prev"><< 上一页</b>
-                }
-                @for (int i = 1; i <= Model.pageNum; i++)
-                {
-                    if (i == Model.currentPage)
+                    <b class="ui-page-prev">1</b>
+                    for (int p = 2; p < 4; p++)
                     {
-                        <b class="ui-page-cur">@i</b>
+                          <a class="ui-page-prev j_PageChange "  data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >@p</a>
+                    }
+                       <b class="ui-page-break">...</b>
+                      <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+         
+                }
+
+            }
+
+            if (Model.currentPage >= 7 && Model.currentPage + 2 < Model.pageNum)
+            {
+              
+                 <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+                   
+                for (int p = 1; p < 3; p++)
+                {                      
+                 <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @p</a>
+                }
+                 <b class="ui-page-break">...</b>
+               
+                for (int p = -2, i = 0; p <  3 && i < Model.pageNum; p++)
+                {
+                    i = p + Model.currentPage;
+
+                    if (p != Model.currentPage)
+                    {
+                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
+         
                     }
                     else
                     {
-                        <a href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="j_PageChange" data-page="@i">@i</a>
+                               <b class="ui-page-prev">@Model.currentPage</b>
                     }
                 }
-                
-              @*  <b class="ui-page-break">...</b>*@
-
-                @if (Model.currentPage < Model.pageNum)
-                {
-                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"> 下一页>></a>
+                <b class="ui-page-break">...</b>
+                <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+         
+            }
+            if (Model.currentPage >= 7 && Model.currentPage + 2 >= Model.pageNum)
+            {
+                      <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" ><< 上一页</a>
+                   
+                for (int p = 1; p < 3; p++)
+                {                      
+                 <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @p</a>
                 }
-                else
+                 <b class="ui-page-break">...</b>
+             
+                for (int p = -2, i = 0; p <  3 && i < Model.pageNum; p++)
+                {
+                    i = p + Model.currentPage;
+
+                    if (i != Model.currentPage)
+                    {
+                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
+         
+                    }
+                    else
+                    {
+                               <b class="ui-page-prev">@Model.currentPage</b>
+                    }
+                }
+                if (Model.currentPage == Model.pageNum)
                 {
                     <b class="ui-page-next">下一页 >></b>
                 }
-                    </b>
+                else
+                {
+                       <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> 下一页>></a>
+           
+                }
 
-                    <b class="ui-page-skip">共@(Model.pageNum)页，去第
+            }
+
+
+
+
+        }       
+                 </b>
+   
+               <b class="ui-page-skip">共@(Model.pageNum)页，去第
                         <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
+                        <input type="hidden" value="@Model.pageNum"   size="3" class="ui-page-skipTo j_PageChangeInput" name="pagenum">
+                        <input type="hidden" value="@ViewData["skeyword"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="keyword">
+                        <input type="hidden" value="@ViewData["sprice1"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="price1">
+                        <input type="hidden" value="@ViewData["sprice2"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="price2">
+                     
                         页
                         <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> 
+          
+             
  </div>
 </div>
-<div id="J_Recommend" data-p4p-cfg="{'name':'tbuad','o':'j','count':'5','catid':'','keyword':'%D0%AC','offset':'0','propertyid':'','pid':'419108_1006','p4p':'','frontcatid':'','gprice':'0%2C100000000','bigpic':'1','ismall':'1','loc':'','sort':'','sbid':'13','q2cused':'0','page':'1'}" data-atpanel="-2,{{vo.RESOURCEID}},,,spu,1,p4p," style=""><div class="recommend"> <h3 class="recommend-hd">商家热卖：</h3> <div class="recommend-con clearfix recommend-con-6">     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=xqVDPou1J7%2BngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrGC6gxNfZ3nE3HsstIC0TTXJo7qLOHMgN78fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGi7T6gv3jjnaSNbcI2Q1%2BFsEqsj%2BniZ2aXwOVpJRYCOYVvBeHdMTc3jgx%2FYBuHMnpf3miGkl0GIjr4KVmkSKFt" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">             <img src="http://img03.taobaocdn.com/bao/uploaded/i3/1023628423/T20t9WXolbXXXXXXXX_!!1023628423.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥318.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=xqVDPou1J7%2BngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrGC6gxNfZ3nE3HsstIC0TTXJo7qLOHMgN78fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGi7T6gv3jjnaSNbcI2Q1%2BFsEqsj%2BniZ2aXwOVpJRYCOYVvBeHdMTc3jgx%2FYBuHMnpf3miGkl0GIjr4KVmkSKFt" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">夏季时尚潮流休闲<em>鞋</em>反绒皮<em>鞋</em>男士板<em>鞋</em>英伦</a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=du9RlQ83seqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrFWcHWAmw0clOmeiXMB1MX6axyfVu%2BDDZX8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLH5lrBtQCGX4XOuNDGU%2FWafC4Q8JFb%2FCXnI9K9GQoI00Ht7iROOrbrhIk9MubuKX7aa0C4m1BGC8Tr4KVmkSKFt" target="_blank" atpanel="-2,13667678728,,,spu,1,p4p," class="productImg">             <img src="http://img01.taobaocdn.com/bao/uploaded/i1/444339490/T2MtuoXgJcXXXXXXXX_!!444339490.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥225.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=du9RlQ83seqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrFWcHWAmw0clOmeiXMB1MX6axyfVu%2BDDZX8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLH5lrBtQCGX4XOuNDGU%2FWafC4Q8JFb%2FCXnI9K9GQoI00Ht7iROOrbrhIk9MubuKX7aa0C4m1BGC8Tr4KVmkSKFt" atpanel="-2,13667678728,,,spu,1,p4p," target="_blank">Simier斯米尔男<em>鞋</em>时尚透气低帮<em>鞋</em>子男休闲<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=JOLI6%2FLUOq6ngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I2Lo2cm1nt66tTuZBWQ0vKf8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLEbrwiZOoQjYvnNuL0Y6L3v8sccxR2LIwEvLF2gtTGDDjt%2BL7wxOKM5yqGCfXhLQ739viM4DgnCdMBoeIrqDgCR" target="_blank" atpanel="-2,19976807398,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/10532023814927952/T1_IGgXwBXXXXXXXXX_!!0-item_pic.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥499.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=JOLI6%2FLUOq6ngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I2Lo2cm1nt66tTuZBWQ0vKf8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLEbrwiZOoQjYvnNuL0Y6L3v8sccxR2LIwEvLF2gtTGDDjt%2BL7wxOKM5yqGCfXhLQ739viM4DgnCdMBoeIrqDgCR" atpanel="-2,19976807398,,,spu,1,p4p," target="_blank">新款秒杀！真皮低帮<em>鞋</em>韩版潮流男士皮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=guhkXk20exqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I3bzGHrWZyi%2B8xDwKARPliL8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGbPFKmy%2B050cfoxlvZd1fF8sccxR2LIwGXpBah%2BCadIg4gTHQ%2BOFscZ%2FX%2BcJU83WUtp1fFrLSxDMBoeIrqDgCR" target="_blank" atpanel="-2,17636009126,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/687880532/T23__lXcVbXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥399.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=guhkXk20exqngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45I3bzGHrWZyi%2B8xDwKARPliL8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLGbPFKmy%2B050cfoxlvZd1fF8sccxR2LIwGXpBah%2BCadIg4gTHQ%2BOFscZ%2FX%2BcJU83WUtp1fFrLSxDMBoeIrqDgCR" atpanel="-2,17636009126,,,spu,1,p4p," target="_blank">限时5折！Mr.ing夏季休闲男<em>鞋</em>皮克时尚皮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=Bkw5M%2FbTpNmngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45Iw4VxGfz7PxCjemLoI2zLfP8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFehkwamkCbzl3Hl2EncO0t8sccxR2LIwHIvpSb9o9ZrLRR8RthbTHqEROsSCEviYMA6VeRbv%2FdFMBoeIrqDgCR" target="_blank" atpanel="-2,17658798485,,,spu,1,p4p," class="productImg">             <img src="http://img04.taobaocdn.com/bao/uploaded/i4/687880532/T2JcnNXl8XXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥599.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=Bkw5M%2FbTpNmngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45Iw4VxGfz7PxCjemLoI2zLfP8fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFehkwamkCbzl3Hl2EncO0t8sccxR2LIwHIvpSb9o9ZrLRR8RthbTHqEROsSCEviYMA6VeRbv%2FdFMBoeIrqDgCR" atpanel="-2,17658798485,,,spu,1,p4p," target="_blank">限时5折 ！雅士休闲男<em>鞋</em>春夏新品男士低帮<em>鞋</em></a></p>     </div>     <div class="product">        <a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=F5J2l8g22uOngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45IxFTkySk7X7LbOGdQCrooU38fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFOtrukI0iw8tghszJ7zpTs8sccxR2LIwH%2BCcctyJ8cZIp%2BgARkSrsiWGtCBRHAauriOFr%2Bziyl1sBoeIrqDgCR" target="_blank" atpanel="-2,24577280865,,,spu,1,p4p," class="productImg">             <img src="http://img01.taobaocdn.com/bao/uploaded/i1/687880532/T2eaHVXgBaXXXXXXXX_!!687880532.jpg_160x160.jpg">         </a>         <p class="productPrice ui-price">¥399.00</p>         <p class="productTitle"><a href="http://click.simba.taobao.com/cc_im?p=&amp;s=1432941494&amp;k=289&amp;e=F5J2l8g22uOngJLyFSij2u2z3onPBHX1WrWsBG3xcDeQbAi%2F8LtNrsEiA4jAMQZ%2FRHJGe%2BB7OrH2XUHA8N45IxFTkySk7X7LbOGdQCrooU38fN%2FSBQuzzEeFxtNRk7O3%2BZdCYVUfIoL%2B0JM60zpgG%2Bc3q70n%2F4SF41IdaySLSWXzS4xzBPdLPglPs5f5W1%2F2EvAMgAdjCLFOtrukI0iw8tghszJ7zpTs8sccxR2LIwH%2BCcctyJ8cZIp%2BgARkSrsiWGtCBRHAauriOFr%2Bziyl1sBoeIrqDgCR" atpanel="-2,24577280865,,,spu,1,p4p," target="_blank">Mr.ing米斯特因 ！ 休闲男<em>鞋</em>英伦板<em>鞋</em>低帮<em>鞋</em></a></p>     </div>  </div></div></div>
-<div class="btmSearch-loading" id="J_BtmSearch">
-<textarea class="ks-datalazyload">
-<div class="btmSearch" data-spm="a220m.1000858.1000729">
+</form>
+           
+@*
+<div id="J_Recommend" data-p4p-cfg="{'name':'tbuad','o':'j','count':'5','catid':'','keyword':'%D0%AC','offset':'0','propertyid':'','pid':'419108_1006','p4p':'','frontcatid':'','gprice':'0%2C100000000','bigpic':'1','ismall':'1','loc':'','sort':'','sbid':'13','q2cused':'0','page':'1'}" data-atpanel="-2,{{vo.RESOURCEID}},,,spu,1,p4p," style="">
+*@
+<div id="J_Recommend" >
+<div class="recommend"> <h3 class="recommend-hd">商家热卖：</h3> 
+   <div class="recommend-con clearfix recommend-con-6">     
+
+   @for (int i = 0; i < 6 && i < Model.recommendComdties.Count; i++)
+   {
+       var hrcdty = @Model.recommendComdties.ElementAt(i);
+      <div class="product">       
+       <a href="http://localhost:7525/merchant/detail/index?brandid=@hrcdty.Id" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">         
+           <img src="@hrcdty.Image">         </a>  
+                  <p class="productPrice ui-price">¥ @hrcdty.Price</p>         
+                  <p class="productTitle">
+                  <a href="http://localhost:7525/merchant/detail/index?brandid=@hrcdty.Id" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">
+                  @hrcdty.Name</p>     
+       </div>     
+  
+   }
+  
+  </div>
+  </div>
+  </div>
+  
+<div class="" id="J_BtmSearch">
+<div><div class="btmSearch" data-spm="a220m.1000858.1000729">
 <div class="btmSearch-main">
 <form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct" target="_top" name="searchTop">
-&lt;fieldset&gt;
-<div class="btmSearch-input clearfix"> 
-<label class="btmSearch-mq-label" for="btm-mq" style="visibility:hidden">搜索 天猫 商品/店铺&lt;/label>
-<input type="text" value=" @ViewData["skeyword"] " autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="keyword">
-<button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"> 搜索 &lt;s>&lt;/s> &lt;/button>
-<input type="hidden" name="vmarket" value="0" />
-<input type="hidden" name="cat" value="all" />
-<input type="hidden" name="type" value="p" />
-@*</div>*@
-&lt;fieldset&gt;
+<fieldset>
+<div class="btmSearch-input clearfix">
+<label class="btmSearch-mq-label" for="btm-mq" style="visibility: hidden; ">搜索 天猫 商品/店铺</label>
+<input type="text" value="@ViewData["skeyword"]" autocomplete="off" tabindex="9" accesskey="s" class="btmSearch-mq" id="btm-mq" data-bts="0" name="keyword">
+<button class="ui-btn-search-l" atpanel="3,bottomsearch,,,,20,searchbutton,"> 搜索 <s></s> </button>
+<input type="hidden" name="vmarket" value="0">
+ 
+                       
+<input type="hidden" name="cat" value="all">
+<input type="hidden" name="type" value="p">
+</div>
+</fieldset>
 </form>
 </div>
 </div><p class="relKeyRec relKeyRec-btm" data-spm="a220m.1000858.1000723" data-atp="{loc},{q},,,spu-key,5,key,">
  <span>您是不是想找</span>
-@*  @for (var index = 0; index < Model.merchantGoodsTypes.Count(); index++)
-                       {
-                           var item = Model.merchantGoodsTypes.ElementAt(index); 
-           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.GoodsType" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.GoodsType</a>
+              @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
+              {
+                  var item = Model.globalGoodsTypes.ElementAt(index); 
+           <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
-                       } *@
-             <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC">平底鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC">高跟鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC">豆豆鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC">松糕鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%C2%B8%FA%D0%AC">坡跟鞋</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE">鞋女2013新款</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1">鞋女韩版潮</a>
-               <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC">懒人鞋</a>
-     </p>
-</textarea>
+              }  
+                 </p>
 </div>
+</div>
+
 <p class="btmFeed">
 喵~在此反馈您的意见和建议吧，<a href="http://ur.taobao.com/survey/view.htm?id=187" target="_blank">立刻反馈</a>
 </p>
 </div>
-<script>
+@*<script>
     var __list_atpanel_param = 'rn=47b7f16145e0c52544ef258e078d200c&q=%D0%AC&bid=13&uid=秦剑挥剑天下&catid=2&prop=&sort=s&disp=g&filter=user_group:-0_1-0_2_0_3_3_3---1-2----|scroll:1440*774|client:1440*799|offset:1440*774|screen:1440*900&loc=&n=60&page=1&v=mall_1.0&vmarket=0&machineid=e1a199c0c1798ff309cb839b63e24242&tmalltrackid=nike.tmall.com&nav=&navlog=&rewq=%D0%AC&rewcatid=2&page_type=1&stats=qp:1|cat:1|cat-qp:1|brand:1|brand-qp:1|prop:1|prop-qp:1|key:1|pricemodel:auccount|pic:1|skuahead:1|querytype:32|screen:1440*900|newproduct:1|app:tmallsearch|defaultsearch:1&filter_new=sort:s|post_fee:0|support_cod:0|manyPoints:0|wwonline:0|miaosha:0|isCombo:0|vip:0|pic_detail:0|floc:0|fprice:0|tm_lq:0|tm_hot:0|tm_new:0|new:0|filter_mj:0&from=&active=0&wq=&suggest=&search_type=search&abtest=&std_query=%D0%AC&',
  __header_atpanel_param = 'bid=13&rn=47b7f16145e0c52544ef258e078d200c';
 </script>
-  
+  *@
 
 
 <script id="J_CoreJs" data-type="list" src="http://l.tbcdn.cn/apps/tmallsearch/1.0/??core.js,atp.js,rn.js,init.js?v=1.0&amp;t=2012102920130426"></script>

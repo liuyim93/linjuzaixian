@@ -26,6 +26,11 @@ namespace friday.core.repositories
             var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.TLevel == level && o.IsDelete == false).OrderBy(o=>o.EntityIndex).ToList();
             return gt;
         }
+        public IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword)
+        {
+            var m = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.Name.Contains(keyword) && o.IsDelete == false).ToList();
+            return m;
+        }
         public bool IsHaveChild(GlobalGoodsType globalGoodsType)
         {
             var isHaveChild = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == globalGoodsType.Id && o.IsDelete == false).Count() > 0 ? true : false;

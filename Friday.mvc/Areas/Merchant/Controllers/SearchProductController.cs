@@ -41,7 +41,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View();
         }
 
-        public ActionResult Index(string page,string keyword, string price1, string price2 )
+        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum)
         {
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -74,6 +74,26 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
 
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
+            //page 边界限定
+            if (!String.IsNullOrEmpty(page) && !String.IsNullOrEmpty(pagenum))
+            {
+                if (Convert.ToInt16(page) <= 1)
+                {
+                    currentPage = 1;
+                    page = "1";
+                }
+                else if (Convert.ToInt16(page) >= Convert.ToInt16(pagenum))  //pageCount即PageNum
+                {
+                    currentPage = Convert.ToInt16(pagenum);
+                    page = pagenum;
+                }
+              
+            }
+            else 
+            {
+                currentPage = 1;
+            }
+
             int numPerPageValue = 50;
             int total;
             int start = (currentPage - 1) * numPerPageValue;
@@ -100,9 +120,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                   searchProductModel.Merchants.Add(i.Shop);
                 }
             }
+
+            //商品推荐
+            IList<Commodity> recommendCommdties= iCommodityService.GetHotRecommendCommoditiesByKeyWord("");
+            searchProductModel.recommendComdties = recommendCommdties;
+
             //您是不是想找。。。
-            //IList<MerchantGoodsType> mehtGdsTpList = iMerchantGoodsTypeService.GetSimilarGoodsTypeListByKeyword(keyword);
-            //searchProductModel.merchantGoodsTypes = mehtGdsTpList;
+            IList<GlobalGoodsType> GdsTpList = iGlobalGoodsTypeService.GetSimilarGoodsTypeListInThirdLevelByKeyword(keyword);
+            searchProductModel.globalGoodsTypes = GdsTpList;
 
             searchProductModel.currentPage = currentPage;
             searchProductModel.pageNum = total / numPerPageValue + 1;
@@ -111,7 +136,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["skeyword"] = keyword;
             ViewData["sprice1"] = price1;
             ViewData["sprice2"] = price2;
-
+            ViewData["pagenum"] = total / numPerPageValue + 1;
 
             return View(searchProductModel);
         }

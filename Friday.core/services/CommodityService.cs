@@ -81,5 +81,9 @@ namespace friday.core.services
         {
             return iCommodityRepository.GetRecentCommodity(num);
         }
+        public IList<Commodity> GetHotRecommendCommoditiesByKeyWord(string keyword)
+        {
+            return iCommodityRepository.GetHotRecommendCommoditiesByKeyWord(keyword);
+        }
     }
 }

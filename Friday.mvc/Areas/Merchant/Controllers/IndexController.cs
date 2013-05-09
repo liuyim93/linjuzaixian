@@ -88,7 +88,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View("Index",merchantIndexModel);
         }
 
-        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId,string pagenum)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -130,11 +130,31 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             //merchantIndexModel.merchantGoodsTypes = merchant.MerchantGoodsTypes.ToList();
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
+            //page 边界限定
+            if (!String.IsNullOrEmpty(page) && !String.IsNullOrEmpty(pagenum))
+            {
+                if (Convert.ToInt16(page) <= 1)
+                {
+                    currentPage = 1;
+                    page = "1";
+                }
+                else if (Convert.ToInt16(page) >= Convert.ToInt16(pagenum))  //pageCount即PageNum
+                {
+                    currentPage = Convert.ToInt16(pagenum);
+                    page = pagenum;
+                }
+
+            }
+            else
+            {
+                currentPage = 1;
+            }
+
             int numPerPageValue = 20;
             int total;
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
-
+   
          
             //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             //{
