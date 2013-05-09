@@ -91,6 +91,13 @@ namespace friday.core
 
             set;
         }
+        //2013-05-09 basilwang 便捷属性
+        public virtual string GlobalGoodsTypeFamily
+        {
+            get;
+
+            set;
+        }
         public virtual decimal Amount
         {
             get;

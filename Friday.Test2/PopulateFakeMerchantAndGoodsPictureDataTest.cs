@@ -60,7 +60,9 @@ namespace Friday.Test2
                     Name = commodityName[i],
                     Image = "/uploadimage/c" + (i+1) + ".jpg",
                     Shop = mcht,
-                    GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士")
+                    GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士"),
+                    //2013-05-09 basilwang 增加family
+                    GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士").Family,
                 };
                 iCommodityRepository.SaveOrUpdate(commodity);
             }

@@ -36,7 +36,16 @@ namespace Friday.mvc.weblogin
                 BindingHelper.RequestToObject(dic);
                 dic.ParentID = (Request.Params["code"] == "" || Request.Params["code"] == null) ? null : Request.Params["code"];
                 dic.TLevel = Convert.ToInt32(TLevel.Value);
-
+                //2013-05-09 basilwang add family
+                if (dic.ParentID == string.Empty)
+                {
+                    dic.Family = "";
+                }
+                else
+                {
+                    GlobalGoodsType category = iGlobalGoodsTypeService.Load(dic.ParentID);
+                    dic.Family = category.Family.Trim() + category.Id + ",";
+                }
                 if (Leaff.SelectedIndex == 0)
                 {
                     dic.Leaf = true;
@@ -63,6 +72,7 @@ namespace Friday.mvc.weblogin
                 if (Request.Params["code"] == "" || Request.Params["code"] == null)
                 {
                     TLevel.Value = Convert.ToString(0);
+
                 }
 
                 else

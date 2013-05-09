@@ -27,7 +27,18 @@ namespace friday.core
         /// <summary>
         /// 节点深度
         /// </summary>
-        public virtual int TLevel { get; set; } 
+        public virtual int TLevel { get; set; }
+
+        /// <summary>
+        /// 2013-05-09 basilwang 增加family  例如字段值='1,101,10101'
+        /// </summary>
+        public virtual string Family
+        {
+            get;
+
+            set;
+
+        }
 
     }
 }

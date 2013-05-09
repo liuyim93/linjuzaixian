@@ -38,6 +38,8 @@ namespace friday.core.domain
 
             //References<MerchantGoodsType>(o => o.MerchantGoodsType).Not.Nullable();
             References<GlobalGoodsType>(o => o.GlobalGoodsType).Not.Nullable();
+            //2013-05-09 basilwang 增加GlobalGoodsTypeFamily
+            Map(o => o.GlobalGoodsTypeFamily).Default("").Not.Nullable();
             HasMany<Sku>(o => o.Skus).Inverse().Cascade.All();
 
             References<Shop>(o => o.Shop).Not.Nullable(); 

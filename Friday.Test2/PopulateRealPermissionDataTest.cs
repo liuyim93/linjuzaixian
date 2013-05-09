@@ -1293,6 +1293,8 @@ namespace Friday.Test2
                     TLevel = 0,
                     IsDelete = false,
                     Description = "1级目录",
+                    //2013-05-09 basilwnag add Family
+                    Family = "",
                     EntityIndex=i  //排序
                 };
               iGlobalGoodsTypeService.Save(fgt);
@@ -1307,6 +1309,8 @@ namespace Friday.Test2
                 GlobalGoodsType sgtn = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("国际品牌").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("国际品牌").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("国际品牌").Id + ",",
                     Name = SecdForNational[i],
                     Leaf = false,
                     TLevel = 1,
@@ -1323,6 +1327,8 @@ namespace Friday.Test2
                 GlobalGoodsType sgtc = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("服装/内衣/配件").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("服装/内衣/配件").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("服装/内衣/配件").Id + ",",                
                     Name = SecdForClothes[i],
                     Leaf = false,
                     TLevel = 1,
@@ -1339,6 +1345,8 @@ namespace Friday.Test2
                 GlobalGoodsType sgts = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("鞋/箱包").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("鞋/箱包").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("鞋/箱包").Id + ",",
                     Name = SecdForShoes[i],
                     Leaf = false,
                     TLevel = 1,
@@ -1355,6 +1363,9 @@ namespace Friday.Test2
                 GlobalGoodsType sgtj = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝饰品/手表眼镜").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝饰品/手表眼镜").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝饰品/手表眼镜").Id + ",",
+                    
                     Name = SecdForJewelry[i],
                     Leaf = false,
                     TLevel = 1,
@@ -1371,6 +1382,9 @@ namespace Friday.Test2
                 GlobalGoodsType sgtf = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("食品").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("食品").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("食品").Id + ",",
+                    
                     Name = SecdForFood[i],
                     Leaf = false,
                     TLevel = 1,
@@ -1389,6 +1403,9 @@ namespace Friday.Test2
                 GlobalGoodsType sgtm = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("化妆品/个人护理").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("化妆品/个人护理").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("化妆品/个人护理").Id + ",",
+                    
                     Name = SecdForMakeup[i],
                     Leaf = false,
                     TLevel = 1,
@@ -1407,6 +1424,9 @@ namespace Friday.Test2
                 GlobalGoodsType sgwc = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女装").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女装").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女装").Id + ",",
+                    
                     Name = ThrdForWomenClothes[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1422,6 +1442,9 @@ namespace Friday.Test2
                 GlobalGoodsType sgmc = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男装").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男装").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男装").Id + ",",
+                    
                     Name = ThrdForMenClothes[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1437,6 +1460,9 @@ namespace Friday.Test2
                 GlobalGoodsType sgwic = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("内衣").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("内衣").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("内衣").Id + ",",
+                    
                     Name = ThrdForWomenInCloh[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1452,6 +1478,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtco = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("针织衫").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("针织衫").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("针织衫").Id + ",",
+                    
                     Name = ThrdForClothesOrnament[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1468,6 +1497,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtwc = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女鞋").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女鞋").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女鞋").Id + ",",
+                    
                     Name = ThrdForWomenShoes[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1483,6 +1515,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtmc = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男鞋").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男鞋").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男鞋").Id + ",",
+                    
                     Name = ThrdForMenShoes[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1498,6 +1533,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtwb = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女包").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女包").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("女包").Id + ",",
+                    
                     Name = ThrdForWomenBag[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1513,6 +1551,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtmb = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男包").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男包").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("男包").Id + ",",
+                    
                     Name = ThrdForMenBag[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1530,6 +1571,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtjw = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝/黄金").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝/黄金").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("珠宝/黄金").Id + ",",
+                    
                     Name = ThrdForJawlery[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1545,6 +1589,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtsg= new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("太阳镜").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("太阳镜").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("太阳镜").Id + ",",
+                    
                     Name = ThrdForSunGlass[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1560,6 +1607,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtdt = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("饰品").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("饰品").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("饰品").Id + ",",
+                    
                     Name = ThrdForDecoration[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1575,6 +1625,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtw = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("手表").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("手表").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("手表").Id + ",",
+                    
                     Name = ThrdForWatch[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1591,6 +1644,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtd = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("酒水").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("酒水").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("酒水").Id + ",",
+                    
                     Name = ThrdForDrinks[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1606,6 +1662,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgttea = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("茶叶").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("茶叶").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("茶叶").Id + ",",
+                    
                     Name = ThrdForTea[i],
                     Leaf = false,
                     TLevel = 2,
@@ -1621,6 +1680,9 @@ namespace Friday.Test2
                 GlobalGoodsType tgtsx = new GlobalGoodsType()
                 {
                     ParentID = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("生鲜").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("生鲜").Family.Trim() + iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("生鲜").Id + ",",
+                   
                     Name = ThrdForShengXian[i],
                     Leaf = false,
                     TLevel = 2,
@@ -2913,6 +2975,8 @@ namespace Friday.Test2
                     IsDiscount = false,
                     InventoryCount = 100,
                     GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("白酒"),
+                    //2013-05-09 basilwang 增加family
+                    GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("白酒").Family,
                     Shop= shop1,
                     Amount=100,
                     AverageValuing=4,
@@ -2937,6 +3001,8 @@ namespace Friday.Test2
                     InventoryCount = 200,
                     DiscountInventoryCount = 100,
                     GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("蔬菜"),
+                    //2013-05-09 basilwang 增加family
+                    GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("蔬菜").Family,
                     DiscountPrice = 10,
                     Shop= shop1,
                     IsLimited = true,
@@ -3100,6 +3166,8 @@ namespace Friday.Test2
                IsDiscount = false,
                InventoryCount = 100,
                GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("戒指"),
+               //2013-05-09 basilwang 增加family
+               GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("戒指").Family,
                Shop= shop2,
                Amount = 100,
                AverageValuing = 4,
@@ -3123,6 +3191,8 @@ namespace Friday.Test2
                InventoryCount = 200,
                DiscountInventoryCount = 100,
                GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("铁观音"),
+               //2013-05-09 basilwang 增加family
+               GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("铁观音").Family,
                DiscountPrice = 10,
                Shop= shop2,
                IsLimited = true,

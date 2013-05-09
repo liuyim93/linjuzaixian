@@ -160,6 +160,8 @@ namespace friday.coretest
                     IsDiscount = false,
                     //InventoryCount = 100,
                     GlobalGoodsType = globalGoodsTyperep.GetGlobalGoodsTypeByName("连衣裙"),
+                    //2013-05-09 basilwang 增加family
+                    GlobalGoodsTypeFamily = globalGoodsTyperep.GetGlobalGoodsTypeByName("连衣裙").Family,
                     Shop = shop,
                     InventoryCount=i*20+50,
                     ValuingCount = i*5+5,

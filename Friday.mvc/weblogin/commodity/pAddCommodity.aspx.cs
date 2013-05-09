@@ -70,7 +70,8 @@ namespace Friday.mvc.weblogin
             Shop shop = iShopService.Load(mid);
             f.Shop = shop;
             f.GlobalGoodsType = iGlobalGoodsTypeService.Load(GoodsTypeID.Value);
-
+            //2013-05-09 basilwang 增加family
+            f.GlobalGoodsTypeFamily = f.GlobalGoodsType.Family;
             iCommodityService.Save(f);
 
             AjaxResult result = new AjaxResult();

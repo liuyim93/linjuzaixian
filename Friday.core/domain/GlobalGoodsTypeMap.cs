@@ -23,6 +23,8 @@ namespace friday.core.domain
             Map(o => o.Name);
             Map(o => o.Leaf);
             Map(o => o.Description);
+            //2013-05-09 basilwang 增加Family
+            Map(o => o.Family).Default("").Not.Nullable();
         }
     }
 }
