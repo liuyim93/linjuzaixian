@@ -41,7 +41,11 @@ namespace Friday.mvc.Controllers
             mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
             mainModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
             mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
-            
+            for (int i = 0; i < mainModel.GlobalGoodsTypeTlevelZero.Count; i++)
+            {
+                var goodsType=mainModel.GlobalGoodsTypeTlevelZero.ElementAt(i);
+                mainModel.CommoditiesSearchByGoodsType.Add(this.iCommodityRepository.GetCommodityByGoodsType(goodsType.Id));
+            }
             long total;
             mainModel.Shops = this.iShopRepository.GetPageList(0, 15,out total);
             //mainModel.Rents = this.iRentRepository.GetPageList(0, 15, out total);

@@ -69,6 +69,19 @@ namespace friday.core.repositories
             return s;        
             
         }
+        /// <summary>
+        /// 2013-05-09 basilwang 得到同一级父类下的商品
+        /// </summary>
+        /// <param name="goodsTypeId"></param>
+        /// <returns></returns>
+        public List<Commodity> GetCommodityByGoodsType(string goodsTypeId)
+        {
+            var s = (from x in this.Session.Query<Commodity>()
+                     where x.IsDelete == false && goodsTypeId.IndexOf(x.GlobalGoodsTypeFamily)!=-1
+                     select x                
+                    ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
+            return s;
+        }
         //对外获取方法
         public IList<Commodity> Search(List<DataFilter> termList)
         {

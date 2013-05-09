@@ -128,31 +128,44 @@
 </script>
 </textarea>
 </div>*@
-<div class="floor-loading" id="floorLink2">
+@for (var goodsTypeId = 0; goodsTypeId < Model.GlobalGoodsTypeTlevelZero.Count; goodsTypeId++)
+{
+    var goodsType = Model.GlobalGoodsTypeTlevelZero.ElementAt(goodsTypeId);
+<div class="floor-loading" id="floorLink@(goodsTypeId+1)">
     <textarea class="floor-area ks-datalazyload">
     <div>
-        <div class="floor" id="floor2" data-spm="3.359253.295827">
+        <div class="floor" id="floor@(goodsTypeId+1)" data-spm="3.359253.295827">
             <h2>
-                2F 商铺<s></s></h2>
+                @goodsType.Name</h2>
             <div class="floorTop">
                 <ul class="floorTop-nav">
-                    @for (var index = 0; index < (Model.MerchantShopCategories.Count() > 10 ? 10 : Model.MerchantShopCategories.Count()); index++)
+                     @for (int index = 0; index < Model.GlobalGoodsTypeTlevelFirst.Count(); index++)
+                     {
+                         var item = Model.GlobalGoodsTypeTlevelFirst.ElementAt(index);
+                         if (item.ParentID == goodsType.Id)
+                         {
+                            <li><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
+                                 target="_blank">@item.Name</a></li>
+                         }
+
+                     }
+@*                    @for (var index = 0; index < (Model.MerchantShopCategories.Count() > 10 ? 10 : Model.MerchantShopCategories.Count()); index++)
                     {
                         var item = Model.MerchantShopCategories.ElementAt(index);
                         <li><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
                         target="_blank">@item.MerchantCategoryName</a></li>
-                    }
+                    }*@
                 </ul>
             </div>
             <div class="floorCon clearfix">
                 <div class="floorCon-logo j_aldLogo">
                     <ul class="fCl-slide">
                         @{
-                            var count = Model.Shops.Count();
-                            var num_per_page = 5;
-                            var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
-                            for (var page_index = 0; page_index < page_num; page_index++)
-                            {
+                    var count = Model.Shops.Count();
+                    var num_per_page = 5;
+                    var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
+                    for (var page_index = 0; page_index < page_num; page_index++)
+                    {
                             <li style="display: block; float: left;">
                                 @for (var item_index = page_index * num_per_page; item_index < (page_index + 1) * num_per_page; item_index++)
                                 {
@@ -163,14 +176,14 @@
                             
                                 }
                             </li>
-                            }
+                    }
                           
                         }
                     </ul>
                     <ul class="fCl-nav ui-slide-nav-mini">
                         @{
-                            for (var i = 0; i < page_num; i++)
-                            {
+                    for (var i = 0; i < page_num; i++)
+                    {
                             @:<li>•</li>
                             }
                             
@@ -216,11 +229,13 @@
     </div>
     <script>
         KISSY.use('2012/mods/floor', function (S, F) {
-            new F('#floor2')
+            new F('#floor@(goodsTypeId + 1)')
         })
 </script>
  </textarea>
 </div>
+    
+}
 @*<div class="floor-loading" id="floorLink3">
     <textarea class="floor-area ks-datalazyload">
     <div>

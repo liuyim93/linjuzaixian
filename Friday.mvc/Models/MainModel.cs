@@ -11,12 +11,12 @@ namespace Friday.mvc.Models
     {
         public MainModel()
         {
-            GlobalGoodsType GlobalGoodsType = new GlobalGoodsType();
+            this.GlobalGoodsType = new GlobalGoodsType();
 
-            IList<GlobalGoodsType> GlobalGoodsTypes = new List<GlobalGoodsType>();
-            IList<GlobalGoodsType> GlobalGoodsTypeTlevelZero = new List<GlobalGoodsType>();
-            IList<GlobalGoodsType> GlobalGoodsTypeTlevelFirst = new List<GlobalGoodsType>();
-       
+            this.GlobalGoodsTypes = new List<GlobalGoodsType>();
+            this.GlobalGoodsTypeTlevelZero = new List<GlobalGoodsType>();
+            this.GlobalGoodsTypeTlevelFirst = new List<GlobalGoodsType>();
+            this.CommoditiesSearchByGoodsType = new List<List<Commodity>>();
          }
 
         public GlobalGoodsType GlobalGoodsType { get; set; }
@@ -36,6 +36,8 @@ namespace Friday.mvc.Models
         //public IEnumerable<Food> Foods { get; set; }
         //public IEnumerable<House> Houses { get; set; }
         public IEnumerable<Commodity> Commoditys { get; set; }
+
+        public IList<List<Commodity>> CommoditiesSearchByGoodsType { get; set; }
              
     }
 }
