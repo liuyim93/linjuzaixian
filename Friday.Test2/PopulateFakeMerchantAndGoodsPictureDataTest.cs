@@ -8,6 +8,7 @@ using friday.core.domain;
 using friday.core.repositories;
 using friday.core;
 using System.IO;
+using friday.core.EnumType;
 
 namespace Friday.Test2
 {
@@ -31,40 +32,38 @@ namespace Friday.Test2
             //IList<Food> iFoods = new List<Food>();
             //IList<House> iHouses = new List<House>();
             IList<Merchant> iMerchants = new List<Merchant>();
-            string[] mctName = { "山东大厦", "南郊宾馆", "东郊宾馆", "中豪大酒店", "贵和皇冠酒店", "银座泉城酒店", "金马丽晶大酒店", "大润发", "银座商城", "沃尔玛", "全聚德", "安泰置业", "润华置业", "明德置业", "金汉斯", "苏宁","国美" };
-            string[] commodityName = { "T恤热卖29元起","短袖","T恤","衬衫","POLO衫","休闲短裤","牛仔短裤","亚麻裤","夏季背心","薄针织衫","休闲长裤","牛仔长裤","卫衣","西装","夹克风衣","西裤","西服套装","大码男装","中老年男装","设计潮牌" };
+            string[] mctName = { "沃尔玛", "翠峰苑火锅", "家乐福", "小肥羊火锅", "统一银座", "天外村酒店", "大润发", "金山林快餐店", "贵和商厦", "顺风肥牛快餐", "国美商城", "全聚德烤鸭店", "苏宁购物", "便民超市", "金汉斯自助餐", "京东商厦", "加州牛肉面" };
+            string[] commodityName = { "T恤热卖29元起","牛肉盒饭","短袖","烤全羊","T恤","土豆丝","衬衫","韭菜水饺","POLO衫","牛肉火锅","休闲短裤","北京烤鸭","海尔冰箱","苹果","巴西烤肉","薄针织衫","大碗牛肉面","牛仔长裤","卫衣","西装","夹克风衣","西裤","西服套装","大码男装","中老年男装","设计潮牌" };
             //string[] houseName = { "旋转楼梯", "总统套房", "花园别墅", "休闲卧室", "温馨餐厅", "淡雅书房", "绿色阳台"};
             //string[] foodName = { "茶叶", "蛋糕", "减肥茶", "红酒", "营养品", "花生油", "奶粉" };
 
-
-            for (int i = 0; i < 13; i++)
+            for (int j = 0; j<3; j++)
             {
-                Shop mcht = new Shop()
+                for (int i = 0; i < 13; i++)
                 {
-                    Name = mctName[i],
-                    Logo = "/uploadimage/l" + i + ".png",
-                    sBrand = "/uploadimage/s" + i + ".jpg",
-                    bBrand = "/uploadimage/b" + i + ".jpg"
-                };
-                iMerchants.Add(mcht);
-                iMerchantRepository.SaveOrUpdate(mcht);
 
-                //GlobalGoodsType globalGoodsType = new friday.core.domain.GlobalGoodsType()
-                //{
-                //     GoodsType = "商品"
-                //};
-                //iGlobalGoodsTypeRepository.SaveOrUpdate(globalGoodsType);
+                    Shop mcht = new Shop()
+                    {
+                        Name =mctName[i]+":"+j+i,
+                        Logo = "/uploadimage/l" + i + ".png",
+                        sBrand = "/uploadimage/s" + i + ".jpg",
+                        bBrand = "/uploadimage/b" + i + ".jpg",
+                        MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆)
+                    };
+                    iMerchants.Add(mcht);
+                    iMerchantRepository.SaveOrUpdate(mcht);
 
-                Commodity commodity = new Commodity()
-                {
-                    Name = commodityName[i],
-                    Image = "/uploadimage/c" + (i+1) + ".jpg",
-                    Shop = mcht,
-                    GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士")
-                };
-                iCommodityRepository.SaveOrUpdate(commodity);
+                    Commodity commodity = new Commodity()
+                    {
+                        Name = commodityName[i],
+                        Image = "/uploadimage/c" + (i + 1) + ".jpg",
+
+                        Shop = mcht,
+                        GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("针织衫男士")
+                    };
+                    iCommodityRepository.SaveOrUpdate(commodity);
+                }
             }
-
             //for (int i = 0 ; i < 13; i++)
             //{
             //    Rent mcht = new Rent()
