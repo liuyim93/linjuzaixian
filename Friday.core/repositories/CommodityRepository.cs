@@ -20,6 +20,18 @@ namespace friday.core.repositories
             get { return Session.CreateCriteria(typeof(Commodity)); }
         }
 
+        public IList<Commodity> GetHotCommodity(int num)
+        {
+            var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.IsDelete == false).OrderByDescending(o => o.CreateTime).Take(num).ToList();
+            return s;
+        }
+
+        public IList<Commodity> GetRecentCommodity(int num)
+        {
+            var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Take(num).ToList();
+            return s;
+        }
+
         public IList<Commodity> GetCommodityByShopIDOrderByMonthAmountDesc(string shopID)
         {
             var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Shop.Id == shopID).OrderByDescending(o=>o.MonthAmount).Take(12).ToList();

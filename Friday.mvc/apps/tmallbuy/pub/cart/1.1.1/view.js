@@ -84,7 +84,7 @@ KISSY.add("cart/view", function (D, V, Y, B) {
                     a += '<td rowspan="' + c.bigRowSpan + '" class="m-col-operate"><p><a title="\u5220\u9664" data-job="delCombo" class="m-delCombo" href="#delCombo">\u5220\u9664\u5957\u9910</a></p></td>'
                 }
             } else {
-                a += '<td rowspan="' + (k ? "2" : "1") + '" class="m-col-operate"><p><a title="\u79fb\u81f3\u6536\u85cf\u5939" data-job="fav" class="m-fav" href="#fav">\u6536\u85cf</a></p><p><a title="\u5220\u9664" data-job="del" class="m-del" href="#del">\u5220\u9664</a></p></td>'
+                a += '<td rowspan="' + (k ? "2" : "1") + '" class="m-col-operate"><p><a title="\u79fb\u81f3\u6536\u85cf\u5939" data-job="fav" class="m-fav" href="#fav">\u6536\u85CF\u5E97\u94FA</a></p><p><a title="\u5220\u9664" data-job="del" class="m-del" href="#del">\u5220\u9664</a></p></td>'
             }
             a += "</tr>";
             a += k;
