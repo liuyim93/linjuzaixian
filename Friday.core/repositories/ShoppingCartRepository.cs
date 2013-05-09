@@ -22,6 +22,12 @@ namespace friday.core.repositories
             return m;
         }
 
+        public ShoppingCart getShoppingCartBySystemUserAndMerchant(string SystemUserID,string MerchantID)
+        {
+            var m = (from x in this.Session.Query<ShoppingCart>() select x).Where(o => o.SystemUser.Id == SystemUserID && o.Shop.Id == MerchantID && o.IsDelete == false).SingleOrDefault();
+            return m;
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(ShoppingCart)); }

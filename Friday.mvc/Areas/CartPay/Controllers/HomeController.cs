@@ -24,8 +24,9 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         private ICartOfCommodityService iCartOfCommodityService;
         private ICommodityService iCommodityService;
         private IMyFavoriteService iMyFavoriteService;
+        private ISkuService iSkuService;
 
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService)
+        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, ISkuService iSkuService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
@@ -33,10 +34,38 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             this.iCartOfCommodityService = iCartOfCommodityService;
             this.iCommodityService = iCommodityService;
             this.iMyFavoriteService = iMyFavoriteService;
+            this.iSkuService = iSkuService;
         }
 
-        public ActionResult MyCartPay()
+        public ActionResult MyCartPay(string item_id, string skuId, string quantity, string from)
         {
+            //if (from == "item_detail")
+            //{
+            //    SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            //    friday.core.CartOfCommodity cartOfCommodity = new friday.core.CartOfCommodity();
+            //    friday.core.Commodity commodity = iCommodityService.Load(item_id);
+            //    friday.core.domain.Sku sku = iSkuService.getSkubyIntID(skuId);
+            //    ShoppingCart shoppingCart = iShoppingCartService.getShoppingCartBySystemUserAndMerchant(systemUser.Id, commodity.Shop.Id);
+
+            //    if (shoppingCart == null)
+            //    {
+            //        shoppingCart = new ShoppingCart()
+            //        {
+            //            SystemUser = systemUser,
+            //            Shop = commodity.Shop,
+            //            Price = Convert.ToInt16(quantity) * commodity.Price
+            //        };
+            //        iShoppingCartService.Save(shoppingCart);
+            //    }
+
+            //    cartOfCommodity.Amount = Convert.ToInt16(quantity);
+            //    cartOfCommodity.Sku = sku;
+            //    cartOfCommodity.Commodity = commodity;
+            //    cartOfCommodity.Price = Convert.ToInt16(quantity) * commodity.Price;
+            //    cartOfCommodity.ShoppingCart = shoppingCart;
+
+            //    iCartOfCommodityService.Save(cartOfCommodity);
+            //}
             return View();
         }
 
