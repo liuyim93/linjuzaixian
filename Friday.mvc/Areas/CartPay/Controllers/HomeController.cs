@@ -425,6 +425,11 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                 else
                 {
                     cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartItem.cartId, false);
+                    friday.core.CartOfCommodity deletedCartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartItem.cartId, true);
+                    if (deletedCartOfCommodity != null)
+                    {
+                        iCartOfCommodityService.PhysicsDelete(deletedCartOfCommodity.Id);
+                    }
                     iCartOfCommodityService.Delete(cartOfCommodity.Id);
                 }
             }
