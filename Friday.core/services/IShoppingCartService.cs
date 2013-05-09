@@ -14,5 +14,7 @@ namespace friday.core.services
         void Update(ShoppingCart ShoppingCart);
         void Delete(string id);
         List<ShoppingCart> getShoppingCartBySystemUser(string SystemUserID);
+        ShoppingCart getShoppingCartBySystemUserAndMerchant(string SystemUserID, string MerchantID);
+
     }
 }

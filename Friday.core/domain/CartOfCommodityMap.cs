@@ -19,6 +19,7 @@ namespace friday.core.domain
             Map(o => o.Amount);
             References<ShoppingCart>(o => o.ShoppingCart).Not.Nullable();
             References<Commodity>(o => o.Commodity).Not.Nullable();
+            References<Sku>(o => o.Sku).Not.Nullable();
         }
 
     }

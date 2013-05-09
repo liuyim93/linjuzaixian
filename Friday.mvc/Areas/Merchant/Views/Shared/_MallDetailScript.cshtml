@@ -29,10 +29,19 @@
 
         TShop.Setup({
             rstShopId: 71955116,
-            valLoginIndicator: "http:\/\/buy.taobao.com\/auction\/buy.htm?from=itemDetail&x_id=&item_id=16246683095&id=16246683095",
+            @{
+            <text>
+            valLoginIndicator: "http:\/\/buy.taobao.com\/auction\/buy.htm?from=itemDetail&x_id=&item_id=@Model.Commodity.Id&id=@Model.Commodity.Id",
+            </text>
+            }
             renderSystemServer: 'http://render.taobao.com',
             valMode: 128,
-            "valCartInfo": { "itemId": "16246683095", "dbNum": "", "cartUrl": "http:\/\/cart.taobao.com\/my_cart.htm?from=bdetail", "statsUrl": "http://www.atpanel.com/1.gif?category=cart_{loc}_50022890" },
+            @{
+            <text>
+            "valCartInfo": { "itemId": "@Model.Commodity.Id", "dbNum": "", "cartUrl": "http:\/\/cart.taobao.com\/my_cart.htm?from=bdetail", "statsUrl": "http://www.atpanel.com/1.gif?category=cart_{loc}_50022890" },
+            </text>
+            }
+            
             "apiBidCount": "http:\/\/tbskip.taobao.com\/json\/show_bid_count.htm?itemNumId=16246683095&old_quantity=66&date=1362931720000",
             "apiAddCart": "http:\/\/cart.taobao.com\/add_cart_item.htm?item_id=16246683095",
             "valPointRate": "0.5",
@@ -79,7 +88,7 @@
 
             "itemDO": {
                 'categoryId': '50022890',
-                'itemId': '16246683095',
+                'itemId': '@Model.Commodity.Id',
                 'isBidden': false,
                 'isInRepository': false,
                 'auctionType': 'b',
