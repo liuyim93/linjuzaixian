@@ -2395,6 +2395,7 @@
     <Content Include="Areas\CartPay\Views\Web.config" />
     <Content Include="Areas\CartPay\Views\Home\MyCartPay.cshtml" />
     <Content Include="Areas\Account\Views\Home\XCrossIframe.cshtml" />
+    <Content Include="Areas\Category\Views\Home\brand_cat_asyn.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />

@@ -40,8 +40,8 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
             new _brandcategory("#J_MallNavCon", {
                 viewId: "#J_BrandCategory",
                 subViews: ".j_SubView",
-                triggers: "li",
-                dataUrl: "http://" + location.host + "/category/home/brand_cate_asyn"
+                triggers: "li.slideDown",
+                dataUrl: "http://" + location.host + "/category/home/brand_cat_asyn"
             });
             this._bindViewChange();
             MFP.POC.add("main")

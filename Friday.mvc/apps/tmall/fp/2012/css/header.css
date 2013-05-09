@@ -30,11 +30,14 @@ button::-moz-focus-inner{border:0;padding:0;margin:0;}
 #mallNav{min-width:990px;height:30px;font-size:14px;background: #0061a2 repeat-x;}
 .mallNav-main{float:left;display:inline;width:auto;height:30px;margin-left:240px;}
 .mallNav-others{float:right;}
-#mallNav li{float:left;text-align:center;height:30px;line-height:30px;background:url(/images/nav_li_shadow_effect.gif) no-repeat right center;position:relative;}
-#mallNav a,#mallNav span{display:block;_float:left;text-align:center;color:#fff;padding:0 17px 0 15px;height:30px;line-height:30px;}
+#mallNav li.nav{float:left;text-align:center;height:30px;line-height:30px;background:url(/images/nav_li_shadow_effect.gif) no-repeat right center;position:relative;}
+/*#mallNav a,#mallNav span{display:block;_float:left;text-align:center;color:#fff;padding:0 17px 0 15px;height:30px;line-height:30px;}
 #mallNav a:hover{margin-left:-2px;padding-left:17px;background-color: #00538c;position:relative;z-index:10;text-decoration:none;}
+*/
+#mallNav a.navA,#mallNav span.item{display:block;_float:left;text-align:center;color:#fff;padding:0 17px 0 15px;height:30px;line-height:30px;}
+#mallNav a.navA:hover{margin-left:-2px;padding-left:17px;background-color: #00538c;position:relative;z-index:10;text-decoration:none;}
 #mallNav .mallNav-con .curChn{background:#00477e;color:#b10000;z-index:12;}
-#mallNav .curChn a,#mallNav span{border-left:none;}
+#mallNav .curChn a,#mallNav span.item{border-left:none;}
 #mallNav .mallNav-main .mallNav-first{height:24px;line-height:24px;margin-top:3px;}
 #mallNav .mallNav-main .mallNav-first span{height:24px;line-height:24px;}
 #mallNav .mallNav-last{border-right:none;background:none;}
