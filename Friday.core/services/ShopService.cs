@@ -6,6 +6,7 @@ using friday.core.utils;
 using friday.core.repositories;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.EnumType;
 
 namespace friday.core.services
 {
@@ -59,7 +60,11 @@ namespace friday.core.services
         {
             return iShopRepository.GetAll();
         }
-
+        public IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP)
+        {
+            return iShopRepository.GetShopsByMerchantType(mTP);
+        }
+        
 
     }
 }

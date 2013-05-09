@@ -7,16 +7,20 @@ using Friday.mvc.Areas.Category.Models;
 using Friday.mvc.Controllers;
 using friday.core.services;
 using friday.core.repositories;
+using friday.core.domain;
+using friday.core.EnumType;
 
 namespace Friday.mvc.Areas.Category.Controllers
 {
     public class HomeController : FridayController
     {
         IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository;
-        public HomeController(IUserService iUserService, ISystemUserRepository iSystemUserRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository)
+        IShopRepository iShopRepository;
+        public HomeController(IShopRepository iShopRepository, IUserService iUserService, ISystemUserRepository iSystemUserRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository)
             : base(iUserService, iSystemUserRepository)
         {
             this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
+            this.iShopRepository = iShopRepository;
 
         } 
         public ActionResult all_cat_asyn()
@@ -32,15 +36,16 @@ namespace Friday.mvc.Areas.Category.Controllers
         }
         public ActionResult brand_cat_asyn()
         {
-            //CategoryModel categoryModel = new CategoryModel();
-            ////mainModel.MerchantRentCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.租房);
-            ////mainModel.MerchantRestaurantCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
-            //categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
-            //categoryModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
-            //categoryModel.GlobalGoodsTypeTlevelSecond = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(2);
+            CategoryModel categoryModel = new CategoryModel();
 
-            //return View(categoryModel);
-            return View();
+            IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货);
+            categoryModel.shopModes = shopModesList;
+
+
+            IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆);
+            categoryModel.orderFoodModes = foodOrderModesList;
+
+            return View(categoryModel);
         }
         public ActionResult cat_nav_asyn(string callback)
         {

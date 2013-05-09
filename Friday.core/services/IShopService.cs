@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using friday.core.components;
 using friday.core.domain;
+using friday.core.EnumType;
 
 namespace friday.core.services
 {
@@ -17,5 +18,6 @@ namespace friday.core.services
         IList<Shop> Search(List<DataFilter> termList);
         IList<Shop> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<Shop> GetAll();
+        IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP);
     }
 }
