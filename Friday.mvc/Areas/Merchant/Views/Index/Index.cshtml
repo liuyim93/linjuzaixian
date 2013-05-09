@@ -620,9 +620,9 @@ background-position:left 0;
                 {
                     i = p + Model.currentPage;
 
-                    if (p != Model.currentPage)
+                    if (i != Model.currentPage)
                     {
-                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&scid=@ViewData["sscid"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
+                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/index?page=@i&scid=@ViewData["sscid"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
          
                     }
                     else
