@@ -42,7 +42,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             if (from == "item_detail")
             {
                 SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
-                friday.core.CartOfCommodity cartOfCommodity = new friday.core.CartOfCommodity();
+                friday.core.CartOfCommodity cartOfCommodity = null;
                 friday.core.Commodity commodity = iCommodityService.Load(item_id);
                 friday.core.domain.Sku sku = iSkuService.getSkubyIntID(skuId);
                 ShoppingCart shoppingCart = iShoppingCartService.getShoppingCartBySystemUserAndMerchant(systemUser.Id, commodity.Shop.Id);
@@ -56,13 +56,32 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                         Price = Convert.ToInt16(quantity) * commodity.Price
                     };
                     iShoppingCartService.Save(shoppingCart);
-                }
 
-                cartOfCommodity.Amount = Convert.ToInt16(quantity);
-                cartOfCommodity.Sku = sku;
-                cartOfCommodity.Commodity = commodity;
-                cartOfCommodity.Price = Convert.ToInt16(quantity) * commodity.Price;
-                cartOfCommodity.ShoppingCart = shoppingCart;
+                    cartOfCommodity = new friday.core.CartOfCommodity();
+                    cartOfCommodity.Amount = Convert.ToInt16(quantity);
+                    cartOfCommodity.Sku = sku;
+                    cartOfCommodity.Commodity = commodity;
+                    cartOfCommodity.Price = Convert.ToInt16(quantity) * commodity.Price;
+                    cartOfCommodity.ShoppingCart = shoppingCart;
+                }
+                else
+                {
+                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, skuId, false);
+                    if (cartOfCommodity == null)
+                    {
+                        cartOfCommodity = new friday.core.CartOfCommodity();
+                        cartOfCommodity.Amount = Convert.ToInt16(quantity);
+                        cartOfCommodity.Sku = sku;
+                        cartOfCommodity.Commodity = commodity;
+                        cartOfCommodity.Price = Convert.ToInt16(quantity) * commodity.Price;
+                        cartOfCommodity.ShoppingCart = shoppingCart;
+                    }
+                    else
+                    {
+                        cartOfCommodity.Amount = cartOfCommodity.Amount + Convert.ToInt16(quantity);
+                        cartOfCommodity.Price = cartOfCommodity.Amount * commodity.Price;
+                    }
+                }
 
                 iCartOfCommodityService.Save(cartOfCommodity);
             }
@@ -178,7 +197,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                         id = merchantNum+"_"+commodityNum,
                         itemId = cartOfCommodity.Commodity.Id,
                         skuId = 41878380917,
-                        cartId = cartOfCommodity.Commodity.Id,
+                        cartId = cartOfCommodity.Sku.skuId.ToString(),
                         isValid = true,
                         url = "http://localhost:7525/merchant/detail/index?brandid=" + cartOfCommodity.Commodity.Id,
                         pic = cartOfCommodity.Commodity.Image,
@@ -240,7 +259,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             updateListItem.orders = new List<UpdateOrderItem>();
             foreach (CartItem cartItem in cartItems)
             {
-                cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId, false);
+                cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartItem.cartId, false);
 
                 price price = new Models.price()
                 {
@@ -373,15 +392,15 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             friday.core.CartOfCommodity cartOfCommodity;
 
-            string operateCommodityID = formData.FirstOrDefault().operate.FirstOrDefault();
+            string operateSkuID = formData.FirstOrDefault().operate.FirstOrDefault();
             UpdateListItem updateListItem = new UpdateListItem();
             updateListItem.orders = new List<UpdateOrderItem>();
 
             foreach (CartItem cartItem in cartItems)
             {
-                if (cartItem.cartId != operateCommodityID)
+                if (cartItem.cartId != operateSkuID)
                 {
-                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId, false);
+                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartItem.cartId, false);
 
                     price price = new Models.price()
                     {
@@ -405,7 +424,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                 }
                 else
                 {
-                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cartItem.cartId, false);
+                    cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartItem.cartId, false);
                     iCartOfCommodityService.Delete(cartOfCommodity.Id);
                 }
             }
@@ -448,7 +467,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         {
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             friday.core.CartOfCommodity cartOfCommodity;
-            cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndCommodityID(systemUser.Id, cart_ids, true);
+            cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cart_ids, true);
 
             int amount = cartOfCommodity.Amount;
 
