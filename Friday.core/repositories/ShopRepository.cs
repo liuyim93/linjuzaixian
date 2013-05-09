@@ -21,6 +21,11 @@ namespace friday.core.repositories
             var m = (from x in this.Session.Query<Shop>() select x).Where(o => o.ShortName == name && o.IsDelete == false).SingleOrDefault();
             return m;
         }
+        public IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP)
+        {
+            var m = (from x in this.Session.Query<Shop>() select x).Where(o => o.MerchantType == mTP && o.IsDelete == false).ToList<Shop>();
+            return m;
+        }
 
         protected virtual ICriteria Query
         {

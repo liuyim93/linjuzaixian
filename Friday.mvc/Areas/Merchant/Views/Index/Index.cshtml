@@ -184,7 +184,7 @@ background-position:left 0;
                     <div id="shop-info">
                         <div class="main-info">
                             <h3 class="shop-title">
-                                <a target="_blank" href="http://nike.tmall.com/">@m.Name 官方旗舰店</a>
+                                <a target="_blank" href="http://localhost:7525/merchant/index?scid=@m.Id">@m.Name 官方旗舰店</a>
                             </h3>
                             <p class="shop-status">
                                 <a class="i" target="_blank" href="http://www.tmall.com/go/chn/mall2010/promise.php#PPZX">
@@ -620,9 +620,9 @@ background-position:left 0;
                 {
                     i = p + Model.currentPage;
 
-                    if (p != Model.currentPage)
+                    if (i != Model.currentPage)
                     {
-                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&scid=@ViewData["sscid"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
+                         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/index?page=@i&scid=@ViewData["sscid"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum"> @i</a>
          
                     }
                     else

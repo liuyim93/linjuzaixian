@@ -14,10 +14,19 @@ namespace Friday.mvc.Areas.Category.Models
             IList<GlobalGoodsType> GlobalGoodsTypeTlevelZero = new List<GlobalGoodsType>();
             IList<GlobalGoodsType> GlobalGoodsTypeTlevelFirst = new List<GlobalGoodsType>();
             IList<GlobalGoodsType> GlobalGoodsTypeTlevelSecond = new List<GlobalGoodsType>();
+
+
+            IList<Shop> shopModes = new List<Shop>();
+            IList<Shop> orderFoodModes = new List<Shop>();
+
+
          }
         public IList<GlobalGoodsType> GlobalGoodsTypeTlevelZero { get; set; }
         public IList<GlobalGoodsType> GlobalGoodsTypeTlevelFirst { get; set; }
         public IList<GlobalGoodsType> GlobalGoodsTypeTlevelSecond { get; set; }
+
+        public IList<Shop> shopModes { get; set; }
+        public IList<Shop> orderFoodModes { get; set; }
              
     }
 }
