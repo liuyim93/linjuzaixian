@@ -102,7 +102,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
 
             //商品推荐
-            IList<Commodity> recommendCommdties= iCommodityService.GetHotRecommendCommoditiesByKeyWord(keyword);
+            IList<Commodity> recommendCommdties= iCommodityService.GetHotRecommendCommoditiesByKeyWord("");
             searchProductModel.recommendComdties = recommendCommdties;
 
             //您是不是想找。。。

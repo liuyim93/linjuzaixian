@@ -790,18 +790,13 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
            <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
                        } 
-                  @* <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%BD%B5%D7%D0%AC" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">平底鞋</a>
-           <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B8%DF%B8%FA%D0%AC" atpanel="2,%B8%DF%B8%FA%D0%AC,,,spu-key,5,key,">高跟鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%B6%B9%B6%B9%D0%AC" atpanel="3,%B6%B9%B6%B9%D0%AC,,,spu-key,5,key,">豆豆鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%CB%C9%B8%E2%D0%AC" atpanel="4,%CB%C9%B8%E2%D0%AC,,,spu-key,5,key,">松糕鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C6%C2%B8%FA%D0%AC" atpanel="5,%C6%C2%B8%FA%D0%AC,,,spu-key,5,key,">坡跟鞋</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+2013%D0%C2%BF%EE" atpanel="6,%D0%AC+%C5%AE+2013%D0%C2%BF%EE,,,spu-key,5,key,">鞋女2013新款</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1" atpanel="7,%D0%AC+%C5%AE+%BA%AB%B0%E6+%B3%B1,,,spu-key,5,key,">鞋女韩版潮</a>
-                <a href="http://list.tmall.com/search_product.htm?style=g&amp;vmarket=0&amp;frm=&amp;tsearch=&amp;from=rs_1_key&amp;q=%C0%C1%C8%CB%D0%AC" atpanel="8,%C0%C1%C8%CB%D0%AC,,,spu-key,5,key,">懒人鞋</a>
-     *@</p>
+           </p>
   </div>
  </div>
-<input type="hidden" name="area_code" value="370100"><input type="hidden" name="sort" value="s"><input type="hidden" name="style" value="g"><input type="hidden" name="vmarket" value="0"><input type="hidden" name="q" value="鞋">
+<input type="hidden" name="area_code" value="370100">
+<input type="hidden" name="sort" value="s">
+<input type="hidden" name="style" value="g">
+<input type="hidden" name="vmarket" value="0"><input type="hidden" name="q" value="">
 <input type="hidden" name="cat" value="2"><input type="hidden" name="brand" value="">
 <input type="hidden" name="prop" value="">
 </form>
@@ -1130,7 +1125,10 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
                         <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> 
  </div>
 </div>
+@*
 <div id="J_Recommend" data-p4p-cfg="{'name':'tbuad','o':'j','count':'5','catid':'','keyword':'%D0%AC','offset':'0','propertyid':'','pid':'419108_1006','p4p':'','frontcatid':'','gprice':'0%2C100000000','bigpic':'1','ismall':'1','loc':'','sort':'','sbid':'13','q2cused':'0','page':'1'}" data-atpanel="-2,{{vo.RESOURCEID}},,,spu,1,p4p," style="">
+*@
+<div id="J_Recommend" >
 <div class="recommend"> <h3 class="recommend-hd">商家热卖：</h3> 
    <div class="recommend-con clearfix recommend-con-6">     
 
@@ -1184,11 +1182,11 @@ mods/minisite-v3.css,mods/box-item.css,mods/navbar.css?t=2012102920130418">*@
 喵~在此反馈您的意见和建议吧，<a href="http://ur.taobao.com/survey/view.htm?id=187" target="_blank">立刻反馈</a>
 </p>
 </div>
-<script>
+@*<script>
     var __list_atpanel_param = 'rn=47b7f16145e0c52544ef258e078d200c&q=%D0%AC&bid=13&uid=秦剑挥剑天下&catid=2&prop=&sort=s&disp=g&filter=user_group:-0_1-0_2_0_3_3_3---1-2----|scroll:1440*774|client:1440*799|offset:1440*774|screen:1440*900&loc=&n=60&page=1&v=mall_1.0&vmarket=0&machineid=e1a199c0c1798ff309cb839b63e24242&tmalltrackid=nike.tmall.com&nav=&navlog=&rewq=%D0%AC&rewcatid=2&page_type=1&stats=qp:1|cat:1|cat-qp:1|brand:1|brand-qp:1|prop:1|prop-qp:1|key:1|pricemodel:auccount|pic:1|skuahead:1|querytype:32|screen:1440*900|newproduct:1|app:tmallsearch|defaultsearch:1&filter_new=sort:s|post_fee:0|support_cod:0|manyPoints:0|wwonline:0|miaosha:0|isCombo:0|vip:0|pic_detail:0|floc:0|fprice:0|tm_lq:0|tm_hot:0|tm_new:0|new:0|filter_mj:0&from=&active=0&wq=&suggest=&search_type=search&abtest=&std_query=%D0%AC&',
  __header_atpanel_param = 'bid=13&rn=47b7f16145e0c52544ef258e078d200c';
 </script>
-  
+  *@
 
 
 <script id="J_CoreJs" data-type="list" src="http://l.tbcdn.cn/apps/tmallsearch/1.0/??core.js,atp.js,rn.js,init.js?v=1.0&amp;t=2012102920130426"></script>
