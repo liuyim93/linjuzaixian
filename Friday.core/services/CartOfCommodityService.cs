@@ -46,9 +46,9 @@ namespace friday.core.services
             return iCartOfCommodityRepository.getCommoditiesByShoppingCart(ShoppingCartID);
         }
 
-        public CartOfCommodity getCommodityBySystemUserIDAndCommodityID(string SystemUserID, string CommodityID, bool isDelete)
+        public CartOfCommodity getCommodityBySystemUserIDAndSkuID(string SystemUserID, string SkuID, bool isDelete)
         {
-            return iCartOfCommodityRepository.getCommodityBySystemUserIDAndCommodityID(SystemUserID, CommodityID, isDelete);
+            return iCartOfCommodityRepository.getCommodityBySystemUserIDAndSkuID(SystemUserID, SkuID, isDelete);
         }
     }
 }

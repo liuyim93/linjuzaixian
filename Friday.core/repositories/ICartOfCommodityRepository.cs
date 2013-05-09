@@ -10,7 +10,7 @@ namespace friday.core.repositories
     public interface ICartOfCommodityRepository : IRepository<CartOfCommodity>
     {
         List<CartOfCommodity> getCommoditiesByShoppingCart(string ShoppingCartID);
-        CartOfCommodity getCommodityBySystemUserIDAndCommodityID(string SystemUserID, string CommodityID, bool isDelete);
+        CartOfCommodity getCommodityBySystemUserIDAndSkuID(string SystemUserID, string SkuID, bool isDelete);
         //IList<CartOfCommodity> Search(List<DataFilter> termList);
         //IList<CartOfCommodity> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

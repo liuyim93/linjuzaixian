@@ -22,9 +22,9 @@ namespace friday.core.repositories
             return m;
         }
 
-        public CartOfCommodity getCommodityBySystemUserIDAndCommodityID(string SystemUserID, string CommodityID ,bool isDelete)
+        public CartOfCommodity getCommodityBySystemUserIDAndSkuID(string SystemUserID, string SkuID, bool isDelete)
         {
-            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.Commodity.Id == CommodityID && o.ShoppingCart.SystemUser.Id == SystemUserID && o.IsDelete == isDelete).SingleOrDefault();
+            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.Sku.skuId == Convert.ToInt16(SkuID) && o.ShoppingCart.SystemUser.Id == SystemUserID && o.IsDelete == isDelete).SingleOrDefault();
             return m;
         }
 
