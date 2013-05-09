@@ -33,23 +33,25 @@ namespace Friday.Test2
             //IList<Food> iFoods = new List<Food>();
             //IList<House> iHouses = new List<House>();
             IList<Merchant> iMerchants = new List<Merchant>();
-            string[] mctName = { "沃尔玛", "翠峰苑火锅", "家乐福", "小肥羊火锅", "统一银座", "天外村酒店", "大润发", "金山林快餐店", "贵和商厦", "顺风肥牛快餐", "国美商城", "全聚德烤鸭店", "苏宁购物", "便民超市", "金汉斯自助餐", "京东商厦", "加州牛肉面" };
-            string[] commodityName = { "T恤热卖29元起","牛肉盒饭","短袖","烤全羊","精品棉质T恤","土豆丝","棉质卫衣","鸡蛋水饺","精品特价POLO衫","牛肉火锅","休闲短裤","北京烤鸭","LV老花镜","苹果","巴西烤肉","薄针织衫","大碗牛肉面","牛仔长裤","卫衣","西装","夹克风衣","西裤","西服套装","大码男装","中老年男装","设计潮牌" };
+            string[] mctName = { "沃尔玛", "翠峰苑火锅", "家乐福", "小肥羊火锅", "统一银座", "天外村酒店", "大润发", "金山林快餐店", "贵和商厦", "顺风肥牛快餐", "国美商城", "全聚德烤鸭店", "苏宁购物", "便民超市", "金汉斯自助餐", "京东商厦", "加州牛肉面", "双安商厦", "北京商店", "一号店", "韩都金店", "北极星商厦", "索菲特商城", "皇冠假日商城" };
+            string[] commodityName = { "T恤热卖29元起", "牛肉盒饭", "短袖", "烤全羊", "精品棉质T恤", "土豆丝", "棉质卫衣", "鸡蛋水饺", "精品特价POLO衫", "牛肉火锅", "休闲短裤", "北京烤鸭", "LV老花镜", "苹果", "巴西烤肉", "薄针织衫", "大碗牛肉面", "牛仔长裤", "卫衣", "西装", "夹克风衣", "西裤", "西服套装", "大码男装", "中老年男装", "设计潮牌", "高质量防摔太阳镜", "物美价廉妈妈鞋", "促销PU包", "玉手镯" };
             //string[] houseName = { "旋转楼梯", "总统套房", "花园别墅", "休闲卧室", "温馨餐厅", "淡雅书房", "绿色阳台"};
             //string[] foodName = { "茶叶", "蛋糕", "减肥茶", "红酒", "营养品", "花生油", "奶粉" };
-            string[] gloablType = { "男士衬衫", "牛排", "大码男装", "鲜肉", "热卖T恤", "蔬菜", "女士卫衣", "蛋及制品", "POLO衫", "牛排", "牛仔短裤", "火腿", "老花镜", "水果", "鲜肉", "针织衫男士", "牛排", "牛仔短裤" };
+            string[] gloablType = { "男士衬衫", "牛排", "大码男装", "鲜肉", "热卖T恤", "蔬菜", "女士卫衣", "蛋及制品", "POLO衫", "男士透气鞋",
+                                    "牛仔短裤", "火腿", "老花镜", "真皮鞋", "鲜肉", "驾车鞋", "女士手拿包", "人造水晶","女士太阳镜","情侣表",
+                                     "手镯","妈妈鞋","PU女包","饰品手镯" };
 
             for (int j = 0; j<3; j++)
             {
-                for (int i = 0; i < 13; i++)
+                for (int i = 0; i < 24; i++)
                 {
 
                     Shop mcht = new Shop()
                     {
                         Name =mctName[i]+":"+j+i,
-                        Logo = "/uploadimage/l" + i + ".png",
-                        sBrand = "/uploadimage/s" + i + ".jpg",
-                        bBrand = "/uploadimage/b" + i + ".jpg",
+                        Logo = "/uploadimage/l" + i%13 + ".png",
+                        sBrand = "/uploadimage/s" + i%13 + ".jpg",
+                        bBrand = "/uploadimage/b" + i%13 + ".jpg",
                         MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆)
                     };
                     iMerchants.Add(mcht);
@@ -58,7 +60,7 @@ namespace Friday.Test2
                     Commodity commodity = new Commodity()
                     {
                         Name = commodityName[i] + ":" + j + i,
-                        Image = "/uploadimage/c" + (i + 1) + ".jpg",
+                        Image = "/uploadimage/c" + (i + 1)%13 + ".jpg",
 
                         Shop = mcht,
                         GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]),
@@ -68,6 +70,25 @@ namespace Friday.Test2
                     iCommodityRepository.SaveOrUpdate(commodity);
                 }
             }
+
+            //国际品牌
+              string[]  NationalMerchat={"优衣库","兰芝","微软","飞利浦","新百伦","Nike","Karicare","ELLE"};
+
+              for (int i = 0; i<6;i++ )
+              {
+                Shop mcht = new Shop()
+                {
+                    Name = NationalMerchat[i],
+                    Logo = "/uploadimage/l" + i  + ".png",
+                    sBrand = "/uploadimage/s" + i   + ".jpg",
+                    bBrand = "/uploadimage/b" + i   + ".jpg",
+                    MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆)
+                };
+          
+                 iMerchantRepository.SaveOrUpdate(mcht);
+              }
+
+
             //for (int i = 0 ; i < 13; i++)
             //{
             //    Rent mcht = new Rent()

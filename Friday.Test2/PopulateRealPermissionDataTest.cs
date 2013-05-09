@@ -1356,7 +1356,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(sgts);
             }
             //2级"珠宝饰品/手表眼镜"
-            string[] SecdForJewelry = { "珠宝/黄金", "手表", "饰品", "太阳镜", "ZIPPO", "钻石", "珍珠", "项链", "手镯" };
+            string[] SecdForJewelry = { "珠宝/黄金", "手表", "饰品", "太阳镜", "ZIPPO", "钻石", "珍珠", "项链", "珠宝/手镯" };
             for (int i = 0; i < SecdForJewelry.Length; i++)
             {
 
@@ -1491,7 +1491,7 @@ namespace Friday.Test2
             }
             //3级“鞋/箱包”
             //"女鞋"
-            string[] ThrdForWomenShoes = { "凉鞋","坡跟","凉鞋","鱼嘴","凉鞋","凉拖","单鞋","帆布鞋","高跟鞋","坡跟单鞋","鱼嘴单鞋","豆豆鞋","婚鞋","松糕鞋","真皮鞋","妈妈鞋","透气鞋","大码鞋","高帮鞋","靴子短靴","长靴","马丁靴","流苏靴","内增高","雨鞋/雨靴" };
+            string[] ThrdForWomenShoes = { "凉鞋","坡跟","凉鞋","鱼嘴","凉鞋","凉拖","单鞋","帆布鞋","高跟鞋","坡跟单鞋","鱼嘴单鞋","豆豆鞋","婚鞋","松糕鞋","真皮鞋","妈妈鞋","女士透气鞋","大码鞋","高帮鞋","靴子短靴","长靴","马丁靴","流苏靴","内增高","雨鞋/雨靴" };
             for (int i = 0; i < ThrdForWomenShoes.Length; i++)
             {
                 GlobalGoodsType tgtwc = new GlobalGoodsType()
@@ -1509,7 +1509,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(tgtwc);
             }
             //"男鞋"
-            string[] ThrdForMenShoes = { "低帮鞋","驾车鞋","透气鞋","帆船鞋","帆布鞋","日常休闲","运动休闲","商务正装","皮鞋","大码鞋","高帮鞋","内增高" };
+            string[] ThrdForMenShoes = { "低帮鞋","驾车鞋","男士透气鞋","帆船鞋","帆布鞋","日常休闲","运动休闲","商务正装","皮鞋","大码鞋","高帮鞋","内增高" };
             for (int i = 0; i < ThrdForMenShoes.Length; i++)
             {
                 GlobalGoodsType tgtmc = new GlobalGoodsType()
@@ -1527,7 +1527,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(tgtmc);
             }
             //"女包"
-            string[] ThrdForWomenBag = { "单肩包","手提包","斜挎包","手拿包","钱包","双肩包","帆布包","PU女包","欧美包","真皮包","撞色包","糖果包" };
+            string[] ThrdForWomenBag = { "单肩包","手提包","斜挎包","女士手拿包","钱包","双肩包","帆布包","PU女包","欧美包","真皮包","撞色包","糖果包" };
             for (int i = 0; i < ThrdForWomenBag.Length; i++)
             {
                 GlobalGoodsType tgtwb = new GlobalGoodsType()
@@ -1545,7 +1545,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(tgtwb);
             }
             //"男包"
-            string[] ThrdForMenBag = { "单肩包","手提包","斜挎包","手拿包","腰包","双肩包" };
+            string[] ThrdForMenBag = { "单肩包","手提包","斜挎包","男士手拿包","腰包","双肩包" };
             for (int i = 0; i < ThrdForMenBag.Length; i++)
             {
                 GlobalGoodsType tgtmb = new GlobalGoodsType()
@@ -1601,7 +1601,7 @@ namespace Friday.Test2
                 iGlobalGoodsTypeService.Save(tgtsg);
             }
             //"饰品"
-            string[] ThrdForDecoration = { "项链", "手链", "饰品戒指", "耳饰", "项坠", "发饰", "手镯", "胸针", "摆件", "首饰", "盒银饰", "天然水晶", "合金", "人造水晶", "珍珠", "母贝", "水钻", "钛钢" };
+            string[] ThrdForDecoration = { "项链", "手链", "饰品戒指", "耳饰", "项坠", "发饰", "饰品手镯", "胸针", "摆件", "首饰", "盒银饰", "天然水晶", "合金", "人造水晶", "珍珠", "母贝", "水钻", "钛钢" };
             for (int i = 0; i < ThrdForDecoration.Length; i++)
             {
                 GlobalGoodsType tgtdt = new GlobalGoodsType()
