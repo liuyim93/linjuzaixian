@@ -74,11 +74,6 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
 
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
-            int numPerPageValue = 50;
-            int total;
-            int start = (currentPage - 1) * numPerPageValue;
-            int limit = numPerPageValue;
-
             //page 边界限定
             if (!String.IsNullOrEmpty(page) && !String.IsNullOrEmpty(pagenum))
             {
@@ -98,6 +93,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 currentPage = 1;
             }
+
+            int numPerPageValue = 50;
+            int total;
+            int start = (currentPage - 1) * numPerPageValue;
+            int limit = numPerPageValue;
 
             IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total);
             searchProductModel.Commoditys = commList;
