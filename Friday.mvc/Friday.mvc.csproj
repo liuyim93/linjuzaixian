@@ -1284,7 +1284,7 @@
     <Content Include="Images\after_sell_tip.jpg" />
     <Content Include="Images\TmallMchtHeader-189-26.png" />
     <Content Include="Images\Tmallloginhead-126-41.png" />
-    <Content Include="Images\loginhead-126-41-189-26.png" />
+    <Content Include="Images\loginhead-126-41.png" />
     <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
     <Content Include="p\global\1.0\global--fullsource.js" />
