@@ -22,7 +22,7 @@ namespace friday.core.repositories
 
         public int GetCommodityCountByFamily(string ParentID)
         {
-            return (from x in this.Session.Query<Commodity>() select x).Where(o => o.GlobalGoodsTypeFamily.Contains(ParentID) && o.IsDelete == false).ToList().Count;
+            return (from x in this.Session.Query<Commodity>() select x).Where(o =>(o.GlobalGoodsTypeFamily.Contains(ParentID)||o.GlobalGoodsType.Id==ParentID) && o.IsDelete == false).ToList().Count;
         }
 
         public IList<Commodity> GetHotCommodity(int num)
@@ -70,7 +70,7 @@ namespace friday.core.repositories
         {
             if (cat != "" && cat != null)
             {
-                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && o.GlobalGoodsTypeFamily.Contains(cat) && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
+                var s = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.GlobalGoodsTypeFamily.Contains(cat)||o.GlobalGoodsType.Id==cat) && o.IsDelete == false).OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
                 total = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && o.IsDelete == false).Count();
                 return s;
             }
