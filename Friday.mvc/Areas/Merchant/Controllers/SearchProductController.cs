@@ -41,7 +41,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View();
         }
 
-        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum)
+        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum,string cat)
         {
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -99,7 +99,38 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total);
+            IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total,cat);
+            if (cat == "" || cat == null)
+            {
+                searchProductModel.headGlobalGoodsType = iGlobalGoodsTypeService.GetFirstLevelAll();
+                foreach (GlobalGoodsType globalGoodsType in searchProductModel.headGlobalGoodsType)
+                {
+                    IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenByFamily(globalGoodsType.Id);
+                    searchProductModel.listGlobalGoodsTypes.Add(getFamily);
+                    List<int> listGlobalGoodsTypesNum = new List<int>();
+                    foreach (GlobalGoodsType g in getFamily)
+                    {
+                        listGlobalGoodsTypesNum.Add(iCommodityService.GetCommodityCountByFamily(g.Id));
+                    }
+                    searchProductModel.listGlobalGoodsTypesNum.Add(listGlobalGoodsTypesNum);
+                    searchProductModel.headGlobalGoodsTypeNum.Add(iCommodityService.GetCommodityCountByFamily(globalGoodsType.Id));
+                }
+            }
+            else
+            {
+                GlobalGoodsType formCat = iGlobalGoodsTypeService.Load(cat);
+                searchProductModel.headGlobalGoodsType.Add(formCat);
+                IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenByFamily(formCat.Id);
+                searchProductModel.listGlobalGoodsTypes.Add(getFamily);
+                List<int> listGlobalGoodsTypesNum = new List<int>();
+                foreach (GlobalGoodsType g in getFamily)
+                {
+                    listGlobalGoodsTypesNum.Add(iCommodityService.GetCommodityCountByFamily(g.Id));
+                }
+                searchProductModel.listGlobalGoodsTypesNum.Add(listGlobalGoodsTypesNum);
+                searchProductModel.headGlobalGoodsTypeNum.Add(iCommodityService.GetCommodityCountByFamily(formCat.Id));
+            }
+
             searchProductModel.Commoditys = commList;
             searchProductModel.count = commList.Count;
 
