@@ -174,6 +174,11 @@ namespace Friday.mvc.Areas.CartPay.Models
             get;
             set;
         }
+        public object skus
+        {
+            get;
+            set;
+        }
         public string shopId
         {
             get;

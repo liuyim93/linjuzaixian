@@ -25,8 +25,9 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         private ICommodityService iCommodityService;
         private IMyFavoriteService iMyFavoriteService;
         private ISkuService iSkuService;
+        private ISkuPropService iSkuPropService;
 
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, ISkuService iSkuService)
+        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, ISkuService iSkuService, ISkuPropService iSkuPropService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
@@ -35,6 +36,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             this.iCommodityService = iCommodityService;
             this.iMyFavoriteService = iMyFavoriteService;
             this.iSkuService = iSkuService;
+            this.iSkuPropService = iSkuPropService;
         }
 
         public ActionResult MyCartPay(string item_id, string skuId, string quantity, string from)
@@ -196,7 +198,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                     {
                         id = merchantNum+"_"+commodityNum,
                         itemId = cartOfCommodity.Commodity.Id,
-                        skuId = 41878380917,
+                        skuId = cartOfCommodity.Sku.skuId,
                         cartId = cartOfCommodity.Sku.skuId.ToString(),
                         isValid = true,
                         url = "http://localhost:7525/merchant/detail/index?brandid=" + cartOfCommodity.Commodity.Id,
@@ -212,7 +214,16 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                         amount = amount,
                         itemIcon =itemIcon
                     };
-                   
+
+                    dynamic skuObj = new Dictionary<string, string>();
+
+                    IList<SkuProp> skuProps = iSkuPropService.GetAllSkuPropsBySkuID(cartOfCommodity.Sku.skuId.ToString());
+                    foreach (SkuProp skuProp in skuProps)
+                    {
+                        skuObj.Add(skuProp.PropID.PropIDName, skuProp.PropValue.PropValueName);
+                    }
+                    order.skus = skuObj;
+
                     orders.Add(order);
                     commodityNum++;
                 }
