@@ -141,7 +141,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                     id = shop.Id,
                     title = shop.Name,
                     type = "shop",
-                    url = "http://localhost:7525/merchant/search?scid=" + shop.Id,
+                    url = "http://localhost:7525/merchant/index?scid=" + shop.Id,
                     seller = shop.Name,
                     host = "B",
                     isValid = true,
