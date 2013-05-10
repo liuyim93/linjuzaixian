@@ -16,6 +16,16 @@ namespace friday.core.repositories
             var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
             return list;
         }
+        public IList<GlobalGoodsType> GetChildrenByFamily(string ParentID)
+        {
+            var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.Family.Contains(ParentID) && o.IsDelete == false).ToList();
+            return list;
+        }
+        public IList<GlobalGoodsType> GetFirstLevelAll()
+        {
+            var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID==null && o.IsDelete == false).ToList();
+            return list;
+        }
         public GlobalGoodsType GetGlobalGoodsTypeByName(string Name)
         {
             var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.Name == Name && o.IsDelete == false).SingleOrDefault();

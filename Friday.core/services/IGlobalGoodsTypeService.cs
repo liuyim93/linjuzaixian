@@ -11,6 +11,8 @@ namespace friday.core.services
     {
         GlobalGoodsType Load(string id);
         IList<GlobalGoodsType> GetChildrenFromParentID(string ParentID);
+        IList<GlobalGoodsType> GetChildrenByFamily(string ParentID);
+        IList<GlobalGoodsType> GetFirstLevelAll();
         bool IsHaveChild(GlobalGoodsType GlobalGoodsType);
         void Save(GlobalGoodsType globalGoodsType);
         void Update(GlobalGoodsType globalGoodsType);

@@ -61,6 +61,11 @@ namespace friday.core.services
             return iGlobalGoodsTypeRepository.GetChildrenFromParentID(ParentID);
         }
 
+        public IList<GlobalGoodsType> GetChildrenByFamily(string ParentID)
+        {
+            return iGlobalGoodsTypeRepository.GetChildrenByFamily(ParentID);
+        }
+
         public bool IsHaveChild(GlobalGoodsType GlobalGoodsType)
         {
             return iGlobalGoodsTypeRepository.IsHaveChild(GlobalGoodsType);
@@ -72,6 +77,10 @@ namespace friday.core.services
         public IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword)
         {
             return iGlobalGoodsTypeRepository.GetSimilarGoodsTypeListInThirdLevelByKeyword(keyword);
+        }
+        public IList<GlobalGoodsType> GetFirstLevelAll()
+        {
+            return iGlobalGoodsTypeRepository.GetFirstLevelAll();
         }
     }
 }

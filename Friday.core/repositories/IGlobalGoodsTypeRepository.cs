@@ -9,7 +9,9 @@ namespace friday.core.repositories
 {
     public interface IGlobalGoodsTypeRepository : IRepository<GlobalGoodsType>
     {
+        IList<GlobalGoodsType> GetFirstLevelAll();
         IList<GlobalGoodsType> GetChildrenFromParentID(string ParentID);
+        IList<GlobalGoodsType> GetChildrenByFamily(string ParentID);
         bool IsHaveChild(GlobalGoodsType GlobalGoodsType);
         IList<GlobalGoodsType> Search(List<DataFilter> termList);
         IList<GlobalGoodsType> Search(List<DataFilter> termList, int start, int limit, out long total);
