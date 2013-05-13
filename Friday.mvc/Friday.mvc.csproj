@@ -1114,7 +1114,7 @@
     <Content Include="apps\malldetail\4.0\tabbar\reviewsTmall.js" />
     <Content Include="apps\malldetail\4.0\tabbar\sellerinfo.js" />
     <Content Include="apps\malldetail\4.0\tabbar\tabbar.css" />
-    <Content Include="apps\martrix-mission\feedback.js" />
+    <Content Include="apps\martrix-mission\feedback\feedback.js" />
     <Content Include="apps\malldetail\4.0\tabbar\tabbar.js" />
     <Content Include="apps\malldetail\4.0\tabbar\tabbarAttr.js" />
     <Content Include="apps\mods\login\asynchavana.js" />
@@ -1311,11 +1311,13 @@
     <Content Include="Images\hotsell.jpg" />
     <Content Include="p\header\adapter-fullsource.js" />
     <Content Include="p\header\webww-fullsource.js" />
+    <Content Include="p\header\search.xml" />
     <Content Include="p\mall\2.0\js\direct-promo.js" />
     <Content Include="p\mall\2.0\js\xdomain-agency_v2.js" />
     <Content Include="p\mall\2.0\js\zeroclipboard.js" />
     <Content Include="p\header\adapter-min.js" />
     <Content Include="p\header\webww-min.js" />
+    <Content Include="p\mall\base\favicon.ico" />
     <Content Include="p\mall\base\global-v2.css" />
     <Content Include="p\mall\base\global-v2.js" />
     <Content Include="p\mall\base\header-v2.css" />
