@@ -1020,6 +1020,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="actionlog\js\ua.js" />
     <Content Include="apps\cartshare\shareplugin\sharePlugin.js" />
     <Content Include="apps\cart\130411\cart\cart-min.css" />
     <Content Include="apps\cart\130411\cart\cart-min.js" />
@@ -1138,6 +1139,9 @@
     <Content Include="apps\mods\login\safemode.js" />
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\register\common\js\client.js" />
+    <Content Include="apps\register\common\js\reg.js" />
+    <Content Include="apps\register\common\js\step_first.js" />
     <Content Include="apps\support\robot\js\minerva_ask_V2.js" />
     <Content Include="apps\taesite\platinum\scripts\wangpu\decoration\shopmonitor-min.js" />
     <Content Include="apps\taesite\platinum\scripts\wangpu\decoration\shopmonitor-fullsource.js" />
@@ -1234,7 +1238,10 @@
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay\css\overlay.css" />
+    <Content Include="apps\tmall\tml\1.0\tml\tml-fullsource.js" />
+    <Content Include="app\register\common\css\reg.20130313.css" />
     <Content Include="app\shop\skin\ark_black.css" />
+    <Content Include="ar\alipay.security.um-1.0.js" />
     <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
     <Content Include="apps\tmall\tml\1.0\tml\tml.js" />
     <Content Include="app\shop\skin\ark_detail.css" />
@@ -1286,6 +1293,7 @@
     <Content Include="Images\TmallMchtHeader-189-26.png" />
     <Content Include="Images\Tmallloginhead-126-41.png" />
     <Content Include="Images\loginhead-126-41.png" />
+    <Content Include="plugins\opensearch\provider.xml" />
     <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
     <Content Include="p\global\1.0\global--fullsource.js" />
@@ -1312,6 +1320,7 @@
     <Content Include="p\header\adapter-fullsource.js" />
     <Content Include="p\header\webww-fullsource.js" />
     <Content Include="p\header\search.xml" />
+    <Content Include="p\mall\2.0\css\tmall_reg.css" />
     <Content Include="p\mall\2.0\js\direct-promo.js" />
     <Content Include="p\mall\2.0\js\xdomain-agency_v2.js" />
     <Content Include="p\mall\2.0\js\zeroclipboard.js" />
@@ -1383,6 +1392,9 @@
     <Content Include="s\fdc\spmact.js" />
     <Content Include="s\tb-tracer-min.js" />
     <Content Include="s\tb-tracer-fullsource.js" />
+    <Content Include="s\tbra\1.0\assets\tbra.css" />
+    <Content Include="s\tbra\1.0\tbra-widgets.js" />
+    <Content Include="tbra\2.0\tbsp.css" />
     <Content Include="tbsp\tbsp.css" />
     <Content Include="uploadimage\b1.jpg" />
     <Content Include="uploadimage\b10.jpg" />
