@@ -11,7 +11,7 @@ namespace Friday.mvc.Areas.Account.Controllers
         //
         // GET: /Account/Register/
 
-        public ActionResult Index()
+        public ActionResult Index(string J_Nick, string J_Tel, string J_Mail, string J_Address, string J_Pwd)
         {
             return View();
         }
