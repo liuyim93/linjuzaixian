@@ -106,6 +106,18 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             }
         }
+       
+        [AcceptVerbs(HttpVerbs.Get)]
+        public ActionResult register()
+        {
+      
+            return View();
+        }
+        [AcceptVerbs(HttpVerbs.Post)]
+        public ActionResult register(LoginModel loginModel, string tpl_redirect_url, string style)
+        {
+            return View();
+        }
         public ActionResult miniLoginProxy()
         {
             return View();

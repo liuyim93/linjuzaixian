@@ -167,6 +167,7 @@
     <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\MainModel.cs" />
     <Compile Include="Models\MerchantModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="mvcunity\BootStrapper.cs" />
     <Compile Include="mvcunity\ControllerFactory.cs" />
     <Compile Include="mvcunity\ModelBinder.cs" />
@@ -2432,6 +2433,7 @@
     <Content Include="Areas\CartPay\Views\Home\MyCartPay.cshtml" />
     <Content Include="Areas\Account\Views\Home\XCrossIframe.cshtml" />
     <Content Include="Areas\Category\Views\Home\brand_cat_asyn.cshtml" />
+    <Content Include="Areas\Account\Views\Home\register.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Shared\_SiteNav.cshtml" />
     <Content Include="Views\Shared\_Header2.cshtml" />
