@@ -355,7 +355,7 @@ KISSY.add("TimeoutBtn", function(c) {
 		this.timeout = d.timeout ? (Number(d.timeout) || 0) : 0;
 		this.callback = c.isFunction(d.callback) && d.callback || null;
 		this.text = d.text || (this.btn ? this.btn.text() : "");
-		this.waitText = d.waitText || "%t%\u79d2\u540e\u53ef\u91cd\u65b0\u64cd\u4f5c";
+		this.waitText = d.waitText || "%t%秒后可重新操作";
 		this.timeoutText = d.timeoutText || this.text;
 		this.timeoutCls = d.timeoutCls || "";
 		this.disabledCls = d.disabledCls || "";
@@ -487,8 +487,8 @@ KISSY.add("DynamicCheckCode", function(c, b, a) {
 		this.checkCallback = c.isFunction(f.checkCallback) ? f.checkCallback : function() {};
 		this.getData = c.isPlainObject(f.getData) || c.isFunction(f.getData) ? f.getData : {};
 		this.defaultMsg = {
-			error: "\u9a8c\u8bc1\u7801\u53d1\u9001\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01",
-			ok: "\u9a8c\u8bc1\u7801\u5df2\u53d1\u9001\uff0c\u8bf7\u67e5\u6536\uff01"
+			error: "验证码发送失败\uff0c\u8bf7\u91cd\u8bd5\uff01",
+			ok: "验证码已发送\uff0c\u8bf7\u67e5\u6536\uff01"
 		};
 		this.msg = f.msg || {};
 		this.msg.error = this.msg.error || this.defaultMsg.error;
@@ -497,14 +497,14 @@ KISSY.add("DynamicCheckCode", function(c, b, a) {
 		this.defaultInputTip = f.defaultInputTip || null;
 		this.msgTemplate = c.isObject(f.msgTemplate) ? f.msgTemplate : null;
 		this.disabledBtnCls = f.disabledBtnCls || "";
-		this.btnText = f.btnText || "\u514d\u8d39\u83b7\u53d6\u9a8c\u8bc1\u7801";
-		this.btnWaitText = f.btnWaitText || "%t%\u79d2\u540e\u53ef\u91cd\u65b0\u53d1\u9001";
+		this.btnText = f.btnText || "免费获取验证码";
+		this.btnWaitText = f.btnWaitText || "%t%秒后可重新发送";
 		this.btnWaitCls = f.btnWaitCls || "";
-		this.btnTimeoutText = f.btnTimeoutText || "\u91cd\u65b0\u53d1\u9001";
+		this.btnTimeoutText = f.btnTimeoutText || "重新发送";
 		this.btnTimeoutCls = f.btnTimeoutCls || "";
 		this.btnAutoStart = !! f.btnAutoStart;
 		this.tobtn = null;
-		this.disabledMsg = c.isString(f.disabledMsg) ? f.disabledMsg : "\u9a8c\u8bc1\u7801\u9519\u8bef";
+		this.disabledMsg = c.isString(f.disabledMsg) ? f.disabledMsg : "验证码错误";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -519,19 +519,19 @@ KISSY.add("DynamicCheckCode", function(c, b, a) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
-				msg: "\u683c\u5f0f\u9519\u8bef"
+				msg: "格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u9a8c\u8bc1\u7801\u9519\u8bef"
+				msg: "验证码错误"
 			},
 			ok: {
 				code: 100,
@@ -615,16 +615,16 @@ KISSY.add("DynamicCheckCode", function(c, b, a) {
 						f.input.fire("focus");
 						f.tobtn.start()
 					} else {
-						f.disabledMsg = "\u8bf7\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801\uff01";
+						f.disabledMsg = "请重新获取验证码\uff01";
 						if (f.triggerTip) {
 							f.triggerTip.attention(g.msg || f.msg.error || f.defaultMsg.error)
 						}
 					}
 				},
 				error: function() {
-					f.disabledMsg = "\u8bf7\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801\uff01";
+					f.disabledMsg = "请重新获取验证码\uff01";
 					if (f.triggerTip) {
-						f.triggerTip.error("\u9a8c\u8bc1\u7801\u53d1\u9001\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5\uff01")
+						f.triggerTip.error("验证码发送失败\uff0c\u8bf7\u91cd\u8bd5\uff01")
 					}
 				}
 			})
@@ -696,7 +696,7 @@ KISSY.add("DynamicCheckCode", function(c, b, a) {
 						}
 					} else {
 						g.disabled = true;
-						g.disabledMsg = "\u9a8c\u8bc1\u7801\u9519\u8bef";
+						g.disabledMsg = "验证码错误";
 						g.stat = {
 							code: g.statusCode.ajaxError.code,
 							msg: n || g.statusCode.ajaxError.msg
@@ -771,7 +771,7 @@ KISSY.add("ImageCheckCode", function(b, a) {
 		this.tip = e.tip && b.one(e.tip) ? a(e.tip) : null;
 		this.on = e.on || "keyup blur";
 		this.defaultTip = e.defaultTip || null;
-		this.disabledMsg = b.isString(e.disabledMsg) ? e.disabledMsg : "\u9a8c\u8bc1\u7801\u683c\u5f0f\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = b.isString(e.disabledMsg) ? e.disabledMsg : "验证码格式有误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -786,19 +786,19 @@ KISSY.add("ImageCheckCode", function(b, a) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
-				msg: "\u9a8c\u8bc1\u7801\u683c\u5f0f\u9519\u8bef"
+				msg: "验证码格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u9a8c\u8bc1\u7801\u9519\u8bef"
+				msg: "验证码错误"
 			},
 			ok: {
 				code: 100,
@@ -886,14 +886,14 @@ KISSY.add("ImageCheckCode", function(b, a) {
 				j = b.isFunction(j) && j || function() {};
 			if (!b.trim(this.input.val()).length) {
 				this.disabled = true;
-				this.disabledMsg = "\u9a8c\u8bc1\u7801\u4e0d\u80fd\u4e3a\u7a7a";
+				this.disabledMsg = "验证码不能为空";
 				this.stat = this.statusCode.empty;
 				j.call(f, e.disabled);
 				return
 			} else {
 				if (!b.trim(this.input.val()).match(/^[\da-zA-Z]{4}$/)) {
 					this.disabled = true;
-					this.disabledMsg = "\u9a8c\u8bc1\u7801\u683c\u5f0f\u9519\u8bef";
+					this.disabledMsg = "验证码格式错误";
 					this.stat = this.statusCode.formatError
 				} else {
 					this.disabled = false;
@@ -936,7 +936,7 @@ KISSY.add("CheckCode", function(b) {
 		c = b.UA.firefox,
 		l = ".{{prefixCls}}checkcode-img,.{{prefixCls}}checkcode-audio{width:175px;height:32px;line-height:32px;position:absolute;}.{{prefixCls}}checkcode-audio{display:none;}.{{prefixCls}}checkcode-img img,.{{prefixCls}}checkcode-audio audio{float:left;display:inline;width:100px;height:30px;border:1px solid #CDCDCD;cursor:pointer;}.{{prefixCls}}checkcode-refresh{display:none;width:100px;height:30px;vertical-align:middle;border:1px solid #CDCDCD;position:absolute;left:0;top:0;cursor:pointer;}.{{prefixCls}}audio-state{float:left;display:inline;width:100px;height:30px;border:1px solid #CDCDCD;position:relative;}.{{prefixCls}}audio-state-text{display:block;width:70px;height:30px;padding-left:30px;font-size:12px;color:#999;text-decoration:none;background:url(http://img01.taobaocdn.com/tps/i1/T1HVriXnVeXXbjRy2i-21-169.png) no-repeat 10px -93px;z-index:1;position:absolute;cursor:text;}.{{prefixCls}}audio-state-text:hover{text-decoration:none;}.{{prefixCls}}audio-state-progress{width:0;height:30px;background-color:#186BCA;position:absolute;left:0;top:0;z-index:0;}.{{prefixCls}}audio-over{width:100px;padding-left:0;color:#186BCA;text-align:center;background:none;cursor:pointer;}.{{prefixCls}}audio-over:hover{text-decoration:underline;}.{{prefixCls}}checkcode-refresher{float:left;display:inline;width:32px;height:32px;vertical-align:top;text-indent:-9999em;outline:none;border-right:1px solid #DDD;background:url(http://img01.taobaocdn.com/tps/i1/T1HVriXnVeXXbjRy2i-21-169.png) no-repeat 7px -145px;}.{{prefixCls}}checkcode-switcher{float:left;display:inline;width:32px;height:32px;vertical-align:top;text-indent:-9999em;outline:none;background:url(http://img01.taobaocdn.com/tps/i1/T1HVriXnVeXXbjRy2i-21-169.png) no-repeat 0 0;}.{{prefixCls}}checkcode-refresher,.{{prefixCls}}checkcode-switcher{filter:alpha(opacity=70);opacity:0.7;}.{{prefixCls}}checkcode-refresher:hover,.{{prefixCls}}checkcode-switcher:hover{filter:alpha(opacity=100);opacity:1;border-color:#EAEAEA;}.{{prefixCls}}audio-switcher{background-position:6px -40px;}.{{prefixCls}}img-switcher{background-position:5px 10px;}",
 		f = {
-			template: '<div class="{prefixCls}checkcode-img" id="J_ImgCode{uid}"><img id="J_CheckCodeImg{uid}" width="100" height="30" onmousedown="return false;"/><a href="#nogo" onmousedown="return false;" role="button" title="\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801" aria-label="\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801" id="J_ImgRefresher{uid}" class="{prefixCls}checkcode-refresher">\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801</a><a href="#nogo" onmousedown="return false;" role="button" title="\u83b7\u53d6\u8bed\u97f3\u9a8c\u8bc1\u7801" aria-label="\u83b7\u53d6\u8bed\u97f3\u9a8c\u8bc1\u7801" id="J_AudioSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}audio-switcher">\u83b7\u53d6\u8bed\u97f3\u9a8c\u8bc1\u7801</a></div><div class="{prefixCls}checkcode-audio" id="J_AudioCode{uid}"><span class="{prefixCls}audio-state" id="J_AudioState{uid}"><a href="#nogo" class="{prefixCls}audio-state-text" id="J_AudioStateText{uid}" onmousedown="return false;"></a><span class="{prefixCls}audio-state-progress" id="J_AudioStateProgress{uid}"></span></span><a href="#nogo" role="button" onmousedown="return false;" title="\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801" aria-label="\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801" id="J_AudioRefresher{uid}" class="{prefixCls}checkcode-refresher">\u91cd\u65b0\u83b7\u53d6\u9a8c\u8bc1\u7801</a><a href="#nogo" role="button" onmousedown="return false;" title="\u83b7\u53d6\u56fe\u7247\u9a8c\u8bc1\u7801" aria-label="\u83b7\u53d6\u56fe\u7247\u9a8c\u8bc1\u7801" id="J_ImgSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}img-switcher">\u83b7\u53d6\u56fe\u7247\u9a8c\u8bc1\u7801</a></div>',
+			template: '<div class="{prefixCls}checkcode-img" id="J_ImgCode{uid}"><img id="J_CheckCodeImg{uid}" width="100" height="30" onmousedown="return false;"/><a href="#nogo" onmousedown="return false;" role="button" title="\u91cd\u65b0\u83b7\u53d6验证码" aria-label="\u91cd\u65b0\u83b7\u53d6验证码" id="J_ImgRefresher{uid}" class="{prefixCls}checkcode-refresher">\u91cd\u65b0\u83b7\u53d6验证码</a><a href="#nogo" onmousedown="return false;" role="button" title="\u83b7\u53d6\u8bed\u97f3验证码" aria-label="\u83b7\u53d6\u8bed\u97f3验证码" id="J_AudioSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}audio-switcher">\u83b7\u53d6\u8bed\u97f3验证码</a></div><div class="{prefixCls}checkcode-audio" id="J_AudioCode{uid}"><span class="{prefixCls}audio-state" id="J_AudioState{uid}"><a href="#nogo" class="{prefixCls}audio-state-text" id="J_AudioStateText{uid}" onmousedown="return false;"></a><span class="{prefixCls}audio-state-progress" id="J_AudioStateProgress{uid}"></span></span><a href="#nogo" role="button" onmousedown="return false;" title="\u91cd\u65b0\u83b7\u53d6验证码" aria-label="\u91cd\u65b0\u83b7\u53d6验证码" id="J_AudioRefresher{uid}" class="{prefixCls}checkcode-refresher">\u91cd\u65b0\u83b7\u53d6验证码</a><a href="#nogo" role="button" onmousedown="return false;" title="\u83b7\u53d6\u56fe\u7247验证码" aria-label="\u83b7\u53d6\u56fe\u7247验证码" id="J_ImgSwitcher{uid}" class="{prefixCls}checkcode-switcher {prefixCls}img-switcher">\u83b7\u53d6\u56fe\u7247验证码</a></div>',
 			getImgURL: "{apiserver}/get_img?identity={identity}&sessionid={sessionid}&kjtype=default",
 			checkImgURL: "{apiserver}/check_img?identity={identity}&sessionid={sessionid}&delflag=0",
 			getAudioURL: "{apiserver}/get_audio?identity={identity}&sessionid={sessionid}",
@@ -1215,7 +1215,7 @@ KISSY.add("CheckCode", function(b) {
 		progress: function(p) {
 			switch (p) {
 				case -1:
-					this.audioStateText.text("\u6b63\u5728\u52a0\u8f7d");
+					this.audioStateText.text("正在加载");
 					break;
 				case 100:
 				case "NOPROGRESS":
@@ -1223,10 +1223,10 @@ KISSY.add("CheckCode", function(b) {
 					this.audioProgress.css({
 						width: "0"
 					});
-					this.audioStateText.addClass(this.prefixCls + "audio-over").text("\u70b9\u51fb\u64ad\u653e\u8bed\u97f3");
+					this.audioStateText.addClass(this.prefixCls + "audio-over").text("点击播放语音 ");
 					break;
 				default:
-					this.audioStateText.removeClass(this.prefixCls + "audio-over").text("\u8bf7\u4ed4\u7ec6\u6536\u542c");
+					this.audioStateText.removeClass(this.prefixCls + "audio-over").text("请仔细收听");
 					this.audioProgress.css({
 						width: p + "%"
 					});
@@ -1341,7 +1341,7 @@ KISSY.add("SuperCheckCode", function(d, b, c) {
 		this.tip = e.tip && d.one(e.tip) ? c(e.tip) : null;
 		this.checkOn = e.on || "keyup blur";
 		this.defaultTip = e.defaultTip || null;
-		this.disabledMsg = d.isString(e.disabledMsg) ? e.disabledMsg : "\u9a8c\u8bc1\u7801\u683c\u5f0f\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = d.isString(e.disabledMsg) ? e.disabledMsg : "验证码格式有\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -1355,19 +1355,19 @@ KISSY.add("SuperCheckCode", function(d, b, c) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
-				msg: "\u9a8c\u8bc1\u7801\u683c\u5f0f\u9519\u8bef"
+				msg: "验证码格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u9a8c\u8bc1\u7801\u9519\u8bef"
+				msg: "验证码错误"
 			},
 			ok: {
 				code: 100,
@@ -1450,14 +1450,14 @@ KISSY.add("SuperCheckCode", function(d, b, c) {
 				j = d.isFunction(j) && j || function() {};
 			if (!d.trim(this.input.val()).length) {
 				this.disabled = true;
-				this.disabledMsg = "\u9a8c\u8bc1\u7801\u4e0d\u80fd\u4e3a\u7a7a";
+				this.disabledMsg = "验证码不能为空";
 				this.stat = this.statusCode.empty;
 				j.call(f, e.disabled);
 				return
 			} else {
 				if (!d.trim(this.input.val()).match(/^[\da-zA-Z]{4,6}$/)) {
 					this.disabled = true;
-					this.disabledMsg = "\u9a8c\u8bc1\u7801\u683c\u5f0f\u9519\u8bef";
+					this.disabledMsg = "验证码格式错误";
 					this.stat = this.statusCode.formatError
 				} else {
 					this.disabled = false;
@@ -1616,11 +1616,11 @@ KISSY.add("SimpleCheckCode", function(c, b, f, e) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
@@ -1814,7 +1814,7 @@ KISSY.add("SerectSecureCard", function(c, b) {
 		this.tip = e.tip && c.one(e.tip) ? b(e.tip) : null;
 		this.on = e.on || "key blur";
 		this.defaultTip = e.defaultTip || null;
-		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "\u9a8c\u8bc1\u7801\u8f93\u5165\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "验证码\u8f93\u5165\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -1829,15 +1829,15 @@ KISSY.add("SerectSecureCard", function(c, b) {
 		statusCode: {
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
-				msg: "\u9a8c\u8bc1\u7801\u683c\u5f0f\u9519\u8bef"
+				msg: "验证码格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u9a8c\u8bc1\u7801\u9519\u8bef"
+				msg: "验证码错误"
 			},
 			ok: {
 				code: 100,
@@ -1994,7 +1994,7 @@ KISSY.add("QA", function(c, b) {
 		statusCode: {
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			ok: {
 				code: 100,
@@ -2127,11 +2127,11 @@ KISSY.add("UserName", function(b, a, f, d) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
@@ -2689,7 +2689,7 @@ KISSY.add("Password", function(d, c, a, f) {
 		statusCode: {
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			size: {
 				code: 2,
@@ -3084,11 +3084,11 @@ KISSY.add("Phone", function(d, a, c, f) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
@@ -3619,11 +3619,11 @@ KISSY.add("Email", function(d, a, c, e) {
 		statusCode: {
 			netError: {
 				code: -1,
-				msg: "\u7f51\u7edc\u9519\u8bef"
+				msg: "网络错误"
 			},
 			empty: {
 				code: 1,
-				msg: "\u4e0d\u80fd\u4e3a\u7a7a"
+				msg: "不能为空"
 			},
 			formatError: {
 				code: 2,
