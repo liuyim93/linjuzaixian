@@ -122,6 +122,7 @@
     <Compile Include="Areas\Account\AccountAreaRegistration.cs" />
     <Compile Include="Areas\Account\Controllers\HomeController.cs" />
     <Compile Include="Areas\Account\Controllers\RegisterController.cs" />
+    <Compile Include="Areas\Account\Models\CheckModel.cs" />
     <Compile Include="Areas\CartPay\CartPayAreaRegistration.cs" />
     <Compile Include="Areas\CartPay\Controllers\HomeController.cs" />
     <Compile Include="Areas\CartPay\Models\DelData.cs" />
@@ -2399,7 +2400,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Account\Models\" />
     <Folder Include="Areas\Account\Views\Shared\" />
     <Folder Include="Areas\CartPay\Views\Shared\" />
     <Folder Include="Areas\Cart\Models\" />

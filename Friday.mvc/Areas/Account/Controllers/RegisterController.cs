@@ -8,6 +8,8 @@ using friday.core.domain;
 using friday.core;
 using Friday.mvc.Models;
 using friday.core.repositories;
+using friday.core.components;
+using Friday.mvc.Areas.Merchant.Models;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
@@ -40,6 +42,27 @@ namespace Friday.mvc.Areas.Account.Controllers
             regstermodel.Activities = this.iActivityService.GetAll();
 
             return View(regstermodel);
+        }
+
+        public ActionResult check_nick()
+        {
+            //CheckModel checkModel = new CheckModel()
+            //{
+            //    Success = true
+            //};
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = new
+            {
+                success = true
+            };
+            //FormatJsonResult jsonResult = new FormatJsonResult();
+            ////jsonResult.Data = checkModel;
+            //string json = jsonResult.FormatResult();
+            //string script = "{"+json + "}";
+            string json = jsonResult.FormatResult();
+            string script = json;
+
+            return JavaScript(script);
         }
 
         public ActionResult Store(string MemberName, string J_Tel, string J_Mail, string J_Address, string J_Pwd)
@@ -76,6 +99,8 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             regstermodel.isReg = true;
             regstermodel.Activities = this.iActivityService.GetAll();
+            regstermodel.tel = J_Tel;
+            regstermodel.loginName = MemberName;
 
             return View("Index", regstermodel);
         }
