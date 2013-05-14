@@ -62,7 +62,7 @@ namespace friday.core.repositories
         }
         public bool ValidateLoginName(string loginName)
         {
-            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.LoginName == loginName).Count() > 0 ? true : false; ;
+            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.LoginName == loginName).Count() > 0 ? false : true; ;
             return q;
         }
     

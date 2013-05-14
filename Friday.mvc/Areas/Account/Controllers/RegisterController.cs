@@ -50,12 +50,25 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             loginName = Request.Params["nick"];
 
-            FormatJsonResult jsonResult = new FormatJsonResult();                
+            //{"success":false,"reason":"ERROR_DUP_NICK_NAME","commandNick":["jingang_54","jingang_67","jingang9181"]}
 
-            jsonResult.Data = new
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!iLoginUserService.ValidateLoginName(loginName))
             {
-                success = iLoginUserService.ValidateLoginName(loginName)
-            };
+                jsonResult.Data = new
+                {
+                    success = iLoginUserService.ValidateLoginName(loginName),
+                    reason = "ERROR_DUP_NICK_NAME"
+                };
+            }
+            else 
+            {
+                jsonResult.Data = new
+                {
+                    success = true,
+                };
+            }
             string json = jsonResult.FormatResult();
             string script = json;
 
@@ -66,20 +79,20 @@ namespace Friday.mvc.Areas.Account.Controllers
         {
             RegisterModel regstermodel = new RegisterModel();
 
+            SystemUser su = new SystemUser();
+            su.Email = J_Mail;
+            su.IsAnonymous = false;
+            su.IsDelete = false;
+            su.Tel = J_Tel;
+            iSystemUserService.Save(su);
+
             LoginUser lu = new LoginUser();
             lu.LoginName = J_Nick;
             lu.Password = J_Pwd;
             lu.IsAdmin = false;
             lu.IsDelete = false;
+            lu.SystemUser = su;
             iLoginUserService.Save(lu);
-
-            SystemUser su = new SystemUser();
-            su.Email = J_Mail;
-            su.IsAnonymous = false;
-            su.IsDelete = false;
-            su.LoginUser = lu;
-            su.Tel = J_Tel;
-            iSystemUserService.Save(su);
 
             UserInRole ur = new UserInRole();
             ur.LoginUser = lu;
