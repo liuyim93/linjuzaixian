@@ -130,39 +130,12 @@
         <div class="reg clearfix">
             <div class="form">
                 <div class="form-list">
+
+                @if (Model.isReg == false)
+                {
                     <form id="J_Step1Form" name="formRegStep1Main" action="http://localhost:7525/Account/Register/Store" method="get">
                     <input type="hidden" name="ua" id="UA_InputId" value="133u5ObXObBitH2MRYO9Oz0bASM1EzUrOTDGcM=|uKBnf0cvp+/X76f/l8/XX4U=|uZFW7MvyeVWudS4JzunB2f45HmT/FF+k2OTDGcM=|voZB+/M0PPvjq+PrLFQ8RIOb05uTVMzEzAsTWxMb3FQ8NO40|vzfw1/Aq|vCTjxOM5|vaW9esDnbCBsYMg/yOS/xCNvdI+kv0SjmGO4T5TPFD9kSL9UD3OJpf6FHiJuNRn+Vd6SSYJ6ET3GHcWJUkmCSS417uJaAY137Adsl08oM+jkXAeLcU3WrUae+eI5NY22irZMcDygazDopH9kr2QDGMPPdzvj+8OrI2tj65O7k7RzVHOpcw==|sqqCRWJeUpmhCKJrwb2kf1iC|s6sz9E52samx6cEGPvneSeGqjVeN|sKigZ0D64orCSnK1f1hAeBCY0OjA+OC4MKgw/PQTC0PL09vza1PbU8ujq+O7o2lOiZFLbLY=|samRVuzLsSrBinENMTZOaa6J82qDhJyEQ3u8hJxbc0tjRJ5E|tu4pk7STVO6mjpZRefGJU5ScW3xbnIS81Ow27A==|t+8okrWSVe+nj5dQePCIUpWdWn1anYUNNW23bQ==|tPw7gaaBRj52LunRSXG2jgae1q50rg==|te0qkLeQV+2V3ZVSavLKENffGD8Y3+d/Z19HnUc=|qvI1j6iPSPKK4rp9RT2lf7iwd1B3sPiQCGBYglg=|q8MEvpm+eWFJcba+eTG5semhe6E=|qOAnnbqBepHdhm0hBsHpwfk+Jl4m4bnx6bHpM+k=|qeEmnLswa3A7YExrrISc5CO70xSclLyU/Cb8|rubu5iEp7sYBaa7GzglxGd7G3oZBWWEZ3ua+hkHZwQYeRt4ZAUmOlq5pUZaOllFJQYaupmG2rmm+lkw=">
-                        <input name="_tb_token_" type="hidden" value="spl3JZLZwAm">
-						<input type="hidden" name="CtrlVersion" value="1,0,0,7">
-						<input type="hidden" id="tid" name="tid" value="">
-						<input type="hidden" name="userFrom" value="http://reg.taobao.com/member/new_register.jhtml">
-						<input type="hidden" name="agreement" value="1">
-						<input type="hidden" name="action" value="new_register_action">
-						<input type="hidden" name="event_submit_do_register_user" value="anything">
-						<input type="hidden" name="_fm.n._0.a" value="">
-						<input type="hidden" name="refuser" value="">
-						<input type="hidden" name="appendinfo" value="">
-						<input type="hidden" name="regcheck" value="regcheck">
-						<input type="hidden" name="jversion" value="" id="J_Version">
-						<input type="hidden" name="jversiondo" value="" id="J_VersionDo">
-						<input type="hidden" name="hr" value="WE5HczdxTDRmYWxzZQ==">
-						<input type="hidden" id="J_Tips" name="tips" value="">
-						<input type="hidden" id="J_Disable" name="disable" value="">
-						<input type="hidden" name="" value="">
-						<input type="hidden" name="" value="">
-						<input type="hidden" id="tt" name="tt" value="">
-						<input type="hidden" id="calculate" name="calculate" value="">
-
-						<input type="hidden" name="oslanguage" value="zh-CN">
-                        <input type="hidden" name="sr" value="1440*900">
-                        <input type="hidden" name="osVer" value="windows|6.1">
-                        <input type="hidden" name="naviVer" value="chrome|21.0118089">
-
-																		
-						<input type="hidden" id="yparam" name="_fm.n._0.y" value="">
-						<input type="hidden" id="done" name="_fm.n._0.d" value="">
-						                        	<input type="hidden" name="TPL_redirect_url" value="">
-												                        	<input type="hidden" name="redirect_url_name" value="">
+                        
 						
 						
 					@*<div class="kv-item kv-nick">
@@ -208,7 +181,7 @@
                         	
 						<div class="  ">
                             <span class=" "><label for="J_Tel">手机号：</label></span>
-                            <input class=" " id="J_Tel" name="_fm.n._0.n" value="" type="text">
+                            <input class=" " id="J_Tel" name="J_Tel" value="" type="text">
 
 					@*		<div class="msg-box">
 		                      <div class="msg-weak msg-inline hide" id="J_NickTip">
@@ -229,7 +202,7 @@
                         	
 						<div class=" ">
                             <span class=" "><label for="J_Mail">邮箱：</label></span>
-                            <input class=" " id="J_Mail" name="_fm.n._0.n" value="" type="text">
+                            <input class=" " id="J_Mail" name="J_Mail" value="" type="text">
 
 							@*<div class="msg-box">
 						 	<div class="msg-weak msg-inline hide" id="J_NickTip">
@@ -250,7 +223,7 @@
                         	
 						<div class=" ">
                             <span class=" "><label for="J_Address">现居地：</label></span>
-                            <input class=" " id="J_Address" name="_fm.n._0.n" value="" type="text">
+                            <input class=" " id="J_Address" name="J_Address" value="" type="text">
 
 							@*<div class="msg-box">
 				            <div class="msg-weak msg-inline hide" id="J_NickTip">
@@ -270,7 +243,7 @@
 
                         <div class="kv-item">
                             <span class="kv-label"><label for="J_Pwd">登录密码：</label></span>
-                            <input class="i-text" id="J_Pwd" name="_fm.n._0.p" type="password" value="">
+                            <input class="i-text" id="J_Pwd" name="J_Pwd" type="password" value="">
 							<div class="msg-box">
 								                                <div class="msg-weak msg-inline hide" id="J_PwdTip">
 								                                    <i></i>
@@ -347,14 +320,55 @@
                                 </div>
                                                     </div>
                     </form>
+                }
+                else 
+                { 
+                    <div class="success clearfix">
+		            <div class="success-taobao">
+                <div class="msg-b msg-b-ok">
+                    <i></i>
+											<h2><em>test11055</em>，恭喜亲成功开通淘宝服务！</h2>
+																<script>
+																    (function () {
+																        var tips = [];
+																        tips.push({ text: '新人礼金免费拿，速速来领！', link: 'http://vip.taobao.com/newuser/newGift.htm' });
+																        var tip = tips.length ? tips[Math.floor(tips.length * Math.random())] : null;
+																        if (tip) {
+																            document.write('<div class="tip-box"><div class="tip tip-up"><i></i><div class="tip-content">' + tip.text + '<a href="' + tip.link + '" target="_blank" onclick=" (function(){var img = new Image(); img.src = \'http://www.atpanel.com/member.1.3.12\';})()">查看详情</a></div></div></div>');
+																        }
+																        function log() {
+
+																        }
+																    })();
+                                        </script><div class="tip-box"><div class="tip tip-up"><i></i><div class="tip-content">新人礼金免费拿，速速来领！<a href="http://vip.taobao.com/newuser/newGift.htm" target="_blank" onclick=" (function(){var img = new Image(); img.src = 'http://www.atpanel.com/member.1.3.12';})()">查看详情</a></div></div></div>
+					                </div>
+				<div class="success-taobao-remark">
+					<p>您的手机<em>15662416035</em>
+																		也可作为登录名，用于登录支付宝、天猫、一淘、聚划算、阿里巴巴中国站、阿里巴巴国际站、阿里云、<a href="http://wangwang.taobao.com/">阿里旺旺</a>。
+																</p>
+				</div>
+            </div>
+        </div>
+                    
+     
+                }
+                
                 </div>
             </div>
 			                <div class="quick-reg">
+
+
+
                     <em class="quick-tit">手机快速注册</em>
                     <div class="quick-detail">
                         中国大陆手机用户，编辑短信“<em>TB</em>”发送到：<br>
                         <em class="phone-num">1069099988</em>
                     </div>
+
+
+
+
+
                 </div>
 		           </div>
 
@@ -446,6 +460,34 @@
     }, 2000, false, null);
 </script>
 
+
+
+
+
+        <div class="goods" style="">
+                <div class="goods-hd">
+                    <h3>淘我喜欢</h3>
+                    <div class="goods-tab-nav">
+                        <ul id="J_tab_nav"><li index="0" class="tab_nav_li current">精选商品</li></ul>
+                    </div>
+                </div>
+                <div class="goods-bd">
+                    <div class="goods-list clearfix">
+                        <input type="hidden" id="J_cna" value="xyz">
+                        <ul id="J_recommendItems">
+                        <li>
+                        <a href="http://detail.tmall.com/item.htm?id=8773111314&amp;scm=1003.3.03030.0&amp;spm=1003.1000276.1000050.N&amp;acm=03030.1003.145.218.02.8773111314_2" target="_blank" title="山东移动20元面值 24小时电脑自动话费充值 秒冲快冲">
+                        <img src="http://img04.taobaocdn.com/bao/uploaded/i4/T1GtWXXhlAXXXtO3jX_115241.jpg_160x160.jpg" width="160" height="160"><span>山东移动20元面值 24小时电脑自动话费充值 秒冲快冲</span></a>
+                        <div class="goods_meta">
+                        <span class="price">19.87</span><span class="count">最近成交1987279笔</span></div></li>
+                        <li><a href="http://detail.tmall.com/item.htm?id=15231180379&amp;scm=1003.3.03030.0&amp;spm=1003.1000276.1000050.N&amp;acm=03030.1003.145.218.02.15231180379_2" target="_blank" title="山东联通及时到帐20元 自动发货"><img src="http://img02.taobaocdn.com/bao/uploaded/i2/T1R9KRXatvXXcI_p.._080924.jpg_160x160.jpg" width="160" height="160"><span>山东联通及时到帐20元 自动发货</span></a><div class="goods_meta"><span class="price">19.85</span><span class="count">最近成交297078笔</span></div></li>
+                        <li><a href="http://detail.tmall.com/item.htm?id=18988943107&amp;scm=1003.3.03030.0&amp;spm=1003.1000276.1000050.N&amp;acm=03030.1003.145.218.02.18988943107_2" target="_blank" title="新品 莫代尔长袖圆领打底衫高领低领T恤春装新款女装"><img src="http://img01.taobaocdn.com/bao/uploaded/i1/10163022413141730/T1cTavXt4cXXXXXXXX_!!0-item_pic.jpg_160x160.jpg" width="160" height="160"><span>新品 莫代尔长袖圆领打底衫高领低领T恤春装新款女装</span></a><div class="goods_meta"><span class="price">32.05</span><span class="count">最近成交5761笔</span></div></li>
+                        <li><a href="http://detail.tmall.com/item.htm?id=23232608559&amp;scm=1003.3.03030.0&amp;spm=1003.1000276.1000050.N&amp;acm=03030.1003.145.218.02.23232608559_2" target="_blank" title="特贝凡西 春款短袖T恤男韩版修身男士半袖t恤男短袖潮夏装男装T恤"><img src="http://img02.taobaocdn.com/bao/uploaded/i2/12867024482435985/T1tbSsXvXfXXXXXXXX_!!0-item_pic.jpg_160x160.jpg" width="160" height="160"><span>特贝凡西 春款短袖T恤男韩版修身男士半袖t恤男短袖潮夏装男装T恤</span></a><div class="goods_meta"><span class="price">9.95</span><span class="count">最近成交88450笔</span></div></li>
+                        <li><a href="http://detail.tmall.com/item.htm?id=14163886176&amp;scm=1003.3.03030.0&amp;spm=1003.1000276.1000050.N&amp;acm=03030.1003.145.218.02.14163886176_2" target="_blank" title="2013波西米亚吊带长裙 春夏天新款欧美连衣裙莫代尔背心长裙包邮"><img src="http://img03.taobaocdn.com/bao/uploaded/i3/10551022446157039/T1CH1sXDxXXXXXXXXX_!!0-item_pic.jpg_160x160.jpg" width="160" height="160"><span>2013波西米亚吊带长裙 春夏天新款欧美连衣裙莫代尔背心长裙包邮</span></a><div class="goods_meta"><span class="price">35</span><span class="count">最近成交96535笔</span></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
 
     		    			<!-- from vmcommon -->
 

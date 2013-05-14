@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using friday.core.services;
 using friday.core.domain;
 using friday.core;
+using Friday.mvc.Models;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
@@ -32,14 +33,15 @@ namespace Friday.mvc.Areas.Account.Controllers
 
         public ActionResult Index()
         {
+            RegisterModel regstermodel = new RegisterModel();
 
 
-            return View();
+            return View(regstermodel);
         }
 
         public ActionResult Store(string MemberName, string J_Tel, string J_Mail, string J_Address, string J_Pwd)
-        {   
-
+        {
+            RegisterModel regstermodel = new RegisterModel();
 
             LoginUser lu = new LoginUser();
             lu.LoginName = MemberName;
@@ -69,8 +71,9 @@ namespace Friday.mvc.Areas.Account.Controllers
             ad.IsDelete = false;
             iAddressService.Save(ad);
 
+            regstermodel.isReg = true;
 
-            return View();
+            return View("Index", regstermodel);
         }
 
     }
