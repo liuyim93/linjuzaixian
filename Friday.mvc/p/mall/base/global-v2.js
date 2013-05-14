@@ -458,7 +458,7 @@ TB.add("mod~global", function () {
                passCookie: true,
                loginServer: "http://localhost:7525/member/login.jhtml",
                logoutServer: "http://localhost:7525/Account/Home/loginOut",
-               registerServer: "member/register.html",
+               registerServer: "http://localhost:7525/Account/register",
                spaceServer: "http://localhost:7525/PersonalCenter/Home/MyPersonalCenter"
                //spaceServer: "http://jianghu.taobao.com/admin/home.htm"
                /*
