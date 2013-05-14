@@ -119,7 +119,7 @@
 
 
 <link   rel="stylesheet" href=@Url.Content("/app/register/common/css/reg.20130313.css") />
-<script src=@Url.Content("/apps/register/common/js/reg.js")></script>
+@*<script src=@Url.Content("/apps/register/common/js/reg.js")></script>*@
 <script src=@Url.Content("/apps/register/common/js/step_first.js")></script>
 <script src=@Url.Content("/apps/register/common/js/client.js")></script>
 <script>    KISSY.ready(function () { KISSY.getScript('http://acjs.aliyun.com/actionlog/js/ua.js', function () { try { UA_Opt.reload(); } catch (e) { } }); });</script>
@@ -130,7 +130,7 @@
         <div class="reg clearfix">
             <div class="form">
                 <div class="form-list">
-                    <form id="J_Step1Form" name="formRegStep1Main" action="http://localhost:7525/Account/Register" method="post">
+                    <form id="J_Step1Form" name="formRegStep1Main" action="http://localhost:7525/Account/Register/Store" method="get">
                     <input type="hidden" name="ua" id="UA_InputId" value="133u5ObXObBitH2MRYO9Oz0bASM1EzUrOTDGcM=|uKBnf0cvp+/X76f/l8/XX4U=|uZFW7MvyeVWudS4JzunB2f45HmT/FF+k2OTDGcM=|voZB+/M0PPvjq+PrLFQ8RIOb05uTVMzEzAsTWxMb3FQ8NO40|vzfw1/Aq|vCTjxOM5|vaW9esDnbCBsYMg/yOS/xCNvdI+kv0SjmGO4T5TPFD9kSL9UD3OJpf6FHiJuNRn+Vd6SSYJ6ET3GHcWJUkmCSS417uJaAY137Adsl08oM+jkXAeLcU3WrUae+eI5NY22irZMcDygazDopH9kr2QDGMPPdzvj+8OrI2tj65O7k7RzVHOpcw==|sqqCRWJeUpmhCKJrwb2kf1iC|s6sz9E52samx6cEGPvneSeGqjVeN|sKigZ0D64orCSnK1f1hAeBCY0OjA+OC4MKgw/PQTC0PL09vza1PbU8ujq+O7o2lOiZFLbLY=|samRVuzLsSrBinENMTZOaa6J82qDhJyEQ3u8hJxbc0tjRJ5E|tu4pk7STVO6mjpZRefGJU5ScW3xbnIS81Ow27A==|t+8okrWSVe+nj5dQePCIUpWdWn1anYUNNW23bQ==|tPw7gaaBRj52LunRSXG2jgae1q50rg==|te0qkLeQV+2V3ZVSavLKENffGD8Y3+d/Z19HnUc=|qvI1j6iPSPKK4rp9RT2lf7iwd1B3sPiQCGBYglg=|q8MEvpm+eWFJcba+eTG5semhe6E=|qOAnnbqBepHdhm0hBsHpwfk+Jl4m4bnx6bHpM+k=|qeEmnLswa3A7YExrrISc5CO70xSclLyU/Cb8|rubu5iEp7sYBaa7GzglxGd7G3oZBWWEZ3ua+hkHZwQYeRt4ZAUmOlq5pUZaOllFJQYaupmG2rmm+lkw=">
                         <input name="_tb_token_" type="hidden" value="spl3JZLZwAm">
 						<input type="hidden" name="CtrlVersion" value="1,0,0,7">
@@ -165,7 +165,7 @@
 												                        	<input type="hidden" name="redirect_url_name" value="">
 						
 						
-					<div class="kv-item kv-nick">
+					@*<div class="kv-item kv-nick">
                             <span class="kv-label"><label for="J_Nick">会员名：</label></span>
                             <input class="i-text" id="J_Nick" name="_fm.n._0.n" value="" type="text">
 
@@ -183,11 +183,11 @@
                                 <ul id="J_NickSuggestList">
                                 </ul>
                             </div>
-                        </div>@*	*@
+                        </div>	*@
 
                       	<div class="  ">
                             <span class="  "><label for=" ">会员名：</label></span>
-                            <input class="" id="MemberName" name="_fm.n._0.n" value="" type="text">
+                            <input class="" id="MemberName" name="MemberName" value="" type="text">
 
 							<div class="msg-box">
 	                        	<div class="msg-weak msg-inline hide" id="J_NickTip">

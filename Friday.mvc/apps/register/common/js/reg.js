@@ -953,7 +953,7 @@ KISSY.add("CheckCode", function(b) {
 		this.prefixCls = b.isString(p.prefixCls) ? p.prefixCls : "";
 		this.identity = b.isString(p.identity) ? p.identity : "";
 		this.sessionid = b.isString(p.sessionid) ? p.sessionid : "";
-		this.apiserver = b.isString(p.apiserver) && p.apiserver ? p.apiserver : "http://pin.aliyun.com";
+		this.apiserver = b.isString(p.apiserver) && p.apiserver ? p.apiserver : "http://localhost:7525/";/*http://pin.aliyun.com*/
 		this.checkedCode = "";
 		this.uid = g++
 	};
@@ -1598,7 +1598,7 @@ KISSY.add("SimpleCheckCode", function(c, b, f, e) {
 		this.on = g.on || "keyup blur";
 		this.placeholder = g.placeholder && c.one(g.placeholder);
 		this.defaultTip = g.defaultTip || null;
-		this.disabledMsg = c.isString(g.disabledMsg) ? g.disabledMsg : "\u8f93\u5165\u683c\u5f0f\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = c.isString(g.disabledMsg) ? g.disabledMsg : "输入格式误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this._placeholder = null;
 		this.checked = false;
@@ -1624,11 +1624,11 @@ KISSY.add("SimpleCheckCode", function(c, b, f, e) {
 			},
 			formatError: {
 				code: 2,
-				msg: "\u683c\u5f0f\u9519\u8bef"
+				msg: "格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u8f93\u5165\u9519\u8bef"
+				msg: "输入错误"
 			},
 			ok: {
 				code: 100,
@@ -1814,7 +1814,7 @@ KISSY.add("SerectSecureCard", function(c, b) {
 		this.tip = e.tip && c.one(e.tip) ? b(e.tip) : null;
 		this.on = e.on || "key blur";
 		this.defaultTip = e.defaultTip || null;
-		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "验证码\u8f93\u5165\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "验证码输入有\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -1979,7 +1979,7 @@ KISSY.add("QA", function(c, b) {
 		this.a = [this.a1, this.a2, this.a3];
 		this.tips = [this.a1tip, this.a2tip, this.a3tip];
 		this.on = (e.on || "keyup blur");
-		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "\u5bc6\u4fdd\u95ee\u9898\u7b54\u6848\u683c\u5f0f\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "密保问题答\u6848\u683c\u5f0f\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -2109,7 +2109,7 @@ KISSY.add("UserName", function(b, a, f, d) {
 		this.defaultTip = g.defaultTip || null;
 		this.tipMsg = b.isPlainObject(g.tipMsg) ? g.tipMsg : {};
 		this.msgTemplate = b.isObject(g.msgTemplate) ? g.msgTemplate : null;
-		this.disabledMsg = b.isString(g.disabledMsg) ? g.disabledMsg : "\u7528\u6237\u540d\u8f93\u5165\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = b.isString(g.disabledMsg) ? g.disabledMsg : "用户名输入有误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -2135,11 +2135,11 @@ KISSY.add("UserName", function(b, a, f, d) {
 			},
 			formatError: {
 				code: 2,
-				msg: "\u7528\u6237\u540d\u683c\u5f0f\u9519\u8bef"
+				msg: "用户名格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u7528\u6237\u540d\u9519\u8bef"
+				msg: "用户名\u9519\u8bef"
 			},
 			sizeError: {
 				code: 4,
@@ -2151,7 +2151,7 @@ KISSY.add("UserName", function(b, a, f, d) {
 			},
 			illegalError: {
 				code: 6,
-				msg: "\u5305\u542b\u975e\u6cd5\u5b57\u7b26"
+				msg: "包含非法字符"
 			},
 			ok: {
 				code: 100,
@@ -2379,7 +2379,7 @@ KISSY.add("UserName", function(b, a, f, d) {
 					if (g = this.isIllegal()) {
 						this.statusCode.illegalError = {
 							code: 6,
-							msg: "\u5305\u542b\u975e\u6cd5\u5b57\u7b26" + g
+							msg: "包含非法字符" + g
 						};
 						h = 6
 					}
@@ -2667,7 +2667,7 @@ KISSY.add("Password", function(d, c, a, f) {
 		this.username = g.username && d.one(g.username);
 		this.defaultTip = g.defaultTip || null;
 		this.redefaultTip = g.redefaultTip || null;
-		this.disabledMsg = d.isString(g.disabledMsg) ? g.disabledMsg : "\u5bc6\u7801\u6216\u91cd\u590d\u5bc6\u7801\u683c\u5f0f\u9519\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = d.isString(g.disabledMsg) ? g.disabledMsg : "\u5bc6\u7801\u6216\u91cd\u590d\u5bc6\u7801格式错误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.password = null;
 		this._disabled = true;
 		this._redisabled = !! this.reinput;
@@ -2693,11 +2693,11 @@ KISSY.add("Password", function(d, c, a, f) {
 			},
 			size: {
 				code: 2,
-				msg: "\u957f\u5ea6\u5e94\u4e3a6-16\u4e2a\u5b57\u7b26"
+				msg: "长度应\u4e3a6-16\u4e2a\u5b57\u7b26"
 			},
 			illegal: {
 				code: 3,
-				msg: "\u4e0d\u80fd\u5305\u542b\u975e\u6cd5\u5b57\u7b26"
+				msg: "\u4e0d\u80fd包含非法字符"
 			},
 			same: {
 				code: 4,
@@ -3599,7 +3599,7 @@ KISSY.add("Email", function(d, a, c, e) {
 		this.defaultTip = g.defaultTip || null;
 		this.defaultOn = g.defaultOn || "";
 		this.msgTemplate = d.isObject(g.msgTemplate) ? g.msgTemplate : null;
-		this.disabledMsg = d.isString(g.disabledMsg) ? g.disabledMsg : "\u8f93\u5165\u683c\u5f0f\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = d.isString(g.disabledMsg) ? g.disabledMsg : "输入格式误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.checked = false;
 		this._suggest = null;
@@ -3627,11 +3627,11 @@ KISSY.add("Email", function(d, a, c, e) {
 			},
 			formatError: {
 				code: 2,
-				msg: "\u683c\u5f0f\u9519\u8bef"
+				msg: "格式错误"
 			},
 			ajaxError: {
 				code: 3,
-				msg: "\u8f93\u5165\u9519\u8bef"
+				msg: "输入错误"
 			},
 			ok: {
 				code: 100,
@@ -3902,7 +3902,7 @@ KISSY.add("SubmitForm", function(b, a) {
 		this.trigger = e.trigger ? b.one(e.trigger) : null;
 		this.stop = b.isBoolean(e.stop) && e.stop || true;
 		this.checkers = b.isArray(e.checkers) && e.checkers || (b.isFunction(e.checkers) ? e.checkers : []);
-		this.disabledMsg = b.isString(e.disabledMsg) ? e.disabledMsg : "\u4fe1\u606f\u8f93\u5165\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = b.isString(e.disabledMsg) ? e.disabledMsg : "信息输入\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.checkCallback = b.isFunction(e.checkCallback) ? e.checkCallback : null;
 		this.asyncCallback = b.isFunction(e.asyncCallback) ? e.asyncCallback : null;
 		this.checkerDisabledMsg = "";

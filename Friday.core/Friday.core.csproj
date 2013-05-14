@@ -395,6 +395,8 @@
     <Compile Include="services\ShoppingCartService.cs" />
     <Compile Include="services\ICartOfCommodityService.cs" />
     <Compile Include="services\CartOfCommodityService.cs" />
+    <Compile Include="services\AddressService.cs" />
+    <Compile Include="services\IAddressService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />
