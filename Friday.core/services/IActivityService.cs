@@ -16,5 +16,6 @@ namespace friday.core.services
         Activity SearchByName(string name); 
         IList<Activity> Search(List<DataFilter> termList);
         IList<Activity> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<Activity> GetAll();
     }
 }

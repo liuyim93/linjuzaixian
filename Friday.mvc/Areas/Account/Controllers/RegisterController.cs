@@ -7,6 +7,7 @@ using friday.core.services;
 using friday.core.domain;
 using friday.core;
 using Friday.mvc.Models;
+using friday.core.repositories;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
@@ -15,15 +16,16 @@ namespace Friday.mvc.Areas.Account.Controllers
         //
         // GET: /Account/Register/
 
-        
+        private IActivityService iActivityService;
         private ISystemUserService iSystemUserService;
         private IAddressService iAddressService;
         private ISystemRoleService iSystemRoleService;
         private IUserInRoleService iUserInRoleService;
         private ILoginUserService iLoginUserService;
 
-        public RegisterController(ILoginUserService iLoginUserService, ISystemUserService iSystemUserService, IAddressService iAddressService, ISystemRoleService iSystemRoleService, IUserInRoleService iUserInRoleService)
+        public RegisterController(IActivityService iActivityService,ILoginUserService iLoginUserService, ISystemUserService iSystemUserService, IAddressService iAddressService, ISystemRoleService iSystemRoleService, IUserInRoleService iUserInRoleService)
         {
+            this.iActivityService = iActivityService;
             this.iLoginUserService = iLoginUserService;
             this.iSystemUserService = iSystemUserService;
             this.iAddressService = iAddressService;
@@ -34,7 +36,8 @@ namespace Friday.mvc.Areas.Account.Controllers
         public ActionResult Index()
         {
             RegisterModel regstermodel = new RegisterModel();
-
+            regstermodel.isReg = false;
+            regstermodel.Activities = this.iActivityService.GetAll();
 
             return View(regstermodel);
         }
@@ -72,6 +75,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             iAddressService.Save(ad);
 
             regstermodel.isReg = true;
+            regstermodel.Activities = this.iActivityService.GetAll();
 
             return View("Index", regstermodel);
         }

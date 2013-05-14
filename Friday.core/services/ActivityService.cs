@@ -53,6 +53,10 @@ namespace friday.core.services
         {
             return iActivityRepository.Search(termList, start, limit, out total);
         }
+        public IList<Activity> GetAll()
+        {
+            return iActivityRepository.GetAll();
+        }
 
     }
 }

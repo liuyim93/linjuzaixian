@@ -1,0 +1,30 @@
+﻿@using Friday.mvc.Models
+@model RegisterModel
+<div class="mfpSlide" id="J_MfpSlide" data-spm="3.362490.296814">
+    <ul class="mfpSlide-con">
+        @for (var index = 0; index < (Model.Activities.Count() > 5 ? 5 : Model.Activities.Count()); index++)
+        {
+
+            var item = Model.Activities.ElementAt(index);
+            <li data-image="@item.Image">
+                <div class="mSc-main">
+                @if (item.SubImage != "")
+                {
+                    <b class="mScm-text1">
+                        <img src="@item.SubImage" width="400" height="130">
+                    </b> 
+                }
+                    <a class="mScm-link" href="http://www.tmall.com?id=@item.Id"
+                            title="@item.Name" data-spm="d1"></a>
+                </div>
+            </li>
+              
+        }    
+    </ul>
+    <ul class="mfpSlide-nav" style="">
+        @for (var index = 0; index < (Model.Activities.Count() > 5 ? 5 : Model.Activities.Count()); index++)
+        {
+            <li></li>
+        }
+    </ul>
+</div>
