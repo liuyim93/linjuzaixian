@@ -46,31 +46,28 @@ namespace Friday.mvc.Areas.Account.Controllers
 
         public ActionResult check_nick()
         {
-            //CheckModel checkModel = new CheckModel()
-            //{
-            //    Success = true
-            //};
-            FormatJsonResult jsonResult = new FormatJsonResult();
+            string loginName;
+
+            loginName = Request.Params["nick"];
+
+            FormatJsonResult jsonResult = new FormatJsonResult();                
+
             jsonResult.Data = new
             {
-                success = true
+                success = iLoginUserService.ValidateLoginName(loginName)
             };
-            //FormatJsonResult jsonResult = new FormatJsonResult();
-            ////jsonResult.Data = checkModel;
-            //string json = jsonResult.FormatResult();
-            //string script = "{"+json + "}";
             string json = jsonResult.FormatResult();
             string script = json;
 
             return JavaScript(script);
         }
 
-        public ActionResult Store(string MemberName, string J_Tel, string J_Mail, string J_Address, string J_Pwd)
+        public ActionResult Store(string J_Nick, string J_Tel, string J_Mail, string J_Address, string J_Pwd)
         {
             RegisterModel regstermodel = new RegisterModel();
 
             LoginUser lu = new LoginUser();
-            lu.LoginName = MemberName;
+            lu.LoginName = J_Nick;
             lu.Password = J_Pwd;
             lu.IsAdmin = false;
             lu.IsDelete = false;
@@ -100,7 +97,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             regstermodel.isReg = true;
             regstermodel.Activities = this.iActivityService.GetAll();
             regstermodel.tel = J_Tel;
-            regstermodel.loginName = MemberName;
+            regstermodel.loginName = J_Nick;
 
             return View("Index", regstermodel);
         }

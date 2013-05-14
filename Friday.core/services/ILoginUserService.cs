@@ -15,5 +15,6 @@ namespace friday.core.services
         LoginUser GetLoginUserByLoginName(string name);
         IList<LoginUser> Search(List<DataFilter> termList);
         IList<LoginUser> Search(List<DataFilter> termList, int start, int limit, out long total);
+        bool ValidateLoginName(string loginName);
     }
 }

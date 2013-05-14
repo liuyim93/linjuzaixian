@@ -2448,7 +2448,6 @@
     <Content Include="Areas\CartPay\Views\Home\MyCartPay.cshtml" />
     <Content Include="Areas\Account\Views\Home\XCrossIframe.cshtml" />
     <Content Include="Areas\Category\Views\Home\brand_cat_asyn.cshtml" />
-    <Content Include="Areas\Account\Views\Home\register.cshtml" />
     <Content Include="Areas\Account\Views\Register\TmallIndex.cshtml" />
     <Content Include="Areas\Account\Views\Register\Index.cshtml" />
     <None Include="notifymsg.json" />

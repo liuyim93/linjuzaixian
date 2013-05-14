@@ -54,5 +54,9 @@ namespace friday.core.services
         {
             return iLoginUserRepository.Search(termList, start, limit, out total);
         }
+        public bool ValidateLoginName(string loginName)
+        {
+            return iLoginUserRepository.ValidateLoginName(loginName);
+        }
     }
 }
