@@ -809,6 +809,7 @@ TB.add("mod~global", function () {
                 TB.Global.initMiniBag()
             } else {
                 if (_userinfo.isLogin && i && i.ccp === "1") {
+                    TB.Global.initMiniBag();
                     window._syncCallback = function (q) {
                         TB.Global.initMiniBag();
                         i.ccp = "0";
