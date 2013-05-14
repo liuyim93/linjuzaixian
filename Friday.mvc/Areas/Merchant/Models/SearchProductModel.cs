@@ -26,7 +26,9 @@ namespace Friday.mvc.Models
             this.listGlobalGoodsTypes = new List<IList<GlobalGoodsType>>();
             this.headGlobalGoodsType = new List<GlobalGoodsType>();
             this.headGlobalGoodsTypeNum = new List<int>();
-            this.listGlobalGoodsTypesNum = new List<IList<int>>(); 
+            this.listGlobalGoodsTypesNum = new List<IList<int>>();
+            this.listBarGlobalGoodsType = new List<IList<GlobalGoodsType>>();
+            this.headBarGlobalGoodsType = new List<GlobalGoodsType>();
 
             //IList<Food> Foods = new List<Food>();
             //IList<House> Houses = new List<House>();
@@ -48,6 +50,9 @@ namespace Friday.mvc.Models
         public IList<IList<int>> listGlobalGoodsTypesNum { get; set; }
         public IList<GlobalGoodsType> headGlobalGoodsType { get; set; }
         public IList<int> headGlobalGoodsTypeNum { get; set; }
+
+        public IList<GlobalGoodsType> headBarGlobalGoodsType { get; set; }
+        public IList<IList<GlobalGoodsType>> listBarGlobalGoodsType { get; set; }
 
         //public IList<Food> Foods { get; set; }
         public IList<Commodity> recommendComdties { get; set; }

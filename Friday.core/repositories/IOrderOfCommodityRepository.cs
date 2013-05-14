@@ -9,6 +9,7 @@ namespace friday.core.repositories
 {
     public interface IOrderOfCommodityRepository : IRepository<OrderOfCommodity>
     {
+        List<OrderOfCommodity> geOrderOfCommoditysByMyCommodityOrderID(string MyCommodityOrderID);
         IList<OrderOfCommodity> Search(List<DataFilter> termList);
         IList<OrderOfCommodity> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

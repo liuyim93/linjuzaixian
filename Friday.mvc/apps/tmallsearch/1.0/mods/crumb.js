@@ -10,7 +10,7 @@
 		z = s.get("#J_CrumbSlideNext"),
 		f = function () {
 		    return s.innerWidth(r)
-		}, v = f(),
+		}, v = (f() < 2500 ? 2500 : f()),
 		b = s.get("#J_CrumbSearchInuput"),
 		h = s.get("#J_CrumbSearchBtn"),
 		k = s.get("#J_CrumbSearchForm"),
@@ -18,7 +18,7 @@
 		e = s.get("#J_MallNavMore"),
 		d = s.get("#J_MallNavHover"),
 		p = "mm-menu-hover",
-		t = ["\u5728\u672c\u5e97\u641c\u7d22", "\u5728\u5f53\u524d\u6761\u4ef6\u4e0b\u641c\u7d22"],
+		t = ["在本店搜索", "在当前条件下搜索"],
 		B = ".crumbSearch",
 		F = ".crumbAttr",
 		y = ".crumbArrow",
@@ -206,7 +206,7 @@
 					    P.hover = false;
 					    s.removeClass(P, u);
 					    A = null
-					}, L = "/ajax/getAllBrotherCats.htm" + J.search;
+					}, L = "/Merchant/SearchProduct/getAllBrotherCats" + J.search;
                 if (I) {
                     j.UA.ie == 7 && J.setAttribute("hideFocus", "true");
                     q.on(s.get("i", K), "click", function (P) {

@@ -1,58 +1,62 @@
 ﻿var ASSETS_SERVER, DEV_EV, SERVER_URL, V = "1.0",
 	ALD_T = "20130117";
-(function (f, j, d) {
-    var h, g = "",
-		k, l = location.host,
-		i = d.get("#J_CoreJs"),
-		a = i.src || "",
-		c = j.createElement("a"),
-		b = d.DOM.viewportWidth(),
-		e = f.g_config = d.merge(f.g_config || {}, {
+(function (_window, _document, _kissy_d) {
+    var _url, _timestamp = "",
+		_param_map, _location_host = location.host,
+		_dom_script_id_J_CoreJs = _kissy_d.get("#J_CoreJs"),
+		_corejs_script_src = _dom_script_id_J_CoreJs.src || "",
+		_dom_a = _document.createElement("a"),
+		_viewportWidth = _kissy_d.DOM.viewportWidth(),
+		_g_config = _window.g_config = _kissy_d.merge(_window.g_config || {}, {
 		    v: V
 		});
-    c.href = a;
-    k = d.unparam(c.search.substring(c.search.lastIndexOf("?") + 1, c.search.length));
-    f.LIST = f.LIST || {};
-    LIST.msg = LIST.msg || d.mix({}, d.EventTarget);
+    _dom_a.href = _corejs_script_src;
+    _param_map = _kissy_d.unparam(_dom_a.search.substring(_dom_a.search.lastIndexOf("?") + 1, _dom_a.search.length));
+    _window.LIST = _window.LIST || {};
+    LIST.msg = LIST.msg || _kissy_d.mix({}, _kissy_d.EventTarget);
     LIST.util = LIST.util || {};
-    if (l.indexOf("local.") != -1) {
-        DEV_EV = "local";
-        h = "assets.local.tmall.net";
-        SERVER_URL = "http://local.tmall.net";
-        d.Config.debug = true
+    /*
+    if (_location_host.indexOf("local.") != -1) {
+    DEV_EV = "local";
+    _url = "assets.local.tmall.net";
+    SERVER_URL = "http://local.tmall.net";
+    _kissy_d.Config.debug = true
     } else {
-        if (l.indexOf("demo.") != -1) {
-            DEV_EV = "demo";
-            h = "assets.demo.tmall.net";
-            SERVER_URL = "http://demo.tmall.net"
-        } else {
-            if (l.indexOf("daily.") != -1) {
-                DEV_EV = "daily";
-                h = "assets.daily.taobao.net";
-                SERVER_URL = "http://list.daily.tmall.net"
-            } else {
-                DEV_EV = "online";
-                h = "l.tbcdn.cn";
-                SERVER_URL = "http://list.tmall.com"
-            }
-        }
+    if (_location_host.indexOf("demo.") != -1) {
+    DEV_EV = "demo";
+    _url = "assets.demo.tmall.net";
+    SERVER_URL = "http://demo.tmall.net"
+    } else {
+    if (_location_host.indexOf("daily.") != -1) {
+    DEV_EV = "daily";
+    _url = "assets.daily.taobao.net";
+    SERVER_URL = "http://list.daily.tmall.net"
+    } else {
+    DEV_EV = "online";
+    _url = "l.tbcdn.cn";
+    SERVER_URL = "http://list.tmall.com"
     }
-    ASSETS_SERVER = c.host || h;
-    if ("t" in k) {
-        g = k.t
     }
-    if ("v" in k) {
-        V = e.v = k.v
     }
-    ALD_T = e.aldt || ALD_T;
-    d.config({
+    */
+    //2013-05-14 basilwang use our own
+    _url = "localhost:7525";
+    ASSETS_SERVER = _dom_a.host || _url;
+    if ("t" in _param_map) {
+        _timestamp = _param_map.t
+    }
+    if ("v" in _param_map) {
+        V = _g_config.v = _param_map.v
+    }
+    ALD_T = _g_config.aldt || ALD_T;
+    _kissy_d.config({
         packages: [{
             name: V,
-            tag: g + (e.t || "20110706"),
+            tag: _timestamp + (_g_config.t || "20110706"),
             path: "http://" + ASSETS_SERVER + "/apps/tmallsearch/",
             charset: "gbk"
         }],
-        map: d.Config.debug ? [
+        map: _kissy_d.Config.debug ? [
 			[/(.+\/tmallsearch\/.+)-min.js(.*)$/, "$1.js$2"]
 		] : [
 			[/(.+\/kissy\/.+)(?:datalazyload|template|sizzle)-min.js(.+)$/, "http://l.tbcdn.cn/s/kissy/1.2.0/??datalazyload-min.js,template-min.js,sizzle-min.js"],
@@ -66,7 +70,7 @@
 		]
     });
     if ((DEV_EV === "online" && location.href.indexOf("ks-debug") == -1) || typeof console === "undefined") {
-        f.console = {
+        _window.console = {
             log: function () { }
         }
     }

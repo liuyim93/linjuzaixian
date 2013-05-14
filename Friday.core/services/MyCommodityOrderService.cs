@@ -50,5 +50,9 @@ namespace friday.core.services
         {
             return iMyCommodityOrderRepository.Search(termList, start, limit, out total);
         }
+        public List<MyCommodityOrder> geMyCommodityOrdersBySystemUserID(string SystemUserID)
+        {
+            return iMyCommodityOrderRepository.geMyCommodityOrdersBySystemUserID(SystemUserID);
+        }
     }
 }

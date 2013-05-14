@@ -13,6 +13,7 @@
      <script src=@Url.Content("/apps/tmall/fp/2012/core.js")></script>
      <script src=@Url.Content("/apps/department/brand/2.0/core.js")></script>
      <script src=@Url.Content("/apps/department/common/brandfollow.js")></script>
+     <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>
      <link rel="stylesheet" href=@Url.Content("/apps/department/brand/2.0/css/index.css") />
      <link rel="stylesheet" href=@Url.Content("/apps/department/brand/2.0/css/fav.css") />
      <link rel="stylesheet" href=@Url.Content("/apps/department/brand/2.0/css/common/page.css") />
@@ -45,7 +46,7 @@
                         <span>去品牌街逛逛</span> <i></i>
                     </li>
                 </a>
-                <a href="http://cart.tmall.com/cart/myCart.htm">
+                <a href="http://localhost:7525/CartPay/Home/MyCartPay">
                     <li>
                         <span>购物车</span> <i></i>
                     </li>
@@ -87,11 +88,11 @@
                 <div class="bIc-title">
                     <p class="bIc-title-notice">
                         <span>推荐:</span>
-                        <a target="_blank" class="bIc-title-notice-shop" href="localhost:7525/Merchant/search?scid=@m.Id">@m.Name</a> <em>品牌直销</em>
+                        <a target="_blank" class="bIc-title-notice-shop" href="http://localhost:7525/Merchant/index?scid=@m.Id">@m.Name</a> <em>品牌直销</em>
                         <a target="_blank" href="http://mlatin.tmall.com"></a>
                     </p>
 
-                    <a target="_blank" class="bIc-title-more" href="http://list.tmall.com/search_product.htm?style=w&amp;brand=10076545&amp;from=brandguide">
+                    <a target="_blank" class="bIc-title-more" href="http://localhost:7525/Merchant/SearchProduct">
                         查看所有店铺
                         <i></i>
                     </a>

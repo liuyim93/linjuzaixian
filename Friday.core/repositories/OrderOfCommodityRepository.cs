@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHibernate;
+using NHibernate.Linq;
 using friday.core.domain;
 using friday.core.components;
 
@@ -11,6 +12,12 @@ namespace friday.core.repositories
 
     public class OrderOfCommodityRepository : Repository<OrderOfCommodity>,IOrderOfCommodityRepository
     {
+        public List<OrderOfCommodity> geOrderOfCommoditysByMyCommodityOrderID(string MyCommodityOrderID)
+        {
+            var m = (from x in this.Session.Query<OrderOfCommodity>() select x).Where(o => o.MyCommodityOrder.Id == MyCommodityOrderID && o.IsDelete == false).ToList();
+            return m;
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(OrderOfCommodity)); }

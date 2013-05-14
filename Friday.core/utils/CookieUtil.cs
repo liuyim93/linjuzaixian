@@ -24,8 +24,19 @@ namespace friday.core.utils
             }
             else if (isPublicSite)
             {
+                //20130512 wanghaichuan
+                //cookie = context.Request.Cookies["friday_anonymous"];
+                //id = cookie.Values["userID"];
+                //isTicket = false;
                 cookie = context.Request.Cookies["friday_anonymous"];
-                id=cookie.Values["userID"];
+                if (cookie != null)
+                {
+                    id = cookie.Values["userID"];
+                }
+                else
+                {
+                    id = null;
+                }
                 isTicket = false;
             }
             return new CookieBag(id, cookie, isTicket, context);

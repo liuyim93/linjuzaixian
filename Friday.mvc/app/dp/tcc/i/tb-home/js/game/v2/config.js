@@ -1,0 +1,1 @@
+﻿/*pub-1|2013-05-03 12:21:25*/KISSY.config({ map: [[/(.+tb-home\/.+)-min.js(\?[^?]+)?$/, "$1.js$2"]], packages: [{ name: "tb-home", path: "http://a.tbcdn.cn/app/dp/", charset: "gbk"}] });

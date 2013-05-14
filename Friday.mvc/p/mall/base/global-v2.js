@@ -456,10 +456,11 @@ TB.add("mod~global", function () {
            {
                isApp: false,
                passCookie: true,
-               loginServer: "member/login.jhtml",
-               logoutServer: "http://login.taobao.com/member/logout.jhtml",
+               loginServer: "http://localhost:7525/member/login.jhtml",
+               logoutServer: "http://localhost:7525/Account/Home/loginOut",
                registerServer: "member/register.html",
-               spaceServer: "http://jianghu.taobao.com/admin/home.htm"
+               spaceServer: "http://localhost:7525/PersonalCenter/Home/MyPersonalCenter"
+               //spaceServer: "http://jianghu.taobao.com/admin/home.htm"
                /*
                loginServer: "http://login.tmall.com",
                logoutServer: "http://login.taobao.com/member/logout.jhtml",
@@ -484,7 +485,9 @@ TB.add("mod~global", function () {
             }
             var _spaceserver = _options.spaceServer;
             var _registerserver = _options.registerServer;
-            var _logoutserver = _options.logoutServer + "?f=top&redirectURL=http://login.tmall.com/?redirect_url=" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect));
+            //var _logoutserver = _options.logoutServer + "?f=top&redirectURL=http://login.tmall.com/?redirect_url=" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect));
+            var _logoutserver = _options.logoutServer + "?f=top&redirectURL=" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect));
+
             if (TB.environment.isDaily) {
                 _loginserver = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(_real_url_redirect);
                 _spaceserver = "http://jianghu.daily.taobao.net/admin/home.htm";
@@ -669,10 +672,11 @@ TB.add("mod~global", function () {
         }
     }, _initMemberInfo: function () {
         var _tb_global = TB.Global;
-        var _member_url = "http://tmm.taobao.com/member/query_member_top.do";
-        if (TB.environment.isDaily) {
-            _member_url = "http://tmm.daily.taobao.net/member/query_member_top.do"
-        }
+//        var _member_url = "http://tmm.taobao.com/member/query_member_top.do";
+//        if (TB.environment.isDaily) {
+//            _member_url = "http://tmm.daily.taobao.net/member/query_member_top.do"
+        //        }
+        _member_url = "http://localhost:7525/Account/Home/query_member_top"    
         _member_url += "?callback=_initMemberInfoCallback&t=" + _kissy.now();
         window._initMemberInfoCallback = function (p) {
             TB.userInfo.memberInfo = p;
@@ -834,7 +838,8 @@ TB.add("mod~global", function () {
         if (window.g_config.closeMiniCart || _tmall_config.commonJS.miniCart.off || !TB.Global.getCartElem()) {
             return
         }
-        var _trackid, _count_url = "http://" + (TB.environment.isDaily ? "count.config-vip.taobao.net:8888" : "count.tbcdn.cn") + "/counter3";
+        //var _trackid, _count_url = "http://" + (TB.environment.isDaily ? "count.config-vip.taobao.net:8888" : "count.tbcdn.cn") + "/counter3";
+        var _trackid, _count_url = "http://localhost:7525/Account/Home/counter";
         TB.Global.memberInfoReady(function (_userinfo) {
             if (_userinfo.isLogin) {
                 _trackid = (_userinfo.memberInfo.cookies && _userinfo.memberInfo.cookies.unb) ? _userinfo.memberInfo.cookies.unb.value : _userinfo.trackId
@@ -864,7 +869,8 @@ TB.add("mod~global", function () {
             return
         }
         _dom_a.innerHTML = _snippet + '<span class="mc-count' + (_cart_num < 10 ? " mc-pt3" : _no_class) + '">' + _cart_num + "</span>件";
-        _dom_a.href = "http://" + (TB.environment.isDaily ? "cart.daily.tmall.net" : "cart.tmall.com") + "/cart/myCart.htm?from=btop";
+        //_dom_a.href = "http://" + (TB.environment.isDaily ? "cart.daily.tmall.net" : "cart.tmall.com") + "/cart/myCart.htm?from=btop";
+        _dom_a.href = "http://localhost:7525/CartPay/Home/MyCartPay?from=btop";
         _addClassName(_cart_elem, _str_class_mini_cart);
         _addClassName(_cart_elem, "menu");
         _addClassName(_dom_a, "menu-hd");

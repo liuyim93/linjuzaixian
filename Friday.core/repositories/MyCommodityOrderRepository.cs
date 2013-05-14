@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using NHibernate;
+using NHibernate.Linq;
 using NHibernate.Criterion;
 using System.Web.UI.WebControls;
 using friday.core.components;
@@ -14,6 +15,12 @@ namespace friday.core.repositories
 {
     public class MyCommodityOrderRepository : Repository<MyCommodityOrder>, IMyCommodityOrderRepository
     {
+        public List<MyCommodityOrder> geMyCommodityOrdersBySystemUserID(string SystemUserID)
+        {
+            var m = (from x in this.Session.Query<MyCommodityOrder>() select x).Where(o => o.SystemUser.Id == SystemUserID && o.IsDelete == false).ToList();
+            return m;
+        }
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(MyCommodityOrder)); }

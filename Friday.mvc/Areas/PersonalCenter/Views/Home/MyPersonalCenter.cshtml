@@ -1,0 +1,1455 @@
+@{
+    ViewBag.Title = "PersonalCenter";
+}
+@using Friday.mvc.Areas.PersonalCenter.Models
+@model PersonalCenterModel
+
+@*<html class="ks-webkit537 ks-webkit ks-chrome26 ks-chrome">*@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="data-spm" content="a1z02" />
+    <title>我的淘宝-淘！我喜欢 </title>
+    <script>        window.g_config = { appId: 5 };
+        g_hb_monitor_st = +new Date;</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <meta name="description" content="中国最大、最安全的网上交易社区，尽享淘宝乐趣！" />
+    <link rel="shortcut icon" href="http://pics.taobaocdn.com/favicon.ico" type="image/x-icon" />
+    <!-- start vmc css 3.1-->
+@*    <link rel="stylesheet" href="http://a.tbcdn.cn//??p/global/1.0/global-min.css,apps/mytaobao/3.0/mt/base/base.css,apps/mytaobao/4.0/home/20130326/page/init.css?t=2013050901.css" />*@
+    @*<link rel="stylesheet" href=@Url.Content("/p/global/1.0/global-min.css") />*@
+    <link rel="stylesheet" href=@Url.Content("/apps/mytaobao/3.0/mt/base/base.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init.css") />
+
+    <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+
+    <!-- end vmc css 3.1-->
+    <!-- start vmc js 3.1 -->
+    @*<script src="http://a.tbcdn.cn//??s/kissy/1.3.0/kissy-min.js,p/global/1.0/global-min.js,apps/mytaobao/4.0/common/package-config.js,p/sns/1.1/sns.js,p/snsdk/core.js?t=2013050901.js"></script>*@
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/p/global/1.0/global-min.js")></script>
+    <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
+    <script src=@Url.Content("/apps/mytaobao/4.0/common/package-config.js")></script>
+    <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
+    <script src=@Url.Content("/p/snsdk/core.js")></script>
+    <script src=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init.js")></script>
+
+    <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>
+    <!-- end vmc js 3.1 -->
+    <!--[if lt IE 9]>
+    <script src=@Url.Content("/apps/mytaobao/4.0/common/html5shiv.js")></script>
+    <script src=@Url.Content("/apps/mytaobao/4.0/common/round-vml.js")></script>
+    <link rel="stylesheet" href=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init-ie.css") />
+    <![endif]-->
+</head>
+<body data-spm="1">
+    <script type="text/javascript">
+        (function (d) {
+            var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
+            t.setAttribute("exparams", "category=&userid=123072695&aplus");
+            t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            d.getElementsByTagName("head")[0].appendChild(t);
+        })(document);
+    </script>
+    <!-- start vmc 3.1 -->
+@*    <div id="site-nav">
+        <div id="site-nav-bd">
+            <div class="sitenav-mobile">
+                <a href=" http://www.taobao.com/m?spm=1.1000386.176505.4&amp;TBG=146112.176505.4">手机版</a></div>
+            <p class="login-info">
+                <script>                    TB.Global.writeLoginInfo({ "memberServer": "http://member1.taobao.com/", "outmemServer": "", "loginServer": "https://login.taobao.com/", redirectUrl: "", logoutUrl: "" });</script>
+            </p>
+            <ul class="quick-menu">
+                <li class="home"><a href="http://www.taobao.com/" target="_top">淘宝网首页</a></li>
+                <style>
+  #site-nav .quick-menu li.sale1212 {
+    margin-top: 3px;
+    *margin-top: 1px;
+    background: none;
+    position:absolute;
+    left:-70px;
+    
+  }
+</style>
+                <li class="menu-item">
+                    <div class="menu">
+                        <a class="menu-hd" style="width: 36px;" href="http://guang.taobao.com" target="_top"
+                            rel="nofollow">我要逛<b></b></a>
+                        <div class="menu-bd" style="width: 68px; height: 94px; line-height: 1.7;">
+                            <div class="menu-bd-panel" style="padding: 8px 10px;">
+                                <div>
+                                    <a href="http://dongtai.taobao.com/hub/new_arrival.htm?tracelog=dtgc_shangxin" target="_top"
+                                        rel="nofollow">逛上新</a> <a href="http://dongtai.taobao.com/hub/promotion.htm?tracelog=dtgc_cuxiao"
+                                            target="_top" rel="nofollow">逛优惠</a><br />
+                                    <a href="http://www.taobao.com/go/act/sns/taoban_download1.php?tracelog=tbshouye"
+                                        target="_top" rel="nofollow">用手机逛</a> <a href="http://list.taobao.com/browse/cat-0.htm?taobao_from=6"
+                                            target="_top" rel="nofollow">商品分类</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="mytaobao menu-item">
+                    <div class="menu">
+                        <a class="menu-hd" href="http://i.taobao.com/my_taobao.htm" target="_top" rel="nofollow">
+                            我的淘宝<b></b></a>
+                        <div class="menu-bd" style="height: 75px; width: 100px">
+                            <div class="menu-bd-panel" id="myTaobaoPanel">
+                                <div>
+                                    <a href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm" target="_top"
+                                        rel="nofollow">已买到的宝贝</a>
+                                </div>
+                                <div>
+                                    <a href="http://dongtai.taobao.com/square.htm?nav=2&tracelog=dtgc_tbsycd" target="_top"
+                                        rel="nofollow">店铺动态</a>
+                                </div>
+                                <div>
+                                    <a href="http://i.taobao.com/feed/friend_feed.htm?tracelog=taobaoindexrsidenewfeed"
+                                        target="_top" rel="nofollow">好友动态</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <style>
+                    #site-nav .seller-center .menu-hd
+                    {
+                        width: 48px;
+                    }
+                    #site-nav .seller-center .menu-bd
+                    {
+                        width: 94px;
+                        line-height: 1.7;
+                    }
+                    #site-nav .seller-center .menu-bd-panel
+                    {
+                        padding: 8px 10px;
+                    }
+                </style>
+                <li class="seller-center menu-item">
+                    <div class="menu">
+                        <a class="menu-hd" href="http://mai.taobao.com/seller_admin.htm" target="_top" rel="nofollow">
+                            卖家中心<b></b></a>
+                        <div class="menu-bd">
+                            <div class="menu-bd-panel">
+                                <div>
+                                    <a href="http://trade.taobao.com/trade/itemlist/list_sold_items.htm" target="_top"
+                                        rel="nofollow">已卖出的宝贝</a> <a href="http://sell.taobao.com/auction/goods/goods_on_sale.htm"
+                                            target="_top" rel="nofollow">出售中的宝贝</a> <a href="http://fuwu.taobao.com/?tracelog=tbdd"
+                                                target="_top" rel="nofollow">卖家服务市场</a> <a href="http://learn.taobao.com/user/xueyuanRedirect.htm?target=http://www.alibado.com"
+                                                    target="_top" rel="nofollow">卖家培训中心</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="service"><a href="http://service.taobao.com/support/main/service_center.htm"
+                    target="_top" rel="nofollow">联系客服</a> </li>
+                <li class="cart"><a href="http://cart.taobao.com/my_cart.htm" target="_top" rel="nofollow">
+                    <s></s>购物车 </a><b class="leftline"></b><b class="rightline"></b></li>
+                <li class="favorite menu-item">
+                    <div class="menu">
+                        <a class="menu-hd" style="width: 36px;" href="http://ju.mmstat.com/?url=http://favorite.taobao.com/collect_list-1-.htm?ad_id=&am_id=&cm_id=&pm_id=1501036000a02c5c3739&scjjc=c1"
+                            target="_top" rel="nofollow">收藏夹<b></b></a>
+                        <div class="menu-bd" style="width: 82px; height: 73px; line-height: 1.7;">
+                            <div class="menu-bd-panel" style="padding: 8px 10px;">
+                                <div>
+                                    <a href="http://favorite.taobao.com/collect_list.htm?itemtype=1" target="_top" rel="nofollow">
+                                        收藏的宝贝</a> <a href="http://favorite.taobao.com/collect_list.htm?itemtype=0" target="_top"
+                                            rel="nofollow">收藏的店铺</a> <a href="http://favorite.taobao.com/hot_collect_list.htm?entrance=home"
+                                                target="_top" rel="nofollow">热门收藏</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="services menu-item last">
+                    <div id="J_Service" class="menu">
+                        <a class="menu-hd" href="http://www.taobao.com/sitemap.php?id=sitemap2" target="_top">
+                            网站导航<b></b></a>
+                        <div id="J_ServicesContainer" class="menu-bd" style="width: 202px; width: 210px\9;
+                            _width: 202px; height: 337px;">
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>*@
+    <!-- system-announce -->
+    <!-- end vmc 3.1 -->
+    @Html.Partial("_SiteNav")
+    @Html.Partial("_Header")
+    <div id="layout-center">
+
+        <!--
+<style>
+.mt-header{
+margin-top:10px !important;
+}
+#decSaleTopBanner{ display:none;} 
+</style>
+<a href="http://www.taobao.com/market/2012/1212/home.php?spm=1.377271.302995.1&ad_id=&am_id=1301045826a610fee231&cm_id=&pm_id=" target=_blank>
+<img src="http://img01.taobaocdn.com/tps/i1/T1tYUvXaFgXXcAwN6h-990-125.png" width="990" style="border:none;display:block;width:990px;margin-left:auto;margin-right:auto;">
+</a>
+-->
+        <!-- 大banner图设置
+<div style="width:990px;margin:0 auto -10px auto">
+<a href="#" target="_blank"><img src="http://img03.taobaocdn.com/tps/i3/T1ywqFXwJXXXaCwpjX.png" /></a>
+</div> -->
+        <!-- 背景logo更换 -->
+        <!--
+<style>
+body{
+    background:url('http://img03.taobaocdn.com/tps/i3/T1ywqFXwJXXXaCwpjX.png') center 36px no-repeat #f1f1f1;
+}
+.mt-tblogo {
+    width: 194px;
+    height: 35px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mt-logo img{
+    display:none;
+}
+</style>
+-->
+@*        <header class="mt-header" data-spm="a210b">
+    <article> 
+        <div class="mt-logo">
+            <a href="http://i.taobao.com/my_taobao.htm?nekot=1368450150663&tracelog=newmytb_logodianji" class="mt-tblogo" data-spm="d1000351"><img src="http://img01.taobaocdn.com/tps/i1/T1cT6EXhhpXXcSFIrn-194-35.png"/></a>
+        </div>
+        <nav class="mt-nav">
+            <ul id="J_MtMainNav">
+                <li  class="selected" >
+                    <a href="http://i.taobao.com/my_taobao.htm?tracelog=mytaobaonavindex&nekot=1368450150663" data-spm="d1000352">首页</a>
+                </li>
+                <li >
+                                            <a href="http://i.taobao.com/123072695?tracelog=mytaobaonavmyindex&nekot=1368450150663" data-spm="d1000353">个人主页</a>
+                                    </li> 
+                <li class="J_MtNavSubTrigger" >
+                    <a class="mt-nav-parent" href="http://member1.taobao.com/member/fresh/account_security.htm?tracelog=mytaobaonavsetup&nekot=1368450150663" data-spm="d1000356">设置<s></s></a>
+                    <div class="J_MtNavSub mt-nav-sub hide">
+                        <p><a href="http://member1.taobao.com/member/fresh/account_security.htm?tracelog=snsmytaobaoshezhi1ed">安全设置</a></p>
+                        <p><a href="http://i.taobao.com/user/baseInfoSet.htm?tracelog=snsmytaobaoshezhi2ed">个人资料</a></p>
+                        <p><a href=" http://member1.taobao.com/member/fresh/account_management.htm?tracelog=snsmytaobaoshezhi3ed">支付宝绑定设置</a></p>
+                        <p><a href=" http://member1.taobao.com/member/fresh/deliver_address.htm?tracelog=snsmytaobaoshezhi4ed">收货地址</a></p>
+                        <p><a href="http://i.taobao.com/user/privacy_set.htm?tracelog=snsmytaobaoshezhi5ed">隐私设置</a></p>
+                        <p><a href="http://member1.taobao.com/member/fresh/account_security.htm?tracelog=snsmytaobaoshezhi6ed&nekot=1348020359357">更多</a></p>
+                    </div>
+                </li>
+                <li class="J_MtNavSubTrigger" >
+                    <a class="mt-nav-parent" href="http://i.taobao.com/message/view_message.htm?tracelog=mytaobaonavmessage&nekot=1368450150663&category=1000&msgName=1" data-spm="d1000357">消息<s></s></a>
+                    <div class="J_MtNavSub mt-nav-sub hide"> 
+                        <p><a href="http://i.taobao.com/message/view_message.htm?tracelog=snsmytaobaoxiaoxi2ed&category=1000&msgName=1">评论我的</a></p>
+                        <p><a href="http://i.taobao.com/message/view_message.htm?tracelog=snsmytaobaoxiaoxi3ed&category=1000&msgName=2">提到我的</a></p>
+                        <p><a href="http://i.taobao.com/message/view_message.htm?tracelog=snsmytaobaoxiaoxi4ed&category=1000&msgName=3">私信</a></p>
+                        <p><a href="http://i.taobao.com/message/view_message.htm?tracelog=snsmytaobaoxiaoxi5ed&category=1000&msgName=4">提醒</a></p>
+                    </div>
+                </li>
+            </ul> 
+                            <div id="J_MtSearch" class="mt-search">
+                    <div class="mt-search-type J_Type">
+                        <dl>
+                            <dt><a href="#nohash" data-type="item">宝贝</a></dt>
+                            <dt><a href="#nohash" data-type="shop">店铺</a></dt>
+                            <dd class="mt-search-arrows"></dd>
+                        </dl>
+                    </div>
+                    <form id="J_TSearchForm" action="http://s.taobao.com/search">
+                        <input type="input" class="mt-search-query J_MtSearchQuery" placeholder="" name="q"/>
+                        <input type="hidden" name="tracelog" value="newmytb_sousuotijiao" />
+                        <button type="submit" class="mt-search-submit">搜索</button>
+                    </form>
+                </div>
+                    </nav>
+    </article>
+</header>*@
+
+        <script>            TB.Global.init();</script>
+        <!-- end vmcommon/mytaobao -->
+        <div class="grid-c2">
+            <div class="col-main">
+                <div class="main-wrap">
+                    <article id="userinfo" class="mt-user-info-box">
+    <div class="mt-userinfo clearfix">
+    <div class="name-info">
+        <span class="name">
+                        <a title="@Model.systemUser.Name" target="_blank" href="http://i.taobao.com/123072695?tracelog=snshomeusername">@Model.systemUser.Name</a>
+                <span class="nick">(@Model.systemUser.LoginUser.LoginName)</span>
+                    </span>
+        <span class="prestige">
+                                        
+<a href="http://rate.taobao.com/rate.htm?userId=123072695" target="_blank" data-spm="d1000296"><img src="http://pics.taobaocdn.com/newrank/b_red_2.gif" title="27个买家信用积分，请点击查看详情" border="0" align="absmiddle" class="rank" /></a>                    </span>
+        <div id="J_MyAlipayBtn" class="mt-alipay-wrap">
+            <!--认证标志-->
+        <span class="realy-name">
+		<a class="icon" title="支付宝实名认证" target="_blank" href="http://service.taobao.com/support/5-27-357/help-1035.htm" data-spm="d1000297"></a>
+	</span>
+                <span class="my-alipay">
+	<a class="my-alipaybtn" target="_blank"
+	   href="http://lab.alipay.com/user/i.htm?src=yy_content_jygl&amp;sign_from=3000&amp;sign_account_no=20880029743406830156" data-spm="d1000298">
+	   我的支付宝
+	</a>
+    <div id="J_MyAlipayInfo" class="my-alipayinfo hidden chromehack">
+        <ul>
+            <li class="check-amount">
+                <!--有余额 -->
+                <span id="J_AliPayMoney" class="hidden"><em></em>元</span>
+                <!-- 查看余额  -->
+                <a href="" data-spm="d1000299" data-snstracelog="{'url':'http://log.mmstat.com/sns.16.18'}">查看余额</a>
+            </li>
+            <li><a href="http://lab.alipay.com/user/depositDelegateController.htm?sign_from=3000&amp;sign_account_no=20880029743406830156" target="_blank" data-spm="d1000300" data-snstracelog="{'url':'http://log.mmstat.com/sns.16.19'}">充值</a></li>
+            <li><a href="https://auth.alipay.com/login/trustLoginResultDispatch.htm?sign_from=3000&sign_account_no=20880029743406830156&goto=https://shenghuo.alipay.com/send/payment/fill.htm&src=wdtb" target="_blank" data-spm='d1000302'>转账付款</a></li>
+            <li><a href="http://lab.alipay.com/consume/record/index.htm?sign_from=3000&amp;sign_account_no=20880029743406830156" target="_blank" data-spm="d1000301" data-snstracelog="{'url':'http://log.mmstat.com/sns.16.20'}">消费记录</a></li>
+        </ul>
+    </div>
+</span>
+        </div>
+        
+    </div>
+    <div class="shopping-info">
+            <span class="to-pay">待付款<em class="num">0</em></span>
+                <span class="to-sure">待确认收货<em class="num">0</em></span>
+                <a href="http://trade.taobao.com/trade/trade/itemlist/list_bought_items.htm?event_submit_do_query=1&amp;action=itemlist%2FQueryAction&amp;user_type=0&amp;_fmt.q._0.c=I_HAS_NOT_COMMENT&amp;_fmt.q._0.au=ALL&amp;nekot=g%2Cnbqwsy3iovqw4mzqgaya1368450150576&amp;tracelog=mytaobao_daipingjia" class="to-reply" target="_blank" data-spm="d1000304">
+            待评价<em class="num">1</em></a>
+        <!---该处只有不为0时显示 START-->
+            	<a href="http://member1.taobao.com/member/fresh/deliver_address.htm?tracelog=newmytb_shouhuodizhiguanli" class="address" target="_blank" data-spm="d1000308">收货地址管理</a>
+	</div></div>
+</article>
+                    <article id="userinfomore" class="mt-userinfo-sub">
+    <div class="sub-info">
+    <ul class="main-ul">
+        <li class="coin">
+                                                <p class="tao-coin"><a href="http://vip.taobao.com/vip_home.htm?auto_take=true&tracelog=newmytb_kelingjinbi" target="_blank" data-spm="d1000326">领<em>5</em>淘金币</a></p>
+                                        <p class="day-task"><a href="http://mission.jianghu.taobao.com/umissionList.htm?tracelog=newmytb_jinrirenwu" target="_blank" data-spm="d1000331">玩任务赚金币</a></p>
+        </li>
+                                <li class="vip">
+            <ul>
+                <li class="member">会员等级 <a class="v1" title="v1会员" href="http://vip.taobao.com/vip_club.htm" target="_blank" data-spm="d1000327"></a>  </li>
+                <li class="my-privilegeinfo">
+                    <span id="J_MyPrivilegeBtn" class="my-privilegebtn">我的优惠信息</span>
+                    <div id="J_MyPrivilegeInfo" class="myprivilegeinfo-content hidden">
+                        <ul>
+                                                            <li class="my-super"><span class="label">我的特权：</span>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=a1" target="_blank">
+                                            <img src="http://img03.taobaocdn.com/tps/i3/T1uPpDXBNdXXaSQP_X-16-16.png" title="V4以上尊享优先入场"/>
+                                        </a>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=a3" target="_blank">
+                                            <img src="http://img01.taobaocdn.com/tps/i1/T1k2KnXEBXXXaSQP_X-16-16.png" title="V4以上用户购物每天可领取更多淘金币"/>
+                                        </a>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=a4" target="_blank">
+                                            <img src="http://img02.taobaocdn.com/tps/i2/T1XNmmXCpbXXaSQP_X-16-16.png" title="每天在会员俱乐部，不同级别会员签到可领取不同的淘金币"/>
+                                        </a>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=a5" target="_blank">
+                                            <img src="http://img03.taobaocdn.com/tps/i3/T1gkSlXpFeXXaSQP_X-16-16.png" title="V1以上用户尊享折上折特权"/>
+                                        </a>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=b1" target="_blank">
+                                            <img src="http://img02.taobaocdn.com/tps/i2/T1MPOIXaRtXXXXXXXX-16-16.png" title="会员生日当月享受生日特供商品"/>
+                                        </a>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=b2" target="_blank">
+                                            <img src="http://img01.taobaocdn.com/tps/i1/T18gDUXnlfXXaSQP_X-16-16.png" title="专属旺旺皮肤/头像，彰显尊贵身份"/>
+                                        </a>
+                                                                            <a href="http://vip.taobao.com/privilege.htm?target=b3" target="_blank">
+                                            <img src="http://img01.taobaocdn.com/tps/i1/T1nzuIXXRtXXXXXXXX-16-16.png" title="即点即退，瞬间到账"/>
+                                        </a>
+                                                                    </li>
+                                                        <li><span class="label">天猫积分： <em></em></span><a target="_blank" href="http://jifen.tmall.com/?spm=2001.1.1.6">积分购物</a></li>
+                            <li><span class="label">店铺优惠券：<em></em>张</span><a target="_blank" href="http://ecrm.taobao.com/mallcoupon/got_bonus.htm">查看</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+@*<script type="text/javascript" src="http://localhost:7525/apps/support/robot/js/minerva_entry.js?t=1352262426117"></script>*@
+<script type="text/javascript">
+    MINERVA_POPUP_URL = 'http://service.taobao.com/support/minerva/beta_robot_main.htm?sourceId=1317095351';
+</script>
+
+
+</article>
+
+<article id="usernew">
+    <style type="text/css">
+  .newUserCon{height: 205px;width: 828px; overflow:hidden}
+  .newUserCon li{float: left;height:205px;}
+  .newUserCon li.item-1,.newUserCon li.item-2{width:277px;}
+  .newUserCon li.item-1 a{display:block;width:100%;height:100%;background:url(http://img04.taobaocdn.com/tps/i4/T1hWazXrtdXXbsYk__-277-205.gif) no-repeat;}
+  .newUserCon li.item-2 a{display:block;width:100%;height:100%;background:url(http://img01.taobaocdn.com/tps/i1/T1GeuBXrBXXXbsYk__-277-205.gif) no-repeat;}
+  .newUserCon li.item-3{width:274px;height:205px;background:url(http://img02.taobaocdn.com/tps/i2/T1rsyyXEVhXXalbuH8-276-205.gif) no-repeat}
+  .newUserCon li.item-3 .labelCon{margin-top:60px}
+  .newUserCon li.item-1 a:hover,.newUserCon li.item-2 a:hover{filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity:0.85;opacity: 0.85;}
+	.labelCon{line-height: 40px;font-family: "Microsoft Yahei", "oúì?";font-size: 15px;}
+	.labelCon span{float: left;width: 67px;height: 40px;text-align: center;overflow: hidden;}
+	.style1{color: #676767;}
+	.style2{color: #ff9191;font-size: 19px}
+	.style3{color: #858585}
+	.style4{color: #666666}
+	.style5{color: #98815e;font-size: 17px}
+	.style6{color: #6cde67}
+	.style7{color: #ff925c;font-size: 19px;}
+	.style8{color: #6fbdff;font-size: 14px;}
+	.style9{color: #ff925c;font-size: 17px;}
+	.style10{color: #6cde67}
+	.style11{color: #9bddd6}
+	.style12{color: #fbca19;font-size: 19px}
+</style>
+<script type="text/javascript">
+    KISSY.ready(function (S) {
+        var $ = S.all;
+        var styleArr = ['style1', 'style2', 'style3', 'style4', 'style5', 'style6', 'style7', 'style8', 'style9', 'style10', 'style11', 'style12'];
+        var textArr = [];
+        var linkArr = [];
+        var arr = [];
+        var tml = '<span><a href="{link}" target="_blank" class="{style}">{text}</a></span>';
+        var tmlHtml = '';
+        var num;
+        var repeat;
+        var aList = $("#J_labelCon a");
+        var roundNumArr = [];
+
+        S.each(aList, function (v) {
+            textArr.push($(v).text());
+            linkArr.push($(v).attr('href'));
+        })
+
+        styleArr.sort(RandomSort);
+        if (aList.length >= styleArr.length) {
+            roundNumArr = getRoundArr(styleArr, linkArr);
+        }
+
+        for (var i = 0, l = roundNumArr.length; i < l; i++) {
+            tmlHtml += S.substitute(tml, {
+                link: linkArr[roundNumArr[i]],
+                style: styleArr[i],
+                text: textArr[roundNumArr[i]]
+            })
+        }
+
+        S.one('#J_labelCon').html(tmlHtml);
+
+        function RandomSort(a, b) {
+            return (Math.round(Math.random()) - 0.5);
+        }
+
+        function getRoundArr(bassArr, originalArr) {
+            var n = bassArr.length || 12;
+            while (arr.length < n) {
+                repeat = false;
+                num = parseInt(originalArr.length * Math.random());
+                if (arr.length > 0) {
+                    for (var i = 0; i < arr.length; i++) {
+                        if (arr[i] == num) {
+                            repeat = true;
+                            break;
+                        }
+                    }
+                    if (!repeat) {
+                        arr.push(num);
+                    }
+
+                } else {
+                    arr.push(num);
+                }
+
+            }
+            return arr;
+        }
+
+
+    })
+</script>
+<div id="J_newUser" class="newUserCon">
+	<ul class="newUserList">
+		<li class="item-1">
+          
+          <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm-anchor-id="a1z02.1.a2145jt.1">
+         
+          </a>
+          
+      </li>
+		<li class="item-2">
+        
+          <a href="http://localhost:7525/merchant/searchproduct" target="_blank">
+            
+          </a>
+           
+      </li>
+		<li class="item-3">
+			<div id="J_labelCon" class="labelCon">
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E4%BC%91%E9%97%B2&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style10">休闲</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E9%A3%8E%E8%A1%A3&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style12">风衣</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E7%9A%AE%E9%9E%8B&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style8">皮鞋</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=T%E6%81%A4&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style6">T恤</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E7%9F%AD%E8%A3%A4&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style2">短裤</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E5%8D%AB%E8%A1%A3&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style9">卫衣</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E6%88%92%E6%8C%87&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style7">戒指</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E5%86%85%E8%A1%A3&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style4">内衣</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E8%BF%90%E5%8A%A8%E9%9E%8B&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style3">运动鞋</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E6%89%8B%E6%9C%BA%E6%95%B0%E7%A0%81&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style11">手机数码</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E5%8C%96%E5%A6%86%E5%93%81&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style1">化妆品</a>
+                </span>
+
+                <span>
+                    <a href="http://localhost:7525/merchant/searchproduct?keyword=%E6%AF%8D%E5%A9%B4&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style5">母婴</a>
+                </span>
+
+            </div>
+		</li>
+	</ul>
+</div>
+</article>
+
+
+                    <article id="has-buy">
+    <div class="J_zoomIn" data-spm="5864393">
+        <div class="inner">
+            <header>
+                @*<h2><a href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm?tracelog=yimaidaotitle" target="_blank" data-spm="d4908581">已买到的宝贝</a></h2>*@
+              <h2><a href="javascript: return false;" style="cursor:default" target="_blank" data-spm="d4908581">已买到的宝贝</a></h2>    
+            </header>
+            @{
+                if (Model.Commodities.Count != 0)
+                {
+                   <div class="J_hasbuy_scroll hasbuy-2">
+                   <section >
+                        <ul class="hasbuy-item-list">
+                           @{
+                                for (int i = 0; i < ((Model.Commodities.Count) > 6 ? 6 : Model.Commodities.Count); i++)
+                                {
+                                   <li>
+                                       <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585"><img src="@Model.Commodities.ElementAt(i).Image"/></a>
+                                       <p><span class="rmb">￥</span>@Model.Commodities.ElementAt(i).Price</p>
+                                   </li>                                    
+                                }  
+                             }
+
+                        </ul>
+                    </section>
+                
+                    <section class="hasbuy-item-1">
+                        <span class="nodata-icon">购物的路如人生，只有不断向前才有更美的风景，继续购吧！</span>
+                    </section>
+                    </div> 
+                }
+                else
+                {
+                    <div class="J_hasbuy_scroll hasbuy-0">
+                    <section class="hasbuy-item-0">
+                        <a class="nodata-icon">没有宝贝在路上</a>
+                        <p class="app-mark"><span><a>去购物吧，没有包裹在路上总觉得缺点什么。</a></span></p>
+                    </section>
+                    </div>
+                
+                
+                }
+             }
+@*            <div class="J_hasbuy_scroll hasbuy-2">
+                   <section >
+                        <ul class="hasbuy-item-list">
+                           <li>
+                               <a href="http://item.taobao.com/item.htm?id=20136140849" target="_blank" title="Afs Jeep冲锋衣正品 两件套 可脱卸内胆男士防风加厚户外棉衣服-2" data-spm="d4908585"><img src="http://img04.taobaocdn.com/bao/uploaded/i4/69908471/T2puqmXXXcXXXXXXXX_!!69908471.jpg_80x80.jpg"/></a>
+                               <p><span class="rmb">￥</span>339.00</p>
+                           </li>
+                        </ul>
+                    </section>
+                
+                <section class="hasbuy-item-1">
+                     <span class="nodata-icon">购物的路如人生，只有不断向前才有更美的风景，继续购吧！</span>
+                </section>
+            </div>
+
+            <div class="J_hasbuy_scroll hasbuy-0">
+                    <section class="hasbuy-item-0">
+                        <a class="nodata-icon">没有宝贝在路上</a>
+                        <p class="app-mark"><span><a>去购物吧，没有包裹在路上总觉得缺点什么。</a></span></p>
+                    </section>
+            </div>*@
+
+        </div>
+    </div>
+</article>
+                    <article id="shop-cart">
+    <div class="inner" data-spm="5864397">
+        <header>
+            <h2><a href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908597">购物车</a></h2>
+            <span class="sub" id="J_cart_discount_box"></span>
+            <a class="more" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908601">更多</a>
+        </header>
+        <div id="J_cart_container" data-url="http://i.taobao.com/trade/cart_info.htm?_tb_token_=I7X3qRRouAm">
+            @{
+                if(Model.CartOfCommodities.Count==0)
+                {
+                    <div class="shop-cart-list cart-0">
+                        <a class="nodata-icon">购物车没有宝贝</a>
+                        <p class="app-mark"><span><a data-spm="d4908601" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank">把想买的宝贝放进来吧，有了优惠我会提醒你哦。</a></span></p>
+                    </div>
+                }
+                else
+                {
+                    for (int i = 0; i < ((Model.CartOfCommodities.Count) > 3 ? 3 : Model.CartOfCommodities.Count); i++)
+                    {
+                        <dl class="shop-cart-list cart-3">
+                                <dt class="item-image">
+                                    <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" data-spm="d4908605">
+                                    <img src="@Model.CartOfCommodities.ElementAt(i).Commodity.Image"></a>
+                                </dt>
+
+                                <dd class="item-name">
+                                    <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" title="@Model.CartOfCommodities.ElementAt(i).Commodity.Name" data-spm="d4908609">
+                                    @{
+                                        
+                                        if (Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length > 15)
+                                        {
+                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0,15)+"...")</text>
+                                        }
+                                        else
+                                        {
+                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0,Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length))</text>
+                                        }
+                                      }
+                                    </a>
+                                </dd> 
+
+                                <dd class="item-price">
+                                    @{
+                        if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
+                                        {
+                                            <p class="new-price"><span class="rmb">￥</span>Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="old-price"><span class="rmb">￥</span>@Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice</p>
+                                            <p class="new-price"><span class="rmb">￥</span>@Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
+                                            <p><span class="less-price">省@(Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice-Model.CartOfCommodities.ElementAt(i).Commodity.Price)</span></p>
+                                        }
+                                     }
+
+                                </dd>        
+                        </dl>                             
+                    }
+                }
+              }
+@*            <div>
+                <dl class="shop-cart-list cart-3">
+                        <dt class="item-image">
+                            <a href="http://item.taobao.com/item.htm?id=17932830048&amp;tracelog=gowuchepic" target="_blank" data-spm="d4908605">
+                            <img src="http://img05.taobaocdn.com/bao/uploaded/i5/T1aAX.XAJfXXaHTwk2_043858.jpg_60x60.jpg"></a>
+                        </dt>
+
+                        <dd class="item-name">
+                            <a href="http://item.taobao.com/item.htm?id=17932830048&amp;tracelog=gouwucheprotitle" target="_blank" title="camel骆驼 春夏潮流时尚新品 牛皮户外日常休闲情侣凉鞋 男女鞋" data-spm="d4908609">camel骆驼 春夏潮流时尚新品 牛皮户...</a>
+                        </dd> 
+
+                        <dd class="item-price">
+                            <p class="old-price"><span class="rmb">￥</span>469.00</p>
+                            <p class="new-price"><span class="rmb">￥</span>239.00</p>
+                            <p><span class="less-price">省230.00</span></p>
+                        </dd>        
+                </dl>                                 
+            
+            <div class="shop-cart-list cart-0">
+                <a class="nodata-icon">购物车没有宝贝</a>
+                <p class="app-mark"><span><a data-spm="d4908601" href="http://cart.taobao.com//my_cart.htm?tracelog=gouwuchemore" target="_blank">把想买的宝贝放进来吧，有了优惠我会提醒你哦。</a></span></p>
+            </div>
+        </div>*@
+    </div>
+</article>
+                    <article id="app-collect-shop" class="mt-app">
+    <img src="http://log.mmstat.com/sns.20.6?cache=1368450150662" style="display:none;">
+    <div class="inner" data-spm="5864401">
+        <header>
+            <h3><a href="http://localhost:7525/myBrandsIndex.html" target="_blank" data-spm="d4908613">我收藏的店铺</a><i data-title="店铺动态全新改版！点击图标，发现惊喜"  class="why"></i></h3>
+        </header>
+		
+
+		<!-- 如果接口失败 -->	
+		            <!-- 四个店铺 -->
+    		
+    		             <section class="shop-2">
+    			    		@{
+                                for (int i = 0; i < ((Model.FavMerchants.Count) > 3 ? 3 : Model.FavMerchants.Count); i++)
+                                {
+     				                <a data-spm="d4908617" href="http://localhost:7525/merchant/index?scid=@Model.FavMerchants.ElementAt(i).Id" target="_blank" data-title="@Model.FavMerchants.ElementAt(i).Name" class="J_collect_shop">
+    				    					                <img src="@Model.FavMerchants.ElementAt(i).Logo"/>
+    				                 </a>                                   
+                                }
+                            }
+    				    			    				
+@*    				<a data-spm="d4908617" href="http://dongtai.taobao.com/microshop/front.htm?feedCatId=1&amp;sellerId=6655&amp;scm=1046.1.5.2" target="_blank" data-title="幸运叶子运动名品网  淘宝运动分类第一名" class="J_collect_shop">
+    				    					<img src="http://logo.taobao.com/shop-logo//69/75/T18Y5cXoFoXXartXjX_60x60"/>
+    				 </a>*@
+    				    			            </section>
+    		                 			<footer>
+                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm="d4908621">新品上架</a>
+                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm="d4908625">优惠活动</a>
+            </footer>
+							
+    </div>
+</article>
+@*                    <article id="app-collect-item" class="mt-app">
+    <img src="http://log.mmstat.com/sns.20.7?cache=1368450150662" style="display:none;">
+    <div class="inner" data-spm="5864409">
+        <header>
+            <h3> <a href="http://favorite.taobao.com//collectList.htm?tracelog=shoucangjiatitle"  target="_blank" data-spm="d4908633">我收藏的宝贝</a></h3>
+        </header>
+		<!-- 如果接口失败 -->	
+				
+    		<!-- 其他情况调用成功调用成功 -->
+    		             <!-- 四个宝贝 -->
+            <section class="item-7">
+    			    				 <a data-spm="d4908637" target="_blank" href="http://item.taobao.com/item.htm?id=15692159679" data-title="Nike 耐克官方 AIR FORCE 1 &#39;07 LE 男子空军一号运动鞋 488298 <span class='price'><em class='rmb'>￥</em>769.00</span>"  class="J_collect_item"><img src="http://img03.taobaocdn.com/bao/uploaded/i3/12188023163954541/T1q0WGXAJXXXXXXXXX_!!0-item_pic.jpg_80x80.jpg" /></a>
+    				     			    				 <a data-spm="d4908637" target="_blank" href="http://item.taobao.com/item.htm?id=17579720278" data-title="Nike 耐克官方 AIR FORCE 1 &#39;07 LE 空军一号男子运动鞋 315122 <span class='price'><em class='rmb'>￥</em>769.00</span>"  class="J_collect_item"><img src="http://img02.taobaocdn.com/bao/uploaded/i2/T1QF2hXcXhXXc3oHo6_061002.jpg_80x80.jpg" /></a>
+    				     			    				 <a data-spm="d4908637" target="_blank" href="http://item.taobao.com/item.htm?id=2122973060" data-title="【皇冠秒充】山东移动自动快充20元 暂限济南、淄博等5个市 <span class='price'><em class='rmb'>￥</em>19.89</span>"  class="J_collect_item"><img src="http://img03.taobaocdn.com/bao/uploaded/i3/T1PPxfXeY5VtMvIFTX_114125.jpg_80x80.jpg" /></a>
+    				     			    				 <a data-spm="d4908637" target="_blank" href="http://item.taobao.com/item.htm?id=2644174924" data-title="外贸woofbags 手提单肩包斜挎包 男 12-14寸笔记本电脑包【小号】 <span class='price'><em class='rmb'>￥</em>388.00</span>"  class="J_collect_item"><img src="http://img01.taobaocdn.com/bao/uploaded/i1/T1gjtyXhRoXXaeH.Z9_105128.jpg_80x80.jpg" /></a>
+    				     					            </section>
+    		      		     		<footer>
+                <a href="http://favorite.taobao.com//collectList.htm" data-spm="d4908641" target="_blank">共收藏7件宝贝</a>
+            </footer>
+			 		    </div>
+</article>*@
+                   @* <article id="app-expressway" class="mt-app">
+<img src="http://log.mmstat.com/sns.20.13?cache=1368450150662" style="display:none;">
+<div class="mt-expressway inner">
+	<header>
+        <h3><a>便民中心</a></h3>
+	</header>
+    <div class="bd">
+        <div id="J_MtExpressway" class="expressway-box">
+            <div id="J_MtExpressHeader" role="tablist">
+				<i class="arrow"></i>
+                <ul class="mt-express-tab">
+                    <li class="J_MtExpressTab selected ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.10?cache=1368450150662'}" role="tab" tabindex="0" id="ks-switchable39">手机<i></i></li>
+                    <li class="J_MtExpressTab ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.11?cache=1368450150662'}" role="tab" tabindex="-1" id="ks-switchable40">点卡<i></i></li>
+                </ul>
+                <div class="mt-nav-more" id="J_MtMoreExpress">
+                    <ul>
+                        <li id="J_MtMoreTrigger" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12?cache=1368450150662'}">更多</li>
+						<li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable41">缴费</li>
+						<li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable42">保险</li>
+                        <li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable43">转账</li>
+                        <li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable44">机票</li>
+                        <li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable45">彩票</li>
+                        <li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable46">还款</li>
+                        <li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable47">外卖</li>
+                        <li class="J_MtExpressTab mt-express-tab-item ks-switchable-trigger-internal35" data-snstracelog="{'url':'http://log.mmstat.com/sns.20.12'}" role="tab" tabindex="-1" id="ks-switchable48">酒店</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-express-content">
+                <div style="display: block;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="false" aria-labelledby="ks-switchable39">
+                    <div class="module" ><div id="tbr-phone-loading" style="width:195px;height:107px;background: url(http://img01.taobaocdn.com/tps/i1/T1cKm3XkRpXXXXXXXX-48-48.gif) center center no-repeat transparent;"></div>
+
+    <div id="tbr-phone" class="tbr-container" style="display:none;">
+        <div class="tbr-block tbr-control" id="tbr-phone-number">
+            <div class="tbr-block-bd">
+                <div class="tbr-input">
+                    <input id="tbr-phone-number-input" type="tel" placeholder="手机号，固话号"
+                           data-label="充值号码" autocomplete="off" data-paste="disabled">
+                </div>
+            </div>
+        </div>
+        <div class="tbr-block tbr-control" id="tbr-phone-denom">
+            <select id="tbr-phone-denom-select" data-label="面值:" data-id="tbr-phone-denom">
+                <option value="10">10元</option>
+                <option value="20">20元</option>
+                <option value="30">30元</option>
+                <option value="50" selected>50元</option>
+                <option value="100">100元</option>
+                <option value="200">200元</option>
+                <option value="300">300元</option>
+                <option value="500">500元</option>
+                <option value="1000">1000元</option>
+            </select>
+        </div>
+        <div class="tbr-block tbr-result">
+            <div class="tbr-block-hd">售价</div>
+            <div class="tbr-block-bd">-</div>
+        </div>
+        <div class="tbr-block tbr-buy">
+            <a href="#tbr-phone" target="_blank" class="tbr-btn tbr-btn-buy">立即充值</a>
+            <a href="#" target="_blank" class="tbr-btn tbr-btn-link" style="display:none"></a>
+            <a href="#" target="_blank"
+               class="tbr-link" style="display:none"><span class="tbr-price">-</span></a>
+        </div>
+        <form class="tbr-form-buy" method="post" target="_blank"
+              action="http://buy.taobao.com/auction/buy_now.htm">
+            <input type="hidden" name="tccdetailc" value="mytaobao"/>
+            <input type="hidden" name="from" value="tcc"/>
+            <input type="hidden" name="event_submit_do_buy" value="1"/>
+            <input type="hidden" name="action" value="buynow/PhoneEcardBuyNowAction"/>
+            <input type="hidden" name="item_id_num" value=""/>
+            <input type="hidden" name="phone" value=""/>
+        </form>
+    </div>
+</div>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable40">
+                    <!-- /go/rgn/mytaobao_game.php -->
+<div id="tbr-game-loading"
+     style="width:195px;height:107px;background: url(http://img01.taobaocdn.com/tps/i1/T1cKm3XkRpXXXXXXXX-48-48.gif) center center no-repeat transparent;"></div>
+
+<div class="new-service-module new-service-game" id="J_Game" style="display:none;" data-ts="20130502">
+    <div class="new-service-module-container">
+        <div class="new-service-hd">
+            <hr>
+            <a id="game-nav-card" href="http://www.taobao.com" target="_blank" class="J_GameSWTrigger" data-goldlog="/wanle.12.5">点卡</a>
+            <a id="game-nav-qq" href="http://www.taobao.com" target="_blank" class="J_GameSWTrigger" data-goldlog="/wanle.12.6">QQ</a>
+            <a id="game-nav-goods" href="http://www.taobao.com" target="_blank" class="J_GameSWTrigger" data-goldlog="/wanle.12.7">网游物品</a>
+        </div>
+        <div class="new-service-bd">
+                        <div class="new-service-game-item J_GameSWPanel" style="display:none;">                            <!-- /go/rgn/mytaobao_card.php -->
+                <!-- &lt;textarea class="ks-datalazyload-custom" tabindex="-1" &gt; -->
+
+                <div id="tbr-card" class="tbr-container">
+    <div class="tbr-block tbr-control" id="tbr-card-sku">
+        <div id="tbr-card-cat" class="tbr-input">
+            <input id="tbr-card-cat-input" type="text" placeholder="请输入游戏名称"
+                   data-label="游戏" maxlength="10">
+        </div>
+        <div id="tbr-card-denom">
+            <select id="tbr-card-denom-select" name="denom" data-label="面值:"
+                    data-id="tbr-card-denom">
+            </select>
+        </div>
+    </div>
+    <div class="tbr-block tbr-control" id="tbr-card-itemtype">
+        <div class="tbr-block-bd tbr-radio" id="tbr-card-itemtype-radio">
+            <label class="tbr-radio-label"><input class="tbr-radio-input" type="radio" name="way" value="auto" checked/>自动充值</label>
+            <label class="tbr-radio-label"><input class="tbr-radio-input" type="radio" name="way" value="cardcode"/>购买卡密</label>
+        </div>
+    </div>
+    <div class="tbr-block tbr-result">
+        <div class="tbr-block-bd">-</div>
+    </div>
+    <div class="tbr-block tbr-buy">
+        <a href="#tbr-phone" target="_blank" class="tbr-btn tbr-btn-buy">立即充值</a>
+        
+             <a href="#" target="_blank" class="tbr-link"><!-- $text --></a>
+        
+    </div>
+    <form class="tbr-form-buy" method="post" target="_blank"
+          action="http://buy.taobao.com/auction/buy_now.htm">
+        <input type="hidden" name="tccdetailc" value="mytaobao"/>
+        <input type="hidden" name="from" value="tcc"/>
+        <input type="hidden" name="event_submit_do_buy" value="1"/>
+        <input type="hidden" name="action" data-cardcode="buynow/CardCodeBuyNowDirectAction"
+               data-ecard="buynow/"/>
+        <input type="hidden" name="item_id_num" value=""/>
+        <input type="hidden" name="sku_id" value=""/>
+    </form>
+    <form class="tbr-form-fastbuy" method="get" target="_blank"
+          action="http://buy.taobao.com/auction/fastbuy/fast_buy.htm">
+        <input type="hidden" name="from" value="tcc"/>
+        <input type="hidden" name="item_id_num" value=""/>
+        <input type="hidden" name="sku_id" value=""/>
+    </form>
+</div>
+
+<script>
+    var ts = KISSY.one('#J_Game').attr('data-ts'); // 时间戳
+    KISSY.getScript('http://localhost:7525/apps/tcc/recharger/build/' + ts + '/tb_home/card-min.js', function () {
+        KISSY.config({
+            packages: [
+                {
+                    name: 'gallery',
+                    path: 'http://a.tbcdn.cn/s/kissy',
+                    charset: 'utf-8'
+                }
+            ]
+        });
+        KISSY.use('tbr/loader, tbr/utils/monitor', function (S, RechargerLoader, Monitor) {
+
+            RechargerLoader.load('card', 'mytaobao', function (recharger) {
+                Monitor.goldlog('/wanle.10.6', '', '47700902');
+                S.one('#tbr-card .tbr-link').on('click', function () {
+                    Monitor.goldlog('/wanle.10.11', '', '47700902');
+                });
+            });
+
+        });
+    });
+</script>                <!-- &lt;/textarea&gt; -->
+            </div>
+
+                        <div class="new-service-game-item J_GameSWPanel" style="display:none;"><!-- /go/rgn/mytaobo_qq.php -->
+              
+                <!-- &lt;textarea class="ks-datalazyload-custom" tabindex="-1" &gt; -->
+                            
+                <div id="tbr-qq" class="tbr-container">
+    <div class="tbr-block tbr-control" id="tbr-qq-number">
+        <div id="tbr-qq-number-control" class="tbr-input">
+            <input id="tbr-qq-number-input" type="text" placeholder="请输入QQ号码"
+                   data-label="QQ号" autocomplete="off" data-paste="disabled" />
+        </div>
+    </div>
+    <div class="tbr-block tbr-control" id="tbr-qq-sku">
+        <div id="tbr-qq-cat">
+            <select id="tbr-qq-cat-select" name="cat" data-label="类型" data-id="tbr-qq-cat">
+            </select>
+        </div>
+        <div id="tbr-qq-denom">
+            <select id="tbr-qq-denom-select" name="denom" data-label="面值"
+                    data-id="tbr-qq-denom">
+            </select>
+        </div>
+    </div>
+    <div class="tbr-block tbr-result">
+        <div class="tbr-block-bd">-</div>
+    </div>
+    <div class="tbr-block tbr-buy">
+        <a href="#tbr-phone" target="_blank" class="tbr-btn tbr-btn-buy">立即充值</a>
+        
+             <a href="#" target="_blank" class="tbr-link"><!-- $text --></a>
+        
+    </div>
+    <form class="tbr-form-buy" method="post" target="_blank"
+          action="http://buy.taobao.com/auction/buy_now.htm">
+        <input type="hidden" name="tccdetailc" value="mytaobao"/>
+        <input type="hidden" name="from" value="tcc"/>
+        <input type="hidden" name="event_submit_do_buy" value="1"/>
+        <input type="hidden" name="action" data-tbcp="buynow/TbcpQqBuyNowDirectAction"
+               data-ecard="buynow/QQEcardBuyNowAction"/>
+        <input type="hidden" name="item_id_num" value=""/>
+        <input type="hidden" name="sku_id" value=""/>
+        <input type="hidden" name="qqnum" value=""/>
+    </form>
+    <form class="tbr-form-fastbuy" method="get" target="_blank"
+          action="http://buy.taobao.com/auction/fastbuy/fast_buy.htm">
+        <input type="hidden" name="from" value="tcc"/>
+        <input type="hidden" name="item_id_num" value=""/>
+        <input type="hidden" name="sku_id" value=""/>
+    </form>
+</div>
+
+<script>
+    KISSY.getScript('http://localhost:7525/apps/tcc/recharger/build/20130502/tb_home/qq-min.js', function () {
+        KISSY.config({
+            packages: [
+                {
+                    name: 'gallery',
+                    path: 'http://a.tbcdn.cn/s/kissy',
+                    charset: 'utf-8'
+                }
+            ]
+        });
+        KISSY.use('tbr/loader, tbr/utils/monitor', function (S, RechargerLoader, Monitor) {
+
+            RechargerLoader.load('qq', 'mytaobao', function (recharger) {
+                Monitor.goldlog('/wanle.10.12', '', '47700902');
+            });
+
+        });
+    });
+</script>                <!-- &lt;/textarea&gt; -->
+            </div>
+
+                        <div class="new-service-game-item J_GameSWPanel" style="display:none;"><!-- /go/rgn/mytaobao_gamegoods.php -->
+                <!-- &lt;textarea class="ks-datalazyload-custom" tabindex="-1" &gt; -->
+                
+                <div id="game-goods">
+    <label><input type="text" value="" placeholder="输入游戏名称" name="game" id="J-game-name" class="suggest" autocomplete="off" aria-label="请输入游戏名称"  maxlength="15" /><s class="game-s" title="按ENTER弹出热门游戏"></s></label>
+    <label><input type="text" value="" placeholder="游戏物品" name="game" id="J-game-good" class="select" disabled="disabled" autocomplete="off"  aria-label="请选择游戏物品" /><s></s></label><br>
+    <a id="J-submit" data-url="http://game.taobao.com/item_list.htm" class="btn" href="http://game.taobao.com/item_list.htm?gn=50050183&amp;pidvid=5381751:44791" target="_blank">查看折扣</a>
+
+         <span class="ad-link"><a href="#" title="" target="_blank"></a></span>
+</div>
+<script>
+
+//    KISSY.getScript('http://a.tbcdn.cn/??app/dp/tcc/i/tb-home/js/game/v2/pinyin.js,app/dp/tcc/i/tb-home/js/game/v2/config.js,app/dp/tcc/i/tb-home/js/game/v2/auto-suggest.js,app/dp/tcc/i/tb-home/js/game/v2/auto-complete.js,app/dp/tcc/i/tb-home/js/game/v2/selectlike.js,app/dp/tcc/i/tb-home/js/game/v2/errorbox.js,app/dp/tcc/i/tb-home/js/game/v2/accessible-tabs.js,app/dp/tcc/i/tb-home/js/game/v2/app.js', { success: function () {
+
+//        KISSY.use('tb-home/js/common/v1/placeholder,tb-home/js/game/v2/app');
+
+//    }
+    //    });
+
+    KISSY.getScript('http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/pinyin.js', { success: function () {
+        KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/config.js", { success: function () {
+            KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/auto-suggest.js", { success: function () {
+                KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/auto-complete.js", { success: function () {
+                    KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/selectlike.js", { success: function () {
+                        KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/errorbox.js", { success: function () {
+                            KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/accessible-tabs.js", { success: function () {
+                                //KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/game/v2/app.js", { success: function () {
+                                    KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/common/v1/placeholder.js");
+                                    KISSY.getScript("http://localhost:7525/app/dp/tcc/i/tb-home/js/common/v2/placeholder.js");
+                                //}
+                                //});
+                            }
+                            });
+                        }
+                        });
+                    }
+                    });
+                }
+                });
+            }
+            });
+        } 
+        });
+    } 
+    });
+
+
+</script>               <!-- &lt;/textarea&gt; -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" type="text/css" href="http://localhost:7525/apps/tcc/recharger/build/20130502/tb_home/game-min.css">
+<link rel="stylesheet" type="text/css" href="http://localhost:7525/app/dp/tcc/i/tb-home/css/game/v2/game.css">
+<link rel="stylesheet" type="text/css" href="http://localhost:7525/app/dp/tcc/i/tb-home/css/common/v2/new-service.css">
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable41">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">                    &lt;iframe frameborder="0" scrolling="no" width="100%" src="http://yyzw.alipay.com/tbbm/jiaofei.htm?_bdType=adbcbadacidcfeicbjce"&gt;&lt;/iframe&gt;
+                    </textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable42">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">                    &lt;iframe frameborder="0" scrolling="no" src="http://www.taobao.com/go/act/baoxian/mytaobao_expressway_v2.php"&gt;&lt;/iframe&gt;
+                    </textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable43">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">&lt;iframe frameborder="0" scrolling="no" src="https://shenghuo.alipay.com/send/payment/fillForTaobao.htm?_bdType=adbcbfbafcfieiddfgbf"&gt;&lt;/iframe&gt;</textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable44">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">&lt;iframe frameborder="0" scrolling="no" src=" http://trip.taobao.com/go/act/trip/mytaobao_trip_2013.php"&gt;&lt;/iframe&gt; </textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable45">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">                    &lt;iframe frameborder="0" scrolling="no" src="http://www.taobao.com/go/chn/caipiao/fast-bet-convencenter.php"&gt;&lt;/iframe&gt;
+                    </textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable46">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">                    &lt;iframe frameborder="0" scrolling="no" src="https://aliprod.alipay.com/taobao-integration/LifeHelperCreditCard.htm?type=new"&gt;&lt;/iframe&gt;
+                    </textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable47">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">                    &lt;iframe frameborder="0" scrolling="no" src="http://www.taobao.com/go/act/sale/waimaiiframe192.php"&gt;&lt;/iframe&gt;
+                    </textarea>
+                </div>
+                <div style="display: none;" class="J_MtExpressIframe mt-express-iframe ks-switchable-panel-internal36" role="tabpanel" aria-hidden="true" aria-labelledby="ks-switchable48">
+                    <textarea class="ks-datalazyload-custom" style="display: none;">                    &lt;iframe frameborder="0" scrolling="no" src="http://trip.taobao.com/go/chn/trip/mytaobao_hotel_2013.php"&gt;&lt;/iframe&gt;
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>	
+</article>*@
+@*                    <article id="app-friend-feed" class="mt-app">
+    <img src="http://log.mmstat.com/sns.20.8?cache=1368450150662" style="display:none;">
+    <div class="inner" data-spm="5864417">
+        <header>
+            <h3> <a href="/feed/friend_feed.htm"  target="_blank" data-spm="d4908645"> 好友动态 </a></h3>
+        </header>
+        				<section>
+            <dl data-url="">
+                <dt>
+					<span></span>
+					<span></span>
+					<span></span>
+					<span></span>
+                </dt>
+									<dd data-url="/feed/friend_feed.htm?tracelog=haoyouheadpic">你的好友最近很低调没有更新，去广场逛逛吧！</dd>
+				            </dl>
+        </section>
+		<footer>
+            <a data-spm="d4908657" href="http://jianghu.taobao.com//admin/follow/fan_list.htm" target="_blank"><span>粉丝<i class="mt-num">4</i> </span></a>
+            <a data-spm="d4908661" href="http://jianghu.taobao.com//admin/follow/myFollows.htm?tracelog=haoyouguanzhu" target="_blank">关注<i class="mt-num">2</i></a>
+            <a data-spm="d4908665" href="/feed/friend_feed.htm"  target="_blank"><i class="share"></i>分享</a>
+        </footer>
+		        
+    </div>
+</article>*@
+                    <article id="app-more" class="mt-app">
+    <div class="inner">
+        更多内容，敬请期待...
+    </div>
+</article>
+                </div>
+            </div>
+            <section class="col-sub">
+                <!--sns mytaobao_menu.vm-->
+	
+
+
+<!-- 6 -->
+	<aside class="mt-menu" id="J_MtSideMenu">
+		<div class="mt-avatar">
+			<div class="mt-avatar-box" id="J_MtAvatarBox">
+									<a class="mt-user-avatar" href="http://i.taobao.com/u/MTIzMDcyNjk1/front.htm?tracelog=snshomeside&nekot=1368450150664" target="_blank">
+								<img src="http://wwc.taobaocdn.com/avatar/getAvatar.do?userId=123072695&width=100&height=100&type=sns"></img></a>
+				<a class="mt-avatar-operation hide" id="J_MtAvatarOperation" href="http://i.taobao.com/user/headset.htm?nekot=1368450150664&tracelog=newmytb_touxiangxiugai">上传新头像</a>
+			</div>
+			<div class="mt-edit-userinfo">
+				<a href="http://i.taobao.com/user/baseInfoSet.htm?nekot=1368450150664&tracelog=newmytb_bianjiziliao" class="mt-edit-info">编辑资料</a>
+				<a href="http://i.taobao.com/user/privacy_set.htm?nekot=1368450150664&tracelog=newmytb_yinsishezhi" class="mt-edit-private">隐私设置</a>
+			</div>
+		</div>
+
+		<div class="mt-menu-tree"> 					
+			<dl class="mt-menu-item" data-spm="a2109">
+				<dt class="fs14">我的交易</dt>
+				<dd>
+					<a href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" role="menuitem" data-spm="d1000367">我的购物车</a>
+				</dd>
+@*									<dd class="mt-menu-sub unfold J_MtSideTree">
+									<b class="mt-indicator J_MtIndicator">-</b>*@
+					@*<a id="bought" href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm?nekot=1368450150664" data-spm="d1000368">已买到的宝贝</a>*@
+@*					<ul class="mt-menu-sub-content">
+						<li id="jinpai">
+							<a href="http://paimai.taobao.com/auctionList/my_auction_list.htm?nekot=1368450150664" data-spm="d1000369">我的拍卖</a>
+						</li>
+						<li id="jipiao">
+							<a href="http://jipiao.trip.taobao.com/order_manager.htm?nekot=1368450150664" role="menuitem" data-spm="d1000370">机票酒店保险</a>
+						</li>
+						<li id="caipiao">
+							<a href="http://caipiao.taobao.com/lottery/order/my_all_lottery_order.htm?nekot=1368450150664" data-spm="d1000371">我的彩票</a>
+						</li>
+						<li id="gamebuy">
+							<a href="http://cgtrade.taobao.com/trade/gametrd/list_bought_items.htm?nekot=1368450150664" data-spm="d1000372">我的网游</a>
+						</li>
+						<li id="ebookbuy">
+							<a href="http://ebook.taobao.com/myebook/my_items_list.htm?nekot=1368450150664" data-spm="d1000384">我的电子书</a>
+						</li>
+					</ul>*@
+				@*</dd>*@
+				@*<dd id="boughtShop"><a href="http://favorite.taobao.com/bought_shop_list.htm?itemtype=0&nekot=1368450150664" data-spm="d1000373">购买过的店铺</a></dd>*@
+				<dd id="favorite"><a href="http://localhost:7525/myBrandsIndex.html" data-spm="d1000374">我的收藏</a></dd>
+@*				<dd id="point"><a href="http://vip.tmall.com/point/my_point_detail.htm?nekot=1368450150664" target="_blank" data-spm="d1000375">我的积分</a></dd>
+				<dd id="gotBonus"><a href="http://ecrm.taobao.com/mallcoupon/got_bonus.htm?nekot=1368450150664" data-spm="d1000376">我的优惠卡券</a></dd>
+				<dd id="myRate"><a href="http://rate.taobao.com/myRate.htm?nekot=1368450150664" data-spm="d1000377">评价管理</a></dd>
+									<dd class="mt-menu-sub fold J_MtSideTree">
+										<b class="mt-indicator J_MtIndicator">+</b>
+						<a class="J_MtIndicator" href="#" data-spm="d1000378">退款维权</a>
+						<ul class="mt-menu-sub-content">
+							<li id="refundList">
+								<a href="http://refund.taobao.com/refund_list.htm?nekot=1368450150664" data-spm="d1000379">退款管理</a>
+							</li>
+							<li id="rightManager">
+								<a href="http://support.taobao.com/myservice/aftersales/buyer_rights_list.htm?nekot=1368450150664" data-spm="d1000380">售后管理</a>
+							</li>
+							<li id="rulesManager">
+								<a href="http://support.taobao.com/myservice/rules/buyer_rules_list.htm?nekot=1368450150664" data-spm="d1000383">投诉管理</a>
+							</li>
+							<li id="postedSuit">
+								<a href="http://archer.taobao.com/myservice/report/report_i_posted_list.htm?type=2&user_role=2&isarchive=false&nekot=1368450150664" data-spm="d1000381">举报管理</a>
+							</li>
+							<li id="leaveWord">
+								<a href="http://service.taobao.com/support/leave_word_list.htm?nekot=1368450150664" data-spm="d1000382">咨询/回复</a>
+							</li>
+						</ul>
+					</dd>*@
+			</dl>
+
+
+@*			<dl id="J_MtRecentApp" class="mt-menu-item mt-recent-app" data-spm="a210a">
+				<dt class="fs14">最近使用的应用</dt>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=73030" target="_blank" data-static="14.73030.1">
+                        <s data-background="http://img02.taobaocdn.com/tps/i2/T1xWKgXlpeXXXXXXXX-16-16.png" class="J_AppIcons"></s>淘金币
+                    </a>
+				</dd>		
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=73028" target="_blank" data-static="14.73028.1">
+                        <s data-background="http://img03.taobaocdn.com/tps/i3/T1qFCgXodnXXXXXXXX-16-16.png" class="J_AppIcons"></s>信用卡还款
+                    </a>
+				</dd>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=73024" target="_blank" data-static="14.73024.2">
+                        <s data-background="http://img01.taobaocdn.com/tps/i1/T1HpegXmBpXXXXXXXX-16-16.png" class="J_AppIcons"></s>水电煤缴费
+                    </a>
+				</dd>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=73031" target="_blank" data-static="14.73031.1">
+                        <s data-background="http://img03.taobaocdn.com/tps/i3/T101elXmhpXXXXXXXX-16-16.png" class="J_AppIcons"></s>聚划算
+                    </a>
+				</dd>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=22001" target="_blank" data-static="14.22001.1">
+                        <s data-background="http://img01.taobaocdn.com/tps/i1/T1u1elXoByXXXXXXXX-16-16.png" class="J_AppIcons"></s>开心赚宝
+                    </a>
+				</dd>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=24001" target="_blank" data-static="14.24001.1">
+                        <s data-background="http://img04.taobaocdn.com/tps/i4/T1I1GlXjxuXXXXXXXX-16-16.png" class="J_AppIcons"></s>LC风格搭配
+                    </a>
+				</dd>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=1162748" target="_blank" data-static="14.1162748.1">
+                        <s data-background="http://img03.taobaocdn.com/tps/i3/T1j4KtXepGXXXXXXXX-16-16.png" class="J_AppIcons"></s>担保悬赏
+                    </a>
+				</dd>
+				<dd class="hide">
+					<a href="http://yingyong.taobao.com/show.htm?app_id=73016" target="_blank" data-static="14.73016.4">
+                        <s data-background="http://img04.taobaocdn.com/tps/i4/T1KVSgXbXmXXXXXXXX-16-16.png" class="J_AppIcons"></s>楼一幢
+                    </a>
+				</dd>
+				<dd class="mt-all-app">
+					<a href="http://yingyong.taobao.com/app_center.htm?nekot=1368450150664" data-static="56.0.0" target="_blank">全部应用 &gt;</a>
+				</dd>
+			</dl> *@
+		</div>		
+
+	</aside>
+
+
+
+
+            </section>
+        </div>
+    </div>
+    <!-- from vmcommon -->
+            @Html.Partial("_Footer")
+@*    <div id="footer">
+        <div class="g_foot">
+            <div class="g_foot-ali">
+                <a href="http://page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a>
+                <b>|</b> <a href="javascript:void(0)" target="_self" class="g_foot-nohover">阿里巴巴网络：</a>
+                <a href="http://www.alibaba.com/">国际站</a> <a href="http://china.alibaba.com/">中文站</a>
+                <a href="http://mai.aliexpress.com/">全球速卖通</a> <b>|</b> <a href="http://www.taobao.com/?id=shouye_taobao">
+                    淘宝网</a> <b>|</b> <a href="http://www.tmall.com/">天猫</a> <b>|</b> <a href="http://www.etao.com/">
+                        一淘</a> <b>|</b> <a href="http://www.aliyun.com/">阿里云</a> <b>|</b> <a href="http://www.yahoo.com.cn/">
+                            中国雅虎</a> <b>|</b> <a href="http://www.alipay.com/">支付宝</a> <b>|</b>
+                <a href="http://ju.taobao.com/">聚划算</a> <b>|</b> <span class="footer-more" id="J_FooterMore">
+                    <span class="footer-more-panel"><a href="http://www.aliresearch.com/">阿里研究</a><br>
+                        <a href="http://www.alihz.com/">阿里会展</a><br>
+                        <a href="http://www.hitao.com/">嗨淘网</a><br>
+                    </span><a href="javascript:void(0);" target="_self" class="footer-more-trigger">更多 <s
+                        class="arrow arrow-d"></s></a></span>
+            </div>
+            <div class="g_foot-nav">
+                <a href="http://www.taobao.com/about/">关于淘宝</a> <a href="http://www.taobao.com/about/partners.php">
+                    合作伙伴</a> <a href="http://pro.taobao.com/">营销中心</a> <a href="http://service.taobao.com/support/main/service_route.htm">
+                        联系客服</a> <a href="http://open.taobao.com/">开放平台</a> <a href="http://www.taobao.com/about/join.php">
+                            诚征英才</a> <a href="http://www.taobao.com/about/contact.php">联系我们</a>
+                <a href="http://www.taobao.com/sitemap.php">网站地图</a> <a href="http://www.taobao.com/about/copyright.php">
+                    法律声明</a> <span>&copy; 2013 Taobao.com 版权所有</span>
+            </div>
+            <span class="g_foot-toy"></span><span class="g_foot-line"></span>
+        </div>
+        <script>
+            // hover effect for ie6
+            (function () {
+
+                if (-[1, ]) return;
+
+                var ie6FootHover = document.getElementById("J_FooterMore");
+
+                ie6FootHover.onmouseenter = function () {
+                    this.className += " footer-more-hover";
+                }
+                ie6FootHover.onmouseleave = function () {
+                    this.className = this.className.replace(new RegExp(" footer-more-hover\\b"), "");
+                }
+            })();
+
+
+        </script>
+        <style>
+.g_foot{
+  width: 960px;
+  margin: 0 auto;
+  font: 12px/1.5 tahoma,arial,宋体b8b\4f53;
+  padding: 7px 0 9px;
+  color: #b0b0b0;
+  text-align: left !important;
+  position: relative;
+  clear:both;
+}
+.g_foot a{
+  margin: 0 4px;
+  color: #3e3e3e;
+  text-decoration:none;
+}
+.g_foot a:hover{
+  color: #F60;
+  text-decoration: underline;
+
+}
+.g_foot-ali{
+  margin-right: 100px;
+  padding-left: 0;
+  border-bottom: 1px solid #D3D3D3;
+  padding-bottom: 8px;
+  height: 18px;
+}
+.g_foot-nohover{
+  cursor: default;
+}
+.g_foot-nohover:hover{
+  color:#3e3e3e !important;
+  text-decoration:none !important;
+}
+.g_foot-ali a,.g_foot-ali b{
+  float: left;
+
+}
+.g_foot-ali b {
+  margin: 0 4px;
+  color:#d3d3d3;
+  font-weight: normal;
+  *margin-top:-1px;
+  margin-top:-1px \0/;
+}
+.g_foot-nav{
+  margin-top: 8px;
+  line-height: 20px;
+}
+.g_foot-nav span{
+  margin-left: 50px;
+}
+.g_foot-toy{
+  position: absolute;
+  background: url(http://img01.taobaocdn.com/tps/i1/T1MMPaXkNjXXaXezbh-48-70.png) no-repeat;
+  _background: url(http://img01.taobaocdn.com/tps/i1/T1XgzaXX0kXXaXezbh-48-70.png) no-repeat;
+  width: 69px;
+  height: 100px;
+  display: block;
+  right: 0px;
+  top:0px;
+}
+/* IE9 only */
+:root .g_foot-toy {
+    right:-20px\9; 
+ } 
+.g_foot-line{
+  display: none;
+  position: absolute;
+  background: url(http://img01.taobaocdn.com/tps/i1/T1I_56Xl0wXXXXXXXX-104-1.png) no-repeat;
+  width: 104px;
+  height: 1px;
+  right: 45px;
+  top:33px;
+}
+
+.footer-more {
+  cursor: pointer;
+  z-index: 1;
+  position: relative;
+  padding-top: 1px;
+  width: 82px;
+  float: left;
+  *top:-1px;
+  top:-2px \0/;
+
+}
+.footer-more-trigger {
+  position: absolute;
+
+  padding: 6px 11px 4px 14px;
+  width: 37px;
+  line-height: 1.3;
+  border: 1px solid #fff;
+  left:-12px;
+  top:-5px;
+}
+
+.footer-more-trigger .arrow{
+    position: absolute;
+    display: inline-block;
+    font-size: 0;
+    line-height: 0;
+    width: 0;
+    height: 0;
+    border: dashed 4px;
+}
+.footer-more-trigger .arrow-d {
+  border-color: #666 transparent transparent transparent;
+  border-top-style: solid;
+  right: 12px;
+  top: 11px;
+}
+.footer-more-panel {
+  text-align: left;
+  position: absolute;
+  right: 26px;
+  bottom: -90px;
+  padding: 7px 3px 2px 2px;
+  border: 1px solid #C5C5C5;
+  width: 57px;
+  background: 
+  white;
+  line-height: 1.9;
+  display: none;
+}
+.footer-more-panel a {
+  float: none;
+  margin-right: 3px;
+}
+.footer-more-hover .footer-more-trigger,.footer-more:hover .footer-more-trigger {
+  border-color: #c5c5c5;
+  background: #fff;
+  border-bottom: 0;
+}
+.footer-more-hover .footer-more-panel,.footer-more:hover .footer-more-panel  {
+  display: block;
+}
+
+.footer-more-hover .footer-more-trigger .arrow-d,.footer-more:hover .footer-more-trigger .arrow-d {
+  -moz-transform: rotate(180deg);
+  -moz-transform-origin: 50% 30%;
+  -o-transform: rotate(180deg);
+  -o-transform-origin: 50% 30%;
+  -webkit-transform: rotate(180deg);
+  -webkit-transform-origin: 50% 30%;
+  transform: rotate(180deg);
+  transform-origin: 50% 30%;
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation = 2);
+  *top: 8px;
+  top:8px \0/;
+}
+</style>
+        <div id="server-num">
+            mytaobao182189.cm4</div>
+    </div>*@
+    <!-- end vmcommon -->
+    <script type="text/javascript">
+        FB.config({
+            path: 'http://localhost:7525/apps/mytaobao/4.0/',
+            name: 'home',
+            version: '1.0',
+            pub: '20130326'
+        });
+        //业务逻辑代码
+        KISSY.use('page/init');
+    </script>
+    <img src="http://log.mmstat.com/sns.20.40?cache=g,nbqwsy3iovqw4mzqgaya1368450150576"
+        style="display: none;">
+</body>
+</html>

@@ -9,15 +9,19 @@ using friday.core;
 using friday.core.services;
 using friday.core.domain;
 using friday.core.repositories;
+using System.Web.Security;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
     public class HomeController : FridayController
     {
-        public HomeController(IUserService iUserService, ISystemUserRepository iSystemUserRepository)
+        private ICartOfCommodityService iCartOfCommodityService;
+        private IShoppingCartService iShoppingCartService;
+        public HomeController(IUserService iUserService, ISystemUserRepository iSystemUserRepository, ICartOfCommodityService iCartOfCommodityService, IShoppingCartService iShoppingCartService)
             : base(iUserService, iSystemUserRepository)
         {
-
+            this.iCartOfCommodityService = iCartOfCommodityService;
+            this.iShoppingCartService = iShoppingCartService;
         }
         public ActionResult check_cart_login(string callback, string guid)
         {
@@ -59,7 +63,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             return View();
         }
         [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult login(LoginModel loginModel,string tpl_redirect_url,string style)
+        public ActionResult login(LoginModel loginModel, string tpl_redirect_url, string style, string redirect_url)
         {
             bool remember=false;
             string userID = string.Empty;
@@ -92,7 +96,14 @@ namespace Friday.mvc.Areas.Account.Controllers
                     return RedirectToAction("MyCart", new { controller = "Home", area = "Cart" });
                 }
 
-                return Redirect(tpl_redirect_url);
+                if (redirect_url != "" && redirect_url != null)
+                {
+                    return Redirect(redirect_url);
+                }
+                else
+                {
+                    return Redirect(tpl_redirect_url);
+                }
             }
             else
             {
@@ -118,6 +129,38 @@ namespace Friday.mvc.Areas.Account.Controllers
         {
             return View();
         }
+        public ActionResult buy_do()
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            string script;
+            if (systemUser == null)
+            {
+                script = "login_indicator={\"hasLoggedIn\":false,\"token\":[],\"success\":true,\"fastBuy\":false}";
+            }
+            else
+            {
+                script = "login_indicator={\"hasLoggedIn\":true,\"token\":[],\"success\":true,\"fastBuy\":false}";
+            }
+            return JavaScript(script);
+        }
+
+        public ActionResult loginOut(string redirectURL)
+        {
+            redirectURL = HttpUtility.UrlDecode(redirectURL);
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+
+            if (systemUser == null)
+            {
+                return Redirect(redirectURL);
+            }
+            else
+            {
+                FormsAuthentication.SignOut();
+                return Redirect(redirectURL);
+            }
+        }
+
+
         public ActionResult miniLoginProxy()
         {
             return View();
@@ -132,6 +175,40 @@ namespace Friday.mvc.Areas.Account.Controllers
             return View();
         }
 
+        public ActionResult counter(string keys, string callback)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            int num = 0;
+            if (systemUser != null)
+            {
+                List<ShoppingCart> shoppingCarts = iShoppingCartService.getShoppingCartBySystemUser(systemUser.Id);
+                if (shoppingCarts != null)
+                {
+                    List<friday.core.CartOfCommodity> cartOfCommoditys = new List<friday.core.CartOfCommodity>();
+                    foreach (ShoppingCart shoppingCart in shoppingCarts)
+                    {
+                        cartOfCommoditys.AddRange(iCartOfCommodityService.getCommoditiesByShoppingCart(shoppingCart.Id));
+                    }
+                    num = cartOfCommoditys.Count;                    
+                }
+            }
+            //string script = callback + "({\"globalData\":{\"totalSize\":" + num + "}})";
+            string script = callback + "({\"" + keys + "\":" + num + "});";
+            return JavaScript(script);
+        }
+        public ActionResult query_member_top(string callback)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
 
+            if (systemUser == null)
+            {
+                return JavaScript("_initMemberInfoCallback({\"activeStatus\":1,\"availablePoints\":49,\"cookies\":{\"unb\":{\"value\":\"123072695\"},\"t\":{\"value\":\"b51c4d9982326f833d5f06da00ecf6fd\"},\"uc1\":{\"value\":\"lltime=1368367577&cookie14=UoLa9HWrdaKEMQ%3D%3D&existShop=true&cookie16=Vq8l%2BKCLySLZMFWHxqs8fwqnEw%3D%3D&cookie21=URm48syIYn73&tag=1&cookie15=URm48syIIVrSKA%3D%3D\"}},\"expiredPoints\":0,\"lastMessage\":\"\",\"lastMessageId\":0,\"lastMessageType\":1,\"lastMessageUrl\":\"http://vip.tmall.com/vip/message_box.htm?from=messagebox&msg_id=0\",\"login\":false,\"mallSeller\":false,\"messagePopup\":true,\"newMessage\":0,\"newMsgList\":null,\"taskId\":\"\"});");
+            }
+            else
+            {
+                return JavaScript("_initMemberInfoCallback({\"activeStatus\":1,\"availablePoints\":49,\"cookies\":{\"unb\":{\"value\":\"123072695\"},\"t\":{\"value\":\"b51c4d9982326f833d5f06da00ecf6fd\"},\"uc1\":{\"value\":\"lltime=1368367577&cookie14=UoLa9HWrdaKEMQ%3D%3D&existShop=true&cookie16=Vq8l%2BKCLySLZMFWHxqs8fwqnEw%3D%3D&cookie21=URm48syIYn73&tag=1&cookie15=URm48syIIVrSKA%3D%3D\"}},\"expiredPoints\":0,\"lastMessage\":\"\",\"lastMessageId\":0,\"lastMessageType\":1,\"lastMessageUrl\":\"http://vip.tmall.com/vip/message_box.htm?from=messagebox&msg_id=0\",\"login\":true,\"mallSeller\":false,\"messagePopup\":true,\"newMessage\":0,\"newMsgList\":null,\"taskId\":\"\"});");
+
+            }
+        } 
     }
 }

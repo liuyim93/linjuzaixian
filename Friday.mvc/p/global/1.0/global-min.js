@@ -614,7 +614,7 @@ TB.namespace = TB.namespace || function() {
             if (!N) {
                 return
             }
-            var P = N.getElementsByTagName("a")[0], Q = '<span class="mini-cart-line"></span><s></s>\u8d2d\u7269\u8f66', i = s !== 19;
+            var P = N.getElementsByTagName("a")[0], Q = '<span class="mini-cart-line"></span><s></s>购物车', i = s !== 19;
             if (O < 0) {
                 TB.Global._OFF = O === -1;
                 P.innerHTML = Q;

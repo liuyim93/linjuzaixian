@@ -13,8 +13,16 @@ namespace friday.core.repositories
     {
         public IList<GlobalGoodsType> GetChildrenFromParentID(string ParentID)
         {
-            var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
-            return list;
+            if (ParentID == null || ParentID == "")
+            {
+                var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == null && o.IsDelete == false).ToList();
+                return list;
+            }
+            else
+            {
+                var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
+                return list;
+            }
         }
         public IList<GlobalGoodsType> GetChildrenByFamily(string ParentID)
         {

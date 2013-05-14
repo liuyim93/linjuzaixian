@@ -8,6 +8,7 @@ using friday.core.domain;
 using Friday.mvc.Models;
 using friday.core;
 using MvcPaging;
+using friday.core.components;
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
     public class SearchProductController : Controller
@@ -105,7 +106,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 searchProductModel.headGlobalGoodsType = iGlobalGoodsTypeService.GetFirstLevelAll();
                 foreach (GlobalGoodsType globalGoodsType in searchProductModel.headGlobalGoodsType)
                 {
-                    IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenByFamily(globalGoodsType.Id);
+                    IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenFromParentID(globalGoodsType.Id);
                     searchProductModel.listGlobalGoodsTypes.Add(getFamily);
                     List<int> listGlobalGoodsTypesNum = new List<int>();
                     foreach (GlobalGoodsType g in getFamily)
@@ -118,9 +119,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else
             {
+                //类型列表数据
                 GlobalGoodsType formCat = iGlobalGoodsTypeService.Load(cat);
                 searchProductModel.headGlobalGoodsType.Add(formCat);
-                IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenByFamily(formCat.Id);
+                IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenFromParentID(formCat.Id);
                 searchProductModel.listGlobalGoodsTypes.Add(getFamily);
                 List<int> listGlobalGoodsTypesNum = new List<int>();
                 foreach (GlobalGoodsType g in getFamily)
@@ -129,6 +131,28 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 }
                 searchProductModel.listGlobalGoodsTypesNum.Add(listGlobalGoodsTypesNum);
                 searchProductModel.headGlobalGoodsTypeNum.Add(iCommodityService.GetCommodityCountByFamily(formCat.Id));
+
+                //类型Bar数据
+                string[] formCartFamily = formCat.Family.Split(',');
+                if (formCartFamily.Length != 1)
+                {
+                    for (int i = 0; i < formCartFamily.Length - 1; i++)
+                    {
+                        GlobalGoodsType temp = iGlobalGoodsTypeService.Load(formCartFamily[i]);
+                        searchProductModel.headBarGlobalGoodsType.Add(temp);
+                        IList<GlobalGoodsType> globalGoodsTypes = iGlobalGoodsTypeService.GetChildrenFromParentID(temp.ParentID);
+                        globalGoodsTypes.Remove(temp);
+                        globalGoodsTypes.Insert(0, temp);
+                        searchProductModel.listBarGlobalGoodsType.Add(globalGoodsTypes);
+
+                    }
+                }
+
+                searchProductModel.headBarGlobalGoodsType.Add(formCat);
+                IList<GlobalGoodsType> formCatTypes = iGlobalGoodsTypeService.GetChildrenFromParentID(formCat.ParentID);
+                formCatTypes.Remove(formCat);
+                formCatTypes.Insert(0, formCat);
+                searchProductModel.listBarGlobalGoodsType.Add(formCatTypes);
             }
 
             searchProductModel.Commoditys = commList;
@@ -172,5 +196,31 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View(searchProductModel);
         }
 
+        public ActionResult getAllBrotherCats(string cat)
+        {
+            GlobalGoodsType globalGoodsType = iGlobalGoodsTypeService.Load(cat);
+
+            IList<GlobalGoodsType> formCatTypes = iGlobalGoodsTypeService.GetChildrenFromParentID(globalGoodsType.ParentID);
+            formCatTypes.Remove(globalGoodsType);
+            formCatTypes.Insert(0, globalGoodsType);
+            Friday.mvc.Areas.Merchant.Models.CategoryBar categoryBar = new Models.CategoryBar(); 
+            foreach (GlobalGoodsType g in formCatTypes)
+            {
+                Friday.mvc.Areas.Merchant.Models.CategoryItem categoryItem = new Models.CategoryItem()
+                {
+                    href = "http://localhost:7525/Merchant/SearchProduct?cat="+ g.Id +"&amp;s=0&amp;n=0&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1",
+                    title = g.Name,
+                    atp = "1,cat-dropdown,,,,"+g.Id+",rightnav,"
+                };
+                categoryBar.categoryItems.Add(categoryItem);
+            }
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = categoryBar.categoryItems;
+            string json = jsonResult.FormatResult();
+            string script = json;
+
+            return JavaScript(script);
+        }
     }
 }
