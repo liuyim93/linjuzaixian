@@ -235,6 +235,7 @@
 <script src=@Url.Content("/apps/register/common/js/step_first.js")></script>
 <script src=@Url.Content("/apps/register/common/js/step_phone.js")></script>
 <script src=@Url.Content("/apps/register/common/js/client.js")></script>
+<script src=@Url.Content("/apps/aq/js/email.js")></script>
 <script>    KISSY.ready(function () { KISSY.getScript('http://acjs.aliyun.com/actionlog/js/ua.js', function () { try { UA_Opt.reload(); } catch (e) { } }); });</script>
 
 
@@ -331,7 +332,7 @@
 
 
                         	
-						<div class="kv-item kv-nick">
+						 <div class="kv-item kv-nick">
                             <span class="kv-label"><label for="J_Nick">邮箱：</label></span>
                             <input class="i-text" id="J_Mail" name="J_Mail" value="" type="text">
 
@@ -344,13 +345,31 @@
                                 </div>
                             </div>
 							<div class="num-tip" id="J_NumTip"></div>
-                          @*  <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
+                           <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
                                 <span class="nick-suggest-tit">推荐你使用：</span>
                                 <ul id="J_NickSuggestList">
                                 </ul>
-                            </div>*@
+                            </div>
                         </div>
 
+                        @*<div class="kv_item">
+                                    <span class="kv_label"><label for="J_Nick">邮箱：</label></span>
+                                   
+
+                                  <input class="i_text err_input" id="J_email_input" name="email" autocomplete="off" type="text" value="">
+                              
+                                    <div class="msg msg-inline msg-weak show" id="J_email_tip" style="visibility: visible; ">
+                                        <div class="msg-default  msg-error ">
+                                            <i class="msg-icon"></i>
+                                            <div class="msg-content vm">不能为空</div>
+                                        </div>
+                                    </div>
+                                <div class="nomad_email_suggest" style="position: absolute; left: 506.5px; top: 323.5px; min-width: 186px; display: none; "><span class="nomad_email_suggest_title">请选择</span><ul></ul>
+                                </div> 
+                             
+                                </div>*@
+                        
+                        
                         	
 						<div class="kv-item kv-nick">
                             <span class="kv-label"><label for="J_Nick">现居地：</label></span>
