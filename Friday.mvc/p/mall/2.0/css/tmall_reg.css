@@ -10,7 +10,7 @@
 .kv-item .msg-inline .msg-cnt{line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #fbfbfb;margin:-1px;}
 #J_PwdTip.msg-ok .msg-cnt,#J_RePwdTip.msg-ok .msg-cnt,#J_PhoneTip.msg-ok .msg-cnt,#J_EmailTip.msg-ok .msg-cnt{border:none;background:transparent;}
 .kv-item .msg-inline{margin-left:5px;}
-.kv-item .msg-weak i,.success .msg-b i,.success .msg-b-weak i{background-image:url(http://img01.taobaocdn.com/tps/i1/T1YTncXbliXXaD7eZR-80-450.png);background-repeat:no-repeat;}
+.kv-item .msg-weak i,.success .msg-b i,.success .msg-b-weak i{background-image:url(http://localhost:7525/Images/msg.png);background-repeat:no-repeat;}
 .success .msg-b i{background-position:-1px -78px;}
 .kv-item .msg-weak i{width:23px;height:22px;top:0;left:0;}
 .kv-item .msg-weak.msg-tips i{background-position:-61px -79px;}

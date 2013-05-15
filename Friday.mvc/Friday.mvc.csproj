@@ -1027,6 +1027,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="actionlog\js\ua.js" />
+    <Content Include="apps\aq\js\email.js" />
     <Content Include="apps\cartshare\shareplugin\sharePlugin.js" />
     <Content Include="apps\cart\130411\cart\cart-min.css" />
     <Content Include="apps\cart\130411\cart\cart-min.js" />

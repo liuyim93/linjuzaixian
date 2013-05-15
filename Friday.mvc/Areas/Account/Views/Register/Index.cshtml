@@ -332,31 +332,36 @@
 
 
                         	
-						 <div class="kv-item kv-nick">
+						 <div class="kv-item">
                             <span class="kv-label"><label for="J_Nick">” œ‰£∫</label></span>
-                            <input class="i-text" id="J_Mail" name="J_Mail" value="" type="text">
+                            <input class="i-text" id="J_email_input" name="email" autocomplete="off" value="" type="text">
 
-							<div class="msg-box">
+					@*		<div class="msg-box">
 						 	<div class="msg-weak msg-inline hide" id="J_NickTip">
 								                                    <i></i>
                                     <div class="msg-cnt">
                                     	
                 															</div>
                                 </div>
-                            </div>
-							<div class="num-tip" id="J_NumTip"></div>
-                           <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
-                                <span class="nick-suggest-tit">Õ∆ºˆƒ„ π”√£∫</span>
-                                <ul id="J_NickSuggestList">
-                                </ul>
-                            </div>
+                            </div>*@
+							          <div class="msg msg-inline  msg-weak hide" id="J_email_tip" style="visibility: hidden; ">
+                                 
+                                            <i></i>
+                                            <div class="msg-content vm"> </div>
+                                           @*    <div class="msg-default  msg-error "></div>*@
+                                    </div>
+                                     
+                             <div class="nomad_email_suggest" style="position: absolute; left: 506.5px; top: 323.5px; min-width: 186px; display: none; "><span class="nomad_email_suggest_title">«Î—°‘Ò</span><ul></ul>
+                                </div> 
                         </div>
 
-                        @*<div class="kv_item">
+
+
+                       @* <div class="kv_item">
                                     <span class="kv_label"><label for="J_Nick">” œ‰£∫</label></span>
                                    
 
-                                  <input class="i_text err_input" id="J_email_input" name="email" autocomplete="off" type="text" value="">
+                                  <input class="i_text err_input" id="J_email_input00" name="email" autocomplete="off" type="text" value="">
                               
                                     <div class="msg msg-inline msg-weak show" id="J_email_tip" style="visibility: visible; ">
                                         <div class="msg-default  msg-error ">
