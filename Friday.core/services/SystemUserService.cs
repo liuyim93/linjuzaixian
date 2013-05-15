@@ -51,5 +51,9 @@ namespace friday.core.services
         {
             return iSystemUserRepository.Search(termList, start, limit, out total);
         }
+        public bool ValidateTel(string tel)
+        {
+            return iSystemUserRepository.ValidateTel(tel);
+        }
     }
 }

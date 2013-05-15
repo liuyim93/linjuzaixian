@@ -9,13 +9,21 @@ using System.Web.UI.WebControls;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
-
+using System.Web.UI.WebControls;
+using friday.core.components;
+using friday.core.domain;
+using friday.core.EnumType;
+using NHibernate.Linq;
 
 namespace friday.core.repositories
 {
     public class SystemUserRepository : Repository<SystemUser>,ISystemUserRepository
     {
-
+         public bool ValidateTel(string tel) 
+        {
+            var q = (from x in this.Session.Query<SystemUser>() select x).Where(o => o.IsDelete == false && o.Tel== tel).Count() > 0 ? false : true; ;
+            return q;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(SystemUser)); }
@@ -26,7 +34,7 @@ namespace friday.core.repositories
             return SearchBySystemUser(Query, termList).List<SystemUser>();
         }
         public IList<SystemUser> Search(List<DataFilter> termList, int start, int limit, out long total)
-        {
+        {      
             ICriteria query = SearchBySystemUser(Query, termList);
             //2013-02-11 basilwang must use projection.rowcount and clear order ( sql does't support only count(*) and order by)
             ICriteria countCriteria = CriteriaTransformer.Clone(query)
@@ -38,6 +46,7 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<SystemUser>();
         }
+      
     }
      
 }

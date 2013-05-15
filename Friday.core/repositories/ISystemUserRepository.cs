@@ -11,5 +11,6 @@ namespace friday.core.repositories
     {
         IList<SystemUser> Search(List<DataFilter> termList);
         IList<SystemUser> Search(List<DataFilter> termList, int start, int limit, out long total);
+        bool ValidateTel(string tel); 
     }
 }

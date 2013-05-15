@@ -1979,7 +1979,7 @@ KISSY.add("QA", function(c, b) {
 		this.a = [this.a1, this.a2, this.a3];
 		this.tips = [this.a1tip, this.a2tip, this.a3tip];
 		this.on = (e.on || "keyup blur");
-		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "密保问题答\u6848\u683c\u5f0f\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = c.isString(e.disabledMsg) ? e.disabledMsg : "密保问题答\u6848格式有误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.stat = {
 			code: 0,
@@ -3055,7 +3055,7 @@ KISSY.add("Phone", function(d, a, c, f) {
 		this._showPanel = !! g.showPanel;
 		this.ifrRetrieve = g.ifrRetrieve && d.one(g.ifrRetrieve);
 		this._ifrRetrieveUrl = this.ifrRetrieve && this.ifrRetrieve.attr("data-src") || "";
-		this.disabledMsg = d.isString(g.disabledMsg) ? g.disabledMsg : "\u624b\u673a\u53f7\u7801\u683c\u5f0f\u6709\u8bef\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
+		this.disabledMsg = d.isString(g.disabledMsg) ? g.disabledMsg : "手机号码格式有误\uff0c\u8bf7\u91cd\u65b0\u8f93\u5165\uff01";
 		this.disabled = true;
 		this.msgTemplate = d.isObject(g.msgTemplate) ? g.msgTemplate : null;
 		this.stat = {
@@ -3092,7 +3092,7 @@ KISSY.add("Phone", function(d, a, c, f) {
 			},
 			formatError: {
 				code: 2,
-				msg: "\u624b\u673a\u53f7\u7801\u9519\u8bef"
+				msg: "手机号码\u9519\u8bef"
 			},
 			ajaxError: {
 				code: 3,
@@ -3100,7 +3100,7 @@ KISSY.add("Phone", function(d, a, c, f) {
 			},
 			used: {
 				code: 4,
-				msg: "\u5df2\u88ab\u5360\u7528\uff0c\u8bf7\u66f4\u6362\u5176\u4ed6\u53f7\u7801\uff0c\u82e5\u60a8\u662f\u6b64\u53f7\u7801\u7684\u4f7f\u7528\u8005"
+				msg: "已被占\u7528\uff0c\u8bf7\u66f4\u6362\u5176\u4ed6\u53f7\u7801\uff0c\u82e5\u60a8\u662f\u6b64\u53f7\u7801\u7684\u4f7f\u7528\u8005"
 			},
 			ok: {
 				code: 100,

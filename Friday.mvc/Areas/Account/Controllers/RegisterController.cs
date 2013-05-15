@@ -75,7 +75,40 @@ namespace Friday.mvc.Areas.Account.Controllers
             return JavaScript(script);
         }
 
-        public ActionResult Store(string J_Nick, string J_Tel, string J_Mail, string J_Address, string J_Pwd)
+        public ActionResult check_cellphone()
+        {
+            string cellphone;
+
+            cellphone = Request.Params["mobile"];
+
+            //{"success":false,"reason":"ERROR_CELLPHONE_EXISTED","alipay":true}
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+
+            if (!iSystemUserService.ValidateTel(cellphone))
+            {
+                jsonResult.Data = new
+                {
+                    success = iSystemUserService.ValidateTel(cellphone),
+                    reason = "ERROR_CELLPHONE_EXISTED",
+                    alipay=true
+                };
+            }
+            else
+            {
+                jsonResult.Data = new
+                {
+                    success = true,
+                    alipay=true
+                };
+            }
+            string json = jsonResult.FormatResult();
+            string script = json;
+
+            return JavaScript(script);
+        }
+
+        public ActionResult Store(string J_Nick, string mobile, string J_Mail, string J_Address, string J_Pwd)
         {
             RegisterModel regstermodel = new RegisterModel();
 
@@ -83,7 +116,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             su.Email = J_Mail;
             su.IsAnonymous = false;
             su.IsDelete = false;
-            su.Tel = J_Tel;
+            su.Tel = mobile;
             iSystemUserService.Save(su);
 
             LoginUser lu = new LoginUser();
@@ -103,13 +136,13 @@ namespace Friday.mvc.Areas.Account.Controllers
             ad.AddressName = J_Address;
             ad.Email = J_Mail;
             ad.SystemUser = su;
-            ad.Tel = J_Tel;
+            ad.Tel = mobile;
             ad.IsDelete = false;
             iAddressService.Save(ad);
 
             regstermodel.isReg = true;
             regstermodel.Activities = this.iActivityService.GetAll();
-            regstermodel.tel = J_Tel;
+            regstermodel.tel = mobile;
             regstermodel.loginName = J_Nick;
 
             return View("Index", regstermodel);

@@ -15,5 +15,6 @@ namespace friday.core.services
         void Delete(string id);
         IList<SystemUser> Search(List<DataFilter> termList);
         IList<SystemUser> Search(List<DataFilter> termList, int start, int limit, out long total);
+        bool ValidateTel(string tel);
     }
 }
