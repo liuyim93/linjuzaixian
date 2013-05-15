@@ -7,9 +7,9 @@
 .msg-error,.msg-stop,.msg-b-error,.msg-b-stop{background-color:#FFF2F2;border-color:#FF8080;}
 .msg-attention,.msg-b-attention{background-color:#E5F5FF;border-color:#40B3FF;}
 .msg-weak{padding:5px 5px 5px 25px;font-size:12px;line-height:16px;color:#404040;background:none;border:none;}
-.msg i,.msg-weak i{display:inline;float:left;margin-left:-20px;width:16px;height:16px;background:url(http://img01.taobaocdn.com/tps/i1/T1g3uoXdpQXXXXXXXX-60-280.png) no-repeat 0 -160px;}
+.msg i,.msg-weak i{display:inline;float:left;margin-left:-20px;width:16px;height:16px;background:url(http://localhost:7525/Images/checkBarTb-60-280.jpg) no-repeat 0 -160px;}
 .msg-b-weak{padding:10px 10px 10px 46px;font-size:14px;line-height:16px;color:#404040;background:none;border:none;}
-.msg-b i,.msg-b-weak i{display:inline;float:left;margin-left:-41px;width:32px;height:32px;background:url(http://img01.taobaocdn.com/tps/i1/T1g3uoXdpQXXXXXXXX-60-280.png) no-repeat 100% -160px;}
+.msg-b i,.msg-b-weak i{display:inline;float:left;margin-left:-41px;width:32px;height:32px;background:url(http://localhost:7525/Images/checkBarTb-60-280.jpg) no-repeat 100% -160px;}
 .msg-ok i{background-position:0 -200px;}
 .msg-error i{background-position:0 0;}
 .msg-stop i{background-position:0 -40px;}
