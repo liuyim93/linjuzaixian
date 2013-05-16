@@ -1307,6 +1307,7 @@
     </Content>
     <Content Include="Images\avatar-120.png" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="Images\checkBarTb-60-280.jpg" />
     <Content Include="Images\login_cart-67-64.png" />
     <Content Include="Images\fenxiang-146-77.png" />
     <Content Include="Images\ready_buy-194-382.png" />
