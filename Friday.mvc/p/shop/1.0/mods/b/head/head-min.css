@@ -75,7 +75,7 @@
 /* search  sprite */
 .mallSearch-type .active,
 #mallSearch button, #mallSearch button:hover{
-    background: url(http://img01.taobaocdn.com/tps/i1/T1.Au3XmVcXXXXXXXX-242-139.png) no-repeat;
+    background: url(http://localhost:7525/Images/setlogo-242-139.png) no-repeat;
 }
 
 /* sub-logo sprite */
