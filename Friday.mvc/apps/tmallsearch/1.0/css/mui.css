@@ -31,7 +31,7 @@ b.ui-page-s-len{background:none;line-height:20px;font-weight:normal;}
 .ui-btn-search-l:hover,.ui-btn-search-l-hover{text-decoration:none;background-color:#835a35;background-position:0 -26px;}
 .ui-btn-search-l:active,.ui-btn-search-l-active{background-color:#7a433b;background-position:0 -52px;}
 .ui-btn-search-l:visited,.ui-btn-search-l-selected{background-color:#784239;background-position:0 -78px;}
-.ui-btn-s-primary,.ui-btn-m-primary,.ui-btn-l-primary,.ui-btn-s,.ui-btn-m,.ui-btn-l{padding:0 10px;display:inline-block;height:20px;background:url(http://a.tbcdn.cn/apps/tmall/mui/btn/img/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;}
+.ui-btn-s-primary,.ui-btn-m-primary,.ui-btn-l-primary,.ui-btn-s,.ui-btn-m,.ui-btn-l{padding:0 10px;display:inline-block;height:20px;background:url(http://localhost:7525/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;}
 .ui-btn-s-primary,.ui-btn-m-primary,.ui-btn-l-primary{background-color:#950b00;border-color:#950b00;color:#fff;}
 .ui-btn-s,.ui-btn-m,.ui-btn-l{background-color:#ccc;border-color:#ccc;color:#333;}
 button.ui-btn-s-primary,button.ui-btn-m-primary,button.ui-btn-l-primary,button.ui-btn-s,button.ui-btn-m,button.ui-btn-l{*border-color:black;*filter:chroma(color=black);}

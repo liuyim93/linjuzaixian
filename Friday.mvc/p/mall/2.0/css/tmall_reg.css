@@ -29,7 +29,7 @@
 .step-3 ol{background-position:179px -104px;}
 .quick-detail em{color:#B10000;}
 .i-text.err_input,.i-shorttext.err_input{border:2px solid #B10000;height:24px;line-height:24px;}
-.kv-item .btn-long,.kv-item .btn-b,.kv-item .btn-s,.activate-panel .btn-long{padding:0 10px;display:inline-block;height:20px;background:url(http://a.tbcdn.cn/apps/tmall/mui/btn/img/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;text-shadow:none;*zoom:1;}
+.kv-item .btn-long,.kv-item .btn-b,.kv-item .btn-s,.activate-panel .btn-long{padding:0 10px;display:inline-block;height:20px;background:url(http://localhost:7525/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;text-shadow:none;*zoom:1;}
 .kv-item .btn-long,.kv-item .btn-b,.kv-item .btn-s,.activate-panel .btn-long{background-color:#950b00;border-color:#950b00;color:#fff!important;}
 .kv-item .btn-long,.kv-item .btn-b,.kv-item .btn-s,.activate-panel .btn-long{*border-color:black;*filter:chroma(color=black);}
 .kv-item .btn-s{height:25px;line-height:25px;font-size:12px;font-weight:bold;}
@@ -45,13 +45,13 @@
 .kv-item .btn-long:hover,.kv-item .btn-b:hover,.activate-panel .btn-long:hover{background-position:0 -210px;}
 .kv-item .btn-long:active,.kv-item .btn-b:active,.activate-panel .btn-long:active{background-position:0 -240px;}
 .kv-item .btn-long:hover,.kv-item .btn-b:hover,.kv-item .btn-s:hover{text-decoration:none;}
-.quick-reg .quick-tit{background:url(http://img02.taobaocdn.com/tps/i2/T1L71mXoX3XXagMUE5-108-85.png) no-repeat 50% 0;}
+.quick-reg .quick-tit{background:url(http://localhost:7525/Images/mobilephoneregister-108-85.png) no-repeat 50% 0;}
 .ks-contentbox .check-pop-hd{background:#e6e6e6;border-color:#b8b2b1;border-bottom:none;color:#333;font-weight:bold;}
 .ks-contentbox .check-pop-bd{border-color:#b8b2b1;border-top:none;}
 .check-pop .phone-num{color:#a40000;}
 .kv-item .i-chk{margin-top:-3px;}
 .xb,.guang{display:none;}
-.check-pop .ks-ext-close{background:url(http://img01.taobaocdn.com/tps/i1/T1g69CXhV1XXcgtQvX-16-50.png) no-repeat 2px 2px;}
+.check-pop .ks-ext-close{background:url(http://localhost:7525/Images/cha-16-50.png) no-repeat 2px 2px;}
 .check-pop .ks-ext-close:hover{background-position:2px -32px;background-color:transparent;}
 #content .ifr-alipay{height:252px;}
 

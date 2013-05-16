@@ -1,7 +1,7 @@
 ﻿.ui-slide-nav-mini{height:24px;line-height:18px;}
 .ui-slide-nav-mini li{float:left;width:12px;font-family:Tahoma,Helvetica;font-size:28px;_font-size:38px;margin-right:5px;color:#716564;cursor:pointer;}
 .ui-slide-nav-mini .active{color:#b91919;}
-.ui-btn-s{padding:0 10px;display:inline-block;height:20px;background:url(http://a.tbcdn.cn/apps/tmall/mui/btn/img/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;line-height:20px;font-size:12px;font-weight:normal;background-color:#ccc;border-color:#ccc;color:#333;}
+.ui-btn-s{padding:0 10px;display:inline-block;height:20px;background:url(http://localhost:7525/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;line-height:20px;font-size:12px;font-weight:normal;background-color:#ccc;border-color:#ccc;color:#333;}
 .ui-btn-s{background-position:0 -300px;}
 .ui-btn-s-hover,.ui-btn-s:hover{background-position:0 -320px;}
 .ui-btn-s-active,.ui-btn-s:active{background-position:0 -340px;}

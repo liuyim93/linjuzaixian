@@ -1305,11 +1305,24 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Images\avatar-100.png" />
     <Content Include="Images\avatar-120.png" />
     <Content Include="Images\bg.jpg" />
+    <Content Include="Images\birthday-16-16.png" />
+    <Content Include="Images\blackcathead-55-20.png" />
+    <Content Include="Images\btn.png" />
+    <Content Include="Images\cha-16-50.png" />
+    <Content Include="Images\change-16-16.png" />
     <Content Include="Images\checkBarTb-60-280.jpg" />
+    <Content Include="Images\close_btn.png" />
+    <Content Include="Images\dajiadoumaisha-276-205.gif" />
+    <Content Include="Images\favicon.ico" />
+    <Content Include="Images\jianmianli__-277-205.gif" />
+    <Content Include="Images\jiaowotao-277-205.gif" />
     <Content Include="Images\login_cart-67-64.png" />
     <Content Include="Images\fenxiang-146-77.png" />
+    <Content Include="Images\messageTip-18-18.png" />
+    <Content Include="Images\mobilephoneregister-108-85.png" />
     <Content Include="Images\nav_li_shadow_effect.gif" />
     <Content Include="Images\ready_buy-194-382.png" />
     <Content Include="Images\adminLogin\user_all_bg.gif" />
@@ -1334,12 +1347,15 @@
     <Content Include="Images\b_red_5.gif" />
     <Content Include="Images\msg.png" />
     <Content Include="Images\popular_clothes-218-32.png" />
+    <Content Include="Images\shandian-16-16.png" />
     <Content Include="Images\shutiao.jpg" />
     <Content Include="Images\spaceball.gif" />
     <Content Include="Images\TmallFooterBar-111-109.jpg" />
     <Content Include="Images\TmallFooterBar-111-109.png" />
     <Content Include="Images\TmallT16-16.png" />
     <Content Include="Images\up.png" />
+    <Content Include="Images\v4buy-16-16.png" />
+    <Content Include="Images\wangwangpifu-16-16.png" />
     <Content Include="Images\yihuasha.jpg" />
     <Content Include="Images\v2_member-16-16.png" />
     <Content Include="Images\v3_member-16-16.png" />
@@ -1352,6 +1368,7 @@
     <Content Include="Images\TmallMchtHeader-189-26.png" />
     <Content Include="Images\Tmallloginhead-126-41.png" />
     <Content Include="Images\loginhead-126-41.png" />
+    <Content Include="Images\zhe-16-16.png" />
     <Content Include="Images\[T]TmallFooterBar-111-109.png" />
     <Content Include="plugins\opensearch\provider.xml" />
     <Content Include="p\c2c\header-top-min.css" />
