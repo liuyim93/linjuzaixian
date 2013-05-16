@@ -9,7 +9,7 @@
 .tml-dialog .tml-stdmod-body{overflow:hidden}
 .tml-dialog .tml-ext-close{outline:medium none;position:absolute;z-index:3;right:20px;top:20px;overflow:hidden;display:block;height:16px;width:16px;line-height:99em;background-position:0 -25px}
 .tml-dialog .tml-ext-close:hover{background-position:-16px -25px}
-.tml-dialog-cat{position:absolute;top:0;left:50%;margin:-10px 0 0 -23px;width:55px;height:50px;background:url(http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizinMethod='scale',src="http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png");_background:0}
+.tml-dialog-cat{position:absolute;top:0;left:50%;margin:-10px 0 0 -23px;width:55px;height:50px;background:url(http://localhost:7525/Images/blackcathead-55-20.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizinMethod='scale',src="http://localhost:7525/Images/blackcathead-55-20.png");_background:0}
 .tml-dialog-default .tml-stdmod-header{background-image:none;color:#fff}
 .tml-dialog-gray .tml-stdmod-header{background:#e6e6e6;border-bottom-color:#d9d9d9}
 .tml-dialog-gray .tml-ext-close{background-position:-32px -25px}

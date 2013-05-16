@@ -1310,6 +1310,7 @@
     <Content Include="Images\checkBarTb-60-280.jpg" />
     <Content Include="Images\login_cart-67-64.png" />
     <Content Include="Images\fenxiang-146-77.png" />
+    <Content Include="Images\nav_li_shadow_effect.gif" />
     <Content Include="Images\ready_buy-194-382.png" />
     <Content Include="Images\adminLogin\user_all_bg.gif" />
     <Content Include="Images\adminLogin\user_bottom_c.gif" />
@@ -1333,7 +1334,11 @@
     <Content Include="Images\b_red_5.gif" />
     <Content Include="Images\msg.png" />
     <Content Include="Images\popular_clothes-218-32.png" />
+    <Content Include="Images\shutiao.jpg" />
     <Content Include="Images\spaceball.gif" />
+    <Content Include="Images\TmallFooterBar-111-109.jpg" />
+    <Content Include="Images\TmallFooterBar-111-109.png" />
+    <Content Include="Images\TmallT16-16.png" />
     <Content Include="Images\up.png" />
     <Content Include="Images\yihuasha.jpg" />
     <Content Include="Images\v2_member-16-16.png" />
@@ -1347,6 +1352,7 @@
     <Content Include="Images\TmallMchtHeader-189-26.png" />
     <Content Include="Images\Tmallloginhead-126-41.png" />
     <Content Include="Images\loginhead-126-41.png" />
+    <Content Include="Images\[T]TmallFooterBar-111-109.png" />
     <Content Include="plugins\opensearch\provider.xml" />
     <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
