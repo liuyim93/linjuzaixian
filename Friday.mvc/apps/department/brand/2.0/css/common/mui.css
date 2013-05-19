@@ -1,9 +1,9 @@
 ﻿.ui-more-nbg {position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333; }
-.ui-more-nbg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;overflow:hidden;width:13px;background:url(http://a.tbcdn.cn/apps/tmall/mui/more/img/more.png) 0 -26px no-repeat; }
+.ui-more-nbg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;overflow:hidden;width:13px;background:url(http://localhost:7525/Images/more.png) 0 -26px no-repeat; }
 .ui-more-nbg:hover {text-decoration:underline;color:#b10000; }
 .ui-more-nbg:hover .ui-more-nbg-arrow {background-position:0 -39px; }
 .ui-more-bg {position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333;background:#e5e5e5;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;-khtml-border-radius:2px;-o-border-radius:2px;-ms-border-radius:2px; }
-.ui-more-bg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;overflow:hidden;background:url(http://a.tbcdn.cn/apps/tmall/mui/more/img/more.png) no-repeat; }
+.ui-more-bg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;overflow:hidden;background:url(http://localhost:7525/Images/more.png) no-repeat; }
 .ui-more-bg:hover {text-decoration:none;background-color:#b10000;color:#fff; }
 .ui-more-bg:hover .ui-more-bg-arrow {background-position:0 -13px; }
 .ui-slide-arrow-l,.ui-slide-arrow-m,.ui-slide-arrow-s,.ui-slide-arrow-mini:hover,.ui-slide-nav-c-l li,.ui-slide-nav-c-l .active,.ui-slide-nav-c-m li,.ui-slide-nav-c-m .active {background:url(http://a.tbcdn.cn/apps/tmall/mui/slide/img/slide.png) no-repeat\9;_background:none; }
@@ -52,7 +52,7 @@ b.ui-page-s-len {background:none;line-height:20px;font-weight:normal; }
 .ui-page-prev {border-left:1px solid #E5E5E5!important; }
 .ui-page-cur,b.ui-page-next,b.ui-page-prev {background-color:#EFEFEF; }
 .ui-page-break {border-right:1px solid #E5E5E5;padding:0 4px;line-height:40px;font-weight:bold; }
-.ui-page-num {padding-top:19px;background:url("http://a.tbcdn.cn/apps/tmall/mui/page/img/page.png") no-repeat right 0; }
+.ui-page-num {padding-top:19px;background:url("http://localhost:7525/Images/page.png") no-repeat right 0; }
 .ui-page-skip {margin-top:19px;padding:10px 0 0 10px; }
 .ui-page-skipTo {width:32px;height:18px;margin:-2px 2px 0;line-height:20px;font-size:16px;color:#999;text-align:center;vertical-align:middle;border:1px solid #ccc; }
 .ui-page-skipBtn {margin:-2px 0 0 2px; }
