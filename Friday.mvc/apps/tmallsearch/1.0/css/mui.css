@@ -94,7 +94,7 @@ button.ui-btn-l-primary,button.ui-btn-l{height:30px;*height:32px;line-height:27p
 .ui-price-original{font-family:'arial','verdana',sans-serif!important;color:#999;font-size:12px;}
 .ui-price-plain{font-family:'arial','verdana',sans-serif!important;color:#666;font-size:12px;}
 .ui-price-reverse{font-family:'arial','verdana',sans-serif!important;background-color:#C00;color:#fff;font-weight:bold;font-size:14px;}
-.ui-loading{background:url(http://a.tbcdn.cn/apps/tmall/mui/loading/img/loading.gif) no-repeat scroll 50% 50%;}
+.ui-loading{background:url(http://localhost:7525/Images/loading.gif) no-repeat scroll 50% 50%;}
 .ui-more-bg{position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333;background:#e5e5e5;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;-khtml-border-radius:2px;-o-border-radius:2px;-ms-border-radius:2px;}
 .ui-more-bg-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://localhost:7525/Images/more.png) no-repeat;overflow:hidden;}
 .ui-more-bg:hover{text-decoration:none;background-color:#b10000;color:#fff;}

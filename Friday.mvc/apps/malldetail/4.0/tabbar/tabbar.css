@@ -15,7 +15,7 @@
 .reviews2recommend .rarr{position:absolute;display:inline-block;top:5px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://l.tbcdn.cn/apps/tmall/mui/more/img/more.png) no-repeat;}
 .reviews2recommend:hover{text-decoration:none;background-color:#b10000;color:#fff;}
 .reviews2recommend:hover .rarr{background-position:0 -13px;}
-#J_AfterSales .promise-server dt,#content .shop-promo .promo-icon{background:url(http://img01.taobaocdn.com/tps/i1/T1zUFYXgpyXXXXXXXX-192-200.png) no-repeat;}
+#J_AfterSales .promise-server dt,#content .shop-promo .promo-icon{background:url(http://localhost:7525/Images/T1zUFYXgpyXXXXXXXX-192-200.png) no-repeat;}
 #content .col-main .tb-box h4.hd{height:30px;line-height:30px;padding-left:16px;background:#8e0101;color:#fff;}
 #autofill{margin-top:10px;clear:both;}
 #autofill strong{display:block;margin-bottom:3px;font-weight:700;}
@@ -409,7 +409,7 @@
 .no7day #J_AfterSales .promise-server .first-dd{width:400px;padding-top:15px;}
 .no7day #J_AfterSales .promise-server .second-dd{width:170px;padding-top:15px;border-right:none;}
 #J_AfterSales .promise-server .split-end{width:110px;border:none;}
-#J_AfterSales .tb-weiQuanBox b,.tb-weiQuanBox .tb-tuiBiaoZhun dd{background:url(http://img03.taobaocdn.com/tps/i3/T1i6OTXbVkXXXXXXXX-620-109.png) no-repeat;}
+#J_AfterSales .tb-weiQuanBox b,.tb-weiQuanBox .tb-tuiBiaoZhun dd{background:url(http://localhost:7525/Images/T1i6OTXbVkXXXXXXXX-620-109.png) no-repeat;}
 #J_AfterSales .tb-weiQuanBox b{position:absolute;height:23px;top:16px;left:50%;z-index:3;}
 #J_AfterSales .tb-weiQuanBox .tb-title-cn{background-position:0 -81px;width:90px;margin-left:-50px;}
 #J_AfterSales .tb-weiQuanBox .tb-title-lc{background-position:-90px -81px;width:188px;margin-left:-94px;}
