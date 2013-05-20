@@ -67,17 +67,17 @@
             if (!_dom_id_J_FPrice) {
                 return
             }
-            var D = this,
+            var _mods_filter_D = this,
 				E = null;
             _event.on(_dom_class_j_FPInput, "blur", function () {
                 E = setTimeout(function () {
-                    D.isPriceFocus = false;
+                    _mods_filter_D.isPriceFocus = false;
                     _dom.removeClass(_dom_id_J_FPrice, _STR_FPRICE_HOVER)
                 }, 300)
             });
             _event.on(_dom_class_j_FPInput, "focus", function () {
                 clearTimeout(E);
-                D.isPriceFocus = true;
+                _mods_filter_D.isPriceFocus = true;
                 _dom.addClass(_dom_id_J_FPrice, _STR_FPRICE_HOVER)
             });
             _event.on(_dom_class_j_FPInput, "keyup", function () {
@@ -98,7 +98,7 @@
                 S.preventDefault()
             });
             _event.on(_dom_id_J_Filter, "keypress", function (S) {
-                if (S.keyCode == 13 && D.isPriceFocus) {
+                if (S.keyCode == 13 && _mods_filter_D.isPriceFocus) {
                     _dom_id_J_FForm.submit()
                 }
             })
