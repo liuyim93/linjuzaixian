@@ -107,28 +107,29 @@
             if (!_dom_id_J_FOAInput) {
                 return
             }
-            var D = _dom.attr(_dom_id_J_FOAInput, "data-val") || "";
+            var _data_val = _dom.attr(_dom_id_J_FOAInput, "data-val") || "";
             if (_dom_id_J_FOAInput.value == "") {
-                _dom_id_J_FOAInput.value = D
+                _dom_id_J_FOAInput.value = _data_val
             }
             _event.on(_dom_id_J_FOAInput, "focus", function () {
-                if (_dom_id_J_FOAInput.value == D) {
+                if (_dom_id_J_FOAInput.value == _data_val) {
                     _dom_id_J_FOAInput.value = ""
                 }
             });
             _event.on(_dom_id_J_FOAInput, "blur", function () {
                 if (_dom_id_J_FOAInput.value == "") {
-                    _dom_id_J_FOAInput.value = D
+                    _dom_id_J_FOAInput.value = _data_val
                 }
             });
             _event.on(_kissy_J.query("a", _dom_id_J_FOriginArea), "click", function (E) {
                 E.preventDefault();
                 var S = _dom.attr(this, "data-val") || _dom.html(this);
-                _dom_id_J_FOAInput.value = S == "\u6240\u6709\u5730\u533a" ? "" : S;
+                _dom_id_J_FOAInput.value = S == "所有地区" ? "" : S;
                 _dom_form_in_J_FOriginArea.submit()
             });
             _event.on(_dom_button_in_J_FOriginArea, "click", function () {
-                if (_dom_id_J_FOAInput.value == D) {
+                //2013-05-21 basilwang 如果等于请输入城市名，则将value设为空并提交
+                if (_dom_id_J_FOAInput.value == _data_val) {
                     _dom_id_J_FOAInput.value = ""
                 }
             })
