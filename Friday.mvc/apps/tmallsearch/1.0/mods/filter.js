@@ -28,14 +28,14 @@
 		_dom_id_J_FMenu = _kissy_J.get("#J_FMenu"),
 		_dom_class_j_FMcExpand = _kissy_J.get(".j_FMcExpand");
 
-    function f() {
-        if (!(this instanceof f)) {
-            return new f()
+    function Mods_Filter() {
+        if (!(this instanceof Mods_Filter)) {
+            return new Mods_Filter()
         }
         this.isPriceFocus = false;
         this._init()
     }
-    _kissy_J.augment(f, _kissy_J.EventTarget, {
+    _kissy_J.augment(Mods_Filter, _kissy_J.EventTarget, {
         _init: function () {
             if (!_dom_id_J_Filter) {
                 return
@@ -55,13 +55,13 @@
             this._disctOpts()
         },
         _priceInit: function () {
-            var D = function (E, k) {
-                var j = location.search,
-					S = j.match(new RegExp("\\b" + k + "=(\\d+)\\b"));
-                S && (E.value = S[1])
+            var _set_value_from_search_param = function (_dom_item, _search_param) {
+                var _location_search = location.search,
+					_param_match = _location_search.match(new RegExp("\\b" + _search_param + "=(\\d+)\\b"));
+                _param_match && (_dom_item.value = _param_match[1])
             };
-            D(_dom_class_j_FPInput[0], "start_price");
-            D(_dom_class_j_FPInput[1], "end_price")
+            _set_value_from_search_param(_dom_class_j_FPInput[0], "start_price");
+            _set_value_from_search_param(_dom_class_j_FPInput[1], "end_price")
         },
         _priceEvent: function () {
             if (!_dom_id_J_FPrice) {
@@ -355,7 +355,7 @@
     });
     return {
         init: function () {
-            new f()
+            new Mods_Filter()
         }
     }
 }, {
