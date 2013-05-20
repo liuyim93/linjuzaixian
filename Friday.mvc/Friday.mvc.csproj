@@ -1321,6 +1321,7 @@
     <Content Include="Images\jiaowotao-277-205.gif" />
     <Content Include="Images\login_cart-67-64.png" />
     <Content Include="Images\fenxiang-146-77.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Images\messageTip-18-18.png" />
     <Content Include="Images\mobilephoneregister-108-85.png" />
     <Content Include="Images\nav_li_shadow_effect.gif" />
@@ -1347,6 +1348,7 @@
     <Content Include="Images\b_red_5.gif" />
     <Content Include="Images\msg.png" />
     <Content Include="Images\popular_clothes-218-32.png" />
+    <Content Include="Images\setlogo-242-139.png" />
     <Content Include="Images\shandian-16-16.png" />
     <Content Include="Images\shutiao.jpg" />
     <Content Include="Images\spaceball.gif" />
@@ -1369,6 +1371,8 @@
     <Content Include="Images\Tmallloginhead-126-41.png" />
     <Content Include="Images\loginhead-126-41.png" />
     <Content Include="Images\zhe-16-16.png" />
+    <Content Include="Images\[1]logo.png" />
+    <Content Include="Images\[1]setlogo-242-139.png" />
     <Content Include="Images\[T]TmallFooterBar-111-109.png" />
     <Content Include="plugins\opensearch\provider.xml" />
     <Content Include="p\c2c\header-top-min.css" />

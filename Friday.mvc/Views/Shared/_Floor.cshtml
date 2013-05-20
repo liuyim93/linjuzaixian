@@ -145,7 +145,7 @@
                          var item = Model.GlobalGoodsTypeTlevelFirst.ElementAt(index);
                          if (item.ParentID == goodsType.Id)
                          {
-                            <li><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
+                            <li><a href="http://localhost:7525/Merchant/SearchProduct?keyword=@item.Name"
                                  target="_blank">@item.Name</a></li>
                          }
 
