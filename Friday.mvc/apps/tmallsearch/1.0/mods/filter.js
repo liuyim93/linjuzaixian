@@ -46,6 +46,7 @@
             this._priceInit();
             this._priceEvent();
             this._originAreaEvent();
+            //2013-05-21 basilwang 没有找到DestArea
             this._destAreaInit();
             this._destAreaEvent();
             this._menuInit();
@@ -254,21 +255,21 @@
             if (!_dom_id_J_FMenu) {
                 return
             }
-            var S = "drop",
-				E = _dom.children(_dom_id_J_FMenu, function (k) {
-				    return k.tagName == "INPUT" && k.type == "checkbox"
+            var _menu_shown_status = "drop",
+				_item_in_J_FMenu = _dom.children(_dom_id_J_FMenu, function (_item) {
+				    return _item.tagName == "INPUT" && _item.type == "checkbox"
 				}),
-				D = E.length;
-            for (var j = 3; j < D; j++) {
-                if (E[j].checked) {
-                    S = "expand";
+				_len = _item_in_J_FMenu.length;
+            for (var i = 3; i < _len; i++) {
+                if (_item_in_J_FMenu[i].checked) {
+                    _menu_shown_status = "expand";
                     break
                 }
             }
             LIST.msg.fire("expand", {
                 el: _dom_class_j_FMcExpand,
                 classname: "fMenu",
-                status: S
+                status: _menu_shown_status
             })
         },
         _fix: function () {
