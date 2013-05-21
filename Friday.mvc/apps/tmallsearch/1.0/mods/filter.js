@@ -273,33 +273,34 @@
             })
         },
         _fix: function () {
-            var S = _dom.create('<div id="J_FilterPlaceholder" />', {
+            var _filter_placeholder = _dom.create('<div id="J_FilterPlaceholder" />', {
                 css: {
                     height: _dom.outerHeight(_dom_id_J_Filter, true),
                     display: "none"
                 }
             });
-            _dom.insertAfter(S, _dom_id_J_Filter);
+            _dom.insertAfter(_filter_placeholder, _dom_id_J_Filter);
             this.needFixTop = true;
-            var E = Math.max(_dom.offset(_dom_id_J_Filter).top, 130),
-				D = function () {
-				    var j = _dom.scrollTop(_window);
-				    if (j > E) {
+            var _fix_top_threshold = Math.max(_dom.offset(_dom_id_J_Filter).top, 130),
+				_fix_core_fn = function () {
+				    var _window_scrollTop = _dom.scrollTop(_window);
+				    if (_window_scrollTop > _fix_top_threshold) {
 				        if (!_dom.hasClass(_dom_id_J_Filter, _STR_FILTER_FIX)) {
 				            _dom.addClass(_dom_id_J_Filter, _STR_FILTER_FIX);
-				            _dom.show(S)
+				            _dom.show(_filter_placeholder)
 				        }
 				        if (_is_ie6) {
-				            _dom.css(_dom_id_J_Filter, "top", j - 10 - _dom.offset(_dom_class_main).top)
+                            //2013-05-22 basilwang 为什么不用_dom.offset(_dom_id_J_Filter,{top:value})设置？
+				            _dom.css(_dom_id_J_Filter, "top", _window_scrollTop - 10 - _dom.offset(_dom_class_main).top)
 				        }
 				    } else {
 				        _dom.removeClass(_dom_id_J_Filter, _STR_FILTER_FIX);
-				        _dom.hide(S);
-				        E = Math.max(_dom.offset(_dom_id_J_Filter).top, 130)
+				        _dom.hide(_filter_placeholder);
+				        _fix_top_threshold = Math.max(_dom.offset(_dom_id_J_Filter).top, 130)
 				    }
 				};
-            D();
-            _event.on(_window, "scroll", D)
+            _fix_core_fn();
+            _event.on(_window, "scroll", _fix_core_fn)
         },
         _tipCtrl: function (S) {
             if (S || !_dom_id_J_FMenu) {
