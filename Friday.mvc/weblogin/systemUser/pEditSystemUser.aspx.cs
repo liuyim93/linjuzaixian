@@ -15,6 +15,7 @@ namespace Friday.mvc.weblogin
     public partial class pEditSystemUser : BasePage
     {
         private ISystemUserService iSystemUserService = UnityHelper.UnityToT<ISystemUserService>();
+        private ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
 
         private SystemUser systemUser;
 
@@ -33,6 +34,8 @@ namespace Friday.mvc.weblogin
             }
             else
             {
+                SchoolName.Value = systemUser.School.Name;
+                SchoolID.Value = systemUser.School.Id;
                 BindingHelper.ObjectToControl(systemUser, this);
                 BindingHelper.ObjectToControl(systemUser.LoginUser, this);
             }
@@ -43,6 +46,7 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(systemUser);
             BindingHelper.RequestToObject(systemUser.LoginUser);
+            systemUser.School = iSchoolService.Load(SchoolID.Value);
             iSystemUserService.Update(systemUser);
 
             AjaxResult result = new AjaxResult();
