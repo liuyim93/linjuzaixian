@@ -100,34 +100,7 @@
                 <a href="javascript:;" class="bIc-slide-prev">&lt;</a>
                 <div class="bIc-slide">
                     <ul class="bIc-slideList" style="position: absolute; width: 2160px;">
-                 @*   @if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-                    {
-                        for (var index = 0; index < (Model.Foods[foodIndex].Count() > 12 ? 12 : Model.Foods[foodIndex].Count()); index++)
-                        {
-                            var item = Model.Foods[foodIndex].ElementAt(index);
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@item.Id">
-                                    <img height="160" width="160" src="@item.Image"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    @item.Price
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>@item.MonthAmount</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@item.Id">@item.Name</a>
-                            </p>
-                        </li>
-                        }
-                        foodIndex++;
-                    }
-                    else *@
+                 
                     @if (m.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
                     {
                         for (var index = 0; index < (Model.Commoditys[commodityIndex].Count() > 12 ? 12 : Model.Commoditys[commodityIndex].Count()); index++)
@@ -155,33 +128,7 @@
                         }
                         commodityIndex++;
                     }
-                    @*else
-                    {
-                        for (var index = 0; index < (Model.Houses[houseIndex].Count() > 12 ? 12 : Model.Houses[houseIndex].Count()); index++)
-                        {
-                            var item = Model.Houses[houseIndex].ElementAt(index);
-                        <li class="j_BrandItemList" style="display: block; float: left;">
-                            <p class="bIc-slideList-img">
-                                <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@item.Id">
-                                    <img height="160" width="160" src="@item.Image"></a>
-                            </p>
-                            <p class="bIc-slideList-sell">
-                                <span class="bIc-slideList-sell-price ui-price">
-                                    <span class="ui-price-icon">¥</span>
-                                    @item.Price
-                                </span>
-                                <span class="bIc-slideList-sell-num">
-                                    月销量：
-                                    <em>@item.MonthAmount</em>
-                                </span>
-                            </p>
-                            <p class="bIc-slideList-title">
-                                <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@item.Id">@item.Name</a>
-                            </p>
-                        </li>
-                        }
-                        houseIndex++;
-                    }*@
+                  
                         
                     </ul>
                 </div>

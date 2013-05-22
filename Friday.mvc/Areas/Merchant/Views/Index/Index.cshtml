@@ -173,12 +173,12 @@ background-position:left 0;
                 <div class="headerCrumb" id="J_HeaderCrumb">
                 </div>
                 <ul class="headerPromise">
-                    <li class="hPicon1"><a target="_blank" title="正品行货" href="  ">
+                   @* <li class="hPicon1"><a target="_blank" title="正品行货" href="  ">
                         正品行货</a></li>
                     <li class="hPicon2"><a target="_blank" title="提供发票" href="  ">
                         提供发票</a></li>
                     <li class="hPicon3"><a target="_blank" title="七天退换" href="  ">
-                        七天退换</a></li>
+                        七天退换</a></li>*@
                 </ul>
                 <!-- module-cache-info: module: shop.headerArchiveNoNav:1.1-b2c,moduleId=1240656693, key: user-890482188-prototype-57-20121105 cacheArea: 49 cachedTime: 2013-03-14 15:34:45 aliveTime: 28800 AppIP:172.24.173.88 -->
                 <div id="mall-shop">
@@ -202,20 +202,7 @@ background-position:left 0;
                         <div class="extra-info">
                             <div class="bd">
                                 <div class="shop-rate">
-                                    <h4>
-                                        店铺动态评分 <span class="compare">与同行业相比</span>
-                                    </h4>
-                                    <ul>
-                                        <li>描述相符：<a target="_blank" href=" "><em
-                                            class="count" title="4.76132分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
-                                                <b>持平</b><em>--------</em> </span></a></li>
-                                        <li>服务态度：<a target="_blank" href=" "><em
-                                            class="count" title="4.74458分">4.7</em> <span class="rateinfo" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
-                                                <b class="lower">低于</b><em class="lower">1.35%</em> </span></a></li>
-                                        <li>发货速度：<a target="_blank" href=" "><em
-                                            class="count" title="4.7673分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
-                                                <b>持平</b><em>--------</em> </span></a></li>
-                                    </ul>
+                                
                                 </div>
                                 <div class="extend">
                                     <ul>
@@ -244,10 +231,7 @@ background-position:left 0;
                                     </ul>
                                 </div>
                                 <div class="other">
-                                    <a id="xshop_collection_href" style="width: 84px;" href=""
-                                        mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496"
-                                        class="J_PopupTrigger collection xshop_sc J_TDialogTrigger J_TokenSign" data-width="440"
-                                        data-height="260" data-closebtn="true"><span>收藏本店铺 </span></a>
+                                    
                                 </div>
                             </div>
                             <div class="opt">
@@ -361,12 +345,7 @@ background-position:left 0;
                                                         @*<input id="baobei_type" type="hidden" name="baobei_type" value="">*@
                                                      <input type="hidden" name="scid" value=@ViewData["sscid"]>
                                                      <input type="hidden" name="goodTypeId" value=@ViewData["sgoodTypeId"] />
-                                                         @*  <li class="type">
-                                                            <label for="whole">
-                                                                搜索整店</label>
-                                                            <input id="whole" name="searchRange" value="all" type="checkbox" class="checkbox"
-                                                                checked="">
-                                                        </li>*@
+                                                  
                                                         <li class="keyword">
                                                             <label for="keyword">
                                                                 关键字：</label>
@@ -491,43 +470,7 @@ background-position:left 0;
                 <form action="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" method="post">                       
                   <div class="brandPagination" style=" float:right">
             <div class="ui-page">
-                <div class="ui-page-wrap"> @*<b class="ui-page-num">
-                @if (Model.currentPage > 1)
-                {
-                    <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/index?page=@(Model.currentPage - 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" ><< 上一页</a>
-                }
-                else
-                {
-                    <b class="ui-page-prev"><< 上一页</b>
-                }
-                @for (int i = 1; i <= Model.pageNum; i++)
-                {
-                    if (i == Model.currentPage)
-                    {
-                        <b class="ui-page-cur">@i</b>
-                    }
-                    else
-                    {
-                        <a href="http://localhost:7525/merchant/index?page=@i&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="j_PageChange" data-page="@i">@i</a>
-                    }
-                }
-                
-                <b class="ui-page-break">...</b>
-
-                @if (Model.currentPage < Model.pageNum)
-                {
-                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/index?page=@(Model.currentPage + 1)&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"> 下一页>></a>
-                }
-                else
-                {
-                    <b class="ui-page-next">下一页 >></b>
-                }
-                    </b>
-
-                    <b class="ui-page-skip">共@(Model.pageNum)页，去第
-                        <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
-                        页
-                        <button class="ui-btn-s ui-page-skipBtn j_PageChangeBtn" type="submit">确定</button></b> *@
+                <div class="ui-page-wrap"> 
 
       
  <b class="ui-page-num">
@@ -691,26 +634,7 @@ background-position:left 0;
         </div>
         </form>
                                 
-                                      <!--        <div class="pagination">
-                                                <a class="disable">上一页</a> <a class="page-cur">1</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
-                                                    2</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=3#anchor">
-                                                        3</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=4#anchor">
-                                                            4</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=5#anchor">
-                                                                5</a> <a class="J_SearchAsync" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=6#anchor">
-                                                                    6</a> <a class="J_SearchAsync next" href="http://nike.tmall.com/search.htm?search=y&amp;scid=493467022&amp;viewType=grid&amp;orderType=_newOn&amp;pageNum=2#anchor">
-                                                                        下一页</a>
-                                                <form id="J_Pagination" action="http://nike.tmall.com/search.htm" method="get">
-                                                <input type="hidden" name="orderType" value="_newOn">
-                                                <input type="hidden" name="viewType" value="grid">
-                                                <input type="hidden" name="scid" value="493467022">
-                                                到第
-                                                <input id="J_PaginationInput" type="text" value="1" size="3" name="pageNum" class="J_CheckInput">
-                                                页
-                                                <button type="submit">
-                                                    确定</button>
-                                                </form>
-                                            </div>
-                                          end pagination-->
+                                              
                                            
                                         </div> 
                                                
@@ -750,21 +674,21 @@ background-position:left 0;
                                     <div class="shop-promise">
                                         <p>
                                             <img alt="邻居在线，品质保证" src="http://localhost:7525/Images/small_mcht_bar-175-35.png"></p>
-                                        <ul>
-                                            <li><a href="http://www.tmall.com/go/chn/mall2010/promise.php#ZPBZ" target="_blank">
+                                     @*   <ul>
+                                             <li><a href="http://www.tmall.com/go/chn/mall2010/promise.php#ZPBZ" target="_blank">
                                                 正品保障</a></li>
                                             <li><a href="http://www.tmall.com/go/chn/mall2010/promise.php#TGFP" target="_blank">
                                                 提供发票</a></li>
                                             <li id="J_7day" class="last"><a href="http://www.tmall.com/go/chn/mall2010/promise.php#QTTH"
-                                                target="_blank">七天退换</a></li>
-                                        </ul>
+                                                target="_blank">七天退换</a></li> 
+                                        </ul>*@
                                     </div>
                                     <div class="shop-intro">
                                         <div class="name">
                                             <span>@Model.SingleShop.Name 官方旗舰店</span>
                                         </div>
                                         <div class="shop-rate">
-                                            <h4>
+                                            @*<h4>
                                                 店铺动态评分 <span class="compare">与同行业相比</span>
                                             </h4>
                                             <ul>
@@ -777,7 +701,7 @@ background-position:left 0;
                                                 <li>发货速度：<a target="_blank" href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496.htm"><em
                                                     class="count" title="4.7673分">4.7</em> <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
                                                         <b>持平</b><em>--------</em> </span></a></li>
-                                            </ul>
+                                            </ul>*@
                                         </div>
                                         <div class="extend">
                                             <ul>
@@ -808,10 +732,10 @@ background-position:left 0;
                                         <div class="other">
                                         @*    <a class="enter" href="http://nike.tmall.com/" title="进入掌柜的店铺" target="_blank"><span
                                                 style="display: none;">进入掌柜的店铺</span></a>*@
-                                            <a id="xshop_collection_href" href="http://favorite.taobao.com//popup/add_collection.htm?itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
+                                          @*  <a id="xshop_collection_href" href="http://favorite.taobao.com//popup/add_collection.htm?itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
                                                     mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496"
                                                     class="J_TDialogTrigger J_PopupTrigger collection xshop_sc J_TokenSign" data-width="458"
-                                                    data-height="346" data-closebtn="true" style="width: 84px"><span>收藏本店铺</span></a>
+                                                    data-height="346" data-closebtn="true" style="width: 84px"><span>收藏本店铺</span></a>*@
                                         </div>
                                     </div>
                                     <div id="J_Shopsearch" style="display: none" class="shop-search">

@@ -127,16 +127,7 @@
 							<h3 class="shop-title">
 								<a target="_blank" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name 官方旗舰店</a>
 							</h3>
-							@*<p class="shop-status">
-								<a class="i" target="_blank" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">品牌直销</a>
-								<span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
-                                        data-tnick="" data-encode="true" data-display="inline">
-									<a href="http://www.taobao.com/webww/?ver=1&amp;&amp;touid=cntaobaonike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97&amp;siteid=cntaobao&amp;status=2&amp;portalId=&amp;gid=&amp;itemsId="
-                                            target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
-										<span>旺旺在线</span>
-									</a>
-								</span>
-							</p>*@
+							 
 							<p class="shop-grade">
 								<a target="_blank" href="">
 									<span title="4.7/5.0，共有40778人打分" class="c-value-no c-value-4d7"></span>
@@ -210,12 +201,12 @@
 									</ul>
 								</div>
 								<div class="other">
-									@*<a id="xshop_collection_href" style="width: 84px;" href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
+									 @*<a id="xshop_collection_href" style="width: 84px;" href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
                                         mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496"
                                         class="J_PopupTrigger collection xshop_sc J_TDialogTrigger J_TokenSign" data-width="440"
                                         data-height="260" data-closebtn="true">
 										<span>收藏本店铺</span>
-									</a>*@
+									</a>*@ 
 								</div>
 							</div>
 							<div class="opt">
@@ -742,25 +733,7 @@
 							<div id="J_Tjwrap">
 								<ul id="J_TjWaterfall" class="clearfix ald-03040" style="height: 1549px;">
 
-@*                                @if (Model.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-                                {
-                                    for (var index = 0; index < (Model.Foods.Count() > 12 ? 12 : Model.Foods.Count()); index++)
-                                    {
-                                        var item = Model.Foods.ElementAt(index);
-                                        <li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" >
-		                                <a href="http://detail.tmall.com/item.htm?id=16246207723&amp;pos=1&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_1&amp;acm=03040.1003.247.238.16246207723_1" class="ald-wf-pic" target="_blank">
-                                        <img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qQ3iXjxbXXb2KJg9_103037.jpg_250x250.jpg">
-                                         <span class="ui-price"><span class="ui-price-icon">¥</span> @item.Price</span></a>
-		                                @foreach (friday.core.ValuingOfMyFoodOrder v in Model.ValuingOfMyFoodOrders[index])
-                                        {
-                                            <p>
-			                                <b>@v.LoginUser.LoginName</b> @v.ValuingContent
-		                                    </p>
-                                        }
-	                                    </li>
-                                    }
-                                }
-                                else if (Model.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+@*                                if (Model.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
                                 {
                                     for (var index = 0; index < (Model.Commoditys.Count() > 12 ? 12 : Model.Commoditys.Count()); index++)
                                     {
@@ -778,24 +751,7 @@
 	                                    </li>
                                     }
                                 }
-                                else
-                                {
-                                    for (var index = 0; index < (Model.Houses.Count() > 12 ? 12 : Model.Houses.Count()); index++)
-                                    {
-                                        var item = Model.Houses.ElementAt(index);
-                                        <li class="ald-wf-li ks-waterfall-col-0 ks-waterfall-col-first" >
-		                                <a href="http://detail.tmall.com/item.htm?id=16246207723&amp;pos=1&amp;uuid=3557f47c278d4aec877f4b668be577b4&amp;scm=1003.3.03040.1_1&amp;acm=03040.1003.247.238.16246207723_1" class="ald-wf-pic" target="_blank">
-                                        <img height="220" src="http://img01.taobaocdn.com/bao/uploaded/i1/T1qQ3iXjxbXXb2KJg9_103037.jpg_250x250.jpg">
-                                         <span class="ui-price"><span class="ui-price-icon">¥</span> @item.Price</span></a>
-		                                @foreach (friday.core.ValuingOfMyHouseOrder v in Model.ValuingOfMyHouseOrders[index])
-                                        {
-                                            <p>
-			                                <b>@v.LoginUser.LoginName</b> @v.ValuingContent
-		                                    </p>
-                                        }
-	                                    </li>
-                                    }
-                                }*@
+                               *@
 
 								</ul>
 							</div>

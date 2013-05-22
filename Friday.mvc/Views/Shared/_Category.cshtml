@@ -7,41 +7,7 @@
     </h2>
     <div class="menu j_Menu" data-spm="3.356818.294515">
         <ul>
-          @*  <li class="item item1 j_MenuItem">
-                <h3 class="item-hd item-hd1">
-                    <s></s>租赁
-                </h3>
-                    @for (var index = 0; index < Model.MerchantRentCategories.Count(); index++)
-                    {
-                        
-                            
-                        if (index%5==0)
-                        {
-                            if (index == 0)
-                            {
-                              @:<p class="item-col  itemCol1 ">
-                            }
-                            else
-                            {
-                               @:<b class="overlay even"></b></p>
-                               @:<p class="item-col">
-                            }
-                        }
-                        var item = Model.MerchantRentCategories.ElementAt(index);
-                        if (index % 5 == 0)
-                        {
-                        @:<a href="" target="_blank" class="item-col1">@Html.Encode(item.MerchantCategoryName)</a>
-                        }
-                        else
-                        {
-                         @:<a href="" target="_blank" >@Html.Encode(item.MerchantCategoryName)</a>
-                        }
-              
-                    }
-                    <b class="overlay even"></b>
-                    </p>
-                   
-                <s class="menuIcon"></s></li>*@
+         
        
              @for (var Tlevel = 0; Tlevel < Model.GlobalGoodsTypeTlevelZero.Count(); Tlevel++)
              {
@@ -89,40 +55,7 @@
               
             }
               
-            @*<li class="item item3 j_MenuItem">
-                <h3 class="item-hd item-hd3">
-                    <s></s>餐馆
-                </h3>
-                 @for (var index = 0; index < Model.MerchantRestaurantCategories.Count(); index++)
-                    {
-                        
-                            
-                        if (index%5==0)
-                        {
-                            if (index == 0)
-                            {
-                              @:<p class="item-col  itemCol1 ">
-                            }
-                            else
-                            {
-                               @:<b class="overlay even"></b></p>
-                               @:<p class="item-col">
-                            }
-                        }
-                        var item = Model.MerchantRestaurantCategories.ElementAt(index);
-                        if (index % 5 == 0)
-                        {
-                        @:<a href="" target="_blank" class="item-col1">@Html.Encode(item.MerchantCategoryName)</a>
-                        }
-                        else
-                        {
-                         @:<a href="" target="_blank" >@Html.Encode(item.MerchantCategoryName)</a>
-                        }
-              
-                    }
-                    <b class="overlay even"></b>
-                    </p>
-                <s class="menuIcon"></s></li>*@
+          
         </ul>
 @*        <div class="menu-bottom j_BottomMenu">
             <a href="http://cz.Tmall.com/?spm=3.356818.294515.155&amp;sort=phone" target="_blank">
