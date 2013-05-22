@@ -120,7 +120,7 @@
                                     {
                                         if (Model.listBarGlobalGoodsType.ElementAt(i).Count == 0)
                                         {
-                                    <li><a class="crumbStrong" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=s&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
+                                    <li><a class="crumbStrong" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
                  title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="2,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a>
                                         <i class="crumbArrow">&gt;</i> </li>
                                         }
@@ -128,7 +128,7 @@
                                         {
                                     <li>
                                         <div class="crumbDrop j_CrumbDrop">
-                                            <a class="crumbStrong crumbDrop-hd j_CrumbDropHd" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&amp;s=0&amp;n=60&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1#J_crumbs" title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="3,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a><i></i>
+                                            <a class="crumbStrong crumbDrop-hd j_CrumbDropHd" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs" title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="3,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a><i></i>
                                             <div class="crumbDrop-bd j_CrumbDropBd" style="width: 834px;">
                                                 @{
                                             var itemCount = Model.listBarGlobalGoodsType.ElementAt(i).Count;
@@ -149,7 +149,7 @@
                                                     else
                                                     {
                                                             <li><a atpanel="1,cat-dropdown,,,,51132008,rightnav,"
-                                                href="SearchProduct?cat=@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Id&amp;s=0&amp;n=60&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1#J_crumbs"
+                                                href="SearchProduct?cat=@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
                                                 title="@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Name">@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Name</a>
                                                             </li>
                                                     }
@@ -212,7 +212,7 @@
                                 {
                             <div class="j_Cate attr">
                                 <div class="attrKey" data-atp="{loc},{cat},,,spu-cat-qp,3,cat-qp,">
-                                    <a title="@Model.headGlobalGoodsType.ElementAt(i).Name" href="SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
+                                    <a title="@Model.headGlobalGoodsType.ElementAt(i).Name" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
                             atpanel="1,50026637,,,spu-cat-qp,3,cat-qp,">@Model.headGlobalGoodsType.ElementAt(i).Name</a>
                                 </div>
                                 <div class="attrValues">
@@ -223,7 +223,7 @@
                                     {
                                         var listGlobalGoodsTypesNum = Model.listGlobalGoodsTypesNum.ElementAt(i);
                                     
-                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(numIndex))" href="SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@globalGoodsType.Id#J_crumbs"
+                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(numIndex))" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@globalGoodsType.Id#J_crumbs"
                                     atpanel="1,50106425,,,spu-cat-qp,3,cat-qp,">@globalGoodsType.Name<span>(@listGlobalGoodsTypesNum.ElementAt(numIndex))</span>
                                             </a></li>
                                         numIndex++;
@@ -243,7 +243,7 @@
                                         @{
                                     for (int i = 2; i < @Model.headGlobalGoodsType.Count; i++)
                                     {
-                                            <li><a title="@Model.headGlobalGoodsType.ElementAt(i).Name; (@Model.headGlobalGoodsTypeNum.ElementAt(i))" href="SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
+                                            <li><a title="@Model.headGlobalGoodsType.ElementAt(i).Name; (@Model.headGlobalGoodsTypeNum.ElementAt(i))" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
                                 atpanel="1,50106425,,,spu-cat-qp,3,cat-qp,">@Model.headGlobalGoodsType.ElementAt(i).Name<span>(@Model.headGlobalGoodsTypeNum.ElementAt(i))</span>
                                             </a></li>
                                     }
@@ -259,7 +259,7 @@
                                 {
                             <div class="j_Cate attr">
                                 <div class="attrKey" data-atp="{loc},{cat},,,spu-cat-qp,3,cat-qp,">
-                                    <a title="@Model.headGlobalGoodsType.ElementAt(0).Name" href="SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@Model.headGlobalGoodsType.ElementAt(0).Id#J_crumbs"
+                                    <a title="@Model.headGlobalGoodsType.ElementAt(0).Name" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@Model.headGlobalGoodsType.ElementAt(0).Id#J_crumbs"
                             atpanel="1,50026637,,,spu-cat-qp,3,cat-qp,">@Model.headGlobalGoodsType.ElementAt(0).Name</a>
                                 </div>
                                 <div class="attrValues">
@@ -270,7 +270,7 @@
                                     {
                                         var listGlobalGoodsTypesNum = Model.listGlobalGoodsTypesNum.ElementAt(0);
                                     
-                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(index))" href="SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@globalGoodsType.Id#J_crumbs"
+                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(index))" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@globalGoodsType.Id#J_crumbs"
                                     atpanel="1,50106425,,,spu-cat-qp,3,cat-qp,">@globalGoodsType.Name<span>(@listGlobalGoodsTypesNum.ElementAt(index))</span>
                                             </a></li>
                                         index++;
