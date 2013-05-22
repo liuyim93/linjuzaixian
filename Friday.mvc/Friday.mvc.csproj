@@ -370,6 +370,13 @@
     <Compile Include="weblogin\ListPropID.aspx.designer.cs">
       <DependentUpon>ListPropID.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSchool.aspx.cs">
+      <DependentUpon>ListSchool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSchool.aspx.designer.cs">
+      <DependentUpon>ListSchool.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListSystemUser.aspx.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1651,6 +1658,7 @@
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
     <Content Include="weblogin\ListPropID.aspx" />
+    <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />

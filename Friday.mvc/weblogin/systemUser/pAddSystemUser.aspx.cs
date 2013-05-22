@@ -16,6 +16,7 @@ namespace Friday.mvc.weblogin
     {
         private ISystemUserService iSystemUserService = UnityHelper.UnityToT<ISystemUserService>();
         private ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+        private ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
 
         private LoginUser loginUser;
         private SystemUser systemUser;
@@ -62,6 +63,7 @@ namespace Friday.mvc.weblogin
                 systemUser = new SystemUser();
                 BindingHelper.RequestToObject(systemUser);
                 systemUser.IsAnonymous = false;
+                systemUser.School = iSchoolService.Load(SchoolID.Value);
                 iSystemUserService.Save(systemUser);
 
                 loginUser = new LoginUser();
@@ -69,6 +71,7 @@ namespace Friday.mvc.weblogin
                 loginUser.IsAdmin = false;
                 //loginUser.UserType = friday.core.EnumType.UserTypeEnum.顾客;
                 loginUser.SystemUser = systemUser;
+
                 iLoginUserService.Save(loginUser);
 
 

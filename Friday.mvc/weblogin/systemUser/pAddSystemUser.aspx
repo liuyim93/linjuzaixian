@@ -41,6 +41,14 @@
                     个性签名：</label>
                 <input type="text" id="Description" size="30" class="required  textInput gray" runat="server" />
             </p> 
+            <p>
+                <label>
+                    所在区域：</label>
+                <input type="text" id="SchoolName" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                 <input type="hidden" id="SchoolID"  runat="server" />
+                <a class="btnLook" href="ListSchool.aspx" rel="" lookupgroup="">选择区域</a>
+            </p>
         </div>
     </div>
      <div class="formBar">
