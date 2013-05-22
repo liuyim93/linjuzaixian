@@ -1,76 +1,94 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddSchool.aspx.cs" Inherits="Friday.mvc.weblogin.school.pAddSchool"   validateRequest="false"  %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddSchool.aspx.cs" Inherits="Friday.mvc.weblogin.pAddSchool" %>
 
-<div class="page" style="">
+<div class="page">
     <div class="pageContent">
-    <div class="panelBar">
-        <ul class="toolBar">
-            <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>添加学校</span>
-           </a></li>
-           
-        </ul>
-    </div>
-        <form id="form" method="post"  class="pageForm required-validate" 
-        onsubmit="return validateCallback(this,navTabAjaxDone)" runat="server" >
-        <div class="pageFormContent" style=" height:500px">
-         
-            <h1>
-                学校信息</h1>
-            <input type="hidden" id="MyOrderId" size="30" runat="server" />
-          <p>
+        <form id="form" method="post" runat="server" class="pageForm required-validate">
+        <div class="pageFormContent" layouth="56">
+            <asp:textbox id="Id" runat="server" style="display: none;" visibla="false"></asp:textbox>
+            <input name="TLevel" id="TLevel" type="hidden" runat="server"/>
+            <p>
                 <label>
-                    学校名称：</label>
-                <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
+                    区域名称：</label>
+                <asp:textbox id="Name" runat="server" class="required textInput gray"></asp:textbox>
             </p>
+
             <p>
                 <label>
                     简称：</label>
-                <input type="text" id="ShortName" size="30" class="required textInput gray" runat="server" />
+                <asp:textbox id="ShortName" runat="server" class="required textInput gray"></asp:textbox>
             </p>
+
             <p>
                 <label>
-                    所在城市：</label>
-                <input type="text" id="CityName" size="30" class="required textInput gray" runat="server" />
+                    区域代码：</label>
+                <asp:textbox id="AreaCode" runat="server" class="textInput gray digits" min="0"></asp:textbox>
             </p>
-     
-         
-    
+
+            <p>
+                <label>
+                    拼音简码：</label>
+                <asp:textbox id="PinYin" runat="server" class="textInput gray lettersonly"></asp:textbox>
+            </p>
+
+            <p>
+                <label>
+                    是否是叶节点：</label>
+                <select id="Leaff" style="width:85px" runat="server" >
+					<option value="True">是</option>
+					<option value="False" selected="true">否</option>
+				</select>   
+                    
+            </p>
         </div>
-                <div class="formBar">
-                <ul>
-                    <li>
-                        <div class="buttonActive">
-                            <div class="buttonContent">
-                                <button type="submit">
-                                    保存</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li></li>
-                    <li>
-                        <div class="buttonActive">
-                            <div class="buttonContent">
-                                <button type="reset" id="Clean">
-                                    重置</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li></li>
-                </ul>
-            </div>
+     <div class="formBar">
+        <ul>
+            <li>
+                <div class="buttonActive">
+                    <div class="buttonContent">
+                        <button type="submit">
+                            保存</button>
+                    </div>
+                </div>
+            </li>
+            <li></li>
+            <li>
+                <div class="buttonActive">
+                    <div class="buttonContent">
+                        <button type="reset" id="Button1">
+                            重置</button>
+                    </div>
+                </div>
+            </li>
+            <li></li>
+        </ul>
+    </div>
         </form>
     </div>
 </div>
 
-<script   type="text/javascript">
+<script type="text/javascript">
 
     $(function () {
         var prefix = '<%=Request.Params["prefix"] %>';
-
+        //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
+        //ensure this function will be called delay until initUI called
+        //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
-            o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
-            
 
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, navTabAjaxDone)
+
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, dialogAjaxDone)
+
+                });
+            }
+            //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 
         });

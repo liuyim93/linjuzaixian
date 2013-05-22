@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.school {
+namespace Friday.mvc.weblogin {
     
     
     public partial class pAddSchool {
@@ -22,13 +22,22 @@ namespace Friday.mvc.weblogin.school {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// MyOrderId 控件。
+        /// Id 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
+        protected global::System.Web.UI.WebControls.TextBox Id;
+        
+        /// <summary>
+        /// TLevel 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden TLevel;
         
         /// <summary>
         /// Name 控件。
@@ -37,7 +46,7 @@ namespace Friday.mvc.weblogin.school {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
         /// ShortName 控件。
@@ -46,15 +55,33 @@ namespace Friday.mvc.weblogin.school {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ShortName;
+        protected global::System.Web.UI.WebControls.TextBox ShortName;
         
         /// <summary>
-        /// CityName 控件。
+        /// AreaCode 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CityName;
+        protected global::System.Web.UI.WebControls.TextBox AreaCode;
+        
+        /// <summary>
+        /// PinYin 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PinYin;
+        
+        /// <summary>
+        /// Leaff 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect Leaff;
     }
 }
