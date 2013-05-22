@@ -105,7 +105,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total,cat);
+            IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total,cat,sort);
             if (cat == "" || cat == null)
             {
                 searchProductModel.headGlobalGoodsType = iGlobalGoodsTypeService.GetFirstLevelAll();
