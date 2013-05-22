@@ -22,7 +22,7 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p></p>
+
 <%--            <p>
                 <label>
                     服务的学校：</label>
@@ -41,8 +41,7 @@
                     服务的区域：</label>
                 <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                <input type="text" id="IDSet" size="35" class="required textInput gray"
-                    runat="server" visible="false"/>
+                    <input type="hidden" id="IDSet" size="30" runat="server" />
                 <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
             </p>
         </div>
@@ -110,6 +109,24 @@
                         cols="42" runat="server"></textarea>
                 </p>
             </div>
+
+                        <p>
+            
+                <label>
+                    Logo上传：</label>
+          
+                <input id="Image" type="file" class="required textInput gray" runat="server" />
+              
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+           
+            </p>
+          
+             <p >
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>
+
            <div style="margin-left:600px;">
                 <p>
                     <label>
@@ -170,7 +187,19 @@
             //o.find("a[rel_v3]").trigger("click");
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
-        
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, navTabAjaxDone)
+
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, dialogAjaxDone)
+
+                });
+            }
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 

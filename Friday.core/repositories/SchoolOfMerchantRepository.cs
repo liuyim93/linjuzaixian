@@ -36,8 +36,8 @@ namespace friday.core.repositories
                 }
                 else 
                 {
-                    schnames = sc.Name + "，" + schnames;
-                    schids = sc.Id + "，" + schids;
+                    schnames = sc.Name + "," + schnames;
+                    schids = sc.Id + "," + schids;
                 }
                 i++;
             }

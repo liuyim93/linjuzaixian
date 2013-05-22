@@ -46,6 +46,10 @@ namespace Friday.mvc.weblogin.shop
                 List<DataFilter> loginUserOfMechentList = new List<DataFilter>();
                 List<DataFilter> loginUserList = new List<DataFilter>();
 
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsDelete"
+                });
 
                 if (!string.IsNullOrEmpty(Request.Form["Name"]))
                     filterList.Add(new DataFilter()
@@ -98,6 +102,12 @@ namespace Friday.mvc.weblogin.shop
                     }
                     filterList.Add(filter);
                 }
+
+                List<DataFilter> dflForOrder = new List<DataFilter>();
+                string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
+                string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
+                dflForOrder.Add(new DataFilter() { type = orderField, comparison = orderDirection });
+                filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
                 IList<Shop> shopList = iShopService.Search(filterList, start, limit, out total);
 

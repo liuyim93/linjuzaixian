@@ -2,7 +2,7 @@
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
-    <div class="panel collapse" defh="95">
+    <div class="panel collapse" defh="155">
         <h1>
             商店基本信息</h1>
         <div>
@@ -32,8 +32,7 @@
                     服务的区域：</label>
                 <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                <input type="text" id="IDSet" size="35" class="required textInput gray"
-                    runat="server" visible="false" />
+                    <input type="hidden" id="IDSet" size="30" runat="server" />
                 <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
             </p>
 
@@ -177,19 +176,19 @@
             //o.find("a[rel_v3]").trigger("click");
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
-//            var target_type = $.get_target_type(prefix);
-//            if (/navtab/i.test(target_type)) {
-//                o.find("#form").bind("submit", function (e) {
-//                    return iframeCallback(this, navTabAjaxDone)
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, navTabAjaxDone)
 
-//                });
-//            }
-//            else {
-//                o.find("#form").bind("submit", function (e) {
-//                    return iframeCallback(this, dialogAjaxDone)
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, dialogAjaxDone)
 
-//                });
-//            }
+                });
+            }
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 
