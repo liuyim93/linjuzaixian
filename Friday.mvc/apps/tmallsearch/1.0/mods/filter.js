@@ -306,8 +306,8 @@
             if (S || !_dom_id_J_FMenu) {
                 return
             }
-            var j = _dom.query("label", _dom_id_J_FMenu);
-            if (!j.length) {
+            var _label_in_menu = _dom.query("label", _dom_id_J_FMenu);
+            if (!_label_in_menu.length) {
                 return
             }
             var E = [1, -1, 0, 0],
@@ -321,7 +321,7 @@
                         k[n] = parseInt(k[n]) || E[n]
                     }
                 }
-                var m = j[k[0] - 1];
+                var m = _label_in_menu[k[0] - 1];
                 if (m) {
                     var p = m.offsetLeft + _dom.outerWidth(m) / 2 - _dom.outerWidth(o) / 2;
                     _dom.css(o, "left", p + "px")
