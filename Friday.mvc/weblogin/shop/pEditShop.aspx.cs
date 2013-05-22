@@ -47,33 +47,27 @@ namespace Friday.mvc.weblogin.shop
                 {
                     schid = this.IDSet.Value;
                 }
-                if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
-                {
-                    schid = this.SchoolOfMerchantID.Value;
-                }
+                //if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
+                //{
+                //    schid = this.SchoolOfMerchantID.Value;
+                //}
                 SaveShop(uid, schid);
             }
             else
             {
 
                 BindingHelper.ObjectToControl(shop, this);
-               
                 this.ImagePreview.Src = shop.Logo;
- 
 
                 //this.LoginName.Value = loginuser.LoginName;
 
-
-                string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
-                string[] arrname = schofmntname.Split('，');
-                if (arrname.Length>1)
-                {             
-                    this.NameSet.Value = schofmntname;
-                }
-                else
-                {
-                    this.SchoolOfMerchant.Value = schofmntname;
-                }
+                string[] namesAndIds = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
+                this.NameSet.Value = namesAndIds[0];
+                this.IDSet.Value = namesAndIds[1];
+                //else
+                //{
+                //    this.SchoolOfMerchant.Value = schofmntname;
+                //}
 
             }
         }
@@ -109,9 +103,6 @@ namespace Friday.mvc.weblogin.shop
             Response.Write(jsonResult.FormatResult());
             Response.End();
 
-
-
         }
-
     }
 }

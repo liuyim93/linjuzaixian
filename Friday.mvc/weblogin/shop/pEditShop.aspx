@@ -27,31 +27,14 @@
                     登陆名：</label>
                 <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
             </p>--%>
-                  <p>
-                <label>
-                    服务的学校：</label>
-                <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
-                    runat="server" readonly="true" />
-                <a class="btnLook" href="school/ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
-            </p>
             <p>
                 <label>
-                    仅演示，应隐藏ID</label>
-                <input type="text" id="SchoolOfMerchantID"  size="30" class="required textInput gray"
-                    runat="server" readonly="true" />
-            </p>
-            <p>
-                <label>
-                    服务的学校(多选）：</label>
+                    服务的区域：</label>
                 <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                <a class="btnLook" href="school/MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
-            </p>
-            <p>
-                <label>
-                    仅演示，应隐藏ID</label>
                 <input type="text" id="IDSet" size="35" class="required textInput gray"
-                    runat="server" readonly="true" />
+                    runat="server" visible="false" />
+                <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
             </p>
 
         </div>
@@ -72,41 +55,39 @@
         <h1>
             促销打折</h1>
         <div>
-        <p>
+            <p>
                 <label>
                     Tel：</label>
-                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Tel" size="30" class="required textInput gray phone" runat="server" />
             </p>
-
-             <p>
+            <p>
                 <label>
                     Email：</label>
                 <input type="text" id="Email" size="30" class="required email" runat="server" />
             </p>
-             <p>
+            <p>
                 <label>
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required Address" runat="server" />
             </p>
-              <p>
+            <p>
                 <label>
                     距离：</label>
-                <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Distance" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
-               <p>
+            <p>
                 <label>
                     折扣：</label>
-                <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Rate" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
-           <p>
+            <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" style="width:85px" runat="server">
-					<option value="">请选择</option>
-				
-					<option value="1">营业时间</option>
-                    <option value="2">正在休息</option>
-				</select> 
+                <select id="ShopStatus" class="required " style="width: 85px" runat="server">
+                    <option value="">请选择</option>
+                    <option value="营业时间">营业时间</option>
+                    <option value="正在休息">正在休息</option>
+                </select>
             </p>
         </div>
     </div>
