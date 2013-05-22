@@ -10,7 +10,6 @@ namespace friday.core.domain
     {
         public SchoolMap()
         {
-        
             Id(o=>o.Id);
             Map(o => o.CreateTime);
             Map(o => o.Name);
@@ -19,10 +18,16 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
             //2013-01-07 basilwang add index for search speed
             Map(o => o.ShortName).Index("SchoolShortName").Unique();
-            Map(o=>o.CityName);
-            Map(o => o.Image);
+            Map(o=>o.AreaCode);
+            Map(o => o.Family);
+            Map(o => o.Leaf);
+            Map(o => o.ParentCode);
+            Map(o => o.ParentID);
+            Map(o => o.PinYin);
+            Map(o => o.TLevel);
+
             HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().Cascade.All();
-            References<Area>(o => o.Area).Not.Nullable();
+            HasMany<SystemUser>(o => o.SystemUsers).Inverse().Cascade.All();
         }
     }
 }

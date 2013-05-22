@@ -6,20 +6,25 @@ using friday.core.EnumType;
 using Iesi.Collections.Generic;
 namespace friday.core.domain
 {
-    public class School:Entity
+    public class School : TreeNode
     {
         public School()
         {
             SchoolOfMerchants = new Iesi.Collections.Generic.HashedSet<SchoolOfMerchant>();
-
         }
 
-        public virtual string Name
+        public virtual string AreaCode
         {
             set;
 
             get;
+        }
 
+        public virtual string ParentCode
+        {
+            set;
+
+            get;
         }
 
         public virtual string ShortName
@@ -28,15 +33,8 @@ namespace friday.core.domain
 
             get;
         }
-        //public virtual CityNameEnum CityName
-        //{
-        //    set;
 
-        //    get;
-
-        //}
-        //2013-01-07 basilwang don't use CityNameEnum anymore
-        public virtual string CityName
+        public virtual string PinYin
         {
             set;
 
@@ -52,15 +50,7 @@ namespace friday.core.domain
             get;
         }
 
-        public virtual string Image
-        {
-            get;
-
-            set;
-
-        }
-
-        public virtual Area Area
+        public virtual Iesi.Collections.Generic.ISet<SystemUser> SystemUsers
         {
             get;
 
