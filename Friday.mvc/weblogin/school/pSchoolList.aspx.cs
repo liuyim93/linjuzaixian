@@ -96,11 +96,52 @@ namespace Friday.mvc.weblogin
                 jt.id = model.Id;
                 jt.text = model.Name;
                 jt.value = model.ParentID;
-                jt.isexpand = true;
+                jt.isexpand = false;
                 //jt.showcheck = true;
                 //jt.checkstate = Convert.ToByte(checkState);
                 jt.hasChildren = haveChild;
                 jt.ChildNodes = GetMenuJsonTreeByParentID(model.Id);
+                jt.complete = true;
+                list.Add(jt);
+
+            }
+            return list;
+
+        }
+
+        [WebMethod]
+        public static string MultiGetSchool(IList<nvl> nvls)
+        {
+            List<JsonTree> list = new List<JsonTree>();
+            var nodeID = (from c in nvls where c.name == "id" select c.value).FirstOrDefault();
+
+            list = MultiGetMenuJsonTreeByParentID(nodeID == "0" ? null : nodeID);
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = list;
+            return jsonResult.FormatResult();
+        }
+
+        private static List<JsonTree> MultiGetMenuJsonTreeByParentID(string ParentID)
+        {
+            ISchoolRepository categoryRepo = new SchoolRepository();
+            IList<School> firstList = categoryRepo.GetChildrenFromParentID(ParentID);
+            List<JsonTree> list = new List<JsonTree>();
+
+            for (int i = 0; i < firstList.Count; i++)
+            {
+                JsonTree jt = new JsonTree();
+                School model = firstList[i];
+                bool haveChild = categoryRepo.IsHaveChild(model);
+
+                jt.id = model.Id;
+                jt.text = model.Name;
+                jt.value = model.ParentID;
+                jt.isexpand = true;
+                jt.showcheck = true;
+                //jt.checkstate = Convert.ToByte(checkState);
+                jt.hasChildren = haveChild;
+                jt.ChildNodes = MultiGetMenuJsonTreeByParentID(model.Id);
                 jt.complete = true;
                 list.Add(jt);
 
