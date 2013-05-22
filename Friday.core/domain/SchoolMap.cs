@@ -22,6 +22,7 @@ namespace friday.core.domain
             Map(o=>o.CityName);
             Map(o => o.Image);
             HasMany<SchoolOfMerchant>(o => o.SchoolOfMerchants).Inverse().Cascade.All();
+            References<Area>(o => o.Area).Not.Nullable();
         }
     }
 }

@@ -60,5 +60,12 @@ namespace friday.core.domain
 
         }
 
+        public virtual Area Area
+        {
+            get;
+
+            set;
+
+        }
     }
 }
