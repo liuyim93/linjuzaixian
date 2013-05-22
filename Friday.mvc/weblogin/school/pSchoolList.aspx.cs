@@ -5,94 +5,36 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using friday.core.repositories;
-using friday.core.domain;
 using friday.core;
+using friday.core.domain;
 using friday.core.components;
 using friday.core.services;
+using System.Web.Services;
 
-namespace Friday.mvc.weblogin.school
+namespace Friday.mvc.weblogin
 {
     public partial class pSchoolList : BasePage
     {
-        protected long total;
-        protected int pageNum;
-        protected int numPerPageValue;
-        public string systemUserId;
-
-
-        protected string startDate;
-        protected string endDate;
-        protected string name;
-        protected string cityName;
-        protected string shortName;
-        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+        private ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            tagName = systemFunctionObjectService.基本信息模块.学校信息维护.TagName;
+            tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
             this.PermissionCheck();
-
-            if (Request.Params["flag"] != "alldelete")
+            //2013-02-28 basilwang you can use this to block button
+            if (!this.PermissionValidate(PermissionTag.Delete))
             {
-                if (Request.Params["flag"] != "alldelete")
-                {
-                    numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
-                    pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
-                    int start = (pageNum - 1) * numPerPageValue;
-                    int limit = numPerPageValue;
-
-                    List<DataFilter> filterList = new List<DataFilter>();
-                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "Name",
-                            value = name = Request.Form["Name"]
-
-                        });
-
-                    if (!string.IsNullOrEmpty(Request.Form["ShortName"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "ShortName",
-                            value = shortName = Request.Form["ShortName"]
-
-                        });
-                    if (!string.IsNullOrEmpty(Request.Form["CityName"]))
-                        filterList.Add(new DataFilter()
-                        {
-                            type = "CityName",
-                            value = cityName = Request.Form["CityName"]
-
-                        });
-         
-                    var filter = new DataFilter();
-                    if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
-                    {
-                        filter.type = "CreateTime";
-                        filter.value = startDate = Request.Form["StartDate"];
-                        if (!string.IsNullOrEmpty(Request.Form["EndDate"]))
-                        {
-                            filter.valueForCompare = endDate = Request.Form["EndDate"];
-                        }
-                        filterList.Add(filter);
-                    }
-
-                    IList<School> schoolList = iSchoolService.Search(filterList, start, limit, out total);
-
-                    repeater.DataSource = schoolList;
-                    repeater.DataBind();
-
-                    numPerPage.Value = numPerPageValue.ToString();
-                }
+                //this.liDelete
+                this.liDelete.Visible = false;
             }
 
-            else
+
+            if (Request.Params["flag"] == "alldelete")
             {
                 AjaxResult result = new AjaxResult();
                 FormatJsonResult jsonResult = new FormatJsonResult();
 
-                tagName = systemFunctionObjectService.基本信息模块.学校信息维护.TagName;
+                tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
                 if (!this.PermissionValidate(PermissionTag.Delete))
                 {
                     result.statusCode = "300";
@@ -102,31 +44,69 @@ namespace Friday.mvc.weblogin.school
                     Response.End();
                 }
 
-                DeleteSchool();
-
+                DeleteMenu();
             }
-
         }
 
 
-
-
-        private void DeleteSchool()
+        private void DeleteMenu()
         {
-
-            
-
-            iSchoolService.Delete(Request.Params["uid"]);
-
+            string TreeId = iSchoolService.Load(Request.Params["code"]).Id;
+            iSchoolService.Delete(TreeId);
             AjaxResult result = new AjaxResult();
+
             result.statusCode = "200";
-            result.message = "删除成功";
+            result.message = "操作成功";
+            //result.navTabId = "MenuButtonManage";
+            //result.callbackType = "forward";
+            //result.forwardUrl = "RolePowerManage/MenuButtonManage.aspx";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
+
+
         }
 
+        [WebMethod]
+        public static string GetSchool(IList<nvl> nvls)
+        {
+            List<JsonTree> list = new List<JsonTree>();
+            var nodeID = (from c in nvls where c.name == "id" select c.value).FirstOrDefault();
 
+            list = GetMenuJsonTreeByParentID(nodeID == "0" ? null : nodeID);
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = list;
+            return jsonResult.FormatResult();
+        }
+
+        private static List<JsonTree> GetMenuJsonTreeByParentID(string ParentID)
+        {
+            ISchoolRepository categoryRepo = new SchoolRepository();
+            IList<School> firstList = categoryRepo.GetChildrenFromParentID(ParentID);
+            List<JsonTree> list = new List<JsonTree>();
+
+            for (int i = 0; i < firstList.Count; i++)
+            {
+                JsonTree jt = new JsonTree();
+                School model = firstList[i];
+                bool haveChild = categoryRepo.IsHaveChild(model);
+
+                jt.id = model.Id;
+                jt.text = model.Name;
+                jt.value = model.ParentID;
+                jt.isexpand = true;
+                //jt.showcheck = true;
+                //jt.checkstate = Convert.ToByte(checkState);
+                jt.hasChildren = haveChild;
+                jt.ChildNodes = GetMenuJsonTreeByParentID(model.Id);
+                jt.complete = true;
+                list.Add(jt);
+
+            }
+            return list;
+
+        }
     }
 }

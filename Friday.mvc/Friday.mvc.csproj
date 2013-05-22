@@ -797,13 +797,6 @@
     <Compile Include="weblogin\school\pEditSchool.aspx.designer.cs">
       <DependentUpon>pEditSchool.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\school\pSchoolDetail.aspx.cs">
-      <DependentUpon>pSchoolDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\school\pSchoolDetail.aspx.designer.cs">
-      <DependentUpon>pSchoolDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\school\pSchoolList.aspx.cs">
       <DependentUpon>pSchoolList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1719,7 +1712,6 @@
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
     <Content Include="weblogin\school\pEditSchool.aspx" />
-    <Content Include="weblogin\school\pSchoolDetail.aspx" />
     <Content Include="weblogin\school\pSchoolList.aspx" />
     <Content Include="weblogin\shop\pShopDetail.aspx" />
     <Content Include="weblogin\shop\pEditShop.aspx" />
