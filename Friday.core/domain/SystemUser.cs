@@ -132,6 +132,14 @@ namespace friday.core.domain
 
             set;
         }
+
+        public virtual School School
+        {
+            get;
+
+            set;
+
+        }
     
     }
 }
