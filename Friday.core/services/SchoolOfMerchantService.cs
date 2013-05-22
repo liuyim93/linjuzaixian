@@ -41,9 +41,9 @@ namespace friday.core.services
             iSchoolOfMerchantRepository.Delete(id);
         }
 
-        public string GetSchoolNamesByMerchantID(string mid)
+        public string[] GetSchoolNamesAndIdsByMerchantID(string mid)
         {
-            return iSchoolOfMerchantRepository.GetSchoolNamesByMerchantID(mid);
+            return iSchoolOfMerchantRepository.GetSchoolNamesAndIdsByMerchantID(mid);
         }
 
         public void DeleteSchoolOfMerchantByMerchantID(string MID)

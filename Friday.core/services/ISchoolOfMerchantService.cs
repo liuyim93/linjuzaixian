@@ -13,7 +13,7 @@ namespace friday.core.services
         void Save(SchoolOfMerchant schoolOfMerchant);
         void Update(SchoolOfMerchant schoolOfMerchant);
         void Delete(string id);
-        string GetSchoolNamesByMerchantID(string mid);
+        string[] GetSchoolNamesAndIdsByMerchantID(string mid);
         void DeleteSchoolOfMerchantByMerchantID(string MID);
     }
 }
