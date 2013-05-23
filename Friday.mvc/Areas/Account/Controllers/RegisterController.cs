@@ -24,8 +24,9 @@ namespace Friday.mvc.Areas.Account.Controllers
         private ISystemRoleService iSystemRoleService;
         private IUserInRoleService iUserInRoleService;
         private ILoginUserService iLoginUserService;
+        private ISchoolService iSchoolService;
 
-        public RegisterController(IActivityService iActivityService,ILoginUserService iLoginUserService, ISystemUserService iSystemUserService, IAddressService iAddressService, ISystemRoleService iSystemRoleService, IUserInRoleService iUserInRoleService)
+        public RegisterController(IActivityService iActivityService, ILoginUserService iLoginUserService, ISystemUserService iSystemUserService, IAddressService iAddressService, ISystemRoleService iSystemRoleService, IUserInRoleService iUserInRoleService, ISchoolService iSchoolService)
         {
             this.iActivityService = iActivityService;
             this.iLoginUserService = iLoginUserService;
@@ -33,6 +34,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             this.iAddressService = iAddressService;
             this.iSystemRoleService = iSystemRoleService;
             this.iUserInRoleService = iUserInRoleService;
+            this.iSchoolService = iSchoolService;
         }
 
         public ActionResult Index()
@@ -108,15 +110,18 @@ namespace Friday.mvc.Areas.Account.Controllers
             return JavaScript(script);
         }
 
-        public ActionResult Store(string J_Nick, string mobile, string J_Mail, string J_Address, string J_Pwd)
+        public ActionResult Store(string J_Nick, string mobile, string email, string J_Address, string J_Pwd)
         {
             RegisterModel regstermodel = new RegisterModel();
 
+            School school = iSchoolService.Load(J_Address);
+
             SystemUser su = new SystemUser();
-            su.Email = J_Mail;
+            su.Email = email;
             su.IsAnonymous = false;
             su.IsDelete = false;
             su.Tel = mobile;
+            su.School = school;
             iSystemUserService.Save(su);
 
             LoginUser lu = new LoginUser();
@@ -132,9 +137,11 @@ namespace Friday.mvc.Areas.Account.Controllers
             ur.SystemRole = iSystemRoleService.GetRoleByName("顾客");
             iUserInRoleService.Save(ur);
 
+
+
             Address ad = new Address();
-            ad.AddressName = J_Address;
-            ad.Email = J_Mail;
+            ad.AddressName = school.Name;
+            ad.Email = email;
             ad.SystemUser = su;
             ad.Tel = mobile;
             ad.IsDelete = false;
