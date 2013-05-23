@@ -76,6 +76,15 @@ namespace Friday.mvc.weblogin.shop {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden IDSet;
         
         /// <summary>
+        /// Image 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile Image;
+        
+        /// <summary>
         /// ShopHours 控件。
         /// </summary>
         /// <remarks>
@@ -146,24 +155,6 @@ namespace Friday.mvc.weblogin.shop {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlTextArea Bulletins;
-        
-        /// <summary>
-        /// Image 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile Image;
-        
-        /// <summary>
-        /// ImagePreview 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePreview;
         
         /// <summary>
         /// Activity 控件。

@@ -2,12 +2,12 @@
 
 <div class="pageFormContent" layoutH="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
-    <div class="panel collapse" defh="155">
+    <div class="panel collapse">
         <h1>
             商店基本信息</h1>
         <div>
-        <input type="hidden" id="MyOrderId" size="30" runat="server" />
-               <p>
+            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+            <p>
                 <label>
                     商店名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
@@ -22,11 +22,6 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-             <%--<p>
-                <label>
-                    登陆名：</label>
-                <input type="text" id="LoginName" size="30" class="required textInput gray" runat="server" />
-            </p>--%>
             <p>
                 <label>
                     服务的区域：</label>
@@ -35,22 +30,27 @@
                     <input type="hidden" id="IDSet" size="30" runat="server" />
                 <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
             </p>
-
+            <p>
+                <label>
+                    Logo上传：</label>
+                <input id="Image" type="file" class="textInput gray" readonly="true"  runat="server" />
+                <span style="color: red; width: 300px">
+                </span>
+            </p>
         </div>
     </div>
-     <div class="panel collapse" defh="95">
+   <div class="panel collapse">
         <h1>
             配送时间</h1>
         <div>
-       
-             <p>
+            <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
             </p>
         </div>
     </div>
-     <div class="panel close collapse" defh="70">
+    <div class="panel close collapse">
         <h1>
             促销打折</h1>
         <div>
@@ -90,53 +90,44 @@
             </p>
         </div>
     </div>
-     <div class="panel close collapse" defh="400">
+    <div class="panel close collapse">
         <h1>
             公告和Logo</h1>
-        
         <div>
-            <p >
-                 <label >商铺公告：</label>
-					<textarea class="editor" tools="simple"  name="Bulletins" id="Bulletins" rows="15" cols="42" runat="server"></textarea>
-           </p>
-           
-            <p>
-            
-                <label>
-                    Logo上传：</label>
-          
-                <input id="Image" type="file" class="required textInput gray" runat="server" />
-              
-            <span style="color: red; width:300px">
-                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
-            </span>  
-           
-            </p>
-          
-             <p >
-                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
-            </p>
-
-            <p >
-                 <label >商铺活动：</label>
-					<textarea   class="editor"    name="Activity" id="Activity" rows="15" cols="42"  runat="server"></textarea>
-           </p>
-           </div>       
-           </div> 
-         <div class="panel close collapse" defh="70" >
-           <h1>
-            详细信息</h1>
-        <div>
-        
-             <p>
-                 <label>详细内容：</label>
-          
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-			 
+            <div style="clear: left; width: 80%; margin-top: 20px">
+                <p>
+                    <label>
+                        商铺公告：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Bulletins" name="Bulletins" rows="20" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
                 </p>
-        
+            </div>
+
+            <div style="clear: left; width: 80%; margin-top: 30px">
+                <p>
+                    <label>
+                        商铺活动：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Activity" name="Activity" rows="20" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+                </p>
+            </div>
+
+            <div style="clear: left; width: 80%; margin-top: 40px">
+                <p>
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+                </p>
+            </div>
         </div>
-    </div>
+    </div> 
      <div class="formBar">
         <ul>
             <li>
@@ -174,6 +165,8 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
+            o.find("#Bulletins").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
+            o.find("#Activity").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
             var target_type = $.get_target_type(prefix);
