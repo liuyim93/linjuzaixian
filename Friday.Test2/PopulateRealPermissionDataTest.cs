@@ -36,6 +36,7 @@ namespace Friday.Test2
         //private IList<SystemFunctionObject> restaurantMemberSFOCheckList = new List<SystemFunctionObject>();
         //private IList<SystemFunctionObject> rentMemberSFOCheckList = new List<SystemFunctionObject>();
         ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+        ISchoolRepository iSchoolRepository = UnityHelper.UnityToT<ISchoolRepository>();
         ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         private LoginUser adminLoginUser;
         private IList<SystemRole> systemRoleList = new List<SystemRole>();
@@ -44,6 +45,8 @@ namespace Friday.Test2
         [SetUp]
         public void init()
         {
+            //添加School 
+            add_School();
             //添加角色和admin账号
             add_Random_SystemRoles();
             add_Anonymous_SystemUsers();
@@ -66,7 +69,76 @@ namespace Friday.Test2
             //add_RentInfo();
             add_ShopInfo();
         }
+        //添加学校、地区
+        private  void add_School()
+        {
 
+            string[] schl = {"山东财经大学","山东建筑大学","济南职业学院","山东大学","山东大学洪家楼校区",
+                             "山东大学千佛山校区","山东轻工业学院","山东女子学院","山东中医药大学","山东旅游职业学院",
+                             "山东师范大学","山东科技大学","山东理工大学"};
+
+            string[] areas = {"历下区","市中区","长清区","高新区"};
+            string[] areapinyin = {"lixiaqv","shizhongqv","changqingqv","gaoxinqv"};
+
+            //山东省
+             School  sch=new School()
+                {
+                     AreaCode="250000",
+                     IsDelete=false,
+                     Leaf=false,
+                     Name="山东省",
+                     PinYin="shandongsheng",
+                     ShortName="山东",
+                     TLevel=1                        
+                };
+
+            iSchoolRepository.SaveOrUpdate(sch);
+
+           
+            //四个区
+            for (int i=0; i<areas.Length;i++ )
+            {
+                School scharea = new School()
+                {
+                    AreaCode = "25001" + i % 4,
+                    IsDelete = false,
+                    Leaf = false,
+                    Name = areas[i],
+                    PinYin = "shandong",
+                    ShortName = areas[i],
+                    TLevel = 1,
+                    ParentCode = "250000",
+                    ParentID = sch.Id,
+                };
+                iSchoolRepository.SaveOrUpdate(scharea);
+            }
+
+            //区所属学校
+            for (int i = 0; i < schl.Length; i++)
+            {
+                School areasch = new School()
+                {
+                    AreaCode = "25001" + i % 4,
+                    IsDelete = false,
+                    Leaf = false,
+                    Name = schl[i],
+                   // PinYin = "shandong",
+                    ShortName = schl[i],
+                    TLevel = 1,
+                    ParentCode = "25001" + i % 4,
+                    ParentID = iSchoolRepository.GetSchoolByAreasName(areas[i%4]).Id,                     
+                };
+                iSchoolRepository.SaveOrUpdate(areasch);
+            }
+
+
+
+
+
+
+
+
+        }
         //添加角色
         private void add_Random_SystemRoles()
         {
@@ -146,7 +218,8 @@ namespace Friday.Test2
             SystemUser sysu1 = new SystemUser()
             {
                  IsAnonymous=true,
-                 Name="匿名用户sys1",                  
+                 Name="匿名用户sys1",
+                 School = iSchoolRepository.SearchByShortName("山东财经大学")
             };
             LoginUser lu1 = new LoginUser()
             {
@@ -161,6 +234,7 @@ namespace Friday.Test2
             {
                 IsAnonymous = true,
                 Name = "匿名用户sys2",
+                School = iSchoolRepository.SearchByShortName("山东大学")
             };
             LoginUser lu2 = new LoginUser()
             {
@@ -2901,10 +2975,14 @@ namespace Friday.Test2
         //}
         public void add_ShopInfo()
         {
-        
+
+            ISchoolOfMerchantRepository iSchoolOfMerchantRepository = UnityHelper.UnityToT<ISchoolOfMerchantRepository>();
+
             IMerchantCategoryRepository iMerchantCategoryRepository = UnityHelper.UnityToT<IMerchantCategoryRepository>();
             IUserInRoleRepository iUserInRoleRepository = UnityHelper.UnityToT<IUserInRoleRepository>();
-            IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
+            IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();          
+
+
 
             Shop shop1 = new Shop()
             {
@@ -2924,7 +3002,8 @@ namespace Friday.Test2
                 Rate = 0.8,
                 ShopStatus = ShopStatusEnum.营业时间,
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
-                MerchantType = MerchantTypeEnum.百货
+                MerchantType = MerchantTypeEnum.百货,
+                 
             };
             //GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
             //new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_1);
@@ -2933,6 +3012,17 @@ namespace Friday.Test2
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_1);
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
             new ShopRepository().SaveOrUpdate(shop1);
+
+
+            SchoolOfMerchant scm = new SchoolOfMerchant()
+            {
+               IsDelete = false,
+               Merchant = shop1,
+               School = iSchoolRepository.SearchByShortName("山东财经大学")
+            };
+            iSchoolOfMerchantRepository.SaveOrUpdate(scm);
+
+
 
             IRepository<LoginUser> iLoginUserRepository = UnityHelper.UnityToT<IRepository<LoginUser>>();
             ILoginUserOfMerchantRepository iLoginUserOfMerchantRepository = UnityHelper.UnityToT<ILoginUserOfMerchantRepository>();
@@ -3028,6 +3118,7 @@ namespace Friday.Test2
                 EntityIndex = 10,
                 Name = "成龙",                 
                 IsAnonymous = false,
+                School = iSchoolRepository.SearchByShortName("山东财经大学")
             };
             new SystemUserRepository().SaveOrUpdate(s1);          
             Address address = new Address()
@@ -3128,6 +3219,16 @@ namespace Friday.Test2
            //shop2.MerchantGoodsTypes.Add(shopCommodityTye_22);
            new ShopRepository().SaveOrUpdate(shop2);
 
+
+           SchoolOfMerchant scm2 = new SchoolOfMerchant()
+           {
+               IsDelete = false,
+               Merchant = shop2,
+               School = iSchoolRepository.SearchByShortName("山东大学")
+           };
+           iSchoolOfMerchantRepository.SaveOrUpdate(scm2);
+
+
            LoginUser lu2 = new LoginUser();
            lu2.LoginName = "shopyinzuo";
            lu2.Password = "000000";
@@ -3216,6 +3317,7 @@ namespace Friday.Test2
                EntityIndex = 10,
                Name = "鲁豫",
                IsAnonymous = false,
+               School = iSchoolRepository.SearchByShortName("山东大学")
            };
            new SystemUserRepository().SaveOrUpdate(s2);
            Address address12 = new Address()

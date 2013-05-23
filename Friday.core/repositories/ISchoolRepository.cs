@@ -14,5 +14,6 @@ namespace friday.core.repositories
         School SearchByShortName(string name);
         IList<School> Search(List<DataFilter> termList);
         IList<School> Search(List<DataFilter> termList, int start, int limit, out long total);
+        School GetSchoolByAreasName(string name);
     }
 }

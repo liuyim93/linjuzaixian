@@ -98,7 +98,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="PopulateFakeMerchantAndGoodsPictureDataTest.cs" />
-    <Compile Include="PopulateFakeShopDataTest.cs" />
     <Compile Include="PopulateRealPermissionDataTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTest.cs">

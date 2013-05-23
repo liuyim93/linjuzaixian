@@ -27,7 +27,8 @@ namespace Friday.Test2
             //IRepository<Food> iFoodRepository = UnityHelper.UnityToT<IRepository<Food>>();
             //IRepository<House> iHouseRepository = UnityHelper.UnityToT<IRepository<House>>();
             IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository =new GlobalGoodsTypeRepository();
-            
+            ISchoolRepository iSchoolRepository = UnityHelper.UnityToT<ISchoolRepository>();
+            ISchoolOfMerchantRepository iSchoolOfMerchantRepository = UnityHelper.UnityToT<ISchoolOfMerchantRepository>();
 
             IList<Commodity> iCommodities = new List<Commodity>();
             //IList<Food> iFoods = new List<Food>();
@@ -40,6 +41,7 @@ namespace Friday.Test2
             string[] gloablType = { "男士衬衫", "牛排", "大码男装", "鲜肉", "热卖T恤", "蔬菜", "女士卫衣", "蛋及制品", "POLO衫", "男士透气鞋",
                                     "牛仔短裤", "火腿", "老花镜", "真皮鞋", "鲜肉", "驾车鞋", "女士手拿包", "人造水晶","女士太阳镜","情侣表",
                                      "手镯","妈妈鞋","PU女包","饰品手镯" };
+            string[] schl = { "山东财经大学", "山东建筑大学", "济南职业学院","山东师范大学","山东大学"};
 
             for (int j = 0; j<3; j++)
             {
@@ -52,10 +54,22 @@ namespace Friday.Test2
                         Logo = "/uploadimage/l" + i%13 + ".png",
                         sBrand = "/uploadimage/s" + i%13 + ".jpg",
                         bBrand = "/uploadimage/b" + i%13 + ".jpg",
-                        MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆)
+                        MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),
+                     
+
                     };
                     iMerchants.Add(mcht);
                     iMerchantRepository.SaveOrUpdate(mcht);
+
+                    SchoolOfMerchant scm = new SchoolOfMerchant()
+                    {
+                        IsDelete = false,
+                        Merchant = mcht,
+                        School = iSchoolRepository.SearchByShortName(schl[i%5]),
+                    };
+                    iSchoolOfMerchantRepository.SaveOrUpdate(scm);
+
+
 
                     Commodity commodity = new Commodity()
                     {
@@ -82,10 +96,20 @@ namespace Friday.Test2
                     Logo = "/uploadimage/l" + i  + ".png",
                     sBrand = "/uploadimage/s" + i   + ".jpg",
                     bBrand = "/uploadimage/b" + i   + ".jpg",
-                    MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆)
+                    MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),                    
                 };
           
                  iMerchantRepository.SaveOrUpdate(mcht);
+
+
+                 SchoolOfMerchant scmn = new SchoolOfMerchant()
+                 {
+                     IsDelete = false,
+                     Merchant = mcht,
+                     School = iSchoolRepository.SearchByShortName(schl[i % 5]),
+                 };
+                 iSchoolOfMerchantRepository.SaveOrUpdate(scmn);
+
 
                  Commodity commodity = new Commodity()
                  {
