@@ -422,8 +422,8 @@
                                 atpanel="6,price_ascending,,,spu-sort,20,sort,">恢复默认排序</a> </li>
                         </ul>
                     </div>
-                    <a class="fSort @(ViewData["sort"].ToString()=="d" ? "fSort-cur":"")" href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=d&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
-                        title="点击后按月销量从高到低" atpanel="7,week_sale,,,spu-sort,20,sort,">销量<i class="f-ico-arrow-d"></i></a>
+                    <a class="fSort @(ViewData["sort"].ToString()=="d" ? "fSort-cur":"")" href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "d" ? "s" : "d")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                        title="@(ViewData["sort"].ToString() == "d" ? "点击后恢复默认排序" : "点击后按月销量从高到低")" atpanel="7,week_sale,,,spu-sort,20,sort,">销量<i class="f-ico-arrow-d"></i></a>
                     <a class="fSort @((ViewData["sort"].ToString() == "pd" || ViewData["sort"].ToString() == "p") ? "fSort-cur" : "")" href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                         title="@(ViewData["sort"].ToString() == "p" ? "点击后按价格从高到低" : "点击后按价格从低到高")" atpanel="9,price_ascending,,,spu-sort,20,sort,">价格
                            <i class="f-ico-triangle-mt @(ViewData["sort"].ToString() == "p" ? "f-ico-triangle-mt-slctd" : "")"></i>

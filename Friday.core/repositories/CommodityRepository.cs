@@ -108,8 +108,6 @@ namespace friday.core.repositories
             bool is_desc = true;
             switch (sort)
             {
-                case "s":
-                    break;
                 case "p":
                     order_expression = o => o.Price;
                     is_desc = false;
@@ -126,6 +124,8 @@ namespace friday.core.repositories
                     order_expression = o => o.MonthAmount;
                     is_desc = true;
                     break;
+                case "s":
+                case "st":
                 case "pt":
                     order_expression = o => o.CreateTime;
                     is_desc = true;
