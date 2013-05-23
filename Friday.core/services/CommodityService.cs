@@ -72,6 +72,10 @@ namespace friday.core.services
         {
             return iCommodityRepository.GetCommodityByKeywordAndPrice(page, keyword, price1, price2, start, limit, out total, cat,sort);
         }
+        public IList<Commodity> GetCommodityByShopIDAndKeywordAndPrice(string shopID, string page, string keyword, double price1, double price2, int start, int limit, out int total, string sort)
+        {
+            return iCommodityRepository.GetCommodityByShopIDAndKeywordAndPrice(shopID, page, keyword, price1, price2, start, limit, out total, sort);
+        }
         public int GetCommodityCountByFamily(string ParentID)
         {
             return iCommodityRepository.GetCommodityCountByFamily(ParentID);

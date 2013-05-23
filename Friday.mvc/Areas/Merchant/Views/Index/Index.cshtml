@@ -379,16 +379,75 @@ background-position:left 0;
                                                 </div>
                                                 <div class="taxis">
                                                     <span>排序：</span> 
-                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
-                                                        alt="按销量排列" title="按销量排列" class="J_SearchAsync fav def">销量<i class="icon"></i></a>
-                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=CreateTime&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
-                                                        alt="按新品排列" title="按新品排列" class="J_SearchAsync down">新品<i class="icon"></i></a>
-                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=Price&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
-                                                        alt="按价格排列" title="按价格排列" class="J_SearchAsync def">价格<i class="icon"></i></a>
-                                                 @*   <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
-                                                        alt="按收藏排列" title="按收藏排列" class="J_SearchAsync fav def">收藏<i class="icon"></i></a>*@
-                                                    <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
-                                                        alt="按人气排列" title="按人气排列" class="J_SearchAsync fav def">人气<i class="icon"></i></a>
+                                                    <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "ma" ? "md" : "ma")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按月销量排列" title="按月销量排列" @*class="J_SearchAsync fav def"*@
+                                                        class="J_SearchAsync @(ViewData["sort"].ToString() == "ma" ? "up" : "down")"
+                                                        >销量<i class="icon"></i></a>
+                                                    <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "ca" ? "cd" : "ca")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=CreateTime&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按新品排列" title="按新品排列" 
+                                                        class="J_SearchAsync @(ViewData["sort"].ToString() == "ca" ? "up" : "down")"
+                                                        >新品<i class="icon"></i></a>
+                                                 @* <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=Price&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按价格排列" title="按价格排列"  
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() == "p") ? "up" : "")"   
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() == "pd") ? "down" : "")"                                                      
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() != "p" && ViewData["sort"].ToString() != "pd") ? "fav def" : "def")"                                                         
+                                                         >价格<i class="icon"></i></a>*@
+                                                        @if (ViewData["sort"].ToString() == "p" || ViewData["sort"].ToString() == "pd")
+                                                        {
+                                                      <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=Price&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按价格排列" title="按价格排列"  
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() == "p") ? "up" : "down")" 
+                                                         >价格<i class="icon"></i></a>
+                                                        }
+                                                        else
+                                                        {
+                                                      <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=Price&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                         alt="按价格排列" title="按价格排列"  
+                                                          class="J_SearchAsync fav def" 
+                                                         >价格<i class="icon"></i></a>
+                                                        }
+                                                       
+                                                    <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "pa" ? "pd" : "pa")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                                        alt="按人气排列" title="按人气排列" @*class="J_SearchAsync fav def"*@
+                                                       class="J_SearchAsync @(ViewData["sort"].ToString() == "va" ? "up" : "down")" 
+                                                        >人气<i class="icon"></i></a>
+                                                 
+                                                  @*  <a class="fSort @((ViewData["sort"].ToString() == "pd" || ViewData["sort"].ToString() == "p") ? "fSort-cur" : "")" href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                        title="@(ViewData["sort"].ToString() == "p" ? "点击后按价格从高到低" : "点击后按价格从低到高")" atpanel="9,price_ascending,,,spu-sort,20,sort,">价格
+                    <i class="f-ico-triangle-mt @(ViewData["sort"].ToString() == "p" ? "f-ico-triangle-mt-slctd" : "")"></i>
+                    <i class="f-ico-triangle-mb @(ViewData["sort"].ToString() == "pd" ? "f-ico-triangle-mb-slctd" : "")"></i></a>   
+                                                 
+                                                 
+                                                   @{
+                               switch (@ViewData["sort"].ToString())
+                               {
+                                   case "p":
+                                       <text>价格从低到高</text>
+                                       break;
+                                   case "pd":
+                                       <text>价格从高到低</text>
+                                       break;
+                                   case "td":
+                                       <text>总销量从高到低</text>
+                                       break;
+                                   case "d":
+                                       <text>月销量从高到低</text>
+                                       break;
+                                   case "s":
+                                   case "st":
+                                        <text>默认排序</text>
+                                       break;
+                                   case "pt":
+                                       <text>按发布时间排序</text>
+                                       break;
+                            }
+                            
+                            }*@
+   
+        
+                                               
+                                               
                                                 </div>
                                                 <div class="vip">
                                                  @*   <input id="J_TBaotypeBox" name="boTypeBox" value="1003" type="checkbox" onclick="vipSubmit();"
@@ -560,7 +619,7 @@ background-position:left 0;
                 }
                  <b class="ui-page-break">...</b>
                
-                for (int p = -2, i = 0; p <  3 && i < Model.pageNum; p++)
+                for (int p = -2, i = 0; p < 3 && i < Model.pageNum; p++)
                 {
                     i = p + Model.currentPage;
 
@@ -761,7 +820,7 @@ background-position:left 0;
                       
                     </div>
             
-                   }
+                                                        }
      
             <!--保证 到 企业采购热线--->
           <div id="ft">

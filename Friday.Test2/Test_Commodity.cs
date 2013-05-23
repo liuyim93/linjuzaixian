@@ -38,6 +38,8 @@ namespace friday.coretest
             IGlobalGoodsTypeRepository globalGoodsTyperep = new GlobalGoodsTypeRepository();
             GlobalGoodsType mgt = globalGoodsTyperep.GetGlobalGoodsTypeByName("黄金");
 
+            string ggtfamily = mgt.Family + mgt.Id;
+
             for (int i = 0; i < 40; i++) 
             {
                 Commodity commodity = new Commodity()
@@ -48,6 +50,7 @@ namespace friday.coretest
                     IsDiscount = false,
                     InventoryCount = 100,
                     GlobalGoodsType = mgt,
+                    GlobalGoodsTypeFamily=ggtfamily,
                     Shop = shop,
                     ValuingCount=i,
                     Amount=i*10,
@@ -73,6 +76,7 @@ namespace friday.coretest
                     IsDiscount = false,
                     InventoryCount = 100,
                     GlobalGoodsType = mgt,
+                    GlobalGoodsTypeFamily = ggtfamily,
                     Shop = shop,
                     ValuingCount = i,
                     Amount = i * 10,

@@ -192,7 +192,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
              priceInfo.Add(skulist[i].skuId.ToString(), new PriceInfo()
                         {
                              areaSold = true,
-                             price =(float)skulist[i].price,
+                             price = (float)commodity.Price,//skulist[i].price,
                              promotionList = null,
                              tagPrice = null,
                              umpBigPromotionDisplayPrice = null

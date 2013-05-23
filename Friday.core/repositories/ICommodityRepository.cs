@@ -18,5 +18,7 @@ namespace friday.core.repositories
         IList<Commodity> GetCommodityByKeywordAndPrice(string page, string keyword, double price1, double price2, int start, int limit, out int total, string cat,string sort);
         int GetCommodityCountByFamily(string ParentID);
         List<Commodity> GetCommodityByGoodsType(string goodsTypeId);
+        IList<Commodity> GetCommodityByShopIDAndKeywordAndPrice(string shopID, string page, string keyword, double price1, double price2, int start, int limit, out int total, string sort);
+      
     }
 }
