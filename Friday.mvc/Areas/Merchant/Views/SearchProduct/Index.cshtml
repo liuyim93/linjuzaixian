@@ -399,7 +399,7 @@
                             </ul>
                         </div>
                     </div>
-                    <form action="SearchProduct?keyword=@ViewData["skeyword"]" id="J_FForm" method=get>
+                    <form action="SearchProduct" id="J_FForm" method=get>
                     <div class="fRange">
                         <b class="fR-text">
                            @{
@@ -495,9 +495,9 @@
                     <a href="  "
                         class="fType-l " atpanel=",l,,,,20,filter,">小图<i class="fTl-ico"></i></a>
                     <input type="hidden" name="search_condition" value="16">
-                    <input type="hidden" name="cat" value="2">
-                    <input type="hidden" name="sort" value="s">
-                    <input type="hidden" name="style" value="g">
+                    <input type="hidden" name="cat" value="@ViewData["cat"]">
+                    <input type="hidden" name="sort" value="@ViewData["sort"]">
+                    <input type="hidden" name="style" value="@ViewData["style"]">
                     <input type="hidden" name="vmarket" value="0">
                     <input name="keyword" type="hidden" value="@ViewData["skeyword"]">
                     </form>

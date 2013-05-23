@@ -42,12 +42,17 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View();
         }
         //2013-05-22 basilwang 增加排序   具体值 p为价格从低到高   pd为价格从高到低  st为默认排序  td为总销量从高到低  d为月销量从高到低 pt为发布时间排序 
-        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum,string cat,string sort)
+        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum,string cat,string sort,string style)
         {
             //2013-05-22 basilwang 默认为s
             if (string.IsNullOrEmpty(sort) )
             {
                 sort = "s";
+            }
+            //2013-05-23 basilwang 默认为g
+            if (string.IsNullOrEmpty(style))
+            {
+                style = "g";
             }
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
@@ -200,6 +205,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //2013-05-23 basilwang 增加cat 和sort
             ViewData["cat"] = cat;
             ViewData["sort"] = sort;
+            ViewData["style"] = style;
 
             return View(searchProductModel);
         }
