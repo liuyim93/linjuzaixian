@@ -25,7 +25,7 @@
        <script src=@Url.Content("/s/tbra/1.0/tbra-widgets.js")></script>
         
         <script src=@Url.Content("/apps/matrix-mission/feedback/feedback.js")></script>
-
+        <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
        <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
     <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
@@ -281,19 +281,84 @@
                         
                         
                         	
-						<div class="kv-item kv-nick">
+						<div class="kv-item kv-nick" id="Address_div">
                             <span class="kv-label"><label for="J_Nick">现居地：</label></span>
-                            <input class="i-text" id="J_Address" name="J_Address" value="" type="text">
+                            <input class="i-text" id="J_Address" name="J_Address" hidden="hidden" value="" type="text">
 
-							<div class="msg-box">
+                            <script type="text/javascript">
+                                $(function () {
+                                    init();
+                                    $("#J_Address").val($("#Address_div select:last-child").val());
+                                });
+
+                                function init() {
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: 'application/json; charset=utf-8',
+                                        url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                                        data: "{'nvls':[{'name':'id','value':'0'}]}",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            debugger
+                                            var da = eval("(" + data.d + ")");
+                                            updateAfterList(0,0);
+                                        }
+                                    });
+                                }
+
+                                function updateAfterList(level, id) {
+                                    $.ajax({
+                                        type: "POST",
+                                        contentType: 'application/json; charset=utf-8',
+                                        url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                                        data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
+                                        dataType: "json",
+                                        success: function (data) {
+                                            debugger
+                                            var da = eval("(" + data.d + ")");
+
+                                            $("#Address_div").append("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>");
+
+                                            $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
+
+
+                                            for (var i = 1; i < da.length; i++) {
+                                                $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                                            }
+
+                                            $("#Area_" + level).bind("change", function () {
+                                                deleteAfterList($(this).attr("level"));
+                                                updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                                $("#J_Address").val($("#Address_div select:last-child").val());
+                                            });
+
+                                            if (da[0].hasChildren == true) {
+                                                updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
+                                            }
+                                            $("#J_Address").val($("#Address_div select:last-child").val());
+                                        }
+                                    });
+                                }
+
+                                function deleteAfterList(level) {
+                                    debugger
+                                    var sumSelect = $("#Address_div select");
+                                    for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
+                                        $(sumSelect[i]).remove();
+                                     }
+                                 }
+
+                            </script>
+
+@*							<div class="msg-box">
 				            <div class="msg-weak msg-inline hide" id="J_NickTip">
 								                                    <i></i>
                                     <div class="msg-cnt">
                                     	
                 															</div>
                                 </div>
-                            </div>
-							<div class="num-tip" id="J_NumTip"></div>
+                            </div>*@
+							@*<div class="num-tip" id="J_NumTip"></div>*@
                           @*  <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
                                 <span class="nick-suggest-tit">推荐你使用：</span>
                                 <ul id="J_NickSuggestList">
