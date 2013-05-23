@@ -860,6 +860,13 @@
     <Compile Include="weblogin\systemUser\pAnonymousUserList.aspx.designer.cs">
       <DependentUpon>pAnonymousUserList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\users\nSystemUserList.aspx.cs">
       <DependentUpon>nSystemUserList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1554,7 +1561,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
     <Content Include="WebForm1.aspx" />
     <Content Include="WebForm2.aspx" />
     <Content Include="weblogin\activity\pActivityDetail.aspx" />
@@ -2172,6 +2178,7 @@
     <Content Include="weblogin\treeview\images\tree\leaf.gif" />
     <Content Include="weblogin\treeview\images\tree\loading.gif" />
     <Content Include="weblogin\treeview\tree.css" />
+    <Content Include="weblogin\upload.aspx" />
     <Content Include="weblogin\uploadify\cancel.png" />
     <Content Include="weblogin\uploadify\css\uploadify.css" />
     <Content Include="weblogin\uploadify\scripts\expressInstall.swf" />
@@ -2483,8 +2490,9 @@
     <Folder Include="Areas\Message\Views\Shared\" />
     <Folder Include="Areas\PersonalCenter\Views\Shared\" />
     <Folder Include="Logs\" />
+    <Folder Include="uploadimage\Image\News\" />
     <Folder Include="weblogin\themes\img\Expert\" />
-    <Folder Include="weblogin\UploadImage\" />
+    <Folder Include="weblogin\UploadImage\Image\News\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -2503,14 +2511,8 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Areas\Category\Views\Home\all_cat_asyn.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_Category.cshtml" />
-    <Content Include="Views\Shared\_MfpSlide.cshtml" />
-    <Content Include="Views\Shared\_Brand.cshtml" />
     <Content Include="Areas\Merchant\Views\Web.config" />
-    <Content Include="Views\Shared\_Floor.cshtml" />
     <Content Include="Areas\Merchant\Views\Favorite\myBrandsIndex.cshtml" />
-    <Content Include="Views\Shared\_Header.cshtml" />
     <Content Include="Areas\Message\Views\Web.config" />
     <Content Include="Areas\Merchant\Views\Index\Index.cshtml" />
     <Content Include="Areas\Merchant\Views\Detail\Index.cshtml" />
@@ -2528,10 +2530,17 @@
     <Content Include="Areas\PersonalCenter\Views\Home\MyPersonalCenter.cshtml" />
     <Content Include="Areas\PersonalCenter\Views\Web.config" />
     <None Include="notifymsg.json" />
-    <Content Include="Views\Shared\_SiteNav.cshtml" />
-    <Content Include="Views\Shared\_Header2.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Brand.cshtml" />
+    <Content Include="Views\Shared\_Category.cshtml" />
+    <Content Include="Views\Shared\_Floor.cshtml" />
     <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Header2.cshtml" />
+    <Content Include="Views\Shared\_MfpSlide.cshtml" />
     <Content Include="Views\Shared\_RegSlide.cshtml" />
+    <Content Include="Views\Shared\_SiteNav.cshtml" />
+    <Content Include="Views\Web.config" />
     <None Include="weblogin\themes\azure\images\grid\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\layout\Thumbs.db" />
     <None Include="weblogin\themes\azure\images\menu\Thumbs.db" />
