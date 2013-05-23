@@ -149,5 +149,35 @@ namespace Friday.mvc.weblogin
             return list;
 
         }
+
+        [WebMethod]
+        public static string RegisterGetSchool(IList<nvl> nvls)
+        {
+            List<JsonTree> list = new List<JsonTree>();
+            var nodeID = (from c in nvls where c.name == "id" select c.value).FirstOrDefault();
+            ISchoolRepository categoryRepo = new SchoolRepository();
+            IList<School> firstList = categoryRepo.GetChildrenFromParentID(nodeID == "0" ? null : nodeID);
+
+            for (int i = 0; i < firstList.Count; i++)
+            {
+                JsonTree jt = new JsonTree();
+                School model = firstList[i];
+                bool haveChild = categoryRepo.IsHaveChild(model);
+
+                jt.id = model.Id;
+                jt.text = model.Name;
+                jt.value = model.ParentID;
+                jt.isexpand = true;
+                jt.showcheck = true;
+                //jt.checkstate = Convert.ToByte(checkState);
+                jt.hasChildren = haveChild;
+                jt.complete = true;
+                list.Add(jt);
+            }
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = list;
+            return jsonResult.FormatResult();
+        }
     }
 }
