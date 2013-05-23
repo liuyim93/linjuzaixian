@@ -39,10 +39,10 @@ namespace Friday.mvc.weblogin.shop
                 {
                     schid = this.IDSet.Value;
                 }
-                if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
-                {
-                    schid = this.SchoolOfMerchantID.Value;
-                }
+                //if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
+                //{
+                //    schid = this.SchoolOfMerchantID.Value;
+                //}
 
                 SaveShop(schid);
             }
@@ -58,15 +58,15 @@ namespace Friday.mvc.weblogin.shop
 
             if (schid != "")
             { 
-            string[] sArray = schid.Split(',');    
+                string[] sArray = schid.Split(',');    
             
-            foreach (string shcidsz in sArray)
-            {
-                friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
-                schofmt.Merchant = shop;
-                schofmt.School = iSchoolService.Load(shcidsz);
-                iSchoolOfMerchantService.Save(schofmt);
-            }
+                foreach (string shcidsz in sArray)
+                {
+                    friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
+                    schofmt.Merchant = shop;
+                    schofmt.School = iSchoolService.Load(shcidsz);
+                    iSchoolOfMerchantService.Save(schofmt);
+                }
             }
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

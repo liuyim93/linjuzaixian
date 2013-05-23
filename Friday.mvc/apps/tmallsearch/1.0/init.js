@@ -6,27 +6,27 @@
 		_is_ie6 = _kissy_F.UA.ie == 6,
 		B = "ontouchstart" in document;
     _kissy_F.log("start init ... | page-type :" + _data_type);
-    Function.prototype.debounce = function (D, E) {
-        var O = this,
-			P;
-        return function N() {
-            var S = this,
-				R = arguments;
+    Function.prototype.debounce = function (_threshold, _execAsap) {
+        var _expand_function = this,
+			_expand_delay_fn;
+        return function debounce() {
+            var _dom_item_clicked = this,
+				_arguments = arguments;
 
-            function Q() {
-                if (!E) {
-                    O.apply(S, R)
+            function _expand_apply_fn() {
+                if (!_execAsap) {
+                    _expand_function.apply(_dom_item_clicked, _arguments)
                 }
-                P = null
+                _expand_delay_fn = null
             }
-            if (P) {
-                clearTimeout(P)
+            if (_expand_delay_fn) {
+                clearTimeout(_expand_delay_fn)
             } else {
-                if (E) {
-                    O.apply(S, R)
+                if (_execAsap) {
+                    _expand_function.apply(_dom_item_clicked, _arguments)
                 }
             }
-            P = setTimeout(Q, D || 100)
+            _expand_delay_fn = setTimeout(_expand_apply_fn, _threshold || 100)
         }
     };
 
@@ -122,36 +122,36 @@
             }
         }
     });
-    LIST.msg.on("expand", function (Q) {
-        var P = Q.el || null,
-			D = Q.classname || "",
-			N = D + "-expand",
-			R = Q.text || {
+    LIST.msg.on("expand", function (_custom_event_object) {
+        var _menu_el = _custom_event_object.el || null,
+			_menu_classname = _custom_event_object.classname || "",
+			_menu_shown_status_classname = _menu_classname + "-expand",
+			_menu_status_text = _custom_event_object.text || {
 			    drop: "更多",
 			    expand: "收起"
-			}, E = Q.status || "drop",
-			S = Q.debounce || {
+			}, _menu_shown_status = _custom_event_object.status || "drop",
+			_event_debounce_settings = _custom_event_object.debounce || {
 			    threshold: 100,
 			    execAsap: true
-			}, O = Q.manual;
-        if (!P) {
+			}, _event_manual = _custom_event_object.manual;
+        if (!_menu_el) {
             return
         }
-        P.expandSwitchFn = function () {
-            var T = _dom.attr(this, "data-status") || "drop",
-				X = R[T],
-				U = T == "drop" ? "expand" : "drop",
-				W = R[U],
-				Y = _dom.parent(this, "." + D);
-            this.className = this.className.replace(T, U);
-            this.innerHTML = this.innerHTML.replace(X, W);
-            this.innerHTML = this.innerHTML.replace(T, U);
-            _dom.attr(this, "data-status", U);
-            T == "drop" ? _dom.addClass(Y, N) : _dom.removeClass(Y, N)
+        _menu_el.expandSwitchFn = function () {
+            var _status_t = _dom.attr(this, "data-status") || "drop",
+				_status_text = _menu_status_text[_status_t],
+				_status_reverse = _status_t == "drop" ? "expand" : "drop",
+				_status_reverse_text = _menu_status_text[_status_reverse],
+				_fMenu_t = _dom.parent(this, "." + _menu_classname);
+            this.className = this.className.replace(_status_t, _status_reverse);
+            this.innerHTML = this.innerHTML.replace(_status_text, _status_reverse_text);
+            this.innerHTML = this.innerHTML.replace(_status_t, _status_reverse);
+            _dom.attr(this, "data-status", _status_reverse);
+            _status_t == "drop" ? _dom.addClass(_fMenu_t, _menu_shown_status_classname) : _dom.removeClass(_fMenu_t, _menu_shown_status_classname)
         };
-        !O && _event.on(P, "click", P.expandSwitchFn.debounce(S.threshold, S.execAsap));
-        if (E !== (_dom.attr(P, "data-status") || "drop")) {
-            P.expandSwitchFn()
+        !_event_manual && _event.on(_menu_el, "click", _menu_el.expandSwitchFn.debounce(_event_debounce_settings.threshold, _event_debounce_settings.execAsap));
+        if (_menu_shown_status !== (_dom.attr(_menu_el, "data-status") || "drop")) {
+            _menu_el.expandSwitchFn()
         }
     });
     LIST.util.bindScrollAsync = function (E, P, N, O) {

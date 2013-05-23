@@ -457,7 +457,7 @@ namespace Friday.Test2
 
             SystemMenu school = new SystemMenu()
             {
-                Name = "学校信息管理",
+                Name = "区域信息管理",
                 Leaf = true,
                 ParentID = baseInfo.Id,
                 MenuRoute = "school/pSchoolList.aspx",

@@ -22,8 +22,8 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p></p>
-            <p>
+
+<%--            <p>
                 <label>
                     服务的学校：</label>
                 <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
@@ -35,19 +35,14 @@
                     仅演示，应隐藏ID</label>
                 <input type="text" id="SchoolOfMerchantID"  size="30" class="required textInput gray"
                     runat="server" readonly="true" />
-            </p>
+            </p>--%>
             <p>
                 <label>
-                    服务的学校(多选）：</label>
+                    服务的区域：</label>
                 <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                <a class="btnLook" href="school/MultiListSchool.aspx?IDSet={IDSet}&NameSet={NameSet}"  rel=""  lookupgroup="">选择学校</a>
-            </p>
-            <p>
-                <label>
-                    仅演示，应隐藏ID</label>
-                <input type="text" id="IDSet" size="35" class="required textInput gray"
-                    runat="server" readonly="true" />
+                    <input type="hidden" id="IDSet" size="30" runat="server" />
+                <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
             </p>
         </div>
     </div>
@@ -69,7 +64,7 @@
             <p>
                 <label>
                     Tel：</label>
-                <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Tel" size="30" class="required textInput gray phone" runat="server" />
             </p>
             <p>
                 <label>
@@ -84,17 +79,17 @@
             <p>
                 <label>
                     距离：</label>
-                <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Distance" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
             <p>
                 <label>
                     折扣：</label>
-                <input type="text" id="Rate" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="Rate" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
             <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" style="width: 85px" runat="server">
+                <select id="ShopStatus" class="required " style="width: 85px" runat="server">
                     <option value="">请选择</option>
                     <option value="营业时间">营业时间</option>
                     <option value="正在休息">正在休息</option>
@@ -114,6 +109,24 @@
                         cols="42" runat="server"></textarea>
                 </p>
             </div>
+
+                        <p>
+            
+                <label>
+                    Logo上传：</label>
+          
+                <input id="Image" type="file" class="required textInput gray" runat="server" />
+              
+            <span style="color: red; width:300px">
+                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+            </span>  
+           
+            </p>
+          
+             <p >
+                <img id="ImagePreview" runat="server"  style=" width:240px; height:200px" />
+            </p>
+
            <div style="margin-left:600px;">
                 <p>
                     <label>
@@ -174,7 +187,19 @@
             //o.find("a[rel_v3]").trigger("click");
             o.find("#Description").xheditor({ upLinkUrl: "upload.aspx", upLinkExt: "zip,rar,txt", upImgUrl: "upload.aspx", upImgExt: "jpg,jpeg,gif,png", upFlashUrl: "upload.aspx", upFlashExt: "swf", upMediaUrl: "upload.aspx", upMediaExt: "wmv,avi,wma,mp3,mid" });
 
-        
+            var target_type = $.get_target_type(prefix);
+            if (/navtab/i.test(target_type)) {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, navTabAjaxDone)
+
+                });
+            }
+            else {
+                o.find("#form").bind("submit", function (e) {
+                    return iframeCallback(this, dialogAjaxDone)
+
+                });
+            }
             //2013-02-10 basilwang set o to null to avoid memory leak
             o = null;
 

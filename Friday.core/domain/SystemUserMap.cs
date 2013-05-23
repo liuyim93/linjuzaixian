@@ -30,7 +30,7 @@ namespace friday.core.domain
             //HasMany<RestaurantCart>(o => o.RestaurantCarts).Inverse().Cascade.SaveUpdate();//no user-->keynotnullable
             //HasMany<RentCart>(o => o.RentCarts).Inverse().Cascade.SaveUpdate();
             HasMany<ShoppingCart>(o => o.ShoppingCarts).Inverse().Cascade.SaveUpdate();
-
+            References<School>(o => o.School).Not.Nullable();
         }
     }
 }

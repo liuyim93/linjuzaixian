@@ -37,16 +37,17 @@ namespace Friday.mvc.weblogin.shop
 
             BindingHelper.ObjectToControl(shop, this);
 
-            string schofmntname = iSchoolOfMerchantService.GetSchoolNamesByMerchantID(uid);
-            string[] arrname = schofmntname.Split('，');
-            if (arrname.Length > 1)
-            {
-                this.NameSet.Value = schofmntname;
-            }
-            else
-            {
-                this.SchoolOfMerchant.Value = schofmntname;
-            }
+            string[] schofmntname = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
+            //string[] arrname = schofmntname.Split('，');
+            //if (arrname.Length > 1)
+            //{
+                this.NameSet.Value = schofmntname[0];
+                this.IDSet.Value = schofmntname[1];
+            //}
+            //else
+            //{
+            //    this.SchoolOfMerchant.Value = schofmntname;
+            //}
 
 
 

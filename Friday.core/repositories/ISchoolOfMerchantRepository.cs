@@ -8,7 +8,7 @@ namespace friday.core.repositories
 {
     public interface ISchoolOfMerchantRepository : IRepository<SchoolOfMerchant>
     {
-         string GetSchoolNamesByMerchantID(string rentid);
+        string[] GetSchoolNamesAndIdsByMerchantID(string rentid);
          void DeleteSchoolOfMerchantByMerchantID(string MID);
     }
 }

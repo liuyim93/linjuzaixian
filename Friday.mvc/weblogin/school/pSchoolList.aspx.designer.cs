@@ -7,7 +7,7 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace Friday.mvc.weblogin.school {
+namespace Friday.mvc.weblogin {
     
     
     public partial class pSchoolList {
@@ -22,21 +22,12 @@ namespace Friday.mvc.weblogin.school {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// repeater 控件。
+        /// liDelete 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater repeater;
-        
-        /// <summary>
-        /// numPerPage 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect numPerPage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl liDelete;
     }
 }

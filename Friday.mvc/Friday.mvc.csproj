@@ -370,6 +370,13 @@
     <Compile Include="weblogin\ListPropID.aspx.designer.cs">
       <DependentUpon>ListPropID.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSchool.aspx.cs">
+      <DependentUpon>ListSchool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSchool.aspx.designer.cs">
+      <DependentUpon>ListSchool.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\ListSystemUser.aspx.cs">
       <DependentUpon>ListSystemUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -474,6 +481,13 @@
     </Compile>
     <Compile Include="weblogin\MultiListSystemRole.aspx.designer.cs">
       <DependentUpon>MultiListSystemRole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\MultiListSchool.aspx.cs">
+      <DependentUpon>MultiListSchool.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\MultiListSchool.aspx.designer.cs">
+      <DependentUpon>MultiListSchool.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx.cs">
       <DependentUpon>pAddMyCommodityOrder.aspx</DependentUpon>
@@ -671,13 +685,6 @@
     <Compile Include="weblogin\systemRole\pSystemRoleList.aspx.designer.cs">
       <DependentUpon>pSystemRoleList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\school\ListSchool.aspx.cs">
-      <DependentUpon>ListSchool.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\school\ListSchool.aspx.designer.cs">
-      <DependentUpon>ListSchool.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\loginUser\pAddLoginUser.aspx.cs">
       <DependentUpon>pAddLoginUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -797,13 +804,6 @@
     <Compile Include="weblogin\school\pEditSchool.aspx.designer.cs">
       <DependentUpon>pEditSchool.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\school\pSchoolDetail.aspx.cs">
-      <DependentUpon>pSchoolDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\school\pSchoolDetail.aspx.designer.cs">
-      <DependentUpon>pSchoolDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\school\pSchoolList.aspx.cs">
       <DependentUpon>pSchoolList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -887,13 +887,6 @@
     </Compile>
     <Compile Include="weblogin\activity\pEditActivity.aspx.designer.cs">
       <DependentUpon>pEditActivity.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="weblogin\school\MultiListSchool.aspx.cs">
-      <DependentUpon>MultiListSchool.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\school\MultiListSchool.aspx.designer.cs">
-      <DependentUpon>MultiListSchool.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\myCommodityOrder\pMyCommodityOrderDetail.aspx.cs">
       <DependentUpon>pMyCommodityOrderDetail.aspx</DependentUpon>
@@ -1662,6 +1655,7 @@
     <Content Include="weblogin\ListMerchantByMerchantType.aspx" />
     <Content Include="weblogin\ListMyCommodityOrder.aspx" />
     <Content Include="weblogin\ListPropID.aspx" />
+    <Content Include="weblogin\ListSchool.aspx" />
     <Content Include="weblogin\ListSystemUser.aspx" />
     <Content Include="weblogin\ListValuingItemOfMyCommodityOrder.aspx" />
     <Content Include="weblogin\loginUser\pLoginUserDetail.aspx" />
@@ -1676,6 +1670,7 @@
     <Content Include="weblogin\message\pEditMessage.aspx" />
     <Content Include="weblogin\MultiListMerchant.aspx" />
     <Content Include="weblogin\MultiListSystemRole.aspx" />
+    <Content Include="weblogin\MultiListSchool.aspx" />
     <Content Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx" />
     <Content Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx" />
     <Content Include="weblogin\orderOfCommodity\pEditOrderOfCommodity.aspx" />
@@ -1704,7 +1699,6 @@
     <Content Include="weblogin\systemRole\pAddSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pEditSystemRole.aspx" />
     <Content Include="weblogin\systemRole\pSystemRoleList.aspx" />
-    <Content Include="weblogin\school\ListSchool.aspx" />
     <Content Include="weblogin\ListMerchant.aspx" />
     <Content Include="weblogin\loginUser\pAddLoginUser.aspx" />
     <Content Include="weblogin\loginUser\pEditLoginUser.aspx" />
@@ -1723,7 +1717,6 @@
     <Content Include="weblogin\systemUser\pAddSystemUser.aspx" />
     <Content Include="weblogin\systemUser\pEditSystemUser.aspx" />
     <Content Include="weblogin\school\pEditSchool.aspx" />
-    <Content Include="weblogin\school\pSchoolDetail.aspx" />
     <Content Include="weblogin\school\pSchoolList.aspx" />
     <Content Include="weblogin\shop\pShopDetail.aspx" />
     <Content Include="weblogin\shop\pEditShop.aspx" />
@@ -2471,7 +2464,6 @@
     <Content Include="weblogin\shop\pAddShop.aspx" />
     <Content Include="weblogin\school\pAddSchool.aspx" />
     <Content Include="weblogin\activity\pEditActivity.aspx" />
-    <Content Include="weblogin\school\MultiListSchool.aspx" />
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderDetail.aspx" />
     <Content Include="weblogin\myCommodityOrder\pMyCommodityOrderList.aspx" />
     <Content Include="weblogin\orderOfCommodity\pAddOrderOfCommodity.aspx" />

@@ -39,6 +39,12 @@
                     个性签名：</label>
                 <input type="text" id="Description" size="30" class="required  textInput gray" readonly="readonly" runat="server" />
             </p>
+            <p>
+                <label>
+                    所在区域：</label>
+                <input type="text" id="SchoolName" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+            </p>
          </div>
 
         <div id="jbsxBox1" >

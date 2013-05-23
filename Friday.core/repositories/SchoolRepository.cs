@@ -15,7 +15,17 @@ namespace friday.core.repositories
 {
     public class SchoolRepository : Repository<School>, ISchoolRepository
     {
-    
+        public IList<School> GetChildrenFromParentID(string ParentID)
+        {
+            var list = (from x in this.Session.Query<School>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
+            return list;
+        }
+
+        public bool IsHaveChild(School School)
+        {
+            var isHaveChild = (from x in this.Session.Query<School>() select x).Where(o => o.ParentID == School.Id && o.IsDelete == false).Count() > 0 ? true : false;
+            return isHaveChild;
+        }
         public School SearchByShortName(string name)
         {
             var m = (from x in this.Session.Query<School>() select x).Where(o => o.ShortName == name && o.IsDelete == false).SingleOrDefault();

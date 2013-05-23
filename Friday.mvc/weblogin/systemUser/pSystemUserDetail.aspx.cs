@@ -35,6 +35,7 @@ namespace Friday.mvc.weblogin
             string uid = Request.Params["uid"].ToString();
             systemUser = iSystemUserService.Load(uid);
 
+            SchoolName.Value = systemUser.School.Name;
             BindingHelper.ObjectToControl(systemUser, this);
             BindingHelper.ObjectToControl(systemUser.LoginUser, this);
         }

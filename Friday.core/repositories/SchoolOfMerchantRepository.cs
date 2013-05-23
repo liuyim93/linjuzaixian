@@ -17,10 +17,11 @@ namespace friday.core.repositories
     public class SchoolOfMerchantRepository : Repository<SchoolOfMerchant>,ISchoolOfMerchantRepository
     {
         
-
-        public string GetSchoolNamesByMerchantID(string rentid)
+        public string[] GetSchoolNamesAndIdsByMerchantID(string rentid)
         {
             string schnames="";
+            string schids = "";
+            string[] a = new string[2];
             int i = 1;
             var q = Session.CreateQuery(@"select s  from   SchoolOfMerchant as  sm left join  sm.School  as  s    where  sm.Merchant=:MId ")
                            .SetString("MId", rentid).List<School>();
@@ -30,15 +31,19 @@ namespace friday.core.repositories
             {
                 if (i == 1)
                 {
-                    schnames = sc.Name;                
+                    schnames = sc.Name;
+                    schids = sc.Id;
                 }
                 else 
                 {
-                    schnames = sc.Name + "，" + schnames;                    
+                    schnames = sc.Name + "," + schnames;
+                    schids = sc.Id + "," + schids;
                 }
                 i++;
             }
-            return schnames;             
+            a[0] = schnames;
+            a[1] = schids;
+            return a;             
         }
 
     

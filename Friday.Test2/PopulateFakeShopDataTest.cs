@@ -326,10 +326,10 @@ namespace Friday.Test2
                //string ischstname = schstname[isch];
                School school = new School()
                {
-                   CityName = schcity[s],
+
                    ShortName = schstname[s],
                    Name = schname[s],
-                   Image = "image/121.jpg",
+
                };
                schoolList.Add(school);
            }

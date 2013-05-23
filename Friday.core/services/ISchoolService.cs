@@ -17,5 +17,7 @@ namespace friday.core.services
         IList<School> Search(List<DataFilter> termList);
         IList<School> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<School> GetAll();
+        IList<School> GetChildrenFromParentID(string ParentID);
+        bool IsHaveChild(School School);
     }
 }

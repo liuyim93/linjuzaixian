@@ -4,21 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using friday.core.domain;
-using friday.core.repositories;
-using friday.core;
 using friday.core.components;
+using friday.core.domain;
+using friday.core;
+using friday.core.repositories;
 using friday.core.services;
 
-namespace Friday.mvc.weblogin.school
+namespace Friday.mvc.weblogin
 {
     public partial class pAddSchool : BasePage
     {
-        ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
-    
+        private ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            tagName = systemFunctionObjectService.基本信息模块.学校信息维护.TagName;
+            tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();
@@ -29,35 +29,76 @@ namespace Friday.mvc.weblogin.school
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
             }
-          
+
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
+                School dic = new School();
+                BindingHelper.RequestToObject(dic);
+                dic.ParentID = (Request.Params["code"] == "" || Request.Params["code"] == null) ? null : Request.Params["code"];
+                dic.TLevel = Convert.ToInt32(TLevel.Value);
+                //2013-05-09 basilwang add family
+                if (dic.ParentID == string.Empty || dic.ParentID == "" || dic.ParentID == null)
+                {
+                    dic.Family = "";
+                }
+                else
+                {
+                    School category = iSchoolService.Load(dic.ParentID);
+                    dic.Family = category.Family.Trim() + category.Id + ",";
+                }
+                if (Leaff.SelectedIndex == 0)
+                {
+                    dic.Leaf = true;
+                }
+                else
+                {
+                    dic.Leaf = false;
+                }
+                iSchoolService.Save(dic);
 
-                SaveSchool();
+                AjaxResult result1 = new AjaxResult();
+                result1.statusCode = "200";
+                result1.message = "操作成功";
+                result1.navTabId = "referer";
+                result1.callbackType = "closeCurrent";
+                FormatJsonResult jsonResult1 = new FormatJsonResult();
+                jsonResult1.Data = result1;
+                Response.Write(jsonResult1.FormatResult());
+                Response.End();
+
             }
-            
+            else
+            {
+                if (Request.Params["code"] == "" || Request.Params["code"] == null)
+                {
+                    TLevel.Value = Convert.ToString(0);
+
+                }
+
+                else
+                {
+                    string code = Request.Params["code"];
+                    School category = iSchoolService.Load(code);
+
+                    if (category.Leaf == false)
+                    {
+                        TLevel.Value = Convert.ToString(category.TLevel + 1);
+                    }
+                    else
+                    {
+                        AjaxResult result = new AjaxResult();
+                        result.statusCode = "300";
+                        result.errorCloseType = "dialog";
+                        result.message = "您选择的父节点不能为叶节点！";
+                        result.callbackType = "closeCurrent";
+                        FormatJsonResult jsonResult = new FormatJsonResult();
+                        jsonResult.Data = result;
+                        Response.Write(jsonResult.FormatResult());
+                        Response.End();
+                    }
+                }
+            }
+
         }
-
-        private void SaveSchool()
-        {
-            School sch = new School();
-
-            BindingHelper.RequestToObject(sch);
-            iSchoolService.Save(sch);
-
-            AjaxResult result = new AjaxResult();
-            result.statusCode = "200";
-            result.message = "修改成功";
-            result.navTabId = "referer";
-            result.callbackType = "closeCurrent";
-            FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = result;
-            Response.Write(jsonResult.FormatResult());
-            Response.End();
-
-        
-
-        }
-
     }
 }
