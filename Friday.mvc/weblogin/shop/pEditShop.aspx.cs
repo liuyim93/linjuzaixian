@@ -37,9 +37,6 @@ namespace Friday.mvc.weblogin.shop
             }        
             shop = iShopService.Load(uid);
 
-            //UserTypeEnum ust = UserTypeEnum.商店;
-            //loginuser = iLoginUserOfMerchantRepository.GetMerchantLoginUserBy(shop.Id, ust);
-
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
                 string schid = "";
@@ -47,28 +44,16 @@ namespace Friday.mvc.weblogin.shop
                 {
                     schid = this.IDSet.Value;
                 }
-                //if (this.SchoolOfMerchantID.Value != null && this.SchoolOfMerchantID.Value != "")
-                //{
-                //    schid = this.SchoolOfMerchantID.Value;
-                //}
                 SaveShop(uid, schid);
             }
             else
             {
 
                 BindingHelper.ObjectToControl(shop, this);
-                this.ImagePreview.Src = shop.Logo;
-
-                //this.LoginName.Value = loginuser.LoginName;
 
                 string[] namesAndIds = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
                 this.NameSet.Value = namesAndIds[0];
                 this.IDSet.Value = namesAndIds[1];
-                //else
-                //{
-                //    this.SchoolOfMerchant.Value = schofmntname;
-                //}
-
             }
         }
 
@@ -76,6 +61,10 @@ namespace Friday.mvc.weblogin.shop
         {
 
             BindingHelper.RequestToObject(shop);
+            string imageStr = PictureUpload.UploadImage(HttpContext.Current.Request.Files, "logo");
+            if (imageStr != null)
+            { shop.Logo = imageStr; }
+
             iShopService.Update(shop);
 
             iSchoolOfMerchantService.DeleteSchoolOfMerchantByMerchantID(uid);
