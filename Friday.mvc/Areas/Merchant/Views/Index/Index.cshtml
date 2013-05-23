@@ -389,8 +389,9 @@ background-position:left 0;
                                                         >新品<i class="icon"></i></a>
                                                     <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=Price&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
                                                         alt="按价格排列" title="按价格排列"  
-                                                        class="J_SearchAsync @((ViewData["sort"].ToString() == "p" ) ? "up" : "down")"                                                        
-                                                        class="J_SearchAsync @((ViewData["sort"].ToString() != "p" && ViewData["sort"].ToString() != "pd") ? "fav def" : "")"
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() == "p" ) ? "up" : "")"   
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() == "pd") ? "down" : "")"                                                      
+                                                        class="J_SearchAsync @((ViewData["sort"].ToString() != "p" && ViewData["sort"].ToString() != "pd") ? "fav def" : "def")"
                                                          
                                                         >价格<i class="icon"></i></a>
                                                     <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "pa" ? "pd" : "pa")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
