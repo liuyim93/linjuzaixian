@@ -10,6 +10,7 @@ using System.Web.UI.WebControls;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
+using System.Linq.Expressions;
 
 namespace friday.core.repositories
 {
@@ -103,12 +104,44 @@ namespace friday.core.repositories
             //    return s;
 
             //}
-
+            Expression<Func<Commodity, object>> order_expression = o=>o.MonthAmount;
+            bool is_desc = true;
+            switch (sort)
+            {
+                case "s":
+                    break;
+                case "p":
+                    order_expression = o => o.Price;
+                    is_desc = false;
+                    break;
+                case "pd":
+                      order_expression = o => o.Price;
+                    is_desc = true;
+                    break;
+                case "td":
+                    order_expression = o => o.Amount;
+                    is_desc = true;
+                    break;
+                case "d":
+                    order_expression = o => o.MonthAmount;
+                    is_desc = true;
+                    break;
+                case "pt":
+                    order_expression = o => o.CreateTime;
+                    is_desc = true;
+                    break;
+                
+            }
             //2013-05-23 basilwang 重构
             var query = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.GlobalGoodsTypeFamily.Contains(cat) || o.GlobalGoodsType.Id == cat) && o.IsDelete == false);
-            var s = query.OrderByDescending(o => o.MonthAmount).Skip(start).Take(limit).ToList();
-            total = s.Count();
-            return s;
+            IOrderedQueryable<Commodity> ordered_query;
+            if(is_desc)
+                ordered_query=query.OrderByDescending(order_expression);
+            else
+                ordered_query = query.OrderBy(order_expression);
+            var paged_ordered_query=ordered_query.Skip(start).Take(limit);
+            total = query.Count();
+            return paged_ordered_query.ToList();
             
         }
         /// <summary>

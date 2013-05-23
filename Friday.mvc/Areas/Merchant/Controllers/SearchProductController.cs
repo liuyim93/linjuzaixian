@@ -197,6 +197,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["sprice1"] = price1;
             ViewData["sprice2"] = price2;
             ViewData["pagenum"] = total / numPerPageValue + 1;
+            //2013-05-23 basilwang 增加cat 和sort
+            ViewData["cat"] = cat;
             ViewData["sort"] = sort;
 
             return View(searchProductModel);
