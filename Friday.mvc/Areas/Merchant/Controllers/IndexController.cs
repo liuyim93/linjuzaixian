@@ -188,6 +188,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["sscid"] = scid;
             ViewData["sgoodTypeId"] = goodTypeId;
             ViewData["sort"] = sort;
+           
 
             return View(merchantIndexModel);
         }
