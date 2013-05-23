@@ -41,9 +41,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return View();
         }
-
-        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum,string cat)
+        //2013-05-22 basilwang 增加排序   具体值 p为价格从低到高   pd为价格从高到低  st为默认排序  td为总销量从高到低  d为月销量从高到低 pt为发布时间排序 
+        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum,string cat,string sort)
         {
+            //2013-05-22 basilwang 默认为s
+            if (string.IsNullOrEmpty(sort) )
+            {
+                sort = "s";
+            }
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
             {
@@ -100,7 +105,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
 
-            IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total,cat);
+            IList<Commodity> commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total,cat,sort);
             if (cat == "" || cat == null)
             {
                 searchProductModel.headGlobalGoodsType = iGlobalGoodsTypeService.GetFirstLevelAll();
@@ -192,6 +197,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["sprice1"] = price1;
             ViewData["sprice2"] = price2;
             ViewData["pagenum"] = total / numPerPageValue + 1;
+            ViewData["sort"] = sort;
 
             return View(searchProductModel);
         }

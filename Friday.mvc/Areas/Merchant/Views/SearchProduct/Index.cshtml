@@ -112,7 +112,7 @@
                             &lt;</a> <i class="crumbSlide-prev-shadow"></i>
                         <div class="crumbClip">
                             <ul class="crumbSlide-con clearfix" id="J_CrumbSlideCon" data-atp="{loc},{i},,,,{t},rightnav,">
-                                <li><a class="crumbStrong" href="http://localhost:7525/Merchant/SearchProduct" title="全部"
+                                <li><a class="crumbStrong" href="SearchProduct" title="全部"
                                     data-i="cat" data-t="3" atpanel="2,cat,,,,3,rightnav,">全部</a> <i class="crumbArrow">
                                         &gt;</i> </li>
                                 @{
@@ -120,7 +120,7 @@
                                     {
                                         if (Model.listBarGlobalGoodsType.ElementAt(i).Count == 0)
                                         {
-                                    <li><a class="crumbStrong" href="http://localhost:7525/Merchant/SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&amp;s=0&amp;n=60&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1#J_crumbs"
+                                    <li><a class="crumbStrong" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
                  title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="2,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a>
                                         <i class="crumbArrow">&gt;</i> </li>
                                         }
@@ -128,7 +128,7 @@
                                         {
                                     <li>
                                         <div class="crumbDrop j_CrumbDrop">
-                                            <a class="crumbStrong crumbDrop-hd j_CrumbDropHd" href="http://localhost:7525/Merchant/SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&amp;s=0&amp;n=60&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1#J_crumbs" title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="3,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a><i></i>
+                                            <a class="crumbStrong crumbDrop-hd j_CrumbDropHd" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs" title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="3,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a><i></i>
                                             <div class="crumbDrop-bd j_CrumbDropBd" style="width: 834px;">
                                                 @{
                                             var itemCount = Model.listBarGlobalGoodsType.ElementAt(i).Count;
@@ -149,7 +149,7 @@
                                                     else
                                                     {
                                                             <li><a atpanel="1,cat-dropdown,,,,51132008,rightnav,"
-                                                href="http://localhost:7525/Merchant/SearchProduct?cat=@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Id&amp;s=0&amp;n=60&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1#J_crumbs"
+                                                href="SearchProduct?cat=@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
                                                 title="@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Name">@Model.listBarGlobalGoodsType.ElementAt(i).ElementAt(a).Name</a>
                                                             </li>
                                                     }
@@ -166,7 +166,7 @@
                                     }
                                 }
                                 <li class="crumbSearch">
-                                    <form action="http://localhost:7525/merchant/searchproduct" id="J_CrumbSearchForm">
+                                    <form action="SearchProduct" id="J_CrumbSearchForm">
                                     <label class="crumbSearch-label" for="J_CrumbSearchInuput">
                                         <input type="text" name="keyword" value="@ViewData["skeyword"]" class="crumbSearch-input" id="J_CrumbSearchInuput">
                                     </label>
@@ -202,7 +202,7 @@
                 </div>
             </div>
             <div class="main  ">
-                <form action="http://localhost:7525/merchant/searchproduct" id="J_FilterNavForm">
+                <form action="SearchProduct" id="J_FilterNavForm">
                 <div class="attrs">                  
                     <div class="cateAttrs" data-spm="a220m.1000858.1000721">
                         @{
@@ -212,7 +212,7 @@
                                 {
                             <div class="j_Cate attr">
                                 <div class="attrKey" data-atp="{loc},{cat},,,spu-cat-qp,3,cat-qp,">
-                                    <a title="@Model.headGlobalGoodsType.ElementAt(i).Name" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
+                                    <a title="@Model.headGlobalGoodsType.ElementAt(i).Name" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
                             atpanel="1,50026637,,,spu-cat-qp,3,cat-qp,">@Model.headGlobalGoodsType.ElementAt(i).Name</a>
                                 </div>
                                 <div class="attrValues">
@@ -223,7 +223,7 @@
                                     {
                                         var listGlobalGoodsTypesNum = Model.listGlobalGoodsTypesNum.ElementAt(i);
                                     
-                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(numIndex))" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@globalGoodsType.Id#J_crumbs"
+                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(numIndex))" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@globalGoodsType.Id#J_crumbs"
                                     atpanel="1,50106425,,,spu-cat-qp,3,cat-qp,">@globalGoodsType.Name<span>(@listGlobalGoodsTypesNum.ElementAt(numIndex))</span>
                                             </a></li>
                                         numIndex++;
@@ -243,7 +243,7 @@
                                         @{
                                     for (int i = 2; i < @Model.headGlobalGoodsType.Count; i++)
                                     {
-                                            <li><a title="@Model.headGlobalGoodsType.ElementAt(i).Name; (@Model.headGlobalGoodsTypeNum.ElementAt(i))" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
+                                            <li><a title="@Model.headGlobalGoodsType.ElementAt(i).Name; (@Model.headGlobalGoodsTypeNum.ElementAt(i))" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@Model.headGlobalGoodsType.ElementAt(i).Id#J_crumbs"
                                 atpanel="1,50106425,,,spu-cat-qp,3,cat-qp,">@Model.headGlobalGoodsType.ElementAt(i).Name<span>(@Model.headGlobalGoodsTypeNum.ElementAt(i))</span>
                                             </a></li>
                                     }
@@ -259,7 +259,7 @@
                                 {
                             <div class="j_Cate attr">
                                 <div class="attrKey" data-atp="{loc},{cat},,,spu-cat-qp,3,cat-qp,">
-                                    <a title="@Model.headGlobalGoodsType.ElementAt(0).Name" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@Model.headGlobalGoodsType.ElementAt(0).Id#J_crumbs"
+                                    <a title="@Model.headGlobalGoodsType.ElementAt(0).Name" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@Model.headGlobalGoodsType.ElementAt(0).Id#J_crumbs"
                             atpanel="1,50026637,,,spu-cat-qp,3,cat-qp,">@Model.headGlobalGoodsType.ElementAt(0).Name</a>
                                 </div>
                                 <div class="attrValues">
@@ -270,7 +270,7 @@
                                     {
                                         var listGlobalGoodsTypesNum = Model.listGlobalGoodsTypesNum.ElementAt(0);
                                     
-                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(index))" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@globalGoodsType.Id#J_crumbs"
+                                            <li><a title="@globalGoodsType.Name; (@listGlobalGoodsTypesNum.ElementAt(index))" href="SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=@ViewData["sort"]&q=%D0%AC&n=60&s=0&cat=@globalGoodsType.Id#J_crumbs"
                                     atpanel="1,50106425,,,spu-cat-qp,3,cat-qp,">@globalGoodsType.Name<span>(@listGlobalGoodsTypesNum.ElementAt(index))</span>
                                             </a></li>
                                         index++;
@@ -293,7 +293,7 @@
                             @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
                             {
                                 var item = Model.globalGoodsTypes.ElementAt(index); 
-                                <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
+                                <a href="SearchProduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
                             }
                         </p>
@@ -399,32 +399,32 @@
                             </ul>
                         </div>
                     </div>
-                    <form action="http://localhost:7525/merchant/searchproduct?keyword=@ViewData["skeyword"]" id="J_FForm" method=get>
+                    <form action="SearchProduct?keyword=@ViewData["skeyword"]" id="J_FForm" method=get>
                     <div class="fRange">
                         <b class="fR-text">默认排序</b> <i class="f-ico-triangle-rb"></i>
                         <ul class="fR-list" data-atp="{loc},price_ascending,,,spu-sort,20,sort,">
-                            <li><a href=" "
+                            <li><a href="SearchProduct?sort=p"
                                 atpanel="1,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-pu"></i>价格从低到高</a>
                             </li>
-                            <li><a href=" "
+                            <li><a href="SearchProduct?sort=pd"
                                 atpanel="2,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-pd"></i>价格从高到低</a>
                             </li>
-                            <li><a href=" "
+                            <li><a href="SearchProduct?sort=td"
                                 atpanel="3,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-sd"></i>总销量从高到低</a>
                             </li>
-                            <li><a href=""
+                            <li><a href="SearchProduct?sort=d"
                                 atpanel="4,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-msd"></i>月销量从高到低</a>
                             </li>
-                            <li><a href=""
+                            <li><a href="SearchProduct?sort=pt"
                                 atpanel="5,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-td"></i>按发布时间排序</a>
                             </li>
-                            <li><a href=""
+                            <li><a href="SearchProduct?sort=st"
                                 atpanel="6,price_ascending,,,spu-sort,20,sort,">恢复默认排序</a> </li>
                         </ul>
                     </div>
                     <a class="fSort" href=" "
                         title="点击后按月销量从高到低" atpanel="7,week_sale,,,spu-sort,20,sort,">销量<i class="f-ico-arrow-d"></i></a>
-                    <a class="fSort" href=" "
+                    <a class="fSort" href="SearchProduct?sort=@ViewData["sort"]"
                         title="点击后按价格从低到高" atpanel="9,price_ascending,,,spu-sort,20,sort,">价格<i class="f-ico-triangle-mt"></i><i
                             class="f-ico-triangle-mb"></i></a>
                     <div class="fPrice" id="J_FPrice">
@@ -480,7 +480,7 @@
                         @if (Model.currentPage == 1 && Model.pageNum != 1)
                         { 
                             <b class="ui-page-s-prev" title="上一页">&lt;</b>
-                            <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">
+                            <a href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">
                                 &gt;</a>                 
                         }
                         else if (Model.currentPage == 1 && Model.pageNum == 1)
@@ -491,21 +491,20 @@
                         }
                         else if (Model.currentPage == Model.pageNum && Model.pageNum != 1)
                         {                                            
-                            <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">
+                            <a href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">
                                 &lt;</a>                 
                             <b class="ui-page-s-next" title="下一页">&gt;</b>
                         }
                         else
                         {
-                            <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">
+                            <a href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">
                                 &lt;</a>                 
-                            <a href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">
+                            <a href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">
                                 &gt;</a>                 
                         }
                     </p>
                 </div>
-                <div id="J_FilterPlaceholder" style="height: 54px; display: none;">
-                </div>
+                
                 <div class=" view   clearfix" id="J_ItemList" data-spm="a220m.1000858.1000725" data-area="济南"
                     data-delivery="http://delivery.taobao.com/ensured/getItemSupportsExpressDays.do"
                     data-atp="{p},{i},{ci},{is},spu,1,spu,{user_id}">
@@ -518,7 +517,7 @@
                             <div class="product-iWrap">
                                 <div class="productImg-wrap">
                                     @*<a href="http://detail.tmall.com/item.htm?id=18965187927&amp;user_id=260030441&amp;is_b=1&amp;cat_id=2&amp;q=%D0%AC&amp;rn=47b7f16145e0c52544ef258e078d200c" class="productImg" target="_blank" data-p="1" data-i="18965187927" data-is="214204412" data-ci="50012906" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">
- *@ <a href="http://localhost:7525/merchant/detail/index?brandid=@item.Id" class="productImg" target="_blank" data-p="1" data-i="18965187927" data-is="214204412" data-ci="50012906" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">
+ *@ <a href="Detail/Index?brandid=@item.Id" class="productImg" target="_blank" data-p="1" data-i="18965187927" data-is="214204412" data-ci="50012906" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">
      @*<img src="http://img03.taobaocdn.com/bao/uploaded/i3/10441021291756753/T1nhJ5XtJaXXXXXXXX_!!0-item_pic.jpg_b.jpg">*@
      <img src="@item.Image" style="width:220px;height:220px" />
  </a>
@@ -564,7 +563,7 @@
 
                     }
                 </div>
-                <form action="http://localhost:7525/merchant/searchproduct" method="get">
+                <form action="SearchProduct" method="get">
                 <div class="ui-page">
                     <div class="ui-page-wrap">
                         @* <b class="ui-page-num">
@@ -576,7 +575,7 @@
      <a class="ui-page-next" href="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=60&amp;cat=2#J_Filter" atpanel="2,pagedn,,,,20,footer,">下一页&gt;&gt;</a>
    </b>
  <b class="ui-page-skip">
- <form name="filterPageForm" method="get" action="http://localhost:7525/merchant/searchproduct?orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
+ <form name="filterPageForm" method="get" action="SearchProduct?orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
  <input type="hidden" name="fromF5">
    <input type="hidden" name="keyword" value="@ViewData["skeyword"]">
     <input type="hidden" name="totalPage" value="100">
@@ -593,7 +592,7 @@
      {
          if (Model.currentPage > 1)
          {
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
+         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
              << 上一页</a>
          }
          else
@@ -608,14 +607,14 @@
              }
              else
              {
-         <a href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+         <a href="SearchProduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
              }
          }
 
 
          if (Model.currentPage < Model.pageNum)
          {
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              下一页>></a>
          }
          else
@@ -632,14 +631,14 @@
          {
              if (Model.currentPage > 1)
              {
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
+         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
              << 上一页</a>
                    
                  for (int p = 1; p < Model.currentPage + 3; p++)
                  {
                      if (p != Model.currentPage)
                      {
-         <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              @p</a>
          
                      }
@@ -649,7 +648,7 @@
                      }
                  }
          <b class="ui-page-break">...</b>
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              下一页>></a>
          
              }
@@ -659,10 +658,10 @@
          <b class="ui-page-prev">1</b>
                  for (int p = 2; p < 4; p++)
                  {
-         <a class="ui-page-prev j_PageChange "  data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >@p</a>
+         <a class="ui-page-prev j_PageChange "  data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >@p</a>
                  }
          <b class="ui-page-break">...</b>
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              下一页>></a>
          
              }
@@ -672,12 +671,12 @@
          if (Model.currentPage >= 7 && Model.currentPage + 2 < Model.pageNum)
          {
               
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
+         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
              << 上一页</a>
                    
              for (int p = 1; p < 3; p++)
              {                      
-         <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              @p</a>
              }
          <b class="ui-page-break">...</b>
@@ -688,7 +687,7 @@
 
                  if (i != Model.currentPage)
                  {
-         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@i" href="SearchProduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              @i</a>
          
                  }
@@ -698,18 +697,18 @@
                  }
              }
          <b class="ui-page-break">...</b>
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              下一页>></a>
          
          }
          if (Model.currentPage >= 7 && Model.currentPage + 2 >= Model.pageNum)
          {
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
+         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
              << 上一页</a>
                    
              for (int p = 1; p < 3; p++)
              {                      
-         <a class="ui-page-next j_PageChange " data-page="@p" href="http://localhost:7525/merchant/searchproduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              @p</a>
              }
          <b class="ui-page-break">...</b>
@@ -720,7 +719,7 @@
 
                  if (i != Model.currentPage)
                  {
-         <a class="ui-page-next j_PageChange " data-page="@i" href="http://localhost:7525/merchant/searchproduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@i" href="SearchProduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              @i</a>
          
                  }
@@ -735,7 +734,7 @@
              }
              else
              {
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="http://localhost:7525/merchant/searchproduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
+         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
              下一页>></a>
            
              }
@@ -770,13 +769,13 @@
                             {
                                 var hrcdty = @Model.recommendComdties.ElementAt(i);
                                 <div class="product">
-                                    <a href="http://localhost:7525/merchant/detail/index?brandid=@hrcdty.Id" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">
+                                    <a href="Detail/Index?brandid=@hrcdty.Id" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">
                                         <img src="@hrcdty.Image">
                                     </a>
                                     <p class="productPrice ui-price">
                                         ¥ @hrcdty.Price</p>
                                     <p class="productTitle">
-                                        <a href="http://localhost:7525/merchant/detail/index?brandid=@hrcdty.Id" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">
+                                        <a href="Detail/Index?brandid=@hrcdty.Id" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">
                                         @hrcdty.Name</p>
                                 </div>     
   
@@ -788,7 +787,7 @@
                     <div>
                         <div class="btmSearch" data-spm="a220m.1000858.1000729">
                             <div class="btmSearch-main">
-                                <form class="btmSearch-form clearfix" action="http://localhost:7525/merchant/searchproduct"
+                                <form class="btmSearch-form clearfix" action="SearchProduct"
                                 target="_top" name="searchTop">
                                 <fieldset>
                                     <div class="btmSearch-input clearfix">
@@ -811,7 +810,7 @@
                             @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
                             {
                                 var item = Model.globalGoodsTypes.ElementAt(index); 
-                                <a href="http://localhost:7525/merchant/searchproduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
+                                <a href="SearchProduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
                             }
                         </p>
