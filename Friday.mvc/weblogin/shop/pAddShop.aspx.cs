@@ -54,6 +54,7 @@ namespace Friday.mvc.weblogin.shop
             Shop  shop=new Shop();
 
             BindingHelper.RequestToObject(shop);
+            shop.Logo = PictureUpload.UploadImage(HttpContext.Current.Request.Files, "logo");
             iShopService.Save(shop);
 
             if (schid != "")

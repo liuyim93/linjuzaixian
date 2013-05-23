@@ -100,7 +100,7 @@
                 请上传商品图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
             </p>
 
-            <div style="clear:left; margin-top:230px" >
+            <div style="clear:left; margin-top:20px" >
              <p>
                  <label>详细内容：</label>
                 <div>
