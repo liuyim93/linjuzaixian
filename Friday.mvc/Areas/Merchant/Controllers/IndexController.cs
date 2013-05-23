@@ -88,8 +88,19 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View("Index",merchantIndexModel);
         }
 
-        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId,string pagenum)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        //2013-05-22 basilwang 增加排序   具体值 p为价格从低到高   pd为价格从高到低  st为默认排序  td为总销量从高到低  d为月销量从高到低 pt为发布时间排序 
+        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId,string pagenum,string sort)//,string style)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
+            //2013-05-22 basilwang 默认为s
+            if (string.IsNullOrEmpty(sort))
+            {
+                sort = "s";
+            }
+            //2013-05-23 basilwang 默认为g
+            //if (string.IsNullOrEmpty(style))
+            //{
+            //    style = "g";
+            //}
             double dbprice1, dbprice2;
             if (string.IsNullOrEmpty(price1))
             {
@@ -156,27 +167,16 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int limit = numPerPageValue;
    
          
-            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
-            //{
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId, orderType, start, limit, out total);
-                Shop shop = this.iShopService.Load(scid);
-                merchantIndexModel.SingleShop = shop;
-                merchantIndexModel.Commoditys = myCommodities;         
-            //}
-            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            //{
-            //    IList<Food> myFoods = this.iFoodService.GetFoodByRestaurantIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId,orderType, start, limit, out total);
-            //    Restaurant restaurant = this.iRestaurantService.Load(scid);
-            //    merchantIndexModel.SingleRestaurant = restaurant;
-            //    merchantIndexModel.Foods = myFoods;
-            //}
-            //else
-            //{
-            //    IList<House> myHouses = this.iHouseService.GetHouseByRentIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId,orderType, start, limit, out total);
-            //    Rent rent = this.iRentService.Load(scid);
-            //    merchantIndexModel.SingleRent = rent;
-            //    merchantIndexModel.Houses = myHouses;
-            //}
+       
+            //IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId, orderType, start, limit, out total);
+            IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndPrice(scid,page, keyword, dbprice1, dbprice2, start, limit, out total ,sort);
+            
+            Shop shop = this.iShopService.Load(scid);
+            merchantIndexModel.SingleShop = shop;
+            merchantIndexModel.Commoditys = myCommodities;         
+            
+
+
             merchantIndexModel.currentPage = currentPage;
             merchantIndexModel.pageNum = total / numPerPageValue + 1;
             merchantIndexModel.count = total;
