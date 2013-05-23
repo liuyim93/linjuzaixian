@@ -25,6 +25,11 @@ namespace friday.core.components
                     {
                         fileExtension = System.IO.Path.GetExtension(fileoldName).ToLower();
 
+                        if (!Directory.Exists(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/")))//判断文件夹是否已经存在
+                        {
+                            Directory.CreateDirectory(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/"));//创建文件夹
+                        }
+
                         int val = 10 + R.Next(999);//产生随机数为99以内任意
                         int val1 = 10 + R.Next(999);//产生随机数为999以内任意
                         filesnewName = DateTime.Now.ToString("yyyyMMddHHmmss") + val.ToString() + val1.ToString() + fileExtension;
@@ -39,8 +44,10 @@ namespace friday.core.components
             catch (System.Exception Ex)
             {
             }
-            
-            return filesnewName;
+            if (filesnewName == "")
+                return null;
+            else
+                return "/weblogin/uploadimage/" + ParentPath + "/" + filesnewName;
         }
     }
 }
