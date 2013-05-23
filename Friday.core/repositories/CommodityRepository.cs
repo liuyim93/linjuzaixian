@@ -127,12 +127,28 @@ namespace friday.core.repositories
                     order_expression = o => o.Price;
                     is_desc = true;
                     break;
-                case "td":
-                    order_expression = o => o.Amount;
+                case "ma":
+                    order_expression = o => o.MonthAmount;
+                    is_desc = false;
+                    break;
+                case "md":
+                    order_expression = o => o.MonthAmount;
                     is_desc = true;
                     break;
-                case "d":
-                    order_expression = o => o.MonthAmount;
+                case "ca":
+                    order_expression = o => o.CreateTime;
+                    is_desc = false;
+                    break;
+                case "cd":
+                    order_expression = o => o.CreateTime;
+                    is_desc = true;
+                    break;
+                case "va":
+                    order_expression = o => o.ValuingCount;
+                    is_desc = false;
+                    break;
+                case "vd":
+                    order_expression = o => o.ValuingCount;
                     is_desc = true;
                     break;
                 case "s":
