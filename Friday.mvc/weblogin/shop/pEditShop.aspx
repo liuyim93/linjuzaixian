@@ -105,7 +105,7 @@
                 </p>
             </div>
 
-            <div style="clear: left; width: 80%; margin-top: 50px">
+            <div style="clear: left; width: 80%; margin-top: 30px">
                 <p>
                     <label>
                         商铺活动：</label>
@@ -116,7 +116,7 @@
                 </p>
             </div>
 
-            <div style="clear: left; width: 80%; margin-top: 80px">
+            <div style="clear: left; width: 80%; margin-top: 40px">
                 <p>
                     <label>
                         详细内容：</label>
