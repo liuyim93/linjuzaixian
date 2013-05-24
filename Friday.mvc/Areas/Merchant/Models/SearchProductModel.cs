@@ -29,6 +29,8 @@ namespace Friday.mvc.Models
             this.listGlobalGoodsTypesNum = new List<IList<int>>();
             this.listBarGlobalGoodsType = new List<IList<GlobalGoodsType>>();
             this.headBarGlobalGoodsType = new List<GlobalGoodsType>();
+            this.siblingSchools = new List<School>();
+            this.parentSiblingSchools = new List<School>();
 
             //IList<Food> Foods = new List<Food>();
             //IList<House> Houses = new List<House>();
@@ -58,5 +60,10 @@ namespace Friday.mvc.Models
         public IList<Commodity> recommendComdties { get; set; }
         public IList<Commodity> Commoditys { get; set; }
      
+        //school
+        public School currentFirstSchool { get; set; }
+        public School currentSecondSchool { get; set; }
+        public IList<School> siblingSchools { get; set; }
+        public IList<School> parentSiblingSchools { get; set; }
     }
 }
