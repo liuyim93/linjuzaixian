@@ -143,29 +143,120 @@
                 <div class="ui-page-wrap"> <b class="ui-page-num">
                 @if (Model.currenPage > 1)
                 {
-                    <a class="ui-page-prev j_PageChange " data-page="@(Model.currenPage-1)" href="#">&lt;&lt; 上一页</a>
+                    <a class="ui-page-prev j_PageChange " data-page="@(Model.currenPage - 1)" href="#">&lt;&lt; 上一页</a>
                 }
                 else
                 {
                     <b class="ui-page-prev">&lt;&lt; 上一页</b>
                 }
-                @for (int i = 1; i <= Model.pageNum; i++)
-                {
-                    if (i == Model.currenPage)
+                
+                @{
+                    if (Model.pageNum <= 3)
                     {
-                        <b class="ui-page-cur">@i</b>
+                        for (int i = 1; i <= Model.pageNum; i++)
+                        {
+                            if (i == Model.currenPage)
+                            {
+                                <b class="ui-page-cur">@i</b>
+                            }
+                            else
+                            {
+                                <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                            }
+                        }
+                    }
+                    else if (Model.pageNum <= 8)
+                    {
+                        if (Model.currenPage + 2 < Model.pageNum)
+                        {
+                            for (int i = 1; i <= (Model.currenPage + 2); i++)
+                            {
+                                if (i == Model.currenPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                          <b class="ui-page-break">...</b>  
+                        }
+                        else
+                        {
+                            for (int i = 1; i <= Model.pageNum; i++)
+                            {
+                                if (i == Model.currenPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                        }
                     }
                     else
                     {
-                        <a href="#" class="j_PageChange" data-page="@i">@i</a>
-                    }
-                }
-                
-                <b class="ui-page-break">...</b>
+                        if (Model.currenPage <= 6)
+                        {
+                            for (int i = 1; i <= (Model.currenPage + 2); i++)
+                            {
+                                if (i == Model.currenPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                          <b class="ui-page-break">...</b>  
+                        }
+                        else if (Model.currenPage <= Model.pageNum-4)
+                        {
+                            <a href="#" class="j_PageChange" data-page="1">1</a>
+                            <a href="#" class="j_PageChange" data-page="2">2</a>
+                            <b class="ui-page-break">...</b>  
+                                
+                            for (int i = (Model.currenPage-2); i <= (Model.currenPage + 2); i++)
+                            {
+                                if (i == Model.currenPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                            <b class="ui-page-break">...</b> 
+                        }
+                        else
+                        {
+                            <a href="#" class="j_PageChange" data-page="1">1</a>
+                            <a href="#" class="j_PageChange" data-page="2">2</a>
+                            <b class="ui-page-break">...</b> 
+                    
+                            for (int i = (Model.currenPage - 2); i <= Model.pageNum; i++)
+                            {
+                                if (i == Model.currenPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="#" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                        }
 
+                    }
+                  }
                 @if (Model.currenPage < Model.pageNum)
                 {
-                    <a class="ui-page-next j_PageChange " data-page="@(Model.currenPage+1)" href="#">&lt;&lt; 下一页</a>
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currenPage + 1)" href="#">&lt;&lt; 下一页</a>
                 }
                 else
                 {
