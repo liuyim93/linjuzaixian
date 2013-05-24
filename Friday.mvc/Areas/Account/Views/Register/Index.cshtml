@@ -316,26 +316,27 @@
                                         success: function (data) {
                                             debugger
                                             var da = eval("(" + data.d + ")");
+                                            if (da.length != 0) {
+                                                $("#Address_div").append("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>");
 
-                                            $("#Address_div").append("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>");
-
-                                            $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
+                                                $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
 
 
-                                            for (var i = 1; i < da.length; i++) {
-                                                $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
-                                            }
+                                                for (var i = 1; i < da.length; i++) {
+                                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                                                }
 
-                                            $("#Area_" + level).bind("change", function () {
-                                                deleteAfterList($(this).attr("level"));
-                                                updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                                $("#Area_" + level).bind("change", function () {
+                                                    deleteAfterList($(this).attr("level"));
+                                                    updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                                    $("#J_Address").val($("#Address_div select:last-child").val());
+                                                });
+
+                                                if (da[0].hasChildren == true) {
+                                                    updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
+                                                }
                                                 $("#J_Address").val($("#Address_div select:last-child").val());
-                                            });
-
-                                            if (da[0].hasChildren == true) {
-                                                updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
                                             }
-                                            $("#J_Address").val($("#Address_div select:last-child").val());
                                         }
                                     });
                                 }

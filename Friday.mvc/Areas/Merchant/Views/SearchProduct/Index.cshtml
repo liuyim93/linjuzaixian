@@ -322,10 +322,11 @@
                                   }
                                 <form class="fAl-custom" action="">
                                 <input type="text" data-val="输入城市名" id="J_FOAInput" name="loc">
-                                <input type="hidden" value="鞋" name="q">
-                                <input type="hidden" name="cat" value="2">
-                                <input type="hidden" name="sort" value="s"><input type="hidden" name="style" value="g"><input
-                                    type="hidden" name="vmarket" value="0">
+                                <input type="hidden" value="@ViewData["skeywords"]" name="q">
+                                <input type="hidden" name="cat" value="@ViewData["cat"]">
+                                <input type="hidden" name="sort" value="@ViewData["sort"]">
+                                <input type="hidden" name="style" value="@ViewData["style"]">
+                                <input type="hidden" name="vmarket" value="0">
                                 <input type="hidden" name="area_code" value="370100">
                                 <button type="submit" class="ui-btn-s-primary fAlc-btn" atpanel=",,,,spu-floc,20,floc,">
                                     确定</button>
