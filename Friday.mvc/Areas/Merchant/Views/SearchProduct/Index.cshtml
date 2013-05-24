@@ -625,186 +625,134 @@
                 <form action="SearchProduct" method="get">
                 <div class="ui-page">
                     <div class="ui-page-wrap">
-                        @* <b class="ui-page-num">
-   <b class="ui-page-prev">&lt;&lt;上一页</b>
-                 <b class="ui-page-cur">1</b>
-       <a href="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=60&amp;cat=2#J_Filter" atpanel="2,,,,,20,footer,">2</a>
-       <a href="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=120&amp;cat=2#J_Filter" atpanel="2,,,,,20,footer,">3</a>
-       <b class="ui-page-break">...</b>
-     <a class="ui-page-next" href="http://list.tmall.com/search_product.htm?area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=60&amp;cat=2#J_Filter" atpanel="2,pagedn,,,,20,footer,">下一页&gt;&gt;</a>
-   </b>
- <b class="ui-page-skip">
- <form name="filterPageForm" method="get" action="SearchProduct?orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]">
- <input type="hidden" name="fromF5">
-   <input type="hidden" name="keyword" value="@ViewData["skeyword"]">
-    <input type="hidden" name="totalPage" value="100">
-   <input type="hidden" name="cat" value="2">        
-   <input type="hidden" name="sort" value="s">
-   <input type="hidden" name="style" value="g">
-   <input type="hidden" name="vmarket" value="0">  
-   <input type="hidden" name="area_code" value="370100">  共100页，
-   到第<input type="text" name="page" class="ui-page-skipTo" size="3" value="1">页
- <button type="submit" class="ui-btn-s" atpanel="2,pageton,,,,20,footer,">确定</button>
- </form>
- </b>*@ <b class="ui-page-num">
-     @if (Model.pageNum <= 8)
-     {
-         if (Model.currentPage > 1)
-         {
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
-             << 上一页</a>
-         }
-         else
-         {
-         <b class="ui-page-prev"><< 上一页</b>
-         }
-         for (int i = 1; i <= Model.pageNum; i++)
-         {
-             if (i == Model.currentPage)
-             {
-         <b class="ui-page-cur">@i</b>
-             }
-             else
-             {
-         <a href="SearchProduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
-             }
-         }
+                        
+                        
+                    <b class="ui-page-num">
+                @if (Model.currentPage > 1)
+                {
+                    <a class="ui-page-prev j_PageChange " data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">&lt;&lt; 上一页</a>
+                }
+                else
+                {
+                    <b class="ui-page-prev">&lt;&lt; 上一页</b>
+                }
+                
+                @{
+                    if (Model.pageNum <= 3)
+                    {
+                        for (int i = 1; i <= Model.pageNum; i++)
+                        {
+                            if (i == Model.currentPage)
+                            {
+                                <b class="ui-page-cur">@i</b>
+                            }
+                            else
+                            {
+                                <a href="SearchProduct?page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                            }
+                        }
+                    }
+                    else if (Model.pageNum <= 8)
+                    {
+                        if (Model.currentPage + 2 < Model.pageNum)
+                        {
+                            for (int i = 1; i <= (Model.currentPage + 2); i++)
+                            {
+                                if (i == Model.currentPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="SearchProduct?page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                          <b class="ui-page-break">...</b>  
+                        }
+                        else
+                        {
+                            for (int i = 1; i <= Model.pageNum; i++)
+                            {
+                                if (i == Model.currentPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="SearchProduct?page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (Model.currentPage <= 6)
+                        {
+                            for (int i = 1; i <= (Model.currentPage + 2); i++)
+                            {
+                                if (i == Model.currentPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="SearchProduct?page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                          <b class="ui-page-break">...</b>  
+                        }
+                        else if (Model.currentPage <= Model.pageNum - 4)
+                        {
+                            <a href="SearchProduct?page=1&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="1">1</a>
+                            <a href="SearchProduct?page=2&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="2">2</a>
+                            <b class="ui-page-break">...</b>  
+                                
+                            for (int i = (Model.currentPage - 2); i <= (Model.currentPage + 2); i++)
+                            {
+                                if (i == Model.currentPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="SearchProduct?page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                            <b class="ui-page-break">...</b> 
+                        }
+                        else
+                        {
+                            <a href="SearchProduct?page=1&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="1">1</a>
+                            <a href="SearchProduct?page=2&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="2">2</a>
+                            <b class="ui-page-break">...</b> 
+                    
+                            for (int i = (Model.currentPage - 2); i <= Model.pageNum; i++)
+                            {
+                                if (i == Model.currentPage)
+                                {
+                                    <b class="ui-page-cur">@i</b>
+                                }
+                                else
+                                {
+                                    <a href="SearchProduct?page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                }
+                            }
+                        }
 
-
-         if (Model.currentPage < Model.pageNum)
-         {
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             下一页>></a>
-         }
-         else
-         {
-         <b class="ui-page-next">下一页 >></b>
-         }
-
-
-
-     }
-     @if (Model.pageNum > 8)
-     {
-         if (Model.currentPage < 7)
-         {
-             if (Model.currentPage > 1)
-             {
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
-             << 上一页</a>
-                   
-                 for (int p = 1; p < Model.currentPage + 3; p++)
-                 {
-                     if (p != Model.currentPage)
-                     {
-         <a class="ui-page-next j_PageChange " data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             @p</a>
-         
-                     }
-                     else
-                     {
-         <b class="ui-page-prev">@Model.currentPage</b>
-                     }
-                 }
-         <b class="ui-page-break">...</b>
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             下一页>></a>
-         
-             }
-             else if (Model.currentPage == 1)
-             {
-         <b class="ui-page-prev"><< 上一页</b>
-         <b class="ui-page-prev">1</b>
-                 for (int p = 2; p < 4; p++)
-                 {
-         <a class="ui-page-prev j_PageChange "  data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >@p</a>
-                 }
-         <b class="ui-page-break">...</b>
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             下一页>></a>
-         
-             }
-
-         }
-
-         if (Model.currentPage >= 7 && Model.currentPage + 2 < Model.pageNum)
-         {
-              
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
-             << 上一页</a>
-                   
-             for (int p = 1; p < 3; p++)
-             {                      
-         <a class="ui-page-next j_PageChange " data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             @p</a>
-             }
-         <b class="ui-page-break">...</b>
-               
-             for (int p = -2, i = 0; p < 3 && i < Model.pageNum; p++)
-             {
-                 i = p + Model.currentPage;
-
-                 if (i != Model.currentPage)
-                 {
-         <a class="ui-page-next j_PageChange " data-page="@i" href="SearchProduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             @i</a>
-         
-                 }
-                 else
-                 {
-         <b class="ui-page-prev">@Model.currentPage</b>
-                 }
-             }
-         <b class="ui-page-break">...</b>
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             下一页>></a>
-         
-         }
-         if (Model.currentPage >= 7 && Model.currentPage + 2 >= Model.pageNum)
-         {
-         <a class="ui-page-prev j_PageChange "  data-page="@(Model.currentPage - 1)" href="SearchProduct?page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" >
-             << 上一页</a>
-                   
-             for (int p = 1; p < 3; p++)
-             {                      
-         <a class="ui-page-next j_PageChange " data-page="@p" href="SearchProduct?page=@p&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             @p</a>
-             }
-         <b class="ui-page-break">...</b>
-             
-             for (int p = -2, i = 0; p < 3 && i < Model.pageNum; p++)
-             {
-                 i = p + Model.currentPage;
-
-                 if (i != Model.currentPage)
-                 {
-         <a class="ui-page-next j_PageChange " data-page="@i" href="SearchProduct?page=@i&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             @i</a>
-         
-                 }
-                 else
-                 {
-         <b class="ui-page-prev">@Model.currentPage</b>
-                 }
-             }
-             if (Model.currentPage == Model.pageNum)
-             {
-         <b class="ui-page-next">下一页 >></b>
-             }
-             else
-             {
-         <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">
-             下一页>></a>
-           
-             }
-
-         }
-
-
-
-
-     }
- </b><b class="ui-page-skip">共@(Model.pageNum)页，去第
+                    }
+                  }
+                @if (Model.currentPage < Model.pageNum)
+                {
+                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">&lt;&lt; 下一页</a>
+                }
+                else
+                {
+                    <b class="ui-page-next">下一页 &gt;&gt;</b>
+                }
+                    </b>    
+                        
+                                              
+      <b class="ui-page-skip">共@(Model.pageNum)页，去第
      <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
      <input type="hidden" value="@Model.pageNum"   size="3" class="ui-page-skipTo j_PageChangeInput" name="pagenum">
      <input type="hidden" value="@ViewData["skeyword"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="keyword">
