@@ -23,8 +23,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IFoodService iFoodService;
         //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
+        private IUserService iUserService;
+        private ISchoolService iSchoolService;
 
-        public SearchProductController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService,  IShopService iShopService, ICommodityService iCommodityService)
+        public SearchProductController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IShopService iShopService, ICommodityService iCommodityService, IUserService iUserService, ISchoolService iSchoolService)
         {
             this.iMerchantService = iMerchantService;
             this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
@@ -34,6 +36,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             this.iCommodityService = iCommodityService;
             //this.iFoodService = iFoodService;
             //this.iHouseService = iHouseService;
+            this.iUserService = iUserService;
+            this.iSchoolService = iSchoolService;
         }
         public ActionResult SearchGoods()
         {
@@ -206,6 +210,34 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["cat"] = cat;
             ViewData["sort"] = sort;
             ViewData["style"] = style;
+
+            //2013-05-24 wanghaichuan school
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            if (systemUser != null)
+            {
+                School currentUserSchool = systemUser.School;
+                School currentUserParentSchool = iSchoolService.Load(currentUserSchool.ParentID);
+                //当前用户所属 省 市
+                string[] family = currentUserSchool.Family.Split(',');
+                searchProductModel.currentFirstSchool = iSchoolService.Load(family[0]);
+                searchProductModel.currentSecondSchool = iSchoolService.Load(family[1]);
+
+                //同级地区
+                searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(currentUserSchool.ParentID);
+
+                //上一级地区
+                searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(currentUserParentSchool.ParentID);
+            }
+            else
+            {
+                //用户为登录
+                searchProductModel.currentFirstSchool = null;
+                searchProductModel.currentSecondSchool = null;
+
+                //最顶级地区
+                searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+            }
+
 
             return View(searchProductModel);
         }
