@@ -112,7 +112,7 @@ namespace Friday.Test2
                     ParentCode = "250000",
                     ParentID = sch.Id,
                     //2013-05-24 basilwang add Family
-                    Family=sch.ParentID+sch.Id+","
+                    Family=sch.Family+sch.Id+","
                 };
                 iSchoolRepository.SaveOrUpdate(scharea);
             }
@@ -132,7 +132,7 @@ namespace Friday.Test2
                     ParentCode = "25001" + i % 4,
                     ParentID = iSchoolRepository.GetSchoolByAreasName(areas[i%4]).Id,
                     //2013-05-24 basilwang add Family
-                    Family = iSchoolRepository.GetSchoolByAreasName(areas[i % 4]).ParentID + iSchoolRepository.GetSchoolByAreasName(areas[i % 4]).Id + ","
+                    Family = iSchoolRepository.GetSchoolByAreasName(areas[i % 4]).Family + iSchoolRepository.GetSchoolByAreasName(areas[i % 4]).Id + ","
                 };
                 iSchoolRepository.SaveOrUpdate(areasch);
             }
