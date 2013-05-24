@@ -89,7 +89,9 @@ namespace Friday.Test2
                      Name="山东省",
                      PinYin="shandongsheng",
                      ShortName="山东",
-                     TLevel=1                        
+                     TLevel=1 ,
+                     //2013-05-24 basilwang add Family
+                     Family = ""
                 };
 
             iSchoolRepository.SaveOrUpdate(sch);
@@ -109,6 +111,8 @@ namespace Friday.Test2
                     TLevel = 1,
                     ParentCode = "250000",
                     ParentID = sch.Id,
+                    //2013-05-24 basilwang add Family
+                    Family=sch.ParentID+sch.Id+","
                 };
                 iSchoolRepository.SaveOrUpdate(scharea);
             }
@@ -126,7 +130,9 @@ namespace Friday.Test2
                     ShortName = schl[i],
                     TLevel = 1,
                     ParentCode = "25001" + i % 4,
-                    ParentID = iSchoolRepository.GetSchoolByAreasName(areas[i%4]).Id,                     
+                    ParentID = iSchoolRepository.GetSchoolByAreasName(areas[i%4]).Id,
+                    //2013-05-24 basilwang add Family
+                    Family = iSchoolRepository.GetSchoolByAreasName(areas[i % 4]).ParentID + iSchoolRepository.GetSchoolByAreasName(areas[i % 4]).Id + ","
                 };
                 iSchoolRepository.SaveOrUpdate(areasch);
             }

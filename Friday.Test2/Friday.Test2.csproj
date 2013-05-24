@@ -216,7 +216,9 @@
     <Content Include="uploadImage\merchantPic\sret2.jpg" />
     <Content Include="uploadImage\merchantPic\sshop1.jpg" />
     <Content Include="uploadImage\merchantPic\sshop2.jpg" />
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
