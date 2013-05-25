@@ -13,17 +13,20 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 {
     public class ExtensionController : FridayController
     {
+        IMerchantService iMerchantService;
 
-        public ExtensionController(IUserService iUserService, ISystemUserRepository iSystemUserRepository):base(iUserService,iSystemUserRepository)
+        public ExtensionController(IUserService iUserService, ISystemUserRepository iSystemUserRepository, IMerchantService iMerchantService)
+            : base(iUserService, iSystemUserRepository)
         {
-          
+            this.iMerchantService = iMerchantService;
 
         }
-        public ActionResult initExtension()
+        public ActionResult initExtension(string sellerId)
         {
+            friday.core.Merchant merchant = iMerchantService.Load(sellerId);
             var breadCrumb=new List<string[]>();
-            breadCrumb.Add(new string[]{"邻居网","http://www.linju.com"});
-            breadCrumb.Add(new string[] { "Nike/&#32784;&#20811;", "http://list.tmall.com/search_product.htm?q=Nike%2F%C4%CD%BF%CB" });
+            breadCrumb.Add(new string[] { "邻居网", "http://localhost:7525/index.html" });
+            breadCrumb.Add(new string[] { merchant.Name, "http://localhost:7525/Merchant/index?scid=" + merchant.Id });
             var providerList = new List<Spu>();
             providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小熊在线" });
             providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小马在线" });
