@@ -35,6 +35,7 @@ namespace Friday.mvc.Models
             //IList<Food> Foods = new List<Food>();
             //IList<House> Houses = new List<House>();
             IList<Commodity> Commoditys = new List<Commodity>();
+            IList<Sku> minPriceSkuList = new List<Sku>();
 
             IList<Commodity> recommendComdties = new List<Commodity>();
         }
@@ -59,6 +60,7 @@ namespace Friday.mvc.Models
         //public IList<Food> Foods { get; set; }
         public IList<Commodity> recommendComdties { get; set; }
         public IList<Commodity> Commoditys { get; set; }
+        public IList<Sku> minPriceSkuList { get; set; }
      
         //school
         public School currentFirstSchool { get; set; }

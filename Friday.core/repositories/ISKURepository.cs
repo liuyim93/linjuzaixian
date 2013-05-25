@@ -11,5 +11,6 @@ namespace friday.core.repositories
         Sku getSkubyIntID(string id);
         void deleteSkubyID(string id);
         IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total);
+        Sku GetMinPriceSkusByCommodityID(string commodityID);
     }
 }

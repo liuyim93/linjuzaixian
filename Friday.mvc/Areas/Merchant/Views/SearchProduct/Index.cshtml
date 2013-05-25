@@ -569,8 +569,8 @@
                     data-atp="{p},{i},{ci},{is},spu,1,spu,{user_id}">
                     @for (var index = 0; index < Model.Commoditys.Count(); index++)
                     {
-                        var item = Model.Commoditys.ElementAt(index);    
-                  
+                        var item = Model.Commoditys.ElementAt(index);
+                        var minpricesku = Model.minPriceSkuList.ElementAt(index);    
                           
                         <div class="product" data-id="18965187927">
                             <div class="product-iWrap">
@@ -595,7 +595,7 @@
                                     </div>
                                 </div>
                                 <p class="productPrice">
-                                    <em title="199.00">¥@item.Price</em> <del>¥439.00</del>
+                                    <em title="199.00">¥@minpricesku.price </em> <del>¥439.00</del>
                                 </p>
                                 <p class="productTitle">
                                     <a href="" target="_blank" title="@item.Shop.Name @item.Name 2013春新款正品商务休闲正装舒适软面皮鞋包邮" data-i="18965187927" data-is="214204412" data-ci="50012906" data-p="1" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">@item.Shop.Name
