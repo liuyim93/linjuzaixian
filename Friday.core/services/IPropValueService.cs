@@ -17,5 +17,6 @@ namespace friday.core.services
         IList<PropValue> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
         IList<PropValue> GetPropValueListByPropID(int pid);
+        IList<PropValue> GetAllByPropIDName(string propIDName); 
     }
 }

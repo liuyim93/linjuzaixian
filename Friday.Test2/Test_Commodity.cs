@@ -17,18 +17,18 @@ namespace friday.coretest
     [TestFixture]
     public class Test_Commodity
     {
-        private TransactionScope scope;
-        [SetUp]
-        public void SetUp()
-        {
-            scope = new TransactionScope();
-        }
+        //private TransactionScope scope;
+        //[SetUp]
+        //public void SetUp()
+        //{
+        //    scope = new TransactionScope();
+        //}
 
-        [TearDown]
-        public void TearDown()
-        {
-            scope.Dispose();
-        }
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    scope.Dispose();
+        //}
         [Test]
         public void test_add_shop_and_commodity()
         {
@@ -37,6 +37,19 @@ namespace friday.coretest
 
             IGlobalGoodsTypeRepository globalGoodsTyperep = new GlobalGoodsTypeRepository();
             GlobalGoodsType mgt = globalGoodsTyperep.GetGlobalGoodsTypeByName("黄金");
+
+            ISkuRepository skurep = new SkuRepository();
+            ISkuPropRepository skuProprep = new SkuPropRepository();
+            IPropIDRepository propIDrep = new PropIDRepository();
+            IPropValueRepository propValuerep = new PropValueRepository();
+            IList<PropValue> iPropValues = new List<PropValue>();
+            IList<PropValue> iPropValues2 = new List<PropValue>();
+            IRepository<SkuProp> iSkuPropRepository = UnityHelper.UnityToT<IRepository<SkuProp>>();
+            PropID ppt1 = propIDrep.getPropIDbyPropIDName("颜色");
+            PropID ppt2 = propIDrep.getPropIDbyPropIDName("尺寸");
+            iPropValues = propValuerep.GetAllByPropIDName("颜色");
+            iPropValues2 = propValuerep.GetAllByPropIDName("尺寸");
+
 
             string ggtfamily = mgt.Family + mgt.Id;
 
@@ -65,7 +78,44 @@ namespace friday.coretest
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
+               
+
+                int skuConut = new Random().Next(12);
+                for (int j = 0, l = 0, m = 0; j <= skuConut; j++)
+                {
+                    Sku skus = new Sku()
+                    {
+                        Commodity = commodity,
+                        price = skuConut*10 + j * 10,
+                        priceCent = j,
+                        stock = j * 5,
+                    };
+                    skurep.SaveOrUpdate(skus);
+
+                    //颜色
+                    //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+                    SkuProp skpcolor = new SkuProp()
+                    {
+                        PropID = ppt1,
+                        PropValue = iPropValues[l / 4],
+                        SKU = skus
+                    };
+                    iSkuPropRepository.SaveOrUpdate(skpcolor);
+                    l++;
+                    //尺寸
+                    //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+                    SkuProp skpsize = new SkuProp()
+                    {
+                        PropID = ppt2,
+                        PropValue = iPropValues2[m % 4],
+                        SKU = skus
+                    };
+                    iSkuPropRepository.SaveOrUpdate(skpsize);
+                    m++; 
+
+                }
             }
+
             for (int i = 0; i < 40; i++)
             {
                 Commodity commodity = new Commodity()
@@ -91,6 +141,43 @@ namespace friday.coretest
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
+
+
+
+                int skuConut = new Random().Next(12);
+                for (int j = 0, l = 0, m = 0; j <= skuConut; j++)
+                {
+                    Sku skus = new Sku()
+                    {
+                        Commodity = commodity,
+                        price = skuConut*10 + j * 10,
+                        priceCent = j,
+                        stock = j * 5,
+                    };
+                    skurep.SaveOrUpdate(skus);
+
+                    //颜色
+                    //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+                    SkuProp skpcolor = new SkuProp()
+                    {
+                        PropID = ppt1,
+                        PropValue = iPropValues[l / 4],
+                        SKU = skus
+                    };
+                    iSkuPropRepository.SaveOrUpdate(skpcolor);
+                    l++;
+                    //尺寸
+                    //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+                    SkuProp skpsize = new SkuProp()
+                    {
+                        PropID = ppt2,
+                        PropValue = iPropValues2[m % 4],
+                        SKU = skus
+                    };
+                    iSkuPropRepository.SaveOrUpdate(skpsize);
+                    m++;
+
+                }
             }  
              
         }

@@ -52,7 +52,10 @@ namespace friday.core.services
         public IList<PropValue> GetPropValueListByPropID(int pid) 
         {
             return iPropValueRepository.GetPropValueListByPropID(pid);
+        }
+        public IList<PropValue> GetAllByPropIDName(string propIDName) 
+        {
+            return iPropValueRepository.GetAllByPropIDName(propIDName);
         }   
-
     }
 }
