@@ -89,6 +89,8 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -102,6 +104,7 @@
   <ItemGroup>
     <Compile Include="components\CommodityUploadImage.cs" />
     <Compile Include="components\EntLibConnectionProvider.cs" />
+    <Compile Include="components\IPAndLocationHelper.cs" />
     <Compile Include="components\tree\JsonTree.cs" />
     <Compile Include="components\tree\nvl.cs" />
     <Compile Include="components\permission\BaseModel.cs" />
@@ -168,6 +171,11 @@
     <Compile Include="repositories\IShoppingCartRepository.cs" />
     <Compile Include="repositories\ICartOfCommodityRepository.cs" />
     <Compile Include="repositories\CartOfCommodityRepository.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="services\GlobalGoodsTypeService.cs" />
     <Compile Include="services\IGlobalGoodsTypeService.cs" />
     <Compile Include="services\ILoginUserService.cs" />
@@ -405,11 +413,33 @@
     <Compile Include="domain\ValuingItemOfMyCommodityOrder.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="domain\friday.cd" />
     <None Include="packages.config" />
     <Compile Include="repositories\IValuingItemOfMyCommodityOrderRepository.cs" />
+    <None Include="Service References\ServiceReference1\IpAddressSearchWebService.wsdl" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\IpAddressSearchWebService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

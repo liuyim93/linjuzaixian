@@ -213,6 +213,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             //2013-05-24 wanghaichuan school
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            IPAndLocationHelper.GetConnectNetAddressArea();
             if (systemUser != null)
             {
                 School currentUserSchool = systemUser.School;
