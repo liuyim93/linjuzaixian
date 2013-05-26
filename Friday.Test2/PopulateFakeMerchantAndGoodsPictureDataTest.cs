@@ -88,9 +88,10 @@ namespace Friday.Test2
             }
 
             //国际品牌
-              string[]  NationalMerchat={"优衣库","兰芝","微软","飞利浦","新百伦","Nike","Karicare","ELLE"};
+              string[] NationalMerchat = { "优衣库", "Adidas GAP", "飞利浦", "微软", "新百伦", "Nike", "兰芝", "ELLE", "Karicare" };//{"优衣库","兰芝","微软","飞利浦","新百伦","Nike","Karicare","ELLE"};
+           
               GlobalGoodsType ggdt;
-              for (int i = 0; i<6;i++ )
+              for (int i = 0; i<9;i++ )
               {
                 Shop mcht = new Shop()
                 {

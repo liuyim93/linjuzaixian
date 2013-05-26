@@ -5,38 +5,58 @@
 <div>
 @for (var level0 = 0; level0 < Model.GlobalGoodsTypeTlevelZero.Count(); level0++)
              {
-                 
+                 if (level0 == 0) 
+                 {
+                 <div class="subView subView0 j_SubView hidden" data-spm="3.420198.322489">
+		         <h3 class="subItem-hd">国际品牌</h3>
+		            <div class="subItem-list">
+			         <ul>     
+                      @for (int i = 0; i < Model.NationalShops.Count;i++ )
+                      {
+                          var item=Model.NationalShops.ElementAt(i);
+                      <li class="first">
+                      @*    <a href="http://uniqlo.tmall.com/?spm=3.420198.322489.1" target="_blank" title="Uniqlo/优衣库"><img src="http://img01.taobaocdn.com/tps/i1/T12xKDXwpXXXXQXDnq-90-45.png" width="90" height="45" alt="Uniqlo/优衣库"><span>Uniqlo/优衣库</span><b></b></a>
+             *@ 
+                  <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@item.Name"><img src="http://localhost:7525/@item.sBrand" width="90" height="45" alt="@item.Name"><span>@item.Name</span><b></b></a>
+                     </li>  
+                      }                                    			
+		       	</ul>                          
+		       </div>
+	           </div>
+                 }
+                 else
+                 {
                  @:<div class="subView j_SubView hidden">         
  
-                 var level0_obj = Model.GlobalGoodsTypeTlevelZero.ElementAt(level0);
-                 int sort=0;
-                 for (int level1 = 0; level1 < Model.GlobalGoodsTypeTlevelFirst.Count(); level1++)
-              {
-                  var level1_obj = Model.GlobalGoodsTypeTlevelFirst.ElementAt(level1);
-                  if (level1_obj.ParentID == level0_obj.Id)
-                  {
-                     if (sort % 3 == 0)
+                     var level0_obj = Model.GlobalGoodsTypeTlevelZero.ElementAt(level0);
+                     int sort = 0;
+                     for (int level1 = 0; level1 < Model.GlobalGoodsTypeTlevelFirst.Count(); level1++)
                      {
-                         if (sort == 0)
+                         var level1_obj = Model.GlobalGoodsTypeTlevelFirst.ElementAt(level1);
+                         if (level1_obj.ParentID == level0_obj.Id)
                          {
+                             if (sort % 3 == 0)
+                             {
+                                 if (sort == 0)
+                                 {
                               @:<ul>
                          }
-                         else
-                         {
+                                 else
+                                 {
                             @:</ul>
                             @:<ul>
                          }
-                     }
+                             }
                      @:<li class="subItem">
 
-                      if (level0 != 0)
-                      {
+                             //if (level0 != 0)
+                             //{
                      @:<h3 class="subItem-hd"><a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level1_obj.Id#J_crumbs" target="_blank"> @level1_obj.Name</a> </h3>
-                      }
-                      else 
+                    @*   }
+                     else 
                       {
                      @:<h3 class="subItem-hd"><a href="http://localhost:7525/Merchant/index?scid=@level1_obj.Description" target="_blank">  @level1_obj.Name</a> </h3>
-                      }
+                      }*@  
                      @:<p class="subItem-cat">
                         for (int level2 = 0; level2 < Model.GlobalGoodsTypeTlevelSecond.Count(); level2++)
                         {
@@ -50,14 +70,110 @@
                      @:</p>
                      @:</li>
                      sort++;
-                  }
-              }
-                 if (sort != 0)
-                 {
+                         }
+                     }
+                     if (sort != 0)
+                     {
                      @:</ul>
                  }
                  @:</div>
-              
+              }
              }
 
 </div>
+
+@*
+<div class="subView subView0 j_SubView hidden" data-spm="3.420198.322489">
+		<h3 class="subItem-hd">国际品牌</h3>
+		<div class="subItem-list">
+			<ul>
+                        
+               	<li class="first">
+                  <a href="http://uniqlo.tmall.com/?spm=3.420198.322489.1" target="_blank" title="Uniqlo/优衣库"><img src="http://img01.taobaocdn.com/tps/i1/T12xKDXwpXXXXQXDnq-90-45.png" width="90" height="45" alt="Uniqlo/优衣库"><span>Uniqlo/优衣库</span><b></b></a>
+                </li>
+             	<li class="first">
+                   <a href="http://levis.tmall.com/?spm=3.420198.322489.2" target="_blank" title="Levi’s/李维斯"><img src="http://img02.taobaocdn.com/tps/i2/T1I6WCXpJdXXXQXDnq-90-45.png" width="90" height="45" alt="Levi’s/李维斯"><span>Levi’s/李维斯</span><b></b></a>
+                                </li>
+                                				<li class="first">
+                                     <a href="http://nike.tmall.com/?spm=3.420198.322489.3" target="_blank" title="Nike/耐克"><img src="http://img03.taobaocdn.com/tps/i3/T19LCEXshXXXXQXDnq-90-45.png" width="90" height="45" alt="Nike/耐克"><span>Nike/耐克</span><b></b></a>
+                                </li>
+                                				<li class="first">
+                                     <a href="http://crocs.tmall.com/?spm=3.420198.322489.4" target="_blank" title="Crocs"><img src="http://img04.taobaocdn.com/tps/i4/T1BOKEXphXXXXQXDnq-90-45.png" width="90" height="45" alt="Crocs"><span>Crocs</span><b></b></a>
+                                </li>
+                                				<li class="first">
+                                     <a href="http://ninewest.tmall.com/?spm=3.420198.322489.5" target="_blank" title="ninewest玖熙"><img src="http://img01.taobaocdn.com/tps/i1/T1iNOCXy0dXXXQXDnq-90-45.png" width="90" height="45" alt="ninewest玖熙"><span>ninewest玖熙</span><b></b></a>
+                                </li>
+                                			
+
+                        
+                               				<li class="secondFir">
+                                     <a href="http://adidas.tmall.com/?spm=3.420198.322489.6" target="_blank" title="Adidas/阿迪达斯"><img src="http://img02.taobaocdn.com/tps/i2/T12L9DXxtaXXXQXDnq-90-45.png" width="90" height="45" alt="Adidas/阿迪达斯"><span>Adidas/阿迪达斯</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://mango.tmall.com/?spm=3.420198.322489.7" target="_blank" title="MANGO"><img src="http://img03.taobaocdn.com/tps/i3/T11NqCXExdXXXQXDnq-90-45.png" width="90" height="45" alt="MANGO"><span>MANGO</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://gap.tmall.com/?spm=3.420198.322489.8" target="_blank" title="GAP"><img src="http://img04.taobaocdn.com/tps/i4/T1KJ9DXEdaXXXQXDnq-90-45.png" width="90" height="45" alt="GAP"><span>GAP</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://rayban.tmall.com/?spm=3.420198.322489.9" target="_blank" title="Rayban/雷朋"><img src="http://img01.taobaocdn.com/tps/i1/T1NASDXpNbXXXQXDnq-90-45.png" width="90" height="45" alt="Rayban/雷朋"><span>Rayban/雷朋</span><b></b></a>
+                                </li>
+                                			
+
+                        
+                               				<li>
+                                     <a href="http://elle.tmall.com/?spm=3.420198.322489.10" target="_blank" title="ELLE"><img src="http://img04.taobaocdn.com/tps/i4/T1WTmKXAhcXXXQXDnq-90-45.png" width="90" height="45" alt="ELLE"><span>ELLE</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://lesportsaccx.tmall.com/?spm=3.420198.322489.11" target="_blank" title="LeSportsac"><img src="http://img01.taobaocdn.com/tps/i1/T1kqWKXrXfXXXQXDnq-90-45.png" width="90" height="45" alt="LeSportsac"><span>LeSportsac</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://cnhb.tmall.com/?spm=3.420198.322489.12" target="_blank" title="Canon/佳能"><img src="http://img02.taobaocdn.com/tps/i2/T1G8CLXAVbXXXQXDnq-90-45.png" width="90" height="45" alt="Canon/佳能"><span>Canon/佳能</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://newbalance.tmall.com/?spm=3.420198.322489.13" target="_blank" title="New Balance/新百伦"><img src="http://img04.taobaocdn.com/tps/i4/T186iMXxBXXXXQXDnq-90-45.png" width="90" height="45" alt="New Balance/新百伦"><span>New Balance/新百伦</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://chowtaifook.tmall.com/?spm=3.420198.322489.14" target="_blank" title="周大福"><img src="http://img01.taobaocdn.com/tps/i1/T1rXqNXpdXXXXQXDnq-90-45.png" width="90" height="45" alt="周大福"><span>周大福</span><b></b></a>
+                                </li>
+                                			
+
+                        
+                               				<li class="fourthFir">
+                                     <a href="http://philipschina.tmall.com/?spm=3.420198.322489.15" target="_blank" title="Philips/飞利浦"><img src="http://img03.taobaocdn.com/tps/i3/T15JSDXCJaXXXQXDnq-90-45.png" width="90" height="45" alt="Philips/飞利浦"><span>Philips/飞利浦</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://samsung.tmall.com/?spm=3.420198.322489.16" target="_blank" title="Samsung/三星"><img src="http://img04.taobaocdn.com/tps/i4/T1qxSBXp8eXXXQXDnq-90-45.png" width="90" height="45" alt="Samsung/三星"><span>Samsung/三星</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://laneige.tmall.com/?spm=3.420198.322489.17" target="_blank" title="Laneige/兰芝"><img src="http://img01.taobaocdn.com/tps/i1/T1_uaEXuVXXXXQXDnq-90-45.png" width="90" height="45" alt="Laneige/兰芝"><span>Laneige/兰芝</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://jackjones.tmall.com/?spm=3.420198.322489.18" target="_blank" title="Jack Jones/杰克琼斯"><img src="http://img01.taobaocdn.com/tps/i1/T1qbaMXAtaXXXQXDnq-90-45.png" width="90" height="45" alt="Jack Jones/杰克琼斯"><span>Jack Jones/杰克琼斯</span><b></b></a>
+                                </li>
+                                			
+
+                        
+                               				<li>
+                                     <a href="http://nipponpaint.tmall.com/?spm=3.420198.322489.19" target="_blank" title="立邦"><img src="http://img02.taobaocdn.com/tps/i2/T1yUmxXrphXXXQXDnq-90-45.png" width="90" height="45" alt="立邦"><span>立邦</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://seagate.tmall.com/?spm=3.420198.322489.20" target="_blank" title="Seagate/希捷"><img src="http://img03.taobaocdn.com/tps/i3/T1mqmLXzldXXXQXDnq-90-45.png" width="90" height="45" alt="Seagate/希捷"><span>Seagate/希捷</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://3m.tmall.com/?spm=3.420198.322489.21" target="_blank" title="3M"><img src="http://img04.taobaocdn.com/tps/i4/T1pbyLXCFcXXXQXDnq-90-45.png" width="90" height="45" alt="3M"><span>3M</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://dawan.tmall.com/?spm=3.420198.322489.22" target="_blank" title="Goo．n！/大王"><img src="http://img01.taobaocdn.com/tps/i1/T1tV9KXp8fXXXQXDnq-90-45.png" width="90" height="45" alt="Goo．n！/大王"><span>Goo．n！/大王</span><b></b></a>
+                                </li>
+                                				<li>
+                                     <a href="http://nutricia.tmall.com/?spm=3.420198.322489.23" target="_blank" title="KARICARE/可瑞康"><img src="http://img02.taobaocdn.com/tps/i2/T1qfaKXxVeXXXQXDnq-90-45.png" width="90" height="45" alt="KARICARE/可瑞康"><span>KARICARE/可瑞康</span><b></b></a>
+                                </li>
+                                			
+
+			</ul>
+                        
+			<a class="subItem-more" href="http://www.tmall.com/go/act/tmall/dapai.php?spm=3.420198.322489.24&amp;ad_id=&amp;am_id=13010528496fb12e80b0&amp;cm_id=&amp;pm_id=" target="_blank">更多品牌<s class="menuIcon"></s></a>
+                        
+		</div>
+	</div>*@
