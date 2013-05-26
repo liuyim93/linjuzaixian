@@ -63,6 +63,7 @@
         window.g_config = { appId: 2000, t: '20130201', closeWinner: true, closeTriggerAnim: true };
     </script>
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
     <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script> 
@@ -82,7 +83,122 @@
     </div>
     <div id="status">
     </div>
-    @Html.Partial("_SiteNav")
+    
+
+    <div id="site-nav">
+    <div id="sn-bg">
+        <div class="sn-bg-right">
+        </div>
+    </div>
+    <div id="sn-bd">
+        <b class="sn-edge"></b>
+        <span style="color:#ffd0c0">切换区域：</span>
+
+            <input id="J_AreaButton" type="button" value="切换" />
+        <script type="text/javascript">
+            $(function () {
+                init();
+                //$("#J_Address").val($("#Address_div select:last-child").val());
+            });
+
+            function init() {
+                $.ajax({
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                    data: "{'nvls':[{'name':'id','value':'0'}]}",
+                    dataType: "json",
+                    success: function (data) {
+                        debugger
+                        var da = eval("(" + data.d + ")");
+                        updateAfterList(0, 0);
+                    }
+                });
+            }
+
+            function updateAfterList(level, id) {
+                $.ajax({
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                    data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
+                    dataType: "json",
+                    success: function (data) {
+                        debugger
+                        var da = eval("(" + data.d + ")");
+                        if (da.length != 0) {
+                            $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton");
+
+                            $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
+
+
+                            for (var i = 1; i < da.length; i++) {
+                                $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                            }
+
+                            $("#Area_" + level).bind("change", function () {
+                                deleteAfterList($(this).attr("level"));
+                                updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                //$("#J_Address").val($("#Address_div select:last-child").val());
+                            });
+
+                            if (da[0].hasChildren == true) {
+                                updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
+                            }
+                            //$("#J_Address").val($("#Address_div select:last-child").val());
+                        }
+                    }
+                });
+            }
+
+            function deleteAfterList(level) {
+                debugger
+                var sumSelect = $("#sn-bd select");
+                for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
+                    $(sumSelect[i]).remove();
+                }
+            }
+        </script>
+
+
+        <div class="sn-container">
+
+
+            <p id="login-info" class="sn-login-info">
+                <script>
+                    TB.use("mod~global", function () {
+                        if (TB && TB.Global && TB.Global.writeLoginInfo) {
+                            TB.Global.writeLoginInfo({
+                                isApp: false
+                            });
+                        }
+                    });
+
+                </script>
+            </p>
+
+
+
+            <ul class="sn-quick-menu">
+
+                <li class="cart"><a href="http://localhost:7525/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s>
+                </s>购物车 </a></li>
+               
+               
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    TB.use("mod~global", function () {
+        if (TB && TB.Global && TB.Global.init) {
+            TB.Global.init();
+        }
+    });
+</script>
+
+
+
     @Html.Partial("_Header")
     <div id="mallNav" data-spm="3.168958.197562">
         <div class="mallNav-con" id="J_MallNavCon">
