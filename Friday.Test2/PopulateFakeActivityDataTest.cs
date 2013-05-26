@@ -27,7 +27,7 @@ namespace Friday.Test2
             Activity act1 = new Activity()
             {
                   Name="甜美公主风",
-                  Matters="10",
+                  Matters="女装",
                   Description = "甜美公主风",
                   Image = "/uploadimage/jpeg1.jpg",
                   SubImage=""
@@ -38,7 +38,7 @@ namespace Friday.Test2
             Activity act2 = new Activity()
             {
                 Name = "数码家电风暴",
-                Matters = "10",
+                Matters = "手机",
                 Description = "数码家电风暴",
                 Image = "/uploadimage/jpeg2.jpg",
                 SubImage = "/uploadimage/SubJpeg2.png"
@@ -50,7 +50,7 @@ namespace Friday.Test2
             Activity act3 = new Activity()
             {
                 Name = "相宜本草最红女生节",
-                Matters = "10",
+                Matters = "化妆品",
                 Description = "相宜本草最红女生节",
                 Image = "/uploadimage/jpeg3.jpg",
                 SubImage = ""
@@ -60,7 +60,7 @@ namespace Friday.Test2
             Activity act4 = new Activity()
             {
                 Name = "2013最浪漫情人节",
-                Matters = "10",
+                Matters = "手表",
                 Description = "2013最浪漫情人节",
                 Image = "/uploadimage/jpeg4.jpg",
                 SubImage = "/uploadimage/SubJpeg4.png"
@@ -71,7 +71,7 @@ namespace Friday.Test2
             Activity act5 = new Activity()
             {
                 Name = "爱在一起，全民来电",
-                Matters = "10",
+                Matters = "家用电器",
                 Description = "爱在一起，全民来电",
                 Image = "/uploadimage/jpeg5.jpg",
                 SubImage = ""
