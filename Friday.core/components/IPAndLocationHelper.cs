@@ -4,34 +4,33 @@ using System.Linq;
 using System.Text;
 using System.Net;
 using System.IO;
+using friday.core.ServiceReference1;
+using System.ServiceModel;
 
 namespace friday.core.components
 {
     public static class IPAndLocationHelper
     {
-        private static string GetConnectNetAddress()
-        {
-            string strUrl = "http://www.ip138.com/ip2city.asp"; //获得IP的网址
-            Uri uri = new Uri(strUrl);
-            WebRequest webreq = WebRequest.Create(uri);
-            Stream s = webreq.GetResponse().GetResponseStream();
-            StreamReader sr = new StreamReader(s, Encoding.Default);
-            string all = sr.ReadToEnd(); //读取网站返回的数据 格式：您的IP地址是：[x.x.x.x]
-            int i = all.IndexOf("[") + 1;
-            string tempip = all.Substring(i, 15);
-            string ip = tempip.Replace("]", "").Replace(" ", "").Replace("<", "");
-            return ip;
-        }
+
         /// <summary>
-        /// get the location by ip
+        /// 通过输入IP地址查询国家、城市、所有者等信息。没有注明国家的为中国
         /// </summary>
-        /// <returns></returns>
-        public static string GetConnectNetAddressArea()
+        /// <param name="strIp">IP地址</param>
+        /// <returns>一个一维字符串数组String(1)，String(0) = IP地址；String(1) = 查询结果或提示信息</returns>
+        public static string[] GetAddress(string strIp)
         {
-            string strIP = GetConnectNetAddress();
-            friday.core.ServiceReference1.IpAddressSearchWebServiceSoap webService = new friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient();
-            string[] strArea = webService.getCountryCityByIp(strIP);
-            return strArea[1];
+            friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient ip = new friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient(new BasicHttpBinding(), new EndpointAddress("http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx"));
+            return ip.getCountryCityByIp(strIp);
+        }
+
+        /// <summary>
+        /// 获得您的IP地址和地址信息
+        /// </summary>
+        /// <returns>一个一维字符串数组String(1)，String(0) = IP地址；String(1) = 地址信息</returns>
+        public static string[] GetLocalIp()
+        {
+            friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient ip = new friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient(new BasicHttpBinding(), new EndpointAddress("http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx"));
+            return ip.getGeoIPContext();
         }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4fa7fb46-f0c8-47d3-8b72-fe84c0c15915" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="2712d2f5-5f7a-49a7-bd03-a2fed07e275e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -18,11 +18,11 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://webservice.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="IpAddressSearchWebService.disco" MetadataType="Disco" ID="01d8cce5-fb7d-4318-99a3-f3afdb1f165e" SourceId="1" SourceUrl="http://webservice.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx?disco" />
-    <MetadataFile FileName="IpAddressSearchWebService.wsdl" MetadataType="Wsdl" ID="14d8f27d-38fe-4cb1-a960-6fb33a83d83e" SourceId="1" SourceUrl="http://webservice.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx?wsdl" />
+    <MetadataFile FileName="IpAddressSearchWebService.disco" MetadataType="Disco" ID="6de0251e-e034-4988-9571-914944ad5501" SourceId="1" SourceUrl="http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx?disco" />
+    <MetadataFile FileName="IpAddressSearchWebService.wsdl" MetadataType="Wsdl" ID="23cf52ab-43e6-4549-a7ba-df2b46757921" SourceId="1" SourceUrl="http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
