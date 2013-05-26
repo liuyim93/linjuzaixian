@@ -312,14 +312,23 @@
                         <div class="fA-list">
                             <div class="fAl-hd clearfix">
                                 <a class="fAl-all" href="">所有地区</a> 
-                                @{
-                                    if (Model.currentFirstSchool != null)
-                                    {
-                                        <span class="fAl-curLoc"><a href="" atpanel="1,@Model.currentSecondSchool.Name),,,spu-floc,20,floc,">@(Model.currentFirstSchool.Name.Length > 4 ? (Model.currentFirstSchool.Name.Substring(0, 3)+"..") : Model.currentFirstSchool.Name)</a> <a
-                                            href="" atpanel="2,(@Model.currentSecondSchool.Name),,,spu-floc,20,floc,">@(Model.currentSecondSchool.Name.Length > 4 ? (Model.currentSecondSchool.Name.Substring(0, 3) + "..") : Model.currentSecondSchool.Name)</a> </span>
-                                    }
+                                   <span class="fAl-curLoc">
+                                    @{
+                                        if (Model.currentFirstSchool != null)
+                                        {
+                                            <a href="" atpanel="1,@Model.currentFirstSchool.Name),,,spu-floc,20,floc,">@(Model.currentFirstSchool.Name.Length > 4 ? (Model.currentFirstSchool.Name.Substring(0, 3) + "..") : Model.currentFirstSchool.Name)</a> 
+                                        } 
+                                     }  
+
+                                    @{
+                                        if (Model.currentSecondSchool != null)
+                                        {
+                                            <a href="" atpanel="2,(@Model.currentSecondSchool.Name),,,spu-floc,20,floc,">@(Model.currentSecondSchool.Name.Length > 4 ? (Model.currentSecondSchool.Name.Substring(0, 3) + "..") : Model.currentSecondSchool.Name)</a>
+                                        }
+                                     }
+                                    </span>
                                     
-                                  }
+                                 
                                 <form class="fAl-custom" action="">
                                 <input type="text" data-val="输入城市名" id="J_FOAInput" name="loc">
                                 <input type="hidden" value="@ViewData["skeywords"]" name="q">
@@ -337,30 +346,32 @@
                                 {
                                     <ul class="fAl-loc" data-atp=",{text},,,spu-floc,20,floc,">
                                     @{
-                                        foreach(friday.core.domain.School s in Model.siblingSchools)
-                                        {
+                                    foreach (friday.core.domain.School s in Model.siblingSchools)
+                                    {
                                             <li><a href="">@(s.Name.Length > 4 ? (s.Name.Substring(0, 3) + "..") : s.Name)</a></li>
-                                        }
+                                    }
                                       }
                                     </ul>
-                                
-                                    <ul class="fAl-loc" data-atp=",{text},,,spu-floc,20,floc,">
-                                    @{
+                                    if (Model.currentSecondSchool != null)
+                                    {
+                                        <ul class="fAl-loc" data-atp=",{text},,,spu-floc,20,floc,">
+                                        @{
                                         foreach (friday.core.domain.School s in Model.parentSiblingSchools)
                                         {
-                                            <li><a href="">@(s.Name.Length > 4 ? (s.Name.Substring(0, 3) + "..") : s.Name)</a></li>
+                                                <li><a href="">@(s.Name.Length > 4 ? (s.Name.Substring(0, 3) + "..") : s.Name)</a></li>
                                         }
-                                      }
-                                    </ul>
+                                          }
+                                        </ul>
+                                    }
                                 }
                                 else
                                 {
                                     <ul class="fAl-loc" data-atp=",{text},,,spu-floc,20,floc,">
                                     @{
-                                        foreach (friday.core.domain.School s in Model.parentSiblingSchools)
-                                        {
+                                    foreach (friday.core.domain.School s in Model.parentSiblingSchools)
+                                    {
                                             <li><a href="">@(s.Name.Length > 4 ? (s.Name.Substring(0, 3) + "..") : s.Name)</a></li>
-                                        }
+                                    }
                                       }
                                     </ul>
                                 }
