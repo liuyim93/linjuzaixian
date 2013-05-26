@@ -14,9 +14,7 @@
                       @for (int i = 0; i < Model.NationalShops.Count;i++ )
                       {
                           var item=Model.NationalShops.ElementAt(i);
-                      <li class="first">
-                      @*    <a href="http://uniqlo.tmall.com/?spm=3.420198.322489.1" target="_blank" title="Uniqlo/优衣库"><img src="http://img01.taobaocdn.com/tps/i1/T12xKDXwpXXXXQXDnq-90-45.png" width="90" height="45" alt="Uniqlo/优衣库"><span>Uniqlo/优衣库</span><b></b></a>
-             *@ 
+                      <li class="first">          
                   <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@item.Name"><img src="http://localhost:7525/@item.sBrand" width="90" height="45" alt="@item.Name"><span>@item.Name</span><b></b></a>
                      </li>  
                       }                                    			
@@ -49,14 +47,8 @@
                              }
                      @:<li class="subItem">
 
-                             //if (level0 != 0)
-                             //{
                      @:<h3 class="subItem-hd"><a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level1_obj.Id#J_crumbs" target="_blank"> @level1_obj.Name</a> </h3>
-                    @*   }
-                     else 
-                      {
-                     @:<h3 class="subItem-hd"><a href="http://localhost:7525/Merchant/index?scid=@level1_obj.Description" target="_blank">  @level1_obj.Name</a> </h3>
-                      }*@  
+                
                      @:<p class="subItem-cat">
                         for (int level2 = 0; level2 < Model.GlobalGoodsTypeTlevelSecond.Count(); level2++)
                         {
