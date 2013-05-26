@@ -21,8 +21,16 @@
                          var item = Model.GlobalGoodsTypeTlevelFirst.ElementAt(index);
                          if (item.ParentID == goodsType.Id)
                          {
-                            <li><a href="http://localhost:7525/Merchant/SearchProduct?keyword=@item.Name"
+                             if (goodsTypeId != 0)
+                             {
+                            <li><a href="http://localhost:7525/Merchant/SearchProduct?cat=@item.Id"
                                  target="_blank">@item.Name</a></li>
+                             }
+                             else 
+                             {
+                            <li><a href="http://localhost:7525/Merchant/index?scid=@item.Description"
+                                 target="_blank">@item.Name</a></li>
+                             }
                          }
 
                      }
@@ -32,11 +40,11 @@
                 <div class="floorCon-logo j_aldLogo">
                     <ul class="fCl-slide">
                         @{
-                    var count = Model.Shops.Count();
-                    var num_per_page = 5;
-                    var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
-                    for (var page_index = 0; page_index < page_num; page_index++)
-                    {
+                     var count = Model.Shops.Count();
+                     var num_per_page = 5;
+                     var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
+                     for (var page_index = 0; page_index < page_num; page_index++)
+                     {
                             <li style="display: block; float: left;">
                                 @for (var item_index = page_index * num_per_page; item_index < (page_index + 1) * num_per_page; item_index++)
                                 {
@@ -47,14 +55,14 @@
                             
                                 }
                             </li>
-                    }
+                     }
                           
                         }
                     </ul>
                     <ul class="fCl-nav ui-slide-nav-mini">
                         @{
-                    for (var i = 0; i < page_num; i++)
-                    {
+                     for (var i = 0; i < page_num; i++)
+                     {
                             @:<li>•</li>
                             }
                             
