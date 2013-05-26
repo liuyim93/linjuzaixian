@@ -23,11 +23,13 @@ namespace Friday.Test2
 
             IRepository<Activity> iActivityRepository = UnityHelper.UnityToT<IRepository<Activity>>();
             IList<Activity> iActivitys = new List<Activity>();
+            IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = new GlobalGoodsTypeRepository();
+
 
             Activity act1 = new Activity()
             {
                   Name="甜美公主风",
-                  Matters="女装",
+                  Matters = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("女装").Id,
                   Description = "甜美公主风",
                   Image = "/uploadimage/jpeg1.jpg",
                   SubImage=""
@@ -38,7 +40,7 @@ namespace Friday.Test2
             Activity act2 = new Activity()
             {
                 Name = "数码家电风暴",
-                Matters = "手机",
+                Matters = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("男包").Id,
                 Description = "数码家电风暴",
                 Image = "/uploadimage/jpeg2.jpg",
                 SubImage = "/uploadimage/SubJpeg2.png"
@@ -50,7 +52,7 @@ namespace Friday.Test2
             Activity act3 = new Activity()
             {
                 Name = "相宜本草最红女生节",
-                Matters = "化妆品",
+                Matters = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("食品").Id,
                 Description = "相宜本草最红女生节",
                 Image = "/uploadimage/jpeg3.jpg",
                 SubImage = ""
@@ -60,7 +62,7 @@ namespace Friday.Test2
             Activity act4 = new Activity()
             {
                 Name = "2013最浪漫情人节",
-                Matters = "手表",
+                Matters = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("酒水").Id,
                 Description = "2013最浪漫情人节",
                 Image = "/uploadimage/jpeg4.jpg",
                 SubImage = "/uploadimage/SubJpeg4.png"
@@ -71,7 +73,7 @@ namespace Friday.Test2
             Activity act5 = new Activity()
             {
                 Name = "爱在一起，全民来电",
-                Matters = "家用电器",
+                Matters = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("女士手拿包").Id,
                 Description = "爱在一起，全民来电",
                 Image = "/uploadimage/jpeg5.jpg",
                 SubImage = ""
