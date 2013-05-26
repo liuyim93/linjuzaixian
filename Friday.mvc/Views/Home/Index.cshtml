@@ -102,16 +102,97 @@
             });
 
             function init() {
+            debugger
+             @{  
+                <text>              
+                var loginState = "@Model.LoginStateFamily[0]"; 
+                </text>             
+              }
+
+              var userFamily;
+
+              if(loginState=="isLogin")
+              {
+                  @{  
+                    <text>              
+                    userFamily = "@Model.LoginStateFamily[1]"; 
+                    </text>             
+                  }
+                  var userFamilyArray = userFamily.split(',');
+                  for(var i=0;i<userFamilyArray.length;i++)
+                  {
+                      if(i==0)
+                      {
+                         updateOneList(i, 0, userFamilyArray[i]);
+                      }
+                      else
+                      {
+                         updateOneList(i, userFamilyArray[i-1], userFamilyArray[i]);
+                      }
+                  }
+              }
+              else if(loginState=="isIP")
+              {
+                  @{  
+                    <text>              
+                    userFamily = "@Model.LoginStateFamily[1]"; 
+                    </text>             
+                  }
+                  var userFamilyArray = userFamily.split(',');
+                  debugger
+                  for(var i=0;i<userFamilyArray.length;i++)
+                  {
+                      if(i==0)
+                      {
+                         updateOneList(i, 0, userFamilyArray[i]);
+                      }
+                      else
+                      {
+                         updateOneList(i, userFamilyArray[i-1], userFamilyArray[i]);
+                      }
+                  }
+              }
+              else if(loginState=="noAll")
+              {
+                    updateAfterList(0, 0);                
+              }
+            }
+
+            function updateOneList(level, parentid , currentid) {
                 $.ajax({
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
-                    data: "{'nvls':[{'name':'id','value':'0'}]}",
+                    data: "{'nvls':[{'name':'id','value':'" + parentid + "'}]}",
                     dataType: "json",
                     success: function (data) {
                         debugger
                         var da = eval("(" + data.d + ")");
-                        updateAfterList(0, 0);
+                        if (da.length != 0) {
+                            if(parentid==0)
+                            {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton")
+                            }
+                            else
+                            {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
+                            }
+                            for (var i = 0; i < da.length; i++) {
+                                if(da[i].id==currentid)
+                                {
+                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\" selected=\"true\">" + da[i].text + "</option>");
+                                }
+                                else
+                                {
+                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                                }
+                            }
+
+                            $("#Area_" + level).bind("change", function () {
+                                deleteAfterList($(this).attr("level"));
+                                updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                            });
+                        }
                     }
                 });
             }
@@ -127,7 +208,15 @@
                         debugger
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
-                            $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton");
+                        
+                            if(level==0)
+                            {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton")
+                            }
+                            else
+                            {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
+                            }
 
                             $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
 
