@@ -9,6 +9,7 @@ using Friday.mvc.Models;
 using friday.core;
 using MvcPaging;
 using friday.core.components;
+using System.Net;
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
     public class SearchProductController : Controller
@@ -213,7 +214,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             //2013-05-24 wanghaichuan school
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
-            IPAndLocationHelper.GetConnectNetAddressArea();
+
+            string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
+
             if (systemUser != null)
             {
                 School currentUserSchool = systemUser.School;

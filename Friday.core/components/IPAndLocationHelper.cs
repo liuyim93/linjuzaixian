@@ -17,10 +17,14 @@ namespace friday.core.components
         /// </summary>
         /// <param name="strIp">IP地址</param>
         /// <returns>一个一维字符串数组String(1)，String(0) = IP地址；String(1) = 查询结果或提示信息</returns>
-        public static string[] GetAddress(string strIp)
+        public static string[] GetAddress()
         {
             friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient ip = new friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient(new BasicHttpBinding(), new EndpointAddress("http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx"));
-            return ip.getCountryCityByIp(strIp);
+            string hostName = Dns.GetHostName();
+            System.Net.IPAddress[] addressList = Dns.GetHostAddresses(hostName);
+            IPAddress ipAddr = addressList[3];
+
+            return ip.getCountryCityByIp(ipAddr.ToString());
         }
 
         /// <summary>
