@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using friday.core.repositories;
 using Friday.mvc.Models;
 using friday.core.EnumType;
+using friday.core.domain;
+using friday.core.services;
 
 namespace Friday.mvc.Controllers
 {
@@ -20,8 +22,10 @@ namespace Friday.mvc.Controllers
         //IFoodRepository iFoodRepository;
         //IHouseRepository iHouseRepository;
         ICommodityRepository iCommodityRepository;
+        IUserService iUserService;
+        ISchoolService iSchoolService;
 
-        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository)
+        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository, IUserService iUserService, ISchoolService iSchoolService)
         {
             this.iMerchantCategoryRepository = iMerchantCategoryRepository;
             this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
@@ -32,6 +36,8 @@ namespace Friday.mvc.Controllers
             //this.iFoodRepository = iFoodRepository;
             //this.iHouseRepository = iHouseRepository;
             this.iCommodityRepository = iCommodityRepository;
+            this.iUserService = iUserService;
+            this.iSchoolService = iSchoolService;
         }
         public ActionResult Index()
         {
@@ -48,6 +54,28 @@ namespace Friday.mvc.Controllers
             mainModel.Shops = this.iShopRepository.GetPageList(0, 15,out total);
             mainModel.Activities = this.iActivityRepository.GetAll();
             mainModel.Commoditys = this.iCommodityRepository.GetAll();
+
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            if (systemUser != null)
+            {
+                mainModel.LoginStateFamily[0] = "isLogin";
+                mainModel.LoginStateFamily[1] = systemUser.School.Family + systemUser.School.Id;
+            }
+            else
+            {
+                string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
+                School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
+                if (ipLeafSchool != null)
+                {
+                    mainModel.LoginStateFamily[0] = "isIP";
+                    mainModel.LoginStateFamily[1] = ipLeafSchool.Family + ipLeafSchool.Id;
+                }
+                else
+                {
+                    mainModel.LoginStateFamily[0] = "noAll";
+                }
+            }
+
             return View(mainModel);
         }
 
