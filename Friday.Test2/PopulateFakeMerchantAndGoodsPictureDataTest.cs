@@ -9,6 +9,7 @@ using friday.core.repositories;
 using friday.core;
 using System.IO;
 using friday.core.EnumType;
+using friday.core.services;
 
 namespace Friday.Test2
 {
@@ -29,6 +30,7 @@ namespace Friday.Test2
             IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository =new GlobalGoodsTypeRepository();
             ISchoolRepository iSchoolRepository = UnityHelper.UnityToT<ISchoolRepository>();
             ISchoolOfMerchantRepository iSchoolOfMerchantRepository = UnityHelper.UnityToT<ISchoolOfMerchantRepository>();
+            IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
             IList<Commodity> iCommodities = new List<Commodity>();
             //IList<Food> iFoods = new List<Food>();
@@ -87,7 +89,7 @@ namespace Friday.Test2
 
             //国际品牌
               string[]  NationalMerchat={"优衣库","兰芝","微软","飞利浦","新百伦","Nike","Karicare","ELLE"};
-
+              GlobalGoodsType ggdt;
               for (int i = 0; i<6;i++ )
               {
                 Shop mcht = new Shop()
@@ -97,9 +99,13 @@ namespace Friday.Test2
                     sBrand = "/uploadimage/s" + i   + ".jpg",
                     bBrand = "/uploadimage/b" + i   + ".jpg",
                     MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),                    
-                };
-          
+                };          
                  iMerchantRepository.SaveOrUpdate(mcht);
+
+                 //把国际名牌的MerchantID  写入到GlobalGoodsType的Description中
+                 ggdt=iGlobalGoodsTypeService.GetGlobalGoodsTypeByName(NationalMerchat[i]);
+                 ggdt.Description = mcht.Id;
+                 iGlobalGoodsTypeService.Save(ggdt);
 
 
                  SchoolOfMerchant scmn = new SchoolOfMerchant()

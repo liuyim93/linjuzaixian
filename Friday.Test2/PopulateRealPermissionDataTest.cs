@@ -36,6 +36,7 @@ namespace Friday.Test2
         //private IList<SystemFunctionObject> restaurantMemberSFOCheckList = new List<SystemFunctionObject>();
         //private IList<SystemFunctionObject> rentMemberSFOCheckList = new List<SystemFunctionObject>();
         ISystemRoleRepository iSystemRoleRepository = UnityHelper.UnityToT<ISystemRoleRepository>();
+        IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
         ISchoolRepository iSchoolRepository = UnityHelper.UnityToT<ISchoolRepository>();
         ISystemFunctionObjectRepository iSystemFunctionObjectRepository = UnityHelper.UnityToT<ISystemFunctionObjectRepository>();
         private LoginUser adminLoginUser;
@@ -1395,7 +1396,7 @@ namespace Friday.Test2
                     Leaf = false,
                     TLevel = 1,
                     IsDelete = false,
-                    Description = "2级目录—国际名牌"
+                   // Description = iMerchantRepository.Get // "2级目录—国际名牌"  ,变为ID
                 };
                 iGlobalGoodsTypeService.Save(sgtn);
             }
