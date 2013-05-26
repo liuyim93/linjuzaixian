@@ -19,5 +19,6 @@ namespace friday.core.services
         IList<School> GetAll();
         IList<School> GetChildrenFromParentID(string ParentID);
         bool IsHaveChild(School School);
+        IList<School> FilterSchoolByAreaString(string AreaString);
     }
 }

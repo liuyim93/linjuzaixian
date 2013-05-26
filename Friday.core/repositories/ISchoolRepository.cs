@@ -9,6 +9,7 @@ namespace friday.core.repositories
 {
     public interface ISchoolRepository : IRepository<School>
     {
+        IList<School> FilterSchoolByAreaString(string AreaString);
         IList<School> GetChildrenFromParentID(string ParentID);
         bool IsHaveChild(School School);
         School SearchByShortName(string name);
