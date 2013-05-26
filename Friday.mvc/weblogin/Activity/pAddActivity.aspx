@@ -22,10 +22,18 @@
                     活动名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
+          <%--  <p>
                 <label>
                     活动事项：</label>
                 <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
+            </p>--%>
+             <p>
+                <label>
+                    活动事项：</label>
+                <input type="text" id="GoodsType" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+               <input type="hidden" id="GoodsTypeID"  runat="server" />
+                <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
             </p>
           <p>
               <p>

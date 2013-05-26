@@ -30,6 +30,19 @@
                     <input type="hidden" id="IDSet" size="30" runat="server" />
                 <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
             </p>
+               <p>
+                <label>
+                    服务的学校：</label>
+                <input type="text" id="SchoolOfMerchant" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                <a class="btnLook" href="ListSchool.aspx" rel=""  lookupgroup="">选择学校</a>
+            </p>
+            <p>
+                <label>
+                    仅演示，应隐藏ID</label>
+                <input type="text" id="SchoolOfMerchantID"  size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+            </p>
             <p>
                 <label>
                     Logo上传：</label>

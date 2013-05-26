@@ -43,6 +43,7 @@ namespace Friday.mvc.weblogin.activity
         {
             Activity act = new Activity();
 
+            act.Matters = this.GoodsTypeID.Value;
             BindingHelper.RequestToObject(act);
 
             string fileoldName = "";
