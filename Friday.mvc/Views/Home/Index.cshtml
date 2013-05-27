@@ -94,11 +94,11 @@
         <b class="sn-edge"></b>
         <span style="color:#ffd0c0">切换区域：</span>
 
-            <input id="J_AreaButton" type="button" value="切换" />
+            <a id="J_AreaButton" type="button" href="" style="color:#ffd0c0">切换</a>
         <script type="text/javascript">
             $(function () {
                 init();
-                //$("#J_Address").val($("#Address_div select:last-child").val());
+                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
             });
 
             function init() {
@@ -191,7 +191,10 @@
                             $("#Area_" + level).bind("change", function () {
                                 deleteAfterList($(this).attr("level"));
                                 updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
                             });
+
+                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
                         }
                     }
                 });
@@ -228,13 +231,13 @@
                             $("#Area_" + level).bind("change", function () {
                                 deleteAfterList($(this).attr("level"));
                                 updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
-                                //$("#J_Address").val($("#Address_div select:last-child").val());
+                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
                             });
 
                             if (da[0].hasChildren == true) {
                                 updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
                             }
-                            //$("#J_Address").val($("#Address_div select:last-child").val());
+                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
                         }
                     }
                 });

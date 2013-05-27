@@ -8,10 +8,11 @@
 {
     var goodsType = Model.GlobalGoodsTypeTlevelZero.ElementAt(goodsTypeId);
     var commodities = Model.CommoditiesSearchByGoodsType.ElementAt(goodsTypeId);
-<div class="floor-loading" id="floorLink@(goodsTypeId+1)">
+    var shops = Model.Shops.ElementAt(goodsTypeId);
+<div class="floor-loading" id="floorLink@(goodsTypeId + 1)">
     <textarea class="floor-area ks-datalazyload">
     <div>
-        <div class="floor" id="floor@(goodsTypeId+1)" >
+        <div class="floor" id="floor@(goodsTypeId + 1)" >
             <h2>
                 @goodsType.Name  </h2>
             <div class="floorTop">
@@ -32,32 +33,47 @@
                 <div class="floorCon-logo j_aldLogo">
                     <ul class="fCl-slide">
                         @{
-                    var count = Model.Shops.Count();
-                    var num_per_page = 5;
-                    var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
-                    for (var page_index = 0; page_index < page_num; page_index++)
-                    {
+                     var count = shops.Count();
+                     var num_per_page = 5;
+                     var page_num = Math.Ceiling(Convert.ToDouble(count / num_per_page));
+                     for (var page_index = 0; page_index < page_num; page_index++)
+                     {
                             <li style="display: block; float: left;">
                                 @for (var item_index = page_index * num_per_page; item_index < (page_index + 1) * num_per_page; item_index++)
                                 {
-                                    var item = Model.Shops.ElementAt(item_index);                               
+                                    var item = shops.ElementAt(item_index);                               
                                     <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
                                         <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
                                     </a>
                             
                                 }
                             </li>
-                    }
-                          
+                     }
+                     if (Convert.ToInt16(page_num) == 0 && count != 0)
+                     {
+                                    <li style="display: block; float:right;">
+                                @for (var item_index = 0; item_index < count; item_index++)
+                                {
+                                    var item = shops.ElementAt(item_index);                               
+                                    <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
+                                        <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
+                                    </a>
+                            
+                                }
+                            </li>
+                     }
                         }
                     </ul>
                     <ul class="fCl-nav ui-slide-nav-mini">
                         @{
-                    for (var i = 0; i < page_num; i++)
-                    {
+                        for (var i = 0; i < page_num; i++)
+                        {
                             @:<li>•</li>
                             }
-                            
+                        if (Convert.ToInt16(page_num) == 0 && count != 0)
+                        {
+                            @:<li>•</li>
+                        }
                         }
                     </ul>
                 </div>
