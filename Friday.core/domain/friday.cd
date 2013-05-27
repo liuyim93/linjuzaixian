@@ -41,7 +41,7 @@
   <Class Name="friday.core.domain.School">
     <Position X="11.5" Y="7.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAIAQAAAAAAAAAAAQAAAAAAJAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAAQAAAAAIAAAAAAEAgAAAIAAAAAAAAAAAAA=</HashCode>
       <FileName>domain\School.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,7 +66,7 @@
   <Class Name="friday.core.domain.SystemUser">
     <Position X="4" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAFAQAAAAiAggAAAAAAAAAQAAAAAQAAAAAAAAAAAAAE=</HashCode>
+      <HashCode>AAFAQAAAAiAggAAAAAAAAAQAAAAAQAAAQAAAAAAAAAE=</HashCode>
       <FileName>domain\SystemUser.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -87,13 +87,13 @@
     <Position X="7.5" Y="8.75" Width="2" />
     <AssociationLine Name="MerchantCategory" Type="friday.core.MerchantCategory" ManuallyRouted="true">
       <Path>
-        <Point X="7.5" Y="9.255" />
-        <Point X="3.891" Y="9.255" />
+        <Point X="7.5" Y="9.273" />
+        <Point X="3.891" Y="9.273" />
         <Point X="3.891" Y="12.5" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>QAAAAUAAAGQggIAQAAAAIAQgAAAAAIBDAAIQAEAAAAA=</HashCode>
+      <HashCode>QAAAAUAAAGQggIAQAAAAIAQiAAAAAIBDAAIQAEAAAAA=</HashCode>
       <FileName>domain\Merchant.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -141,7 +141,7 @@
   <Class Name="friday.core.AbstractCommodity">
     <Position X="9.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAQAAQCgAAAAAAEQAAaABgAAABAAAAAGEgAAAAA=</HashCode>
+      <HashCode>AAAAAAQAAQCgAAAAAAEQAAaABgAEABAAAAAGEgAAAAA=</HashCode>
       <FileName>domain\AbstractCommodity.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -369,7 +369,7 @@
   <Class Name="friday.core.CartOfCommodity">
     <Position X="19.5" Y="7.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAACAQAAAAAAAAAAAACAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAACAQAAAAAAAAAAAACAAgAAAAAAEAAAAAAAAAA=</HashCode>
       <FileName>domain\CartOfCommodity.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

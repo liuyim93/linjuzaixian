@@ -17,6 +17,7 @@ namespace Friday.mvc.Models
             this.GlobalGoodsTypeTlevelZero = new List<GlobalGoodsType>();
             this.GlobalGoodsTypeTlevelFirst = new List<GlobalGoodsType>();
             this.CommoditiesSearchByGoodsType = new List<List<Commodity>>();
+            this.Shops = new List<IEnumerable<Merchant>>();
             this.LoginStateFamily = new string[2];
          }
 
@@ -30,7 +31,7 @@ namespace Friday.mvc.Models
         public IList<GlobalGoodsType> GlobalGoodsTypeTlevelZero { get; set; }
         public IList<GlobalGoodsType> GlobalGoodsTypeTlevelFirst { get; set; }
         //public IEnumerable<Merchant> Rents { get; set; }
-        public IEnumerable<Merchant> Shops { get; set; }
+        public IList<IEnumerable<Merchant>> Shops { get; set; }
         //public IEnumerable<Merchant> Restaurants { get; set; }
 
         public IEnumerable<Activity> Activities { get; set; }
