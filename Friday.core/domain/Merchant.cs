@@ -139,6 +139,14 @@ namespace friday.core
 
         }
 
+        public virtual string Schools
+        {
+            get;
+
+            set;
+
+        }
+
         public virtual MerchantCategory MerchantCategory
         {
             get;
