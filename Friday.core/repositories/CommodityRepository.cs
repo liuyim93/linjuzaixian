@@ -217,6 +217,25 @@ namespace friday.core.repositories
                     ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
             return s;
         }
+
+        public List<Commodity> GetCommodityByGoodsTypeAndSchoolID(string goodsTypeId, string schoolID)
+        {
+            var s = (from x in this.Session.Query<Commodity>()
+                     where x.IsDelete == false && x.GlobalGoodsTypeFamily.Contains(goodsTypeId) && x.Shop.Schools.Contains(schoolID)
+                     select x
+                    ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
+            return s;
+        }
+
+        public List<Commodity> GetCommodityBySchoolID(string schoolID)
+        {
+            var s = (from x in this.Session.Query<Commodity>()
+                     where x.IsDelete == false && x.Shop.Schools.Contains(schoolID)
+                     select x
+                    ).OrderByDescending(o => o.CreateTime).ToList();
+            return s;
+        }
+
         //对外获取方法
         public IList<Commodity> Search(List<DataFilter> termList)
         {

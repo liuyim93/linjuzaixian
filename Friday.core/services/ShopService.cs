@@ -64,7 +64,10 @@ namespace friday.core.services
         {
             return iShopRepository.GetShopsByMerchantType(mTP);
         }
-        
+        public IList<Shop> GetShopsBySchoolID(string SchoolID)
+        {
+            return iShopRepository.GetShopsBySchoolID(SchoolID);
+        }
 
     }
 }

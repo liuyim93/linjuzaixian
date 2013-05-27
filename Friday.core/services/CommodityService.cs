@@ -56,30 +56,37 @@ namespace friday.core.services
         {
             return iCommodityRepository.Search(termList, start, limit, out total);
         }
+
         public IList<Commodity> GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(string shopID, string keyword, double price1, double price2, string orderType)
         {
             return iCommodityRepository.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(shopID,keyword,price1,price2,orderType);
         }
+
         public IList<Commodity> GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(string shopID, string keyword, double price1, double price2, string goodTypeId, string orderType, int start, int limit, out int total)
        {
            return iCommodityRepository.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(shopID, keyword, price1, price2, goodTypeId, orderType, start, limit, out total);
        }
+
         public IList<Commodity> GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(string shopID, string merchantGoodTypeID, int start, int limit, out int total)
         {
             return iCommodityRepository.GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(shopID,merchantGoodTypeID,start,limit,out total);
         }
+
         public IList<Commodity> GetCommodityByKeywordAndPrice(string page, string keyword, double price1, double price2, int start, int limit, out int total, string cat,string sort)
         {
             return iCommodityRepository.GetCommodityByKeywordAndPrice(page, keyword, price1, price2, start, limit, out total, cat,sort);
         }
+
         public IList<Commodity> GetCommodityByShopIDAndKeywordAndPrice(string shopID, string page, string keyword, double price1, double price2, int start, int limit, out int total, string sort)
         {
             return iCommodityRepository.GetCommodityByShopIDAndKeywordAndPrice(shopID, page, keyword, price1, price2, start, limit, out total, sort);
         }
+
         public int GetCommodityCountByFamily(string ParentID)
         {
             return iCommodityRepository.GetCommodityCountByFamily(ParentID);
         }
+
         public IList<Commodity> GetHotCommodity(int num)
         {
             return iCommodityRepository.GetHotCommodity(num);
@@ -89,9 +96,20 @@ namespace friday.core.services
         {
             return iCommodityRepository.GetRecentCommodity(num);
         }
+
         public IList<Commodity> GetHotRecommendCommoditiesByKeyWord(string keyword)
         {
             return iCommodityRepository.GetHotRecommendCommoditiesByKeyWord(keyword);
+        }
+
+        public List<Commodity> GetCommodityByGoodsTypeAndSchoolID(string goodsTypeId, string schoolID)
+        {
+            return iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID(goodsTypeId, schoolID);
+        }
+
+        public List<Commodity> GetCommodityBySchoolID(string schoolID)
+        {
+            return iCommodityRepository.GetCommodityBySchoolID(schoolID);
         }
     }
 }

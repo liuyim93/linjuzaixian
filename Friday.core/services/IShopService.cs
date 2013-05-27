@@ -19,5 +19,6 @@ namespace friday.core.services
         IList<Shop> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<Shop> GetAll();
         IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP);
+        IList<Shop> GetShopsBySchoolID(string SchoolID);
     }
 }

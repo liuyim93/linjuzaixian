@@ -15,6 +15,10 @@ namespace friday.core.repositories
 {
     public class ShopRepository : Repository<Shop>, IShopRepository
     {
+        public IList<Shop> GetShopsBySchoolID(string SchoolID)
+        {
+            return (from x in this.Session.Query<Shop>() select x).Where(o => (o.Schools.Contains(SchoolID) && o.IsDelete == false)).ToList();
+        }
 
         public Shop SearchByShortName(string name)
         {
