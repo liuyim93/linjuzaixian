@@ -192,7 +192,8 @@ build: 524 Apr 6 09:10
 							domain = pickDomain(2),
 							dailyReg = /daily/i,
 							isOnline = !(dailyReg.test(location.host)),
-							HOST = isOnline ? 'a.tbcdn.cn' : 'assets.daily.taobao.net',
+							//HOST = isOnline ? 'a.tbcdn.cn' : 'assets.daily.taobao.net',
+                            HOST = "localhost:7525",
 							SCRIPT_SRC = 'http://' + HOST + '/p/header/adapter-min.js?t=' + Math.floor(new Date().getTime() / (1000 * 3600));
 
 		                if (domain == "etao.com") {

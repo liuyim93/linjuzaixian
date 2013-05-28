@@ -150,7 +150,8 @@ TB.add("mod~global", function () {
             }
             window.g_config = window.g_config || {};
             window.g_config.toolbar = false;
-            window.g_config.webww = true;
+            //2013-05-29 basilwang webww false
+            window.g_config.webww = false;
             if ((_appid && _appid != -1 && _appid != 2000) || "tstart" in _param_array || "tdog" in _param_array) {
                 var S = "http://" + _own_domain_1 + "/p/header/webww-min.js?t=" + _tmall_config.commonJS.tDog.timestamp, i = 0;
                 _kissy.ready(function () {
@@ -430,7 +431,10 @@ TB.add("mod~global", function () {
         }
     };
     //2013-03-09 element in _commonjs_array will be replaced by setTimeout function wrapper
-    var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
+    //2013-05-29 basilwang remove sth
+    //var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
+    var _commonjs_array = ["minBag", "brandBar", "shareFB"];
+    
     for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
         (function (_name) {
             var _selected_function = CommonJS[_name];

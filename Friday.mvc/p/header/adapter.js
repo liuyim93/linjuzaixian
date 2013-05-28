@@ -132,7 +132,8 @@
 
                 isDebug: isDebug,
 
-                cdnPath: 'http://' + (isOnline ? 'a.tbcdn.cn' : 'assets.daily.taobao.net') + '/' + PATH,
+                //cdnPath: 'http://' + (isOnline ? 'a.tbcdn.cn' : 'assets.daily.taobao.net') + '/' + PATH,
+                cdnPath: 'http://' + 'localhost:7525' + '/' + PATH,
 
                 version: VERSION
 
