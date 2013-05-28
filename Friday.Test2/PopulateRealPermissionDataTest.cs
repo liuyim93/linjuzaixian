@@ -74,7 +74,7 @@ namespace Friday.Test2
         private  void add_School()
         {
 
-            string[] schl = {"山东财经大学","山东建筑大学","济南职业学院","山东大学","山东大学洪家楼校区",
+            string[] schl = {"山东经济学院","山东建筑大学","济南职业学院","山东大学","山东大学洪家楼校区",
                              "山东大学千佛山校区","山东轻工业学院","山东女子学院","山东中医药大学","山东旅游职业学院",
                              "山东师范大学","山东科技大学","山东理工大学"};
 
@@ -226,7 +226,7 @@ namespace Friday.Test2
             {
                  IsAnonymous=true,
                  Name="匿名用户sys1",
-                 School = iSchoolRepository.SearchByShortName("山东财经大学")
+                 School = iSchoolRepository.SearchByShortName("山东经济学院")
             };
             LoginUser lu1 = new LoginUser()
             {
@@ -1820,7 +1820,7 @@ namespace Friday.Test2
         //    Restaurant restaurant1 = new Restaurant()
         //    {
         //        Activity = "五一大促销",
-        //        Address = "山东财经大学燕山",
+        //        Address = "山东经济学院燕山",
         //        AfternoonBeginHour = "18:20",
         //        AfternoonEndHour = "19:30",
         //        Bulletins = "9折优惠",
@@ -1926,7 +1926,7 @@ namespace Friday.Test2
         //    new SystemUserRepository().SaveOrUpdate(s1);          
         //    Address address = new Address()
         //    {
-        //        AddressName = "山东财经大学9号宿舍楼",
+        //        AddressName = "山东经济学院9号宿舍楼",
         //        BackupTel = "187000000000",
         //        Email ="23423@163.com",
         //        Linkman = "john",
@@ -2990,7 +2990,7 @@ namespace Friday.Test2
             IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();          
 
 
-            //属于山东财经大学地区
+            //属于山东经济学院地区
             Shop shop1 = new Shop()
             {
                 Activity = "五一大促销",
@@ -3010,7 +3010,7 @@ namespace Friday.Test2
                 ShopStatus = ShopStatusEnum.营业时间,
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                 MerchantType = MerchantTypeEnum.百货,
-                Schools = iSchoolRepository.GetSchoolByAreasName("山东财经大学").Id +","+ iSchoolRepository.GetSchoolByAreasName("历下区").Id +","+ iSchoolRepository.GetSchoolByAreasName("山东省").Id
+                Schools = iSchoolRepository.GetSchoolByAreasName("山东经济学院").Id +","+ iSchoolRepository.GetSchoolByAreasName("历下区").Id +","+ iSchoolRepository.GetSchoolByAreasName("山东省").Id
                  
             };
             //GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
@@ -3026,7 +3026,7 @@ namespace Friday.Test2
             {
                IsDelete = false,
                Merchant = shop1,
-               School = iSchoolRepository.SearchByShortName("山东财经大学")
+               School = iSchoolRepository.SearchByShortName("山东经济学院")
             };
             iSchoolOfMerchantRepository.SaveOrUpdate(scm);
 
@@ -3126,7 +3126,7 @@ namespace Friday.Test2
                 EntityIndex = 10,
                 Name = "成龙",                 
                 IsAnonymous = false,
-                School = iSchoolRepository.SearchByShortName("山东财经大学")
+                School = iSchoolRepository.SearchByShortName("山东经济学院")
             };
             new SystemUserRepository().SaveOrUpdate(s1);          
             Address address = new Address()
