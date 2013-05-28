@@ -1294,6 +1294,7 @@
     <Content Include="app\dp\tcc\i\tb-home\js\game\v2\errorbox.js" />
     <Content Include="app\dp\tcc\i\tb-home\js\game\v2\pinyin.js" />
     <Content Include="app\dp\tcc\i\tb-home\js\game\v2\selectlike.js" />
+    <Content Include="app\register\common\css\reg.20130528.css" />
     <Content Include="app\shop\skin\ark_black.css" />
     <Content Include="ar\alipay.security.um-1.0.js" />
     <Content Include="bao\uploaded\i1\T1ltpGXzxdXXX7spjX.css" />
