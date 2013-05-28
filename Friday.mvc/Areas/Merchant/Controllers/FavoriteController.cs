@@ -18,8 +18,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IFoodService iFoodService;
         //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
+        private ISchoolService iSchoolService;
 
-        public FavoriteController(IMerchantService iMerchantService, IUserService iUserService, IMyFavoriteService iMyFavoriteService,  ICommodityService iCommodityService)
+        public FavoriteController(IMerchantService iMerchantService, IUserService iUserService, IMyFavoriteService iMyFavoriteService, ICommodityService iCommodityService, ISchoolService iSchoolService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
@@ -27,6 +28,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //this.iFoodService = iFoodService;
             //this.iHouseService = iHouseService;
             this.iCommodityService = iCommodityService;
+            this.iSchoolService = iSchoolService;
         }
         public ActionResult Index()
         {
@@ -61,28 +63,33 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         public ActionResult Recommend(string callback, string selectIP)
         {
             string json;
-            if (this.HttpContext.User.Identity.IsAuthenticated == true)
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+
+            if (selectIP != null && selectIP != "" && selectIP != "null")
             {
-                if (selectIP != "" && selectIP != null)
-                {
-                    json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext), selectIP);
-                }
-                else
-                {
-                    json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext),"");
-                }
+                json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext), selectIP);
             }
             else
             {
-                if (selectIP != "" && selectIP != null)
+                if (systemUser != null)
                 {
-                    json = this.iMerchantService.GetMerchantsJson(null, selectIP);
+                    json = this.iMerchantService.GetMerchantsJson(null, systemUser.School.Id);
                 }
                 else
                 {
-                    json = this.iMerchantService.GetMerchantsJson(null,"");
+                    string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
+                    School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
+                    if (ipLeafSchool != null)
+                    {
+                        json = this.iMerchantService.GetMerchantsJson(null, ipLeafSchool.Id);
+                    }
+                    else
+                    {
+                        json = this.iMerchantService.GetMerchantsJson(null, "");
+                    }
                 }
             }
+
             string script = callback + "("+ json  +")";
 
             return JavaScript(script);
