@@ -90,7 +90,7 @@ namespace Friday.Test2
                      Name="山东省",
                      PinYin="shandongsheng",
                      ShortName="山东",
-                     TLevel=1 ,
+                     TLevel=0 ,
                      //2013-05-24 basilwang add Family
                      Family = ""
                 };
@@ -106,9 +106,9 @@ namespace Friday.Test2
                 Name = "济南市",
                 PinYin = "jinanshi",
                 ShortName = "济南",
-                TLevel = 2,
+                TLevel = 1,
                 //2013-05-24 basilwang add Family
-                Family = sch.Id,
+                Family = sch.Id + ",",
                 ParentID = sch.Id,
                 ParentCode = "250000"
 
@@ -128,7 +128,7 @@ namespace Friday.Test2
                     Name = areas[i],
                     PinYin = "shandong",
                     ShortName = areas[i],
-                    TLevel = 1,
+                    TLevel = 2,
                     ParentCode = "250000",
                     ParentID = schjn.Id,
                     //2013-05-24 basilwang add Family
@@ -148,7 +148,7 @@ namespace Friday.Test2
                     Name = schl[i],
                    // PinYin = "shandong",
                     ShortName = schl[i],
-                    TLevel = 1,
+                    TLevel = 3,
                     ParentCode = "25001" + i % 4,
                     ParentID = iSchoolRepository.GetSchoolByAreasName(areas[i%4]).Id,
                     //2013-05-24 basilwang add Family
