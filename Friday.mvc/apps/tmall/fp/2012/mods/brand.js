@@ -37,6 +37,16 @@
         _brand.config = _kissy.merge(_options, _op || {});
         _brand._init()
     }
+
+    ////2013-05-28 wanghaichuan get URL params
+    (function ($) {
+        $.getUrlParam = function (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
+    })(jQuery);
+
     _kissy.mix(Brand.prototype, {
         brandRecommend: function () {
             var _param_array = _kissy.unparam(_document.location.search.substring(1));
@@ -48,7 +58,7 @@
                 uid: _uid,
                 t: +new Date,
                 //2013-05-28 wanghaichuan _selectIP
-                selectIP: _selectIP
+                selectIP: $.getUrlParam('selectedSchool')
             }, function (_data) {
                 MFP.POC.add("ald_brand_end");
                 if (!_data || !_data.bBrands || !_data.sBrands) {

@@ -38,8 +38,17 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 dataUrl: "http://" + location.host + "/category/home/all_cat_asyn"
             });
 
+            ////2013-05-28 wanghaichuan get URL params
+            (function ($) {
+                $.getUrlParam = function (name) {
+                    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+                    var r = window.location.search.substr(1).match(reg);
+                    if (r != null) return unescape(r[2]); return null;
+                }
+            })(jQuery);
+
             //2013-05-28 wanghaichuan add _selectIP
-            var _selectIP = $("#sn-bd select:last").val();
+            var _selectIP = $.getUrlParam('selectedSchool')
 
             new _brandcategory("#J_MallNavCon", {
                 viewId: "#J_BrandCategory",
