@@ -26,8 +26,9 @@ namespace Friday.mvc.Controllers
         IUserService iUserService;
         ISchoolService iSchoolService;
         IMerchantService iMerchantService;
+        ISystemUserService iSystemUserService;
 
-        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository, IUserService iUserService, ISchoolService iSchoolService, IMerchantService iMerchantService)
+        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository, IUserService iUserService, ISchoolService iSchoolService, IMerchantService iMerchantService, ISystemUserService iSystemUserService)
         {
             this.iMerchantCategoryRepository = iMerchantCategoryRepository;
             this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
@@ -41,6 +42,7 @@ namespace Friday.mvc.Controllers
             this.iUserService = iUserService;
             this.iSchoolService = iSchoolService;
             this.iMerchantService = iMerchantService;
+            this.iSystemUserService = iSystemUserService;
         }
         public ActionResult Index(string selectedSchool)
         {
@@ -57,7 +59,6 @@ namespace Friday.mvc.Controllers
                 {
                     mainModel.LoginStateFamily[0] = "isLogin";
                     mainModel.LoginStateFamily[1] = systemUser.School.Family + systemUser.School.Id;
-
 
                     IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
                     foreach (GlobalGoodsType g in globalGoodsTypes)
@@ -85,8 +86,10 @@ namespace Friday.mvc.Controllers
                             mainModel.Shops.Add(shops);
                         }
                     }
-                    mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(systemUser.School.Id);
 
+                    mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(systemUser.School.Id);
+                    systemUser.TempSchool = selectedSchool;
+                    iSystemUserService.Save(systemUser);
                 }
                 else
                 {
