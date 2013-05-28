@@ -66,9 +66,12 @@ namespace Friday.mvc.weblogin.shop
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
                     schofmt.Merchant = shop;
                     schofmt.School = iSchoolService.Load(shcidsz);
+                    schid = schid + schofmt.School.Family;
                     iSchoolOfMerchantService.Save(schofmt);
                 }
             }
+            shop.Schools = schid;
+            iShopService.Update(shop);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";

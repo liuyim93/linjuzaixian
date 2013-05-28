@@ -18,5 +18,6 @@ namespace friday.core.services
         void Delete(string id);
         IList<MyFavorite> Search(List<DataFilter> termList);
         IList<MyFavorite> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, string _selectIP);
     }
 }

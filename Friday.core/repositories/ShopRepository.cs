@@ -15,6 +15,10 @@ namespace friday.core.repositories
 {
     public class ShopRepository : Repository<Shop>, IShopRepository
     {
+        public IList<Shop> GetShopsBySchoolID(string SchoolID)
+        {
+            return (from x in this.Session.Query<Shop>() select x).Where(o => (o.Schools.Contains(SchoolID) && o.IsDelete == false)).ToList();
+        }
 
         public Shop SearchByShortName(string name)
         {
@@ -26,6 +30,13 @@ namespace friday.core.repositories
             var m = (from x in this.Session.Query<Shop>() select x).Where(o => o.MerchantType == mTP && o.IsDelete == false).ToList<Shop>();
             return m;
         }
+
+        public IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP, string selectIP)
+        {
+            var m = (from x in this.Session.Query<Shop>() select x).Where(o => o.MerchantType == mTP && o.Schools.Contains(selectIP) && o.IsDelete == false).ToList<Shop>();
+            return m;
+        }
+    
 
         protected virtual ICriteria Query
         {

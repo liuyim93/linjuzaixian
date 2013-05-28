@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using friday.core.repositories;
 using Friday.mvc.Models;
 using friday.core.EnumType;
+using friday.core.domain;
+using friday.core.services;
+using friday.core;
 
 namespace Friday.mvc.Controllers
 {
@@ -20,8 +23,12 @@ namespace Friday.mvc.Controllers
         //IFoodRepository iFoodRepository;
         //IHouseRepository iHouseRepository;
         ICommodityRepository iCommodityRepository;
+        IUserService iUserService;
+        ISchoolService iSchoolService;
+        IMerchantService iMerchantService;
+        ISystemUserService iSystemUserService;
 
-        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository)
+        public HomeController(IMerchantCategoryRepository iMerchantCategoryRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, IActivityRepository iActivityRepository, IShopRepository iShopRepository, ICommodityRepository iCommodityRepository, IUserService iUserService, ISchoolService iSchoolService, IMerchantService iMerchantService, ISystemUserService iSystemUserService)
         {
             this.iMerchantCategoryRepository = iMerchantCategoryRepository;
             this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
@@ -32,22 +39,171 @@ namespace Friday.mvc.Controllers
             //this.iFoodRepository = iFoodRepository;
             //this.iHouseRepository = iHouseRepository;
             this.iCommodityRepository = iCommodityRepository;
+            this.iUserService = iUserService;
+            this.iSchoolService = iSchoolService;
+            this.iMerchantService = iMerchantService;
+            this.iSystemUserService = iSystemUserService;
         }
-        public ActionResult Index()
+        public ActionResult Index(string selectedSchool)
         {
             MainModel mainModel = new MainModel();
-            mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
-            mainModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
-            mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
-            for (int i = 0; i < mainModel.GlobalGoodsTypeTlevelZero.Count; i++)
+
+            if (selectedSchool == "" || selectedSchool == null)
             {
-                var goodsType=mainModel.GlobalGoodsTypeTlevelZero.ElementAt(i);
-                mainModel.CommoditiesSearchByGoodsType.Add(this.iCommodityRepository.GetCommodityByGoodsType(goodsType.Id));
+                SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+                mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+                mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+                mainModel.Activities = this.iActivityRepository.GetAll();
+
+                if (systemUser != null)
+                {
+                    mainModel.LoginStateFamily[0] = "isLogin";
+                    mainModel.LoginStateFamily[1] = systemUser.School.Family + systemUser.School.Id;
+
+                    IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+                    foreach (GlobalGoodsType g in globalGoodsTypes)
+                    {
+                        List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID(g.Id, systemUser.School.Id);
+                        if (commodities != null && commodities.Count != 0)
+                        {
+                            mainModel.GlobalGoodsTypeTlevelZero.Add(g);
+                            mainModel.CommoditiesSearchByGoodsType.Add(commodities);
+                            IList<Shop> shops = new List<Shop>();
+                            foreach (Commodity c in commodities)
+                            {
+                                if (shops.Count == 15)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    if (!shops.Contains(c.Shop))
+                                    {
+                                        shops.Add(c.Shop);
+                                    }
+                                }
+                            }
+                            mainModel.Shops.Add(shops);
+                        }
+                    }
+
+                    mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(systemUser.School.Id);
+                    systemUser.TempSchool = selectedSchool;
+                    iSystemUserService.Save(systemUser);
+                }
+                else
+                {
+                    string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
+                    School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
+                    if (ipLeafSchool != null)
+                    {
+                        mainModel.LoginStateFamily[0] = "isIP";
+                        mainModel.LoginStateFamily[1] = ipLeafSchool.Family + ipLeafSchool.Id;
+
+                        IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+                        foreach (GlobalGoodsType g in globalGoodsTypes)
+                        {
+                            List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID(g.Id, ipLeafSchool.Id);
+                            if (commodities != null && commodities.Count != 0)
+                            {
+                                mainModel.GlobalGoodsTypeTlevelZero.Add(g);
+                                mainModel.CommoditiesSearchByGoodsType.Add(commodities);
+                                IList<Shop> shops = new List<Shop>();
+                                foreach (Commodity c in commodities)
+                                {
+                                    if (shops.Count == 15)
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if (!shops.Contains(c.Shop))
+                                        {
+                                            shops.Add(c.Shop);
+                                        }
+                                    }
+                                }
+                                mainModel.Shops.Add(shops);
+                            }
+                        }
+                        mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(ipLeafSchool.Id);
+
+                    }
+                    else
+                    {
+                        mainModel.LoginStateFamily[0] = "noAll";
+
+                        IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+                        foreach (GlobalGoodsType g in globalGoodsTypes)
+                        {
+                            List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsType(g.Id);
+                            if (commodities != null && commodities.Count != 0)
+                            {
+                                mainModel.GlobalGoodsTypeTlevelZero.Add(g);
+                                mainModel.CommoditiesSearchByGoodsType.Add(this.iCommodityRepository.GetCommodityByGoodsType(g.Id));
+
+                                IList<Shop> shops = new List<Shop>();
+                                foreach (Commodity c in commodities)
+                                {
+                                    if (shops.Count == 15)
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        if (!shops.Contains(c.Shop))
+                                        {
+                                            shops.Add(c.Shop);
+                                        }
+                                    }
+                                }
+                                mainModel.Shops.Add(shops);
+                            }
+                        }
+                    }
+                }
             }
-            long total;
-            mainModel.Shops = this.iShopRepository.GetPageList(0, 15,out total);
-            mainModel.Activities = this.iActivityRepository.GetAll();
-            mainModel.Commoditys = this.iCommodityRepository.GetAll();
+            else
+            {
+                mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+                mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+                mainModel.Activities = this.iActivityRepository.GetAll();
+
+                School ipLeafSchool = iSchoolService.Load(selectedSchool);
+                if (ipLeafSchool != null)
+                {
+                    mainModel.LoginStateFamily[0] = "isIP";
+                    mainModel.LoginStateFamily[1] = ipLeafSchool.Family + ipLeafSchool.Id;
+
+                    IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+                    foreach (GlobalGoodsType g in globalGoodsTypes)
+                    {
+                        List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID(g.Id, ipLeafSchool.Id);
+                        if (commodities != null && commodities.Count != 0)
+                        {
+                            mainModel.GlobalGoodsTypeTlevelZero.Add(g);
+                            mainModel.CommoditiesSearchByGoodsType.Add(commodities);
+                            IList<Shop> shops = new List<Shop>();
+                            foreach (Commodity c in commodities)
+                            {
+                                if (shops.Count == 15)
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    if (!shops.Contains(c.Shop))
+                                    {
+                                        shops.Add(c.Shop);
+                                    }
+                                }
+                            }
+                            mainModel.Shops.Add(shops);
+                        }
+                    }
+                    mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(ipLeafSchool.Id);
+                }
+            }
             return View(mainModel);
         }
 

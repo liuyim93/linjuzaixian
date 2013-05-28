@@ -10,9 +10,11 @@ namespace friday.core.repositories
 {
     public interface IShopRepository : IRepository<Shop>
     {
+        IList<Shop> GetShopsBySchoolID(string SchoolID);
         Shop SearchByShortName(string name);
         IList<Shop> Search(List<DataFilter> termList);
         IList<Shop> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP);
+        IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP, string selectIP);
     }
 }

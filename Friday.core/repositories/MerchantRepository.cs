@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHibernate;
+using NHibernate.Linq;
 using friday.core.components;
 using friday.core.domain;
 
@@ -11,6 +12,7 @@ namespace friday.core.repositories
 
     public class MerchantRepository : Repository<Merchant>, IMerchantRepository
     {
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(Merchant)); }

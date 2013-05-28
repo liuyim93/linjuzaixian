@@ -20,6 +20,11 @@ namespace friday.core.repositories
             var list = (from x in this.Session.Query<School>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
             return list;
         }
+        public IList<School> FilterSchoolByAreaString(string AreaString)
+        {
+            var list = (from x in this.Session.Query<School>() select x).Where(o => AreaString.Contains(o.Name) && o.IsDelete == false).OrderByDescending(o=>o.TLevel).ToList();
+            return list;
+        }
         public School GetSchoolByAreasName(string name)
         {
             var m = (from x in this.Session.Query<School>() select x).Where(o => o.Name == name && o.IsDelete == false).SingleOrDefault();

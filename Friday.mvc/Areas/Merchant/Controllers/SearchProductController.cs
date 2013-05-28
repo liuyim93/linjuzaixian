@@ -9,6 +9,7 @@ using Friday.mvc.Models;
 using friday.core;
 using MvcPaging;
 using friday.core.components;
+using System.Net;
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
     public class SearchProductController : Controller
@@ -227,26 +228,89 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             if (systemUser != null)
             {
                 School currentUserSchool = systemUser.School;
-                School currentUserParentSchool = iSchoolService.Load(currentUserSchool.ParentID);
+                School currentUserParentSchool;
                 //当前用户所属 省 市
-                string[] family = currentUserSchool.Family.Split(',');
-                searchProductModel.currentFirstSchool = iSchoolService.Load(family[0]);
-                searchProductModel.currentSecondSchool = iSchoolService.Load(family[1]);
+                //string[] family = currentUserSchool.Family.Split(',');
+                //searchProductModel.currentFirstSchool = iSchoolService.Load(family[0]);
+                //searchProductModel.currentSecondSchool = iSchoolService.Load(family[1]);
 
                 //同级地区
-                searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(currentUserSchool.ParentID);
+                //searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(currentUserSchool.ParentID);
 
                 //上一级地区
-                searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(currentUserParentSchool.ParentID);
+                //searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(currentUserParentSchool.ParentID);
+
+                string[] family = currentUserSchool.Family.Split(',');
+                if (family.Length == 0)
+                {
+                    searchProductModel.currentFirstSchool = currentUserSchool;
+                    //只有同级地区
+                    searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(currentUserSchool.ParentID);
+                    searchProductModel.parentSiblingSchools = null;
+                }
+                else
+                {
+                    currentUserParentSchool = iSchoolService.Load(currentUserSchool.ParentID);
+
+                    searchProductModel.currentFirstSchool = iSchoolService.Load(currentUserSchool.ParentID);
+                    searchProductModel.currentSecondSchool = currentUserSchool;
+
+                    searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(currentUserSchool.ParentID);
+                    if (currentUserParentSchool.ParentID == null)
+                    {
+                        searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+                    }
+                    else
+                    {
+                        searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(currentUserParentSchool.ParentID);
+                    }
+                }
             }
             else
             {
-                //用户为登录
-                searchProductModel.currentFirstSchool = null;
-                searchProductModel.currentSecondSchool = null;
+                string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
 
-                //最顶级地区
-                searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+                School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
+                School ipLeafParentSchool;
+                if (ipLeafSchool != null)
+                {
+                    //用户未登录，但通过IP可以大体定位
+                    string[] family = ipLeafSchool.Family.Split(',');
+                    if (family.Length == 0)
+                    {
+                        searchProductModel.currentFirstSchool = ipLeafSchool;
+                        //只有同级地区
+                        searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafSchool.ParentID);
+                        searchProductModel.parentSiblingSchools = null;
+                    }
+                    else
+                    {
+                        ipLeafParentSchool = iSchoolService.Load(ipLeafSchool.ParentID);
+
+                        searchProductModel.currentFirstSchool = iSchoolService.Load(ipLeafSchool.ParentID);
+                        searchProductModel.currentSecondSchool = ipLeafSchool;
+
+                        searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafSchool.ParentID);
+                        if (ipLeafParentSchool.ParentID == null)
+                        {
+                            searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+                        }
+                        else
+                        {
+                            searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafParentSchool.ParentID);
+                        }
+                    }
+
+                }
+                else
+                {
+                    //用户未登录，且通过IP也不可定位
+                    searchProductModel.currentFirstSchool = null;
+                    searchProductModel.currentSecondSchool = null;
+
+                    //最顶级地区
+                    searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+                }
             }
 
 

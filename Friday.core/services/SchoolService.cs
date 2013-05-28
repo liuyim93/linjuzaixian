@@ -70,5 +70,10 @@ namespace friday.core.services
         {
             return iSchoolRepository.IsHaveChild(School);
         }
+        public IList<School> FilterSchoolByAreaString(string AreaString)
+        {
+            return iSchoolRepository.FilterSchoolByAreaString(AreaString);
+        }
+
     }
 }

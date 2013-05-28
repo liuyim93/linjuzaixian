@@ -25,6 +25,8 @@ namespace friday.core.services
         IList<Commodity> GetRecentCommodity(int num);
         IList<Commodity> GetHotRecommendCommoditiesByKeyWord(string keyword);
         int GetCommodityCountByFamily(string ParentID);
+        List<Commodity> GetCommodityByGoodsTypeAndSchoolID(string goodsTypeId, string schoolID);
+        List<Commodity> GetCommodityBySchoolID(string schoolID);
 
     }
 }

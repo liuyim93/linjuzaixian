@@ -33,6 +33,7 @@ namespace friday.core.domain
             Map(o => o.Activity);
             Map(o => o.Distance);
             Map(o => o.Rate);
+            Map(o => o.Schools);
             Map(o => o.ShopStatus).CustomType<ShopStatusEnum>();
             Map(o => o.MerchantType).CustomType<MerchantTypeEnum>();
 
