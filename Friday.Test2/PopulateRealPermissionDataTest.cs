@@ -2990,7 +2990,7 @@ namespace Friday.Test2
             IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();          
 
 
-
+            //属于山东财经大学地区
             Shop shop1 = new Shop()
             {
                 Activity = "五一大促销",
@@ -3010,6 +3010,7 @@ namespace Friday.Test2
                 ShopStatus = ShopStatusEnum.营业时间,
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                 MerchantType = MerchantTypeEnum.百货,
+                Schools = iSchoolRepository.GetSchoolByAreasName("山东财经大学").Id +","+ iSchoolRepository.GetSchoolByAreasName("历下区").Id +","+ iSchoolRepository.GetSchoolByAreasName("山东省").Id
                  
             };
             //GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
@@ -3216,7 +3217,9 @@ namespace Friday.Test2
                Rate = 0.8,
                ShopStatus = ShopStatusEnum.营业时间,
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
-               MerchantType = MerchantTypeEnum.百货
+               MerchantType = MerchantTypeEnum.百货,
+               Schools = iSchoolRepository.GetSchoolByAreasName("山东大学").Id + "," + iSchoolRepository.GetSchoolByAreasName("高新区").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
+               
            };
            //GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() { Name = "金制品" };
            //new GlobalGoodsTypeRepository().SaveOrUpdate(shopCommodityTye_12);
