@@ -58,7 +58,7 @@ namespace Friday.Test2
                         sBrand = "/uploadimage/s" + i%13 + ".jpg",
                         bBrand = "/uploadimage/b" + i%13 + ".jpg",
                         MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),
-                        Schools = iSchoolRepository.GetSchoolByAreasName(schl[i%4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i%3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
+                        Schools = iSchoolRepository.GetSchoolByAreasName(schl[i % 4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i % 3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("济南市").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
                  
                     };
                     iMerchants.Add(mcht);
@@ -101,7 +101,7 @@ namespace Friday.Test2
                     sBrand = "/uploadimage/s" + i   + ".jpg",
                     bBrand = "/uploadimage/b" + i   + ".jpg",
                     MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),
-                    Schools = iSchoolRepository.GetSchoolByAreasName(schl[i % 4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i % 3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
+                    Schools = iSchoolRepository.GetSchoolByAreasName(schl[i % 4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i % 3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("济南市").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
                  
                 };          
                  iMerchantRepository.SaveOrUpdate(mcht);

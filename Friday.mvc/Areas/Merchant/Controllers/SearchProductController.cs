@@ -273,7 +273,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 //取IP “山东省济南市 山东经济学院” 的经济学院
                 string[] sArray = areaString[1].Split(' ');
 
-                School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(sArray[1]).FirstOrDefault();
+                School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
                 School ipLeafParentSchool;
                 if (ipLeafSchool != null)
                 {

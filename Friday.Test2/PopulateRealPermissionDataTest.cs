@@ -84,7 +84,7 @@ namespace Friday.Test2
             //山东省
              School  sch=new School()
                 {
-                     AreaCode="250000",
+                     AreaCode="25000",
                      IsDelete=false,
                      Leaf=false,
                      Name="山东省",
@@ -96,6 +96,25 @@ namespace Friday.Test2
                 };
 
             iSchoolRepository.SaveOrUpdate(sch);
+
+            //济南市
+            School schjn = new School()
+            {
+                AreaCode = "250000",
+                IsDelete = false,
+                Leaf = false,
+                Name = "济南市",
+                PinYin = "jinanshi",
+                ShortName = "济南",
+                TLevel = 2,
+                //2013-05-24 basilwang add Family
+                Family = sch.Id,
+                ParentID = sch.Id,
+                ParentCode = "250000"
+
+            };
+
+            iSchoolRepository.SaveOrUpdate(schjn);
 
            
             //四个区
@@ -111,9 +130,9 @@ namespace Friday.Test2
                     ShortName = areas[i],
                     TLevel = 1,
                     ParentCode = "250000",
-                    ParentID = sch.Id,
+                    ParentID = schjn.Id,
                     //2013-05-24 basilwang add Family
-                    Family=sch.Family+sch.Id+","
+                    Family = schjn.Family + schjn.Id + ","
                 };
                 iSchoolRepository.SaveOrUpdate(scharea);
             }
@@ -3010,7 +3029,7 @@ namespace Friday.Test2
                 ShopStatus = ShopStatusEnum.营业时间,
                 MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                 MerchantType = MerchantTypeEnum.百货,
-                Schools = iSchoolRepository.GetSchoolByAreasName("山东经济学院").Id +","+ iSchoolRepository.GetSchoolByAreasName("历下区").Id +","+ iSchoolRepository.GetSchoolByAreasName("山东省").Id
+                Schools = iSchoolRepository.GetSchoolByAreasName("山东经济学院").Id +","+ iSchoolRepository.GetSchoolByAreasName("历下区").Id +","+ iSchoolRepository.GetSchoolByAreasName("济南市").Id +","+ iSchoolRepository.GetSchoolByAreasName("山东省").Id
                  
             };
             //GlobalGoodsType shopCommodityTye_1 = new GlobalGoodsType() { Name = "专供酒水" };
@@ -3218,7 +3237,7 @@ namespace Friday.Test2
                ShopStatus = ShopStatusEnum.营业时间,
                MerchantCategory = iMerchantCategoryRepository.SearchByMerchantCategoryName("综合购物中心"),
                MerchantType = MerchantTypeEnum.百货,
-               Schools = iSchoolRepository.GetSchoolByAreasName("山东大学").Id + "," + iSchoolRepository.GetSchoolByAreasName("高新区").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
+               Schools = iSchoolRepository.GetSchoolByAreasName("山东大学").Id + "," + iSchoolRepository.GetSchoolByAreasName("高新区").Id + "," + iSchoolRepository.GetSchoolByAreasName("济南市").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
                
            };
            //GlobalGoodsType shopCommodityTye_12 = new GlobalGoodsType() { Name = "金制品" };
