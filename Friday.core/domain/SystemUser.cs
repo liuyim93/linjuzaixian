@@ -140,6 +140,13 @@ namespace friday.core.domain
             set;
 
         }
-    
+
+        public virtual string TempSchool
+        {
+            get;
+
+            set;
+
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace friday.core.domain
             //Map(o => o.Password);
             Map(o => o.Tel);
             Map(o => o.IsAnonymous);
+            Map(o => o.TempSchool);
 
             HasOne<LoginUser>(o => o.LoginUser).PropertyRef("SystemUser");
             HasMany<Address>(o => o.Addresses).Cascade.All().Inverse();
