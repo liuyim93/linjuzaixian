@@ -373,10 +373,10 @@ background-position:left 0;
                                         <div class="shop-hesper-bd grid">
                                             <div class="shop-filter">
                                                 <div class="mode">
-                                                    <span>显示：</span> <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
+                                              @*      <span>显示：</span> <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
                                                         alt="列表方式" title="列表方式" class="J_SearchAsync mode-row">列表模式</a> <a href="http://localhost:7525/merchant/index?scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
                                                             alt="图表方式" title="图表方式" class="J_SearchAsync mode-grid">图表模式</a>
-                                                </div>
+                                               *@ </div>
                                                 <div class="taxis">
                                                     <span>排序：</span> 
                                                     <a href="http://localhost:7525/merchant/index?sort=@(ViewData["sort"].ToString() == "ma" ? "md" : "ma")&scid=@ViewData["sscid"]&viewType=@ViewData["sviewType"]&orderType=MonthAmount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]"
