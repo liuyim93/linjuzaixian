@@ -15,5 +15,6 @@ namespace friday.core.repositories
         IList<Shop> Search(List<DataFilter> termList);
         IList<Shop> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP);
+        IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP, string selectIP);
     }
 }

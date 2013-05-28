@@ -35,6 +35,13 @@ namespace friday.core.repositories
             return s;
         }
 
+        public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, string _selectIP)
+        {
+            var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser && o.Merchant.Schools.Contains(_selectIP) && o.IsDelete == false).ToList();
+
+            return s;
+        }
+
         public MyFavorite GetMyFavoriteBySystemUserAndMerchant(SystemUser systemUser, string merchantID)
         {
             var s = (from x in this.Session.Query<MyFavorite>() select x).Where(o => o.SystemUser == systemUser && o.Merchant.Id == merchantID).FirstOrDefault();

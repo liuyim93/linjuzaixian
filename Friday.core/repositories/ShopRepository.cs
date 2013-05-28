@@ -31,6 +31,13 @@ namespace friday.core.repositories
             return m;
         }
 
+        public IList<Shop> GetShopsByMerchantType(MerchantTypeEnum mTP, string selectIP)
+        {
+            var m = (from x in this.Session.Query<Shop>() select x).Where(o => o.MerchantType == mTP && o.Schools.Contains(selectIP) && o.IsDelete == false).ToList<Shop>();
+            return m;
+        }
+    
+
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(Shop)); }

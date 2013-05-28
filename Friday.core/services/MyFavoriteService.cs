@@ -29,6 +29,11 @@ namespace friday.core.services
             return iMyFavoriteRepository.GetMyFavoriteBySystemUser(systemUser);
         }
 
+        public IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, string _selectIP)
+        {
+            return iMyFavoriteRepository.GetMyFavoriteBySystemUser(systemUser, _selectIP);
+        }
+
         public MyFavorite GetMyFavoriteBySystemUserAndMerchant(SystemUser systemUser, string merchantID)
         {
             return iMyFavoriteRepository.GetMyFavoriteBySystemUserAndMerchant(systemUser,merchantID);

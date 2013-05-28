@@ -9,6 +9,7 @@ namespace friday.core.repositories
 {
     public interface IMyFavoriteRepository : IRepository<MyFavorite>
     {
+        IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, string _selectIP);
         IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser, int start, int limit, out int total);
         MyFavorite GetMyFavoriteBySystemUserAndMerchant(SystemUser systemUser, string merchantID);
         IList<MyFavorite> GetMyFavoriteBySystemUser(SystemUser systemUser);

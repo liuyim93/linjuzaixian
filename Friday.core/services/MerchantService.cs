@@ -19,13 +19,15 @@ namespace friday.core.services
     public class MerchantService:IMerchantService
     {
         private IMerchantRepository iMerchantRepository;
+        private IShopService iShopService;
         private IMyFavoriteService iMyFavoriteService;
         private ILogger iLogger;
 
-        public MerchantService(IMerchantRepository iMerchantRepository, ILogger iLogger, IMyFavoriteService iMyFavoriteService)
+        public MerchantService(IMerchantRepository iMerchantRepository, ILogger iLogger, IMyFavoriteService iMyFavoriteService, IShopService iShopService)
         {
             this.iMerchantRepository = iMerchantRepository;
             this.iMyFavoriteService = iMyFavoriteService;
+            this.iShopService = iShopService;
             this.iLogger = iLogger;
         }
 
@@ -127,6 +129,124 @@ namespace friday.core.services
             jsonResult.Data = new { 
               sBrands=sBrandModels,
               bBrands=bBrandModels
+            };
+            return jsonResult.FormatResult();
+        }
+
+        public string GetMerchantsJson(SystemUser systemUser, string selectIP)
+        {
+            IList<MerchantModel> bBrandModels = new List<MerchantModel>();
+            IList<MerchantModel> sBrandModels = new List<MerchantModel>();
+
+            IList<Merchant> myFavoriteMerchant = new List<Merchant>();
+            IList<MyFavorite> myFavorites = new List<MyFavorite>();
+            IList<Shop> Merchants = new List<Shop>();
+            if (systemUser != null)
+            {
+                if (selectIP != "" && selectIP != null)
+                {
+                    myFavorites = iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser, selectIP);
+                }
+                else
+                {
+                    myFavorites = iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser);
+                }
+                foreach (MyFavorite m in myFavorites)
+                {
+                    myFavoriteMerchant.Add(m.Merchant);
+                }
+            }
+
+            if (selectIP != "" && selectIP != null)
+            {
+                Merchants = iShopService.GetShopsBySchoolID(selectIP);
+            }
+            else
+            {
+                Merchants = iShopService.GetAll();
+            }
+            Merchant Merchant;
+            int index;
+
+            Random rand = new Random();
+
+            //Logo
+            for (int i = 0; i < 6; i++)
+            {
+                index = rand.Next(Merchants.Count);
+                Merchant = Merchants.ElementAt(index);
+                MerchantModel a = new MerchantModel();
+                a.logoPicType = "logo";
+                a.logo = Merchant.Logo;
+                a.source = "sBrands";
+                if (myFavoriteMerchant.Contains(Merchant))
+                {
+                    a.isCol = "True";
+                }
+                else
+                {
+                    a.isCol = "";
+                }
+                a.brandId = Merchant.Id;
+                a.brandName = Merchant.Name;
+                a.brandDesc = Merchant.Description;
+                sBrandModels.Add(a);
+                Merchants.RemoveAt(index);
+            }
+
+            //sBrand 
+            for (int i = 0; i < 3; i++)
+            {
+                index = rand.Next(Merchants.Count);
+                Merchant = Merchants.ElementAt(index);
+                MerchantModel a = new MerchantModel();
+                a.logoPicType = "logo";
+                a.logo = Merchant.sBrand;
+                a.source = "sBrands";
+                if (myFavoriteMerchant.Contains(Merchant))
+                {
+                    a.isCol = "True";
+                }
+                else
+                {
+                    a.isCol = "";
+                }
+                a.brandId = Merchant.Id;
+                a.brandName = Merchant.Name;
+                a.brandDesc = Merchant.Description;
+                sBrandModels.Add(a);
+                Merchants.RemoveAt(index);
+            }
+
+            //bBrand
+            for (int i = 0; i < 3; i++)
+            {
+                index = rand.Next(Merchants.Count);
+                Merchant = Merchants.ElementAt(index);
+                MerchantModel a = new MerchantModel();
+                a.logoPicType = "bBrand";
+                a.logo = Merchant.bBrand;
+                a.source = "bBrands";
+                if (myFavoriteMerchant.Contains(Merchant))
+                {
+                    a.isCol = "True";
+                }
+                else
+                {
+                    a.isCol = "";
+                }
+                a.brandId = Merchant.Id;
+                a.brandName = Merchant.Name;
+                a.brandDesc = Merchant.Description;
+                bBrandModels.Add(a);
+                Merchants.RemoveAt(index);
+            }
+
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = new
+            {
+                sBrands = sBrandModels,
+                bBrands = bBrandModels
             };
             return jsonResult.FormatResult();
         }
