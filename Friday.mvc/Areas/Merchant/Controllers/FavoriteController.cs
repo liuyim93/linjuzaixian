@@ -58,16 +58,30 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return JavaScript(script);
         }
 
-        public ActionResult Recommend(string callback)
+        public ActionResult Recommend(string callback, string selectIP)
         {
             string json;
             if (this.HttpContext.User.Identity.IsAuthenticated == true)
             {
-                json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext));
+                if (selectIP != "" && selectIP != null)
+                {
+                    json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext), selectIP);
+                }
+                else
+                {
+                    json = this.iMerchantService.GetMerchantsJson(iUserService.GetOrCreateUser(this.HttpContext),"");
+                }
             }
             else
             {
-                json = this.iMerchantService.GetMerchantsJson(null);
+                if (selectIP != "" && selectIP != null)
+                {
+                    json = this.iMerchantService.GetMerchantsJson(null, selectIP);
+                }
+                else
+                {
+                    json = this.iMerchantService.GetMerchantsJson(null,"");
+                }
             }
             string script = callback + "("+ json  +")";
 

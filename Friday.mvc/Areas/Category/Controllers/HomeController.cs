@@ -34,17 +34,28 @@ namespace Friday.mvc.Areas.Category.Controllers
             
             return View(categoryModel);
         }
-        public ActionResult brand_cat_asyn()
+        public ActionResult brand_cat_asyn(string selectIP)
         {
             CategoryModel categoryModel = new CategoryModel();
 
-            IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货);
-            categoryModel.shopModes = shopModesList;
+            if (selectIP != null && selectIP != "")
+            {
+                IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货, selectIP);
+                categoryModel.shopModes = shopModesList;
 
 
-            IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆);
-            categoryModel.orderFoodModes = foodOrderModesList;
+                IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆, selectIP);
+                categoryModel.orderFoodModes = foodOrderModesList;
+            }
+            else
+            {
+                IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货);
+                categoryModel.shopModes = shopModesList;
 
+
+                IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆);
+                categoryModel.orderFoodModes = foodOrderModesList;
+            }
             return View(categoryModel);
         }
         public ActionResult cat_nav_asyn(string callback)
