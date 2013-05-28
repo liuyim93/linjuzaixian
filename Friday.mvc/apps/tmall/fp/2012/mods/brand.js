@@ -41,10 +41,14 @@
         brandRecommend: function () {
             var _param_array = _kissy.unparam(_document.location.search.substring(1));
             var _uid = _param_array.uid || "";
+            //2013-05-28 wanghaichuan add _selectIP
+            var _selectIP = $("#sn-bd select:last").val();
             MFP.POC.add("ald_brand_start");
             _kissy.jsonp(_recommend_url, {
                 uid: _uid,
-                t: +new Date
+                t: +new Date,
+                //2013-05-28 wanghaichuan _selectIP
+                selectIP: _selectIP
             }, function (_data) {
                 MFP.POC.add("ald_brand_end");
                 if (!_data || !_data.bBrands || !_data.sBrands) {
