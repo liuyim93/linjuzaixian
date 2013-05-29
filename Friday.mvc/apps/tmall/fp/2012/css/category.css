@@ -74,9 +74,9 @@
 .subView0 .subItem-hd{width:706px;margin:10px 19px 0;}
 .subView0 .subItem-list{width:706px;margin:0 19px 10px;overflow:hidden;position:relative;}
 .subView0 ul{width:717px;height:auto;max-height:444px;margin:0;overflow:hidden;}
-.subView0 li{width:100px;_width:99px;height:110px;float:left;border:1px dotted #d2d2d2;border-left:none;_border-left:1px solid #fff;border-top:none;overflow:hidden;}
-.subView0 li a{display:block;width:96px;_margin-left:-1px;height:106px;line-height:106px;border:2px solid #fff;text-align:center;*font-size:93px;*font-family:Arial;position:relative;overflow:hidden;}
-.subView0 li a span{position:absolute;left:0;bottom:0;width:96px;height:23px;line-height:23px;background-color:#fff;color:#fff;font-size:12px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.subView0 li{width:75px;_width:75px;height:26px;float:left;border:1px dotted #d2d2d2;border-left:none;_border-left:1px solid #fff;border-top:none;overflow:hidden;}
+.subView0 li a{display:block;width:80px;_margin-left:-1px;height:20px;line-height:40px;border:2px solid #fff;text-align:center;*font-size:93px;*font-family:Arial;position:relative;overflow:hidden;}
+.subView0 li a span{position:absolute;left:0;bottom:0;width:75px;height:23px;line-height:23px;background-color:#fff;color:Gray;font-size:12px;cursor:pointer;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .subView0 li img{vertical-align:middle;}
 .subView0 li a:hover{border:2px solid #9f8e85;text-decoration:none;}
 .subView0 li a:hover span{background-color:#b2a59d;}
