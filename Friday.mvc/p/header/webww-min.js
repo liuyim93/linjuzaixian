@@ -191,7 +191,8 @@ KISSY.add("ajax", function(a) {
 								W = V(2),
 								U = /daily/i,
 								T = !(U.test(location.host)),
-								aa = T ? "a.tbcdn.cn" : "assets.daily.taobao.net",
+								//aa = T ? "a.tbcdn.cn" : "assets.daily.taobao.net",
+                                aa = "localhost:7525",
 								ab = "http://" + aa + "/p/header/adapter-min.js?t=" + Math.floor(new Date().getTime() / (1000 * 3600));
 							if (W == "etao.com") {
 								return

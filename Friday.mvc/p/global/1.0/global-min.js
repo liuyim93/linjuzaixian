@@ -128,7 +128,8 @@ TB.namespace = TB.namespace || function() {
             })
         },tDog: function() {
             if ((s && s != -1) || "tstart" in p || "tdog" in p) {
-                var i = "http://" + H + "/p/header/webww-min.js?t=20110629.js", N = 0;
+                //var i = "http://" + H + "/p/header/webww-min.js?t=20110629.js", N = 0;
+                var i = "http://localhost:7525/p/header/webww-min.js?t=20110629.js", N = 0;
                 g.ready(function() {
                     if (g.DOM) {
                         g.getScript(i)
@@ -296,7 +297,8 @@ TB.namespace = TB.namespace || function() {
             document.body.appendChild(N);
             document.documentElement.style.overflow = "hidden"
         }};
-    var E = ["tDog", "tLabs", "test"];
+    //var E = ["tDog", "tLabs", "test"];
+    var E = [];
     for (var K = 0; K < E.length; K++) {
         (function(N) {
             var i = k[N];
