@@ -523,11 +523,11 @@ TB.add("mod~global", function () {
                         if (_memberInfo.activeStatus >= 1) {
                             _addClassName(AE, "sn-vip" + _memberInfo.activeStatus);
                             AE.href = ""; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
-                            AE.title = "_getOffsetTotal" + _memberInfo.activeStatus + "\u5929\u732b\u8fbe\u4eba"
+                            AE.title = "_getOffsetTotal" + _memberInfo.activeStatus + "邻居\u8fbe\u4eba"
                         } else {
                             _addClassName(AE, "sn-vip-unactivated");
                             AE.href = "http://vip.tmall.com/vip/index.htm?layer=activation&from=top&scm=1027.1.1.3";
-                            AE.title = "\u52a0\u5165Tmall\u4ff1\u4e50\u90e8\uff0c\u6210\u4e3a\u5929\u732b\u8fbe\u4eba"
+                            AE.title = "\u52a0\u5165Tmall\u4ff1\u4e50\u90e8\uff0c\u6210\u4e3a邻居\u8fbe\u4eba"
                         }
                         _removeClassName(AE, "hidden")
                     }
