@@ -1046,7 +1046,6 @@
     <Content Include="apps\department\brand\2.0\css\index.css" />
     <Content Include="apps\department\brand\2.0\mods\collect.js" />
     <Content Include="apps\department\brand\2.0\core.js" />
-    <Content Include="apps\department\brand\2.0\dialog.js" />
     <Content Include="apps\department\brand\2.0\fav.js" />
     <Content Include="apps\department\brand\2.0\mods\dialog.js" />
     <Content Include="apps\department\brand\2.0\mods\item.js" />
