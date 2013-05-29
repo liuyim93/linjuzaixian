@@ -1400,7 +1400,7 @@
     <Content Include="Images\gray_mall_head-184-38.gif" />
     <Content Include="Images\RedHeart-20-20.png" />
     <Content Include="Images\hotsell.jpg" />
-    <Content Include="p\header\adapter-fullsource.js" />
+    <Content Include="p\header\adapter.js" />
     <Content Include="p\header\webww-fullsource.js" />
     <Content Include="p\header\search.xml" />
     <Content Include="p\mall\2.0\css\tmall_reg.css" />
