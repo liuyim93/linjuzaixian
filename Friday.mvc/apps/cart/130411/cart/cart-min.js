@@ -1275,9 +1275,9 @@ KISSY.add("core/monitor", function(e, t, n) {
                     }
                     n.quantity = r.quantity;
                     var i = [], s = Math.random().toString().slice(2, 9);
-                    (new Image).src = "http://ac.atpanel.com/tmbuy.1.1?cache=" + s, i.push('<tr class="shop"><td colspan="8">需天猫结算的商品</td></tr>'), e.each(r.cartInfo, function(t) {
+                    (new Image).src = "http://ac.atpanel.com/tmbuy.1.1?cache=" + s, i.push('<tr class="shop"><td colspan="8">需邻居结算的商品</td></tr>'), e.each(r.cartInfo, function(t) {
                         var n = [], s = Math.random().toString().slice(2, 9);
-                        n.push('<tr class="disable" data-cartid="{cartId}" data-itemid="{itemId}" data-skuid="{skuId}"><td class="s-chk"><a target="_blank" href="' + r.tmallCartUrl + (r.tmallCartUrl.indexOf("?") === -1 ? "?" : "&") + 'from=detail" title="含天猫特色服务，仅可在天猫购物袋结算">需天猫结算&nbsp;&rsaquo;&nbsp;</a></td><td class="s-title"><a href="{detailUrl}" target="_blank" class="J_MakePoint"><span class="small2big-text J_MakePoint">查看大图</span><img src="{pictUrl}" class="itempic J_MakePoint">{itemTitle}</a><div class="props">'), t.skuInfo && e.each(t.skuInfo, function(t) {
+                        n.push('<tr class="disable" data-cartid="{cartId}" data-itemid="{itemId}" data-skuid="{skuId}"><td class="s-chk"><a target="_blank" href="' + r.tmallCartUrl + (r.tmallCartUrl.indexOf("?") === -1 ? "?" : "&") + 'from=detail" title="含邻居特色服务，仅可在邻居购物袋结算">需邻居结算&nbsp;&rsaquo;&nbsp;</a></td><td class="s-title"><a href="{detailUrl}" target="_blank" class="J_MakePoint"><span class="small2big-text J_MakePoint">查看大图</span><img src="{pictUrl}" class="itempic J_MakePoint">{itemTitle}</a><div class="props">'), t.skuInfo && e.each(t.skuInfo, function(t) {
                             n.push(e.substitute("<span>{key}: {value}</span>", t))
                         }), n.push('</div></td><td class="s-point">-</td><td class="s-price ">-</td><td class="s-amount ">-</td><td class="s-agio">-</td><td class="s-total">-</td><td class="s-del"><a href="javascript:;" class="J_Del  J_MakePoint">删除</a></td></tr>'), i.push(e.substitute(n.join(""), t))
                     }), t.html(n.containerEl, i.join("")), t.data("#float-bar", "top", t.offset("#J_CartEnable").top + t.height("#J_CartEnable"))

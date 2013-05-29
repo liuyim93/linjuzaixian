@@ -403,7 +403,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                       attributes = i.ToString(),
                       auctionSku = "颜色分类:" + i.ToString() + "激光紫色/帆白;尺码:37.5/6.5",
                       buyCount = 0,
-                      cmsSource = "天猫",
+                      cmsSource = "邻居",
                       displayRatePic = "b_red_1.gif",
                       displayRateSum = 5,
                       displayUserLink = "",

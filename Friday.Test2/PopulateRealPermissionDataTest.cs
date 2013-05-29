@@ -2335,7 +2335,7 @@ namespace Friday.Test2
         //      //第二个人的消息模块
         //       MessageContent mc2_1 = new MessageContent()
         //       {
-        //           Content = "亲爱的天猫达人，今天是您的生日，天猫俱乐部祝您生日快乐。"
+        //           Content = "亲爱的邻居达人，今天是您的生日，邻居俱乐部祝您生日快乐。"
         //       };
         //       new MessageContentRepository().SaveOrUpdate(mc2_1);
 
@@ -2353,7 +2353,7 @@ namespace Friday.Test2
 
         //       MessageContent mc2_2 = new MessageContent()
         //       {
-        //           Content = "感谢您一直以来对天猫的支持。今天是双倍积分卡有效期的最后一天，您的积分赚够了么？"
+        //           Content = "感谢您一直以来对邻居的支持。今天是双倍积分卡有效期的最后一天，您的积分赚够了么？"
         //       };
         //       new MessageContentRepository().SaveOrUpdate(mc2_2);
 
