@@ -494,7 +494,7 @@ TB.add("mod~global", function () {
 
             if (TB.environment.isDaily) {
                 _loginserver = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(_real_url_redirect);
-                _spaceserver = "http://jianghu.daily.taobao.net/admin/home.htm";
+                _spaceserver = "http://120.192.31.164:7525/index.html";
                 _registerserver += "?isDaily=1";
                 _logoutserver = "http://login.daily.taobao.net/member/logout.jhtml?f=top&redirectURL=http://login.daily.taobao.net/member/login.jhtml?redirect_url%3D" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect))
             }
@@ -505,7 +505,8 @@ TB.add("mod~global", function () {
             }
             var _user_info_snippet = "";
             if (_user_info.isLogin) {
-                _user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href=" ">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
+                //_user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href=" ">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
+                _user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href="http://120.192.31.164:7525/index.html">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="http://120.192.31.164:7525/index.html" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
                 _dom_id_login_info.innerHTML = _user_info_snippet;
                 if (_is_ie6) {
                     var _elem = _findChildElementByClassName("j_UserNick", _div_named_site_nav);
@@ -522,7 +523,8 @@ TB.add("mod~global", function () {
                         var AE = _findChildElementByClassName("j_Identity", _div_named_site_nav);
                         if (_memberInfo.activeStatus >= 1) {
                             _addClassName(AE, "sn-vip" + _memberInfo.activeStatus);
-                            AE.href = ""; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
+                            //AE.href = ""; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
+                            AE.href = "http://120.192.31.164:7525/index.html"; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
                             AE.title = "_getOffsetTotal" + _memberInfo.activeStatus + "邻居\u8fbe\u4eba"
                         } else {
                             _addClassName(AE, "sn-vip-unactivated");

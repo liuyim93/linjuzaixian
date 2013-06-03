@@ -414,7 +414,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
         {
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
 
-            if (cartId == "" && cartId == null)
+            if (cartId == "" || cartId == null)
             {
                 var ser = new DataContractJsonSerializer(typeof(List<FormData>));
                 var ms = new MemoryStream(Encoding.UTF8.GetBytes(data));

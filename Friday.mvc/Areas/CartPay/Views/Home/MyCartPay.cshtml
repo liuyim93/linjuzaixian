@@ -76,7 +76,8 @@
             t.async = true;
             t.id = "tb-beacon-aplus";
             t.setAttribute("exparams", "category=&userid=123072695&aplus");
-            t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            //t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            t.src = "http://120.192.31.164:7525/s/aplus_v2.js"
             d.getElementsByTagName("head")[0].appendChild(t);
         })(document);
     </script>
@@ -163,7 +164,7 @@
                     _tb_token_: 'l3zCMDsIIlcG'
                 };
             </script>
-            <script src="http://a.tbcdn.cn/apps/tmallbuy/pub/cart/1.1.1/init.js"></script>
+            <script src="http://120.192.31.164:7525/apps/tmallbuy/pub/cart/1.1.1/init.js"></script>
             <textarea id="J_EmptyHtml">
 <div id="empty" data-spm="3">
     <h2>您的购物车还是空的，赶紧行动吧！您可以：</h2>
