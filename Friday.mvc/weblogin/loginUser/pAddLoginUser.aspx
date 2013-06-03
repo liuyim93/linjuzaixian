@@ -19,7 +19,7 @@
                 <p>
                 <label>
                     密码确认：</label>
-                <input type="password" id="PasswordAgain" size="30" class="required textInput gray" runat="server" />
+                <input type="password" id="PasswordAgain" size="30" class="required textInput gray"  equalto="#Password"  runat="server" />
                 </p>
 
                 <p>

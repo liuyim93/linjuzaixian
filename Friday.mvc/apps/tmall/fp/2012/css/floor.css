@@ -1,7 +1,7 @@
 ﻿.floorAd{width:940px;margin:10px 0 10px 10px;overflow:hidden;}
 .floor h2 s,.floorTop-tab b{background:url(http://img04.taobaocdn.com/tps/i4/T1F92RXdxhXXa86zbq-145-290.png) no-repeat;}
 .floor-loading textarea{visibility:hidden;height:360px;}
-.floor-loading{background:url(http://120.192.31.164:7525/Images/gray_mall_head-184-38.gif) no-repeat scroll 50% 50%;}
+.floor-loading{background:url(http://localhost:7525/Images/gray_mall_head-184-38.gif) no-repeat scroll 50% 50%;}
 .floor{width:950px;height:358px;clear:both;*position:relative;margin-bottom:10px;overflow:hidden;background:#fff;border-bottom:1px solid #e5e5e5;}
 .floor h2{height:36px;line-height:36px;border-bottom:2px solid #000;font-size:18px;overflow:hidden;position:relative;padding-left:10px;}
 .floor h2 s{display:block;width:120px;height:36px;position:absolute;left:0;top:0;}

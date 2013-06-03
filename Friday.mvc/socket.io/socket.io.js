@@ -163,7 +163,7 @@ var io = ('undefined' === typeof module ? {} : module.exports);
                 port = port || (protocol == 'https'
         && document.location.protocol !== 'https:' ? 443 : document.location.port);
             } else {
-                host = host || '120.192.31.164';
+                host = host || 'localhost';
 
                 if (!port && protocol == 'https') {
                     port = 443;

@@ -23,14 +23,14 @@ em,
   -webkit-backface-visibility: hidden; }
 
 .icon {
-  background-image: url("http://120.192.31.164:7525/Images/T1tr_NXXXaXXcydsz6-478-1990.png");
+  background-image: url("http://localhost:7525/Images/T1tr_NXXXaXXcydsz6-478-1990.png");
   _background-image: url("http://img03.taobaocdn.com/tps/i3/T1.FvMXfNiXXcnacz6-478-1990.gif");
   background-repeat: no-repeat; }
 
 .home-icon, .top-bug-btn a, .MT-tooltip .bottom, .mt-userinfo-sub .sub-info .main-ul .tao-coin, #has-buy header h2 a, #has-buy header .J_hasbuy_more, #has-buy section .item-show.multi a,
 #has-buy .section .item-show.multi a, #shop-cart header h2 a, .mt-app header h3 a, .mt-app header .more, #app-collect-shop header h3 .why, .expressway-box .mt-express-tab .selected i,
 .expressway-more-selected i.arrow, #app-friend-feed footer .share, #app-friend-feed section dt span {
-  background-image: url("http://120.192.31.164:7525/Images/T1X8yyXEVdXXaS9GEx-112-712.png");
+  background-image: url("http://localhost:7525/Images/T1X8yyXEVdXXaS9GEx-112-712.png");
   background-repeat: no-repeat; }
 
 .mt-app-noicon, #has-buy section.hasbuy-item-0 a.nodata-icon, #shop-cart .shop-cart-list.cart-0 a.nodata-icon, #app-collect-shop section.shop-0 a.nodata-icon, #app-collect-item section.item-0 a.nodata-icon, #app-friend-feed section.friend-0 a.nodata-icon, #app-quanzi section.quanzi-0 a.nodata-icon {
@@ -68,7 +68,7 @@ em,
   overflow: hidden; }
 
 .vip-icon, .mt-userinfo-sub .sub-info .main-ul .vip .member a, #J_Mystical .member a {
-  background: url(http://120.192.31.164:7525/Images/T1FyOKXeRsXXXXXXXX-56-625.png) left -999em no-repeat; }
+  background: url(http://localhost:7525/Images/T1FyOKXeRsXXXXXXXX-56-625.png) left -999em no-repeat; }
 
 body {
   color: #888;
@@ -301,7 +301,7 @@ a:hover {
   float: left;
   width: 100%;
   min-height: 1px;
-  background: url("http://120.192.31.164:7525/Images/T1IByBXu4cXXcL3xbb-145-10.png") -4px top repeat-y;
+  background: url("http://localhost:7525/Images/T1IByBXu4cXXcL3xbb-145-10.png") -4px top repeat-y;
   _background: none;
   border-bottom-left-radius: 5px;
   border-top-left-radius: 5px; }

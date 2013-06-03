@@ -72,12 +72,12 @@
 
 
 
-            "initApi": "http://120.192.31.164:7525/Merchant/Detail/initItemDetail?trialErrNum=0&isSpu=false&isIFC=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&isForbidBuyItem=false&isMeizTry=false&tmallBuySupport=true&itemTags=1478,2049,3974,4166&household=false&sellerUserTag=236548128&tgTag=false&itemId=@(Model.Commodity.Id)&isUseInventoryCenter=false&isSecKill=false&isApparel=true&service3C=false&cartEnable=true",
+            "initApi": "http://localhost:7525/Merchant/Detail/initItemDetail?trialErrNum=0&isSpu=false&isIFC=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&isForbidBuyItem=false&isMeizTry=false&tmallBuySupport=true&itemTags=1478,2049,3974,4166&household=false&sellerUserTag=236548128&tgTag=false&itemId=@(Model.Commodity.Id)&isUseInventoryCenter=false&isSecKill=false&isApparel=true&service3C=false&cartEnable=true",
             //"initApi": "http://mdskip.taobao.com/core/initItemDetail.htm?trialErrNum=0&isSpu=false&isIFC=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&isForbidBuyItem=false&isMeizTry=false&tmallBuySupport=true&itemTags=1478,2049,3974,4166&household=false&sellerUserTag=236548128&tgTag=false&itemId=16246683095&isUseInventoryCenter=false&isSecKill=false&isApparel=true&service3C=false&cartEnable=true",
             "changeLocationApi": "http://mdskip.taobao.com/core/changeLocation.htm?itemTags=1478,2049,3974,4166&sellerUserTag=236548128&household=false&tgTag=false&isSpu=false&itemId=16246683095&isUseInventoryCenter=false&isSecKill=false&sellerUserTag4=4297081219&notAllowOriginPrice=false&sellerUserTag2=27027284300922954&sellerUserTag3=35684480&isAreaSell=false&service3C=false&cartEnable=true",
             @{
             <text>
-            "initExtensionApi": "http://120.192.31.164:7525/Merchant/Extension/initExtension?showBreadCrumb=true&sellerId=@(Model.Merchant.Id)&brand=Nike%2F%C4%CD%BF%CB&showSpuMaintainer=false",
+            "initExtensionApi": "http://localhost:7525/Merchant/Extension/initExtension?showBreadCrumb=true&sellerId=@(Model.Merchant.Id)&brand=Nike%2F%C4%CD%BF%CB&showSpuMaintainer=false",
             </text>
             }
             "initExtraApi": "http://mdskip.taobao.com/extension/initExtra.htm",
@@ -87,7 +87,7 @@
 
 
             "api": {
-                "fetchDcUrl": "http://120.192.31.164:7525/Merchant/Dc/fetchDc?pid=256494987&sellerId=890482188&t=1363244611000"
+                "fetchDcUrl": "http://localhost:7525/Merchant/Dc/fetchDc?pid=256494987&sellerId=890482188&t=1363244611000"
             },
 
             "itemDO": {
@@ -151,14 +151,14 @@
                 'mallList': 'http://list.tmall.com',
                 'buyBase': 'http://buy.taobao.com/auction',
                 "tbskip": "http://tbskip.taobao.com",
-                "rate": "http://120.192.31.164:7525"
+                "rate": "http://localhost:7525"
             },
             "tradeType": 2,
             "cartEnable": true,
 
             "tradeConfig": {
                 1: "http://buy.taobao.com/auction/buy_now.jhtml",
-                2: "http://120.192.31.164:7525/CartPay/Home/MyCartPay",
+                2: "http://localhost:7525/CartPay/Home/MyCartPay",
                 3: "http://obuy.tmall.com/home/order/confirm_order.htm",
                 4: ""
             },

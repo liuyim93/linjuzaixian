@@ -10,8 +10,8 @@ i,s{font-style:normal}
 .hasAld .aldRight{top:0;right:0;width:190px;overflow:hidden}
 .aldItem{margin-bottom:10px}
 .hasAld .aldRight .ald-inner{width:auto!important}
-.aldRight-loading{height:200px;background:url(http://120.192.31.164:7525/Images/loading.gif) no-repeat scroll 50% 50%}
-#navbar a i,.crumbDelete,.crumbSearch-label,.crumbSearch-btn,.fArea,.fRange,.fSort i,.fType-w i,.fType-g i,.fType-l i,.fR-list i,.fR-cur i,.fPb-split,.fT-cat,.fT-arrow,.flagship-icon,.drop-icon,.expand-icon,.shopDropBtn i,.btmFeed,.brandAttr .av-search,.attr li i,.attr .avo-multiple i,.attrExtra i,.cateAttrs .attrKey,.attrTrigger,.crumbSlide-prev,.crumbSlide-next,.crumbSlide-prev-shadow,.crumbSlide-next-shadow,.crumbDrop i,.i-brandsite,.i-shop,.i-flagship{background:url(http://120.192.31.164:7525/Images/T1GcmeXEJXXXXUVs6Z-165-206.png) no-repeat 9999px 9999px}
+.aldRight-loading{height:200px;background:url(http://localhost:7525/Images/loading.gif) no-repeat scroll 50% 50%}
+#navbar a i,.crumbDelete,.crumbSearch-label,.crumbSearch-btn,.fArea,.fRange,.fSort i,.fType-w i,.fType-g i,.fType-l i,.fR-list i,.fR-cur i,.fPb-split,.fT-cat,.fT-arrow,.flagship-icon,.drop-icon,.expand-icon,.shopDropBtn i,.btmFeed,.brandAttr .av-search,.attr li i,.attr .avo-multiple i,.attrExtra i,.cateAttrs .attrKey,.attrTrigger,.crumbSlide-prev,.crumbSlide-next,.crumbSlide-prev-shadow,.crumbSlide-next-shadow,.crumbDrop i,.i-brandsite,.i-shop,.i-flagship{background:url(http://localhost:7525/Images/T1GcmeXEJXXXXUVs6Z-165-206.png) no-repeat 9999px 9999px}
 .flagship-icon{background-position:-16px -112px;display:inline-block;float:left;width:62px;height:18px;line-height:50px;overflow:hidden;margin:2px 5px 0 0}
 .shop-icon{display:inline-block;background-color:#efeceb;padding:0 3px;border-radius:2px;color:gray}
 .drop-icon,.expand-icon{background-position:-48px -13px;position:absolute;width:9px;height:5px;right:22px;top:10px;overflow:hidden}
@@ -24,7 +24,7 @@ i,s{font-style:normal}
 b.sDc-low{background:#217311}
 .sDc-high,.sDc-low{color:#a1001a;font-weight:bold}
 .sDc-low{color:#217311}
-.btmSearch-loading{height:100px;background:url(http://120.192.31.164:7525/Images/loading.gif) no-repeat scroll 50% 50%}
+.btmSearch-loading{height:100px;background:url(http://localhost:7525/Images/loading.gif) no-repeat scroll 50% 50%}
 .btmSearch-loading textarea{display:none}
 .btmSearch{padding:27px 0;background-color:#f4f4f4;margin-top:20px}
 .btmSearch-main{width:530px;margin:0 auto}

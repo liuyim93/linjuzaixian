@@ -1,5 +1,5 @@
 ﻿.headerNav{position:relative;z-index:10000;}
-.shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:no-repeat 999em;background-image:url(http://120.192.31.164:7525/Images/merchant_spot-148-83.png)!important;}
+.shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:no-repeat 999em;background-image:url(http://localhost:7525/Images/merchant_spot-148-83.png)!important;}
 #mall-shop{position:relative;z-index:990;}
 #shop-info{float:left;position:absolute;top:-25px;left:440px;width:310px;border-radius:2px;background-color:#9d0100;border:1px solid #a00;}
 #shop-info .main-info{height:18px;padding:5px;width:300px;overflow:hidden;}
@@ -71,7 +71,7 @@
 #shop-info .shop-grade{width:80px!important;}
 #shop-info .shop-status{width:auto!important;}
 a{color:#36c;}
-.button,.box i,.mode a,.shop-search-x .text,.c-value-no,.c-value-no i{background:url(http://120.192.31.164:7525/Images/star_sort-128-83.png) no-repeat;}
+.button,.box i,.mode a,.shop-search-x .text,.c-value-no,.c-value-no i{background:url(http://localhost:7525/Images/star_sort-128-83.png) no-repeat;}
 .c-value-no i{display:inline-block;width:16px;height:16px;overflow:hidden;}
 .H{color:#f50!important;}
 #content{position:relative;overflow:hidden;width:100%;}
@@ -295,7 +295,7 @@ html{background-color:#fff;}
 /* search  sprite */
 .mallSearch-type .active,
 #mallSearch button, #mallSearch button:hover{
-    background: url(http://120.192.31.164:7525/Images/setlogo-242-139.png) no-repeat;
+    background: url(http://localhost:7525/Images/setlogo-242-139.png) no-repeat;
 }
 
 
@@ -682,7 +682,7 @@ button::-moz-focus-inner {
     border-left-color: #980101;
     border-right: none;
 }
-#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://120.192.31.164:7525/Images/setlogo-242-139.png) no-repeat;}
+#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://localhost:7525/Images/setlogo-242-139.png) no-repeat;}
 #mall-desc .propose i{margin-right:.1em;background-position:-156px -52px;}
 #mall-desc dt span{display:block;height:19px;width:73px;text-indent:-999em;overflow:hidden;}
 #ensure dt span{background-position:0 -53px;}
@@ -708,7 +708,7 @@ button::-moz-focus-inner {
 #footer p{padding:5px 0;}
 #footer p strong{font-weight:normal;}
 #footer p a{margin-right:3px;color:#36c;}
-.tshop-psm-ssa10b .shop-basic .hd,.tshop-psm-ssa10b .shop-basic .shop-type,.tshop-psm-ssa10b .shop-basic .shop-type p,.tshop-psm-ssa10b .shop-basic .shop-promise ul,.tshop-psm-ssa10b .shop-basic .shop-promise .no-invoice,.tshop-psm-ssa10b .shop-basic .shop-promise .no-7days,.tshop-psm-ssa10b .shop-basic .c-value-no,.tshop-psm-ssa10b .shop-basic .c-value-no i,.tshop-psm-ssa10b .shop-basic .shop-intro .other .enter,.tshop-psm-ssa10b .shop-basic .shop-search .submit button,.tshop-psm-ssa10b .shop-basic .shop-search input{background-image:url(http://120.192.31.164:7525/Images/offical_declare-192-226.png)!important;background-repeat:no-repeat;}
+.tshop-psm-ssa10b .shop-basic .hd,.tshop-psm-ssa10b .shop-basic .shop-type,.tshop-psm-ssa10b .shop-basic .shop-type p,.tshop-psm-ssa10b .shop-basic .shop-promise ul,.tshop-psm-ssa10b .shop-basic .shop-promise .no-invoice,.tshop-psm-ssa10b .shop-basic .shop-promise .no-7days,.tshop-psm-ssa10b .shop-basic .c-value-no,.tshop-psm-ssa10b .shop-basic .c-value-no i,.tshop-psm-ssa10b .shop-basic .shop-intro .other .enter,.tshop-psm-ssa10b .shop-basic .shop-search .submit button,.tshop-psm-ssa10b .shop-basic .shop-search input{background-image:url(http://localhost:7525/Images/offical_declare-192-226.png)!important;background-repeat:no-repeat;}
 .tshop-psm-ssa10b .shop-basic .shop-type .join-3c i{background:url(http://img05.taobaocdn.com/tps/i5/T1lHBEXaVwXXXXXXXX-32-32.png);}
 .tshop-psm-ssa10b .shop-basic .shop-type .join-xie i{background:url(http://img05.taobaocdn.com/tps/i5/T1AbBEXmRvXXXXXXXX-32-32.png);}
 .tshop-psm-ssa10b .shop-basic .c-value-no{display:inline-block;height:12px!important;overflow:hidden;text-align:left;vertical-align:inherit!important;width:60px;margin-left:-6px;margin-right:1px;background-position:-127px -94px!important;}
@@ -760,7 +760,7 @@ button::-moz-focus-inner {
 .main-wrap .tshop-psm-ssa10b .shop-search .submit{padding-left:10px;}
 .tshop-psm-ssa10b .service-number{position:relative;}
 .tshop-psm-ssa10b .service-number .new{position:absolute;top:-4px;right:14px;_right:12px;}
-#bd .shop-basic .hd,#bd .shop-basic .shop-type,#bd .shop-basic .shop-type p,#bd .shop-basic .shop-promise ul,#bd .shop-basic .shop-promise .no-invoice,#bd .shop-basic .shop-promise .no-7days,#bd .shop-basic .c-value-no,#bd .shop-basic .c-value-no i,#bd .shop-basic .shop-intro .other .enter,#bd .shop-basic .shop-search .submit button,#bd .shop-basic .shop-search input{background-image:url(http://120.192.31.164:7525/Images/offical_declare-192-226.png)!important;background-repeat:no-repeat;}
+#bd .shop-basic .hd,#bd .shop-basic .shop-type,#bd .shop-basic .shop-type p,#bd .shop-basic .shop-promise ul,#bd .shop-basic .shop-promise .no-invoice,#bd .shop-basic .shop-promise .no-7days,#bd .shop-basic .c-value-no,#bd .shop-basic .c-value-no i,#bd .shop-basic .shop-intro .other .enter,#bd .shop-basic .shop-search .submit button,#bd .shop-basic .shop-search input{background-image:url(http://localhost:7525/Images/offical_declare-192-226.png)!important;background-repeat:no-repeat;}
 #bd .shop-basic .shop-type .join-3c i{background:url(http://img05.taobaocdn.com/tps/i5/T1lHBEXaVwXXXXXXXX-32-32.png);}
 #bd .shop-basic .shop-type .join-xie i{background:url(http://img05.taobaocdn.com/tps/i5/T1AbBEXmRvXXXXXXXX-32-32.png);}
 #bd .shop-basic .c-value-no{display:inline-block;height:12px!important;overflow:hidden;text-align:left;vertical-align:inherit!important;width:60px;margin-left:-6px;margin-right:1px;background-position:-127px -94px!important;}
@@ -823,7 +823,7 @@ button::-moz-focus-inner {
 #content{z-index:10;}
 #header{position:relative;z-index:1900;}
 .shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:url(http://img01.taobaocdn.com/tps/i1/T19mWaXgtjXXXXXXXX-148-83.png) no-repeat 999em;}
-.extra-info .c-value-no{background:url("http://120.192.31.164:7525/Images/star_sort-128-83.png") -64px -12px repeat;}
+.extra-info .c-value-no{background:url("http://localhost:7525/Images/star_sort-128-83.png") -64px -12px repeat;}
 #mall-shop{position:relative;z-index:990;}
 #shop-info{float:left;position:absolute;top:5px;left:190px;_left:10px;padding:0 1px;width:237px;background-color:#7a170f;border:1px solid #7a170f;border-left-color:#d61800;border-right-color:#d61800;}
 #shop-info .main-info{height:38px;width:228px;padding-left:8px;padding-top:3px;border:1px solid #d61800;border-left:none;background-color:#b21000;overflow:hidden;}
@@ -1302,7 +1302,7 @@ button::-moz-focus-inner {
 .tshop-pbsm-stl10c .shop-rank .pic img{vertical-align:middle;}
 .tshop-pbsm-stl10c .shop-rank .desc,.tshop-pbsm-stl10c .shop-rank .price{float:left;width:120px;height:14px;line-height:1.2;text-align:left;overflow:hidden;}
 .tshop-pbsm-stl10c .shop-rank .price{font-size:13px;color:#F50;}
-.tshop-pbsm-stl10c .shop-rank .price i{background:url("http://120.192.31.164:7525/Images/T18Wf4XhtaXXaSQP_X-16-16.png") no-repeat scroll 1px 0 transparent;}
+.tshop-pbsm-stl10c .shop-rank .price i{background:url("http://localhost:7525/Images/T18Wf4XhtaXXaSQP_X-16-16.png") no-repeat scroll 1px 0 transparent;}
 .tshop-pbsm-stl10c .shop-rank .collecter,.tshop-pbsm-stl10c .shop-rank .sale{float:left;width:120px;overflow:hidden;line-height:1.4;}
 .tshop-pbsm-stl10c .shop-rank .collecter i,.tshop-pbsm-stl10c .shop-rank .sale i{float:left;margin-right:3px;}
 .tshop-pbsm-stl10c .shop-rank .collecter i{background-position:-80px -56px;}
@@ -1330,7 +1330,7 @@ button::-moz-focus-inner {
 .col-sub .box .hd,.col-extra .box .hd{border-width:1px;border-bottom-width:0;line-height:24px;}
 .col-sub .bd,.col-extra .bd{border-width:1px;padding:9px 0 9px 9px;}
 .box i{display:inline-block;width:16px;height:16px;vertical-align:top;overflow:hidden;}
-.button,.box i,.mode a,.shop-search-x .text,.c-value-no,.c-value-no i{background:url(http://120.192.31.164:7525/Images/star_sort-128-83.png) no-repeat;}
+.button,.box i,.mode a,.shop-search-x .text,.c-value-no,.c-value-no i{background:url(http://localhost:7525/Images/star_sort-128-83.png) no-repeat;}
 .button{width:60px;height:21px;border-width:0;font-size:12px;font-weight:700;}
 .no-border,.no-border .bd{border-width:0!important;padding:0!important;}
 .box .shop-slider .bd{padding:0;}

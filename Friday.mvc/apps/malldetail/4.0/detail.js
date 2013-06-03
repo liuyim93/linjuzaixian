@@ -3,7 +3,7 @@
     var _document = document,
         _window = window,
         _g_config = _window.g_config,
-        _url = _g_config.assetsHost || "http://120.192.31.164:7525";
+        _url = _g_config.assetsHost || "http://localhost:7525";
      _g_config.t = _g_config.t + "d4";
     _kissy.config(
          { combine: false,
@@ -186,11 +186,11 @@
         }
     },
             sendAtpanel: function (I, J) {
-        var H = "http://120.192.31.164:7527/" + I;
+        var H = "http://localhost:7527/" + I;
         this._sendImage(H, J)
     },
             sendAcAtpanel: function (_tab_panel_id, J) {
-        var H = "http://120.192.31.164:7527/" + _tab_panel_id;
+        var H = "http://localhost:7527/" + _tab_panel_id;
         this._sendImage(H, J)
     },
             sendImg: function (H) {
@@ -268,7 +268,7 @@
         var K = J ? "daily.tmall.net" : "tmall.com";
         //2013-05-06 basilwang use our own
         //var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
-        var H = _kissy.mix({ proxyURL: "http://120.192.31.164:7525/Account/Home/XCrossIframe?type=minilogin&t=" + _kissy.t() }, I);
+        var H = _kissy.mix({ proxyURL: "http://localhost:7525/Account/Home/XCrossIframe?type=minilogin&t=" + _kissy.t() }, I);
         _kissy.use("tml/minilogin", function (M, N) {
             N.show(L, H)
         })

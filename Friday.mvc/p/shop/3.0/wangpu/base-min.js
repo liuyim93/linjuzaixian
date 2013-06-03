@@ -76,7 +76,7 @@
                 m.on("show", function () {
                     var p = this,
 						o = a(l.href) + (j ? "&isTmall=1" : ""),
-						q = '<a class="close-btn" href="javascript:void(0)"style="position: absolute; top: 5px; right: 4px; outline: none;display: block; width: 15px; height: 15px; background: url(http://120.192.31.164:7525/Images/close_btn.png) no-repeat; text-decoration: none; text-indent: -99999px">X</a><iframe src="' + o + '" width="' + n + '" height="' + k + '" name="popupIframe" frameborder="0" scrolling="no"></iframe>';
+						q = '<a class="close-btn" href="javascript:void(0)"style="position: absolute; top: 5px; right: 4px; outline: none;display: block; width: 15px; height: 15px; background: url(http://localhost:7525/Images/close_btn.png) no-repeat; text-decoration: none; text-indent: -99999px">X</a><iframe src="' + o + '" width="' + n + '" height="' + k + '" name="popupIframe" frameborder="0" scrolling="no"></iframe>';
                     p.set("width", n);
                     p.set("height", k);
                     f.html(i, q);

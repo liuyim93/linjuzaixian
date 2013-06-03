@@ -25,8 +25,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         {
             friday.core.Merchant merchant = iMerchantService.Load(sellerId);
             var breadCrumb=new List<string[]>();
-            breadCrumb.Add(new string[] { "邻居网", "http://120.192.31.164:7525/index.html" });
-            breadCrumb.Add(new string[] { merchant.Name, "http://120.192.31.164:7525/Merchant/index?scid=" + merchant.Id });
+            breadCrumb.Add(new string[] { "邻居网", "http://localhost:7525/index.html" });
+            breadCrumb.Add(new string[] { merchant.Name, "http://localhost:7525/Merchant/index?scid=" + merchant.Id });
             var providerList = new List<Spu>();
             providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小熊在线" });
             providerList.Add(new Spu() { shopUrl = "http://www.linju.com", shopName = "小马在线" });

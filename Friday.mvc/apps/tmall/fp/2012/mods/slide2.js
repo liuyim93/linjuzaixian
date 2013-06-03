@@ -153,7 +153,7 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                     var _slide = this.slide;
                     var b = function (c) {
                         _dom.css(c, { filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' + (a || _dom.attr(c, _str_data_text_src) || c.src) + '",enabled="true", sizinMethod="scale");' });
-                        c.src = "http://120.192.31.164:7525/Images/spaceball.gif";
+                        c.src = "http://localhost:7525/Images/spaceball.gif";
                         _dom.show(c)
                     };
                     Z ? b(Z) : _kissy.each(_slide.panels, function (d) { var c = _kissy.get("b", d), e; if (c) { if (e = _kissy.get("img", c)) { b(e) } _dom.show(c) } })

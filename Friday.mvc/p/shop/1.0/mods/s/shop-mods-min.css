@@ -440,7 +440,7 @@
 .col-sub .box .hd,.col-extra .box .hd{border-width:1px;border-bottom-width:0;line-height:24px;}
 .col-sub .bd,.col-extra .bd{border-width:1px;padding:9px 0 9px 9px;}
 .box i{display:inline-block;width:16px;height:16px;vertical-align:top;overflow:hidden;}
-.button,.box i,.mode a,.shop-search-x .text,.c-value-no,.c-value-no i{background:url(http://120.192.31.164:7525/Images/T1JLtRXhlAXXXXXXXX-128-83.png) no-repeat;}
+.button,.box i,.mode a,.shop-search-x .text,.c-value-no,.c-value-no i{background:url(http://localhost:7525/Images/T1JLtRXhlAXXXXXXXX-128-83.png) no-repeat;}
 .button{width:60px;height:21px;border-width:0;font-size:12px;font-weight:700;}
 .no-border,.no-border .bd{border-width:0!important;padding:0!important;}
 .box .shop-slider .bd{padding:0;}

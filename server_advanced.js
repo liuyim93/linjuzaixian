@@ -2,7 +2,7 @@ var http = require('http'),
     url = require('url'),
     fs = require('fs'),
     server;
-var ws_client = http.createClient(7525, "120.192.31.164");
+var ws_client = http.createClient(7525, "localhost");
 server = http.createServer(function(req, res) {
     // your normal server code
     var path = url.parse(req.url).pathname;

@@ -7,7 +7,7 @@
     if (C.Config.debug || E || document.cookie.indexOf("ks-debug") > -1) {
         C.Config.debug = true
     }
-    document.domain = document.domain.split(".").slice(-2).join(".");
+    //document.domain = document.domain.split(".").slice(-2).join(".");
     C.mlog = function (F) {
         C.log("\u55b5");
         C.log(F)
@@ -17,7 +17,7 @@
             H.init()
         });
         //var F = "http://cart." + (E ? "daily.tmall.net" : "tmall.com") + "/cart/myCart.htm?from=btop";
-        var F = "http://120.192.31.164:7525/CartPay/Home/MyCartPay?from=btop";
+        var F = "http://localhost:7525/CartPay/Home/MyCartPay?from=btop";
         C.each(D.query("#site-nav a"), function (G) {
             if (/\bmycart|my_cart\b\.htm\b/i.exec(G.href || "")) {
                 C.Event.on(G, "click", function () {

@@ -650,7 +650,7 @@
             _kissy.each(_rateList, function (_rateItem) {
                 var AM = _rateItem;
                 var AN = _rateItem;
-                _rateItem.grade = _show_rank_pic(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://120.192.31.164:7525/Images/v1_memeber-16-16.png", "http://120.192.31.164:7525/Images/v2_member-16-16.png", "http://120.192.31.164:7525/Images/v3_member-16-16.png", "http://120.192.31.164:7525/Images/v4_member-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
+                _rateItem.grade = _show_rank_pic(AM.displayRateSum, AM.displayRatePic), vipicon = ["http://localhost:7525/Images/v1_memeber-16-16.png", "http://localhost:7525/Images/v2_member-16-16.png", "http://localhost:7525/Images/v3_member-16-16.png", "http://localhost:7525/Images/v4_member-16-16.png", "http://img03.taobaocdn.com/tps/i3/T1GbuIXcNkXXXXXXXX-16-16.png", "http://img01.taobaocdn.com/tps/i1/T1pHyIXalkXXXXXXXX-16-16.png"];
                 _rateItem.rateDate = _get_date(_rateItem.rateDate);
                 if (typeof _rateItem.appendComment == "object") {
                     _rateItem.appendComment.commentTime = _get_date(_rateItem.appendComment.commentTime);

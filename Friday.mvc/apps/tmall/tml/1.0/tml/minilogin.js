@@ -52,16 +52,16 @@ TML.add("minilogin", function (_tml) {
             var _hostname_array = location.hostname.split(".");
             return _hostname_array.splice(_hostname_array.length - _last_segment_count > 0 ? _hostname_array.length - _last_segment_count : 0, _last_segment_count).join(".")
         } (2),
-        //2013-03-04 basilwang daily means 120.192.31.164 in our context
+        //2013-03-04 basilwang daily means localhost in our context
         //is_daily = _segment_function.indexOf(".net") !== -1,
         is_daily = true,
-        //2013-03-04 basilwang daily means 120.192.31.164 in our context
+        //2013-03-04 basilwang daily means localhost in our context
         //_domain = is_daily ? "daily.tmall.net" : "tmall.com",
-        _domain = is_daily ? "120.192.31.164:7525" : "tmall.com",
-        //2013-03-04 basilwang we use 120.192.31.164
+        _domain = is_daily ? "localhost:7525" : "tmall.com",
+        //2013-03-04 basilwang we use localhost
         //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
         _url = "http" + (is_daily ? "" : "s") + "://" + _domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
-        //2013-03-04 basilwang we use 120.192.31.164
+        //2013-03-04 basilwang we use localhost
         //_default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
         _default_config = { needRedirect: false, proxyURL: "http://" + _domain + "/miniLoginProxy.htm" };
     MiniLogin = { show: function (_fn, _config) {
@@ -90,7 +90,7 @@ TML.add("minilogin", function (_tml) {
         if (_config && _config.checkApi &&
             _config.checkApi.indexOf(".tmall.") == -1)
             _config.checkApi = undefined;
-        //2013-03-04 basilwang use 120.192.31.164 domain
+        //2013-03-04 basilwang use localhost domain
         //return _kissy.io({ type: "get", url: _config.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (_callback_info) {
         return _kissy.io({ type: "get", url: _config.checkApi || "http://" + _domain + "/member/user_login_info.do", success: function (_callback_info) {
             f = true;
