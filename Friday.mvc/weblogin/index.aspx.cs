@@ -45,7 +45,14 @@ namespace friday.mvc
         protected void InitMenu()
         {
             var currentuser = iUserService.GetLoginUser(new HttpContextWrapper(HttpContext.Current));
-            UserName = currentuser.LoginName;
+            if (currentuser != null)
+            {
+                UserName = currentuser.LoginName;
+            }
+            else
+            {
+                Response.Redirect("login.aspx");
+            }
 
             divMenu.InnerHtml = iMenuService.MenuList(currentuser.Id);
             labLogin.InnerText = UserName + "用户，欢迎您！";
