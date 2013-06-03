@@ -919,7 +919,7 @@
         }
     };
     jQuery.ajaxSettings = {
-        "url": 'http://localhost:25812/',
+        "url": 'http://120.192.31.164:25812/',
         "isLocal": false,
         "global": true,
         "type": 'GET',

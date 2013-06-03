@@ -953,7 +953,7 @@ KISSY.add("CheckCode", function(b) {
 		this.prefixCls = b.isString(p.prefixCls) ? p.prefixCls : "";
 		this.identity = b.isString(p.identity) ? p.identity : "";
 		this.sessionid = b.isString(p.sessionid) ? p.sessionid : "";
-		this.apiserver = b.isString(p.apiserver) && p.apiserver ? p.apiserver : "http://localhost:7525/";/*http://pin.aliyun.com*/
+		this.apiserver = b.isString(p.apiserver) && p.apiserver ? p.apiserver : "http://120.192.31.164:7525/";/*http://pin.aliyun.com*/
 		this.checkedCode = "";
 		this.uid = g++
 	};

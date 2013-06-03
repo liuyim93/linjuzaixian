@@ -98,17 +98,17 @@ namespace Friday.mvc.Areas.Account.Controllers
 
                 if (redirect_url != "" && redirect_url != null)
                 {
-                    if (redirect_url.Contains("http://localhost:7525/index.html"))
+                    if (redirect_url.Contains("http://120.192.31.164:7525/index.html"))
                     {
-                        redirect_url = "http://localhost:7525/index.html";
+                        redirect_url = "http://120.192.31.164:7525/index.html";
                     }
                     return Redirect(redirect_url);
                 }
                 else
                 {
-                    if (tpl_redirect_url.Contains("http://localhost:7525/index.html"))
+                    if (tpl_redirect_url.Contains("http://120.192.31.164:7525/index.html"))
                     {
-                        tpl_redirect_url = "http://localhost:7525/index.html";
+                        tpl_redirect_url = "http://120.192.31.164:7525/index.html";
                     }
                     return Redirect(tpl_redirect_url);
                 }
@@ -159,18 +159,18 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             if (systemUser == null)
             {
-                if (redirectURL.Contains("http://localhost:7525/index.html"))
+                if (redirectURL.Contains("http://120.192.31.164:7525/index.html"))
                 {
-                    redirectURL = "http://localhost:7525/index.html";
+                    redirectURL = "http://120.192.31.164:7525/index.html";
                 }
                 return Redirect(redirectURL);
             }
             else
             {
                 FormsAuthentication.SignOut();
-                if (redirectURL.Contains("http://localhost:7525/index.html"))
+                if (redirectURL.Contains("http://120.192.31.164:7525/index.html"))
                 {
-                    redirectURL = "http://localhost:7525/index.html";
+                    redirectURL = "http://120.192.31.164:7525/index.html";
                 }
                 return Redirect(redirectURL);
             }

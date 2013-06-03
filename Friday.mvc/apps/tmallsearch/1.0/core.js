@@ -40,7 +40,7 @@
     }
     */
     //2013-05-14 basilwang use our own
-    _url = "localhost:7525";
+    _url = "120.192.31.164:7525";
     ASSETS_SERVER = _dom_a.host || _url;
     if ("t" in _param_map) {
         _timestamp = _param_map.t

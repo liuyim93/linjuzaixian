@@ -129,7 +129,7 @@ TB.namespace = TB.namespace || function() {
         },tDog: function() {
             if ((s && s != -1) || "tstart" in p || "tdog" in p) {
                 //var i = "http://" + H + "/p/header/webww-min.js?t=20110629.js", N = 0;
-                var i = "http://localhost:7525/p/header/webww-min.js?t=20110629.js", N = 0;
+                var i = "http://120.192.31.164:7525/p/header/webww-min.js?t=20110629.js", N = 0;
                 g.ready(function() {
                     if (g.DOM) {
                         g.getScript(i)
@@ -750,7 +750,7 @@ TB.namespace = TB.namespace || function() {
             g.DOM.css(this.popup, "top", i)
         },_addStyleSheetOnce: function() {
             if (!this._stylesheetAdded) {
-                g.DOM.addStyleSheet("#g-cartlogin{position:fixed;_position:absolute;border:1px solid #aaa;left:50%;top:120px;margin-left:-206px;width:412px;height:272px;z-index:100000000;background:#fafafa;-moz-box-shadow:rgba(0,0,0,0.2) 3px 3px 3px;-webkit-box-shadow:3px 3px 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3,OffY=3,Color=#16000000,Positive=true);} #g_minicart_login_close{position:absolute;right:5px;top:5px;width:17px;height:17px;background:url(http://localhost:7525/Images/ready_buy-194-382.png) no-repeat -100px -69px;text-indent:-999em;overflow:hidden;}#g-cartlogin-close{cursor:pointer;position:absolute;right:5px;top:5px;width:17px;height:17px;line-height:0;overflow:hidden;background:url(http://localhost:7525/Images/fenxiang-146-77.png) no-repeat -132px 0;text-indent:-999em;}");
+                g.DOM.addStyleSheet("#g-cartlogin{position:fixed;_position:absolute;border:1px solid #aaa;left:50%;top:120px;margin-left:-206px;width:412px;height:272px;z-index:100000000;background:#fafafa;-moz-box-shadow:rgba(0,0,0,0.2) 3px 3px 3px;-webkit-box-shadow:3px 3px 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3,OffY=3,Color=#16000000,Positive=true);} #g_minicart_login_close{position:absolute;right:5px;top:5px;width:17px;height:17px;background:url(http://120.192.31.164:7525/Images/ready_buy-194-382.png) no-repeat -100px -69px;text-indent:-999em;overflow:hidden;}#g-cartlogin-close{cursor:pointer;position:absolute;right:5px;top:5px;width:17px;height:17px;line-height:0;overflow:hidden;background:url(http://120.192.31.164:7525/Images/fenxiang-146-77.png) no-repeat -132px 0;text-indent:-999em;}");
                 this._stylesheetAdded = true
             }
         },_initPopup: function() {

@@ -7,18 +7,18 @@ img{vertical-align:top;}
 .mallMain{margin:0 auto;width:1190px;position:relative;}
 .mallLeft{background:#fff;width:240px;margin-top:-450px;position:absolute;top:0;left:0;bottom:0;z-index:15;-moz-box-shadow:4px 2px 5px rgba(0,0,0,0.2);-webkit-box-shadow:4px 2px 5px rgba(0,0,0,0.2);box-shadow:4px 2px 5px rgba(0,0,0,0.2);}
 .mallRight{width:950px;margin-left:240px;border-left:1px solid #e6e6e6\9;}
-#mallSearch button,#mallNav .chnHot,#mallNav .chnNew,.category .categoryHd s,.category .item .menuIcon,.category .menu-bottom .menuIcon,.category .item-hd s,.category .menu-bottom .item-hd s,.category .item-hd a,.brandTop h3 s.arow,.brand .brandAd span s,.brandTop h3 s.marked,.brand .flyBrand,.fCs-nav li s,.greatBrand,.brand .greatBrand .hongbao,.subCategory .subView0 .menuIcon{background:url(http://localhost:7525/Images/brand_bar-194-279.png) 0 0 no-repeat;}
+#mallSearch button,#mallNav .chnHot,#mallNav .chnNew,.category .categoryHd s,.category .item .menuIcon,.category .menu-bottom .menuIcon,.category .item-hd s,.category .menu-bottom .item-hd s,.category .item-hd a,.brandTop h3 s.arow,.brand .brandAd span s,.brandTop h3 s.marked,.brand .flyBrand,.fCs-nav li s,.greatBrand,.brand .greatBrand .hongbao,.subCategory .subView0 .menuIcon{background:url(http://120.192.31.164:7525/Images/brand_bar-194-279.png) 0 0 no-repeat;}
 /*pub-1|2012-10-21 16:32:16*/.ui-slide-nav-mini{height:24px;line-height:18px;}
 .ui-slide-nav-mini li{float:left;width:12px;font-family:Tahoma,Helvetica;font-size:28px;_font-size:38px;margin-right:5px;color:#716564;cursor:pointer;}
 .ui-slide-nav-mini .active{color:#b91919;}
-.ui-btn-s{padding:0 10px;display:inline-block;height:20px;background:url(http://localhost:7525/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;line-height:20px;font-size:12px;font-weight:normal;background-color:#ccc;border-color:#ccc;color:#333;}
+.ui-btn-s{padding:0 10px;display:inline-block;height:20px;background:url(http://120.192.31.164:7525/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;line-height:20px;font-size:12px;font-weight:normal;background-color:#ccc;border-color:#ccc;color:#333;}
 .ui-btn-s{background-position:0 -300px;}
 .ui-btn-s-hover,.ui-btn-s:hover{background-position:0 -320px;}
 .ui-btn-s-active,.ui-btn-s:active{background-position:0 -340px;}
 .ui-btn-s-selected{background-position:0 -360px;}
 .ui-btn-s:hover,.ui-btn-m:hover,.ui-btn-l:hover{text-decoration:none;}
 .ui-btn-disable{border:1px solid #ccc;background:#f2f2f2;color:#c5c5c5;cursor:default;}
-.ui-msg-icon{background-image:url(http://localhost:7525/Images/msg.png);background-repeat:no-repeat;}
+.ui-msg-icon{background-image:url(http://120.192.31.164:7525/Images/msg.png);background-repeat:no-repeat;}
 .ui-msg{position:relative;display:inline-block;*display:inline;*zoom:1;border:1px solid #e1e1e1;border-radius:2px;background:#f5f5f5;padding-left:24px;box-shadow:1px 1px 1px #f5f5f5;}
 .ui-msg-con{line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #e7e7e7;margin:-1px;}
 .ui-msg-icon{position:absolute;width:23px;height:22px;top:0;left:0;}
@@ -71,7 +71,7 @@ button::-moz-focus-inner{border:0;padding:0;margin:0;}
 #mallNav .mallNav-last{border-right:none;background:none;}
 #mallNav .chnNew{position:absolute;z-index:11;display:block;width:23px;height:13px;overflow:hidden;right:-1px;top:-3px;top:-2 px\9;background-position:-146px -15px;}
 #mallNav .chnHot{display:block;z-index:11;height:12px;overflow:hidden;position:absolute;right:-1px;top:-3px;width:22px;background-position:-146px 0;}
-#mall-desc i,#mall-desc .go-home{background:url(http://localhost:7525/Images/TmallFooterBar-111-109.png) no-repeat;}
+#mall-desc i,#mall-desc .go-home{background:url(http://120.192.31.164:7525/Images/TmallFooterBar-111-109.png) no-repeat;}
 #mall-desc dt span{display:block;height:25px;width:73px;overflow:hidden;}
 #ensure dt span{background-position:0 0;}
 #beginner dt span{background-position:0 -20px;}
@@ -210,7 +210,7 @@ button::-moz-focus-inner{border:0;padding:0;margin:0;}
 /*pub-1|2012-12-20 14:26:04*/.mfpSlide{position:relative;z-index:0;height:420px;min-width:990px;overflow:hidden;}
 .mfpSlide-con li{background:#fff no-repeat 50% 0;height:420px;width:100%;}
 .mSc-main{width:1190px;height:420px;margin:0 auto;position:relative;}
-.mScm-link{position:absolute;display:block;width:755px;height:420px;top:0;left:240px;_left:239px;overflow:hidden;z-index:2;border-left:1px solid #e6e6e6\9;_border-left:2px solid #e6e6e6;background:url(http://localhost:7525/Images/spaceball.gif);}
+.mScm-link{position:absolute;display:block;width:755px;height:420px;top:0;left:240px;_left:239px;overflow:hidden;z-index:2;border-left:1px solid #e6e6e6\9;_border-left:2px solid #e6e6e6;background:url(http://120.192.31.164:7525/Images/spaceball.gif);}
 .mSc-main b{position:absolute;display:block;height:210px;width:760px;top:-40px;left:240px;z-index:1;_display:none;}
 .mScm-link b img{height:100%;width:100%;}
 .mSc-main .mScm-text1{opacity:1;top:-10px;}
@@ -313,7 +313,7 @@ to{-ms-transform:scale(1.1);}
 /*pub-1|2012-11-02 11:13:26*/.floorAd{width:940px;margin:10px 0 10px 10px;overflow:hidden;}
 .floor h2 s,.floorTop-tab b{background:url(http://img04.taobaocdn.com/tps/i4/T1F92RXdxhXXa86zbq-145-290.png) no-repeat;}
 .floor-loading textarea{visibility:hidden;height:360px;}
-.floor-loading{background:url(http://localhost:7525/Images/gray_mall_head-184-38.gif) no-repeat scroll 50% 50%;}
+.floor-loading{background:url(http://120.192.31.164:7525/Images/gray_mall_head-184-38.gif) no-repeat scroll 50% 50%;}
 .floor{width:950px;height:358px;clear:both;*position:relative;margin-bottom:10px;overflow:hidden;background:#fff;border-bottom:1px solid #e5e5e5;}
 .floor h2{height:36px;line-height:36px;border-bottom:2px solid #000;font-size:18px;overflow:hidden;position:relative;padding-left:10px;}
 .floor h2 s{display:block;width:120px;height:36px;position:absolute;left:0;top:0;}

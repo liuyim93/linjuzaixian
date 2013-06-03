@@ -21,7 +21,7 @@ table{border-collapse:collapse;border-spacing:0;}
 .layout,.main-wrap,.col-sub,.col-extra{zoom:1;}
 html{zoom:expression(function(ele){ele.style.zoom = "1";document.execCommand("BackgroundImageCache",false,true);}
 (this));}
-.sn-mobile,.sn-mobile-link,.sn-quick-menu .sn-mybrand .sn-mybrand-link,.sn-msg-hd,.sn-vip1,.sn-vip2,.sn-vip3,.sn-vip-unactivated,.sn-vip1-unactivated,.sn-vip2-unactivated,.sn-vip3-unactivated,.sn-quick-menu .cart s,.sn-mcate-bd .sn-mcate-ctn-con,.sn-mcate-bd .sn-mcate-ctn .sn-mcate-item-channel{background:transparent url(http://localhost:7525/Images/blackmallbar-441-100.png) no-repeat -9999px -9999px;}
+.sn-mobile,.sn-mobile-link,.sn-quick-menu .sn-mybrand .sn-mybrand-link,.sn-msg-hd,.sn-vip1,.sn-vip2,.sn-vip3,.sn-vip-unactivated,.sn-vip1-unactivated,.sn-vip2-unactivated,.sn-vip3-unactivated,.sn-quick-menu .cart s,.sn-mcate-bd .sn-mcate-ctn-con,.sn-mcate-bd .sn-mcate-ctn .sn-mcate-item-channel{background:transparent url(http://120.192.31.164:7525/Images/blackmallbar-441-100.png) no-repeat -9999px -9999px;}
 #site-nav{min-width:990px;width:auto;height:30px;background-color:#b10000;position:relative;z-index:90001;}
 #sn-bg,#site-nav .sn-edge{display:none;}
 #sn-bd{width:990px;margin:auto;*zoom:1;}

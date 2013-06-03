@@ -333,7 +333,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 Friday.mvc.Areas.Merchant.Models.CategoryItem categoryItem = new Models.CategoryItem()
                 {
-                    href = "http://localhost:7525/Merchant/SearchProduct?cat="+ g.Id +"&amp;s=0&amp;n=0&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1",
+                    href = "http://120.192.31.164:7525/Merchant/SearchProduct?cat="+ g.Id +"&amp;s=0&amp;n=0&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1",
                     title = g.Name,
                     atp = "1,cat-dropdown,,,,"+g.Id+",rightnav,"
                 };

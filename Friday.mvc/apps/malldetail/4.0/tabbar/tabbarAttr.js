@@ -14,7 +14,7 @@
         var O = A.isDaily ? "13975762416" : I.g_config.itemId;
         D.Asyn.add("tabbarAttr", {
             //url: "http://ald.taobao.com/recommend.htm",
-            //url: "http://localhost:7525/Merchant/Detail/Tab_Recommend",
+            //url: "http://120.192.31.164:7525/Merchant/Detail/Tab_Recommend",
             data: {
                 appId: "09001",
                 auctionId: O,

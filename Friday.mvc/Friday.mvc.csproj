@@ -1076,6 +1076,7 @@
     <Content Include="apps\malldetail\4.0\other\feedback.js" />
     <Content Include="apps\malldetail\4.0\other\focusTime.js" />
     <Content Include="apps\malldetail\4.0\other\init.js" />
+    <Content Include="apps\malldetail\4.0\other\ishare.js" />
     <Content Include="apps\malldetail\4.0\other\itemDesc.js" />
     <Content Include="apps\malldetail\4.0\other\lazy.js" />
     <Content Include="apps\malldetail\4.0\other\leftSlide.js" />
@@ -1443,7 +1444,7 @@
     <Content Include="p\shop\3.0\wangpu\decoration\init-fullsource.js" />
     <Content Include="p\shop\3.0\wangpu\decoration\isv-fullsource.js" />
     <Content Include="p\shop\3.0\wangpu\init-min.js" />
-    <Content Include="p\shop\3.0\wangpu\init-fullsource.js" />
+    <Content Include="p\shop\3.0\wangpu\init.js" />
     <Content Include="p\shop\3.0\wangpu\mods\official\c2c-head-min.js" />
     <Content Include="p\shop\3.0\wangpu\decoration\compatible-min.js" />
     <Content Include="p\shop\3.0\wangpu\decoration\countdown-min.js" />

@@ -159,7 +159,7 @@
                                 position: "relative"
                             });
                             a.insert;
-                            q.src = "http://localhost:7525/Images/spaceball.gif"
+                            q.src = "http://120.192.31.164:7525/Images/spaceball.gif"
                         };
                         var o = a.get("img", a.get(".j_MinisiteLogo", i));
                         m(o);
