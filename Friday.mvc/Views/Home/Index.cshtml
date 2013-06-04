@@ -203,33 +203,42 @@
                         debugger
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
-                        
+                        debugger
                             if(level==0)
                             {
-                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton")
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton");
+                                $("#Area_" + level).append("<option value=\"\" selected=\"true\">请选择</option>");
+                                for (var i = 0; i < da.length; i++) {
+                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                                }
+
+                                $("#Area_" + level).bind("change", function () {
+                                    deleteAfterList($(this).attr("level"));
+                                    updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
+                                });
+                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html");
                             }
                             else
                             {
                                 $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
-                            }
 
-                            $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
+                                $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
+                                for (var i = 1; i < da.length; i++) {
+                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                                }
 
+                                $("#Area_" + level).bind("change", function () {
+                                    deleteAfterList($(this).attr("level"));
+                                    updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
+                                });
 
-                            for (var i = 1; i < da.length; i++) {
-                                $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
-                            }
-
-                            $("#Area_" + level).bind("change", function () {
-                                deleteAfterList($(this).attr("level"));
-                                updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                if (da[0].hasChildren == true) {
+                                    updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
+                                }
                                 $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
-                            });
-
-                            if (da[0].hasChildren == true) {
-                                updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
                             }
-                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
                         }
                     }
                 });
