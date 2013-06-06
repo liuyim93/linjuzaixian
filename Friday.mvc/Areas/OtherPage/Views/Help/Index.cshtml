@@ -1,0 +1,667 @@
+@using Friday.mvc.Models;
+
+@{
+    Layout = null;
+}
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    	<!-- ************************** new ********************************* -->
+    	<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+        <link rel="shortcut icon" href="http://localhost:7525/Images/favicon.ico" type="image/x-icon">
+		<meta name="data-spm" content="a1z08">
+        <title>-上邻居在线，就购了</title>
+  <link rel="shortcut icon" href="http://a.tbcdn.cn/p/mall/base/favicon.ico" type="image/x-icon">
+  <link title="天猫Tmall.com" href="http://a.tbcdn.cn/p/mall/header/search.xml" type="application/opensearchdescription+xml" rel="search">
+  <link rel="stylesheet" href="http://a.tbcdn.cn/??p/mall/base/global-v2.css,p/mall/base/header-v2.css?t=20130529.css">
+  
+  <script src="http://a.tbcdn.cn/??s/kissy/1.2.0/kissy-min.js,p/mall/base/global-v2.js,apps/tmall/tml/1.0/tml/tml-min.js,p/mall/base/header-v2.js?t=20130529.js"></script>
+  <script src="http://a.tbcdn.cn/s/kissy/1.2.0/??suggest-min.js,switchable-min.js,datalazyload-min.js"></script>
+           <base target="_blank">
+<script type="text/javascript" async="" id="tb-beacon-ac" exparams="category=&amp;userid=&amp;channel=112&amp;" src="http://a.tbcdn.cn/s/ac.js"></script><script type="text/javascript" async="" id="tb-beacon" exparams="category=&amp;userid=&amp;tid=69f43810382a882426878b617df787e6&amp;channel=112&amp;atpanel_end" src="http://a.tbcdn.cn/s/atp.js"></script><script type="text/javascript" async="" id="tb-beacon-aplus" exparams="category=&amp;userid=&amp;aplus" src="http://a.tbcdn.cn/s/aplus_v2.js"></script><script type="text/javascript" async="" id="tb-beacon-aplus" exparams="category=&amp;userid=&amp;aplus" src="http://a.tbcdn.cn/s/aplus_v2.js"></script><script type="text/javascript" async="" src="http://a.tbcdn.cn/s/fdc/??spm.js,spmact.js?v=130529a"></script><style id="poshytip-css-tip-yellow" type="text/css">div.tip-yellow{visibility:hidden;position:absolute;top:0;left:0;}div.tip-yellow table, div.tip-yellow td{margin:0;font-family:inherit;font-size:inherit;font-weight:inherit;font-style:inherit;font-variant:inherit;}div.tip-yellow td.tip-bg-image span{display:block;font:1px/1px sans-serif;height:10px;width:10px;overflow:hidden;}div.tip-yellow td.tip-right{background-position:100% 0;}div.tip-yellow td.tip-bottom{background-position:100% 100%;}div.tip-yellow td.tip-left{background-position:0 100%;}div.tip-yellow div.tip-inner{background-position:-10px -10px;}div.tip-yellow div.tip-arrow{visibility:hidden;position:absolute;overflow:hidden;font:1px/1px sans-serif;}</style><style>#J_BrandBar{font-size:12px;cursor:pointer;background-color:#EEEEEE;width:120px;margin:2px 5px 0 5px;height:28px;border:solid 1px #d0d0d0;-moz-border-radius: 3px 3px 0px 0px;-khtml-border-radius: 3px 3px 0px 0px;-webkit-border-radius: 3px 3px 0px 0px;border-radius: 3px 3px 0px 0px;}#J_BrandBar:hover,#J_BrandBar.hoverBrandBar{background-color:#d9d1d1;border-color:#bcb0b0}.BrandFlyer{width:20px;height:20px;float:left;margin:4px 0px 4px 12px;background:url(http://img02.taobaocdn.com/tps/i2/T1KMGHXC4dXXcu5FDa-20-20.png);background-repeat:no-repeat;*background:none;*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="http://img02.taobaocdn.com/tps/i2/T1KMGHXC4dXXcu5FDa-20-20.png");zoom:1;}.BrandPopup{cursor:pointer;background:url(http://img01.taobaocdn.com/tps/i1/T1wW9HXAdfXXcH0rHA-152-131.png);background-repeat:no-repeat;*background:none;*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="http://img01.taobaocdn.com/tps/i1/T1wW9HXAdfXXcH0rHA-152-131.png");background-size:100% 100%;}#J_BrandBar a,#J_BrandBar a:hover{line-height:20px;display:block;margin:4px 4px 4px 0;float:left;color:#181818;text-decoration:none;}</style><style>#J_CommonBottomBar{position:fixed;bottom:0;right:0;z-index:100002;_position:absolute;_bottom:auto;}#J_CommonBottomBar td{vertical-align:bottom;_position:relative;_overflow:hidden}.tm_cmbar_clearfix::after {clear: both;}.tm_cmbar_clearfix::after, .tm_cmbar_clearfix::before{display: table;content: "";overflow: hidden;}.tm_cmbar_clearfix {zoom: 1;}#J_CommonBottomBar .tm_cmbar{position:relative;}</style><style>.tml-overlay{position:absolute;left:-9999px;top:-9999px;}.tml-ext-mask{background-color:#000;opacity:.5;filter:alpha(opacity=50);}.tml-dialog .tml-stdmod-header,.tml-dialog .tml-ext-close{background:url(http://img01.taobaocdn.com/tps/i1/T1U6rrXlNqXXaZ_F7_-126-41.png) no-repeat;}.tml-dialog{padding:10px;}.tml-dialog-skin{background:#716564;opacity:.4;filter:alpha(opacity=40);position:absolute;height:100%;width:100%;_padding:0 20px 0 0;top:0;left:0;}.tml-dialog-hasmask .tml-dialog-skin{background:#fff;}.tml-contentbox{position:relative;z-index:2;height:100%;background:#fff;border:1px solid #908b8b;overflow:hidden;}.tml-dialog .tml-stdmod-header{height:35px;line-height:35px;padding-left:10px;border-bottom:1px solid #8c0400;background-color:#b6000c;background-position:20px 10px;font-size:14px;font-weight:700;}.tml-dialog .tml-stdmod-body{overflow:hidden;}.tml-dialog .tml-ext-close{outline:medium none;position:absolute;z-index:3;right:20px;top:20px;overflow:hidden;display:block;height:16px;width:16px;line-height:99em;background-position:0 -25px;}.tml-dialog .tml-ext-close:hover{background-position:-16px -25px;}.tml-dialog-cat{position:absolute;top:0;left:50%;margin:-10px 0 0 -23px;width:55px;height:50px;background:url(http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled="true",sizinMethod="scale",src="http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png");_background:0;}.tml-dialog-default .tml-stdmod-header{background-image:none;color:#fff;}.tml-dialog-gray .tml-stdmod-header{background:#e6e6e6;border-bottom-color:#d9d9d9;}.tml-dialog-gray .tml-ext-close{background-position:-32px -25px;}.tml-dialog-gray .tml-ext-close:hover{background-position:-48px -25px;}body .tml-dialog-back{padding:0;border:1px solid #d5323d;}.tml-dialog-back .tml-stdmod-header{background:#fff9f9;border-bottom:1px solid #f5edec;line-height:25px;height:25px;}.tml-dialog-back .tml-contentbox{border:0;}.tml-dialog-back .tml-ext-close{background-position:-68px -25px;right:10px;top:6px;}.tml-dialog-back .tml-ext-close:hover{background-position:-84px -25px;}body .tml-dialog-back .tml-dialog-skin{padding:1px 1px 0 0;background:#999;left:2px;top:2px;}.tml-dialog-cfmTitle{margin:15px 5px 0 20px;border:0;background-color:#fff;color:#666;}.tml-dialog-btnArea{margin:10px 0 0 20px;padding:0 0 13px 0;}.tml-dialog-cfmOk,.tml-dialog-cfmCancel{margin:0 10px 0 0;padding-left:20px;padding-right:20px;}.tml-dialog-cfmTitle .ui-msg-con{border:0;background-color:#fff;}.tml-dialog-prtTip{margin:10px 0 0 20px;color:#666;}.tml-dialog-prtInput{width:318px;height:35px;display:block;margin:2px 0 0 20px;}.tml-dialog-prtError{margin:5px 0 0 20px;display:none;}.tmMCViewFull,.tmMCViewAll,.tmMCGroup.combo .tmMCGroupDel,.tmMCItemDel,.tmMCItemAdd,.tmMCItemMin,.tmMCGroupSlogon,.tmMCHandler .cannotCheck,.tmMCGo,.tmMCPrice,.tmMCViewIcon,.HdlOpen .tmMCHdLeft,.tmMCEx{background:url(http://img04.taobaocdn.com/tps/i4/T1A_YVXXlgXXc7gDPS-300-210.png) no-repeat;}.tmMCHandler{background:url(http://img03.taobaocdn.com/tps/i3/T1E1rVXaliXXXx2azm-67-64.png) no-repeat;}.ui-msg-icon,.ui-msg-close,.ui-msg-arrow{background-image:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png);background-repeat:no-repeat;}.ui-msg{position:relative;display:inline-block;*display:inline;*zoom:1;border:1px solid #e1e1e1;border-radius:2px;background:#f5f5f5;padding-left:24px;box-shadow:1px 1px 1px #f5f5f5;}.ui-msg-block{display:block;}.ui-msg-con{line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #e7e7e7;margin:-1px;}.ui-msg-orange .ui-msg-con{color:#f19000;}.ui-msg-red .ui-msg-con{color:#b10000;}.ui-msg-arrow,.ui-msg-close,.ui-msg-icon{position:absolute;}.ui-msg-close{width:18px;height:18px;top:0;right:0;background-position:-21px 2px;cursor:pointer;}.ui-msg-close:hover{background-position:-40px 1px;}.ui-msg-arrow{width:5px;height:8px;left:-5px;top:7px;}.ui-msg-arrow-top,.ui-msg-arrow-down{width:8px;height:5px;background-position:-5px 0;top:-5px;left:7px;}.ui-msg-arrow-down{background-position:-13px 0;top:auto;bottom:-5px;}.ui-msg-icon{width:23px;height:22px;top:0;left:0;}.ui-msg-error .ui-msg-icon{background-position:-61px -26px;}.ui-msg-stop .ui-msg-icon{background-position:-61px -1px;}.ui-msg-ok .ui-msg-icon{background-position:-61px -51px;}.ui-msg-tip .ui-msg-icon{background-position:-61px -103px;}.ui-msg-attention .ui-msg-icon{background-position:-61px -79px;}.ui-msg-question .ui-msg-icon{background-position:-61px -126px;}.ui-msg-alert .ui-msg-icon{background-position:-61px -153px;}.ui-msg-notice .ui-msg-icon{background-position:-61px -177px;}.ui-msg-clean,.ui-msg-clean .ui-msg-clean{border:none;background:none;box-shadow:none;}.ui-msg-clean .ui-msg-con{padding-left:0;border:none;}.ui-page-tip{background:#fbfbfb;border-color:#efefef;}.ui-page-tip .ui-msg-con{border-left:1px solid #fbfbfb;padding-left:0;}.ui-top-tip{padding-left:58px;}.ui-top-tip .ui-msg-con{line-height:20px;padding:18px 28px 18px 12px;font-weight:bold;font-size:14px;}.ui-top-tip .ui-msg-icon{width:57px;height:56px;}.ui-top-tip .ui-msg-error .ui-msg-icon{background-position:11px -20px;}.ui-top-tip .ui-msg-stop .ui-msg-icon{background-position:11px -1px;}.ui-top-tip .ui-msg-ok .ui-msg-icon{background-position:11px -66px;}.ui-top-tip .ui-msg-tip .ui-msg-icon{background-position:11px -114px;}.ui-top-tip .ui-msg-attention .ui-msg-icon{background-position:11px -165px;}.ui-top-tip .ui-msg-question .ui-msg-icon{background-position:11px -215px;}.ui-top-tip .ui-msg-alert .ui-msg-icon{background-position:11px -265px;}.ui-top-tip .ui-msg-notice .ui-msg-icon{background-position:13px -315px;}.ui-top-tip .ui-msg-stop .ui-msg-icon{background-position:12px -362px;}.ui-msg-empty,.ui-msg-empty .ui-msg-con{background:none;border:none;padding:1px;box-shadow:none;}.ui-msg-empty .ui-msg-icon{position:static;display:inline-block;}.tmMC{margin-right:4px;color:#fff;z-index:100100;width:66px;zoom:1;position:relative;}.tmMC-proxy{padding-right:7px;height:31px;}.tmMCHandler{width:66px;height:31px;overflow:hidden;cursor:pointer;position:relative;z-index:100001;}.HdlShort:hover .tmMCEx,.tmMC .hdlHover .tmMCEx{background-image:-220px -100px;}.tmMCHandler .tmMCNum{padding-left:38px;_display:inline;}.HdlOpen .tmMCNum{padding-left:34px;display:inline-block;}.tmMC .unlogin_hover{background-position:0 -32px;}.tmMC .unlogin_hover .tmMCNum{display:none;}.tmMCEx{display:none;float:left;background-position:-220px -98px;width:15px;height:9px;overflow:hidden;margin:13px 0 0 32px;}.HdlShort .tmMCEx{background-position:-220px -108px;}.tmMCHdLeft{display:none;float:left;position:relative;z-index:100000;width:284px;height:31px;overflow:hidden;opacity:.9;filter:alpha(opacity=90);cursor:pointer;}.HdlOpen .tmMCHdLeft{background-position:0 -64px;}.tmMCHdLeft:hover{filter:alpha(opacity=95);opacity:.95;}.HdlShort .tmMCHdLeft{width:284px;}.HdlShort .tmMCHdLeft:hover .tmMCEx,.HdlShort .tmMCHandler .hover .tmMCEx{background-position:-235px -108px;}.tmMCHdLeft:hover .tmMCEx,.tmMCHandler .hover .tmMCEx{background-position:-235px -98px;}.tmMCPrice{float:left;margin-left:10px;}.tmMC .HdlOpen{width:283px;overflow:visible;background:none;cursor:default;}.HdlOpen .tmMCBody,.HdlOpen .tmMCHdLeft,.HdlOpen .tmMCGo{display:block;}.HdlOpen .tmMCNum{display:none;}.HdlOpen .tmMCHdLeft .tmMCNum{display:inline-block;}.tmMC .tmMCBotLink{margin-top:1px;float:left;color:#000;height:31px;position:relative9;z-index:10000109;line-height:33px;cursor:pointer;}.tmMC .tmMCBotLink:hover{color:#FEB1B2;text-decoration:underline;}.tmMCViewIcon{width:15px;height:15px;background-position:-188px -32px;position:absolute;top:3px;right:2px;display:none;}.tmMCViewIcon:hover{background-position:-203px -32px;}.tmMCPrice{margin-top:2px;float:right;padding-right:8px;height:31px;line-height:31px;font-weight:bold;background-position:-286px -24px;font-family:"Arial";padding-left:15px;}.tmMCGo{display:none;position:relative;z-index:100000;float:right;width:65px;height:31px;overflow:hidden;background-position:-67px 0;text-indent:-999px;cursor:pointer;}.HdlShort .tmMCGo{display:none;}.tmMCHandler .cannotCheck{background-position:-67px -32px;cursor:default;}.tmMCHandler .cannotCheck:hover{background-position:-67px -32px;}.tmMCGo:hover{background-position:-67px 0;}.tmMCNum span{display:block;}.tmMCBody,.tmMCTopBorder{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF7u7u5ubm6urqYPTI0gAAAB9JREFUeNoUiLERAAAMRLD/0Pk0HGSChSOLP/HqBBgAAfcAItOjOxwAAAAASUVORK5CYII=");*background-image:url(http://img01.taobaocdn.com/tps/i1/T1PRWJXX4rXXXXXXXX-5-5.png);border:1px solid #d6d6d6;background-color:#f2f2f2;position:absolute;width:275px;}.tmMCTopBorder{height:33px;top:-4px;left:3px;display:none;}.tmMCBody{padding-top:8px;padding-bottom:20px;display:none;color:#000;text-align:left;margin:0 auto -4px auto;-webkit-box-shadow:0 0 3px rgba(0,0,0,0.2);-moz-box-shadow:0 0 3px rgba(0,0,0,0.2);box-shadow:0 0 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.Shadow(color="#e5e5e5",Direction=90,Strength=1);top:-30px;left:3px;}.tmMCLoading{display:none;background:url("data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH5BAkKAAAAIf4aQ3JlYXRlZCB3aXRoIGFqYXhsb2FkLmluZm8AIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOw==") 50% 50% no-repeat;*background:url(http://img03.taobaocdn.com/tps/i3/T1W3mKXdJXXXXXXXXX-16-16.gif) 50% 50% no-repeat;width:100%;height:20px;text-indent:-999px;overflow:hidden;}.tmMCTip{margin:0 auto 7px;width:165px;display:block;}.tmMCTip .ui-msg-con{background-color:transparent;}.tmMCTip .ui-msg-con a{color:#2953A6;margin-left:1px;}.HdlShort .tmMCCon{margin-top:5px;}.tmMCCon{width:265px;overflow:hidden;position:relative;margin:0 auto 0 9px;padding-bottom:4px;}.tmMCCon::-webkit-scrollbar-track-piece{background-color:rgba(0,0,0,0);-webkit-border-radius:0;}.tmMCCon::-webkit-scrollbar{width:6px;height:8px;}.tmMCCon::-webkit-scrollbar-thumb{height:50px;background-color:rgba(0,0,0,0.4);-webkit-border-radius:4px;}.tmMCCon::-webkit-scrollbar-thumb:hover{height:50px;background-color:rgba(0,0,0,0.5);-webkit-border-radius:4px;}.tmMCGroup{width:257px;overflow:hidden;_zoom:1;}.tmMCGroupTitle{height:18px;line-height:18px;vertical-align:bottom;}.tmMCAllCheckWp{position:relative;float:left;color:#808080;margin:0 5px 0 6px;width:250px;height:38px;*margin-left:2px;_display:inline;}.tmMCAllCheckWp label,.tmMCAllCheck{position:relative;top:10px;}.tmMCAllCheck{vertical-align:middle;margin:0 5px 0 0!important;margin-top:-2px!important;margin-bottom:1px!important;}.tmMCGroupCheckWp{float:left;margin-right:5px;}.tmMCGroupCheck{vertical-align:middle;margin:0!important;margin-top:-2px!important;margin-bottom:1px!important;}.tmMCGroupName{color:#808080;float:left;white-space:nowrap;width:220px;text-overflow:ellipsis;height:18px;overflow:hidden;}.tmMCGroupPrice{float:right;color:#999;padding-right:14px;}.tmMCGroupSlogon{float:left;background-position:-157px -45px;background-position:-151px -47px9;color:#fff;height:19px;width:69px;line-height:20px;overflow:hidden;font-family:B8BF53;padding-left:5px;margin:0 0 0 3px;}.tmMCSlogonItem{display:block;}.tmMCItemWp{border:1px solid #E3E3E3;width:255px;border-bottom:none;background:#fff;cursor:default;margin:2px 0 5px 0;}.tmMCItemWp .tmMCUncheck{background:#f5f5f4;}.tmMCUnCheck{background:#fff url(http://img02.taobaocdn.com/tps/i2/T1JFuKXbhgXXXXXXXX-5-5.png);}.tmMCItem{width:100%;height:56px;margin:0 auto;overflow:hidden;border-bottom:1px solid #E3E3E3;position:relative;_zoom:1;}.tmMCItemCheckWp,.tmMCItemImg,.tmMCItemDesc,.tmMCItemPrice,.tmMCItemDel{float:left;}.tmMCItemCheckWp{font-weight:normal;width:12px;height:60px;margin:0 5px;*margin:0 9px 0 1px;_margin:0 1px;color:#fff;}#J_TMiniCart input[type="checkbox"]{margin:0;}#J_TMiniCart .tmMCItemCheck{margin-top:20px!important;*margin-top:18px!important;}.tmMCBody .check{color:#000;}.tmMCItemImg{margin:3px 0 auto 3px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:44px;*font-family:Arial;width:50px;height:50px;}.tmMCItemImg{vertical-align:middle;}.tmMCItemskuWp{float:left;width:108px;height:40px;margin-left:8px;padding-top:10px;}.tmMCItemSku{display:block;width:100%;color:#999;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}.tmMCItemDesc{width:50px;margin:20px 0 0 0;overflow:hidden;}.tmMCItemQty{text-align:center;}.tmMCItemAdd,.tmMCItemMin{visibility:hidden;float:left;width:16px;height:16px;background-position:-284px -88px;cursor:pointer;}.tmMCItemAdd{width:16px;}.tmMCItemAdd{background-position:-284px -120px;}.tmMCItemMin:hover{background-position:-284px -104px;}.tmMCItemAdd:hover{background-position:-284px -152px;}.tmMCItemQtyNum{float:left;margin:-1px 2px 0;*margin-top:0;color:#999;_display:inline;width:14px;line-height:16px;word-wrap:break-word;word-break:break-all;}.tmMCItem .disableMin{background-position:-284px -72px;width:16px;cursor:default;}.tmMCItem .disableAdd{background-position:-284px -136px;cursor:default;}.tmMCItemPrice{margin:20px 0 0 0;color:#666;width:72px;text-align:right;word-wrap:break-word;word-break:break-all;}.tmMCItemDel{color:#f00;cursor:pointer;background-position:-251px -32px;display:block;width:14px;height:14px;position:absolute;right:11px;top:4px;}.tmMCItemDel:hover{background-position:-237px -32px;}.tmMCItem:hover .tmMCItemCheckWp,.tmMCBody .hover .tmMCItemCheckWp{display:inline-block;}.tmMCItem:hover .tmMCItemDel,.tmMCBody .hover .tmMCItemDel{display:block;}.tmMCItem:hover .tmMCItemAdd,.tmMCBody .hover .tmMCItemAdd,.tmMCItem:hover .tmMCItemMin,.tmMCBody .hover .tmMCItemMin{visibility:visible;}.tmMCGroup.combo{position:relative;}.tmMCGroup.combo .tmMCGroupDel{color:#f00;cursor:pointer;background-position:-250px -32px;display:block;width:14px;height:14px;position:absolute;right:12px;top:24px;z-index:999;}.tmMCGroup.combo.chover .tmMCGroupDel{display:block;}.tmMCGroup.combo.chover .tmMCGroupDel:hover{background-position:-236px -32px;}.tmMCGroup.combo .tmMCItemCheckWp{visibility:hidden;}.tmMCGroup.combo .tmMCItemMin{visibility:hidden;_display:none;}.tmMCGroup.combo .tmMCItemAdd{visibility:hidden;_display:none;}.tmMCGroup.combo .tmMCItemQtyNum{_margin-left:16px;}.tmMCViewMore{cursor:pointer;}.tmMCViewAll{cursor:pointer;display:block;width:257px;height:26px;margin:5px auto 0 -4px;background-position:0 -154px;}.tmMCViewAll:hover{background-position:0 -180px;}.tmMCBtnArea{width:256px;height:30px;margin:5px auto 0;position:relative;}.tmMCLose,.tmMCLose:hover,.tmMCLose:visited{color:#999;text-decoration:none;}.tmMCViewFull{position:absolute;display:block;right:1px;top:0;width:112px;height:26px;overflow:hidden;background-position:0 -128px;}.tmMCViewFull:hover{background-position:-113px -128px;}.tmMCBusy,.tmMCBusy:hover{width:190px;margin:5px auto 0;height:20px;line-height:20px;color:#999;}.tmMCTryFull,.tmMCTryFull:hover,.tmMCTryFull:visited{color:#2953A6;text-decoration:none;}.tmMCIframe{position:absolute;width:275px;z-index:-1;border:0;top:0;}#tm-minLogin{border:1px solid #c30009;background:#FAFAFA;width:412px;height:272px;overflow:hidden;position:fixed;_position:absolute;left:50%;top:50%;margin:-136px 0 0 -206px;z-index:10000000;}.tmml-close,.tmml-title{background:url(http://img02.taobaocdn.com/tps/i2/T13h1uXgdEXXXXXXXX-90-16.png) no-repeat;}.tmml-hd{position:relative;background:#fff8f7;border-bottom:1px solid #f3e9e7;}.tmml-title{line-height:99em;height:24px;overflow:hidden;background-position:0 4px;margin:0 0 0 5px;width:82px;}.tmml-close{position:absolute;top:8px;right:10px;width:8px;height:8px;line-height:99em;overflow:hidden;background-position:-82px -2px;cursor:pointer;}.tmml-mask{position:absolute;width:50px;background:#FAFAFA;height:100%;}#tm-minLogin iframe{margin-top:-39px;margin-left:43px;}.tmMCGuide{opacity:0;position:fixed;_position:absolute;bottom:0;right:176px;z-index:99999;}.guideHepler{position:absolute;bottom:5px;right:120px;z-index:99;}.confirmGuide{position:absolute;padding:90px 115px;right:110px;bottom:0;_padding:0;_width:230px;_height:180px;background:url(http://img02.taobaocdn.com/tps/i2/T1KznpXh8dXXaYREvd-155-79.png) no-repeat;_background-image:url(http://img01.taobaocdn.com/tps/i1/T1WM_jXmFuXXaYREvd-155-79.png);cursor:pointer;z-index:100;}.closeGuide{position:absolute;background:url(about:blank);display:block;text-indent:-100em;width:30px;height:20px;top:33px;left:95px;}.guideDetail{opacity:0;display:none9;position:relative;}:root .guideDetail{display:block9;}.endGuide{position:absolute;background:url(about:blank);display:block;text-indent:-100em;width:35px;height:35px;top:2px;left:4px;cursor:pointer;z-index:99;}.guideDetailBg{position:absolute;width:666px;height:280px;right:0;bottom:0;background:url(http://img01.taobaocdn.com/tps/i1/T1vSYpXjdgXXXgxU2b-666-280.png) no-repeat;_background-image:url(http://img04.taobaocdn.com/tps/i4/T1EbDpXXXkXXXgxU2b-666-280.png);}.guideCarousel{position:absolute;width:370px;height:160px;top:50px;left:60px;z-index:100;}.guidePrev,.guideNext{position:absolute;text-indent:-100em;width:30px;height:30px;z-index:9999;cursor:pointer;outline:none;top:55px;}.guidePrev{background:url(http://img02.taobaocdn.com/tps/i2/T1V1PnXnNtXXbSBwfc-30-30.png) no-repeat;left:-40px;}.guideNext{left:370px;background:url(http://img01.taobaocdn.com/tps/i1/T1kAbjXlxuXXbSBwfc-30-30.png) no-repeat;}.guideDisable{display:none;}.guideScroller{position:relative;width:370px;height:160px;overflow:hidden;}.guideConten{position:absolute;width:1110px;}.guideContent li{float:left;width:370px;height:160px;display:block;}.guideContent img{vertical-align:middle;margin-right:10px;}</style></head>
+
+    
+ 
+       </head>
+    <body><script type="text/javascript">
+              (function (d) {
+                  var ta = d.createElement("script"); ta.type = "text/javascript"; ta.async = true; ta.id = "tb-beacon-ac";
+                  ta.setAttribute("exparams", "category=&userid=&channel=112&");
+                  ta.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/ac.js";
+                  d.getElementsByTagName("head")[0].appendChild(ta);
+              })(document);
+</script>
+<script type="text/javascript">
+    (function (d) {
+        var ta = d.createElement("script"); ta.type = "text/javascript"; ta.async = true; ta.id = "tb-beacon";
+        ta.setAttribute("exparams", "category=&userid=&tid=69f43810382a882426878b617df787e6&channel=112&atpanel_end");
+        ta.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/atp.js";
+        d.getElementsByTagName("head")[0].appendChild(ta);
+    })(document);
+</script>
+<script type="text/javascript">
+    (function (d) {
+        var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
+        t.setAttribute("exparams", "category=&userid=&aplus");
+        t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+        d.getElementsByTagName("head")[0].appendChild(t);
+    })(document);
+</script>
+<script type="text/javascript">
+    (function (d) {
+        var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
+        t.setAttribute("exparams", "category=&userid=&aplus");
+        t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+        d.getElementsByTagName("head")[0].appendChild(t);
+    })(document);
+</script>
+
+<!-- system-announce --><!-- 2012-2-12  -->
+<div id="site-nav" role="navigation">
+    <div id="sn-bg">
+        <div class="sn-bg-right">
+        </div>
+    </div>
+    <div id="sn-bd">
+        <b class="sn-edge"></b>
+
+        <div class="sn-container">
+            <p id="login-info" class="sn-login-info">喵，欢迎来天猫！<a class="sn-login" href="http://login.tmall.com?redirect_url=http%3A%2F%2Frule.tmall.com%2Ftdetail-398.htm%3Fspm%3D3.144505.278210.11.6Wys6L" target="_top">请登录</a><a class="sn-register" href="http://register.tmall.com/" target="_top">免费注册</a><i class="sn-separator"></i></p>
+            <ul class="sn-quick-menu">
+                <li class="sn-mytaobao menu-item j_MyTaobao">
+                    <div class="sn-menu">
+                        <a class="menu-hd" href="http://i.taobao.com/my_taobao.htm" target="_top" rel="nofollow" tabindex="0" aria-haspopup="menu-3" aria-label="右键弹出菜单，tab键导航，esc关闭当前菜单">我的淘宝<b></b></a>
+                        <div class="menu-bd" role="menu" aria-hidden="true" id="menu-3">
+                            <div class="menu-bd-panel" id="myTaobaoPanel">
+                                    <a href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm?t=20110530" target="_top" rel="nofollow">已买到的宝贝</a>
+                                    <a href="http://trade.taobao.com/trade/itemlist/list_sold_items.htm?t=20110530" target="_top" rel="nofollow">已卖出的宝贝</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sn-seller hidden j_SellerCenter">
+                    <a target="_top" href="http://mai.taobao.com/seller_admin.htm">商家中心</a>
+                </li>
+                <li class="sn-mybrand">
+                    <a target="_top" id="J_SnMyBrand" class="sn-mybrand-link" href="http://mybrand.tmall.com?scm=1048.1.1.1">我关注的品牌</a>
+				</li>
+                <li class="cart mini-cart menu">
+                    <a href="http://cart.tmall.com/cart/myCart.htm?from=btop" target="_top" rel="nofollow" id="mc-menu-hd"><span class="mini-cart-line"></span><s></s>购物车<span class="mc-count mc-pt3">0</span>件</a>
+                </li>
+                <li class="sn-favorite menu-item">
+                    <div class="sn-menu">
+                        <a class="menu-hd" href="http://favorite.taobao.com/collect_list-1-.htm?scjjc=c1" target="_top" rel="nofollow" tabindex="0" aria-haspopup="menu-5" aria-label="右键弹出菜单，tab键导航，esc关闭当前菜单">收藏夹<b></b></a>
+
+                        <div class="menu-bd" role="menu" aria-hidden="true" id="menu-5">
+                            <div class="menu-bd-panel">
+                                    <a href="http://favorite.taobao.com/collect_list.htm?itemtype=1" target="_top" rel="nofollow">收藏的宝贝</a>
+                                    <a href="http://favorite.taobao.com/collect_list.htm?itemtype=0" target="_top" rel="nofollow">收藏的店铺</a>   
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="sn-separator"></li>
+                <li class="sn-mobile">
+                    <a title="天猫无线" target="_top" class="sn-mobile-link" href="http://mobile.tmall.com/?scm=1027.1.1.1">手机版</a>
+                </li>
+                <li class="sn-home">
+                    <a href="http://www.taobao.com/">淘宝网</a>
+                </li>
+                <li class="sn-sitemap menu-item">
+                    <div class="sn-menu">
+                        <a class="menu-hd" href="http://www.tmall.com/go/chn/navi-map/index.php" target="_top" tabindex="0" aria-haspopup="menu-7" aria-label="右键弹出菜单，tab键导航，esc关闭当前菜单">网站导航<b></b></a>
+
+                        <div class="menu-bd" role="menu" aria-hidden="true" id="menu-7">
+                            <ul>
+                               
+						<li>
+						
+							 <h3>商家：</h3> 						
+						
+														<a target="_top" href="http://mai.taobao.com/?spm=3.169406.198401.1">商家中心</a>
+														<a class="sitemap-right" target="_top" href="http://zhaoshang.tmall.com/?spm=3.169406.198401.2">商家入驻</a>
+														<a target="_top" href="http://fw.tmall.com/?spm=3.169406.198401.3">商家服务</a>
+														<a class="sitemap-right" target="_top" href="http://www.tmall.com/go/chn/mall/pzsc-gfsj.php?spm=3.169406.198401.4">商家品控</a>
+														<a target="_top" href="http://fuwu.tmall.com/?spm=3.169406.198401.5&amp;scm=1215.100.100.506">商家工具</a>
+													
+						</li>
+					
+						<li>
+						
+													
+						
+														<a target="_top" href="http://mobile.tmall.com/?spm=3.169406.198401.6">天猫无线</a>
+														<a class="sitemap-right" target="_top" href="http://brand.tmall.com/?spm=3.169406.198401.7">品牌街</a>
+														<a target="_top" href="http://temai.tmall.com/?spm=3.169406.198401.8">品牌特卖</a>
+														<a class="sitemap-right" target="_top" href="http://yao.tmall.com/?spm=3.169406.198401.9">医药馆</a>
+														<a target="_top" href="http://book.tmall.com/?spm=3.169406.198401.10&amp;prt=1346727469564&amp;prc=2">天猫书城</a>
+													
+						</li>
+					
+						<li>
+						
+							 <h3>帮助：</h3> 						
+						
+														<a target="_top" href="http://service.tmall.com/support/tmall/tmallHelp.htm?spm=3.169406.198401.11">帮助中心</a>
+													
+						</li>
+					
+                            </ul>
+                            <a class="sitemap-more" href="http://www.tmall.com/go/chn/navi-map/index.php" target="_top">更多内容<b class="sitemap-more-link"></b></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="sn-mcate j_MallCateHoverTrigger" id="J_MallCate">
+                    <div class="sn-menu">
+                        <h3 class="menu-hd sn-mcate-hd">所有商品分类<b></b></h3>
+                    </div>
+                </li>            </ul>
+        </div>
+    </div>
+</div>
+ 
+<script>
+    TB.use("mod~global", function () {
+        if (TB && TB.Global && TB.Global.init) {
+            TB.Global.init();
+        }
+    });
+</script><div id="page" class="mallChn">
+    <div id="header">
+        <div class="headerLayout">
+		            <div class="headerCon hasSubLogo">
+                <h1 id="mallLogo" class="clearfix">
+                    <span class="mlogo">
+                        <a href="http://www.tmall.com" title="天猫Tmall.com" target="_top">
+                            <s></s>Tmall.com天猫
+                        </a>
+                    </span>
+                                    </h1>
+                <div class="subLogo"><div class="subLogo-con guize"><a class="subLogo-hd" href="http://guize.tmall.com/">天猫规则<s></s><i></i></a><div class="subLogo-bd">
+  
+        <a href="http://zhaoshang.tmall.com/?3.418670.322003">天猫招商</a>
+        <a href="http://peixun.tmall.com/?3.418670.322003">天猫智库</a>
+        <a href="http://guize.tmall.com/?3.418670.322003">天猫规则</a>
+        <a href="http://www.tmall.com/go/chn/mall/pzsc-gfsj.php?3.418670.322003">商家品控</a>
+        <a href="http://www.tmall.com/go/chn/tmall/temai/join.php?3.418670.322003">品牌特卖</a>
+        <a href="http://fw.tmall.com/?3.418670.322003">运营服务</a>
+        <a href="http://www.tmall.com/go/chn/tm_cod/index.php?3.418670.322003">货到付款</a>
+        <a href="http://fenxiao.tmall.com/?3.418670.322003">分销平台</a>
+      
+</div></div></div>                            </div>
+        </div>
+    </div>
+    <script>        TMall.THeader.init();</script>
+    
+<div id="mallNav">
+    <div class="mallNav-con" id="J_MallNavCon" data-curchn="guize">
+        <div id="mallTextNav" class="clearfix">
+			<ul class="mallNav-main">
+    
+                <li data-catid="gzfp">
+            <a target="_self" href="http://guize.tmall.com/?spm=3.300890.273708.1">规则首页</a>        </li>
+                <li data-catid="">
+            <a target="_self" href="http://www.tmall.com/go/chn/mall/guizelist.php?spm=3.300890.273708.2">违规管理</a>        </li>
+                <li data-catid="">
+            <a target="_self" href="http://www.tmall.com/go/chn/mall/guizelist2.php?spm=3.300890.273708.3">招商标准</a>        </li>
+                <li data-catid="">
+            <a target="_self" href="http://www.tmall.com/go/chn/mall/guizelist3.php?spm=3.300890.273708.4">行业标准</a>        </li>
+                <li data-catid="">
+            <a target="_self" href="http://www.tmall.com/go/chn/mall/guizelist4.php?spm=3.300890.273708.5">成长机制</a>        </li>
+                <li data-catid="" class="mallNav-last">
+            <a href="http://rule.taobao.com/?spm=3.300890.273708.6">淘宝规则</a>        </li>
+            
+</ul><!-- -->        </div>
+    </div>
+</div>
+    <div id="content">
+
+<script type="text/javascript" src="http://a.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
+<link rel="stylesheet" href="http://a.tbcdn.cn/tbsp/tbsp.source.css?2012-06-19">
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/newsroom/css/rules_common.css?2012-06-19">
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/newsroom/css/rules_detail.css?2012-06-19">
+
+<script type="text/javascript" src="http://a.tbcdn.cn/apps/newsroom/js/rules_detail.js?2012-06-19"></script>
+
+<script type="text/javascript" src="http://a.tbcdn.cn/apps/newsroom/libs/jquery.js?2012-06-19"></script>
+
+<!--头部公用 2012-06-19-->
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/newsroom/css/rules_header.css?2012-06-19">
+<script type="text/javascript" src="http://a.tbcdn.cn/apps/newsroom/js/rules_header.js?2012-06-19"></script>
+
+<style type="text/css" media="screen">
+@*@import "http://a.tbcdn.cn/apps/newsroom/q.css?2012-06-19";*@
+
+.hidden{ display:none;}
+
+/*--------------引用的样式 2012-05-28*/
+/*最外层包裹*/
+.wrapperX{ border:1px solid #333; margin:0px 0px 20px 0px; font-size:12px;  }
+.headerX{ padding:5px 10px 5px 0; font-weight:bold; text-align: right; background-color:#666; color:#fff; height:20px; font-size:12px;}
+
+/*链接样式*/
+.headerX a{ color:#fff;text-decoration:none;}
+.headerX a:hover{ text-decoration:underline;}
+
+/*片段1*/
+.q {
+	padding: 20px 0;
+	overflow: hidden;
+	line-height: 150%;	
+	margin-left:37px;		
+}
+
+</style>
+
+<div class="layout">
+    <div class="content">
+        <div class="floatbox">
+      		<a href="#" id="J_AddFav" class="addfav" target="_self">加入收藏</a>
+            <a href="http://bbs.taobao.com/catalog/thread/15296510-257837159.htm" id="J_Feedback" class="feedback" target="_blank">建议反馈</a>
+        </div>
+        <div class="grid-c2-s6">
+            <div class="col-main">
+                <div class="main-wrap">
+                    <div class="col-main-content">
+                        <div class="crumbs">
+                            <a href="http://rule.taobao.com">首页</a><span>&gt;</span>
+                             规则全文 <span>&gt;</span> 
+                            淘宝规则
+                        </div>
+                        <div class="rules-content clearfix">
+                            <h3 class="rules-title">淘宝规则</h3>
+                            <div class="rules-param clearfix">
+                                <ul>
+                                    <li class="rules-source">发布部门：天猫</li>
+                                    <li class="rules-type">规则文件类型：</li>
+                                    <li class="rules-mdify-time">发布时间：2013-04-19</li>
+                                </ul>                        	
+                            </div>
+                            <div class="rules-text clearfix">
+								<div class="viewer">
+<h1>总则</h1><h2>第一章 概述</h2><div class="entry-wrap clearfix"><div class="entry-num">第一条</div><div class="entry-text"><a id="anchor_777470019" name="777470019"></a>为促进开放、透明、分享、责任的新商业文明，保障淘宝用户合法权益，维护淘宝正常经营秩序，根据《大淘宝宣言》及《淘宝服务协议》、《tmall.com(天猫)服务协议》，制定本规则。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777470019"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第二条</div><div class="entry-text">
+<a id="anchor_777506460" name="777506460"></a>淘宝规则，是对淘宝用户增加基本义务或限制基本权利的条款。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777506460"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第三条</div><div class="entry-text">
+<a id="anchor_777853292" name="777853292"></a>违规行为的认定与处理，应基于淘宝认定的事实并严格依规执行。<br>淘宝用户在适用规则上一律平等。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777853292"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第四条</div><div class="entry-text">
+<a id="anchor_777187672" name="777187672"></a>用户应遵守国家法律、行政法规、部门规章等规范性文件。对任何涉嫌违反国家法律、行政法规、部门规章等规范性文件的行为，本规则已有规定的，适用本规则；本规则尚无规定的，淘宝有权酌情处理。但淘宝对用户的处理不免除其应尽的法律责任。
+<br>用户在淘宝的任何行为，应同时遵守与淘宝及其关联公司所签订的各项协议。 
+<br>淘宝有权随时变更本规则并在网站上予以公告。若用户不同意相关变更，应立即停止使用淘宝的相关服务或产品。淘宝有权对用户行为及应适用的规则进行单方认定，并据此处理。
+</div></div><h2>第二章 定义</h2><div class="entry-wrap clearfix"><div class="entry-num">第五条</div><div class="entry-text"><a id="anchor_777120121" name="777120121"></a>淘宝，包括淘宝网，域名为 taobao.com；tmall.com(天猫)，域名为 tmall.com；一淘网，域名为 etao.com
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777120121"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第六条</div><div class="entry-text">
+<a id="anchor_777740214" name="777740214"></a>用户，指具有完全民事行为能力的淘宝各项服务的使用者。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777740214"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第七条</div><div class="entry-text">
+<a id="anchor_777207939" name="777207939"></a>会员，指与淘宝签订《淘宝服务协议》和/或《tmall.com(天猫)服务协议》并完成注册流程的用户。一个会员可以拥有多个账户，每个账户对应唯一的会员名。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777207939"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第八条</div><div class="entry-text">
+<a id="anchor_777185362" name="777185362"></a>买家，指在淘宝上浏览或购买商品的用户。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777185362" title=""></div></div><div class="entry-wrap clearfix"><div class="entry-num">第九条</div><div class="entry-text">
+<a id="anchor_777782299" name="777782299"></a>卖家，指在淘宝上发布商品的会员，tmall.com(天猫)卖家也称为“商家”。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777782299"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十条</div><div class="entry-text">
+<a id="anchor_777962596" name="777962596"></a>拍下，指买家在淘宝上点击并确认购买的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777962596"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十一条</div><div class="entry-text">
+<a id="anchor_777831796" name="777831796"></a>订单，指买家向单一卖家同一时间拍下单款或多款商品的合约。订单中针对任一款商品的内容构成独立的交易。
+</div></div><div class="entry-wrap clearfix"><div class="entry-num">第十二条</div><div class="entry-text">
+<a id="anchor_777760162" name="777760162"></a>绑定，指淘宝账户与支付宝账户一一对应。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777760162"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十三条</div><div class="entry-text">
+<a id="anchor_777437418" name="777437418"></a>商品发布数量，指卖家在淘宝上出售中及在线上仓库中商品款数的总和。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777437418"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十四条</div><div class="entry-text">
+<a id="anchor_777504777" name="777504777"></a>退货运费险,指保险公司为投保该险种的淘宝会员支付单次退货运费。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777504777"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十五条</div><div class="entry-text">
+<a id="anchor_777207705" name="777207705"></a>分销商品，指淘宝分销平台分销商从其供应商获取并出售的商品。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777207705"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十六条</div><div class="entry-text">
+<a id="anchor_777268597" name="777268597"></a>节点处理，指当会员违规扣分累计达到一定分值时而被执行处理的过程。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777268597"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十七条</div><div class="entry-text">
+<a id="anchor_777791293" name="777791293"></a>店铺装修区，指店铺招牌、宝贝分类、公告栏、促销区、广告牌等店铺相关模块。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777791293"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十八条</div><div class="entry-text">
+<a id="anchor_777828014" name="777828014"></a>成交，指买家在淘宝上拍下商品并成功付款到支付宝。货到付款交易中买家拍下商品即视为成交。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777828014"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第十九条</div><div class="entry-text">
+<a id="anchor_777695986" name="777695986"></a>下架，指将出售中的商品转移至线上仓库。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777695986"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第二十条</div><div class="entry-text">
+<a id="anchor_777452613" name="777452613"></a>包邮，指卖家对所售商品承担大陆地区首次发货的运费。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777452613"></div></div><h2>第三章 交易</h2><h3>第一节 注册</h3><div class="entry-wrap clearfix"><div class="entry-num">第二十一条</div><div class="entry-text"><a id="anchor_777364062" name="777364062"></a>会员应当严格遵循淘宝系统设置的注册流程完成注册。
+<br>会员在选择其淘宝会员名、淘宝店铺名或域名时应遵守国家法律法规，不得包含违法、涉嫌侵犯他人权利或干扰淘宝运营秩序等相关信息。
+<br>会员名注册后无法自行修改。
+<br>淘宝有权收回未通过支付宝实名认证且连续一年未登录淘宝或阿里旺旺的会员名。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777364062"></div></div><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第二十二条</div><div class="entry-text">
+<a id="anchor_777851190" name="777851190"></a>会员符合以下任一情形的，其淘宝账户不得与支付宝账户取消绑定： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777851190"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">已通过支付宝实名认证且发布过商品或创建过店铺；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">尚有未完结的交易或投诉举报；</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">支付宝账户尚未被激活或尚有被冻结款项。</div></li>
+</ol><h3>第二节 经营</h3><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第二十三条</div><div class="entry-text"><a id="anchor_777569471" name="777569471"></a>会员须符合以下条件，方可按照淘宝系统设置的流程创建店铺： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777569471"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">将其账户与通过实名认证的支付宝账户绑定</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">公示或披露真实有效的姓名地址或营业执照等信息。</div></li>
+</ol><div class="entry-wrap clearfix"><div class="entry-num">第二十四条</div><div class="entry-text">
+<a id="anchor_777560433" name="777560433"></a>会员应当按照淘宝系统设置的流程和要求发布商品。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777560433"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第二十五条</div><div class="entry-text">
+<a id="anchor_777106666" name="777106666"></a>“商品如实描述”及对其所售商品质量承担保证责任是卖家的基本义务。“商品如实描述”是指卖家在商品描述页面、店铺页面、阿里旺旺等所有淘宝提供的渠道中，应当对商品的基本属性、成色、瑕疵等必须说明的信息进行真实、完整的描述。
+<br>卖家应保证其出售的商品在合理期限内可以正常使用，包括商品不存在危及人身财产安全的不合理危险、具备商品应当具备的使用性能、符合商品或其包装上注明采用的标准等。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777106666"></div></div><h3>第三节 超时规定</h3><div class="entry-wrap clearfix"><div class="entry-num">第二十六条</div><div class="entry-text"><a id="anchor_777240938" name="777240938"></a>会员应当按照淘宝系统设置的交易流程进行交易。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777240938"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第二十七条</div><div class="entry-text">
+<a id="anchor_777125640" name="777125640"></a>自买家拍下或卖家最后修改交易条件之时起三天内，买家未付款的，交易关闭。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777125640"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第二十八条</div><div class="entry-text">
+<a id="anchor_777183859" name="777183859"></a>买家自付款之时起即可申请退款。自买家申请退款之时起两天内卖家仍未点击发货的，淘宝通知支付宝退款给买家。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777183859"></div></div><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第二十九条</div><div class="entry-text">
+<a id="anchor_777802679" name="777802679"></a>自卖家在淘宝确认发货之时起，买家未在以下时限内确认收货且未申请退款的，淘宝通知支付宝打款给卖家： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777802679"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">自动发货商品一天内；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">虚拟商品三天内；</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">快递、EMS及不需要物流的商品十天内；</div></li>
+<li class="clearfix"><div class="level-num">（四）</div><div class="level-text">平邮商品三十天内。</div></li>
+</ol><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第三十条</div><div class="entry-text">
+<a id="anchor_777743475" name="777743475"></a>买家申请退款后，依以下情况分别处理： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777743475"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">卖家拒绝退款的，买家有权修改退款协议、要求淘宝介入或确认收货。买家在卖家拒绝退款后七天内未操作的，退款流程关闭，交易正常进行；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">卖家同意退款或在五天内未操作的，且不要求买家退货的，淘宝通知支付宝退款给买家；</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">卖家同意退款或五天内未操作的，且要求买家退货的，则按以下情形处理：<ol class="list-2">
+<li class="clearfix"><div class="level-num">1、</div><div class="level-text">买家未在七天内点击退货的，退款流程关闭，交易正常进行；</div></li>
+<li class="clearfix"><div class="level-num">2、</div><div class="level-text">买家在七天内点击退货，且卖家确认收货的，淘宝退款给买家；</div></li>
+<li class="clearfix"><div class="level-num">3、</div><div class="level-text">买家在七天内点击退货，通过快递退货十天内、平邮退货三十天内，卖家未确认收货的，淘宝通知支付宝退款给买家。</div></li></ol></div></li>
+</ol><h3>第四节 评价</h3><div class="entry-wrap clearfix"><div class="entry-num">第三十一条</div><div class="entry-text"><a id="anchor_777609028" name="777609028"></a>买卖双方有权基于真实的交易在支付宝交易成功后十五天内进行相互评价，特殊类目商品的交易不开放评价。淘宝网评价包括“信用评价”和 “店铺评分”，tmall.com(天猫)评价仅包括店铺评分。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777609028"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第三十二条</div><div class="entry-text">
+<a id="anchor_777739732" name="777739732"></a>在信用评价中，评价人若给予好评，则被评价人信用积分增加一分；若给予差评，则信用积分减少一分；若给予中评或十五天内双方均未评价，则信用积分不变。如评价人给予好评而对方未在十五天内给其评价，则评价人信用积分增加一分。
+<br>相同买、卖家任意十四天内就同款商品的多笔支付宝交易，多个好评只加一分、多个差评只减一分。每个自然月，相同买家与淘宝网卖家之间交易，双方增加的信用积分均不得超过六分；相同买家与tmall.com(天猫)卖家之间交易，买家信用积分仅计取前三次。
+<br>评价人可在作出中、差评后的三十天内，对信用评价进行一次修改或删除。三十天后评价不得修改。淘宝有权删除评价内容中所包含的污言秽语。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777739732"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第三十三条</div><div class="entry-text">
+<a id="anchor_777838590" name="777838590"></a>店铺评分由买家对卖家作出，包括宝贝与描述相符、卖家服务态度、卖家发货速度、物流发货速度四项。每项店铺评分均为动态指标，系此前连续六个月内所有评分的算术平均值。买家若完成对tmall.com(天猫)卖家店铺评分中宝贝与描述相符一项的评分，则其信用积分增加一分。
+<br>每个自然月，相同买、卖家之间交易，卖家店铺评分仅计取前三次。 店铺评分一旦做出无法修改。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777838590"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第三十四条</div><div class="entry-text">
+自交易成功之日起一百八十天（含）内，买家可在作出淘宝网信用评价或tmall.com（天猫）店铺评分后追加评论，追加评论的内容不得修改。卖家可对追加评论的内容进行解释，追加评论不影响淘宝网卖家的信用积分或tmall.com（天猫）商家的店铺评分。 
+</div></div><h2>第四章 市场管理</h2><h3>第一节 市场管理措施</h3><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第三十五条</div><div class="entry-text"><a id="anchor_777784243" name="777784243"></a>为了提升消费者的购物体验，维护淘宝市场正常运营秩序，淘宝按照本规则规定的情形对会员及其经营行为采取以下临时性市场管控措施： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777784243"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">警告，是指淘宝通过口头或书面的形式对会员的不当行为进行提醒和告诫；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">商品下架，是指将会员出售中商品转移至线上仓库；</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">单个商品搜索降权，是指调整商品在搜索结果中的排序；</div></li>
+<li class="clearfix"><div class="level-num">（四）</div><div class="level-text">全店商品搜索降权，是指调整会员店铺内所有商品在搜索结果中的排序；</div></li>
+<li class="clearfix"><div class="level-num">（五）</div><div class="level-text">单个商品搜索屏蔽，是指商品在搜索结果中不展现；</div></li>
+<li class="clearfix"><div class="level-num">（六）</div><div class="level-text">单个商品单一维度搜索默认不展示，是指商品信息在按价格、信用、销量等单一维度的搜索结果中默认不展现，但可经消费者主动选择后展现；</div></li>
+<li class="clearfix"><div class="level-num">（七）</div><div class="level-text">全店商品单一维度搜索默认不展示，是指会员店铺内所有商品在按价格、信用、销量等单一维度的搜索结果中默认不展现，但可经消费者主动选择后展现；</div></li>
+<li class="clearfix"><div class="level-num">（八）</div><div class="level-text">限制参加营销活动，是指限制卖家参加淘宝官方发起的营销活动；</div></li>
+<li class="clearfix"><div class="level-num">（九）</div><div class="level-text">单个商品监管，是指在一定时间内商品信息无法通过搜索、商品链接等方式查看；</div></li>
+<li class="clearfix"><div class="level-num">（十）</div><div class="level-text">店铺监管，是指在一定时间内会员店铺及店铺内所有商品信息无法通过搜索、店铺或商品链接等方式查看；</div></li>
+<li class="clearfix"><div class="level-num">（十一）</div><div class="level-text">支付违约金，是指根据协议约定或本规则规定由卖家向买家和/或淘宝支付一定金额的违约金。</div></li>
+<li class="clearfix"><div class="level-num">（十二）</div><div class="level-text">卖家绑定的支付宝收款账户的强制措施，是指对与卖家的淘宝账户绑定的支付宝收款账户采取的限制措施，包括但不限于取消收款功能、取消提现功能、禁止余额支付、冻结资金、冻结交易、永久冻结支付宝账户等。</div></li>
+</ol><h3>第二节 市场管理情形</h3><div class="entry-wrap clearfix"><div class="entry-num">第三十六条</div><div class="entry-text"><a id="anchor_777359729" name="777359729"></a>卖家应积极提升自身经营状况，为消费者提供高品质的商品及优质的服务。对于符合商品品质好、服务质量高等情形的卖家，淘宝会适当给予鼓励或扶持的措施。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777359729"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第三十七条</div><div class="entry-text">
+<a id="anchor_777643808" name="777643808"></a>会员应遵照淘宝交易流程的各项要求进行交易，卖家应合理保障买家权益。 
+<br>会员如发生危及交易安全或淘宝账户安全的行为，淘宝将依照其行为的危险程度采取支付宝账户强制措施、关闭店铺、店铺监管、限制发货、限制网站登录、限制使用阿里旺旺、限制发送站内信、延长交易超时、限制买家行为、全店商品屏蔽及全店商品搜索降权等交易安全保护措施对其进行临时性的市场管控。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777643808"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第三十八条</div><div class="entry-text">
+<a id="anchor_777479927" name="777479927"></a>经新闻媒体曝光或国家质监部门通报系质量不合格的线下某一品牌、品类或批次的商品， 淘宝对于会员在线上发布的相关商品信息进行临时性下架或删除。
+</div></div><h2>第五章 通用违规行为及违规处理</h2><h3>第一节 违规处理措施</h3><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第三十九条</div><div class="entry-text"><a id="anchor_777591101" name="777591101"></a>为保障消费者、经营者或淘宝的正当权益，在会员违规处理期间淘宝按照本规则规定的情形对会员采取以下违规处理措施： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777591101"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">店铺屏蔽，指在搜索、导航、营销等各项服务中对会员店铺及商品等信息进行屏蔽。</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">限制发布商品，指禁止淘宝会员发布新商品。</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">限制发送站内信，指禁止淘宝会员发送站内信。</div></li>
+<li class="clearfix"><div class="level-num">（四）</div><div class="level-text">限制社区功能，指禁止淘宝会员使用淘江湖、论坛、帮派、打听等社区类服务。</div></li>
+<li class="clearfix"><div class="level-num">（五）</div><div class="level-text">限制买家行为，指禁止淘宝会员购买商品。</div></li>
+<li class="clearfix"><div class="level-num">（六）</div><div class="level-text">限制发货，指禁止淘宝会员操作处于“买家已付款，等待卖家发货”状态的交易。</div></li>
+<li class="clearfix"><div class="level-num">（七）</div><div class="level-text">限制使用阿里旺旺，指禁止淘宝会员使用阿里旺旺。</div></li>
+<li class="clearfix"><div class="level-num">（八）</div><div class="level-text">限制网站登录，指禁止淘宝会员登录淘宝网页。</div></li>
+<li class="clearfix"><div class="level-num">（九）</div><div class="level-text">关闭店铺，指删除淘宝会员的店铺，下架店铺内所有出售中的商品，禁止发布商品，并禁止创建店铺。</div></li>
+<li class="clearfix"><div class="level-num">（十）</div><div class="level-text">公示警告，指在淘宝会员的店铺页面、商品页面、阿里旺旺界面，对其正在被执行的处理进行公示。</div></li>
+<li class="clearfix"><div class="level-num">（十一）</div><div class="level-text">查封账户，指永久禁止会员使用违规账户登录淘宝、使用阿里旺旺等工具。</div></li>
+</ol><h3>第二节 违规处理</h3><div class="entry-wrap clearfix"><div class="entry-num">第四十条</div><div class="entry-text"><a id="anchor_777335580" name="777335580"></a> 会员发生违规行为的，其违规行为应当纠正，并扣以一定分值且公布三天。违规扣分在每年的十二月三十一日二十四时清零。
+<br>因出售假冒商品累计扣分达到二十四分及以上者，该年不进行清零，以二十四分计入次年。次年新增严重违规扣分未达二十四分者，于该年十二月三十一日二十四时清零。
+<br>因分销商品引起的违规行为，若淘宝判定非分销商责任的，则分销商免于扣分，仅对违规行为进行纠正。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777335580"></div></div>
+<div class="entry-wrap clearfix"><div class="entry-num">第四十一条</div><div class="entry-text">
+<a id="anchor_777449566" name="777449566"></a>违规行为根据严重程度分为严重违规行为及一般违规行为，两者分别扣分、分别累计、分别执行。
+<br>严重违规行为，是指严重破坏淘宝经营秩序并涉嫌违反国家法律法规的行为。
+<br>一般违规行为，是指除严重违规行为外的违规行为。
+<br>违规行为根据适用的范围分为通用违规行为及特殊市场违规行为，特殊市场违规行为也遵循前款规定的严重违规行为与一般违规行为划分。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777449566"></div></div><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第四十二条</div><div class="entry-text">
+<a id="anchor_777875491" name="777875491"></a>会员违规行为的纠正，是指： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777875491"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text"><a id="anchor_777645208" name="777645208"></a>发布违禁信息的，淘宝对会员所发布的违禁商品或信息及因此产生的交易评价进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text"><a id="anchor_777804448" name="777804448"></a>出售假冒商品的，淘宝对会员所发布的假冒商品或信息进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text"><a id="anchor_777868263" name="777868263"></a>出售未报关进口商品的，淘宝对会员所发布的未报关进口商品或信息进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（四）</div><div class="level-text">发布非约定商品的，淘宝对会员所发布的非约定商品或信息进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（五）</div><div class="level-text"><a id="anchor_777641098" name="777641098"></a>盗用他人账户的，淘宝收回被盗账户并使原所有人可以通过账户申诉流程重新取回账户；</div></li>
+<li class="clearfix"><div class="level-num">（六）</div><div class="level-text"><a id="anchor_777261254" name="777261254"></a>泄露他人信息的，淘宝对会员所泄露的他人隐私资料的信息进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（七）</div><div class="level-text"><a id="anchor_777550146" name="777550146"></a>骗取他人财物的，淘宝对用以骗取他人财物的商品或信息及因此产生的交易评价进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（八）</div><div class="level-text"><a id="anchor_777594444" name="777594444"></a>滥发信息的，淘宝删除会员所滥发的商品或信息，或对出售同样商品的两家以上店铺中信用积分较低的副店进行关闭；</div></li>
+<li class="clearfix"><div class="level-num">（九）</div><div class="level-text"><a id="anchor_777896173" name="777896173"></a>虚假交易中通过不正当方式提高账户信用积分的，淘宝删除会员虚假交易产生的店铺评分、信用积分以及其两倍数量的其他信用积分，并下架店铺内所有商品；虚假交易中通过不正当方式提高商品销量的，淘宝删除该商品及虚假交易产生的店铺评分；</div></li>
+<li class="clearfix"><div class="level-num">（十）</div><div class="level-text"><a id="anchor_777326037" name="777326037"></a>描述不符的，卖家对商品材质、成份、品质等信息的描述与买家收到的商品严重不符，或导致买家无法正常使用的，淘宝删除该描述不符的商品；卖家未对商品瑕疵等信息进行披露或对商品的描述与买家收到的商品不相符，且影响买家正常使用的，淘宝下架该描述不符的商品。</div></li>
+<li class="clearfix"><div class="level-num">（十一）</div><div class="level-text"><a id="anchor_777213998" name="777213998"></a>违背承诺的，卖家须履行如实描述义务或消费者保障服务规定的赔付、退货、换货、维修服务；或卖家须按实际交易价款向买家或淘宝提供发票；或卖家须向买家支付因未按约定时间发货（延迟发货）而产生的违约金；</div></li>
+<li class="clearfix"><div class="level-num">（十二）</div><div class="level-text"><a id="anchor_777399277" name="777399277"></a>恶意评价的，淘宝或评价方删除该条违规评价；</div></li>
+<li class="clearfix"><div class="level-num">（十三）</div><div class="level-text"><a id="anchor_777423907" name="777423907"></a>不当注册的，淘宝对使用软件、程序方式大批量注册而成的账户进行查封；并对滥用权利导致的订单予以关闭；</div></li>
+<li class="clearfix"><div class="level-num">（十四）</div><div class="level-text"><a id="anchor_777739928" name="777739928"></a>未依法公开或更新营业执照信息的，卖家公开或更新其营业执照信息；</div></li>
+<li class="clearfix"><div class="level-num">（十五）</div><div class="level-text"><a id="anchor_777734913" name="777734913"></a>不当使用他人权利的，淘宝对会员所发布的不当使用他人权利的商品或信息进行删除；</div></li>
+<li class="clearfix"><div class="level-num">（十六）</div><div class="level-text"><a id="anchor_777379015" name="777379015"></a>假冒材质成份的，淘宝对会员所发布的假冒材质成份的商品进行删除。</div></li>
+</ol><div class="entry-wrap clearfix"><div class="entry-num">第四十三条</div><div class="entry-text">
+<a id="anchor_777112187" name="777112187"></a>被执行节点处理的会员，当其全部违规行为被纠正、违规处理期间届满、违规处理措施执行完毕且通过规则考试后，方可恢复正常状态。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777112187"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第四十四条</div><div class="entry-text">
+<a id="anchor_777551902" name="777551902"></a>就会员的首次或者非故意实施的违规行为,淘宝将视情形给予纠正和教育,并要求会员进行自检自查。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777551902"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第四十五条</div><div class="entry-text">
+<a id="anchor_777406968" name="777406968"></a>会员可在被违规处理之时起总计十五天内(淘宝审核时间除外)通过线上违规申诉入口提交违规申诉申请。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777406968"></div></div><h3>第三节 严重违规行为</h3><div class="entry-wrap clearfix"><div class="entry-num">第四十六条</div><div class="entry-text"><a id="anchor_777215686" name="777215686"></a>发布违禁信息，是指会员发布<a href="http://rule.tmall.com/tdetail-456.htm">《淘宝禁售商品管理规范》</a>中构成严重违规行为的商品或信息。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777215686"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第四十七条</div><div class="entry-text">
+<a id="anchor_777517073" name="777517073"></a>盗用他人账户，是指盗用他人淘宝账户或支付宝账户，涉嫌侵犯他人财产权的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777517073"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第四十八条</div><div class="entry-text">
+<a id="anchor_777582176" name="777582176"></a>泄露他人信息 ，是指未经允许发布、传递他人隐私信息，涉嫌侵犯他人隐私权的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777582176"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第四十九条</div><div class="entry-text">
+<a id="anchor_777784078" name="777784078"></a>骗取他人财物，是指以非法获利为目的，非法获取他人财物，涉嫌侵犯他人财产权的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777784078"></div></div><div class="entry-wrap clearfix"><div class="entry-num">第五十条</div><div class="entry-text">
+<a id="anchor_777660901" name="777660901"></a>扰乱市场秩序，是指通过不正当方式，刻意规避淘宝规则或市场管控措施的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777660901"></div></div><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第五十一条</div><div class="entry-text">
+<a id="anchor_777406686" name="777406686"></a>不正当谋利，是指会员采用不正当手段谋取利益的行为，包括： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777406686"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">向淘宝工作人员及/或其关联人士提供财物、消费、款待或商业机会等；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">通过其他手段谋取不正当利益的。</div></li>
+</ol><div class="entry-wrap clearfix"><div class="entry-num">第五十二条</div><div class="entry-text">
+<a id="anchor_777389992" name="777389992"></a><a id="anchor_777445155" name="777445155"></a>拖欠淘宝贷款，是指会员自阿里巴巴金融申请并获得淘宝贷款，到期未足额偿还贷款本息或其他费用，经阿里巴巴金融自催及委外催收仍未归还的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777445155"></div></div>
+<h3>第四节 一般违规行为</h3><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第五十三条</div><div class="entry-text"><a id="anchor_777274739" name="777274739"></a>滥发信息，是指用户未按本规则及淘宝发布的其他管理内容（包括但不限于规则、规范、类目管理标准、行业标准等）要求发布商品或信息，妨害买家权益的行为，包括以下情形： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777274739"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text"><a id="anchor_777844705" name="777844705"></a>发布<a href="http://rule.tmall.com/tdetail-456.htm">《淘宝禁售商品管理规范》</a>中构成一般违规行为的商品或信息。	</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text"><a id="anchor_777224423" name="777224423"></a>在商品类、店铺装修区或淘宝门户类页面发布以下信息： <ol class="list-2">
+<li class="clearfix"><div class="level-num">1、</div><div class="level-text">发布心情故事、店铺介绍、外网购物链接、淘宝客链接等非实际交易信息，在tmall.com(天猫)店铺内发布非tmall.com(天猫)店铺购物链接、联系方式、实体店信息、银行账号及个人支付宝账户，在淘宝分销平台外发布批发、代理、招商类商品，在淘宝网商品标题中包含非阿里旺旺联系方式等信息，利用阿里旺旺群发重复的或未经请求的淘宝卖家店铺消息、产品或服务消息等广告消息；  </div></li>
+<li class="clearfix"><div class="level-num">2、</div><div class="level-text">代他人申请具有专属性的权利，包括申请淘宝店铺装修市场设计师等； </div></li>
+<li class="clearfix"><div class="level-num">3、</div><div class="level-text">闲置、收藏商品发布数量超过限制；  </div></li>
+<li class="clearfix"><div class="level-num">4、</div><div class="level-text">支付宝免签约即时到帐接口。  </div></li></ol></div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text"><a id="anchor_777360085" name="777360085"></a>使用以下不当方式发布商品或信息的： <ol class="list-2">
+<li class="clearfix"><div class="level-num">1、</div><div class="level-text">在禁止发布商品信息的门户、社区、淘江湖、淘宝打听板块发布广告信息的；</div></li>
+<li class="clearfix"><div class="level-num">2、</div><div class="level-text">店铺中同时出售同款商品两件以上的； </div></li>
+<li class="clearfix"><div class="level-num">3、</div><div class="level-text">以非常规的数量单位发布商品的；</div></li>
+<li class="clearfix"><div class="level-num">4、</div><div class="level-text">刻意规避淘宝商品SKU设置规则发布商品的；</div></li>
+<li class="clearfix"><div class="level-num">5、</div><div class="level-text">开设两家以上店铺且出售同样商品的。</div></li>
+<li class="clearfix"><div class="level-num">6、</div><div class="level-text">未经许可发布专营类目所属商品的。</div></li></ol></div></li>
+<li class="clearfix"><div class="level-num">（四）</div><div class="level-text"><a id="anchor_777213147" name="777213147"></a>在商品类页面、店铺装修区或淘宝门户类页面发布以下错误描述的商品或信息： <ol class="list-2">
+<li class="clearfix"><div class="level-num">1、</div><div class="level-text">商品信息中缺少标题、主图，或特殊类目商品缺少所售商品本身的实物图片；</div></li>
+<li class="clearfix"><div class="level-num">2、</div><div class="level-text">商品标题、图片、价格、物流方式、邮费及售后服务等商品要素之间明显不匹配； </div></li>
+<li class="clearfix"><div class="level-num">3、</div><div class="level-text">商品标题等信息不实或者与本商品无关的； </div></li>
+<li class="clearfix"><div class="level-num">4、</div><div class="level-text">使用虚假的好评率、店铺评分、tmall.com(天猫)店铺类型，或使用与店铺实际信息不符的标识； </div></li>
+<li class="clearfix"><div class="level-num">5、</div><div class="level-text">商品与所发布的类目或属性不符的；</div></li>
+<li class="clearfix"><div class="level-num">6、</div><div class="level-text">商品与所发布的类目或属性不符且造成严重后果的。</div></li></ol></div></li>
+</ol><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第五十四条</div><div class="entry-text">
+<a id="anchor_777899309" name="777899309"></a>虚假交易，是指通过不正当方式提高账户信用积分和/或商品销量，妨害买家权益的行为。  <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777899309"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">通过不正当方式所提高的信用积分占账户总信用积分百分之八十以上； </div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">通过不正当方式所提高的信用积分占账户总信用积分百分之五十以上但百分之八十以下，且相应违规笔数达四十八笔以上的； </div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">其它通过不正当方式提高账户信用积分的； </div></li>
+<li class="clearfix"><div class="level-num">（四）</div><div class="level-text">通过不正当方式提高商品销量的。</div></li>
+</ol><div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第五十五条</div><div class="entry-text">
+<a id="anchor_777801674" name="777801674"></a>描述不符，是指买家收到的商品或经淘宝官方抽检的商品与达成交易时卖家对商品的描述不相符，卖家未对商品瑕疵、保质期、附带品等必须说明的信息进行披露，妨害买家权益的行为，包括以下情形： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777801674"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">卖家对商品材质、成份等信息的描述与买家收到的商品严重不符，或导致买家无法正常使用的； </div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">卖家未对商品瑕疵等信息进行披露或对商品的描述与买家收到的商品不相符，且影响买家正常使用的； </div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">卖家未对商品瑕疵等信息进行披露或对商品的描述与买家收到的商品不相符，但未对买家正常使用造成实质性影响的。</div></li>
+</ol> <div class="entry-wrap clearfix"><div class="entry-num">第五十六条</div><div class="entry-text">
+<a id="anchor_777403108" name="777403108"></a>竞拍不买，是指买家拍得商品后拒不按成交价格购买商品，妨害卖家权益的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777403108"></div></div> <div class="entry-wrap clearfix"><div class="entry-num">第五十七条</div><div class="entry-text">
+<a id="anchor_777994560" name="777994560"></a>恶意骚扰，是指会员采取恶劣手段骚扰他人，妨害他人合法权益的行为。 
+</div></div><div class="entry-wrap clearfix"><div class="entry-num">第五十八条</div><div class="entry-text">
+<a id="anchor_777214714" name="777214714"></a>不当注册，是指用户通过软件、程序等方式，大批量注册淘宝账户；或通过已注册的淘宝账户，滥用会员权利损害他人合法权益、妨害淘宝运营秩序的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777214714"></div></div> <div class="entry-wrap clearfix"><div class="entry-num">第五十九条</div><div class="entry-text">
+<a id="anchor_777737660" name="777737660"></a>未依法公开或更新营业执照信息，指通过支付宝实名认证中企业类认证的卖家，未在淘宝规定的期间内公开或及时更新其营业执照信息的行为。
+ <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777737660"></div></div> <div class="entry-wrap clearfix" style="border-bottom-style: none;"><div class="entry-num">第六十条</div><div class="entry-text">
+<a id="anchor_777457952" name="777457952"></a>不当使用他人权利，是指用户发生以下行为： <img class="img_x" src="http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif" data-qid="777457952"></div></div><ol class="list-1" style="border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(233, 233, 233); padding-bottom: 5px;">
+<li class="clearfix"><div class="level-num">（一）</div><div class="level-text">卖家在所发布的商品信息或所使用的店铺名、域名等中不当使用他人商标权、著作权等权利的；</div></li>
+<li class="clearfix"><div class="level-num">（二）</div><div class="level-text">卖家出售商品涉嫌不当使用他人商标权、著作权、专利权等权利的；</div></li>
+<li class="clearfix"><div class="level-num">（三）</div><div class="level-text">卖家所发布的商品信息或所使用的其他信息造成消费者混淆、误认或造成不正当竞争的。
+<br>同一权利人在三天内对同一卖家的投诉视为一次投诉。</div></li>
+</ol><h1><a href="http://rule.tmall.com/tdetail-399.htm">天猫分则</a></h1></div>
+                            </div>
+                            <div class="rules-help">
+                                <h4>以上内容是否解决您的问题？</h4>
+                                <p class="solve-yes">是，已经解决。<a href="tsearch.htm?codes=" target="_self">查看更多帮助</a></p>
+                                <p class="solve-no">否，尚未解决。<a href="http://bbs.taobao.com/catalog/thread/15296510-257837159.htm" target="_blank">告诉我们原因</a></p>
+                                <h4 class="cloud-service">在线咨询？</h4>
+                                <p>如果上述答案没有解决您的问题，您可以<a href="http://service.taobao.com/support/minerva/robot.htm?source_id=1218093332&amp;redirect_url=&amp;param=&amp;kbs_key=&amp;out_token=" target="_blank">在线咨询</a></p>
+                            </div>
+                            <div class="related-rules">
+                                <h4 class="hd">相关文章</h4>
+                                <div class="bd">
+                                  <ul>
+									                                  </ul>  
+                                </div>                      	
+                            </div>
+                        </div>                	
+                    </div>
+                </div>
+            </div>
+            <div class="col-sub">
+<div class="col-main">
+	<div class="col-hd"><h3>规则<span class="color-organ">体系</span></h3></div>
+	<div class="col-bd">
+		<div id="J_DetailAccordion" aria-multiselectable="false" role="tablist">
+				
+								<div class="da-accordion-trigger nav" style="border:none;" id="ks-accordion-tab16" role="tab" aria-expanded="false" aria-selected="false" aria-controls="ks-accordion-tab-panel12" tabindex="-1" aria-hidden="true"><h3>规则综览</h3></div>
+						<div class="da-accordion-panel" style="display:none;" id="ks-accordion-tab-panel12" role="tabpanel" aria-hidden="true" aria-labelledby="ks-accordion-tab16">
+			   <ul class="sub-navlist">
+										<li><a href="tsearch.htm?codes=777603232&amp;order=yes" target="_self">天猫规则</a></li>
+										<li><a href="tsearch.htm?codes=777603393&amp;order=yes" target="_self">淘宝网规则</a></li>
+										<li><a href="tsearch.htm?codes=777603769&amp;order=yes" target="_self">聚划算规则</a></li>
+										<li><a href="tsearch.htm?codes=777603935&amp;order=yes" target="_self">一淘规则</a></li>
+								   </ul>
+			</div>
+														<div class="da-accordion-trigger nav da-action ks-switchable-select" style="border:none;" id="ks-accordion-tab17" role="tab" aria-expanded="true" aria-selected="true" aria-controls="ks-accordion-tab-panel13" tabindex="0"><h3>规则类型</h3></div>
+						<div class="da-accordion-panel" style="display: block; " id="ks-accordion-tab-panel13" role="tabpanel" aria-hidden="false" aria-labelledby="ks-accordion-tab17">
+			   <ul class="sub-navlist">
+										<li><a href="tsearch.htm?codes=777572872&amp;order=yes" target="_self">规则</a></li>
+										<li><a href="tsearch.htm?codes=777572695&amp;order=yes" target="_self">规范</a></li>
+										<li><a href="tsearch.htm?codes=777572152&amp;order=yes" target="_self">标准</a></li>
+										<li><a href="tsearch.htm?codes=777572545&amp;order=yes" target="_self">实施细则</a></li>
+								   </ul>
+			</div>
+														<div class="da-accordion-trigger nav" style="border:none;" id="ks-accordion-tab18" role="tab" aria-expanded="false" aria-selected="false" aria-controls="ks-accordion-tab-panel14" tabindex="-1" aria-hidden="true"><h3>实施细则</h3></div>
+						<div class="da-accordion-panel" style="display:none;" id="ks-accordion-tab-panel14" role="tabpanel" aria-hidden="true" aria-labelledby="ks-accordion-tab18">
+			   <ul class="sub-navlist">
+										<li><a href="tsearch.htm?codes=777899449&amp;order=yes" target="_self">天猫规则实施细则</a></li>
+										<li><a href="tsearch.htm?codes=777899207&amp;order=yes" target="_self">聚划算规则实施细则</a></li>
+								   </ul>
+			</div>
+														<div class="da-accordion-trigger nav" style="border:none;" id="ks-accordion-tab19" role="tab" aria-expanded="false" aria-selected="false" aria-controls="ks-accordion-tab-panel15" tabindex="-1" aria-hidden="true"><h3>规则通知</h3></div>
+						<div class="da-accordion-panel" style="display:none;" id="ks-accordion-tab-panel15" role="tabpanel" aria-hidden="true" aria-labelledby="ks-accordion-tab19">
+			   <ul class="sub-navlist">
+										<li><a href="tsearch.htm?codes=777978463&amp;order=yes" target="_self">规则公告</a></li>
+								   </ul>
+			</div>
+																																																																	</div>
+	</div> 
+</div>
+</div>        </div>
+     </div>
+  </div>
+ 
+<script type="text/javascript" src="http://a.tbcdn.cn/apps/newsroom/libs/poshytip/src/jquery.poshytip.min.js?2012-06-19"></script>
+<link rel="stylesheet" href="http://a.tbcdn.cn/apps/newsroom/css/tip-yellow.css?2012-06-19" type="text/css">
+<style>
+html,body{ overflow-x: hidden;}/*现在标准模式下，规定最好从顶级HTML标签开始定义！*/
+.entry-wrap:hover{ color: red;}
+
+pre, code {
+	display: block;
+	overflow: auto;
+	padding: 5px 10px;
+	border: 1px solid #eee;
+	word-wrap:break-word; /* Internet Explorer 5.5+ */ 
+	white-space: pre-wrap; /* Firefox */
+}
+</style>
+@*
+<script language="javascript">
+    //解析引用 2012-05-28
+    setTimeout(function () {
+        jQuery(".a22e28eb17b5f5c6").each(function () {
+            var self = jQuery(this);
+
+            var arr = self.attr("class").split(' ');
+            if (arr)
+                self.load("q.htm?qid=" + arr[1].substring(1) + "&rnd=" + Math.random());
+        });
+    }, 100);
+
+    //看哪些条目有解读
+    var arr;
+    jQuery.ajax({
+        type: "POST",
+        url: "quotedEntryIdList.htm",
+        data: null,
+        dataType: "json",
+        success: function (data) {
+            arr = data; //alert(arr.length);
+
+            //插入图标
+            var xmap = {};
+            for (var i = 0; i < arr.length; i++) {
+                var qid = arr[i];
+                var anchor = jQuery("#anchor_" + qid);
+                if (anchor.size() == 0) continue;
+
+
+                if (!xmap[qid]) //arr里的qid可能有重复的，这里过滤掉重复的
+                    anchor.parent().append(" <img class='img_x' src='http://img04.taobaocdn.com/tps/i4/T1clrjXiJsXXbdclDc-28-15.gif' data-qid='" + qid + "' />");
+
+                xmap[qid] = 1;
+            }
+
+            //
+            $('.img_x').poshytip({
+                //定位
+                alignTo: 'cursor',
+                //alignX: 'center',//横坐标不处理
+                alignY: 'bottom',
+                //offsetX: -200,
+
+                //效果
+                fade: false, 	// use fade animation
+                slide: false,
+
+                //内容
+                content: function (updateCallback) {
+                    var self = $(this);
+
+                    window.setTimeout(function () {
+                        var qid = self.attr("data-qid");
+                        //alert(qid);
+                        jQuery.ajax({
+                            type: "POST",
+                            url: "quotedPostContent.htm",
+                            data: "a=555569382&b=" + qid,
+                            success: function (msg) {
+
+                                //处理内容
+                                var arr = msg.split("@");
+                                var thePostId = arr[0];
+                                updateCallback("<pre>" + arr[1] + "&nbsp;&nbsp;<a href='tdetail-" + thePostId + ".htm' target='_blank'>查看详情</a></pre>");
+                            }
+                        });
+
+                    }, 1000);
+
+                    return 'Loading...';
+                }
+            });
+
+            //end
+        }
+    });
+
+    //解读展示/关闭
+    function toggle(qid) {
+        //alert(qid);
+        jQuery.ajax({
+            type: "POST",
+            url: "quotedPostContent.htm",
+            data: "a=555569382&b=" + qid,
+            success: function (msg) {
+                alert("Data: " + msg);
+            }
+        });
+    }
+
+ </script>*@
+</div><div id="footer"><div id="mall-desc"><dl id="ensure"><dt><span>天猫保障</span></dt><dd><span><i></i>7天无理由退换货</span><span><i></i>100%正品保障</span><span><i></i>提供发票</span></dd></dl><dl id="beginner"><dt><span>新手上路</span></dt><dd><a href="http://register.tmall.com/" target="_blank"><i></i>免费注册</a><a href="https://www.alipay.com/user/reg_select.htm" target="_blank"><i></i>开通支付宝</a><a href="https://www.alipay.com/user/login.htm?goto=https%3A%2F%2Fwww.alipay.com%2Fuser%2Finpour_request.htm" target="_blank"><i></i>支付宝充值</a><a href="http://service.tmall.com/support/tmall/tmallHelp.htm" target="_blank"><i></i>帮助中心</a></dd></dl><dl id="payment"><dt><span>支付方式</span></dt><dd><a href="http://kuai.alipay.com/product/" target="_blank"><i></i>支付宝快捷支付</a><a href="http://www.tmall.com/go/chn/tm_cod/chn.php" target="_blank"><i></i>货到付款</a><a href="http://help.alipay.com/lab/help_detail.htm?help_id=251545" target="_blank"><i></i>网上银行支付</a></dd></dl><dl id="seller"><dt><span>商家服务</span></dt><dd><a href="http://zhaoshang.tmall.com/" target="_blank" class="join"><i></i>商家入驻&gt;&gt;</a><a href="http://mai.taobao.com/" target="_blank"><i></i>商家中心</a><a href="http://peixun.tmall.com/" target="_blank"><i></i>商家成长</a><a href="http://guize.tmall.com" target="_blank"><i></i>天猫规则</a></dd></dl><!--[if IE 6]><br/><![endif]--><h4 class="go-home"><a href="http://www.tmall.com/" target="_blank" title="返回天猫首页">返回天猫首页</a></h4></div><div id="copyright"><p id="footer-tmallinfo"><a href="http://www.tmall.com/go/chn/mall/zhaoshang_produce.php" target="_blank">关于天猫</a><a href="http://service.tmall.com/support/tmall/tmallHelp.htm" target="_blank">帮助中心</a><a href="http://www.tmall.com/go/chn/navi-map/index.php" target="_blank">网站地图</a><a href="http://job.taobao.com/" target="_blank">诚聘英才</a><a href="http://www.tmall.com/go/chn/tmall/contact.php" target="_blank">联系我们</a><a href="http://xtao.tmall.com?tracelog=tmallfoot" target="_blank">网站合作</a><a href="http://www.taobao.com/about/copyright.php">版权说明</a></p><p id="footer-otherlink"><a target="_blank" href="http://page.china.alibaba.com/shtml/about/ali_group1.shtml">阿里巴巴集团</a>：阿里巴巴网络-<a target="_blank" href="http://china.alibaba.com/">中国站</a><a target="_blank" href="http://www.alibaba.com/">国际站</a><a target="_blank" href="http://www.alibaba.co.jp/">日文站</a>|<a target="_blank" href="http://www.taobao.com/">淘宝网</a>|<a target="_blank" href="http://www.etao.com/">一淘网</a>|<a target="_blank" href="http://ju.taobao.com/">聚划算</a>|<a target="_blank" href="http://www.alipay.com/">支付宝</a>|<a target="_blank" href="http://www.yahoo.com.cn/">中国雅虎</a>|<a target="_blank" href="http://www.alimama.com/">淘宝联盟</a>|<a target="_blank" href="http://www.aliresearch.com/">集团研究中心</a>|<a href="http://tianxia.taobao.com/" target="_blank">淘宝天下</a>|<a href="http://hitao.taobao.com/" target="_blank">嗨淘网</a></p><p>Copyright&nbsp;2003-2012,版权所有TMALL.COM<br>增值电信业务经营许可证：浙B2-20110446<br>网络文化经营许可证：<a href="http://img01.taobaocdn.com/tps/i1/T1M72qXjhgXXc1.xw7-2349-1700.jpg" target="_blank">浙网文[2012]0234-028号</a><br>互联网医疗保健信息服务审核同意书浙卫网审【2012】6号<br>互联网药品信息服务资质证书编号：浙-（经营性）-2012-0005</p></div></div></div><div class="sn-mcate-bd sn-mcate-unready j_MallCateHoverTrigger">努力加载中...</div>
+<div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div class="tip-yellow"><div class="tip-inner tip-bg-image"></div><div class="tip-arrow tip-arrow-top tip-arrow-right tip-arrow-bottom tip-arrow-left"></div></div><div><div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 0px; height: 0px; left: 0px; top: 7905px; "><object class="RDVideoObject" type="application/x-rn-downloaderpepperflashvideoshim-plugin" src="" width="0" height="0" data-offsetleft="0" data-offsettop="7905"></object></div><object id="ClCache" click="sendMsg" host="" width="0" height="0"></object></div><table id="J_CommonBottomBar" style=""><tbody><tr><td order="0"></td><td order="20"><div id="J_BrandBar" order="20" class="tm_cmbar_clearfix tm_cmbar"><div class="BrandFlyer"></div><a href="http://mybrand.tmall.com?scm=1048.1.1.2" target="">我关注的品牌</a><div style="width: 23px; height: 13px; left: 87px; top: -6px; position: absolute; background-image: url(http://img03.taobaocdn.com/tps/i3/T1Zs7TXiNcXXbmSHkB-191-207.png); background-position: -158px -60px; background-repeat: no-repeat no-repeat; "></div></div></td><td order="50"><div class="tmMC tm_cmbar_clearfix tm_cmbar" id="J_TMiniCart"><div class="tmMCHandler unlogin" title="登录购物车"><div class="tmMCTopBorder"></div><div class="tmMCBody"><div class="tmMCLoading">正在加载…</div><div class="tmMCCon"></div></div><span class="tmMCBotLink"><span class="tmMCNum">0</span></span><div class="tmMCHdLeft"><a class="tmMCBotLink" title="查看购物车" href="http://cart.tmall.com/cart/myCart.htm?from=botlink" target="_blank"><span class="tmMCNum">0</span></a><span class="tmMCEx"></span></div></div><form method="POST" id="tmMCOrderForm"><input id="tmMCCartIds" type="hidden" name="cartId"><input id="tmMCDelCartIds" type="hidden" name="delCartIds"><input type="hidden" name="needMerge"></form></div></td></tr></tbody></table></body>
+</html>
