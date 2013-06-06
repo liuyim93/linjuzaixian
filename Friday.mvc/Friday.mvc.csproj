@@ -1159,6 +1159,11 @@
     <Content Include="apps\mods\login\safemode.js" />
     <Content Include="apps\mods\login\submitbutton.js" />
     <Content Include="apps\mods\login\tracknick.js" />
+    <Content Include="apps\newsroom\css\rules_common.css" />
+    <Content Include="apps\newsroom\css\rules_detail.css" />
+    <Content Include="apps\newsroom\css\rules_header.css" />
+    <Content Include="apps\newsroom\js\rules_detail.js" />
+    <Content Include="apps\newsroom\js\rules_header.js" />
     <Content Include="apps\register\common\js\client.js" />
     <Content Include="apps\register\common\js\reg.js" />
     <Content Include="apps\register\common\js\step_first.js" />
@@ -1507,6 +1512,7 @@
     <Content Include="s\tbra\1.0\tbra-widgets.js" />
     <Content Include="tbra\2.0\tbsp.css" />
     <Content Include="tbsp\tbsp.css" />
+    <Content Include="tbsp\tbsp.source.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
