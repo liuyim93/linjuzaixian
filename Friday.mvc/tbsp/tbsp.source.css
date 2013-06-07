@@ -188,7 +188,7 @@ Doc Link: http://lifesinger.org/blog/?p=448
 .grid-c2-s4f .col-sub { width: 150px; margin-left: -150px; }
 
 /* s6 */
-.grid-c2-s6 .main-wrap { margin-left: 240px; }
+.grid-c2-s6 .main-wrap { margin-left: 0px; }
 .grid-c2-s6 .col-sub { width: 230px; margin-left: -100%; }
 .grid-c2-s6f .main-wrap { margin-right: 240px; }
 .grid-c2-s6f .col-sub { width: 230px; margin-left: -230px; }

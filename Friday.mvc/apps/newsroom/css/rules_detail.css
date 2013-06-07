@@ -6,8 +6,8 @@
 .rules-help .solve-yes,.rules-help .solve-no,.rules-help .cloud-service,.col-main-content .related-rules li{background:url(http://img01.taobaocdn.com/tps/i1/T1RLnjXdtjXXc0Pcvg-20-171.jpg) no-repeat;padding-left:20px;}
 .col-main-content .rules-title{color:#f60;text-align:center;}
 .col-main-content .rules-param{color:#333;margin-left:19px;margin-top:30px;}
-.col-main-content .rules-param li{float:left;display:inline;width:230px;}
-.col-main-content .rules-text{border-top:1px dashed #dedede;padding:23px 25px 0 25px;margin-top:10px;font-size:14px;line-height:180%;}
+.col-main-content .rules-param li{float:left;display:inline;width:315px;}
+.col-main-content .rules-text{border-top:1px dashed #dedede;padding: 25px 1px ;margin-top:10px;font-size:14px;line-height:180%;}
 .col-main-content .rules-help{border-top:1px dashed #dedede;padding:13px 0 0 25px;margin-top:10px;color:#666;}
 .col-main-content .rules-help{line-height:22px;}
 .rules-help .solve-yes{background-position:0 2px;}
