@@ -1402,7 +1402,7 @@ namespace Friday.Test2
             
             //------添加2级目录---------
             //2级"国际品牌"
-            string[] SecdForNational={"优衣库","Adidas GAP","飞利浦","微软","新百伦","Nike","兰芝","ELLE","Karicare"};
+            string[] SecdForNational = { "优衣库", "Adidas GAP", "飞利浦", "微软", "新百伦", "Nike", "兰芝", "ELLE", "Karicare", "银座商城" };
             for (int i = 0; i < SecdForNational.Length;i++ )
             {
 
@@ -3229,7 +3229,7 @@ namespace Friday.Test2
                Logo = "/uploadimage/lshop2.png",
                sBrand = "/uploadimage/sshop2.jpg",
                bBrand = "/uploadimage/bshop2.jpg",
-               Name = "银座连锁购物中心",
+               Name = "银座商城",
                Owener = "姜文",
                ShortName = "银座",
                Tel = "18799999992",

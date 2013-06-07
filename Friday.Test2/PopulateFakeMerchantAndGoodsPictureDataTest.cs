@@ -23,12 +23,13 @@ namespace Friday.Test2
         public void init()
         {
 
-            IRepository<Merchant> iMerchantRepository = UnityHelper.UnityToT<IRepository<Merchant>>();
+            IMerchantRepository iMerchantRepository = UnityHelper.UnityToT<IMerchantRepository>();
             IRepository<Commodity> iCommodityRepository = UnityHelper.UnityToT<IRepository<Commodity>>();
             //IRepository<Food> iFoodRepository = UnityHelper.UnityToT<IRepository<Food>>();
             //IRepository<House> iHouseRepository = UnityHelper.UnityToT<IRepository<House>>();
             IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository =new GlobalGoodsTypeRepository();
             ISchoolRepository iSchoolRepository = UnityHelper.UnityToT<ISchoolRepository>();
+            IShopRepository iShopRepository = UnityHelper.UnityToT<IShopRepository>();
             ISchoolOfMerchantRepository iSchoolOfMerchantRepository = UnityHelper.UnityToT<ISchoolOfMerchantRepository>();
             IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
 
@@ -45,21 +46,21 @@ namespace Friday.Test2
                                      "手镯","妈妈鞋","PU女包","饰品手镯" };
             string[] schl = { "山东经济学院", "山东建筑大学", "济南职业学院","山东师范大学","山东大学"};
             string[] areas = { "历下区", "市中区", "长清区", "高新区" };
-         
-            for (int j = 0; j<3; j++)
+
+            for (int j = 0; j < 3; j++)
             {
                 for (int i = 0; i < 24; i++)
                 {
 
                     Shop mcht = new Shop()
                     {
-                        Name =mctName[i]+":"+j+i,
-                        Logo = "/uploadimage/l" + i%13 + ".png",
-                        sBrand = "/uploadimage/s" + i%13 + ".jpg",
-                        bBrand = "/uploadimage/b" + i%13 + ".jpg",
+                        Name = mctName[i] + ":" + j + i,
+                        Logo = "/uploadimage/l" + i % 13 + ".png",
+                        sBrand = "/uploadimage/s" + i % 13 + ".jpg",
+                        bBrand = "/uploadimage/b" + i % 13 + ".jpg",
                         MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),
                         Schools = iSchoolRepository.GetSchoolByAreasName(schl[i % 4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i % 3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("济南市").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
-                 
+
                     };
                     iMerchants.Add(mcht);
                     iMerchantRepository.SaveOrUpdate(mcht);
@@ -68,7 +69,7 @@ namespace Friday.Test2
                     {
                         IsDelete = false,
                         Merchant = mcht,
-                        School = iSchoolRepository.SearchByShortName(schl[i%5]),
+                        School = iSchoolRepository.SearchByShortName(schl[i % 5]),
                     };
                     iSchoolOfMerchantRepository.SaveOrUpdate(scm);
 
@@ -77,12 +78,12 @@ namespace Friday.Test2
                     Commodity commodity = new Commodity()
                     {
                         Name = commodityName[i] + ":" + j + i,
-                        Image = "/uploadimage/c" + (i + 1)%13 + ".jpg",
+                        Image = "/uploadimage/c" + (i + 1) % 13 + ".jpg",
 
                         Shop = mcht,
                         GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]),
-                    //2013-05-09 basilwang 增加family
-                    GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]).Family,
+                        //2013-05-09 basilwang 增加family
+                        GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]).Family,
                     };
                     iCommodityRepository.SaveOrUpdate(commodity);
                 }
@@ -90,49 +91,54 @@ namespace Friday.Test2
 
             //国际品牌
               string[] NationalMerchat = { "优衣库", "Adidas GAP", "飞利浦", "微软", "新百伦", "Nike", "兰芝", "ELLE", "Karicare" };//{"优衣库","兰芝","微软","飞利浦","新百伦","Nike","Karicare","ELLE"};
-           
+
               GlobalGoodsType ggdt;
-              for (int i = 0; i<9;i++ )
+              for (int i = 0; i < 9; i++)
               {
-                Shop mcht = new Shop()
-                {
-                    Name = NationalMerchat[i],
-                    Logo = "/uploadimage/l" + i  + ".png",
-                    sBrand = "/uploadimage/s" + i   + ".jpg",
-                    bBrand = "/uploadimage/b" + i   + ".jpg",
-                    MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),
-                    Schools = iSchoolRepository.GetSchoolByAreasName(schl[i % 4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i % 3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("济南市").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
-                 
-                };          
-                 iMerchantRepository.SaveOrUpdate(mcht);
+                  Shop mcht = new Shop()
+                  {
+                      Name = NationalMerchat[i],
+                      Logo = "/uploadimage/l" + i + ".png",
+                      sBrand = "/uploadimage/s" + i + ".jpg",
+                      bBrand = "/uploadimage/b" + i + ".jpg",
+                      MerchantType = ((i % 2 == 0) ? MerchantTypeEnum.百货 : MerchantTypeEnum.餐馆),
+                      Schools = iSchoolRepository.GetSchoolByAreasName(schl[i % 4]).Id + "," + iSchoolRepository.GetSchoolByAreasName(areas[i % 3]).Id + "," + iSchoolRepository.GetSchoolByAreasName("济南市").Id + "," + iSchoolRepository.GetSchoolByAreasName("山东省").Id
 
-                 //把国际名牌的MerchantID  写入到GlobalGoodsType的Description中
-                 ggdt=iGlobalGoodsTypeService.GetGlobalGoodsTypeByName(NationalMerchat[i]);
-                 ggdt.Description = mcht.Id;
-                 iGlobalGoodsTypeService.Save(ggdt);
+                  };
+                  iMerchantRepository.SaveOrUpdate(mcht);
 
-
-                 SchoolOfMerchant scmn = new SchoolOfMerchant()
-                 {
-                     IsDelete = false,
-                     Merchant = mcht,
-                     School = iSchoolRepository.SearchByShortName(schl[i % 5]),
-                 };
-                 iSchoolOfMerchantRepository.SaveOrUpdate(scmn);
+                  //把国际名牌的MerchantID  写入到GlobalGoodsType的Description中
+                  ggdt = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName(NationalMerchat[i]);
+                  ggdt.Description = mcht.Id;
+                  iGlobalGoodsTypeService.Save(ggdt);
 
 
-                 Commodity commodity = new Commodity()
-                 {
-                     Name = commodityName[i] ,
-                     Image = "/uploadimage/c" + (i + 1) + ".jpg",
+                  SchoolOfMerchant scmn = new SchoolOfMerchant()
+                  {
+                      IsDelete = false,
+                      Merchant = mcht,
+                      School = iSchoolRepository.SearchByShortName(schl[i % 5]),
+                  };
+                  iSchoolOfMerchantRepository.SaveOrUpdate(scmn);
 
-                     Shop = mcht,
-                     GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]),
-                     //2013-05-09 basilwang 增加family
-                     GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]).Family,
-                 };
-                 iCommodityRepository.SaveOrUpdate(commodity);
+
+                  Commodity commodity = new Commodity()
+                  {
+                      Name = commodityName[i],
+                      Image = "/uploadimage/c" + (i + 1) + ".jpg",
+
+                      Shop = mcht,
+                      GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]),
+                      //2013-05-09 basilwang 增加family
+                      GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]).Family,
+                  };
+                  iCommodityRepository.SaveOrUpdate(commodity);
               }
+
+              //国际品牌中添加银座
+              GlobalGoodsType ggdtyz = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("银座商城");
+              ggdtyz.Description = iShopRepository.SearchByShortName("银座").Id;
+              iGlobalGoodsTypeService.Save(ggdtyz); 
 
 
             //for (int i = 0 ; i < 13; i++)

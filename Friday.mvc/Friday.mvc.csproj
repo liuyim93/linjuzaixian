@@ -1330,8 +1330,12 @@
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\birthday-16-16.png" />
     <Content Include="Images\blackcathead-55-20.png" />
+    <Content Include="Images\blackcathead-55-20[1].png" />
     <Content Include="Images\blackmallbar-441-100.jpg" />
+    <Content Include="Images\blackmallbar-441-100.png" />
     <Content Include="Images\blackmallbar-441-100[0].png" />
+    <Content Include="Images\blackmallbar-441-100[1].jpg" />
+    <Content Include="Images\blackmallbar-441-100[3].png" />
     <Content Include="Images\btn-search-l.png" />
     <Content Include="Images\btn.png" />
     <Content Include="Images\cha-16-50.png" />
@@ -1379,6 +1383,7 @@
     <Content Include="Images\b_red_5.gif" />
     <Content Include="Images\msg.png" />
     <Content Include="Images\popular_clothes-218-32.png" />
+    <Content Include="Images\setlogo-242-139[0].png" />
     <Content Include="Images\setlogo-242-139.png" />
     <Content Include="Images\shandian-16-16.png" />
     <Content Include="Images\shutiao.jpg" />
