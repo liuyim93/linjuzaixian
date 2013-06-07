@@ -1641,6 +1641,7 @@
     <Content Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx" />
     <Content Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx" />
     <Content Include="weblogin\orderOfCommodity\pEditOrderOfCommodity.aspx" />
+    <Content Include="weblogin\otherPage\help.htm" />
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
