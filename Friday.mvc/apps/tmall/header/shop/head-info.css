@@ -4,7 +4,7 @@
 #mall-shop{position:relative;z-index:990;}
 #shop-info{float:left;position:absolute;top:-25px;left:440px;width:310px;border-radius:2px;background-color:#9d0100;border:1px solid #00677e;}
 #shop-info .main-info{height:18px;padding:5px;width:300px;overflow:hidden;}
-#shop-info .shop-title,#shop-info .shop-status{float:left;height:18px;overflow:hidden;margin-bottom:2px;margin-right:3px;}
+#shop-info .shop-title,#shop-info .shop-status{height:18px;overflow:hidden;margin-bottom:2px;margin-right:3px;}/*float:left;*/
 #shop-info .shop-title a{color:#fff;font-weight:bold;}
 #shop-info .shop-status .i{background-position:0 -60px;width:60px;float:left;height:17px;margin-top:1px;line-height:18px;text-indent:-99em;margin-right:3px;overflow:hidden;}
 #shop-info .shop-status .ww-large a.ww-inline{font:0/0 arial;background-position:-60px -59px;height:18px;width:18px;line-height:18px;overflow:hidden;_float:left;}
@@ -39,8 +39,8 @@
 #shop-info .opt{font:0/0 arial;height:0;_border-top:1px solid #970d01;}
 #shop-info .opt b{overflow:hidden;font:0/99em arial;background-position:-98px -59px;position:relative;display:block;width:50px;height:7px;margin:0 auto;top:-1px;_top:-2px;cursor:pointer;}
 #shop-info:hover .extra-info,#shop-info.expanded .extra-info,#shop-info:hover .extra-info .bd,#shop-info.expanded .extra-info .bd{display:block;}
-#shop-info:hover .extra-info,#shop-info.expanded .extra-info{border:1px solid #970d01;background:#fff;}
-#shop-info:hover .opt,#shop-info.expanded .opt{background-color:#bd1201;height:2px;border-top:1px solid #970d01;}
+#shop-info:hover .extra-info,#shop-info.expanded .extra-info{border:1px solid #00739E;background:#fff;}
+#shop-info:hover .opt,#shop-info.expanded .opt{background-color:#00739E;height:2px;border-top:1px solid #00739E;}
 #shop-info:hover .opt b,#shop-info.expanded .opt b{display:none;}
 #hd{max-height:150px;position:relative;z-index:119;}
 .head-expand #hd,.manage #hd{max-height:none;overflow:visible;position:static;z-index:1;}

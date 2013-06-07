@@ -96,16 +96,16 @@
 
 
     <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
-    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/common.css") />
+   @* <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/common.css") />*@
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/mui.css") />
-    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css,") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/base-min.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/head/head-min.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/foot/foot-min.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/shop-info-min.css") />
 
-     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/head-info-min.css") />
+@*     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/head-info-min.css") />*@
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/s/shop-mods-min.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/o/second-mods-min.css") />
 
@@ -192,21 +192,21 @@ background-position:left 0;
                 <div id="mall-shop">
                     <div id="shop-info">
                         <div class="main-info">
-                            <h3 class="shop-title">
+                            <h3 class="shop-title" style=" text-align:center" >
                                 <a target="_blank" href="http://localhost:7525/merchant/index?scid=@m.Id">@m.Name 官方旗舰店</a>
                             </h3>
-                            <p class="shop-status">
+                              @* <p class="shop-status">
                                 <a class="i" target="_blank" href=" ">
                                     品牌直销</a>
-                                  @*   <span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
+                                  <span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
                                         data-tnick="" data-encode="true" data-display="inline"><a href=""
                                             target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
-                                            <span>旺旺在线</span></a></span>*@
-                            </p>
-                            <p class="shop-grade">
-                           <a target="_blank" href="">
-                                      <span title="4.7/5.0，共有40778人打分" class="c-value-no c-value-4d7"></span>@*4.7*@</a>
-                            </p>
+                                            <span>旺旺在线</span></a></span>
+                            </p>*@
+                           @*     <p class="shop-grade">
+                       <a target="_blank" href="">
+                                      <span title="4.7/5.0，共有40778人打分" class="c-value-no c-value-4d7"></span>4.7</a>
+                            </p>*@
                         </div>
                         <div class="extra-info">
                             <div class="bd">

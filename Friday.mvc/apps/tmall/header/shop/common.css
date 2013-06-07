@@ -1,7 +1,7 @@
 ﻿.headerNav{position:relative;z-index:10000;}
 .shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:no-repeat 999em;background-image:url(http://localhost:7525/Images/merchant_spot-148-83.png)!important;}
 #mall-shop{position:relative;z-index:990;}
-#shop-info{float:left;position:absolute;top:-25px;left:440px;width:310px;border-radius:2px;background-color:#9d0100;border:1px solid #a00;}
+/*#shop-info{float:left;position:absolute;top:-25px;left:440px;width:310px;border-radius:2px;background-color:#015CA3;border:1px solid #00739E;}
 #shop-info .main-info{height:18px;padding:5px;width:300px;overflow:hidden;}
 #shop-info .shop-title,#shop-info .shop-status{float:left;height:18px;overflow:hidden;margin-bottom:2px;margin-right:3px;}
 #shop-info .shop-title a{color:#fff;font-weight:bold;}
@@ -11,7 +11,7 @@
 #shop-info .shop-status .ww-large a.ww-inline span{display:none;}
 #shop-info .shop-grade{line-height:13px;padding-top:3px;float:left;width:80px;font-weight:bold;}
 #shop-info .main-info .shop-grade a{color:#fddc00;font-size:11px;line-height:13px;height:13px;text-align:right;display:block;width:80px;background-position:-63px -46px;}
-#shop-info .main-info .shop-grade .c-value-no{background-position:0 -46px;height:13px;float:left;}
+#shop-info .main-info .shop-grade .c-value-no{background-position:0 -46px;height:13px;float:left;}*/
 #header .shop-grade .c-value-0,#hd-sub .c-value-0{width:0;}
 #header .shop-grade .c-value-0d1,#header .shop-grade .c-value-0d2,#header .shop-grade .c-value-0d3,#header .shop-grade .c-value-0d4,#header .shop-grade .c-value-0d5,#header .shop-grade .c-value-0d6,#header .shop-grade .c-value-0d7,#header .shop-grade .c-value-0d8,#header .shop-grade .c-value-0d9,#hd-sub .c-value-0d1,#hd-sub .c-value-0d2,#hd-sub .c-value-0d3,#hd-sub .c-value-0d4,#hd-sub .c-value-0d5,#hd-sub .c-value-0d6,#hd-sub .c-value-0d7,#hd-sub .c-value-0d8,#hd-sub .c-value-0d9{width:5px;}
 #header .shop-grade .c-value-1,#hd-sub .c-value-1{width:12px;}
@@ -825,8 +825,8 @@ button::-moz-focus-inner {
 .shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:url(http://img01.taobaocdn.com/tps/i1/T19mWaXgtjXXXXXXXX-148-83.png) no-repeat 999em;}
 .extra-info .c-value-no{background:url("http://localhost:7525/Images/star_sort-128-83.png") -64px -12px repeat;}
 #mall-shop{position:relative;z-index:990;}
-#shop-info{float:left;position:absolute;top:5px;left:190px;_left:10px;padding:0 1px;width:237px;background-color:#7a170f;border:1px solid #7a170f;border-left-color:#d61800;border-right-color:#d61800;}
-#shop-info .main-info{height:38px;width:228px;padding-left:8px;padding-top:3px;border:1px solid #d61800;border-left:none;background-color:#b21000;overflow:hidden;}
+/*#shop-info{float:left;position:absolute;top:5px;left:190px;_left:10px;padding:0 1px;width:237px;background-color:#7a170f;border:1px solid #7a170f;border-left-color:#d61800;border-right-color:#d61800;}
+#shop-info .main-info{height:38px;width:228px;padding-left:8px;padding-top:3px;border:1px solid #d61800;border-left:none;background-color:#b21000;overflow:hidden;}*/
 #shop-info .main-info .shop-title,#shop-info .main-info .shop-status{float:left;height:18px;overflow:hidden;margin-bottom:2px;margin-right:3px;}
 #shop-info .main-info .shop-title a{color:#fff;font-weight:100;}
 #shop-info .main-info .shop-status{width:82px;}
