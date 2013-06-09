@@ -1,0 +1,179 @@
+﻿/*pub-1|2013-06-05 17:41:03*/.tpl-order h2{height:25px;color:#333;font-weight:bold;font-size:14px;margin:5px 0 10px}
+.tpl-order h2 .reconfirm-tip{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;visibility:hidden;position:relative;margin-left:10px;padding:2px 6px 2px 20px;font-weight:normal;font-size:12px;color:#666;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) no-repeat -61px -103px #f5f5f5;border:1px solid #e1e1e1;box-shadow:1px 1px 1px #f5f5f5;border-radius:2px}
+.tpl-order h2 .reconfirm-tip s{position:absolute;width:5px;height:8px;left:-5px;top:7px;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) no-repeat}
+.tpl-order a{color:#c97;cursor:pointer}
+.grid-bundle{width:990px;margin-bottom:50px;table-layout:fixed;text-align:center;border-collapse:collapse}
+.grid-bundle table{width:100%;height:100%}
+.grid-bundle .row-border td{background:#b2d1ff;height:3px;border-right:2px solid #fff}
+.grid-bundle .row-border .tube-postage{border-right:0}
+.grid-bundle th{padding:4px 0;color:#999;font-weight:normal;text-align:center}
+.grid-bundle .tube-title{text-align:left;width:370px;overflow:hidden}
+.grid-bundle .tube-price{width:110px}
+.grid-bundle .tube-amount{width:115px}
+.grid-bundle .tube-promo{width:135px}
+.grid-bundle .tube-sum{width:110px}
+.grid-bundle .tube-postage{width:146px;padding:3px 0;text-align:left}
+.tube-postage .insure{margin-top:5px;padding-left:5px}
+.grid-bundle thead .tube-postage{text-align:center;padding-top:0;padding-bottom:0}
+.tube-postage .postage-line{text-align:center}
+.tube-postage .postage-tip{color:#999;margin-bottom:5px}
+.tube-postage .postage-tip p{line-height:16px;color:#666;padding-left:18px}
+.tube-postage .postage-tip s{position:absolute;width:8px;height:5px;top:-5px;left:7px;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) no-repeat -5px 0}
+.tube-postage .postage-tip .icon{width:23px;height:22px;top:0;left:0;background-position:-61px -103px}
+.tube-title .title-wrap{width:900px;overflow:hidden}
+.grid-bundle .bundle-title{float:left;padding-left:27px;background-position:0 -124px}
+.grid-bundle-HK .bundle-title{padding-left:53px;background:url(http://img01.taobaocdn.com/tps/i1/T1fBqDXwJgXXb1wZ6h-47-14.png) no-repeat 0 50%}
+.bundle-title a{color:#333}
+.grid-bundle .tube-img{width:68px;vertical-align:top}
+.grid-bundle .tube-master{width:162px;padding-right:8px;text-align:left;vertical-align:top}
+.item-title{width:166px;height:21px;line-height:21px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.grid-bundle .tube-sku{width:130px;text-align:left}
+.grid-bundle thead .tube-title{font-size:14px;color:#333}
+.tube-master .shop-title{margin-top:3px}
+.tube-master .shop-title a{color:#666}
+.tube-master .iconlist{margin-top:3px}
+.tube-master .icon-group{margin-right:5px}
+.tube-master .icon-group a{margin-right:3px}
+.tube-master .icon-group img{vertical-align:middle}
+.tube-master .shipTime span{color:#999}
+.grid-bundle tbody td{background:#fbfcff}
+.item-title a{color:#666}
+.grid-bundle .tube-main td{padding-top:8px;padding-bottom:8px}
+.grid-bundle tfoot td{background:#f2f6ff;padding-top:12px;padding-bottom:12px;vertical-align:top}
+.grid-bundle .tube-annex{padding-left:10px;text-align:left}
+.grid-bundle .tube-bill{text-align:right;padding-right:10px}
+.tube-bill .promo{margin-bottom:5px}
+.tube-bill .promo .fn-select{margin-right:10px}
+.tube-bill .promo-discount{color:#c00;margin-left:5px}
+.tube-bill .promo-discount strong{font-weight:normal}
+.tube-bill .promo-discount .rmb{margin:0 2px}
+.promo-desc{position:relative;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;margin-left:5px;width:12px;height:10px;background:url(http://img02.taobaocdn.com/tps/i2/T1aupnXeFfXXXXXXXX-12-10.png);cursor:pointer}
+.promo-desc .fn-feedback{right:-37px;top:24px;width:220px;cursor:default}
+.promo-desc .feedback-inner{background:#fff6c8;border:1px solid #ffcc1c;border-radius:3px;padding:4px}
+.promo-desc .feedback-con{padding:6px;background:#fff;border:0;margin:0}
+.promo-desc .feedback-content{white-space:normal}
+.promo-desc .feedback-icon{display:none}
+.promo-desc .feedback-arrow{background:url(http://img02.taobaocdn.com/tps/i2/T1rpRPXX4XXXXXXXXX-18-17.png);width:17px;height:9px;top:-9px;left:auto;right:33px}
+.grid-bundle .tube-main,.grid-bundle tbody .tube-postage{border-bottom:1px solid #b4d0ff}
+.grid-bundle .grid-order-has-service td{border-bottom:1px dotted #b4d0ff}
+.grid-bundle .grid-order-has-service .tube-img{border-bottom:0}
+.grid-bundle .tube-main .tube-sum{border-right:0}
+.grid-bundle .text{line-height:17px}
+.tube-img a.img{display:inline-block;*display:inline;*zoom:1;vertical-align:top;width:50px;height:50px;border:1px solid #e9e9e9;overflow:hidden;text-align:center;margin-top:6px;outline:0}
+.tube-sku .hd{color:#666}
+.tube-sku .bd{color:#999}
+.tube-sum{color:#b20000}
+.tube-sum .wrt-finalpay{color:#666;line-height:15px;margin-top:5px}
+.tube-bill .sum{padding:3px 0}
+.tube-bill .sum strong{color:#b20000}
+.shine-list .tube-bill .sum{color:#999}
+.shine-list .tube-bill .sum .rmb,.shine-list .tube-bill .sum strong{color:#666;font-weight:normal}
+.wrt-list .tube-bill .sum strong{font-size:18px}
+.tube-promo .fn-select{width:118px}
+.grid-bundle .scroll-promos{float:left;border-left:3px solid #f5a6a2;color:#f5a6a2;cursor:default;height:14px;line-height:14px;font-size:12px;margin-top:3px;margin-left:5px;overflow:hidden;padding-left:3px;text-align:left;width:200px;white-space:nowrap}
+.grid-service td{vertical-align:top}
+.grid-service .tube-amount{vertical-align:middle}
+.grid-service .tube-sum span{display:block;padding:2px 0}
+.grid-service .tube-service-list .item{background-repeat:no-repeat;background-position:0 50%;padding-left:20px;margin-right:10px;color:#666}
+.grid-service .tube-master{width:297px}
+.grid-service .tube-master input{margin-right:5px}
+.grid-service .tube-img a{padding-left:12px;background-position:3px -7px}
+.grid-service .tube-img a:hover{background-position:3px -37px}
+.grid-service-expand .tube-img a{background-position:0 -67px}
+.grid-service-expand .tube-img a:hover{background-position:0 -97px}
+.grid-service-collapse .tube-service-list{text-align:left}
+.grid-bundle .grid-service table{width:100%}
+.grid-bundle .grid-service table td{padding-top:0;padding-bottom:2px;border-bottom:0}
+.grid-service .tube-sum td{text-align:center}
+.grid-service .service-deactive .tube-master a,.grid-service .tube-sum .service-deactive{color:#aaa}
+.gbook{float:left;color:#999;margin-right:30px}
+.sbook{margin-top:5px}
+.sbook .text,.gbook .text{width:175px;resize:none;line-height:19px;height:19px;overflow:auto}
+.sbook .fn-inputmask,.gbook .fn-inputmask{display:inline-block;*display:inline;*zoom:1;vertical-align:top}
+.ks-ie6 .gbook .hd,.ks-ie6 .sbook .hd{position:relative;top:5px}
+.sbook .inputmask-active .text,.gbook .inputmask-active .text{border-color:#ffad35;height:57px}
+.sbook .fn-counter-tip,.gbook .fn-counter-tip{display:none}
+.sbook .inputmask-active .fn-counter-tip,.gbook .inputmask-active .fn-counter-tip{display:block}
+.sbook{color:#999;margin-top:3px}
+.sbook .text{width:120px}
+.invoice{float:left;height:25px;line-height:25px}
+.invoice .hd{color:#999}
+.invoice .title{display:inline-block;*display:inline;*zoom:1;border:1px solid #f2f6ff;color:#333;margin-right:6px;height:17px;line-height:17px;cursor:default;padding-left:2px}
+.invoice .text{width:188px;height:17px;vertical-align:top;border:0}
+.invoice-modify .title{border-color:#cd9b7a}
+.invoice a{margin-left:3px}
+.invoice .ok,.invoice .cancel,.invoice-modify .modify{display:none}
+.invoice-modify .ok,.invoice-modify .cancel{display:inline}
+.invoice .types{margin-left:10px}
+.invoice-dd{clear:left;float:none;padding-top:10px}
+.invoice-dd .invoice-hd,.invoice-dd .invoice-bd{float:left}
+.invoice-dd .invoice-hd{color:#999;margin-right:15px}
+.invoice-dd .invoice-hd input{position:relative;top:-1px;vertical-align:middle}
+.invoice-dd .invoice-hd input{margin-right:3px}
+.invoice-dd-hide .invoice-bd{visibility:hidden}
+.bundle-postage{width:135px;margin-bottom:3px}
+.bundle-postage-line{display:none}
+.insure .rgCardBox{display:inline-block;*display:inline;*zoom:1;vertical-align:top;_vertical-align:middle;position:relative}
+.rgCardBox .fn-feedback{width:140px;left:-12px;top:24px}
+.rgCardBox .fn-feedback .feedback-content{white-space:normal}
+.insure input.toggleInsure{vertical-align:middle}
+.insure .rgCard{margin:0 3px;_margin:0 1px;line-height:17px;padding:0 1px;background:#36ab67;color:#fff;cursor:default}
+.insure .rgCard .level{margin-left:2px;background:#b20000;padding:0 2px}
+.insure .fn-select{width:50px;top:-2px;_top:0}
+.insure .fn-select-content,.insure .fn-select-content .fn-select-label{height:18px;line-height:18px;overflow:hidden}
+.insure .fn-select-options .fn-select-option,.insure .fn-select-content .fn-select-label{padding-top:0;padding-bottom:0}
+.insure .fn-select .fn-select-arrow{width:12px;height:18px}
+.insure .fn-select-arrow ins{margin-top:7px}
+.insure .fn-select-options{top:17px}
+.insure .fn-select-option{line-height:17px}
+.unvalid-order h3{font-weight:normal;padding:10px 0}
+.unvalid-order .grid-bundle{table-layout:auto}
+.unvalid-order .grid-bundle th,.unvalid-order .grid-bundle td{border-bottom:1px solid #ddd;padding:8px 0}
+.unvalid-order .grid-bundle th{border-top:1px solid #ddd}
+.unvalid-order .bundle-title .shop-name{margin-right:5px}
+.unvalid-order .grid-bundle td{background:#fbfcff}
+.unvalid-order .tube-img,.unvalid-order .tube-master{float:left}
+.unvalid-order .tube-img{text-align:center}
+.unvalid-order .item-title{margin-top:17px}
+.unvalid-order .item-title a{color:#2652a5}
+.unvalid-order .tube-amount{font-weight:bold}
+.unvalid-order .tube-error{color:#c00}
+.xb-truth,.xb-auth,.xb-return,.xb-quality,.xb-thunder,.xb-guarantee,.xb-zhijian,.xb-goldseller{display:inline-block;width:16px;height:16px;overflow:hidden;text-indent:-9999px;background-image:url(http://img01.taobaocdn.com/tps/i1/T1eCRkXeQgC0Pg9ykn-498-250.png);background-repeat:no-repeat;vertical-align:middle;margin-right:2px}
+.xb-goldseller{background-image:url(http://img01.taobaocdn.com/tps/i1/T1501KXiBuXXXXXXXX-18-18.png)}
+.xb-truth{background-position:-188px 0}
+.xb-auth{background-position:-338px 0}
+.xb-return{background-position:-156px 0}
+.xb-quality{background-position:-140px 0}
+.xb-thunder{background-position:-297px 0}
+.xb-guarantee{background-position:-319px 0}
+.xb-zhijian{background-image:url(http://img02.taobaocdn.com/tps/i2/T1f8FTXcBfXXXXXXXX.png)}
+.icon-3c,.icon-dbb,.icon-energy,.icon-hitao{width:16px;height:16px;display:inline-block;vertical-align:middle;margin-right:2px}
+.icon-3c{background:url(http://img07.taobaocdn.com/tps/i7/T1g9BqXoJfXXXXXXXX-16-16.png) no-repeat}
+.icon-energy{background:url(http://img04.taobaocdn.com/tps/i4/T16zryXolhXXb1wZ6h-50-14.png) no-repeat 0 50%;width:50px}
+.icon-dbb{background:url(http://img01.taobaocdn.com/tps/i1/T1Ek1gXfRtXXXXXXXX-16-16.gif) no-repeat}
+.icon-hitao{background:url(http://image.taobao.com/tps/tps/i5/T1Z5hvXfpHXXXXXXXX-16-16.png) no-repeat}
+.bundle-post{padding:0 5px}
+.bundle-post{padding:0 5px;margin-top:5px}
+.tube-postage-schedule .bundle-post{padding:5px;background:#f2f2f2;margin-top:0;margin-bottom:6px}
+.schedule-zone{white-space:nowrap}
+.schedule-opts,.schedule-calendar{display:inline-block;*display:inline;*zoom:1;vertical-align:top}
+.schedule-calendar{position:relative;width:85px;margin-right:3px;border:1px solid #ccc;height:17px;line-height:17px;padding-right:1px;background:#fff}
+.schedule-calendar-open{z-index:99990}
+.schedule-calendar .dateval{width:82px;background-position:right -306px;padding-left:3px;cursor:default}
+.schedule-opts .fn-select-content,.schedule-opts .fn-select-label{line-height:17px;height:17px}
+.schedule-opts{width:44px;height:17px}
+.schedule-opts .fn-select-arrow{width:12px;height:17px}
+.schedule-opts .fn-select-arrow ins{margin-top:7px}
+.schedule-opts .fn-select-options{top:18px}
+.schedule-opts .fn-select-option{line-height:17px}
+.schedule-tip{color:#999;line-height:15px;margin-top:3px;text-indent:-3px}
+.schedule-calendar-popup{border:0;right:0;top:20px}
+.schedule-calendar-popup .calendar-bounding-box .content-box{border-color:#ddd}
+.schedule-calendar-popup .order-popup-content{padding:0}
+.schedule-calendar-popup .order-popup-hide{top:7px;right:7px;z-index:99998}
+.postage-msg{position:relative;margin:0 5px -1px;color:#666;border:1px solid #e1e1e1;line-height:16px;padding:3px 0 3px 20px;border-radius:2px;box-shadow:1px 1px 1px #f5f5f5;background-color:#f5f5f5;zoom:1}
+.tube-postage-schedule .postage-msg{margin:0 0 4px}
+.postage-schedule{display:none}
+.tube-postage-schedule .postage-schedule{display:block}
+.tube-postage-schedule .bundle-post{z-index:99995}
+.postage-msg s{position:absolute;width:23px;height:22px;top:1px;left:-1px;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) -61px -103px no-repeat}

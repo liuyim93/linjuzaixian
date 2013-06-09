@@ -1,0 +1,93 @@
+﻿/*pub-1|2013-06-05 17:41:07*/.checkbar{text-align:right;padding:0 10px 100px 0;display:none}
+.checkbar .option{margin-top:10px;padding:12px 0 0;border-top:1px dotted #888}
+.checkbar .option .opt{display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin-left:25px}
+.checkbar .option input{margin-right:4px}
+.checkbar .option .fenqi-pic{padding:5px 0}
+.points,.points .hd,.points .bd,.due{display:inline-block;*display:inline;*zoom:1;vertical-align:bottom}
+.points{margin-right:45px;line-height:19px}
+.points .hd{text-align:right}
+.points .hd input{vertical-align:middle;margin-right:2px}
+.points .hd p{visibility:hidden}
+.points .bd{width:168px;text-align:left}
+.points .txtBox{position:relative}
+.points .colon{position:relative;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;_top:3px}
+.points-buy .colon{vertical-align:bottom}
+.ks-ie6 .points-buy .colon{top:2px}
+.points .txtBox .fn-feedback{top:25px;left:-5px}
+.points .txtBox .feedback-con{white-space:nowrap}
+.points .text{width:54px;margin-right:2px;height:19px;line-height:19px;text-align:right;padding-right:1px}
+.points .discharge{margin-left:10px;color:#b20000}
+.points p{color:#999;line-height:21px;margin-top:4px}
+.points .bd p{text-align:left;padding-left:6px}
+.points-off .bd{display:none}
+.points-off .hd p{visibility:visible}
+.points-off .hd label{padding-right:9px}
+.points-buy .hd input,.points-buy .bd p{visibility:hidden}
+.points-buy .bd input,.points-buy .bd .discharge{display:none}
+.points .usePoint{display:none}
+.points-buy .usePoint{display:inline;font-weight:bold;font-size:24px;padding:0 5px;color:#c00;font-family:tahoma;line-height:24px}
+.due{color:#999}
+.due .pay-info .bd{color:#c00;font-size:24px;font-weight:bold;font-family:tahoma}
+.due .pay-info strong{letter-spacing:1px;margin-left:4px}
+.due .points-obtain .bd{color:#404040}
+#J_ObtainPoints{font-family:tahoma;font-size:14px;margin-right:2px}
+.checkbar .back-cart{margin-right:30px}
+.multi-point .feedback-arrow,.multi-point .icon,.checkbar .multi-inner{background:url(http://img03.taobaocdn.com/tps/i3/T11F4SXtBeXXb21rLd-29-75.png) no-repeat}
+.checkbar .multi-point{display:inline-block;*display:inline;*zoom:1;vertical-align:top;top:4px;_top:2px;position:relative;padding:0 3px;cursor:pointer}
+.checkbar .multi-inner{display:block;width:29px;height:15px;overflow:hidden;background-position:0 -55px}
+.multi-point .fn-feedback{right:0;top:24px;cursor:default}
+.multi-point .feedback-inner{background:#fff;border:1px solid #d3d3d3;border-radius:2px;padding:0;box-shadow:1px 1px 1px #efefef;color:#666}
+.multi-point .feedback-con{padding:4px 6px;background:#fff;border:0;margin:0}
+.multi-point .feedback-icon{display:none}
+.multi-point .feedback-arrow{background-position:0 -70px;width:8px;height:5px;top:-5px;left:auto;right:102px}
+.multi-point .feedback-content div{padding:6px 10px;border-top:1px solid #e9e9e9}
+.multi-point .feedback-content div.first{border-top:0}
+.multi-point .feedback-content span{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;height:14px;line-height:14px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}
+.multi-point .name{min-width:80px;max-width:135px;_width:135px}
+.multi-point .icon{width:29px;margin:0 10px}
+.multi-point .icon-2{background-position:0 -14px}
+.multi-point .icon-3{background-position:0 -28px}
+.multi-point .icon-4{background-position:0 -42px}
+.checkbar .action{margin-top:40px}
+.go-btn{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;background:url(http://img03.taobaocdn.com/tps/i3/T1ZfgOXXVXXXX8gZYM-160-228.png);width:156px;height:38px;border:0 none;cursor:pointer;outline:0;overflow:hidden;text-indent:-999px}
+.go-btn:hover{background-position:0 -38px}
+.go-disable .go-btn,.go-disable .go-btn:hover{background-position:0 -76px;cursor:default}
+.cod-go-btn{background-position:0 -114px}
+.cod-go-btn:hover{background-position:0 -152px}
+.go-disable .cod-go-btn,.go-disable .cod-go-btn:hover{background-position:0 -190px}
+.verify{margin-top:20px}
+.verify-code em{color:red;margin-right:3px;font-family:simsun,arial}
+.verify-code .text{line-height:18px;padding:2px}
+.verify-img{margin:10px 0 0}
+.verify-img img{vertical-align:top;border:1px solid #c0c0c0}
+.verify-img a{display:inline-block;*display:inline;*zoom:1;margin-right:5px;line-height:16px}
+.top-back-cart{margin-bottom:30px}
+.top-back-cart a{background:#f7f0ea;color:#c49172;padding:6px 10px;border-radius:3px}
+.top-back-cart a:hover{background:#b10000;color:#fff}
+.ks-ie8 .opt-anony input,.ks-ie8 .option .paytype-trigger,.ks-ie7 .opt-anony input,.ks-ie7 .option .paytype-trigger,.ks-ie6 .opt-anony input,.ks-ie6 .option .paytype-trigger{position:relative;top:-3px;vertical-align:bottom}
+.paytype-Agent-disabled .opt-Agent .paytype-name,.paytype-Fenqi-disabled .opt-Fenqi .paytype-name,.paytype-Coupon-disabled .opt-Coupon .paytype-name{color:#999}
+.opt-Coupon{position:relative}
+.opt-Coupon .text{line-height:18px;width:55px;text-align:right;padding-right:2px}
+.opt-Coupon .coupon-msg{position:relative;margin-top:8px;text-align:right}
+.opt-Coupon .coupon-rest{position:relative;padding-right:26px;color:#999}
+.opt-Coupon-empty .coupon-rest{padding-right:0}
+.opt-Coupon .coupon-rest ins{position:absolute;right:5px;top:-3px;width:23px;height:22px;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) no-repeat -61px -79px;cursor:pointer}
+.opt-Coupon .coupon-prepaid{display:inline-block;*display:inline;*zoom:1;vertical-align:top;width:45px}
+.opt-Coupon-empty .coupon-prepaid{width:auto}
+.opt-Coupon .coupon-msg .fn-feedback{cursor:default;top:26px;right:0}
+.opt-Coupon .coupon-msg .feedback-inner{padding-left:0}
+.opt-Coupon .coupon-msg .feedback-icon{display:none}
+.opt-Coupon .coupon-msg .feedback-con{border:0;padding:0}
+.opt-Coupon .coupon-msg .feedback-arrow{left:auto;right:66px}
+.opt-Coupon .coupon-detail,.opt-Coupon .coupon-msg{display:none}
+.paytype-Coupon-active .opt-Coupon-empty .coupon-msg,.paytype-Coupon-active .opt-Coupon-on .coupon-msg{display:block}
+.paytype-Coupon-active .opt-Coupon-on .coupon-detail{display:inline}
+.opt-Coupon-on .coupon-detail strong{font-weight:normal}
+.opt-Coupon-frozen .coupon-prepaid{display:none}
+.opt-Coupon .coupon-discount{display:inline-block;*display:inline;*zoom:1;vertical-align:top;padding-left:10px;min-width:100px}
+.opt-Coupon .rmb{margin-left:3px}
+.opt-Coupon .fn-feedback{right:0;top:22px}
+.opt-Coupon .fn-feedback .feedback-content{white-space:nowrap}
+.grid-popup{border:1px solid #e9e9e9;text-align:center}
+.grid-popup th{background:#f5f5f5;line-height:25px;padding:0 8px;border-right:1px solid #e9e9e9}
+.grid-popup td{line-height:25px;border-right:1px solid #e9e9e9}

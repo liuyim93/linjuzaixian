@@ -1,0 +1,24 @@
+﻿/*pub-1|2013-06-05 17:41:02*/#content{padding-bottom:60px}
+.orders-cod .points,.orders-cod .insure{display:none}
+.order-msg{position:absolute;border:1px solid #fee581;background:#fff5cc;padding:5px 20px;border-radius:3px;box-shadow:2px 2px 2px #aaa;color:#666;z-index:99;visibility:hidden}
+.order-msg-mask{position:absolute;z-index:98;visibility:hidden}
+.wrt-remind{height:20px;margin-bottom:25px;line-height:20px}
+.wrt-remind .wrt-hd{float:left;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) no-repeat -61px -80px;padding-left:24px}
+.wrt-remind .wrt-mobi{position:relative;float:left;width:92px;text-align:right;border:1px solid #fff;cursor:text;color:#bf0000;font-weight:bold;margin-left:5px;line-height:16px;height:16px;padding:1px 0}
+.wrt-remind .wrt-mobi input{width:100%;height:16px;line-height:16px;border:0;text-align:right}
+.wrt-remind .wrt-mobi .fn-feedback{font-weight:normal;top:26px;left:0}
+.wrt-remind a{margin-left:10px}
+.wrt-remind-modify .modifyPhone,.wrt-remind .modifyOk,.wrt-remind .modifyCancel{display:none}
+.wrt-remind-modify .modifyOk,.wrt-remind-modify .modifyCancel{display:inline}
+.wrt-remind-empty .modifyCancel{display:none}
+.wrt-remind-modify .wrt-mobi{border-color:#ffad35}
+.wrt-agree{position:relative;margin-right:20px}
+.checkbar .wrt-agree input{margin-right:3px;vertical-align:middle;top:-1px}
+.wrt-agree .fn-feedback{position:absolute;left:0;top:36px}
+.wrt-agree .incDj{font-family:arial;color:#c00}
+.wrt-fee-tip p{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;border:1px solid #d3d3d3;background:#fff;padding:0 5px 0 20px;background:url(http://a.tbcdn.cn/apps/tmall/mui/msg/img/msg.png) no-repeat -61px -103px #fff;line-height:22px;margin-top:3px;color:#999}
+.wrt-agree-feedback .feedback-content ins{display:inline-block;height:3px;width:3px;overflow:hidden;margin-right:5px;margin-top:7px;vertical-align:top;background:#666}
+.wrt-agree-feedback .red ins{background:#900}
+.wrt-agree-feedback .red{color:#900}
+.wrt-dj-ico{background:#f49291;border:1px solid #da6a69;border-radius:2px;color:#fff;margin-right:3px;padding:1px 3px;text-decoration:none}
+.coupon-fill-popup{width:596px}

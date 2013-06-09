@@ -2,6 +2,6 @@
   <InputEncoding>GB2312</InputEncoding>
   <ShortName>邻居</ShortName>
   <Description>邻居搜索</Description>
-  <Image height="16" width="16" type="image/x-icon">http://localhost:7525/Images/favicon.ico</Image>
+  <!--<Image height="16" width="16" type="image/x-icon">http://localhost:7525/Images/favicon.ico</Image>-->
   <Url type="text/html" template="http://list.mall.taobao.com/search_dispatcher.htm?user_action=initiative&at_browserse=1&q={searchTerms}"/>
 </OpenSearchDescription>

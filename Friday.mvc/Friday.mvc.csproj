@@ -157,6 +157,8 @@
     <Compile Include="Areas\Message\Controllers\NotifyController.cs" />
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
+    <Compile Include="Areas\Order\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Areas\OtherPage\Controllers\HelpController.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1064,6 +1066,11 @@
     <Content Include="apps\department\common\brandfollow.js" />
     <Content Include="apps\lifeas\js\tdog\120917\main.css" />
     <Content Include="apps\lifeas\js\tdog\120917\main.js" />
+    <Content Include="apps\lifeas\js\tdog\deploy.js" />
+    <Content Include="apps\lifeas\js\tdog\main.css" />
+    <Content Include="apps\lifeas\js\tdog\main.js" />
+    <Content Include="apps\lifeas\js\tdog\tstart.css" />
+    <Content Include="apps\lifeas\js\tdog\tstart.js" />
     <Content Include="apps\lz\hc.js" />
     <Content Include="apps\malldetail\4.0\base.css" />
     <Content Include="apps\malldetail\4.0\common\tbskip.js" />
@@ -1505,6 +1512,7 @@
     <Content Include="p\sns\1.1\sns.js" />
     <Content Include="p\tlabs\1.0.0\tlabs-min.js" />
     <Content Include="p\tlabs\1.0.0\tlabs--fullsource.js" />
+    <Content Include="p\tstart\1.0\build\mpp-io_v2.js" />
     <Content Include="p\tstart\1.0\build\tb-mpp-min.js" />
     <Content Include="p\tstart\1.0\build\tb-mpp-fullsource.js" />
     <Content Include="slide2.html" />
@@ -1520,6 +1528,39 @@
     <Content Include="tbra\2.0\tbsp.css" />
     <Content Include="tbsp\tbsp.css" />
     <Content Include="tbsp\tbsp.source.css" />
+    <Content Include="t\buy\order\1.0.11\app.js" />
+    <Content Include="t\buy\order\1.0.11\biz\addr.js" />
+    <Content Include="t\buy\order\1.0.11\biz\amount.js" />
+    <Content Include="t\buy\order\1.0.11\biz\checkcode.js" />
+    <Content Include="t\buy\order\1.0.11\biz\coupon.js" />
+    <Content Include="t\buy\order\1.0.11\biz\go.js" />
+    <Content Include="t\buy\order\1.0.11\biz\insure.js" />
+    <Content Include="t\buy\order\1.0.11\biz\invoice.js" />
+    <Content Include="t\buy\order\1.0.11\biz\mmstat.js" />
+    <Content Include="t\buy\order\1.0.11\biz\paytype.js" />
+    <Content Include="t\buy\order\1.0.11\biz\point.js" />
+    <Content Include="t\buy\order\1.0.11\biz\postage.js" />
+    <Content Include="t\buy\order\1.0.11\biz\promo.js" />
+    <Content Include="t\buy\order\1.0.11\biz\service.js" />
+    <Content Include="t\buy\order\1.0.11\biz\shoppromo.js" />
+    <Content Include="t\buy\order\1.0.11\biz\wrt.js" />
+    <Content Include="t\buy\order\1.0.11\css\addr.css" />
+    <Content Include="t\buy\order\1.0.11\css\base.css" />
+    <Content Include="t\buy\order\1.0.11\css\checkbar.css" />
+    <Content Include="t\buy\order\1.0.11\css\core.css" />
+    <Content Include="t\buy\order\1.0.11\css\order.css" />
+    <Content Include="t\buy\order\1.0.11\model.js" />
+    <Content Include="t\buy\order\1.0.11\render\common.js" />
+    <Content Include="t\buy\order\1.0.11\render\core.js" />
+    <Content Include="t\buy\order\1.0.11\render\order.js" />
+    <Content Include="t\buy\order\1.0.11\util.js" />
+    <Content Include="t\buy\order\1.0.11\util\counter.js" />
+    <Content Include="t\buy\order\1.0.11\util\feedback.js" />
+    <Content Include="t\buy\order\1.0.11\util\gracetip.js" />
+    <Content Include="t\buy\order\1.0.11\util\init.js" />
+    <Content Include="t\buy\order\1.0.11\util\inputmask.js" />
+    <Content Include="t\buy\order\1.0.11\util\popup.js" />
+    <Content Include="t\buy\order\1.0.11\util\select.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2501,6 +2542,8 @@
     <Content Include="Areas\PersonalCenter\Views\Web.config" />
     <Content Include="Areas\OtherPage\Views\Help\Index.cshtml" />
     <Content Include="Areas\OtherPage\Views\Web.config" />
+    <Content Include="Areas\Order\Views\Web.config" />
+    <Content Include="Areas\Order\Views\Home\ConfirmOrder.cshtml" />
     <Content Include="Areas\OtherPage\Views\ShopRule\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Home\Index.cshtml" />

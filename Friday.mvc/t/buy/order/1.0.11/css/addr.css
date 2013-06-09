@@ -1,0 +1,60 @@
+﻿/*pub-1|2013-06-05 17:41:03*/.addresses{margin-bottom:30px}
+.addresses h2{margin-bottom:15px}
+.addresses .list{width:1004px}
+.addr{display:inline-block;*display:inline;*zoom:1;vertical-align:top;position:relative;width:237px;height:106px;margin:0 14px 14px 0;color:#666;cursor:pointer}
+.addr *{z-index:2}
+.addr-cur{cursor:default;z-index:2}
+.addr .curmarker{position:absolute;background-position:0 -272px;width:28px;height:28px;top:77px;right:1px;visibility:hidden}
+.addr-cur .curmarker{visibility:visible}
+.addr .setdefault,.addr .deftip{position:absolute;top:0;right:0;padding:0 2px;text-decoration:none;display:none;filter:alpha(opacity=70);opacity:.7}
+.addr .deftip{background:transparent;background:#ccc;color:#fff}
+.addr-setfailure .deftip,.addr-setsuccess .deftip{padding-left:21px;background:url(http://a.tbcdn.cn/sys/common/img/msg_bg.png) no-repeat 3px -248px #fff5cc;color:#666;display:block}
+.addr-setfailure .deftip{background-position:3px 1px}
+.addr .setdefault{color:#666;background:#fff}
+.addr .setdefault:hover{color:#c97}
+.addr-set .setdefault,.addr-def .deftip{display:block}
+.addr-def .setdefault{display:none}
+.addresses .manageAddr{float:right}
+.addresses-full .createAddr,.addresses.addrMuch .createAddr{visibility:hidden}
+.addresses.addrMuch .moreAddr,.addresses .showAll{display:none}
+.addresses.addrMuch .showAll{display:inline}
+.addr .addr-toolbar{display:none}
+.address-option-binded .addr-toolbar{display:block}
+.addr .station-name{border:1px solid #ece8e7;border-bottom:1px dotted #878787;background-color:#f2f2f2;padding:0 2px;margin-right:3px}
+.change-station{display:none}
+.address-option-enable .change-station{margin:0 2px;display:block}
+.addr .inner{position:relative;padding:11px 15px;z-index:2;background:url(http://img02.taobaocdn.com/tps/i2/T1VPiBXvpeXXbjLKQ7-237-106.png) no-repeat}
+.addr-cur .inner,.addr-active .inner{background-image:url(http://img01.taobaocdn.com/tps/i1/T1fuaCXxFdXXbjLKQ7-237-106.png)}
+.addr .addr-hd{border-bottom:1px solid #f2f2f2;padding:0 0 5px;margin-bottom:5px;height:18px;line-height:18px;overflow:hidden}
+.addr .addr-hd span{display:inline-block;*display:inline;*zoom:1;vertical-align:top;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.addr .addr-hd .change-forward{margin-left:8px}
+.addr-hd .phone{color:#999;white-space:nowrap}
+.addr .addr-bd{height:54px;overflow:hidden;word-break:break-all;word-wrap:break-word}
+.address-option-binded .addr-bd{height:36px}
+.addr-bd span{margin-right:3px;word-break:break-all;word-wrap:break-word}
+.addr .addr-bd .forward-info{color:#999;background-color:#f5f6f5;border-bottom:1px dotted}
+.addr-bd .forward-flag{padding:0 5px;color:#666}
+.addr .city{font-weight:bold;max-width:64px;margin-right:10px;_width:64px}
+.addr .name{max-width:64px;margin-right:3px}
+.addr-station-popup{width:780px;background:#fafafa}
+.addr-station-popup iframe{width:780px;height:360px}
+.use-forward{display:none}
+.forward-tip-container{display:none;position:absolute;width:250px;padding:7px;border:1px solid #d6d6d6;top:60px;left:15px;z-index:9999999;background-color:#fafafa;box-shadow:1px 1px 1px #d6d6d6;word-break:break-all;word-wrap:break-word;color:#333;z-index:10}
+.forward-tip-title{color:#999}
+.forward-tip-arrow{width:17px;height:8px;position:absolute;top:-5px;left:55px;background:url(http://img03.taobaocdn.com/tps/i3/T1UBCGXwlfXXcEFrDX-17-8.png)}
+.address-forward-enable .addr-cur .addr-toolbar{display:block}
+.address-forward-enable .use-forward{display:inline}
+.address-forward-enable .use-station{display:none}
+.address-forward-enable .addr-cur .addr-bd{height:36px}
+.addr-toolbar .change-forward{padding-right:13px}
+.addresses .station-tip{position:relative;top:-6px;width:230px}
+.addresses .station-tip .feedback-con{padding-right:15px}
+.addresses .station-tip .feedback-close{top:2px;right:2px}
+.address-station-tip .station-tip{display:block}
+.addr .option{height:33px;width:225px;overflow:hidden;position:absolute;bottom:0;left:6px;border:1px solid #ebebeb;border-top:0;border-bottom:0;border-radius:0 0 2px 2px;background:url(http://img02.taobaocdn.com/tps/i2/T1zRuMXA0aXXb5sY6b-227-7.png) 50% 100% no-repeat;z-index:1}
+.option .container{padding:6px 5px}
+.option .container span{padding:0 2px;*display:inline;zoom:1;line-height:15px;height:15px}
+.option .container .option-checkbox{vertical-align:middle}
+.option .container .station-label{padding-right:25px;*padding-right:10px}
+.option .container .shop-info-discount{background-color:#e45b5f;margin:0 2px;color:white}
+.option .container .shop-info-postage{background-color:#fb5c13;margin:0 2px;color:white}
