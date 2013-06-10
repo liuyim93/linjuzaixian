@@ -158,6 +158,7 @@
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
     <Compile Include="Areas\Order\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Order\Models\OrderModel.cs" />
     <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Areas\OtherPage\Controllers\HelpController.cs">
       <SubType>Code</SubType>
@@ -1557,7 +1558,7 @@
     <Content Include="t\buy\order\1.0.11\util\counter.js" />
     <Content Include="t\buy\order\1.0.11\util\feedback.js" />
     <Content Include="t\buy\order\1.0.11\util\gracetip.js" />
-    <Content Include="t\buy\order\1.0.11\util\init.js" />
+    <Content Include="t\buy\order\1.0.11\init.js" />
     <Content Include="t\buy\order\1.0.11\util\inputmask.js" />
     <Content Include="t\buy\order\1.0.11\util\popup.js" />
     <Content Include="t\buy\order\1.0.11\util\select.js" />
