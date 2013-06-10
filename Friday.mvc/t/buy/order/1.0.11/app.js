@@ -67,7 +67,7 @@
             B.hide()
         }, error: function () {
             location.href = "/error.htm?errorCode=SYSTEM_ERROR&ajaxerr"
-        } 
+        }
         })
     }, applyCod: function () {
         var F = l.get("isCod");
@@ -76,7 +76,9 @@
             if (3 > G.length) {
                 return
             }
-            A.html(A.get("div.step-name", G[l.get("isBuyNow") ? 1 : 2]), F ? "\u786e\u8ba4\u8d27\u5230\u4ed8\u6b3e\u8ba2\u5355\u4fe1\u606f" : "\u4ed8\u6b3e\u5230\u652f\u4ed8\u5b9d")
+            //2013-06-10 wanghaichuan 
+            //A.html(A.get("div.step-name", G[l.get("isBuyNow") ? 1 : 2]), F ? "\u786e\u8ba4\u8d27\u5230\u4ed8\u6b3e\u8ba2\u5355\u4fe1\u606f" : "\u4ed8\u6b3e\u5230\u652f\u4ed8\u5b9d")
+            A.html(A.get("div.step-name", G[l.get("isBuyNow") ? 1 : 2]), F ? "\u786e\u8ba4\u8d27\u5230\u4ed8\u6b3e\u8ba2\u5355\u4fe1\u606f" : "\u786E\u8BA4\u8BA2\u5355")
         })(A.children(A.get("ol", "#J_Flowstep")));
         (function (G) {
             A.html(A.get("span.hd", G), F ? "\u5546\u54c1\u5408\u8ba1\uff08\u4e0d\u542b\u8fd0\u8d39\uff09\uff1a" : "\u5b9e\u4ed8\u6b3e\uff1a")
@@ -85,7 +87,7 @@
         A.attr("#J_orderForm", "action", F ? ("http://delivery." + (i.daily ? "daily.tmall.net" : "tmall.com") + "/cod/cod_payway.htm") : "order_result.htm");
         A.val("#F_action", F ? "cod/codOrderSwitcherAction" : "/order/confirmOrderAction");
         A.attr("#F_doConfirm", "name", F ? "event_submit_do_codSwitcher" : "event_submit_do_confirm")
-    } 
+    }
     };
     function p(H) {
         l.fill(H);
@@ -188,11 +190,15 @@
                     Q += r.toOrder(V, { idx: U, type: O, mainId: T, bundleId: P })
                 });
                 Q += "</table></td>";
-                Q += '<td class="tube-postage">';
-                Q += w.render(S);
-                Q += b.render(S);
-                Q += v.toHidden({ cls: "actualPaid", name: T + "|actualPaidFee", value: S._actualPaid });
-                Q += "</td>";
+
+                //2013-06-10 wanghaichuan
+                Q += '<td class="tube-postage" style="text-align:center">\u5FEB\u9012</td>';
+                //Q += '<td class="tube-postage">';
+                //Q += w.render(S);
+                //Q += b.render(S);
+                //Q += v.toHidden({ cls: "actualPaid", name: T + "|actualPaidFee", value: S._actualPaid });
+                //Q += "</td>";
+
                 Q += "</tr></tbody>";
                 if (S.shopVipLevel && S.multiReturnPoint && !(S.sellerId in I)) {
                     I[S.sellerId] = true;
@@ -256,7 +262,7 @@
             }
         }, error: function () {
             s("\u8bf7\u6c42\u5931\u8d25\uff0c\u8bf7\u91cd\u8bd5", G)
-        } 
+        }
         })
     }
     function s(G, F) {

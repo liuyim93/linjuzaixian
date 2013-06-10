@@ -65,20 +65,23 @@ KISSY.add("order/render/core", function (j, q, f, k, h, a, i, o, c, m, e, p, g, 
         }
         return r
     }, toCheckbar: function () {
-        var r = '<div class="main">' + n.render();
+        //2013-06-10 wanghaichuan
+        //var r = '<div class="main">' + n.render();
+        var r = '<div class="main">';
         r += '<div class="due">';
         r += '<p class="pay-info"><span class="hd">\u5b9e\u4ed8\u6b3e\uff1a</span><span class="bd"><span class="rmb">&yen;</span><strong id="J_ActualPaid">' + h.toMoney(f.get("_totalFee")) + "</strong></span></p>";
-        r += '<p class="points-obtain">\u53ef\u83b7\u5f97\u5929\u732b' + (f.get("_shopVipHtml") ? '<span class="multi-point"><span class="multi-inner"></span></span>\u591a\u500d' : "") + '\u79ef\u5206\uff1a<span class="bd"><span id="J_ObtainPoints">' + f.get("_obtainPoints") + "</span>\u70b9</span></p>";
+        //r += '<p class="points-obtain">\u53ef\u83b7\u5f97\u5929\u732b' + (f.get("_shopVipHtml") ? '<span class="multi-point"><span class="multi-inner"></span></span>\u591a\u500d' : "") + '\u79ef\u5206\uff1a<span class="bd"><span id="J_ObtainPoints">' + f.get("_obtainPoints") + "</span>\u70b9</span></p>";
         r += "</div>";
         r += "</div>";
         r += '<div class="option" id="R_option">';
         r += '<div class="opt opt-anony">';
         if (f.get("isForceAnony")) {
-            r += h.toHidden({ name: "anony", value: "one", id: "J_AnnonyBuy" }) + '<input type="checkbox" checked disabled/>'
+            //r += h.toHidden({ name: "anony", value: "one", id: "J_AnnonyBuy" }) + '<input type="checkbox" checked disabled/>'
         } else {
-            r += '<input data-mm="tmalljy.2.6?action=anony" id="anonyBuy" type="checkbox" checked name="anony"/>'
+            //r += '<input data-mm="tmalljy.2.6?action=anony" id="anonyBuy" type="checkbox" checked name="anony"/>'
         }
-        r += '<label for="anonyBuy">\u533f\u540d\u8d2d\u4e70</label></div>';
+        //r += '<label for="anonyBuy">\u533f\u540d\u8d2d\u4e70</label></div>';
+        r += '</div>';
         r += g.render() + "</div>";
         r += p.render();
         r += '<div class="action">';
@@ -148,7 +151,7 @@ KISSY.add("order/render/core", function (j, q, f, k, h, a, i, o, c, m, e, p, g, 
             r += "</table>"
         });
         return r ? ("<h3>\u4ee5\u4e0b\u5546\u54c1\u5df2\u4e0d\u80fd\u8d2d\u4e70</h3>" + r) : ""
-    } 
+    }
     });
     return b
-}, { requires: ["dom", "order/model", "order/render/order", "order/render/common", "order/util/select", "order/biz/shoppromo", "order/biz/promo", "order/biz/invoice", "order/biz/amount", "order/biz/service", "order/biz/checkcode", "order/biz/paytype", "order/biz/wrt", "order/biz/go", "order/biz/point"] }); /*pub-1|2013-06-05 17:41:02*/
+}, { requires: ["dom", "order/model", "order/render/order", "order/render/common", "order/util/select", "order/biz/shoppromo", "order/biz/promo", "order/biz/invoice", "order/biz/amount", "order/biz/service", "order/biz/checkcode", "order/biz/paytype", "order/biz/wrt", "order/biz/go", "order/biz/point"] });   /*pub-1|2013-06-05 17:41:02*/
