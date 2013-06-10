@@ -16,8 +16,8 @@
 #mallLogo a{position:relative;display:block;color:#fff;text-indent:0!important;}
 .hasSubLogo #mallLogo a{padding-bottom:2px;}
 #mallLogo s{position:absolute;display:block;top:0;cursor:pointer;}
-#mallLogo .mlogo a{height:30px;font-size:22px;width:190px;overflow:hidden;}
-#mallLogo .mlogo s{background-position:0 0;height:30px;width:190px;}
+#mallLogo .mlogo a{height:30px;font-size:22px;width:170px;overflow:hidden;}  
+#mallLogo .mlogo s{background-position:0 0;height:30px;width:170px;}
 .subLogo-hd s{background:#b10000 url(http://img03.taobaocdn.com/tps/i3/T1nqwTXdpgXXbiuxTv-147-527.png) no-repeat -9999px -9999px;width:74px;display:block;height:24px;width:74px;position:absolute;top:0;left:14px;}
 .subLogo .shuma,.subLogo .jiadian,.subLogo .zhaoshang,.subLogo .guize,.subLogo .muyin,.subLogo .book{width:84px;}
 .subLogo .jia,.subLogo .jiazhuang,.subLogo .cosmetic,.subLogo .hui,.subLogo .fuwuzhan,.subLogo .map,.subLogo .yiyao,.subLogo .dq3c{width:102px;}
