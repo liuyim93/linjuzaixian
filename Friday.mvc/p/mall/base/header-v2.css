@@ -9,7 +9,7 @@
 .headerCon:after,.clearfix:after{clear:both;}
 .headerCon,.clearfix{zoom:1;}
 #page #header{margin-top:-30px;width:auto;margin-bottom:0;min-width:990px;background:#b10000;}
-#header{height:95px;margin-top:-30px!important;background:#b10000;min-width:990px;width:auto!important;}
+#header{height:95px;margin-top:-30px!important;background:#015CA3;min-width:990px;width:auto!important;}/*015CA3*/
 .headerLayout{width:990px;padding-top:30px;margin:0 auto;}
 #mallLogo{float:left;overflow:hidden;z-index:9;padding-top:13px;}
 #mallLogo .mlogo,.subLogo{float:left;}
