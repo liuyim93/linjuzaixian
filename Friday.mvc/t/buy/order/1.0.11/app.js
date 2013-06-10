@@ -78,7 +78,7 @@
             }
             //2013-06-10 wanghaichuan 
             //A.html(A.get("div.step-name", G[l.get("isBuyNow") ? 1 : 2]), F ? "\u786e\u8ba4\u8d27\u5230\u4ed8\u6b3e\u8ba2\u5355\u4fe1\u606f" : "\u4ed8\u6b3e\u5230\u652f\u4ed8\u5b9d")
-            A.html(A.get("div.step-name", G[l.get("isBuyNow") ? 1 : 2]), F ? "\u786e\u8ba4\u8d27\u5230\u4ed8\u6b3e\u8ba2\u5355\u4fe1\u606f" : "\u786E\u8BA4\u8BA2\u5355")
+            A.html(A.get("div.step-name", G[l.get("isBuyNow") ? 1 : 2]), F ? "\u786e\u8ba4\u8d27\u5230\u4ed8\u6b3e\u8ba2\u5355\u4fe1\u606f" : "\u8BA2\u5355\u63D0\u4EA4")
         })(A.children(A.get("ol", "#J_Flowstep")));
         (function (G) {
             A.html(A.get("span.hd", G), F ? "\u5546\u54c1\u5408\u8ba1\uff08\u4e0d\u542b\u8fd0\u8d39\uff09\uff1a" : "\u5b9e\u4ed8\u6b3e\uff1a")

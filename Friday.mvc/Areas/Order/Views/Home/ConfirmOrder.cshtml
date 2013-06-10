@@ -73,7 +73,7 @@
             <li class="step-first"><div class="step-done"><div class="step-name">拍下商品</div><div class="step-no"></div></div></li>
             <li><div class="step-name">确认订单</div><div class="step-no">2</div></li>
 @*            <li><div class="step-name">确认收货</div><div class="step-no">3</div></li>*@
-            <li class="step-last"><div class="step-name">提交成功</div><div class="step-no">3</div></li>
+            <li class="step-last"><div class="step-name">订单提交</div><div class="step-no">3</div></li>
         </ol>
          </div>
     <div id="J_addresses" class="addresses"></div>
@@ -122,27 +122,32 @@
         <div id="J_unvalids" class="unvalid-order"></div>
     </form>
 </div>
-<script>    
-var orderData = {
+<script>
+    var orderData = {
         "success": true,
         "globalData": {
-            "h": "g,ge3telrsgqxdcnzxfy3da",
-            "secret": "BA71DF55292AE2E9C8A19C0C1EB9CFBD712C1F3557A79F87",
-            "time": 1370649484899,
+            "h": "g,ge3telrsgqxdcobzfyytmma",
+            "secret": "BA71DF55292AE2E98608FA53188D58F5BCC0C9416104ACAC",
+            "time": 1370869808414,
             "totalPoint": 49,
-            "isBuyNow": true,
+            "isBuyNow": false,
             "isCod": false,
             "isSupportAgentPay": true,
             "isInstallment": true,
             "checkCodeData": {
-                "encrypterString": "03f57ac34d4b57952f79e553b2c61d2b",
-                "sid": 16719398771,
-                "gmtCreate": 1370649484900,
+                "encrypterString": "fc7266be98de668371e05e92ac2a7644",
+                "sid": 27207896299,
+                "gmtCreate": 1370869808415,
                 "needCheckCode": false
             },
             "returnGoodsCardAmount": 3,
-            "isShowStation": false,
+            "supportShopPickUp": false,
+            "isShowStation": true,
             "supportForward": false,
+            "assocs": [
+            ["23822553699"],
+            ["23822553700"]
+        ],
             "neoEtaoParam": "",
             "canUseTmallCouponCard": true,
             "userLevel": 1,
@@ -150,48 +155,49 @@ var orderData = {
             "isDurex": true
         },
         "list": [{
-            "id": "38380452480",
-            "title": "辉煌户外运动专营",
+            "id": "104677876",
+            "title": "十月妈咪网美专卖",
             "type": "shop",
-            "url": "http://store.taobao.com/shop/view_shop.htm?user_number_id=199351217",
-            "seller": "辉煌户外运动专营店",
+            "url": "http://store.taobao.com/shop/view_shop.htm?user_number_id=104677876",
+            "seller": "十月妈咪网美专卖店",
             "host": "B",
             "isValid": true,
+            "scrollPromos": [],
             "pointBuy": false,
-            "sum": 18200,
+            "sum": 15800,
             "discount": 0,
             "bundles": [{
-                "id": "38380452480",
+                "id": "23822553699",
                 "orders": [{
-                    "id": "38380452480_0",
-                    "itemId": "23440068628",
-                    "skuId": 26748389241,
-                    "cartId": "0",
+                    "id": "23822553699_0",
+                    "itemId": "10458761928",
+                    "skuId": 11399369464,
+                    "cartId": "29753577034",
                     "isValid": true,
-                    "url": "http://detail.tmall.com/item.htm?id=23440068628",
-                    "pic": "http://img03.taobaocdn.com/bao/uploaded/i3/199351217/T2.GS7XgNbXXXXXXXX_!!199351217.jpg_sum.jpg",
-                    "title": "安踏正品2013夏季新品休闲运动鞋跑步鞋跑鞋男鞋子 11325559-2-4",
+                    "url": "http://detail.tmall.com/item.htm?id=10458761928",
+                    "pic": "http://img01.taobaocdn.com/bao/uploaded/i1/17876022112743690/T1lKNFXrJXXXXXXXXX_!!0-item_pic.jpg_sum.jpg",
+                    "title": "十月妈咪孕妇装夏装韩版时尚拼接孕妇裙短袖圆领连衣裙格子裙子",
                     "skus": {
-                        "颜色分类": "灰色 11325559-4 男",
-                        "鞋尺码": "41"
+                        "颜色分类": "蓝色",
+                        "尺码": "M"
                     },
-                    "shopId": "57536260",
-                    "shopName": "辉煌户外运动专营店",
-                    "seller": "辉煌户外运动专营店",
-                    "sellerId": 199351217,
+                    "shopId": "57300416",
+                    "shopName": "十月妈咪网美专卖店",
+                    "seller": "十月妈咪网美专卖店",
+                    "sellerId": 104677876,
                     "price": {
-                        "now": 18200,
-                        "origin": 0,
+                        "now": 15800,
+                        "origin": 15800,
                         "descend": 0,
                         "save": 0,
-                        "sum": 18200,
+                        "sum": 15800,
                         "actual": 0,
                         "prepay": 0,
                         "finalpay": 0
                     },
                     "amount": {
                         "now": 1,
-                        "max": 16
+                        "max": 45
                     },
                     "itemIcon": {
                         "PAYMENT": [{
@@ -199,7 +205,7 @@ var orderData = {
                             "link": "",
                             "img": "http://a.tbcdn.cn/sys/common/icon/trade/xcard.png"
                         }
-								],
+                                ],
                         "BUY_XIAOBAO": [{
                             "title": "消费者保障服务，卖家承诺7天退换",
                             "link": "http://www.taobao.com/go/act/315/xbqt090304.php?ad_id=&am_id=130011831021c2f3caab&cm_id=&pm_id=",
@@ -213,74 +219,253 @@ var orderData = {
                             "link": "http://www.taobao.com/go/act/315/xfzbz_jyps.php?ad_id=&am_id=1300118304240d56fca9&cm_id=&pm_id=",
                             "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/an_authentic_item_16x16.png"
                         }
-								]
+                                ]
                     },
-                    "rootCat": 50012036,
-                    "realRootCat": 50012029,
+                    "rootCat": 50012357,
+                    "realRootCat": 50022517,
                     "cbopt": 0,
                     "extraParam": ""
                 }
-					],
+                    ],
                 "needInvoice": false,
                 "postages": [{
                     "value": "-4",
-                    "fare": "1300",
-                    "postFee": "1300",
+                    "fare": "1000",
+                    "postFee": "1000",
                     "buyerPayRate": "100",
                     "codSellerServiceFee": false,
-                    "title": "快递:13.00元",
+                    "title": "快递:10.00元",
                     "isSelected": true,
                     "isCod": false
                 }, {
                     "value": "-7",
-                    "fare": "1500",
-                    "postFee": "1500",
+                    "fare": "1200",
+                    "postFee": "1200",
                     "buyerPayRate": "100",
                     "codSellerServiceFee": false,
-                    "title": "EMS:15.00元",
+                    "title": "EMS:12.00元",
                     "isSelected": false,
                     "isCod": false
                 }
-					],
+                    ],
                 "postagesStyle": "select",
                 "codSupport": false,
                 "insuranceList": [{
-                    "tip": "天猫达人凭退货保障卡专享，退货运费可赔8元",
+                    "tip": "天猫达人凭退货保障卡专享，退货运费可赔9元",
                     "title": "天猫赠送",
                     "value": "postageinsure_tmall_return_goods_card|1",
                     "price": 0,
                     "free": true,
                     "chooseType": "text",
                     "readonly": false,
-                    "outId": "38380452480",
+                    "outId": "23822553699",
                     "options": [],
                     "hasUseTimes": true,
-                    "initTip": "您是T1天猫达人，免费使用运费险，退货运费可补贴8元",
-                    "tmallCardSelectedTip": "已免费使用1份运费险。您是T1天猫达人，免费使用运费险，退货运费可补贴8元",
+                    "initTip": "您是T1天猫达人，免费使用运费险，退货运费可补贴9元",
+                    "tmallCardSelectedTip": "已免费使用1份运费险。您是T1天猫达人，免费使用运费险，退货运费可补贴9元",
                     "type": 1
                 }, {
-                    "tip": "退货所需运费由保险公司承担8元 <a href=\"http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0\">详细</a>",
+                    "tip": "退货所需运费由保险公司承担9元 <a href=\"http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0\">详细</a>",
                     "title": "￥0.50购买",
                     "value": "postageinsure_1000|3",
                     "price": 50,
                     "free": false,
                     "chooseType": "text",
                     "readonly": false,
-                    "outId": "38380452480",
+                    "outId": "23822553699",
                     "options": [],
                     "hasUseTimes": false,
                     "serviceUrl": "http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0",
                     "type": 3
                 }
-					],
+                    ],
                 "point": {
-                    "usable": 18200,
-                    "obtain": 91
+                    "usable": 15800,
+                    "obtain": 79
                 }
             }
-			]
+            ]
+        }, {
+            "id": "890482188",
+            "title": "NIKE官方旗舰店",
+            "type": "shop",
+            "url": "http://store.taobao.com/shop/view_shop.htm?user_number_id=890482188",
+            "seller": "nike官方旗舰店",
+            "host": "B",
+            "isValid": true,
+            "scrollPromos": [],
+            "pointBuy": false,
+            "sum": 78800,
+            "discount": 0,
+            "bundles": [{
+                "id": "23822553700",
+                "orders": [{
+                    "id": "23822553700_0",
+                    "itemId": "21847180765",
+                    "skuId": 41933896628,
+                    "cartId": "23167552419",
+                    "isValid": true,
+                    "url": "http://detail.tmall.com/item.htm?id=21847180765",
+                    "pic": "http://img01.taobaocdn.com/bao/uploaded/i1/890482188/T2FtYNXgFXXXXXXXXX_!!890482188.jpg_sum.jpg",
+                    "title": "Nike耐克官方NIKE PRO COMBAT CORE 2.0男子紧身短袖针织衫449792",
+                    "skus": {
+                        "颜色分类": "547 庭紫/ (冷灰)",
+                        "运动服尺寸": "M"
+                    },
+                    "shopId": "71955116",
+                    "shopName": "NIKE官方旗舰店",
+                    "seller": "nike官方旗舰店",
+                    "sellerId": 890482188,
+                    "price": {
+                        "now": 19900,
+                        "origin": 19900,
+                        "descend": 0,
+                        "save": 0,
+                        "sum": 19900,
+                        "actual": 0,
+                        "prepay": 0,
+                        "finalpay": 0
+                    },
+                    "amount": {
+                        "now": 1,
+                        "max": 11
+                    },
+                    "itemIcon": {
+                        "PAYMENT": [{
+                            "title": "支持信用卡支付",
+                            "link": "",
+                            "img": "http://a.tbcdn.cn/sys/common/icon/trade/xcard.png"
+                        }
+                                ],
+                        "BUY_XIAOBAO": [{
+                            "title": "消费者保障服务，卖家承诺7天退换",
+                            "link": "http://www.taobao.com/go/act/315/xbqt090304.php?ad_id=&am_id=130011831021c2f3caab&cm_id=&pm_id=",
+                            "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/a_7-day_return_16x16.png"
+                        }, {
+                            "title": "消费者保障服务，卖家承诺如实描述",
+                            "link": "http://www.taobao.com/go/act/315/xfzbz_rsms.php?ad_id=&am_id=130011830696bce9eda3&cm_id=&pm_id=",
+                            "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/a_true_description_16x16.png"
+                        }, {
+                            "title": "消费者保障服务，卖家承诺假一赔三",
+                            "link": "http://www.taobao.com/go/act/315/xfzbz_jyps.php?ad_id=&am_id=1300118304240d56fca9&cm_id=&pm_id=",
+                            "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/an_authentic_item_16x16.png"
+                        }
+                                ]
+                    },
+                    "rootCat": 50013228,
+                    "realRootCat": 50011699,
+                    "cbopt": 0,
+                    "extraParam": ""
+                }, {
+                    "id": "23822553700_1",
+                    "itemId": "22573612045",
+                    "skuId": 41785480305,
+                    "cartId": "29743784796",
+                    "isValid": true,
+                    "url": "http://detail.tmall.com/item.htm?id=22573612045",
+                    "pic": "http://img02.taobaocdn.com/bao/uploaded/i2/890482188/T24sxZXnVdXXXXXXXX_!!890482188.jpg_sum.jpg",
+                    "title": "Nike  耐克官方 NIKE DUAL FUSION TR IV 男子训练鞋 554889",
+                    "skus": {
+                        "颜色分类": "003黑/绿色",
+                        "鞋尺码": "45/11"
+                    },
+                    "shopId": "71955116",
+                    "shopName": "NIKE官方旗舰店",
+                    "seller": "nike官方旗舰店",
+                    "sellerId": 890482188,
+                    "price": {
+                        "now": 58900,
+                        "origin": 58900,
+                        "descend": 0,
+                        "save": 0,
+                        "sum": 58900,
+                        "actual": 0,
+                        "prepay": 0,
+                        "finalpay": 0
+                    },
+                    "amount": {
+                        "now": 1,
+                        "max": 1
+                    },
+                    "itemIcon": {
+                        "PAYMENT": [{
+                            "title": "支持信用卡支付",
+                            "link": "",
+                            "img": "http://a.tbcdn.cn/sys/common/icon/trade/xcard.png"
+                        }
+                                ],
+                        "BUY_XIAOBAO": [{
+                            "title": "消费者保障服务，卖家承诺7天退换",
+                            "link": "http://www.taobao.com/go/act/315/xbqt090304.php?ad_id=&am_id=130011831021c2f3caab&cm_id=&pm_id=",
+                            "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/a_7-day_return_16x16.png"
+                        }, {
+                            "title": "消费者保障服务，卖家承诺如实描述",
+                            "link": "http://www.taobao.com/go/act/315/xfzbz_rsms.php?ad_id=&am_id=130011830696bce9eda3&cm_id=&pm_id=",
+                            "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/a_true_description_16x16.png"
+                        }, {
+                            "title": "消费者保障服务，卖家承诺假一赔三",
+                            "link": "http://www.taobao.com/go/act/315/xfzbz_jyps.php?ad_id=&am_id=1300118304240d56fca9&cm_id=&pm_id=",
+                            "img": "http://a.tbcdn.cn/tbsp/icon/xiaobao/an_authentic_item_16x16.png"
+                        }
+                                ]
+                    },
+                    "rootCat": 50012041,
+                    "realRootCat": 50012029,
+                    "cbopt": 0,
+                    "extraParam": ""
+                }
+                    ],
+                "needInvoice": false,
+                "postages": [{
+                    "value": "-4",
+                    "fare": "0",
+                    "postFee": "0",
+                    "buyerPayRate": "100",
+                    "codSellerServiceFee": false,
+                    "title": "快递:包邮",
+                    "isSelected": true,
+                    "isCod": false
+                }
+                    ],
+                "postagesStyle": "select",
+                "codSupport": false,
+                "insuranceList": [{
+                    "tip": "天猫达人凭退货保障卡专享，退货运费可赔9元",
+                    "title": "天猫赠送",
+                    "value": "postageinsure_tmall_return_goods_card|1",
+                    "price": 0,
+                    "free": true,
+                    "chooseType": "text",
+                    "readonly": false,
+                    "outId": "23822553700",
+                    "options": [],
+                    "hasUseTimes": true,
+                    "initTip": "您是T1天猫达人，免费使用运费险，退货运费可补贴9元",
+                    "tmallCardSelectedTip": "已免费使用1份运费险。您是T1天猫达人，免费使用运费险，退货运费可补贴9元",
+                    "type": 1
+                }, {
+                    "tip": "退货所需运费由保险公司承担9元 <a href=\"http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0\">详细</a>",
+                    "title": "￥0.70购买",
+                    "value": "postageinsure_1000|3",
+                    "price": 70,
+                    "free": false,
+                    "chooseType": "text",
+                    "readonly": false,
+                    "outId": "23822553700",
+                    "options": [],
+                    "hasUseTimes": false,
+                    "serviceUrl": "http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0",
+                    "type": 3
+                }
+                    ],
+                "point": {
+                    "usable": 78800,
+                    "obtain": 393
+                }
+            }
+            ]
         }
-	],
+    ],
         "addrData": {
             "valOptions": [{
                 "id": 218929730,
@@ -294,7 +479,7 @@ var orderData = {
                 "addr": "二环东路7366号山东财经大学燕山校区",
                 "name": "王海川",
                 "tele": "",
-                "mobi": "13666666666",
+                "mobi": "13688628923",
                 "isSelected": true,
                 "isDefault": false
             }, {
@@ -308,12 +493,12 @@ var orderData = {
                 "post": "255100",
                 "addr": "般阳生活区7-1号楼",
                 "name": "王海川",
-                "tele": "0531-88888888",
-                "mobi": "13666666666",
+                "tele": "0533-5281897",
+                "mobi": "13688628923",
                 "isSelected": false,
                 "isDefault": false
             }
-		]
+        ]
         }
     };
     </script>
