@@ -41,14 +41,57 @@ namespace Friday.mvc.Areas.Order.Controllers
 
         public ActionResult ConfirmOrder()
         {
-            //SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
-            //if (systemUser == null)
-            //{
-            //    return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/Order/Home/ConfirmOrder");
-            //}
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             OrderModel orderModel = new OrderModel();
+            if (systemUser == null)
+            {
+                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/Order/Home/ConfirmOrder");
+            }
+            else
+            {
+
+
+                List<ShoppingCart> shoppingCarts = iShoppingCartService.getShoppingCartBySystemUser(systemUser.Id);
+                List<friday.core.CartOfCommodity> cartOfCommoditys = new List<friday.core.CartOfCommodity>();
+                foreach (ShoppingCart shoppingCart in shoppingCarts)
+                {
+                    cartOfCommoditys.AddRange(iCartOfCommodityService.getCommoditiesByShoppingCart(shoppingCart.Id));
+                }
+
+                Dictionary<string, List<friday.core.CartOfCommodity>> merchantListItem = new Dictionary<string, List<friday.core.CartOfCommodity>>();
+
+                Shop shop;
+
+                //商品按商铺分类
+                foreach (friday.core.CartOfCommodity cartOfCommodity in cartOfCommoditys)
+                {
+                    shop = cartOfCommodity.ShoppingCart.Shop;
+                    if (merchantListItem.ContainsKey(shop.Id))
+                    {
+                        merchantListItem[shop.Id].Add(cartOfCommodity);
+                    }
+                    else
+                    {
+                        List<friday.core.CartOfCommodity> cartOfCommodities = new List<friday.core.CartOfCommodity>();
+                        cartOfCommodities.Add(cartOfCommodity);
+                        merchantListItem.Add(shop.Id, cartOfCommodities);
+                    }
+                }
+
+                foreach (string key in merchantListItem.Keys.ToList())
+                {
+                    shop = iShopService.Load(key);
+
+                    foreach (friday.core.CartOfCommodity cartOfCommodity in merchantListItem[key])
+                    {
+
+
+                    }
+
+                }
+            }
+
             return View(orderModel);
         }
-
     }
 }
