@@ -10,6 +10,7 @@ using friday.core.components;
 using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Text;
+using Friday.mvc.Models;
 
 namespace Friday.mvc.Areas.Order.Controllers
 {
@@ -20,7 +21,8 @@ namespace Friday.mvc.Areas.Order.Controllers
 
         public ActionResult ConfirmOrder()
         {
-            return View();
+            OrderModel orderModel = new OrderModel();
+            return View(orderModel);
         }
 
     }
