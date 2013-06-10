@@ -11,10 +11,16 @@ namespace Friday.mvc.Models
     {
         public OrderModel()
         {
-
+            this.addresses = new List<Address>();
+            this.shops = new List<Shop>();
+            this.commodities = new List<IList<Commodity>>();
+            this.skuPropValues = new List<IDictionary<string, string>>();
         }
 
-        public string orderDataScript { get; set; }
+        public IList<Address> addresses { get; set; }
+        public IList<Shop> shops { get; set; }
+        public IList<IList<Commodity>> commodities { get; set; }
+        public IList<IDictionary<string,string>> skuPropValues { get; set; }
 
     }
 }
