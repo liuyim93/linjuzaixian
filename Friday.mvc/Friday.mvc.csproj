@@ -158,6 +158,7 @@
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
     <Compile Include="Areas\Order\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Order\Controllers\SuccessController.cs" />
     <Compile Include="Areas\Order\Models\OrderModel.cs" />
     <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Areas\OtherPage\Controllers\HelpController.cs">
@@ -2547,6 +2548,7 @@
     <Content Include="Areas\Order\Views\Home\ConfirmOrder.cshtml" />
     <Content Include="Areas\OtherPage\Views\ShopRule\Index.cshtml" />
     <Content Include="Areas\Order\Views\Shared\_OrderScript.cshtml" />
+    <Content Include="Areas\Order\Views\Success\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />
