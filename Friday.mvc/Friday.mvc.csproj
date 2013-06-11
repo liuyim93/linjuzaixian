@@ -2545,6 +2545,7 @@
     <Content Include="Areas\Order\Views\Web.config" />
     <Content Include="Areas\Order\Views\Home\ConfirmOrder.cshtml" />
     <Content Include="Areas\OtherPage\Views\ShopRule\Index.cshtml" />
+    <Content Include="Areas\Order\Views\Shared\_OrderScript.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />

@@ -23,18 +23,18 @@ namespace Friday.mvc.Areas.Order.Controllers
         private IShopService iShopService;
         private ICartOfCommodityService iCartOfCommodityService;
         private ICommodityService iCommodityService;
-        private IMyFavoriteService iMyFavoriteService;
+        private IAddressService iAddressService;
         private ISkuService iSkuService;
         private ISkuPropService iSkuPropService;
 
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, ISkuService iSkuService, ISkuPropService iSkuPropService)
+        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IAddressService iAddressService, ISkuService iSkuService, ISkuPropService iSkuPropService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
             this.iShoppingCartService = iShoppingCartService;
             this.iCartOfCommodityService = iCartOfCommodityService;
             this.iCommodityService = iCommodityService;
-            this.iMyFavoriteService = iMyFavoriteService;
+            this.iAddressService = iAddressService;
             this.iSkuService = iSkuService;
             this.iSkuPropService = iSkuPropService;
         }
@@ -49,13 +49,20 @@ namespace Friday.mvc.Areas.Order.Controllers
             }
             else
             {
+                //配送地址信息
+                orderModel.addresses.AddRange(systemUser.Addresses);
 
-
+                //购物车信息
                 List<ShoppingCart> shoppingCarts = iShoppingCartService.getShoppingCartBySystemUser(systemUser.Id);
                 List<friday.core.CartOfCommodity> cartOfCommoditys = new List<friday.core.CartOfCommodity>();
                 foreach (ShoppingCart shoppingCart in shoppingCarts)
                 {
                     cartOfCommoditys.AddRange(iCartOfCommodityService.getCommoditiesByShoppingCart(shoppingCart.Id));
+                }
+
+                if (cartOfCommoditys.Count == 0)
+                {
+                    return Redirect("http://localhost:7525/CartPay/Home/MyCartPay");
                 }
 
                 Dictionary<string, List<friday.core.CartOfCommodity>> merchantListItem = new Dictionary<string, List<friday.core.CartOfCommodity>>();
@@ -78,16 +85,33 @@ namespace Friday.mvc.Areas.Order.Controllers
                     }
                 }
 
+
                 foreach (string key in merchantListItem.Keys.ToList())
                 {
                     shop = iShopService.Load(key);
+                    orderModel.shops.Add(shop);
+                    orderModel.cartOfCommodities.Add(merchantListItem[key]);
+                    //IList<friday.core.CartOfCommodity> cartOfCommodities = new List<friday.core.CartOfCommodity>();
+                    IList<IList<string>> skuPropsSecond = new List<IList<string>>();
+                    IList<IList<string>> skuValuesSecond = new List<IList<string>>();
+                    orderModel.skuProps.Add(skuPropsSecond);
+                    orderModel.skuValues.Add(skuValuesSecond);
 
                     foreach (friday.core.CartOfCommodity cartOfCommodity in merchantListItem[key])
                     {
+                        IList<SkuProp> skuProps = iSkuPropService.GetAllSkuPropsBySkuID(cartOfCommodity.Sku.skuId.ToString());
+                        IList<string> skuPropsThird = new List<string>();
+                        IList<string> skuValuesThird = new List<string>();
+                        skuPropsSecond.Add(skuPropsThird);
+                        skuValuesSecond.Add(skuValuesThird);
 
+                        foreach (SkuProp skuProp in skuProps)
+                        {
+                            skuPropsThird.Add(skuProp.PropID.PropIDName);
+                            skuValuesThird.Add(skuProp.PropValue.PropValueName);
+                        }
 
                     }
-
                 }
             }
 

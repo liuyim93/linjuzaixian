@@ -13,14 +13,16 @@ namespace Friday.mvc.Models
         {
             this.addresses = new List<Address>();
             this.shops = new List<Shop>();
-            this.commodities = new List<IList<Commodity>>();
-            this.skuPropValues = new List<IDictionary<string, string>>();
+            this.cartOfCommodities = new List<IList<CartOfCommodity>>();
+            this.skuProps = new List<IList<IList<string>>>();
+            this.skuValues = new List<IList<IList<string>>>();
         }
 
-        public IList<Address> addresses { get; set; }
+        public List<Address> addresses { get; set; }
         public IList<Shop> shops { get; set; }
-        public IList<IList<Commodity>> commodities { get; set; }
-        public IList<IDictionary<string,string>> skuPropValues { get; set; }
-
+        public int sum { get; set; }
+        public IList<IList<CartOfCommodity>> cartOfCommodities { get; set; }
+        public IList<IList<IList<string>>> skuProps { get; set; }
+        public IList<IList<IList<string>>> skuValues { get; set; }
     }
 }
