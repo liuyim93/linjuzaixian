@@ -1207,6 +1207,8 @@
     <Content Include="apps\tcc\recharger\build\20130502\tb_home\phone-min.css" />
     <Content Include="apps\tcc\recharger\build\20130502\tb_home\phone-min.js" />
     <Content Include="apps\tcc\recharger\build\20130502\tb_home\qq-min.js" />
+    <Content Include="apps\tmallbuy\dev\common.css" />
+    <Content Include="apps\tmallbuy\dev\payresult\core.css" />
     <Content Include="apps\tmallbuy\pub\cart\1.1.1\app.js" />
     <Content Include="apps\tmallbuy\pub\cart\1.1.1\core.css" />
     <Content Include="apps\tmallbuy\pub\cart\1.1.1\feedback.js" />
@@ -1399,6 +1401,7 @@
     <Content Include="Images\small_mcht_bar-175-35.jpg" />
     <Content Include="Images\small_mcht_bar-175-35[1].png" />
     <Content Include="Images\spaceball.gif" />
+    <Content Include="Images\T1vQ51XsRfXXXup_Q9-900-90.png" />
     <Content Include="Images\TmallFooterBar-111-109.jpg" />
     <Content Include="Images\TmallFooterBar-111-109.png" />
     <Content Include="Images\TmallT16-16.png" />
