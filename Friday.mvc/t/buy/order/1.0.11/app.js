@@ -84,7 +84,8 @@
             A.html(A.get("span.hd", G), F ? "\u5546\u54c1\u5408\u8ba1\uff08\u4e0d\u542b\u8fd0\u8d39\uff09\uff1a" : "\u5b9e\u4ed8\u6b3e\uff1a")
         })(A.get("p.pay-info", "#J_checkbar"));
         A.html(A.query("span.isIncPostage", "#J_orders"), F ? "(\u4e0d\u542b\u8fd0\u8d39)\uff1a" : "(\u542b\u8fd0\u8d39)");
-        A.attr("#J_orderForm", "action", F ? ("http://delivery." + (i.daily ? "daily.tmall.net" : "tmall.com") + "/cod/cod_payway.htm") : "order_result.htm");
+        //A.attr("#J_orderForm", "action", F ? ("http://delivery." + (i.daily ? "daily.tmall.net" : "tmall.com") + "/cod/cod_payway.htm") : "order_result.htm");
+        A.attr("#J_orderForm", "action", F ? ("http://localhost:7525/Order/Success/Index") : "http://localhost:7525/Order/Success/Index");
         A.val("#F_action", F ? "cod/codOrderSwitcherAction" : "/order/confirmOrderAction");
         A.attr("#F_doConfirm", "name", F ? "event_submit_do_codSwitcher" : "event_submit_do_confirm")
     }
