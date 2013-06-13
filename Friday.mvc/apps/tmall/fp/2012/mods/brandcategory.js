@@ -170,7 +170,7 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
                 _dom.toggleClass(_config.bottomCl, _str_selected);
                 if (_event.type === "mouseenter") { _category.hide(_config.idx) }
             });
-            /*2013-03-07 basilwang 所有商品分类*/
+            /*2013-03-07 basilwang */
             _event.on(".categoryHd", _str_mouseenter, function (_event) { _category.hide(_config.idx) })
         }, getRecData: function ()
         {

@@ -278,71 +278,72 @@ TB.add("mod~global", function () {
         },
         */
         mpp: function () {
-            _kissy.ready(function () {
-                if (window.g_config.closeMpp && _tmall_config.commonJS.mpp.off) {
-                    return
-                }
-                //2013-03-12 basilwang use node.js and socket.io
-                /*
-                _kissy.getScript("http://" + _own_domain_1 + "/p/tstart/1.0/build/tb-mpp.js?t=" + _tmall_config.commonJS.mpp.timestamp, {success: function() {
-                _kissy.ready(function() {
-                if (!TB.Global.isLogin()) {
-                return
-                }
-                Mpp.Notify.register({appId: 1010,type: 1,callback: function() {
-                _kissy.getScript("http://" + (_is_own ? "webww.daily.taobao.net:8080" : "webwangwang.taobao.com") + "/getOtherSystem.do?callback=TB.Global.setUserMsg&t=" + _kissy.now())
-                }})
-                })
-                }})
-                */
-                //_kissy.ready(function () {
-                //                    if (!TB.Global.isLogin()) {
-                //                        return
-                //                    }
-                var socket = TB.socket;
-                window.__message = function (data) {
-                    document.getElementById('message').innerHTML = "Server says" + data;
-                }
-                window.__status_update = function (txt) {
-                    document.getElementById('status').innerHTML = txt;
-                }
+
+//            _kissy.ready(function () {
+//                if (window.g_config.closeMpp && _tmall_config.commonJS.mpp.off) {
+//                    return
+//                }
+//                //2013-03-12 basilwang use node.js and socket.io
+//                /*
+//                _kissy.getScript("http://" + _own_domain_1 + "/p/tstart/1.0/build/tb-mpp.js?t=" + _tmall_config.commonJS.mpp.timestamp, {success: function() {
+//                _kissy.ready(function() {
+//                if (!TB.Global.isLogin()) {
+//                return
+//                }
+//                Mpp.Notify.register({appId: 1010,type: 1,callback: function() {
+//                _kissy.getScript("http://" + (_is_own ? "webww.daily.taobao.net:8080" : "webwangwang.taobao.com") + "/getOtherSystem.do?callback=TB.Global.setUserMsg&t=" + _kissy.now())
+//                }})
+//                })
+//                }})
+//                */
+//                //_kissy.ready(function () {
+//                //                    if (!TB.Global.isLogin()) {
+//                //                        return
+//                //                    }
+//                var socket = TB.socket;
+//                window.__message = function (data) {
+//                    document.getElementById('message').innerHTML = "Server says" + data;
+//                }
+//                window.__status_update = function (txt) {
+//                    document.getElementById('status').innerHTML = txt;
+//                }
 
 
-                //(function () {
-                if (TB.firstconnect) {
-                    TB.socket = io.connect("http://localhost:8080");
+//                //(function () {
+//                if (TB.firstconnect) {
+//                    TB.socket = io.connect("http://localhost:8080");
 
-                    socket.on('message', function (data) {
-                        __message(data);
-                    });
-                    socket.on('connect', function () {
-                        __status_update("Connected to Server");
-                    });
-                    socket.on('register', function (data) {
-                        __status_update(data.sid);
-                        socket.emit('tran user info', { sid: data.sid, uid: TB.userInfo.trackId })
-                    });
+//                    socket.on('message', function (data) {
+//                        __message(data);
+//                    });
+//                    socket.on('connect', function () {
+//                        __status_update("Connected to Server");
+//                    });
+//                    socket.on('register', function (data) {
+//                        __status_update(data.sid);
+//                        socket.emit('tran user info', { sid: data.sid, uid: TB.userInfo.trackId })
+//                    });
 
-                    socket.on('notify', function (data)
-                    { __status_update(data.notifymsg); });
-                    socket.on('disconnect', function () {
-                        __status_update("Disconnected from Server");
-                    });
-                    socket.on('reconnect', function () {
-                        __status_update("Reconnected to Server");
-                    });
-                    socket.on('reconnecting', function (nextRetry) {
-                        __status_update("Reconnecting in " + nextRetry + " seconds");
-                    });
-                    socket.on('reconnect_failed', function () { __message("Reconnect Failed"); });
-                    TB.firstconnect = false;
-                } else {
-                    socket.socket.reconnect();
-                }
-                //})();
+//                    socket.on('notify', function (data)
+//                    { __status_update(data.notifymsg); });
+//                    socket.on('disconnect', function () {
+//                        __status_update("Disconnected from Server");
+//                    });
+//                    socket.on('reconnect', function () {
+//                        __status_update("Reconnected to Server");
+//                    });
+//                    socket.on('reconnecting', function (nextRetry) {
+//                        __status_update("Reconnecting in " + nextRetry + " seconds");
+//                    });
+//                    socket.on('reconnect_failed', function () { __message("Reconnect Failed"); });
+//                    TB.firstconnect = false;
+//                } else {
+//                    socket.socket.reconnect();
+//                }
+//                //})();
 
-                // })
-            })
+//                // })
+//            })
         }, checkB2BUser: function () {
             _kissy.ready(function () {
                 if (window.g_config.closeB2BUser || _is_tmall_fn() || _tmall_config.commonJS.checkB2BUser.off) {
