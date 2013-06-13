@@ -49,8 +49,8 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
 
             //2013-05-28 wanghaichuan add _selectIP
             var _selectIP = $.getUrlParam('selectedSchool')
-
-            new _brandcategory("#J_MallNavCon", {
+            //2013-06-14 basilwang 使用J_Category而不是之前的J_MallNavCon。原因是由于ie7下，对于同时使用了position=absolute的元素发生了层叠，设置z-index无效，后加载的元素在上面，而J_Category在图片幻灯之后加载，而之前使用的J_MallNavCon在图片幻灯之前加载   
+            new _brandcategory("#J_Category", {
                 viewId: "#J_BrandCategory",
                 subViews: ".j_SubView",
                 triggers: "li.slideDown",
