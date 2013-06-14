@@ -28,8 +28,9 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
         private IMyFavoriteService iMyFavoriteService;
         private IMyCommodityOrderService iMyCommodityOrderService;
         private IOrderOfCommodityService iOrderOfCommodityService;
+        private ISkuService iSkuService;
 
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, IMyCommodityOrderService iMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService)
+        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, IMyCommodityOrderService iMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, ISkuService iSkuService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
@@ -39,6 +40,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
             this.iMyFavoriteService = iMyFavoriteService;
             this.iMyCommodityOrderService = iMyCommodityOrderService;
             this.iOrderOfCommodityService = iOrderOfCommodityService;
+            this.iSkuService = iSkuService;
         }
 
         public ActionResult MyPersonalCenter()
@@ -84,6 +86,14 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
                     }
                 }
             }
+
+            IList<Sku> minPriceSkuComlist = new List<Sku>();
+            for (int i = 0; i < personalCenterModel.Commodities.Count; i++)
+            {
+                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(personalCenterModel.Commodities[i].Id);
+                minPriceSkuComlist.Add(minpricesku);
+            }
+            personalCenterModel.minPriceSkuList = minPriceSkuComlist;
 
             return View(personalCenterModel);
         }
