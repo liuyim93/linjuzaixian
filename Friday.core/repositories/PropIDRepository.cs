@@ -43,9 +43,9 @@ namespace friday.core.repositories
             var isHaveChild = (from x in this.Session.Query<PropID>() select x).Where(o => o.PropIDName == name && o.IsDelete == false).Count() > 0 ? true : false;
             return isHaveChild;
         }
-        public PropID getPropIDbyPropIDName(string name)
+        public PropID getPropIDbyMerchantAndPropIDName(string mchtId,string name)
         {
-            var ppd = (from x in this.Session.Query<PropID>() select x).Where(o => o.PropIDName == name && o.IsDelete == false).SingleOrDefault();
+            var ppd = (from x in this.Session.Query<PropID>() select x).Where(o => o.PropIDName == name && o.Merchant.Id == mchtId && o.IsDelete == false).SingleOrDefault();
             return ppd;
         }
         public IList<PropID> GetPropIDByMerchantID(string mid)

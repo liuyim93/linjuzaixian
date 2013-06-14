@@ -45,10 +45,10 @@ namespace friday.coretest
             IList<PropValue> iPropValues = new List<PropValue>();
             IList<PropValue> iPropValues2 = new List<PropValue>();
             IRepository<SkuProp> iSkuPropRepository = UnityHelper.UnityToT<IRepository<SkuProp>>();
-            PropID ppt1 = propIDrep.getPropIDbyPropIDName("颜色");
-            PropID ppt2 = propIDrep.getPropIDbyPropIDName("尺寸");
-            iPropValues = propValuerep.GetAllByPropIDName("颜色");
-            iPropValues2 = propValuerep.GetAllByPropIDName("尺寸");
+            PropID ppt1 = propIDrep.getPropIDbyMerchantAndPropIDName(mgt.Id, "颜色");
+            PropID ppt2 = propIDrep.getPropIDbyMerchantAndPropIDName(mgt.Id, "尺寸");
+            iPropValues = propValuerep.GetAllByMerchantAndPropIDName(mgt.Id, "颜色");
+            iPropValues2 = propValuerep.GetAllByMerchantAndPropIDName(mgt.Id, "尺寸");
 
 
             string ggtfamily = mgt.Family + mgt.Id;

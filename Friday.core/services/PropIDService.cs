@@ -52,9 +52,9 @@ namespace friday.core.services
         {
             return iPropIDRepository.IsHaveTheSameName(name);
         }
-        public PropID getPropIDbyPropIDName(string name)
+        public PropID getPropIDbyMerchantAndPropIDName(string mchtId, string name)
         {
-            return iPropIDRepository.getPropIDbyPropIDName(name);
+            return iPropIDRepository.getPropIDbyMerchantAndPropIDName(mchtId, name);
         }
         public IList<PropID> GetPropIDByMerchantID(string mid)
         {

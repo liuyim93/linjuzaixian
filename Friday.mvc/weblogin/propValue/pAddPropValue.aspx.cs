@@ -98,7 +98,7 @@ namespace Friday.mvc.weblogin
             else 
             {
 
-                PropID propid = iPropIDService.getPropIDbyPropIDName(this.PropIDList.Value);
+                PropID propid = iPropIDService.getPropIDbyMerchantAndPropIDName(mid, this.PropIDList.Value);
                 propValue.PropID = propid;
                 iPropValueService.Save(propValue);
                 result.statusCode = "200";
