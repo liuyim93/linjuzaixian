@@ -90,7 +90,8 @@ KISSY.add("order/biz/addr", function (i, E, M, t, D, U, L, e, s) {
             ae += '<button class="fn-btn createAddr" data-mm="tmalljy.2.6?action=new_address" type="button" data-evt="biz/addrmaker:show">\u4f7f\u7528\u65b0\u5730\u5740</button>'
         }
         var af = "http://member1." + (e.daily ? "daily.taobao.net" : "taobao.com") + "/member/fresh/deliver_address.htm";
-        ae += '<a class="manageAddr" href="' + af + '" data-mm="tmalljy.2.6?action=manange_address">\u7ba1\u7406\u6536\u8d27\u5730\u5740</a>';
+        //2013-06-10 wanghaichuan
+        //ae += '<a class="manageAddr" href="' + af + '" data-mm="tmalljy.2.6?action=manange_address">\u7ba1\u7406\u6536\u8d27\u5730\u5740</a>';
         E.get("div.control", V).innerHTML = ae
     }
     function N(Z) {

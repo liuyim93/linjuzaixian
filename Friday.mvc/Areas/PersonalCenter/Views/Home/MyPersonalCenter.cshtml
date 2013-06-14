@@ -5,7 +5,7 @@
 @model PersonalCenterModel
 
 @*<html class="ks-webkit537 ks-webkit ks-chrome26 ks-chrome">*@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
     <meta name="data-spm" content="a1z02" />
@@ -347,7 +347,7 @@
                                 {
                                    <li>
                                        <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585"><img src="@Model.Commodities.ElementAt(i).Image"/></a>
-                                       <p><span class="rmb">гд</span>@Model.Commodities.ElementAt(i).Price</p>
+                                       <p><span class="rmb">гд</span>@Model.OrderOfCommodity.ElementAt(i).Sku.price</p>
                                    </li>                                    
                                 }  
                              }
@@ -443,13 +443,13 @@
                                     @{
                         if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
                                         {
-                                            <p class="new-price"><span class="rmb">гд</span>Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
+                                            <p class="new-price"><span class="rmb">гд</span>Model.CartOfCommodities.ElementAt(i).Sku.price</p>
                                         }
                                         else
                                         {
-                                            <p class="old-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice</p>
-                                            <p class="new-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
-                                            <p><span class="less-price">╩б@(Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice-Model.CartOfCommodities.ElementAt(i).Commodity.Price)</span></p>
+                                            <p class="old-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Sku.price</p>
+                                            <p class="new-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Sku.price</p>
+                                            <p><span class="less-price">╩б@(Model.CartOfCommodities.ElementAt(i).Sku.price - Model.CartOfCommodities.ElementAt(i).Sku.price)</span></p>
                                         }
                                      }
 

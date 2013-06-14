@@ -38,6 +38,7 @@ namespace Friday.mvc.Models
             IList<Sku> minPriceSkuList = new List<Sku>();
 
             IList<Commodity> recommendComdties = new List<Commodity>();
+            IList<Sku> minRecommendSkuList = new List<Sku>();
         }
 
         public IList<Merchant> Merchants { get; set; }
@@ -61,7 +62,8 @@ namespace Friday.mvc.Models
         public IList<Commodity> recommendComdties { get; set; }
         public IList<Commodity> Commoditys { get; set; }
         public IList<Sku> minPriceSkuList { get; set; }
-     
+        public IList<Sku> minRecommendSkuList { get; set; }
+
         //school
         public School currentFirstSchool { get; set; }
         public School currentSecondSchool { get; set; }

@@ -35,7 +35,8 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
         _category.container = _kissy.get(_selector);
         _category.config = _kissy.merge(_options, _op || {});
         _category.config.viewer = _kissy.get(_op.viewId, _category.container);
-        _category.triggers = _dom.query(_op.triggers, _category.container);
+        //2013-06-14 basilwang 不再从container中取了，统一放到J_Category中，原因是由于ie7下，对于同时使用了position=absolute的元素发生了层叠，设置z-index无效，后加载的元素在上面，而J_Category在图片幻灯之后加载，而之前使用的J_MallNavCon在图片幻灯之前加载   
+        _category.triggers = _dom.query(_op.triggers);
         _category._init()
     }
     function _indexOf(_array, _item) {
@@ -65,9 +66,9 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
             var _subViews = _category.subViews;
             var _idx = _config.idx;
             var _selected_subView = _category.isDataReady ? _subViews[_idx] : _subViews[0];
-            var _viewer_width = _dom.width(_category.viewer);
+            var _viewer_height = _dom.height(_category.viewer);
             if (_category.hideTimer) { clearTimeout(_category.hideTimer) }
-            if (_is_hidden && _viewer_width == 0) {
+            if (_is_hidden && _viewer_height == 0) {
                 if (_category.expandTimer)
                 { clearTimeout(_category.expandTimer) }
                 _category.expandTimer = setTimeout(function () {
@@ -106,7 +107,7 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
                 if (_category.hideTimer) { clearTimeout(_category.hideTimer) }
                 _category.hideTimer = setTimeout(function () {
                     _kissy.each(_triggers, function (_trigger) { _dom.removeClass(_trigger, _str_selected) });
-                    _dom.css(_category.viewer, { width: "0" })
+                    _dom.css(_category.viewer, { height: "0" })
                 }, _config.hideDelay * 1000)
             }
         }, resetPostion: function () {
@@ -147,7 +148,7 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
                         { _category.hide(_config.idx); return }
                         if (!_category.viewer) {
                             if (!_config.viewer && _config.lazyload) {
-                                _category.viewer = _dom.create('<div id="J_BrandCategory" class="subCategory"><div class="shadow"></div><div class="subView j_SubView" style="height:520px; text-align:center; line-height:520px;">loading...</div></div>');
+                                _category.viewer = _dom.create('<div id="J_BrandCategory" class="subBrandCategory"><div class="shadow"></div><div class="subView j_SubView" style="width:720px; text-align:center;line-height:420px;">loading...</div></div>');
                                 _category.container.appendChild(_category.viewer);
                                 _category.subViews = _dom.query(_config.subViews, _category.viewer);
                                 _category.isDataReady = false;
@@ -170,7 +171,7 @@ KISSY.add("2012/mods/brandcategory",function (_kissy_t, _directpromo) {
                 _dom.toggleClass(_config.bottomCl, _str_selected);
                 if (_event.type === "mouseenter") { _category.hide(_config.idx) }
             });
-            /*2013-03-07 basilwang 所有商品分类*/
+            /*2013-03-07 basilwang */
             _event.on(".categoryHd", _str_mouseenter, function (_event) { _category.hide(_config.idx) })
         }, getRecData: function ()
         {

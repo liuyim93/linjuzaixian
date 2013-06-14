@@ -1,0 +1,233 @@
+﻿@{
+    Layout = null;
+}
+@using Friday.mvc.Models
+@using Friday.core
+@model OrderModel
+
+<script>
+    var orderData = {
+        "success": true,
+        "globalData": {
+            "h": "g,ge3telrsgqxdcobzfyytmma",
+            "secret": "BA71DF55292AE2E98608FA53188D58F5BCC0C9416104ACAC",
+            "time": 1370869808414,
+            "totalPoint": 49,
+            "isBuyNow": false,
+            "isCod": false,
+            "isSupportAgentPay": true,
+            "isInstallment": true,
+            "checkCodeData": {
+                "encrypterString": "fc7266be98de668371e05e92ac2a7644",
+                "sid": 27207896299,
+                "gmtCreate": 1370869808415,
+                "needCheckCode": false
+            },
+            "returnGoodsCardAmount": 3,
+            "supportShopPickUp": false,
+            "isShowStation": true,
+            "supportForward": false,
+            "assocs": [
+            @{
+               for (int i = 0; i < Model.shops.Count; i++)
+               {
+                <text>
+                ["@(Model.shops.ElementAt(i).Id)"],
+                </text>
+                }
+            }
+        ],
+            "neoEtaoParam": "",
+            "canUseTmallCouponCard": true,
+            "userLevel": 1,
+            "isForceAnony": false,
+            "isDurex": true
+        },
+        "list": [
+        @{
+            for (int i = 0; i < Model.shops.Count; i++)
+            {
+            <text>
+            {
+                "id": "@(Model.shops.ElementAt(i).Id)",
+                "title": "@(Model.shops.ElementAt(i).Name)",
+                "type": "shop",
+                "url": "http://localhost:7525/merchant/index?scid=@(Model.shops.ElementAt(i).Id)",
+                "seller": "@(Model.shops.ElementAt(i).Name)",
+                "host": "B",
+                "isValid": true,
+                "scrollPromos": [],
+                "pointBuy": false,
+                "sum": 1000,
+                "discount": 0,
+                "bundles": [
+                        {
+                        "id": "@(Model.shops.ElementAt(i).Id)",
+                        "orders": [
+                    @{
+                    for (int j = 0; j < Model.cartOfCommodities.ElementAt(i).Count; j++)
+                    {
+                        <text>
+                        {
+                            "id": "@(Model.shops.ElementAt(i).Id + "_" + j)",
+                            "itemId": "@(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Id)",
+                            "skuId": @(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.skuId),
+                            "cartId": "@(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.skuId)",
+                            "isValid": true,
+                            "url": "http://localhost:7525/merchant/detail/index?brandid=@(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Id)",
+                            "pic": "@(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Image)",
+                            "title": "@(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Name)",
+                            "skus": {
+                                @{
+                                    var skuProps = Model.skuProps.ElementAt(i).ElementAt(j);
+                                    var skuValues = Model.skuValues.ElementAt(i).ElementAt(j);
+
+                                    for (int s = 0; s < skuProps.Count; s++)
+                                    {
+                                        <text>
+                                        "@(skuProps.ElementAt(s))":"@(skuValues.ElementAt(s))",
+                                        </text>
+                                    }
+                                 }
+                            },
+                            "shopId": "@(Model.shops.ElementAt(i).Id)",
+                            "shopName": "@(Model.shops.ElementAt(i).Name)",
+                            "seller": "@(Model.shops.ElementAt(i).Name)",
+                            "sellerId": "@(Model.shops.ElementAt(i).Id)",
+                            "price": {
+                                "now": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100)),
+                                "origin": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100)),
+                                "descend": 0,
+                                "save": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100) - Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100)),
+                                "sum": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100) * Model.cartOfCommodities.ElementAt(i).ElementAt(j).Amount),
+                                "actual": 0,
+                                "prepay": 0,
+                                "finalpay": 0
+                            },
+                            "amount": {
+                                "now": @(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Amount),
+                                "max": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.InventoryCount))
+                            },
+                            "itemIcon": {
+                                "PAYMENT": [{
+                                    "title": "支持信用卡支付",
+                                    "link": "http://localhost:7525/index.html",
+                                    "img": "http://localhost:7525/Images/xcard.png"
+                                }
+                                        ],
+                                "BUY_XIAOBAO": [{
+                                    "title": "消费者保障服务，卖家承诺7天退换",
+                                    "link": "http://localhost:7525/index.html",
+                                    "img": "http://localhost:7525/Images/a_7-day_return_16x16.png"
+                                }, {
+                                    "title": "消费者保障服务，卖家承诺如实描述",
+                                    "link": "http://localhost:7525/index.html",
+                                    "img": "http://localhost:7525/Images/a_true_description_16x16.png"
+                                }, {
+                                    "title": "消费者保障服务，卖家承诺假一赔三",
+                                    "link": "http://localhost:7525/index.html",
+                                    "img": "http://localhost:7525/Images/an_authentic_item_16x16.png"
+                                }
+                                        ]
+                            },
+                            "rootCat": 50013228,
+                            "realRootCat": 50011699,
+                            "cbopt": 0,
+                            "extraParam": ""
+                        },
+                        </text>
+                    }
+                    }
+                    ],
+                    "needInvoice": false,
+                    "postages": [{
+                        "value": "-4",
+                        "fare": "0",
+                        "postFee": "0",
+                        "buyerPayRate": "100",
+                        "codSellerServiceFee": false,
+                        "title": "快递:包邮",
+                        "isSelected": true,
+                        "isCod": false
+                    }
+                        ],
+                    "postagesStyle": "select",
+                    "codSupport": false,
+                    "insuranceList": [{
+                        "tip": "邻居在线达人凭退货保障卡专享，退货运费可赔9元",
+                        "title": "邻居在线赠送",
+                        "value": "postageinsure_tmall_return_goods_card|1",
+                        "price": 0,
+                        "free": true,
+                        "chooseType": "text",
+                        "readonly": false,
+                        "outId": "@(Model.shops.ElementAt(i).Id)",
+                        "options": [],
+                        "hasUseTimes": true,
+                        "initTip": "您是T1邻居在线达人，免费使用运费险，退货运费可补贴9元",
+                        "tmallCardSelectedTip": "已免费使用1份运费险。您是T1邻居在线达人，免费使用运费险，退货运费可补贴9元",
+                        "type": 1
+                    }, {
+                        "tip": "退货所需运费由保险公司承担9元 <a href=\"http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0\">详细</a>",
+                        "title": "￥0.70购买",
+                        "value": "postageinsure_1000|3",
+                        "price": 70,
+                        "free": false,
+                        "chooseType": "text",
+                        "readonly": false,
+                        "outId": "@(Model.shops.ElementAt(i).Id)",
+                        "options": [],
+                        "hasUseTimes": false,
+                        "serviceUrl": "http://service.taobao.com/support/knowledge-1121384.htm?spm=a210c.1.3.11.dc7fc0",
+                        "type": 3
+                    }
+                        ],
+                    "point": {
+                        "usable": 1000,
+                        "obtain": 393
+                    }
+                }
+                ]
+            },
+            
+            </text>
+            }
+
+        }
+    ],
+        "addrData": {
+            "valOptions": [{
+                "id": 218929730,
+                "prov": 370000,
+                "city": 370100,
+                "dist": 370102,
+                "provName": "山东",
+                "cityName": "济南",
+                "distName": "历下区",
+                "post": "250000",
+                "addr": "二环东路7366号山东财经大学燕山校区",
+                "name": "张继鹏",
+                "tele": "",
+                "mobi": "13666666666",
+                "isSelected": true,
+                "isDefault": true
+            }, {
+                "id": 363640875,
+                "prov": 370000,
+                "city": 370300,
+                "dist": 370302,
+                "provName": "山东",
+                "cityName": "淄博",
+                "distName": "淄川区",
+                "post": "255100",
+                "addr": "颐泽花园7-1号楼",
+                "name": "刘志军",
+                "tele": "0531-88888888",
+                "mobi": "13888888888",
+                "isSelected": false,
+                "isDefault": false
+            }
+        ]
+        }
+    };
+    </script>

@@ -24,13 +24,15 @@ KISSY.add("order/biz/paytype", function (f, n, m, d) {
     }, mark: function (p, o) {
         c[p] = o;
         k()
-    } 
+    }
     });
     function g(p) {
         p = f.merge({ mm: "", name: "", value: "on" }, p);
         var o = p.type;
         var q = "R_PT_" + o;
-        return "<div " + (p.id ? ('id="' + p.id + '"') : "") + ' class="opt opt-' + o + '"><input id="' + q + '" type="checkbox" name="' + p.name + '" class="paytype-trigger" data-type="' + o + '" data-evt="biz/paytype:select" data-mm="' + p.mm + '" value="' + p.value + '"><label class="paytype-name" for="' + q + '">' + p.title + "</label></div>"
+        //2013-06-10 wanghaichuan
+        //return "<div " + (p.id ? ('id="' + p.id + '"') : "") + ' class="opt opt-' + o + '"><input id="' + q + '" type="checkbox" name="' + p.name + '" class="paytype-trigger" data-type="' + o + '" data-evt="biz/paytype:select" data-mm="' + p.mm + '" value="' + p.value + '"><label class="paytype-name" for="' + q + '">' + p.title + "</label></div>"
+        return "";
     }
     function b(o) {
         if (h) {

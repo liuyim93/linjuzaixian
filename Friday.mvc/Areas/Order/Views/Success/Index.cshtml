@@ -1,0 +1,69 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>付款成功！-邻居在线</title>
+    <script>        window.g_config = { appId: 15, toolbar: false };</script>
+
+    <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/tbra/2.0/tbsp.css") />
+
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+
+	<script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")></script>
+    <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
+    <script src="@Url.Content("/p/mall/base/header-v2.js")"></script>
+    <!-- start vmc css-extra 3.1 -->
+
+    <link rel="stylesheet" href=@Url.Content("/apps/tmallbuy/dev/common.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmallbuy/dev/payresult/core.css") />
+</head>
+<body>
+    <script type="text/javascript">
+        (function (d) {
+            var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
+            t.setAttribute("exparams", "category=&userid=123072695&aplus&");
+            t.src = "http://localhost:7525/s/aplus_v2.js";
+            d.getElementsByTagName("head")[0].appendChild(t);
+        })(document);
+    </script>
+    @Html.Partial("_SiteNav")
+    @Html.Partial("_Header")
+    <!-- from vmcommon -->
+    <div id="page">
+        <!-- from vmcommon -->
+        <script>
+            TB.use("mod~global", function () {
+                if (TB && TB.Global && TB.Global.init) {
+                    TB.Global.init();
+                }
+            });
+        </script>
+        <div id="content">
+            <div class="take-delivery">
+                <div data-spm="a220l.12.5" class='summary-status summary-paydone'>
+                    <div class="status">
+                        <h2>
+                            订单提交成功！
+                        </h2>
+
+                        <input type="hidden" id="J_ItemIdList" value="14060321248," />
+                        <div class="dot-line">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="banner">
+                <a href="http://localhost:7525/index.html" target="_blank">
+                    <img src="http://localhost:7525/Images/T1vQ51XsRfXXXup_Q9-900-90.png">
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+@Html.Partial("_Footer")
+</body>
+</html>

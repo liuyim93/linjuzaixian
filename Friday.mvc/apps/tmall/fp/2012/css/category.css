@@ -56,6 +56,8 @@
 .category .selected .item-hd14 s{background-position:-63px -171px;}
 .category .selected .item-hd15 s{background-position:-148px -150px;}
 .category .selected .item-hd16 s{background-position:-148px -171px;}
+.subBrandCategory{height:0;position:absolute;left:240px;left:241px\9;top:30px;z-index:16;overflow:hidden;width:750px;}
+.subBrandCategory .shadow{filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#44000000,endColorstr=#00000000)\9;background:none;-moz-box-shadow:3px -5px 5px rgba(0,0,0,0.2);-webkit-box-shadow:3px -5px 5px rgba(0,0,0,0.2);box-shadow:3px -5px 5px rgba(0,0,0,0.2);height:10px;width:755px;position:absolute;top:12px;left:-10px;z-index:18;}
 .subCategory{width:0;position:absolute;left:240px;left:241px\9;top:30px;z-index:16;overflow:hidden;height:550px;}
 .subView{width:744px;height:auto;max-height:525px;background-color:#fff;border:1px solid #e6e6e6;border-left:none;-moz-box-shadow:5px 5px 5px rgba(0,0,0,0.2),1px -3px 5px rgba(0,0,0,0.2);-webkit-box-shadow:5px 5px 5px rgba(0,0,0,0.2),1px -3px 5px rgba(0,0,0,0.2);box-shadow:5px 5px 5px rgba(0,0,0,0.2),1px -3px 5px rgba(0,0,0,0.2);margin:10px 10px 10px 0;margin-top:0\9;z-index:17;}
 .subView ul{width:218px;height:auto;max-height:505px;margin:0 0 15px 20px;display:inline-block;*display:inline;*zoom:1;vertical-align:top;overflow:hidden;}

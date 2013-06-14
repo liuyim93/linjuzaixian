@@ -101,10 +101,10 @@ namespace Friday.mvc.weblogin
                 });
 
                 //非匿名用户
-                systemUserFilter.Add(new DataFilter()
-                {
-                    type = "IsAnonymous"
-                });
+                //systemUserFilter.Add(new DataFilter()
+                //{
+                //    type = "IsAnonymous"
+                //});
 
                 //用户名----------三层嵌套查询
                 if (!string.IsNullOrEmpty(Request.Form["LoginName"]))

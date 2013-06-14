@@ -158,6 +158,8 @@
     <Compile Include="Areas\Merchant\Models\MyBrandsIndexModel.cs" />
     <Compile Include="Areas\Message\MessageAreaRegistration.cs" />
     <Compile Include="Areas\Order\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Order\Controllers\SuccessController.cs" />
+    <Compile Include="Areas\Order\Models\OrderModel.cs" />
     <Compile Include="Areas\Order\OrderAreaRegistration.cs" />
     <Compile Include="Areas\OtherPage\Controllers\HelpController.cs">
       <SubType>Code</SubType>
@@ -1205,6 +1207,8 @@
     <Content Include="apps\tcc\recharger\build\20130502\tb_home\phone-min.css" />
     <Content Include="apps\tcc\recharger\build\20130502\tb_home\phone-min.js" />
     <Content Include="apps\tcc\recharger\build\20130502\tb_home\qq-min.js" />
+    <Content Include="apps\tmallbuy\dev\common.css" />
+    <Content Include="apps\tmallbuy\dev\payresult\core.css" />
     <Content Include="apps\tmallbuy\pub\cart\1.1.1\app.js" />
     <Content Include="apps\tmallbuy\pub\cart\1.1.1\core.css" />
     <Content Include="apps\tmallbuy\pub\cart\1.1.1\feedback.js" />
@@ -1397,6 +1401,8 @@
     <Content Include="Images\small_mcht_bar-175-35.jpg" />
     <Content Include="Images\small_mcht_bar-175-35[1].png" />
     <Content Include="Images\spaceball.gif" />
+    <Content Include="Images\T13iv_XiFdXXa94Hfd-32-32.png" />
+    <Content Include="Images\T1vQ51XsRfXXXup_Q9-900-90.png" />
     <Content Include="Images\TmallFooterBar-111-109.jpg" />
     <Content Include="Images\TmallFooterBar-111-109.png" />
     <Content Include="Images\TmallT16-16.png" />
@@ -1405,6 +1411,7 @@
     <Content Include="Images\up.png" />
     <Content Include="Images\v4buy-16-16.png" />
     <Content Include="Images\wangwangpifu-16-16.png" />
+    <Content Include="Images\xcard.png" />
     <Content Include="Images\yihuasha.jpg" />
     <Content Include="Images\v2_member-16-16.png" />
     <Content Include="Images\v3_member-16-16.png" />
@@ -1557,7 +1564,7 @@
     <Content Include="t\buy\order\1.0.11\util\counter.js" />
     <Content Include="t\buy\order\1.0.11\util\feedback.js" />
     <Content Include="t\buy\order\1.0.11\util\gracetip.js" />
-    <Content Include="t\buy\order\1.0.11\util\init.js" />
+    <Content Include="t\buy\order\1.0.11\init.js" />
     <Content Include="t\buy\order\1.0.11\util\inputmask.js" />
     <Content Include="t\buy\order\1.0.11\util\popup.js" />
     <Content Include="t\buy\order\1.0.11\util\select.js" />
@@ -1689,7 +1696,6 @@
     <Content Include="weblogin\myCommodityOrder\pAddMyCommodityOrder.aspx" />
     <Content Include="weblogin\myCommodityOrder\pEditMyCommodityOrder.aspx" />
     <Content Include="weblogin\orderOfCommodity\pEditOrderOfCommodity.aspx" />
-    <Content Include="weblogin\otherPage\help.htm" />
     <Content Include="weblogin\permission\menu\pRoleInMenuPermission.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectTree.aspx" />
     <Content Include="weblogin\permission\pSystemFunctionObjectDetail.aspx" />
@@ -2545,6 +2551,8 @@
     <Content Include="Areas\Order\Views\Web.config" />
     <Content Include="Areas\Order\Views\Home\ConfirmOrder.cshtml" />
     <Content Include="Areas\OtherPage\Views\ShopRule\Index.cshtml" />
+    <Content Include="Areas\Order\Views\Shared\_OrderScript.cshtml" />
+    <Content Include="Areas\Order\Views\Success\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />

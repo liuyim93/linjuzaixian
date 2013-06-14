@@ -16,7 +16,7 @@ namespace Friday.mvc.Models
             //Foods = new IList<Food>[10];
             //Houses = new IList<House>[10];
             Commoditys = new IList<Commodity>[10];
-
+            minPriceSkuList = new IList<Sku>[10];
             //for (int i = 0; i < this.Foods.Length; i++)
             //{
             //    Foods[i] = new List<Food>();
@@ -29,6 +29,10 @@ namespace Friday.mvc.Models
             {
                 Commoditys[i] = new List<Commodity>();
             }
+            for (int i = 0; i < this.minPriceSkuList.Length; i++)
+            {
+                minPriceSkuList[i] = new List<Sku>();
+            }
         }
 
         public IList<Merchant> FavMerchants { get; set; }
@@ -36,7 +40,9 @@ namespace Friday.mvc.Models
         //public IList<Food>[] Foods { get; set; }
         //public IList<House>[] Houses { get; set; }
         public IList<Commodity>[] Commoditys { get; set; }
+        public IList<Sku>[] minPriceSkuList { get; set; }
         public int currenPage { get; set; }
         public int pageNum { get; set; }
+        public string userName { get; set; }
     }
 }

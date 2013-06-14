@@ -17,7 +17,9 @@ KISSY.add("order/render/common", function (b, c) {
     }, toDog: function (d) {
         return '<span class="J_WangWang" data-nick="' + d + '" data-display="inline" data-icon="small"></span>'
     }, toBackCart: function (d) {
-        var e = "http://cart." + (c.daily ? "daily.tmall.net" : "tmall.com") + "/cart/myCart.htm";
+        //2013-06-10 wanghaichuan
+        //var e = "http://cart." + (c.daily ? "daily.tmall.net" : "tmall.com") + "/cart/myCart.htm";
+        var e = "http://localhost:7525/CartPay/Home/MyCartPay";
         return '<a data-mm="' + d + '" class="back-cart" href="' + e + '" title="\u8fd4\u56de\u8d2d\u7269\u8f66\u4fee\u6539" target="_self">\u8fd4\u56de\u8d2d\u7269\u8f66\u4fee\u6539</a>'
     }, toShopUrl: function (d) {
         return d ? a.replace("{{userId}}", d) : ""
