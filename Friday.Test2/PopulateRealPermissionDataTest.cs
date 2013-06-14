@@ -43,6 +43,15 @@ namespace Friday.Test2
         private IList<SystemRole> systemRoleList = new List<SystemRole>();
         //private List<SystemRole> systemRoleList = new List<SystemRole>();
 
+        ISkuRepository skurep = new SkuRepository();
+        ISkuPropRepository skuProprep = new SkuPropRepository();
+        IPropIDRepository propIDrep = new PropIDRepository();
+        IPropValueRepository propValuerep = new PropValueRepository();
+        IList<PropValue> iPropValues = new List<PropValue>();
+        IList<PropValue> iPropValues2 = new List<PropValue>();
+        IRepository<SkuProp> iSkuPropRepository = UnityHelper.UnityToT<IRepository<SkuProp>>();
+
+
         [SetUp]
         public void init()
         {
@@ -65,6 +74,8 @@ namespace Friday.Test2
             add_GlobalGoodsType();
             //添加商店分类
             add_MerchantCategory();
+            //添加Sku
+            //add_Sku();
             //添加商铺的相关信息
             //add_RestaurantInfo();
             //add_RentInfo();
@@ -2999,6 +3010,11 @@ namespace Friday.Test2
         //       fb4.ChildFeedBacks.Add(fb5);
         //       iFeedBackRepository.SaveOrUpdate(fb4);
         //}
+        //private void add_Sku() 
+        //{
+          
+        
+        //}
         public void add_ShopInfo()
         {
 
@@ -3040,6 +3056,104 @@ namespace Friday.Test2
             //shop1.MerchantGoodsTypes.Add(shopCommodityTye_2);
             new ShopRepository().SaveOrUpdate(shop1);
 
+            //添加规格类型
+            IRepository<PropID> iPropIDRepository = UnityHelper.UnityToT<IRepository<PropID>>();
+            IList<PropID> iPropIDs = new List<PropID>();
+
+            PropID ppt1 = new PropID()
+            {
+                //Id = 1627207,
+                PropIDName = "颜色",
+                IsDelete = false,
+                Merchant = shop1
+            };
+            iPropIDs.Add(ppt1);
+            PropID ppt2 = new PropID()
+            {
+                //Id = 21921,
+                PropIDName = "尺寸",
+                IsDelete = false,
+                Merchant = shop1
+            };
+            iPropIDs.Add(ppt2);
+            foreach (PropID a in iPropIDs)
+            {
+                iPropIDRepository.SaveOrUpdate(a);
+            }
+
+            //添加规格明细
+            IRepository<PropValue> iPropValueRepository = UnityHelper.UnityToT<IRepository<PropValue>>();
+            IList<PropValue> iPropValues = new List<PropValue>();
+            IRepository<SkuProp> iSkuPropRepository = UnityHelper.UnityToT<IRepository<SkuProp>>();
+            //颜色明细
+            PropValue ppv1_1 = new PropValue()
+            {
+                PropValueName = "粉红",
+                IsDelete = false,
+                PropID = ppt1,
+                Merchant = shop1
+            };
+            iPropValues.Add(ppv1_1);
+            PropValue ppv1_2 = new PropValue()
+            {
+                PropValueName = "蓝色",
+                IsDelete = false,
+                PropID = ppt1,
+                Merchant = shop1
+            };
+            iPropValues.Add(ppv1_2);
+            PropValue ppv1_3 = new PropValue()
+            {
+                PropValueName = "橘黄色",
+                IsDelete = false,
+                PropID = ppt1,
+                Merchant = shop1
+            };
+            iPropValues.Add(ppv1_3);
+            foreach (PropValue a in iPropValues)
+            {
+                iPropValueRepository.SaveOrUpdate(a);
+            }
+
+            //尺寸明细
+            IList<PropValue> iPropValues2 = new List<PropValue>();
+            PropValue ppv2_1 = new PropValue()
+            {
+                PropValueName = "S",
+                IsDelete = false,
+                PropID = ppt2,
+                Merchant = shop1
+            };
+            iPropValues2.Add(ppv2_1);
+            PropValue ppv2_2 = new PropValue()
+            {
+                PropValueName = "M",
+                IsDelete = false,
+                PropID = ppt2,
+                Merchant = shop1
+            };
+            iPropValues2.Add(ppv2_2);
+            PropValue ppv2_3 = new PropValue()
+            {
+                PropValueName = "L",
+                IsDelete = false,
+                PropID = ppt2,
+                Merchant = shop1
+            };
+            iPropValues2.Add(ppv2_3);
+            PropValue ppv2_4 = new PropValue()
+            {
+                PropValueName = "XL",
+                IsDelete = false,
+                PropID = ppt2,
+                Merchant = shop1
+            };
+            iPropValues2.Add(ppv2_4);
+            foreach (PropValue a in iPropValues2)
+            {
+                iPropValueRepository.SaveOrUpdate(a);
+            }
+            
 
             SchoolOfMerchant scm = new SchoolOfMerchant()
             {
@@ -3109,6 +3223,8 @@ namespace Friday.Test2
                 };
                 shop1.Commodities.Add(commodity_1);
 
+              
+
                 Commodity commodity_2 = new Commodity()
                 {
                     Name = "章丘大葱",
@@ -3130,9 +3246,86 @@ namespace Friday.Test2
                     ValuingCount = 20,
                     IsEnabled = true,
                     Description = "五一大促销"
-                };
+                };               
+
                 shop1.Commodities.Add(commodity_2);
+
+               
             new ShopRepository().SaveOrUpdate(shop1);
+
+            int skuConut = new Random().Next(12);
+            for (int j = 0, l = 0, m = 0; j <= skuConut; j++)
+            {
+                Sku skus = new Sku()
+                {
+                    Commodity = commodity_1,
+                    price = 39 + j * 10,
+                    priceCent = j,
+                    stock = j * 5,
+                };
+                //skus.SKUProps.Add(skpcolor);
+                //skus.SKUProps.Add(skpsize);
+                skurep.SaveOrUpdate(skus);
+
+                //颜色
+                //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+                SkuProp skpcolor = new SkuProp()
+                {
+                    PropID = ppt1,
+                    PropValue = iPropValues[l / 4],
+                    SKU = skus
+                };
+                iSkuPropRepository.SaveOrUpdate(skpcolor);
+                l++;
+                //尺寸
+                //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+                SkuProp skpsize = new SkuProp()
+                {
+                    PropID = ppt2,
+                    PropValue = iPropValues2[m % 4],
+                    SKU = skus
+                };
+                iSkuPropRepository.SaveOrUpdate(skpsize);
+                m++;
+            }
+
+            int skuConut1_2 = new Random().Next(12);
+            for (int j = 0, l = 0, m = 0; j <= skuConut1_2; j++)
+            {
+                Sku skus = new Sku()
+                {
+                    Commodity = commodity_2,
+                    price = 39 + j * 10,
+                    priceCent = j,
+                    stock = j * 5,
+                };
+                //skus.SKUProps.Add(skpcolor);
+                //skus.SKUProps.Add(skpsize);
+                skurep.SaveOrUpdate(skus);
+
+                //颜色
+                //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+                SkuProp skpcolor = new SkuProp()
+                {
+                    PropID = ppt1,
+                    PropValue = iPropValues[l / 4],
+                    SKU = skus
+                };
+                iSkuPropRepository.SaveOrUpdate(skpcolor);
+                l++;
+                //尺寸
+                //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+                SkuProp skpsize = new SkuProp()
+                {
+                    PropID = ppt2,
+                    PropValue = iPropValues2[m % 4],
+                    SKU = skus
+                };
+                iSkuPropRepository.SaveOrUpdate(skpsize);
+                m++;
+            }
+
+               
 
             //添加顾客成龙
             string systemuserid = Guid.NewGuid().ToString();
@@ -3249,6 +3442,105 @@ namespace Friday.Test2
            new ShopRepository().SaveOrUpdate(shop2);
 
 
+           //添加规格类型
+           IList<PropID> iPropIDs2 = new List<PropID>();
+
+           PropID ppt21 = new PropID()
+           {
+               //Id = 1627207,
+               PropIDName = "颜色",
+               IsDelete = false,
+               Merchant = shop2
+           };
+           iPropIDs2.Add(ppt21);
+           PropID ppt22 = new PropID()
+           {
+               //Id = 21921,
+               PropIDName = "尺寸",
+               IsDelete = false,
+               Merchant = shop2
+           };
+           iPropIDs2.Add(ppt22);
+           foreach (PropID a in iPropIDs2)
+           {
+               iPropIDRepository.SaveOrUpdate(a);
+           }
+
+           //添加规格明细        
+           IList<PropValue> iPropValuesYZ = new List<PropValue>();
+
+           //颜色明细
+           PropValue ppvYZ2_1 = new PropValue()
+           {
+               PropValueName = "粉红",
+               IsDelete = false,
+               PropID = ppt21,
+               Merchant = shop2
+           };
+           iPropValues2.Add(ppvYZ2_1);
+           PropValue ppvYZ2_2 = new PropValue()
+           {
+               PropValueName = "蓝色",
+               IsDelete = false,
+               PropID = ppt21,
+               Merchant = shop2
+           };
+           iPropValues2.Add(ppvYZ2_2);
+           PropValue ppvYZ2_3 = new PropValue()
+           {
+               PropValueName = "橘黄色",
+               IsDelete = false,
+               PropID = ppt21,
+               Merchant = shop2
+           };
+           iPropValues2.Add(ppvYZ2_3);
+           foreach (PropValue a in iPropValuesYZ)
+           {
+               iPropValueRepository.SaveOrUpdate(a);
+           }
+
+           //尺寸明细
+           IList<PropValue> iPropValuesYZ2 = new List<PropValue>();
+           PropValue ppvYZS_1 = new PropValue()
+           {
+               PropValueName = "S",
+               IsDelete = false,
+               PropID = ppt22,
+               Merchant = shop2
+           };
+           iPropValuesYZ2.Add(ppvYZS_1);
+           PropValue ppvYZS_2 = new PropValue()
+           {
+               PropValueName = "M",
+               IsDelete = false,
+               PropID = ppt22,
+               Merchant = shop2
+           };
+           iPropValuesYZ2.Add(ppvYZS_2);
+           PropValue ppvYZS_3 = new PropValue()
+           {
+               PropValueName = "L",
+               IsDelete = false,
+               PropID = ppt22,
+               Merchant = shop2
+           };
+           iPropValuesYZ2.Add(ppvYZS_3);
+           PropValue ppvYZS_4 = new PropValue()
+           {
+               PropValueName = "XL",
+               IsDelete = false,
+               PropID = ppt22,
+               Merchant = shop2
+           };
+           iPropValuesYZ2.Add(ppvYZS_4);
+           foreach (PropValue a in iPropValuesYZ2)
+           {
+               iPropValueRepository.SaveOrUpdate(a);
+           }
+
+
+
+
            SchoolOfMerchant scm2 = new SchoolOfMerchant()
            {
                IsDelete = false,
@@ -3312,6 +3604,8 @@ namespace Friday.Test2
            };
            shop1.Commodities.Add(commodity_12);
 
+           
+
            Commodity commodity_22 = new Commodity()
            {
                Name = "铁观音",
@@ -3336,6 +3630,83 @@ namespace Friday.Test2
            };
            shop2.Commodities.Add(commodity_22);
            new ShopRepository().SaveOrUpdate(shop2);
+
+            int skuConut2_1 = new Random().Next(12);
+           for (int j = 0, l = 0, m = 0; j <= skuConut2_1; j++)
+           {
+               Sku skus = new Sku()
+               {
+                   Commodity = commodity_12,
+                   price = 39 + j * 10,
+                   priceCent = j,
+                   stock = j * 5,
+               };
+               //skus.SKUProps.Add(skpcolor);
+               //skus.SKUProps.Add(skpsize);
+               skurep.SaveOrUpdate(skus);
+
+               //颜色
+               //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+               SkuProp skpcolor = new SkuProp()
+               {
+                   PropID = ppt1,
+                   PropValue = iPropValuesYZ[l / 4],
+                   SKU = skus
+               };
+               iSkuPropRepository.SaveOrUpdate(skpcolor);
+               l++;
+               //尺寸
+               //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+               SkuProp skpsize = new SkuProp()
+               {
+                   PropID = ppt2,
+                   PropValue = iPropValuesYZ2[m % 4],
+                   SKU = skus
+               };
+               iSkuPropRepository.SaveOrUpdate(skpsize);
+               m++;
+           }
+
+           int skuConut22 = new Random().Next(12);
+           for (int j = 0, l = 0, m = 0; j <= skuConut22; j++)
+           {
+               Sku skus = new Sku()
+               {
+                   Commodity = commodity_22,
+                   price = 39 + j * 10,
+                   priceCent = j,
+                   stock = j * 5,
+               };
+               //skus.SKUProps.Add(skpcolor);
+               //skus.SKUProps.Add(skpsize);
+               skurep.SaveOrUpdate(skus);
+
+               //颜色
+               //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
+               SkuProp skpcolor = new SkuProp()
+               {
+                   PropID = ppt1,
+                   PropValue = iPropValuesYZ[l / 4],
+                   SKU = skus
+               };
+               iSkuPropRepository.SaveOrUpdate(skpcolor);
+               l++;
+               //尺寸
+               //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
+               SkuProp skpsize = new SkuProp()
+               {
+                   PropID = ppt2,
+                   PropValue = iPropValuesYZ2[m % 4],
+                   SKU = skus
+               };
+               iSkuPropRepository.SaveOrUpdate(skpsize);
+               m++;
+           }
+
+
+
+
+
 
            //添加顾客鲁豫
            SystemUser s2 = new SystemUser()
