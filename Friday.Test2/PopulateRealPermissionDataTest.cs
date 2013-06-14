@@ -3477,7 +3477,7 @@ namespace Friday.Test2
                PropID = ppt21,
                Merchant = shop2
            };
-           iPropValues2.Add(ppvYZ2_1);
+           iPropValuesYZ.Add(ppvYZ2_1);
            PropValue ppvYZ2_2 = new PropValue()
            {
                PropValueName = "蓝色",
@@ -3485,7 +3485,7 @@ namespace Friday.Test2
                PropID = ppt21,
                Merchant = shop2
            };
-           iPropValues2.Add(ppvYZ2_2);
+           iPropValuesYZ.Add(ppvYZ2_2);
            PropValue ppvYZ2_3 = new PropValue()
            {
                PropValueName = "橘黄色",
@@ -3493,7 +3493,7 @@ namespace Friday.Test2
                PropID = ppt21,
                Merchant = shop2
            };
-           iPropValues2.Add(ppvYZ2_3);
+           iPropValuesYZ.Add(ppvYZ2_3);
            foreach (PropValue a in iPropValuesYZ)
            {
                iPropValueRepository.SaveOrUpdate(a);
@@ -3649,7 +3649,7 @@ namespace Friday.Test2
                //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
                SkuProp skpcolor = new SkuProp()
                {
-                   PropID = ppt1,
+                   PropID = ppt21,
                    PropValue = iPropValuesYZ[l / 4],
                    SKU = skus
                };
@@ -3659,7 +3659,7 @@ namespace Friday.Test2
                //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
                SkuProp skpsize = new SkuProp()
                {
-                   PropID = ppt2,
+                   PropID = ppt22,
                    PropValue = iPropValuesYZ2[m % 4],
                    SKU = skus
                };
@@ -3685,7 +3685,7 @@ namespace Friday.Test2
                //int pVauCnColor = new Random().Next(iPropValues.Count);//规格明细
                SkuProp skpcolor = new SkuProp()
                {
-                   PropID = ppt1,
+                   PropID = ppt21,
                    PropValue = iPropValuesYZ[l / 4],
                    SKU = skus
                };
@@ -3695,7 +3695,7 @@ namespace Friday.Test2
                //int pVauCntSize = new Random().Next(iPropValues2.Count);//规格明细
                SkuProp skpsize = new SkuProp()
                {
-                   PropID = ppt2,
+                   PropID = ppt22,
                    PropValue = iPropValuesYZ2[m % 4],
                    SKU = skus
                };
