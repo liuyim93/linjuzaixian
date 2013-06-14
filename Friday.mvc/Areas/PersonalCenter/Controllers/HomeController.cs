@@ -82,18 +82,11 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
                         if (!personalCenterModel.Commodities.Contains(orderOfCommodity.Commodity))
                         {
                             personalCenterModel.Commodities.Add(orderOfCommodity.Commodity);
+                            personalCenterModel.OrderOfCommodity.Add(orderOfCommodity);
                         }
                     }
                 }
             }
-
-            IList<Sku> minPriceSkuComlist = new List<Sku>();
-            for (int i = 0; i < personalCenterModel.Commodities.Count; i++)
-            {
-                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(personalCenterModel.Commodities[i].Id);
-                minPriceSkuComlist.Add(minpricesku);
-            }
-            personalCenterModel.minPriceSkuList = minPriceSkuComlist;
 
             return View(personalCenterModel);
         }

@@ -347,7 +347,7 @@
                                 {
                                    <li>
                                        <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585"><img src="@Model.Commodities.ElementAt(i).Image"/></a>
-                                       <p><span class="rmb">гд</span>@Model.Commodities.ElementAt(i).Price</p>
+                                       <p><span class="rmb">гд</span>@Model.OrderOfCommodity.ElementAt(i).Sku.price</p>
                                    </li>                                    
                                 }  
                              }

@@ -13,7 +13,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Models
             FavMerchants = new List<friday.core.Merchant>();
             CartOfCommodities = new List<friday.core.CartOfCommodity>();
             Commodities = new List<friday.core.Commodity>();
-            IList<Sku> minPriceSkuList = new List<Sku>();
+            OrderOfCommodity = new List<friday.core.OrderOfCommodity>();
         }
 
         public IList<friday.core.Merchant> FavMerchants { get; set; }
@@ -22,7 +22,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Models
 
         public IList<friday.core.Commodity> Commodities { get; set; }
 
-        public IList<Sku> minPriceSkuList { get; set; }
+        public IList<friday.core.OrderOfCommodity> OrderOfCommodity { get; set; }
 
         public friday.core.domain.SystemUser systemUser { get; set; }
     }
