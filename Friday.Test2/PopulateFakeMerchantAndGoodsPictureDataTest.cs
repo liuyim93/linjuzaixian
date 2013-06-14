@@ -192,6 +192,20 @@ namespace Friday.Test2
                         GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]),
                         //2013-05-09 basilwang 增加family
                         GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(gloablType[i]).Family,
+                        
+                        Price = i+10,                 
+                        IsDiscount = false,
+                        InventoryCount = 100+i*10,              
+                        Amount = 100+i*5,
+                        AverageValuing = 1+i%5,
+                        DiscountInventoryCount = 50+i*5,
+                        DiscountPrice = 0.5+i%9,
+                        MonthAmount = 300+ i * 5,
+                        OldPrice = i,
+                        ValuingCount = i*4,
+                        IsEnabled = true,
+                        IsLimited = false,
+                        Description = "五一大促销"+i
                     };
                     iCommodityRepository.SaveOrUpdate(commodity);
 
@@ -376,6 +390,20 @@ namespace Friday.Test2
                       GlobalGoodsType = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]),
                       //2013-05-09 basilwang 增加family
                       GlobalGoodsTypeFamily = iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(NationalMerchat[i]).Family,
+
+                      Price = i + 10,
+                      IsDiscount = false,
+                      InventoryCount = 100 + i * 10,
+                      Amount = 100 + i * 5,
+                      AverageValuing = 1 + i % 5,
+                      DiscountInventoryCount = 50 + i * 5,
+                      DiscountPrice = 0.5 + i % 9,
+                      MonthAmount = 300 + i * 5,
+                      OldPrice = i,
+                      ValuingCount = i * 4,
+                      IsEnabled = true,
+                      IsLimited = false,
+                      Description = "五一大促销" + i
                   };
                   iCommodityRepository.SaveOrUpdate(commodity);
                   int skuConut = new Random().Next(12);
