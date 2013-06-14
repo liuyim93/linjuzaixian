@@ -22,8 +22,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IFoodService iFoodService;
         //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
+        private ISkuService iSkuService;
 
-        public IndexController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService,  IShopService iShopService, ICommodityService iCommodityService)
+        public IndexController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IShopService iShopService, ICommodityService iCommodityService, ISkuService iSkuService)
         {
             this.iMerchantService = iMerchantService;
             this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
@@ -33,6 +34,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             this.iCommodityService = iCommodityService;
             //this.iFoodService = iFoodService;
             //this.iHouseService = iHouseService;
+            this.iSkuService = iSkuService;
         }
         public ActionResult SearchGoods(string page ,string scid,string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
@@ -64,6 +66,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 Shop shop = this.iShopService.Load(scid);
                 merchantIndexModel.SingleShop = shop;
                 merchantIndexModel.Commoditys = myCommodities;
+
+                IList<Sku> minPriceSkuComlist = new List<Sku>();
+                for (int i = 0; i < myCommodities.Count; i++)
+                {
+                    Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
+                    minPriceSkuComlist.Add(minpricesku);
+                }
+                merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
             //}
             //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             //{
@@ -173,9 +183,15 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             
             Shop shop = this.iShopService.Load(scid);
             merchantIndexModel.SingleShop = shop;
-            merchantIndexModel.Commoditys = myCommodities;         
-            
+            merchantIndexModel.Commoditys = myCommodities;
 
+            IList<Sku> minPriceSkuComlist = new List<Sku>();
+            for (int i = 0; i < myCommodities.Count; i++)
+            {
+                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
+                minPriceSkuComlist.Add(minpricesku);
+            }
+            merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
 
             merchantIndexModel.currentPage = currentPage;
             merchantIndexModel.pageNum = total / numPerPageValue + 1;

@@ -18,7 +18,7 @@ namespace friday.core.components
             string filesNewNameWithoutExt = "";
             string result = "";
             string genaratePicPath = "";
-            int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 30, 30 }, new int[] { 160, 160 } };
+            int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 30, 30 }, new int[] { 160, 160 }, new int[] { 200, 300 } };
 
             Random R = new Random();//创建产生随机数
             try
@@ -81,7 +81,7 @@ namespace friday.core.components
                             try
                             {
                                 //以jpg格式保存缩略图
-                                genaratePicPath = System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesnewName + "_" + size + "x" + size + fileExtension;
+                                genaratePicPath = System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesnewName + "_" + size[0] + "x" + size[1] + fileExtension;
                                 switch (fileExtension)
                                 {
                                     case ".gif": bitmap.Save(genaratePicPath, System.Drawing.Imaging.ImageFormat.Gif); break;

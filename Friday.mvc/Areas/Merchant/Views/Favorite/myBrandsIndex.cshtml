@@ -56,7 +56,7 @@
             <a class="userInfo-photo">
                 <img src="http://localhost:7525/Images/avatar-120.png" height="48" width="48" alt="basilwang"></a>
 
-            <div class="userInfo-text"> <strong>basilwang</strong>
+            <div class="userInfo-text"> <strong>@Model.userName</strong>
                 <p>
                     您共关注了 <em>@Model.FavMerchants.Count</em>
                     个品牌
@@ -106,6 +106,7 @@
                         for (var index = 0; index < (Model.Commoditys[commodityIndex].Count() > 12 ? 12 : Model.Commoditys[commodityIndex].Count()); index++)
                         {
                             var item = Model.Commoditys[commodityIndex].ElementAt(index);
+                            var minPrice = Model.minPriceSkuList[commodityIndex].ElementAt(index);
                         <li class="j_BrandItemList" style="display: block; float: left;">
                             <p class="bIc-slideList-img">
                                 <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@item.Id">
@@ -114,7 +115,7 @@
                             <p class="bIc-slideList-sell">
                                 <span class="bIc-slideList-sell-price ui-price">
                                     <span class="ui-price-icon">¥</span>
-                                    @item.Price
+                                    @minPrice.price
                                 </span>
                                 <span class="bIc-slideList-sell-num">
                                     月销量：

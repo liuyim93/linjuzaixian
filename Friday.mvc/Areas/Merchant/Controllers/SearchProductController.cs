@@ -206,6 +206,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             IList<Commodity> recommendCommdties= iCommodityService.GetHotRecommendCommoditiesByKeyWord("");
             searchProductModel.recommendComdties = recommendCommdties;
 
+            IList<Sku> minRecommendSkuList = new List<Sku>();
+            for (int i = 0; i < recommendCommdties.Count; i++)
+            {
+                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(recommendCommdties[i].Id);
+                minRecommendSkuList.Add(minpricesku);
+            }
+            searchProductModel.minRecommendSkuList = minRecommendSkuList;
+
             //您是不是想找。。。
             IList<GlobalGoodsType> GdsTpList = iGlobalGoodsTypeService.GetSimilarGoodsTypeListInThirdLevelByKeyword(keyword);
             searchProductModel.globalGoodsTypes = GdsTpList;
