@@ -443,13 +443,13 @@
                                     @{
                         if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
                                         {
-                                            <p class="new-price"><span class="rmb">гд</span>Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
+                                            <p class="new-price"><span class="rmb">гд</span>Model.CartOfCommodities.ElementAt(i).Sku.price</p>
                                         }
                                         else
                                         {
-                                            <p class="old-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice</p>
-                                            <p class="new-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
-                                            <p><span class="less-price">╩б@(Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice-Model.CartOfCommodities.ElementAt(i).Commodity.Price)</span></p>
+                                            <p class="old-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Sku.price</p>
+                                            <p class="new-price"><span class="rmb">гд</span>@Model.CartOfCommodities.ElementAt(i).Sku.price</p>
+                                            <p><span class="less-price">╩б@(Model.CartOfCommodities.ElementAt(i).Sku.price - Model.CartOfCommodities.ElementAt(i).Sku.price)</span></p>
                                         }
                                      }
 
