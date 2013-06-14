@@ -19,8 +19,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
         private ISchoolService iSchoolService;
+        private ISkuService iSkuService;
 
-        public FavoriteController(IMerchantService iMerchantService, IUserService iUserService, IMyFavoriteService iMyFavoriteService, ICommodityService iCommodityService, ISchoolService iSchoolService)
+        public FavoriteController(IMerchantService iMerchantService, IUserService iUserService, IMyFavoriteService iMyFavoriteService, ICommodityService iCommodityService, ISchoolService iSchoolService, ISkuService iSkuService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
@@ -29,6 +30,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //this.iHouseService = iHouseService;
             this.iCommodityService = iCommodityService;
             this.iSchoolService = iSchoolService;
+            this.iSkuService = iSkuService;
         }
         public ActionResult Index()
         {
@@ -96,6 +98,12 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         }
         public ActionResult myBrandsIndex(string page)
         {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            if (systemUser == null)
+            {
+                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/myBrandsIndex.html");
+            }
+
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
             int numPerPageValue = 10;
             int total;
@@ -105,9 +113,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             MyBrandsIndexModel myBrandsIndexModel = new MyBrandsIndexModel();
             //如果用户已经登录则准备收藏数据
+            myBrandsIndexModel.userName = systemUser.LoginUser.LoginName;
             if (this.HttpContext.User.Identity.IsAuthenticated == true)
             {
-                SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
                 //int start, int limit, out long total
                 IList<MyFavorite> myFavorites = this.iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser, start, limit,out total);
                 myBrandsIndexModel.currenPage = currentPage;
@@ -142,6 +150,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             foreach (Commodity c in commoditys)
                             {
                                 myBrandsIndexModel.Commoditys[commodityIndex].Add(c);
+                                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(c.Id);
+                                myBrandsIndexModel.minPriceSkuList[commodityIndex].Add(minpricesku);
                             }
                             commodityIndex++;
                         }

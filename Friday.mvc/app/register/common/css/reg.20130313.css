@@ -125,7 +125,7 @@ a:hover{color:#F60;text-decoration:underline;}
 .pw-strong .pw-bar{width:182px;}
 .phone-input-box{position:relative;display:inline-block;zoom:1;*display:inline;}
 .phone-input-box .area-code{position:absolute;display:block;width:30px;height:28px;text-align:right;font-size:14px;font-family:Arial,Helvetica,sans-serif;line-height:28px;}
-.phone-input-box .i-text{padding-left:30px;width:176px;font-size:14px;color:#404040;}
+.phone-input-box .i-text{padding-left:30px;width:176px;*width:149px;font-size:14px;color:#404040;}
 .check-pop .kv-item{padding-left:90px;padding-bottom:10px;line-height:28px;}
 .check-pop .kv-label{width:90px;margin-left:-90px;}
 .check-pop .phone-input-box .i-text{width:120px;vertical-align:top;}

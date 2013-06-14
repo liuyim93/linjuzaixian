@@ -10,10 +10,12 @@ using Friday.mvc.Models;
 using friday.core.repositories;
 using friday.core.components;
 using Friday.mvc.Areas.Merchant.Models;
+using System.Web.Security;
+using Friday.mvc.Controllers;
 
 namespace Friday.mvc.Areas.Account.Controllers
 {
-    public class RegisterController : Controller
+    public class RegisterController : FridayController
     {
         //
         // GET: /Account/Register/
@@ -26,7 +28,8 @@ namespace Friday.mvc.Areas.Account.Controllers
         private ILoginUserService iLoginUserService;
         private ISchoolService iSchoolService;
 
-        public RegisterController(IActivityService iActivityService, ILoginUserService iLoginUserService, ISystemUserService iSystemUserService, IAddressService iAddressService, ISystemRoleService iSystemRoleService, IUserInRoleService iUserInRoleService, ISchoolService iSchoolService)
+        public RegisterController(IUserService iUserService, ISystemUserRepository iSystemUserRepository, IActivityService iActivityService, ILoginUserService iLoginUserService, ISystemUserService iSystemUserService, IAddressService iAddressService, ISystemRoleService iSystemRoleService, IUserInRoleService iUserInRoleService, ISchoolService iSchoolService)
+            : base(iUserService, iSystemUserRepository)
         {
             this.iActivityService = iActivityService;
             this.iLoginUserService = iLoginUserService;
@@ -151,6 +154,9 @@ namespace Friday.mvc.Areas.Account.Controllers
             regstermodel.Activities = this.iActivityService.GetAll();
             regstermodel.tel = mobile;
             regstermodel.loginName = J_Nick;
+
+            
+            populateFormAuthCookie(false, su.Id, "");
 
             return View("Index", regstermodel);
         }

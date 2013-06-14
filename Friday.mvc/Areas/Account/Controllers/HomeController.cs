@@ -87,6 +87,7 @@ namespace Friday.mvc.Areas.Account.Controllers
                 
                 userID = loginUser.SystemUser.Id;
 
+               
                 populateFormAuthCookie(remember, userID, "");
 
                 //2013-03-04 basilwang TODO we need validate loginModel
