@@ -49,7 +49,8 @@
         (function (d) {
             var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
             t.setAttribute("exparams", "category=&userid=123072695&aplus");
-            t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            //t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            t.src = "http://localhost:7525/s/aplus_v2.js";
             d.getElementsByTagName("head")[0].appendChild(t);
         })(document);
     </script>
@@ -61,7 +62,7 @@
 
      
 
-        <script>            TB.Global.init();</script>
+@*        <script>            TB.Global.init();</script>*@
         <!-- end vmcommon/mytaobao -->
         <div class="grid-c2">
             <div class="col-main">
@@ -404,7 +405,7 @@
             <span class="sub" id="J_cart_discount_box"></span>
             <a class="more" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908601">¸ü¶à</a>
         </header>
-        <div id="J_cart_container" data-url="http://i.taobao.com/trade/cart_info.htm?_tb_token_=I7X3qRRouAm">
+        <div id="J_cart_container">
             @{
                 if(Model.CartOfCommodities.Count==0)
                 {
