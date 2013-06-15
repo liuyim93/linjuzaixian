@@ -114,6 +114,8 @@
     <Compile Include="domain\Category.cs" />
     <Compile Include="domain\CategoryLog.cs" />
     <Compile Include="domain\CategoryMap.cs" />
+    <Compile Include="domain\DataAttachment.cs" />
+    <Compile Include="domain\DataAttachmentMap.cs" />
     <Compile Include="domain\Log.cs" />
     <Compile Include="domain\PropIDMap.cs" />
     <Compile Include="domain\PropValueMap.cs" />
@@ -121,6 +123,8 @@
     <Compile Include="domain\RoleInMenuMap.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrder.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrderMap.cs" />
+    <Compile Include="domain\Section.cs" />
+    <Compile Include="domain\SectionMap.cs" />
     <Compile Include="domain\SkuMap.cs" />
     <Compile Include="domain\SkuPropMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
@@ -129,6 +133,9 @@
     <Compile Include="domain\CategoryLogMap.cs" />
     <Compile Include="domain\ValuingComments.cs" />
     <Compile Include="domain\ValuingCommentsMap.cs" />
+    <Compile Include="domain\DataResource.cs" />
+    <Compile Include="domain\DataResourceMap.cs" />
+    <Compile Include="EnumType\CheckState.cs" />
     <Compile Include="Models\MerchantModel.cs" />
     <Compile Include="domain\PropID.cs" />
     <Compile Include="domain\PropValue.cs" />
