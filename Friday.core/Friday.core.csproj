@@ -418,7 +418,8 @@
     <Compile Include="services\IAddressService.cs" />
     <Compile Include="services\DataResourceService.cs" />
     <Compile Include="services\IDataResourceService.cs" />
-    <Compile Include="services\副本 DataResourceService.cs" />
+    <Compile Include="services\SectionService.cs" />
+    <Compile Include="services\ISectionService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

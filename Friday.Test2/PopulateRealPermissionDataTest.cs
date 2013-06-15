@@ -72,6 +72,8 @@ namespace Friday.Test2
             add_ObjectInRole();
             //添加全局商品类型
             add_GlobalGoodsType();
+            //添加Section 
+            add_Section();
             //添加商店分类
             add_MerchantCategory();
             //添加Sku
@@ -1804,6 +1806,51 @@ namespace Friday.Test2
             }
 
         }
+
+        private void add_Section()
+        {
+            ISectionService iSectionService = UnityHelper.UnityToT<ISectionService>();
+
+            //添加1级目录
+            string[] firstSec = { "系统栏目" };
+            for (int i = 0; i < firstSec.Length; i++)
+            {
+                Section sct = new Section()
+                {
+                    Name = firstSec[i],
+                    Leaf = false,
+                    TLevel = 0,
+                    IsDelete = false,
+                    Description = "1级目录",
+                    //2013-05-09 basilwnag add Family
+                    Family = "",
+                    EntityIndex = i  //排序
+                };
+                iSectionService.Save(sct);
+            }
+
+            //------添加2级目录---------
+            //2级"国际品牌"
+            string[] SecdSystemCat = { "关于本站", "帮助中心", "网站地图", "诚聘英才", "联系我们", "网站合作", "版权说明" };
+            for (int i = 0; i < SecdSystemCat.Length; i++)
+            {
+
+                Section sgtn = new Section()
+                {
+                    ParentID = iSectionService.SearchByName("系统栏目").Id,
+                    //2013-05-09 basilwnag add Family
+                    Family = iSectionService.SearchByName("系统栏目").Family.Trim() + iSectionService.SearchByName("系统栏目").Id + ",",
+                    Name = SecdSystemCat[i],
+                    Leaf = false,
+                    TLevel = 1,
+                    IsDelete = false,
+                     Description = "2级目录—"  //,变为ID
+                };
+                iSectionService.Save(sgtn);
+            }      
+        
+        }
+
         //商店商品目录添加
         private void add_MerchantCategory()
          {
