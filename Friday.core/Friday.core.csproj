@@ -178,6 +178,8 @@
     <Compile Include="repositories\IShoppingCartRepository.cs" />
     <Compile Include="repositories\ICartOfCommodityRepository.cs" />
     <Compile Include="repositories\CartOfCommodityRepository.cs" />
+    <Compile Include="repositories\DataResourceRepository.cs" />
+    <Compile Include="repositories\IDataResourceRepository.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -412,6 +414,8 @@
     <Compile Include="services\CartOfCommodityService.cs" />
     <Compile Include="services\AddressService.cs" />
     <Compile Include="services\IAddressService.cs" />
+    <Compile Include="services\DataResourceService.cs" />
+    <Compile Include="services\IDataResourceService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

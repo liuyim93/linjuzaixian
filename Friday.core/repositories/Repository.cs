@@ -634,6 +634,57 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+
+        protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByDataResource(query, termList);
+        }
+        protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByDataResource(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "dataresource.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "DataResource";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".DataResource";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "dataresource");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("DataResourceID"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "DataResourceID", Convert.ToInt32(df.value)));
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchBySystemUser(query, termList);
