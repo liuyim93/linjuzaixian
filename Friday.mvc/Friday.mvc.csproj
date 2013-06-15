@@ -260,6 +260,34 @@
     <Compile Include="weblogin\commodity\pCommodityDetail.aspx.designer.cs">
       <DependentUpon>pCommodityDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceDetail.aspx.cs">
+      <DependentUpon>pDataResourceDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceDetail.aspx.designer.cs">
+      <DependentUpon>pDataResourceDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceList.aspx.cs">
+      <DependentUpon>pDataResourceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceList.aspx.designer.cs">
+      <DependentUpon>pDataResourceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pAddDataResource.aspx.cs">
+      <DependentUpon>pAddDataResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pAddDataResource.aspx.designer.cs">
+      <DependentUpon>pAddDataResource.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pEditDataResource.aspx.cs">
+      <DependentUpon>pEditDataResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pEditDataResource.aspx.designer.cs">
+      <DependentUpon>pEditDataResource.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\feedBack\pAddFeedBack.aspx.cs">
       <DependentUpon>pAddFeedBack.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1064,6 +1092,13 @@
     <Compile Include="weblogin\propValue\pPropValueList.aspx.designer.cs">
       <DependentUpon>pPropValueList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSection.aspx.cs">
+      <DependentUpon>ListSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSection.aspx.designer.cs">
+      <DependentUpon>ListSection.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1630,6 +1665,10 @@
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
     <Content Include="Content\adminLogin.css" />
     <Content Include="weblogin\commodity\pCommodityDetail.aspx" />
+    <Content Include="weblogin\dataresource\pDataResourceDetail.aspx" />
+    <Content Include="weblogin\dataresource\pDataResourceList.aspx" />
+    <Content Include="weblogin\dataresource\pAddDataResource.aspx" />
+    <Content Include="weblogin\dataresource\pEditDataResource.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\feedBack\pAddFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />
@@ -2526,6 +2565,7 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
     <Content Include="weblogin\propValue\pPropValueList.aspx" />
+    <Content Include="weblogin\ListSection.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2540,7 +2580,6 @@
     <Folder Include="Areas\PersonalCenter\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\Image\News\" />
-    <Folder Include="weblogin\dataresource\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\Image\News\" />
   </ItemGroup>

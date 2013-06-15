@@ -629,6 +629,18 @@ namespace Friday.Test2
             iSystemMenuRepository.SaveOrUpdate(section);
             adminMenuCheckList.Add(section);
 
+            //网站信息发布
+            SystemMenu dataresource = new SystemMenu()
+            {
+                Name = "网站信息管理",
+                Leaf = true,
+                ParentID = baseInfo.Id,
+                MenuRoute = "dataresource/pDataResourceList.aspx",
+                TLevel = 1,
+                ColIndex = 16
+            };
+            iSystemMenuRepository.SaveOrUpdate(dataresource);
+            adminMenuCheckList.Add(dataresource);
 
             //SystemMenu valuingComments = new SystemMenu()
             //{
