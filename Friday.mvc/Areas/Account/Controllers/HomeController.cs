@@ -145,7 +145,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             if (systemUser == null)
             {
                 //return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/Merchant/Detail?brandId="+id);
-                script = "login_indicator={\"hasLoggedIn\":true,\"token\":[],\"success\":true,\"fastBuy\":false}";
+                script = "login_indicator={\"hasLoggedIn\":false,\"token\":[],\"success\":true,\"fastBuy\":false}";
             }
             else
             {

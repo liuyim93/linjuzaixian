@@ -19,7 +19,7 @@
                      Query_Num: Q + "Account/Home/counter?keys=TCART_234_{uid}_q&t=",
                      //LOAD_API: X + "cart/mini/trailMiniCart.htm",
                      LOAD_API: X + "CartPay/Home/Render_Cart",
-                     COMMONADD_API: X + "cart/addCartItems.do",
+                     COMMONADD_API: X + "CartPay/Home/addCartItems",
                      ADD_API: X + "cart/addCartItem.htm?itemId={itemId}&skuId={skuId}&quantity={quantity}&proId={proId}&devisionCode={devisionCode}&serverId={serverId}&tsid={tsid}&umpkey={umpkey}&_tb_token_={_tb_token_}",
                      ADDCOMBO_API: X + "cart/addCombo.htm",
                      UPDATE_API: X + "cart/mini/updateMiniCart.htm?cartId={cartId}&quantity={quantity}&{tkKey}={tkVal}",
@@ -1224,6 +1224,8 @@
             return Ag
         });
         KISSY.add("TMiniCart", function (N, M, L) {
+            debugger
+
             var O = N.DOM,
                  K = N.Event,
                  P = {
