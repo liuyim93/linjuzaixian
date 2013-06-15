@@ -21,7 +21,29 @@ namespace friday.core.repositories
             var m = (from x in this.Session.Query<Section>() select x).Where(o => o.Name == name && o.IsDelete == false).SingleOrDefault();
             return m;
         }
-
+        public IList<Section> GetChildrenFromParentID(string ParentID)
+        {
+            if (ParentID == null || ParentID == "")
+            {
+                var list = (from x in this.Session.Query<Section>() select x).Where(o => o.ParentID == null && o.IsDelete == false).ToList();
+                return list;
+            }
+            else
+            {
+                var list = (from x in this.Session.Query<Section>() select x).Where(o => o.ParentID == ParentID && o.IsDelete == false).ToList();
+                return list;
+            }
+        }
+        public IList<Section> GetChildrenByFamily(string ParentID)
+        {
+            var list = (from x in this.Session.Query<Section>() select x).Where(o => o.Family.Contains(ParentID) && o.IsDelete == false).ToList();
+            return list;
+        }
+        public bool IsHaveChild(Section section)
+        {
+            var isHaveChild = (from x in this.Session.Query<Section>() select x).Where(o => o.ParentID == section.Id && o.IsDelete == false).Count() > 0 ? true : false;
+            return isHaveChild;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(Section)); }

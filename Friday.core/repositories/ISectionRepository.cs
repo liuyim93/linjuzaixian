@@ -12,5 +12,8 @@ namespace friday.core.repositories
         Section SearchByName(string name);
         IList<Section> Search(List<DataFilter> termList);
         IList<Section> Search(List<DataFilter> termList, int start, int limit, out long total);
+        IList<Section> GetChildrenFromParentID(string ParentID);
+        IList<Section> GetChildrenByFamily(string ParentID);
+        bool IsHaveChild(Section Section);
     }
 }

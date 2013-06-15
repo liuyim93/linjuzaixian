@@ -17,5 +17,8 @@ namespace friday.core.services
         IList<Section> Search(List<DataFilter> termList);
         IList<Section> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<Section> GetAll();
+        IList<Section> GetChildrenFromParentID(string ParentID);
+        IList<Section> GetChildrenByFamily(string ParentID);
+        bool IsHaveChild(Section Section);
     }
 }

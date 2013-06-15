@@ -605,7 +605,7 @@ namespace Friday.Test2
                 ParentID = baseInfo.Id,
                 MenuRoute = "propValue/pPropValueList.aspx",
                 TLevel = 1,
-                ColIndex = 13
+                ColIndex = 14
             };
             iSystemMenuRepository.SaveOrUpdate(propvalue);
             adminMenuCheckList.Add(propvalue);
@@ -615,6 +615,20 @@ namespace Friday.Test2
             //restaurantMemberMenuCheckList.Add(propid);
             //rentOwnerMenuCheckList.Add(propid);
             //rentMemberMenuCheckList.Add(propid);
+
+            //Section 系统栏目管理
+            SystemMenu section = new SystemMenu()
+            {
+                Name = "系统栏目管理",
+                Leaf = true,
+                ParentID = baseInfo.Id,
+                MenuRoute = "section/pSectionList.aspx",
+                TLevel = 1,
+                ColIndex = 15
+            };
+            iSystemMenuRepository.SaveOrUpdate(section);
+            adminMenuCheckList.Add(section);
+
 
             //SystemMenu valuingComments = new SystemMenu()
             //{

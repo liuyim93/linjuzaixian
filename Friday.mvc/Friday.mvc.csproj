@@ -623,6 +623,34 @@
     <Compile Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx.designer.cs">
       <DependentUpon>pScoreOfItemInCommodityOrderList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\section\pAddSection.aspx.cs">
+      <DependentUpon>pAddSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pAddSection.aspx.designer.cs">
+      <DependentUpon>pAddSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pEditSection.aspx.cs">
+      <DependentUpon>pEditSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pEditSection.aspx.designer.cs">
+      <DependentUpon>pEditSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionDetail.aspx.cs">
+      <DependentUpon>pSectionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionDetail.aspx.designer.cs">
+      <DependentUpon>pSectionDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionList.aspx.cs">
+      <DependentUpon>pSectionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionList.aspx.designer.cs">
+      <DependentUpon>pSectionList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.cs">
       <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1710,6 +1738,10 @@
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pAddScoreOfItemInCommodityOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pEditScoreOfItemInCommodityOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx" />
+    <Content Include="weblogin\section\pAddSection.aspx" />
+    <Content Include="weblogin\section\pEditSection.aspx" />
+    <Content Include="weblogin\section\pSectionDetail.aspx" />
+    <Content Include="weblogin\section\pSectionList.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
     <Content Include="weblogin\skuProp\pAddSkuProp.aspx" />
@@ -2508,6 +2540,7 @@
     <Folder Include="Areas\PersonalCenter\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\Image\News\" />
+    <Folder Include="weblogin\dataresource\" />
     <Folder Include="weblogin\themes\img\Expert\" />
     <Folder Include="weblogin\UploadImage\Image\News\" />
   </ItemGroup>

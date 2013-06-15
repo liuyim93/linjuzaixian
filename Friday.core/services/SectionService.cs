@@ -57,6 +57,19 @@ namespace friday.core.services
         {
             return iSectionRepository.GetAll();
         }
+        public IList<Section> GetChildrenFromParentID(string ParentID)
+        {
+            return iSectionRepository.GetChildrenFromParentID(ParentID);
+        }
+
+        public IList<Section> GetChildrenByFamily(string ParentID)
+        {
+            return iSectionRepository.GetChildrenByFamily(ParentID);
+        }
+        public bool IsHaveChild(Section Section)
+        {
+            return iSectionRepository.IsHaveChild(Section);
+        }
 
     }
 }
