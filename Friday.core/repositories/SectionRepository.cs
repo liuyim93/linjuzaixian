@@ -13,27 +13,27 @@ using friday.core.EnumType;
 
 namespace friday.core.repositories
 {
-    public class DataResourceRepository : Repository<DataResource>, IDataResourceRepository
+    public class SectionRepository : Repository<Section>, ISectionRepository
     {        
        
-        public DataResource SearchByName(string name)
+        public Section SearchByName(string name)
         {
-            var m = (from x in this.Session.Query<DataResource>() select x).Where(o => o.Title == name && o.IsDelete == false).SingleOrDefault();
+            var m = (from x in this.Session.Query<Section>() select x).Where(o => o.Name == name && o.IsDelete == false).SingleOrDefault();
             return m;
         }
 
         protected virtual ICriteria Query
         {
-            get { return Session.CreateCriteria(typeof(DataResource)); }
+            get { return Session.CreateCriteria(typeof(Section)); }
         }
         //对外获取方法
-        public IList<DataResource> Search(List<DataFilter> termList)
+        public IList<Section> Search(List<DataFilter> termList)
         {
-            return SearchByDataResource(Query, termList, true).List<DataResource>();
+            return SearchBySection(Query, termList, true).List<Section>();
         }
-        public IList<DataResource> Search(List<DataFilter> termList, int start, int limit, out long total)
+        public IList<Section> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
-            ICriteria query = SearchByDataResource(Query, termList, true);
+            ICriteria query = SearchBySection(Query, termList, true);
             //2013-02-11 basilwang must use projection.rowcount and clear order ( sql does't support only count(*) and order by)
             ICriteria countCriteria = CriteriaTransformer.Clone(query)
             .SetProjection(NHibernate.Criterion.Projections.RowCountInt64());
@@ -42,7 +42,7 @@ namespace friday.core.repositories
             total = countCriteria.UniqueResult<long>();
             return query.SetFirstResult(start)
                  .SetMaxResults(limit)
-                 .List<DataResource>();
+                 .List<Section>();
         }
 
 

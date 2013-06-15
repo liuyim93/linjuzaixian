@@ -180,6 +180,8 @@
     <Compile Include="repositories\CartOfCommodityRepository.cs" />
     <Compile Include="repositories\DataResourceRepository.cs" />
     <Compile Include="repositories\IDataResourceRepository.cs" />
+    <Compile Include="repositories\SectionRepository.cs" />
+    <Compile Include="repositories\ISectionRepository.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -416,6 +418,7 @@
     <Compile Include="services\IAddressService.cs" />
     <Compile Include="services\DataResourceService.cs" />
     <Compile Include="services\IDataResourceService.cs" />
+    <Compile Include="services\副本 DataResourceService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

@@ -634,6 +634,56 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchBySection(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchBySection(query, termList);
+        }
+        protected ICriteria SearchBySection(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchBySection(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchBySection(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "section.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Section";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".Section";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "section");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("SectionID"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "SectionID", Convert.ToInt32(df.value)));
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
 
         protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
