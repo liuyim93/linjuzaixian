@@ -21,7 +21,9 @@
             Q.append(Z, Y);
             Q.append(a, Y)
         }
-        if (D.Suggest && D.Suggest.version >= 1.1) {
+        //2013-06-16 wanghaichuan hide suggest
+        //if (D.Suggest && D.Suggest.version >= 1.1) {
+        if(false){
             N = new D.Suggest(J, "http://suggest.taobao.com/sug?area=b2c&code=utf-8", { containerCls: "mall-suggest-container", resultFormat: "", offset: 0 });
             R = N.container;
             N.on("beforeShow", function () {
@@ -137,6 +139,7 @@
             return
         }
         var T = "", S = false, V = false;
+        debugger
         J = D.get("#mq");
         M = Q.prev(J);
         K = D.get("#J_Type");
