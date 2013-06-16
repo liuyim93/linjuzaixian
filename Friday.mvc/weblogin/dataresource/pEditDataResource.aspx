@@ -37,18 +37,18 @@
                             信息来源：</label>
                         <input type="text" id="Source" size="30" class="textInput gray" runat="server" />
                     </p>
-                    <p>
+                  <%--  <p>
                     <label>
                             作者：</label>
                         <input type="text" id="Publisher" size="30" class="textInput gray" runat="server" />
-                    </p>
+                    </p>--%>
                     
-                 <p style="float:left;">
+            <%--     <p style="float:left;">
                      <a href="AttachmentUpload.aspx?type=AddDataResource" rel="Attachment"
                       target="dialog"><label style="color:Red;width:80px;">点击上传附件:</label></a> 
                      <label id="AttachmentName" style="color:Blue; width:223px; padding:0,0,0,0;"></label>
                      <input type="hidden" id="AttachmentID" class="textInput gray" runat="server" />
-                 </p>
+                 </p>--%>
               
                           
                  

@@ -114,8 +114,6 @@
     <Compile Include="domain\Category.cs" />
     <Compile Include="domain\CategoryLog.cs" />
     <Compile Include="domain\CategoryMap.cs" />
-    <Compile Include="domain\DataAttachment.cs" />
-    <Compile Include="domain\DataAttachmentMap.cs" />
     <Compile Include="domain\Log.cs" />
     <Compile Include="domain\PropIDMap.cs" />
     <Compile Include="domain\PropValueMap.cs" />

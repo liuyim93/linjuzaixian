@@ -262,13 +262,6 @@
     <Compile Include="weblogin\commodity\pCommodityDetail.aspx.designer.cs">
       <DependentUpon>pCommodityDetail.aspx</DependentUpon>
     </Compile>
-    <Compile Include="weblogin\dataresource\AttachmentUpload.aspx.cs">
-      <DependentUpon>AttachmentUpload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="weblogin\dataresource\AttachmentUpload.aspx.designer.cs">
-      <DependentUpon>AttachmentUpload.aspx</DependentUpon>
-    </Compile>
     <Compile Include="weblogin\dataresource\pDataResourceDetail.aspx.cs">
       <DependentUpon>pDataResourceDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1674,7 +1667,6 @@
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
     <Content Include="Content\adminLogin.css" />
     <Content Include="weblogin\commodity\pCommodityDetail.aspx" />
-    <Content Include="weblogin\dataresource\AttachmentUpload.aspx" />
     <Content Include="weblogin\dataresource\pDataResourceDetail.aspx" />
     <Content Include="weblogin\dataresource\pDataResourceList.aspx" />
     <Content Include="weblogin\dataresource\pAddDataResource.aspx" />

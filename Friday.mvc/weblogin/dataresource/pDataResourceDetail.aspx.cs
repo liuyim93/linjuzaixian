@@ -34,7 +34,7 @@ namespace Friday.mvc.weblogin.dataresource
 
             BindingHelper.ObjectToControl(dataresource, this);
             this.SectionName.Value = dataresource.Section.Name;
-            
+            this.LoginName.Value = dataresource.LoginUser.LoginName;
            
 
         }

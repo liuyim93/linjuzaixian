@@ -58,13 +58,13 @@ namespace Friday.mvc.weblogin.dataresource {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Source;
         
         /// <summary>
-        /// Publisher 控件。
+        /// LoginName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Publisher;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText LoginName;
         
         /// <summary>
         /// AttachmentID 控件。

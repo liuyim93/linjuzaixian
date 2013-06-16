@@ -12,7 +12,7 @@ namespace friday.core.domain
     {
         public DataResource()
          {
-            DataAttachments=new Iesi.Collections.Generic.HashedSet<DataAttachment>();
+            //DataAttachments=new Iesi.Collections.Generic.HashedSet<DataAttachment>();
          }
         public virtual string Title
         {
@@ -27,11 +27,11 @@ namespace friday.core.domain
             set;
         }
 
-        public virtual string Publisher
-        {
-            get;
-            set;
-        }
+        //public virtual string Publisher
+        //{
+        //    get;
+        //    set;
+        //}
 
         public virtual CheckState CheckState
         {
@@ -57,11 +57,11 @@ namespace friday.core.domain
             set;
         }
 
-        public virtual Iesi.Collections.Generic.ISet<DataAttachment> DataAttachments
-        {
-            get;
-            set;
-        }
+        //public virtual Iesi.Collections.Generic.ISet<DataAttachment> DataAttachments
+        //{
+        //    get;
+        //    set;
+        //}
 
 
         public virtual Section Section

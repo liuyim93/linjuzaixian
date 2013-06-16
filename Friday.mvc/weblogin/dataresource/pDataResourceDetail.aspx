@@ -39,7 +39,7 @@
                     <p>
                     <label>
                             作者：</label>
-                        <input type="text" id="Publisher" size="30" class="textInput gray" runat="server" />
+                        <input type="text" id="LoginName" size="30" class="textInput gray" runat="server" />
                     </p>
                     
                  <p style="float:left;">

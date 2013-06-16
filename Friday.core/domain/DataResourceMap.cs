@@ -20,12 +20,12 @@ namespace friday.core.domain
             Map(o => o.CheckState).CustomType<CheckState>();
             Map(o => o.Title);
             Map(o => o.Description);
-            Map(o => o.Publisher);
+            //Map(o => o.Publisher);
             Map(o => o.Source);
             Map(o => o.TotalViews);
             Map(o => o.isHelp);
 
-            HasMany<DataAttachment>(o => o.DataAttachments).Cascade.All().Inverse();
+            //HasMany<DataAttachment>(o => o.DataAttachments).Cascade.All().Inverse();
             References<Section>(o => o.Section).Not.Nullable(); 
             References<LoginUser>(o => o.LoginUser).Not.Nullable();
        

@@ -49,6 +49,9 @@ namespace Friday.mvc.weblogin.dataresource
             IRepository<Section> u = new Repository<Section>();
 
             BindingHelper.RequestToObject(datar);
+ 
+
+
             string SID = Request.Params["SectionID"].ToString();
 
             datar.LoginUser =this.CurrentUser;//CU.UserInfo.LoginUser;
@@ -59,19 +62,19 @@ namespace Friday.mvc.weblogin.dataresource
 
             aer.SaveOrUpdate(datar);
 
-            string ID = this.AttachmentID.Value.ToString();
-            string[] attachIDS = ID.Split('&');
-            IRepository<DataAttachment> dar = new Repository<DataAttachment>();
-            DataAttachment da = new DataAttachment();
-            foreach (string i in attachIDS)
-            {
-                if (i != null && i != "")
-                {
-                    da = dar.Get(i);
-                    da.DataResource = datar;
-                    dar.SaveOrUpdate(da);
-                }
-            }
+            //string ID = this.AttachmentID.Value.ToString();
+            //string[] attachIDS = ID.Split('&');
+            //IRepository<DataAttachment> dar = new Repository<DataAttachment>();
+            //DataAttachment da = new DataAttachment();
+            //foreach (string i in attachIDS)
+            //{
+            //    if (i != null && i != "")
+            //    {
+            //        da = dar.Get(i);
+            //        da.DataResource = datar;
+            //        dar.SaveOrUpdate(da);
+            //    }
+            //}
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
