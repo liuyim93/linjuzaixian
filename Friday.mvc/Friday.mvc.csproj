@@ -170,6 +170,8 @@
     <Compile Include="Areas\OtherPage\Controllers\ShopRuleController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\OtherPage\Controllers\DataResourceController.cs" />
+    <Compile Include="Areas\OtherPage\Models\DataResourceModel.cs" />
     <Compile Include="Areas\OtherPage\OtherPageReaRegistration.cs" />
     <Compile Include="Areas\PersonalCenter\Models\PersonalCenterModel.cs" />
     <Compile Include="Areas\PersonalCenter\PersonalCenterAreaRegistration.cs" />
@@ -2584,7 +2586,6 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Areas\Message\Models\" />
     <Folder Include="Areas\Message\Views\Shared\" />
-    <Folder Include="Areas\OtherPage\Models\" />
     <Folder Include="Areas\PersonalCenter\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\Image\News\" />
@@ -2633,6 +2634,7 @@
     <Content Include="Areas\OtherPage\Views\ShopRule\Index.cshtml" />
     <Content Include="Areas\Order\Views\Shared\_OrderScript.cshtml" />
     <Content Include="Areas\Order\Views\Success\Index.cshtml" />
+    <Content Include="Areas\OtherPage\Views\DataResource\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />

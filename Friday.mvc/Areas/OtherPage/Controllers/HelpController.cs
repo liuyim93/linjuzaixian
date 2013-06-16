@@ -27,6 +27,8 @@ namespace Friday.mvc.Areas.OtherPage.Controllers
         {
  
 
+
+
             return View();
         }
 

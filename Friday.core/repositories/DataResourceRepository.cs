@@ -21,6 +21,11 @@ namespace friday.core.repositories
             var m = (from x in this.Session.Query<DataResource>() select x).Where(o => o.Title == name && o.IsDelete == false).SingleOrDefault();
             return m;
         }
+        public DataResource SearchBySectionName(string sectionName)
+        {
+            var m = (from x in this.Session.Query<DataResource>() select x).Where(o => o.Section.Name == sectionName && o.IsDelete == false).SingleOrDefault();
+            return m;
+        }
 
         protected virtual ICriteria Query
         {
