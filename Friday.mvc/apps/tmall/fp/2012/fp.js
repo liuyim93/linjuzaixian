@@ -83,6 +83,7 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
         },
         _initHeader: function() {
             var _dom_id_mallSearch = _kissy.get("#mallSearch");
+            debugger
             var _dom_id_mq = _kissy.get("#mq");
             var _pre_dom_id_mq = _dom.prev(_dom_id_mq);
             var D = function() {
