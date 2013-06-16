@@ -42,13 +42,13 @@
                         <input type="text" id="LoginName" size="30" class="textInput gray" runat="server" />
                     </p>
                     
-                 <p style="float:left;">
+               <%--  <p style="float:left;">
                      <a href="AttachmentUpload.aspx?type=AddDataResource" rel="Attachment"
                       target="dialog"><label style="color:Red;width:80px;">点击上传附件:</label></a> 
                      <label id="AttachmentName" style="color:Blue; width:223px; padding:0,0,0,0;"></label>
                      <input type="hidden" id="AttachmentID" class="textInput gray" runat="server" />
                  </p>
-              
+              --%>
                           
                  
                      <div style="  clear:left; width:80%; margin-top:0px" >
