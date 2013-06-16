@@ -1,4 +1,5 @@
-﻿<div id="header">
+﻿<script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
+<div id="header">
     <div class="headerCon">
         <!-- logo extra -->
         <h1 id="mallLogo">
@@ -14,6 +15,15 @@
                         搜索 邻居在线 商品</label>
                     <input type="text" name="keyword" id="mq" accesskey="s" tabindex="9" autocomplete="off"
                         autofocus="true" x-webkit-speech="" x-webkit-grammar="builtin:translate">
+                        <script type="text/javascript">
+                            $("#mq").bind("keydown", function () {
+                            debugger
+                                if ($("#mq").val() == "")
+                                { $("#mallSearch label").attr("style", "visibility: visible; color: rgb(102, 102, 102);") }
+                                else
+                                { $("#mallSearch label").attr("style", "visibility: hidden; color: rgb(102, 102, 102);") }
+                            })
+                        </script>
                     <button id="J_MallSearchBtn" type="submit">
                         搜索<s></s></button>
                     <input type="hidden" name="user_action" value="initiative">

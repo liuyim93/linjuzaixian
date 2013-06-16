@@ -45,7 +45,6 @@
                             )(''); @*http://dsc.taobaocdn.com/i7/160/460/16246683095/T16PMjXhpaXXcWeqbX.desc%7Cvar%5Edesc%3Bsign%5Edfaeeac7e9d73229598a43882448fc11%3Blang%5Egbk%3Bt%5E1362037988*@
     </script>
     
-    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
 	<link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
 	<link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css") />
 	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/base.css") />
@@ -61,8 +60,11 @@
     
     <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/other/attributes.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/recommend/waterfall.css") />
+            <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
 
 	<script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
     <script src=@Url.Content("/p/mall/base/global-v2.js")></script>    
     <script src=@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
@@ -83,28 +85,35 @@
 					</a>
 				</span>
 			</h1>
-			<div id="tmallSearch">
-				<form name="searchTop" action="" class="mallSearch-form">
-					<fieldset>
-						<legend>邻居在线搜索</legend>
-						<div class="mallSearch-input clearfix">
-							<label for="mq" style="visibility: visible;">搜索 邻居在线 商品/店铺</label>
-							<input type="text" name="q" data-current="" accesskey="s" autocomplete="off"
-                            x-webkit-speech="" x-webkit-grammar="builtin:translate" value="" id="mq">
-							<button id="J_CurrShopBtn" class="currShopBtn" type="button">
-								搜本店
-								<s></s>
-							</button>
-							<button id="J_SearchBtn" type="submit">
-								搜邻居在线
-								<s></s>
-							</button>
-							<input id="J_Type" type="hidden" name="type" value="p">
-							<input id="J_MallSearchStyle" type="hidden" name="style" value="">
-							<input id="J_Cat" type="hidden" name="cat" value="all"></div>
-					</fieldset>
-				</form>
-			</div>
+        <div id="mallSearch">
+            <form class="mallSearch-form" name="searchTop" target="_top" action="http://localhost:7525/Merchant/SearchProduct">
+            <fieldset>
+                <legend>邻居在线搜索</legend>
+                <div class="mallSearch-input clearfix">
+                    <label for="mq" style="visibility: visible; color: rgb(102, 102, 102);">
+                        搜索 邻居在线 商品</label>
+                    <input type="text" name="keyword" id="mq" accesskey="s" tabindex="9" autocomplete="off"
+                        autofocus="true" x-webkit-speech="" x-webkit-grammar="builtin:translate">
+                        <script type="text/javascript">
+                            $("#mq").bind("keydown", function () {
+                                debugger
+                                if ($("#mq").val() == "")
+                                { $("#mallSearch label").attr("style", "visibility: visible; color: rgb(102, 102, 102);") }
+                                else
+                                { $("#mallSearch label").attr("style", "visibility: hidden; color: rgb(102, 102, 102);") }
+                            })
+                        </script>
+                    <button id="J_MallSearchBtn" type="submit">
+                        搜索<s></s></button>
+                    <input type="hidden" name="user_action" value="initiative">
+                    <input type="hidden" name="at_topsearch" value="1">
+                    <input type="hidden" name="sort" value="st">
+                    <input id="J_Type" type="hidden" name="type" value="p">
+                    <input id="J_Cat" type="hidden" name="cat">
+                </div>
+            </fieldset>
+            <input id="J_MallSearchStyle" type="hidden" value="" name="style"></form>
+        </div>
 		</div>
 		<div class="headerNav">
 			<div class="headerNav-con">
