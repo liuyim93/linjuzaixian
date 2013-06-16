@@ -22,7 +22,7 @@ namespace Friday.mvc.weblogin.dataresource
 
         protected string startDate;
         protected string endDate;
-        protected string name;
+        protected string title;
         protected string matters;
         IDataResourceService iDataResourceService = UnityHelper.UnityToT<IDataResourceService>();
         protected void Page_Load(object sender, EventArgs e)
@@ -41,11 +41,11 @@ namespace Friday.mvc.weblogin.dataresource
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
-                    if (!string.IsNullOrEmpty(Request.Form["Name"]))
+                    if (!string.IsNullOrEmpty(Request.Form["Title"]))
                         filterList.Add(new DataFilter()
                         {
-                            type = "Name",
-                            value = name = Request.Form["Name"]
+                            type = "Title",
+                            value = title = Request.Form["Title"]
 
                         });
 
@@ -115,6 +115,12 @@ namespace Friday.mvc.weblogin.dataresource
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
             Response.End();
+        }
+        public string RcheckState(string checkStates)
+        {
+            string uncheckedimage = "../themes/img/001_11.gif";
+            string checkedimage = "../themes/img/001_06.gif";
+            return (checkStates == "no" ? uncheckedimage : checkedimage);
         }
 
     }

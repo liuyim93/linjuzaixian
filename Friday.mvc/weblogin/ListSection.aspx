@@ -36,6 +36,7 @@
         //ensure this function will be called delay until initUI called
         $(document).one("panelloaded", function (e, o) {
 
+            //alert("!!!");
             var dtree;
             var oObj;
             var a;
@@ -45,6 +46,7 @@
             oObj = o;
 
             a.click(function (event) {
+                //alert("!!!");
                 if (a.attr("href") == "" || a.attr("href") == undefined) {
                     alertMsg.error('请选择商品类型！');
                     return false;
@@ -66,7 +68,7 @@
                     d.theme = "bbit-tree-lines";
                     d.onnodeclick = function navi(item) {
 
-                        a.attr("href", "javascript:$.bringBack({GoodsType:'" + item.text + "',SectionID:'" + item.id + "'})");
+                        a.attr("href", "javascript:$.bringBack({SectionName:'" + item.text + "',SectionID:'" + item.id + "'})");
 
                     }
                     //点击触发事件

@@ -25,12 +25,13 @@
                     </p>
                     
                     <p>
-                    <label>
-                            所属板块：</label>
-                        <input type="text" id="SectionName" size="30" class="required textInput gray" runat="server" readonly="true"/>
-                        <a class="add" target="dialog" href="ListSection.aspx" rel="SectionGetList">选择</a>
-                        <input type="hidden" id="SectionID" size="30" class="required textInput gray" runat="server" value="12"/>
-                    </p>
+                   
+			      <label>所属板块：</label>
+                  <input type="text" id="SectionName" size="30" class="required textInput gray" runat="server" readonly="true"/>
+                
+                     <a class="btnLook" href="ListSection.aspx" rel="" lookupgroup="">选择类型</a>
+                  <input type="hidden" id="SectionID"   class="textInput gray" runat="server"/>
+                   </p>
                     
                     <p>
                         <label>
@@ -39,7 +40,7 @@
                     </p>
                     <p>
                     <label>
-                            原作者：</label>
+                            作者：</label>
                         <input type="text" id="Publisher" size="30" class="textInput gray" runat="server" />
                     </p>
                     

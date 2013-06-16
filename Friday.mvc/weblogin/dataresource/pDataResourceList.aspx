@@ -16,14 +16,18 @@
         <table class="searchContent">
            <tr>
                 <td>
-                    <label>活动名称:</label>
-                    <input  type="text" name="Name" class="textInput" value="<%=name %>"
+                    <label>标题:</label>
+                    <input  type="text" name="Title" class="textInput" value="<%=title %>"
                         value="" />
                 </td>
                 <td>
-                    <label>活动事项:</label>
-                    <input type="text" name="Matters" class="textInput" value="<%=matters %>"
-                        value="" />
+               
+			      <label>所属板块：</label>
+                  <input type="text" id="SectionName" size="30" class="required textInput gray" runat="server" readonly="true"/>
+                
+                     <a class="btnLook" href="ListSection.aspx" rel="" lookupgroup="">选择类型</a>
+                  <input type="hidden" id="SectionID"   class="textInput gray" runat="server"/>
+	 
                 </td>
             
             </tr>
@@ -65,12 +69,12 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="dataresource/pAddDataResource.aspx" title="添加活动" target="navTab" rel=""><span>
-            添加活动</span></a></li>
-        <li><a class="edit" href="dataresource/pEditDataResource.aspx?uid={id}" title="修改活动" rel="" target="navTab">
-            <span>修改活动</span></a></li>
+        <li><a class="add" href="dataresource/pAddDataResource.aspx" title="添加信息" target="navTab" rel=""><span>
+            添加信息</span></a></li>
+        <li><a class="edit" href="dataresource/pEditDataResource.aspx?uid={id}" title="修改信息" rel="" target="navTab">
+            <span>修改信息</span></a></li>
         <li><a class="delete" href="dataresource/pDataResourceList.aspx?flag=alldelete&uid={id}"
-            target="ajaxTodo" title="确定要删除吗?"><span>删除活动</span></a></li>
+            target="ajaxTodo" title="确定要删除吗?"><span>删除信息</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
@@ -79,20 +83,17 @@
         <asp:repeater id="repeater" runat="server">
                 <HeaderTemplate>
                 <thead>
-                <tr>
-                    <th width="10%" align="center">序 号</th>
-                        <th width="10%" align="center">活动编号</th>
-                         <th width="10%" align="center">活动名称</th>
-                              
-
-               <th width="10%" align="center">活动事项</th>
-          <%--                      <th width="10%" align="center">营业时间</th>     
-                    <th width="10%" align="center">email</th>
-                        <th width="10%" align="center">配送地址</th>
-                        <th width="10%" align="center">距离</th>
-                        <th width="10%" align="center">折扣</th>
-                        <th width="10%" align="center">创建时间</th>--%>
-                </tr>
+                  <tr>
+                       <th width="5%" align="center">序号</th>
+                        <th width="10%" align="center">ID</th>
+					   <th width="20%" align="center">标题</th> 
+					   <th width="10%" align="center">发布人</th> 
+					   <th width="10%" align="center">发布时间</th>
+					   <th width="17%" align="center">所属板块</th>
+					   <th width="18%" align="center">内容</th>
+			           <th width="10%" align="center">审核状态</th>
+		   	    
+                     </tr>
                 </thead>
                 <tbody> 
                 </HeaderTemplate>
@@ -103,16 +104,14 @@
                         <td><a href="dataresource/pDataResourceDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
                             </a>
                         </td>
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Name")%></td>                  
-                       
-
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Matters")%></td>
-                       <%--     <td align="center"><%#DataBinder.Eval(Container.DataItem, "ShopHours")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Email")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Address")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Distance")%></td> 
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "Rate")%></td>  
-                        <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime")%></td>   --%>                   
+                        <td><%#DataBinder.Eval(Container.DataItem, "Title")%></td>
+					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginUser.LoginName")%></td>
+					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime", "{0:yyyy-MM-dd}")%></td>
+					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Section.Name")%></td>
+					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Content")%></td>
+					   <td align="center"><img id="State" src="<%#RcheckState(Eval("CheckState").ToString())%>"/> </imag> </td>   <%----%>
+					 
+				                 
 				</tr>
 			      
             </ItemTemplate>

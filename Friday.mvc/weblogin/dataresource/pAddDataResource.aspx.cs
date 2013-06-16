@@ -10,6 +10,7 @@ using friday.core;
 using friday.core.components;
 using System.IO;
 using friday.core.services;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.dataresource
 {
@@ -41,18 +42,36 @@ namespace Friday.mvc.weblogin.dataresource
 
         private void SaveDataResource()
         {
-            DataResource act = new DataResource();
+             
+            IRepository<DataResource> aer = new Repository<DataResource>();
+            DataResource datar = new DataResource();
+            //CurrentUser CU = new CurrentUser();
+            IRepository<Section> u = new Repository<Section>();
 
-        
-            BindingHelper.RequestToObject(act);
+            BindingHelper.RequestToObject(datar);
+            string SID = Request.Params["SectionID"].ToString();
 
-            string fileoldName = "";
-            string fileExtension;
-            string filesnewName = "";
-            string[] fileInput = { "Image", "SubImage" };
-          
+            datar.LoginUser =this.CurrentUser;//CU.UserInfo.LoginUser;
+            datar.TotalViews = 0;
+            datar.CheckState = CheckState.no;
+            Section Sc = u.Load(SID);
+            datar.Section = Sc;
 
-            iDataResourceService.Save(act);
+            aer.SaveOrUpdate(datar);
+
+            string ID = this.AttachmentID.Value.ToString();
+            string[] attachIDS = ID.Split('&');
+            IRepository<DataAttachment> dar = new Repository<DataAttachment>();
+            DataAttachment da = new DataAttachment();
+            foreach (string i in attachIDS)
+            {
+                if (i != null && i != "")
+                {
+                    da = dar.Get(i);
+                    da.DataResource = datar;
+                    dar.SaveOrUpdate(da);
+                }
+            }
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
