@@ -301,7 +301,7 @@
                                         data: "{'nvls':[{'name':'id','value':'0'}]}",
                                         dataType: "json",
                                         success: function (data) {
-                                            debugger
+                                            //debugger
                                             var da = eval("(" + data.d + ")");
                                             updateAfterList(0,0);
                                         }
@@ -316,7 +316,7 @@
                                         data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
                                         dataType: "json",
                                         success: function (data) {
-                                            debugger
+                                            //debugger
                                             var da = eval("(" + data.d + ")");
                                             if (da.length != 0) {
                                                 $("#Address_div").append("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>");
@@ -344,7 +344,7 @@
                                 }
 
                                 function deleteAfterList(level) {
-                                    debugger
+                                    //debugger
                                     var sumSelect = $("#Address_div select");
                                     for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
                                         $(sumSelect[i]).remove();

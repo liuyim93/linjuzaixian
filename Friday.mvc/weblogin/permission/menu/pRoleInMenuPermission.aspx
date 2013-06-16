@@ -73,14 +73,14 @@
     $(function () {
         var prefix = '<%=Request.Params["prefix"]%>';
 
-        debugger
+        //debugger
 
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
         //ensure this function will be called delay until initUI called
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
+            //debugger
             var $divTree = o.find("#divTree");
             var $form = o.find("#form");
 

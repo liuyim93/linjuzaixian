@@ -140,7 +140,7 @@
                     }
                 },
                 commonAdd: function (a, b) {
-                debugger
+                //debugger
                     var Y = this;
                     var S = 0;
                     if ("string" === typeof a.add) {
@@ -1225,7 +1225,7 @@
             return Ag
         });
         KISSY.add("TMiniCart", function (N, M, L) {
-            debugger
+            //debugger
 
             var O = N.DOM,
                  K = N.Event,

@@ -97,7 +97,7 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
+            //debugger
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
                 o.find("#form").bind("submit", function (e) {

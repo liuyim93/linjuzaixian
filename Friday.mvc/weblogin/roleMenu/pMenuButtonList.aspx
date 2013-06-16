@@ -40,7 +40,7 @@
 
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
+            //debugger
 
             var node_click_url = "roleMenu/pEditMenuButton.aspx";
 

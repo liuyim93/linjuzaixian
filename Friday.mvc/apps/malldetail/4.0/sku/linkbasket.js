@@ -11,7 +11,7 @@
             }
             O(function () {
                 _kissy_A.use("TMiniCart", function () {
-                debugger
+                //debugger
                     _event.on(_linkBasket, "click", _linkBasket_click_handler)
                 })
             })
@@ -24,7 +24,7 @@
             }
             var U = 0;
             var S = function () {
-                debugger
+                //debugger
                 if (U < 1000) {
                     if (typeof window.TMiniCart == "undefined") {
                         U++;
@@ -67,7 +67,7 @@
             })
         }
         function _linkBasket_click_handler(_e) {
-            debugger
+            //debugger
             _e.preventDefault();
             var _target = _e.target;
             var _linkBasket_t = this;
@@ -78,7 +78,7 @@
                 return
             }
             var S = function () {
-                debugger
+                //debugger
                 _dom.addClass(_linkBasket_t, "tb-act");
                 _kissy_A.sendAtpanel("tmalljy.1.1", { shopid: _cfg.rstShopId, itemid: _cfg.itemDO.itemId, pos: "detailclickadd" });
                 if (L || !_malldetail_sku_validator.run(true) || !_mods_SKU.dqCity.getOrder()) {

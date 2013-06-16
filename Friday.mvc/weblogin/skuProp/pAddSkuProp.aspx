@@ -76,7 +76,7 @@
             var PropValue = o.find("#PropValue");
 
             o.find("#PropID").change(function (event) {
-                debugger
+                //debugger
                 var dataStr = "{'nvls':[{'name':'propID','value':'" + propID.val() + "'}]}";
                 $.ajax({
                     type: "POST",
@@ -85,7 +85,7 @@
                     data: dataStr,
                     url: "skuProp/pAddSkuProp.aspx/GetPropValue?t=" + (new Date().getTime()),
                     success: function (result) {
-                        debugger
+                        //debugger
                         if (result == null) return;
                         if (result.d != null) {
                             var items = eval(result.d);

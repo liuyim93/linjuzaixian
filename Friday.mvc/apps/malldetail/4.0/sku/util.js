@@ -82,7 +82,7 @@
     } 
     });
 function _getTrackID(N) {
-    debugger
+    //debugger
     //var M = _kissy_imp.cfg("url").tbskip + "/json/get_tb_ck_ps.htm";
     var M = "http://localhost:7525/member/get_tb_ck_ps.do";
         _kissy.use("cookie", function (P, O) {

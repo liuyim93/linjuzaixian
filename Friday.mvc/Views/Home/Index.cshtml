@@ -106,7 +106,7 @@
             });
 
             function init() {
-            debugger
+            //debugger
              @{  
                 <text>              
                 var loginState = "@Model.LoginStateFamily[0]"; 
@@ -134,7 +134,7 @@
                     </text>             
                   }
                   var userFamilyArray = userFamily.split(',');
-                  debugger
+                  //debugger
                   updateOneList(0, 0, userFamilyArray[0],userFamilyArray);
 
               }
@@ -152,7 +152,7 @@
                     data: "{'nvls':[{'name':'id','value':'" + parentid + "'}]}",
                     dataType: "json",
                     success: function (data) {
-                        debugger
+                        //debugger
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
                             if(level==0)
@@ -200,10 +200,10 @@
                     data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
                     dataType: "json",
                     success: function (data) {
-                        debugger
+                        //debugger
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
-                        debugger
+                        //debugger
                             if(level==0)
                             {
                                 $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton");
@@ -245,7 +245,7 @@
             }
 
             function deleteAfterList(level) {
-                debugger
+                //debugger
                 var sumSelect = $("#sn-bd select");
                 for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
                     $(sumSelect[i]).remove();

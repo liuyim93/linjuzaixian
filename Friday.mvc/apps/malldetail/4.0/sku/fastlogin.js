@@ -109,7 +109,7 @@
         var _fastbuy_cfg = _kissy_D.mix({ fastbuy: true }, _fastbuy_cfg_t);
         var _frmBid = _cfg.frmBid;
         _cookie.remove("cookie2", "");
-            debugger
+            //debugger
 
         _kissy_D.getScript(_buy_url + "&t=" + _kissy_D.now(), { success: function () {
             var _login_indicator = _window.login_indicator;

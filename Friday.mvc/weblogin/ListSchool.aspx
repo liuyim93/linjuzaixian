@@ -57,7 +57,7 @@
                 data: "{'nvls':[{'name':'id','value':'0'}]}",
                 dataType: "json",
                 success: function (data) {
-                    debugger
+                    //debugger
                     var d = { showcheck: false };
                     var da = eval("(" + data.d + ")");
                     d.data = da;

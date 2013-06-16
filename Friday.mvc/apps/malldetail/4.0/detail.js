@@ -24,7 +24,7 @@
          }
     );
     _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: _url + "/p/shop/3.0/", charset: "utf-8"}] });
-    debugger
+    //debugger
     TShop = _kissy;
     _kissy.add("tb-core", function () {
     });

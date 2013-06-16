@@ -172,7 +172,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             _kissy_imp.use("malldetail/sku/double11", function (x, y) {
                 y.init(_defaultMode.detailPageTipsDO, _defaultMode.tradeResult, _defaultMode.itemPriceResultDO, _defaultMode.miscDO)
             });
-            debugger
+            //debugger
             _form_plugin_init(_defaultMode);
             _malldetail_sku_freight.init(_defaultMode.deliveryDO);
             _malldetail_sku_stock.init(_defaultMode);
@@ -205,7 +205,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             return _form_plugin_init(_defaultMode)
         };
         _malldetail_data_data.setMdskipTimeout(_sku_cfg.noSkipMode.timeout || 3000);
-        debugger
+        //debugger
         _malldetail_data_data.onModel(function (_defaultModel) {
             if (_defaultModel.isSuccess) {
                 _set_valItemInfo_type_and_skuQuantity(_defaultModel.inventoryDO)
@@ -571,7 +571,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         var T = "http://localhost:7525/Account/Home/token?t=20121104"
         var v = _dom.create('<iframe style="display:none" width="0" onload="_TShop.mods.Token.getIfrToken(this);" height="0" src="' + T + '"></iframe>');
         //2013-06-02 basilwang don't use this;
-        debugger
+        //debugger
         //_document.domain = _document.domain.split(".").slice(-2).join(".");
         _body.insertBefore(v, _body.firstChild);
     }, onInited: function (_token_inited_callback_fn) {
@@ -583,7 +583,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
         }
     }, getIfrToken: function (z) {
-        debugger
+        //debugger
         var y = null;
         var _token = this;
         var S = function () {
