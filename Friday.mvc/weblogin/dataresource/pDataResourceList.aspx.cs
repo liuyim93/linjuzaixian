@@ -41,6 +41,7 @@ namespace Friday.mvc.weblogin.dataresource
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
+                    List<DataFilter> sectionFilterList = new List<DataFilter>();
                     if (!string.IsNullOrEmpty(Request.Form["Title"]))
                         filterList.Add(new DataFilter()
                         {
@@ -49,14 +50,21 @@ namespace Friday.mvc.weblogin.dataresource
 
                         });
 
-                    if (!string.IsNullOrEmpty(Request.Form["Matters"]))
+                    if (!string.IsNullOrEmpty(Request.Form["SectionID"]))
+                       {
+                           sectionFilterList.Add(new DataFilter()
+                           {
+                               type = "Section",
+                               value = Request.Form["SectionID"]
+
+                           });
                         filterList.Add(new DataFilter()
                         {
-                            type = "Matters",
-                            value = matters = Request.Form["Matters"]
+                            type = "Section",
+                            field = sectionFilterList
 
                         });
-                    
+                       }
                     var filter = new DataFilter();
                     if (!string.IsNullOrEmpty(Request.Form["StartDate"]))
                     {

@@ -672,9 +672,9 @@ namespace friday.core.repositories
                 foreach (DataFilter df in termList)
                 {
 
-                    if (df.type.Equals("SectionID"))
+                    if (df.type.Equals("Section"))
                     {
-                        query.Add(Restrictions.Eq(notself + "SectionID", Convert.ToInt32(df.value)));
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
                         continue;
                     }
 
@@ -722,10 +722,36 @@ namespace friday.core.repositories
 
                 foreach (DataFilter df in termList)
                 {
-
-                    if (df.type.Equals("DataResourceID"))
+                    if (df.type.Equals("IsDelete"))
                     {
-                        query.Add(Restrictions.Eq(notself + "DataResourceID", Convert.ToInt32(df.value)));
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("DataResource"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id",df.value));
+                        continue;
+                    }
+                    if (df.type.Equals("Title"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Title", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Section"))
+                    {
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySection(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
                         continue;
                     }
 

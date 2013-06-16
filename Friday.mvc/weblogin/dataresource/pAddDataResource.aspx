@@ -53,7 +53,7 @@
               
                           
                  
-                     <div style="  clear:left; width:80%; margin-top:160px" >
+                     <div style="  clear:left; width:80%; margin-top:0px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
