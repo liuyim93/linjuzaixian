@@ -138,12 +138,13 @@ namespace Friday.mvc.Areas.Account.Controllers
         {
             return View();
         }
-        public ActionResult buy_do()
+        public ActionResult buy_do(string id)
         {
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             string script;
             if (systemUser == null)
             {
+                //return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/Merchant/Detail?brandId="+id);
                 script = "login_indicator={\"hasLoggedIn\":false,\"token\":[],\"success\":true,\"fastBuy\":false}";
             }
             else
@@ -226,6 +227,28 @@ namespace Friday.mvc.Areas.Account.Controllers
                 return JavaScript("_initMemberInfoCallback({\"activeStatus\":1,\"availablePoints\":49,\"cookies\":{\"unb\":{\"value\":\"123072695\"},\"t\":{\"value\":\"b51c4d9982326f833d5f06da00ecf6fd\"},\"uc1\":{\"value\":\"lltime=1368367577&cookie14=UoLa9HWrdaKEMQ%3D%3D&existShop=true&cookie16=Vq8l%2BKCLySLZMFWHxqs8fwqnEw%3D%3D&cookie21=URm48syIYn73&tag=1&cookie15=URm48syIIVrSKA%3D%3D\"}},\"expiredPoints\":0,\"lastMessage\":\"\",\"lastMessageId\":0,\"lastMessageType\":1,\"lastMessageUrl\":\"http://vip.tmall.com/vip/message_box.htm?from=messagebox&msg_id=0\",\"login\":true,\"mallSeller\":false,\"messagePopup\":true,\"newMessage\":0,\"newMsgList\":null,\"taskId\":\"\"});");
 
             }
-        } 
+        }
+        public ActionResult query_member_for_detail(string callback)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+
+            if (systemUser == null)
+            {
+                return JavaScript(callback+"({\"activeStatus\":-2,\"birth\":\"\",\"inBirthWeek\":false,\"login\":false,\"props\":{}});");
+            }
+            else
+            {
+                return JavaScript(callback + "({\"activeStatus\":-2,\"birth\":\"\",\"inBirthWeek\":false,\"login\":true,\"props\":{}});");
+
+            }
+        }
+
+        public ActionResult get_tb_ck_ps(string callback)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+
+            return JavaScript("TShop.BTrackID={\"ct\":\"61963ff639b0b7631697646773e36d1b\"};");
+
+        }
     }
 }

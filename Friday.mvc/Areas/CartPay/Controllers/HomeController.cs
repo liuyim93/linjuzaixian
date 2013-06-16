@@ -380,6 +380,88 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             return JavaScript(script);
         }
 
+        public ActionResult addCartItems(string callback, string add)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            if (systemUser == null)
+            {
+                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/CartPay/Home/MyCartPay");
+            }
+
+            var ser = new DataContractJsonSerializer(typeof(DetailFormData));
+            var ms = new MemoryStream(Encoding.UTF8.GetBytes(add));
+            DetailFormData formData = (DetailFormData)ser.ReadObject(ms);
+            DetailFormDataItem detailFormDataItem = formData.items.SingleOrDefault();
+
+            friday.core.CartOfCommodity cartOfCommodity = null;
+            friday.core.Commodity commodity = iCommodityService.Load(detailFormDataItem.itemId);
+            friday.core.domain.Sku sku = iSkuService.getSkubyIntID(detailFormDataItem.skuId);
+            ShoppingCart shoppingCart = iShoppingCartService.getShoppingCartBySystemUserAndMerchant(systemUser.Id, commodity.Shop.Id);
+
+            if (shoppingCart == null)
+            {
+                shoppingCart = new ShoppingCart()
+                {
+                    SystemUser = systemUser,
+                    Shop = commodity.Shop,
+                    Price = Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price
+                };
+                iShoppingCartService.Save(shoppingCart);
+
+                cartOfCommodity = new friday.core.CartOfCommodity();
+                cartOfCommodity.Amount = Convert.ToInt16(detailFormDataItem.quantity);
+                cartOfCommodity.Sku = sku;
+                cartOfCommodity.Commodity = commodity;
+                cartOfCommodity.Price = Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price;
+                cartOfCommodity.ShoppingCart = shoppingCart;
+            }
+            else
+            {
+                shoppingCart.Price = shoppingCart.Price + Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price;
+                iShoppingCartService.Save(shoppingCart);
+
+                cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, detailFormDataItem.skuId, false);
+                if (cartOfCommodity == null)
+                {
+                    cartOfCommodity = new friday.core.CartOfCommodity();
+                    cartOfCommodity.Amount = Convert.ToInt16(detailFormDataItem.quantity);
+                    cartOfCommodity.Sku = sku;
+                    cartOfCommodity.Commodity = commodity;
+                    cartOfCommodity.Price = Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price;
+                    cartOfCommodity.ShoppingCart = shoppingCart;
+                }
+                else
+                {
+                    cartOfCommodity.Amount = cartOfCommodity.Amount + Convert.ToInt16(detailFormDataItem.quantity);
+                    cartOfCommodity.Price = cartOfCommodity.Amount * commodity.Price;
+                }
+            }
+
+            iCartOfCommodityService.Save(cartOfCommodity);
+
+
+
+            int quantity = Convert.ToInt16(detailFormDataItem.quantity);
+            string token = Guid.NewGuid().ToString();
+            string cartNum = Guid.NewGuid().ToString();
+            var results = new
+            {
+                success = true,
+                cartNum = cartNum,
+                sss = new
+                {
+                    token = token,
+                    quantity = quantity
+                }
+            };
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = results;
+            string json = jsonResult.FormatResult();
+            string script = callback + "(" + json + ")";
+
+            return JavaScript(script);
+        }
+
         public ActionResult add_collection_for_cart(string callback, string itemSkuList)
         {
             MyFavorite myFavorite = new MyFavorite();

@@ -365,7 +365,7 @@ TB.add("mod~global", function () {
             function _create_panel_for_B2B_user() {
                 //2013-03-07 basilwang use our own domain
                 //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/overlay/css/overlay-min.css?t=20120903");
-                _kissy.getScript("http://" + _own_domain + "apps/tmall/tml/1.0/tml/overlay/css/overlay.css");
+                _kissy.getScript("http://" + _own_domain + "/apps/tmall/tml/1.0/tml/overlay/css/overlay.css");
                 var _div_for_mask = document.createElement("div");
                 _div_for_mask.className = "tml-ext-mask tml-mask-b2b";
                 _div_for_mask.innerHTML = "<!--[if lte IE 6.5]><iframe></iframe><![endif]-->";
@@ -810,11 +810,13 @@ TB.add("mod~global", function () {
     }, miniBag: function () {
         TB.Global.loginStatusReady(function (_userinfo) {
             var i = _kissy.unparam(_get_user_cookie_value("cq"));
+            debugger
             if (!_userinfo.isLogin) {
                 i.ccp = "1";
                 R("cq", _kissy.param(i), 365);
                 TB.Global.initMiniBag()
             } else {
+                debugger
                 if (_userinfo.isLogin && i && i.ccp === "1") {
                     TB.Global.initMiniBag();
                     window._syncCallback = function (q) {
@@ -836,6 +838,7 @@ TB.add("mod~global", function () {
             }
         })
     }, initMiniBag: function () {
+    debugger
         if (window.g_config.closeMiniBag || _if_we_can_try() || _tmall_config.commonJS.miniBag.off) {
             TB.Global.initMiniCart();
             return
