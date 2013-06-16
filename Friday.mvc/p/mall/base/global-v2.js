@@ -810,11 +810,13 @@ TB.add("mod~global", function () {
     }, miniBag: function () {
         TB.Global.loginStatusReady(function (_userinfo) {
             var i = _kissy.unparam(_get_user_cookie_value("cq"));
+            debugger
             if (!_userinfo.isLogin) {
                 i.ccp = "1";
                 R("cq", _kissy.param(i), 365);
                 TB.Global.initMiniBag()
             } else {
+                debugger
                 if (_userinfo.isLogin && i && i.ccp === "1") {
                     TB.Global.initMiniBag();
                     window._syncCallback = function (q) {

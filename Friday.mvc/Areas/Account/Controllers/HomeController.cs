@@ -242,5 +242,13 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             }
         }
+
+        public ActionResult get_tb_ck_ps(string callback)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+
+            return JavaScript("TShop.BTrackID={\"ct\":\"61963ff639b0b7631697646773e36d1b\"};");
+
+        }
     }
 }

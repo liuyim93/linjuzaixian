@@ -25,7 +25,7 @@
     );
     _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: _url + "/p/shop/3.0/", charset: "utf-8"}] });
     debugger
-    _TShop = _kissy;
+    TShop = _kissy;
     _kissy.add("tb-core", function () {
     });
     _kissy.add("backward/Tabs", function (_kissy_imp, _switchable) {
@@ -281,33 +281,33 @@
                 })
             },
             onMainBody: function () {
-                var _arguments = arguments, _onMainBody = _TShop.onMainBody;
+                var _arguments = arguments, _onMainBody = TShop.onMainBody;
                 _kissy.use("malldetail/common/util", function (_kissy_imp_t, _malldetail_common_util) {
-                    if (_onMainBody != _TShop.onMainBody) {
+                    if (_onMainBody != TShop.onMainBody) {
                         return
                     }
-                    _TShop.onMainBody = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
+                    TShop.onMainBody = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
                         _kissy_imp_t.use("malldetail/other/mainBody", function (_kissy_imp_t_t, _malldetail_other_mainBody) {
                             _malldetail_other_mainBody.init({ onTabBarReady: function () {
-                                _TShop.poc("tabbar")
+                                TShop.poc("tabbar")
                             }
                             });
                             _filter_pipeline_dry_fn(_malldetail_other_mainBody)
                         })
                     });
-                    _TShop.onMainBody.apply(null, _arguments)
+                    TShop.onMainBody.apply(null, _arguments)
                 })
             },
             onLeftSlide: function () {
-                var _arguments = arguments, _leftSlide = _TShop.onLeftSlide;
+                var _arguments = arguments, _leftSlide = TShop.onLeftSlide;
                 _kissy.use("malldetail/common/util", function (_kissy_J, _malldetail_common_util) {
-                    if (_leftSlide != _TShop.onLeftSlide) {
+                    if (_leftSlide != TShop.onLeftSlide) {
                         return
                     }
-                    _TShop.onLeftSlide = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
+                    TShop.onLeftSlide = _malldetail_common_util.createLoader(function (_filter_pipeline_dry_fn) {
                         _kissy_J.use("malldetail/other/leftSlide", function (_kissy_N, _malldetail_other_leftSlide) {
                             _malldetail_other_leftSlide.init({ onReviewClick: function () {
-                                _TShop.onMainBody(function (_mainbody_o) {
+                                TShop.onMainBody(function (_mainbody_o) {
                                     _mainbody_o.switchTab("J_Reviews")
                                 })
                             }
@@ -315,13 +315,13 @@
                             _filter_pipeline_dry_fn(_malldetail_other_leftSlide)
                         })
                     });
-                    _TShop.onLeftSlide.apply(null, _arguments)
+                    TShop.onLeftSlide.apply(null, _arguments)
                 })
             },
             loadMdskip: function (_url) {
                 function _onMdskip(_defaultModelObject) {
                     window.onMdskip = null;
-                    _TShop.mdskipCallback = _TShop.mdskipCallback ? _TShop.mdskipCallback(_defaultModelObject, _now ? (_kissy.now - _now) : -1) : function (_data_setMdskip) {
+                    TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(_defaultModelObject, _now ? (_kissy.now - _now) : -1) : function (_data_setMdskip) {
                         _data_setMdskip(_defaultModelObject, _now ? (_kissy.now - _now) : -1)
                     }
                 }
@@ -343,7 +343,7 @@
                 _kissy.namespace("mods.SKU");
                 _kissy.loadMdskip(_config.initApi);
                 _kissy.use(["event", "malldetail/data/data", "cookie", "datalazyload", "swf", "malldetail/sku/setup", "mod~global"], function (_kissy_m, _event, _malldetail_data_data) {
-                    _TShop.mdskipCallback = _TShop.mdskipCallback ? _TShop.mdskipCallback(_malldetail_data_data.setMdskip) : _malldetail_data_data.setMdskip;
+                    TShop.mdskipCallback = TShop.mdskipCallback ? TShop.mdskipCallback(_malldetail_data_data.setMdskip) : _malldetail_data_data.setMdskip;
                     _event.on(_document, "click tap", function (_e) {
                         var N = _kissy_m.bdClickFn || [];
                         for (var M = 0, L = N.length; M < L; M++) {
@@ -353,10 +353,10 @@
                     TB.Global.writeLoginInfo();
                     _kissy_m.mix(_kissy_m, _kissy_m.EventTarget);
                     _config.onBuyEnable = function () {
-                        _TShop.poc("buyEnable")
+                        TShop.poc("buyEnable")
                     };
                     _config.onReviewClick = function () {
-                        _TShop.onMainBody(function (L) {
+                        TShop.onMainBody(function (L) {
                             L.switchTab("J_Reviews")
                         })
                     };
@@ -501,7 +501,7 @@
         _document.domain = _domain_split_array.slice(_domain_split_array.length - 2).join(".")
     } catch (D) {
     }
-    _TShop.poc = function (H) {
+    TShop.poc = function (H) {
         var _window = window;
         var _g_config = _window.g_config;
         if (_g_config.offlineShop || _g_config.isOfflineShop) {
@@ -512,7 +512,7 @@
         }
         (_window._poc = _window._poc || []).push(["_trackCustomTime", "tt_" + H, new Date().valueOf()])
     };
-    _TShop.initFoot = function (_foot_cfg) {
+    TShop.initFoot = function (_foot_cfg) {
         _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (_kissy_imp_t_x, _dom, _malldetail_common_util) {
             _malldetail_common_util.initHover();
             //            _malldetail_common_util.loadAssets("apps/tmall/common/tgallery.js?t=20121028");
@@ -533,7 +533,7 @@
                 ((_urlparams.on_comment == 1
                     || -1 !== location.href.indexOf("rate_detail.htm")) ? "reviews" : "");
             if (_is_selected) {
-                _TShop.onMainBody(function (_malldetail_other_mainBody) {
+                TShop.onMainBody(function (_malldetail_other_mainBody) {
                     _malldetail_other_mainBody.switchTab(_is_selected)
                 })
             }
@@ -543,15 +543,15 @@
                     if (_dom_layout.nodeType != 1) {
                         continue
                     }
-                    _TShop.addLazyCallback(_dom_layout, function () {
-                        _TShop.onMainBody()
+                    TShop.addLazyCallback(_dom_layout, function () {
+                        TShop.onMainBody()
                     })
                 }
             }
-            _TShop.addLazyCallback(_dom.get(".col-sub", "#content"), function () {
-                _TShop.onLeftSlide()
+            TShop.addLazyCallback(_dom.get(".col-sub", "#content"), function () {
+                TShop.onLeftSlide()
             });
-            _TShop.use("malldetail/dc/dc", function (_kissy_U, _malldetail_dc_dc) {
+            TShop.use("malldetail/dc/dc", function (_kissy_U, _malldetail_dc_dc) {
                 var _TMD_Config_t = _kissy_U._TMD_Config,
                     _dc_cfg = { assetsHost: _url, pageType: "tmalldetail", lazyContainers: ["#hd"] };
                 if (_TMD_Config_t && _TMD_Config_t.itemDO) {
@@ -559,7 +559,7 @@
                 }
                 _malldetail_dc_dc.init({ wangpuConfig: _dc_cfg })
             });
-            _TShop.use("malldetail/other/init", function (_kissy_Q) {
+            TShop.use("malldetail/other/init", function (_kissy_Q) {
                 _kissy_Q.mix(_kissy_Q, _kissy_Q.EventTarget);
                 _kissy_Q.mods.footinit.init()
             });
@@ -585,7 +585,7 @@
                 })
             }
             if (_foot_cfg.showRelativeSpus) {
-                _TShop.onLeftSlide(function (Q) {
+                TShop.onLeftSlide(function (Q) {
                     Q.initRelative(_foot_cfg)
                 }, 0)
             }
@@ -600,7 +600,7 @@
                 })
             }
             if (_foot_cfg.showTryDetail) {
-                _TShop.onMainBody(function (Q) {
+                TShop.onMainBody(function (Q) {
                     Q.showTryDetail()
                 }, 0)
             }
