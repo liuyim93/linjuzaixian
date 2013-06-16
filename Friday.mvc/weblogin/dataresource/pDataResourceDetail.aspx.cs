@@ -33,6 +33,8 @@ namespace Friday.mvc.weblogin.dataresource
             dataresource = iDataResourceService.Load(uid);
 
             BindingHelper.ObjectToControl(dataresource, this);
+            this.SectionName.Value = dataresource.Section.Name;
+            
            
 
         }

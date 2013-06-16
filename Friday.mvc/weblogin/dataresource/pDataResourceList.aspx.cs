@@ -42,6 +42,12 @@ namespace Friday.mvc.weblogin.dataresource
 
                     List<DataFilter> filterList = new List<DataFilter>();
                     List<DataFilter> sectionFilterList = new List<DataFilter>();
+                   
+                      filterList.Add(new DataFilter()
+                      {
+                        type = "IsDelete",                    
+
+                       });
                     if (!string.IsNullOrEmpty(Request.Form["Title"]))
                         filterList.Add(new DataFilter()
                         {

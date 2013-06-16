@@ -19,7 +19,7 @@ namespace friday.core.domain
             Map(o => o.Version);
             Map(o => o.CheckState).CustomType<CheckState>();
             Map(o => o.Title);
-            Map(o => o.Content);
+            Map(o => o.Description);
             Map(o => o.Publisher);
             Map(o => o.Source);
             Map(o => o.TotalViews);

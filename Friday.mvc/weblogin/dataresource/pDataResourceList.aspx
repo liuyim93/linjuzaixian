@@ -108,7 +108,7 @@
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "LoginUser.LoginName")%></td>
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime", "{0:yyyy-MM-dd}")%></td>
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Section.Name")%></td>
-					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Content")%></td>
+					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>
 					   <td align="center"><img id="State" src="<%#RcheckState(Eval("CheckState").ToString())%>"/> </imag> </td>   <%----%>
 					 
 				                 

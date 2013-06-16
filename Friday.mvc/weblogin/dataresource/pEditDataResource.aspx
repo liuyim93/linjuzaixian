@@ -17,51 +17,42 @@
             <h1>
                 基本信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
-           <p>
-                <label>
-                    活动名称：</label>
-                <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
-            </p>
-            <p>
-                <label>
-                    活动事项：</label>
-                <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
-            </p>
           <p>
-              <p>
-                <label>
-                    背景图片上传：</label>
-          
-                <input id="Image" type="file" class="required textInput gray" runat="server" />
-                   </p><p>
-            <span style="color: red; width:300px">
-                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
-            </span>  
-            </p>
-            </p>
-             <p style="margin-left:20px;height:40px">
-                <img id="ImagePreview" runat="server"  style=" width:120px; height:100px" />
-            </p>
-
-            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
-           <p>
-              <p>
-                <label>
-                    标题图片上传：</label>
-          
-                <input id="SubImage" type="file" class="required textInput gray" runat="server" />
-                   </p><p>
-            <span style="color: red; width:300px">
-                请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
-            </span>  
-            </p>
-            </p>
-             <p style="margin-left:20px;height:40px">
-                <img id="SubImagePreview" runat="server"  style=" width:120px; height:100px" />
-            </p>         
-            <p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p><p></p>
-
-         <div style="  clear:left; width:80%; margin-top:160px" >
+                     <label>
+                            资讯标题：</label>
+                      <input type="text" id="Title" size="30" class="required textInput gray" runat="server" />
+                    </p>
+                    
+                    <p>
+                   
+			      <label>所属板块：</label>
+                  <input type="text" id="SectionName" size="30" class="required textInput gray" runat="server" readonly="true"/>
+                
+                     <a class="btnLook" href="ListSection.aspx" rel="" lookupgroup="">选择类型</a>
+                  <input type="hidden" id="SectionID"   class="textInput gray" runat="server"/>
+                   </p>
+                    
+                    <p>
+                        <label>
+                            信息来源：</label>
+                        <input type="text" id="Source" size="30" class="textInput gray" runat="server" />
+                    </p>
+                    <p>
+                    <label>
+                            作者：</label>
+                        <input type="text" id="Publisher" size="30" class="textInput gray" runat="server" />
+                    </p>
+                    
+                 <p style="float:left;">
+                     <a href="AttachmentUpload.aspx?type=AddDataResource" rel="Attachment"
+                      target="dialog"><label style="color:Red;width:80px;">点击上传附件:</label></a> 
+                     <label id="AttachmentName" style="color:Blue; width:223px; padding:0,0,0,0;"></label>
+                     <input type="hidden" id="AttachmentID" class="textInput gray" runat="server" />
+                 </p>
+              
+                          
+                 
+                     <div style="  clear:left; width:80%; margin-top:0px" >
              <p>
                  <label>详细内容：</label>
              <div style="   width:100%; ">
@@ -70,6 +61,7 @@
                 </p>
                   
        </div>
+           <p style="height:1px;"></p>
     
         </div>
                 <div class="formBar">

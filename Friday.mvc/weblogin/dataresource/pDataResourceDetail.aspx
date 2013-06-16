@@ -7,8 +7,7 @@
         <div class="tabsHeaderContent">
           <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
-                <li><a href="#"><span>相关事件</span></a></li>
-                <li><a href="#"><span>详细内容</span></a></li>
+       
       
       
            </ul>
@@ -17,38 +16,51 @@
     <div class="tabsContent" style="height: 250px;">
          <div>
              <input type="hidden" id="Hidden1" size="30" runat="server" />
-           <p>
-                <label>
-                    活动名称：</label>
-                <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
-            </p>
-           
-         </div>
-
-
-         <div>
           <p>
-                <label>
-                    活动事项：</label>
-                <input type="text" id="Matters" size="30" class="required textInput gray" runat="server" />
-            </p>
-           <p style="margin-left:20px;height:40px">
-                <img id="ImagePreview" runat="server" style=" width:240px; height:200px"  />
-            </p>
-         </div>
-
-         <div>
-            <div style="clear: left; width: 80%; margin-top: 0px; margin-bottom: 60px;">
-                <p>
+                     <label>
+                            资讯标题：</label>
+                      <input type="text" id="Title" size="30" class="required textInput gray" runat="server" />
+                    </p>
+                    
+                    <p>
+                   
+			      <label>所属板块：</label>
+                  <input type="text" id="SectionName" size="30" class="required textInput gray" runat="server" readonly="true"/>
+                
+                     <a class="btnLook" href="ListSection.aspx" rel="" lookupgroup="">选择类型</a>
+                  <input type="hidden" id="SectionID"   class="textInput gray" runat="server"/>
+                   </p>
+                    
+                    <p>
+                        <label>
+                            信息来源：</label>
+                        <input type="text" id="Source" size="30" class="textInput gray" runat="server" />
+                    </p>
+                    <p>
                     <label>
-                        详细内容：</label>
-                    <div style="width: 100%;">
-                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
-                            runat="server"></textarea>
-                    </div>
+                            作者：</label>
+                        <input type="text" id="Publisher" size="30" class="textInput gray" runat="server" />
+                    </p>
+                    
+                 <p style="float:left;">
+                     <a href="AttachmentUpload.aspx?type=AddDataResource" rel="Attachment"
+                      target="dialog"><label style="color:Red;width:80px;">点击上传附件:</label></a> 
+                     <label id="AttachmentName" style="color:Blue; width:223px; padding:0,0,0,0;"></label>
+                     <input type="hidden" id="AttachmentID" class="textInput gray" runat="server" />
+                 </p>
+              
+                          
+                 
+                     <div style="  clear:left; width:80%; margin-top:0px" >
+             <p>
+                 <label>详细内容：</label>
+             <div style="   width:100%; ">
+				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
+				</div>
                 </p>
-            </div>
-         </div>
+                  
+       </div>
+           <p style="height:1px;"></p>
 
     </div>
     <div class="tabsFooter">

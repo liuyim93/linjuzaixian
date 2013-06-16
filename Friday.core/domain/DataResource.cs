@@ -21,7 +21,7 @@ namespace friday.core.domain
             set;
         }
 
-        public virtual string Content
+        public virtual string Description
         {
             get;
             set;

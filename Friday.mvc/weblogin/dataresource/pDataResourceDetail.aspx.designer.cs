@@ -22,31 +22,58 @@ namespace Friday.mvc.weblogin.dataresource {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden Hidden1;
         
         /// <summary>
-        /// Name 控件。
+        /// Title 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Title;
         
         /// <summary>
-        /// Matters 控件。
+        /// SectionName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText Matters;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText SectionName;
         
         /// <summary>
-        /// ImagePreview 控件。
+        /// SectionID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage ImagePreview;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden SectionID;
+        
+        /// <summary>
+        /// Source 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Source;
+        
+        /// <summary>
+        /// Publisher 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Publisher;
+        
+        /// <summary>
+        /// AttachmentID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden AttachmentID;
         
         /// <summary>
         /// Description 控件。
