@@ -47,8 +47,16 @@ namespace Friday.mvc.weblogin.message
             mssc.Content = this.Content.Value;
             iMessageContentService.Save(mssc);
 
+
             Message mss = new Message();
             mss.MessageContent = mssc;
+
+            ILoginUserService iLoginUserService = UnityHelper.UnityToT<ILoginUserService>();
+            LoginUser lu = new LoginUser();
+            mss.LoginUser = this.CurrentUser;
+
+            mss.Merchant = this.CurrentUser.LoginUserOfMerchants.First().Merchant;
+
             BindingHelper.RequestToObject(mss);
             iMessageService.Save(mss);
 
