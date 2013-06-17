@@ -11,6 +11,7 @@
             }
             O(function () {
                 _kissy_A.use("TMiniCart", function () {
+                //debugger
                     _event.on(_linkBasket, "click", _linkBasket_click_handler)
                 })
             })
@@ -23,11 +24,13 @@
             }
             var U = 0;
             var S = function () {
+                //debugger
                 if (U < 1000) {
                     if (typeof window.TMiniCart == "undefined") {
                         U++;
                         setTimeout(arguments.callee, 200)
                     } else {
+                    
                         _mods_SKU.basketAnim.init();
                         V()
                     }
@@ -64,6 +67,7 @@
             })
         }
         function _linkBasket_click_handler(_e) {
+            //debugger
             _e.preventDefault();
             var _target = _e.target;
             var _linkBasket_t = this;
@@ -74,6 +78,7 @@
                 return
             }
             var S = function () {
+                //debugger
                 _dom.addClass(_linkBasket_t, "tb-act");
                 _kissy_A.sendAtpanel("tmalljy.1.1", { shopid: _cfg.rstShopId, itemid: _cfg.itemDO.itemId, pos: "detailclickadd" });
                 if (L || !_malldetail_sku_validator.run(true) || !_mods_SKU.dqCity.getOrder()) {
@@ -84,6 +89,7 @@
                 var _buy_param = _frmBid.buy_param.value;
                 _buy_param = _buy_param.split("_");
                 _kissy_A.mods.Token.onInited(function () {
+
                     var a = { _tb_token_: _cfg.valToken, add: _kissy.mix({ deliveryCityCode: _frmBid.destination.value, campaignId: _cfg.varPromotionId, items: [{ itemId: _buy_param[0], skuId: _buy_param[2], quantity: _buy_param[1], serviceInfo: _buy_param[3] || ""}] }, _cfg.addToCartParames) };
                     _mods_SKU.Util.getTrackID(function (b) {
                         a.tsid = b;

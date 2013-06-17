@@ -95,20 +95,21 @@
     </script>
 
 
-    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+
    @* <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/common.css") />*@
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/mui.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/base-min.css") />
-    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/head/head-min.css") />
-    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/foot/foot-min.css") />
-    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/shop-info-min.css") />
+@*    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/head/head-min.css") />*@
+@*    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/foot/foot-min.css") />
+*@    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/shop-info-min.css") />
 
 @*     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/head-info-min.css") />*@
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/s/shop-mods-min.css") />
     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/o/second-mods-min.css") />
-
+        <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
     @*<link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/searchStyle.css") />*@
   
    @* <link rel="stylesheet" href="http://a.tbcdn.cn/??p/mall/base/global-v2.css,apps/tmall/header/shop/header.css,apps/tmall/header/shop/head-info.css,p/shop/1.0/base-min.css,p/shop/1.0/mods/b/head/head-min.css,p/shop/1.0/mods/b/foot/foot-min.css,p/shop/1.0/mods/b/other/shop-info-min.css,p/shop/1.0/mods/b/other/head-info-min.css,p/shop/1.0/mods/s/shop-mods-min.css,p/shop/1.0/mods/o/second-mods-min.css?t=2012122820130314201203192013010620111220.css" />
@@ -151,30 +152,41 @@ background-position:left 0;
                    var m = Model.SingleMerchant;                  
     <div id="header">
         <!-- flash logo -->
+        <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
+
         <div id="headerCon">
             <h1 id="mallLogo">
                 <span class="mlogo"><a href="http://localhost:7525/index.html" title="邻居在线.com"><s></s>邻居在线.com</a></span>
             </h1>
-            <div id="tmallSearch">
-                <form name="searchTop" action=" " class="mallSearch-form">
-                <fieldset>
-                    <legend>邻居在线搜索</legend>
-                    <div class="mallSearch-input clearfix">
-                        <label for="mq" style="visibility: visible;">
-                            搜索 邻居在线 商品/店铺</label>
-                        <input type="text" name="q" data-current="" accesskey="s" autocomplete="off"
-                            x-webkit-speech="" x-webkit-grammar="builtin:translate" value="" id="mq">
-                        <button id="J_CurrShopBtn" class="currShopBtn" type="button">
-                            搜本店<s></s></button>
-                        <button id="J_SearchBtn" type="submit">
-                            搜邻居在线<s></s></button>
-                        <input id="J_Type" type="hidden" name="type" value="p">
-                        <input id="J_MallSearchStyle" type="hidden" name="style" value="">
-                        <input id="J_Cat" type="hidden" name="cat" value="all">
-                    </div>
-                </fieldset>
-                </form>
-            </div>
+        <div id="mallSearch">
+            <form class="mallSearch-form" name="searchTop" target="_top" action="http://localhost:7525/Merchant/SearchProduct">
+            <fieldset>
+                <legend>邻居在线搜索</legend>
+                <div class="mallSearch-input clearfix">
+                    <label for="mq" style="visibility: visible; color: rgb(102, 102, 102);">
+                        搜索 邻居在线 商品</label>
+                    <input type="text" name="keyword" id="mq" accesskey="s" tabindex="9" autocomplete="off"
+                        autofocus="true" x-webkit-speech="" x-webkit-grammar="builtin:translate">
+                        <script type="text/javascript">
+                            $("#mq").bind("keydown", function () {
+                                debugger
+                                if ($("#mq").val() == "")
+                                { $("#mallSearch label").attr("style", "visibility: visible; color: rgb(102, 102, 102);") }
+                                else
+                                { $("#mallSearch label").attr("style", "visibility: hidden; color: rgb(102, 102, 102);") }
+                            })
+                        </script>
+                    <button id="J_MallSearchBtn" type="submit">
+                        搜索<s></s></button>
+                    <input type="hidden" name="user_action" value="initiative">
+                    <input type="hidden" name="at_topsearch" value="1">
+                    <input type="hidden" name="sort" value="st">
+                    <input id="J_Type" type="hidden" name="type" value="p">
+                    <input id="J_Cat" type="hidden" name="cat">
+                </div>
+            </fieldset>
+            <input id="J_MallSearchStyle" type="hidden" value="" name="style"></form>
+        </div>
         </div>
         <div class="headerNav">
             <div class="headerNav-con">
@@ -254,7 +266,7 @@ background-position:left 0;
     </div>
  
 
-    <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
+    <div class="page" data-cat="J_Cat517765755">
      
                                                     
     
@@ -463,6 +475,7 @@ background-position:left 0;
                                                    @for (var index = 0; index < Model.Commoditys.Count(); index++)
                                                    {
                                                        var item = Model.Commoditys.ElementAt(index);
+                                                       var minPrice = Model.minPriceSkuList.ElementAt(index);
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
@@ -475,7 +488,7 @@ background-position:left 0;
                                                             @item.Name <br />   @m.Name 官方 </a>
                                                         </div>
                                                         <div class="price">
-                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
+                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@minPrice.price</strong>
                                                         </div>
                                                         <div class="sales-amount">
                                                             月销量：<em>@item.MonthAmount</em>件
@@ -766,19 +779,93 @@ background-position:left 0;
                                                         }
      
             <!--保证 到 企业采购热线--->
-          <div id="ft">
+@*          <div id="ft">
                <div class="layout grid-m">
                 <div class="col-main">
-                  
+                  *@
              
      
           
                                   
-            @Html.Partial("_Footer")
+
 
                        </div>
             </div>
+<div id="footer">
+    <div id="mall-desc">
+        <dl id="ensure">
+        <dt><span>邻居保障</span></dt>
+        <dd>
+            <span><i></i>7天无理由退换货</span>
+            <span><i></i>提供发票</span>
+        </dd>
+    </dl>
+    <dl id="beginner">
+        <dt><span>新手上路</span></dt>
+        <dd>
+            <a href="http://localhost:7525/Account/register" target="_blank"><i></i>免费注册</a>
+            <a href="" target="_blank"><i></i>开通支付宝</a>
+            <a href="" target="_blank"><i></i>支付宝充值</a>
+            <a href="http://localhost:7525/OtherPage/DataResource?secitonName=帮助中心" target=""><i></i>帮助中心</a>
+        </dd>
+    </dl>
+    <dl id="payment">
+            <dt><span>支付方式</span></dt>
+            <dd>
+                <a href="http://kuai.alipay.com/product/" target="_blank"><i></i>支付宝快捷支付</a>
+                <a href="" target="_blank"><i></i>货到付款</a>
+                <a href="" target="_blank"><i></i>网上银行支付</a>
+            </dd>
+        </dl>
 
+    <dl id="seller">
+        <dt><span>商家服务</span></dt>
+        <dd>
+           <a href="http://localhost:7525/weblogin/login.aspx" target="_blank" class="join"><i></i>商家入驻&gt;&gt;</a>
+           <a href="http://localhost:7525/weblogin/login.aspx" target="_blank"><i></i>商家中心</a>
+		<a href="" target="_blank"><i></i>智库</a>
+           <a href="" target="http://localhost:7525/OtherPage/ShopRule"><i></i>开铺规则</a>
+        </dd>
+    </dl>
+            <script type="text/javascript">
+                $("#ensure dt span").attr("style", "background-position-x:0px;background-position-y:0px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+                $("#beginner dt span").attr("style", "background-position-x:0px;background-position-y:-20px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+                $("#payment dt span").attr("style", "background-position-x:0px;background-position-y:-40px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+                $("#seller dt span").attr("style", "background-position-x:0px;background-position-y:-60px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+        </script>
+    <!--[if IE 6]><br /><![endif]-->
+    <h4 class="go-home"><a href="http://localhost:7525/index.html" target="_blank" title="返回首页">返回首页</a></h4>
+    </div>
+    <div id="copyright">
+        <!-- foot links from tms start -->
+    <p id="footer-Tmallinfo">
+        <a href=" " target="_blank">关于本站</a>
+        <a href=""  target="_blank">帮助中心</a>
+        <a href="" target="_blank">网站地图</a>
+        <a href=" " target="_blank">诚聘英才</a>
+        <a href=" " target="_blank">联系我们</a>
+        <a href=" " target="_blank">网站合作</a>
+        <a href="">版权说明</a>
+    </p>
+    <p id="footer-otherlink">
+	<a target="_blank" href="">邻居在线集团</a>：	
+      邻居在线网络 - <a target="_blank" href=" ">中国站</a> <a target="_blank" href=" ">国际站</a> 
+      <a target="_blank" href="">全球速卖通</a> <a target="_blank" href="">日文站</a> | 
+	<a target="_blank" href=" ">邻居在线网</a> | 
+	<a target="_blank" href=" ">邻居网</a> |
+	<a target="_blank" href=" ">聚划算</a> |
+	<a target="_blank" href="http://www.alipay.com/">支付宝</a> | 
+	<a target="_blank" href="http://www.yahoo.com.cn/">中国雅虎</a> | 
+	<a target="_blank" href=" ">邻居在线联盟</a> | 
+        <a target="_blank" href=" ">集团研究中心</a> |
+        <a href=" " target="_blank">邻居在线天下</a> | 
+        <a href="" target="_blank">邻居网</a> 
+    </p>
+    <p>Copyright&nbsp;2003-2013, 版权所有邻居在线.COM <br>增值电信业务经营许可证：浙B2-20110446<br>网络文化经营许可证：<a href="" target="_blank">重网文[2012]0234-028号</a><br>互联网医疗保健信息服务 审核同意书 重 卫网审【2012】6号<br>互联网药品信息服务资质证书编号：重-（经营性）-2012-0005</p>
+    <!-- foot links from tms end -->
+    </div>
+        <div id="server-num">版本V0.66</div>
+</div>
             </div> 
                
 

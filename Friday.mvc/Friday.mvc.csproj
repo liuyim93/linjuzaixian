@@ -127,6 +127,7 @@
     <Compile Include="Areas\CartPay\CartPayAreaRegistration.cs" />
     <Compile Include="Areas\CartPay\Controllers\HomeController.cs" />
     <Compile Include="Areas\CartPay\Models\DelData.cs" />
+    <Compile Include="Areas\CartPay\Models\DetailFormData.cs" />
     <Compile Include="Areas\CartPay\Models\FormData.cs" />
     <Compile Include="Areas\CartPay\Models\Mcartdata.cs" />
     <Compile Include="Areas\CartPay\Models\RenderList.cs" />
@@ -170,6 +171,8 @@
     <Compile Include="Areas\OtherPage\Controllers\ShopRuleController.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Areas\OtherPage\Controllers\DataResourceController.cs" />
+    <Compile Include="Areas\OtherPage\Models\DataResourceModel.cs" />
     <Compile Include="Areas\OtherPage\OtherPageReaRegistration.cs" />
     <Compile Include="Areas\PersonalCenter\Models\PersonalCenterModel.cs" />
     <Compile Include="Areas\PersonalCenter\PersonalCenterAreaRegistration.cs" />
@@ -259,6 +262,34 @@
     </Compile>
     <Compile Include="weblogin\commodity\pCommodityDetail.aspx.designer.cs">
       <DependentUpon>pCommodityDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceDetail.aspx.cs">
+      <DependentUpon>pDataResourceDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceDetail.aspx.designer.cs">
+      <DependentUpon>pDataResourceDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceList.aspx.cs">
+      <DependentUpon>pDataResourceList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pDataResourceList.aspx.designer.cs">
+      <DependentUpon>pDataResourceList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pAddDataResource.aspx.cs">
+      <DependentUpon>pAddDataResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pAddDataResource.aspx.designer.cs">
+      <DependentUpon>pAddDataResource.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pEditDataResource.aspx.cs">
+      <DependentUpon>pEditDataResource.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\dataresource\pEditDataResource.aspx.designer.cs">
+      <DependentUpon>pEditDataResource.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\feedBack\pAddFeedBack.aspx.cs">
       <DependentUpon>pAddFeedBack.aspx</DependentUpon>
@@ -622,6 +653,34 @@
     </Compile>
     <Compile Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx.designer.cs">
       <DependentUpon>pScoreOfItemInCommodityOrderList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pAddSection.aspx.cs">
+      <DependentUpon>pAddSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pAddSection.aspx.designer.cs">
+      <DependentUpon>pAddSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pEditSection.aspx.cs">
+      <DependentUpon>pEditSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pEditSection.aspx.designer.cs">
+      <DependentUpon>pEditSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionDetail.aspx.cs">
+      <DependentUpon>pSectionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionDetail.aspx.designer.cs">
+      <DependentUpon>pSectionDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionList.aspx.cs">
+      <DependentUpon>pSectionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\section\pSectionList.aspx.designer.cs">
+      <DependentUpon>pSectionList.aspx</DependentUpon>
     </Compile>
     <Compile Include="weblogin\shopStatistic\pShopStatisticDetail.aspx.cs">
       <DependentUpon>pShopStatisticDetail.aspx</DependentUpon>
@@ -1036,6 +1095,13 @@
     <Compile Include="weblogin\propValue\pPropValueList.aspx.designer.cs">
       <DependentUpon>pPropValueList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\ListSection.aspx.cs">
+      <DependentUpon>ListSection.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\ListSection.aspx.designer.cs">
+      <DependentUpon>ListSection.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -1297,6 +1363,7 @@
     <Content Include="apps\tmall\header\shop\head-info.css" />
     <Content Include="apps\tmall\header\shop\head-seed.js" />
     <Content Include="apps\tmall\header\shop\header.css" />
+    <Content Include="apps\tmall\header\shop\header.js" />
     <Content Include="apps\tmall\header\shop\searchStyle.css" />
     <Content Include="apps\tmall\mods\ald.js" />
     <Content Include="apps\tmall\mods\base.js" />
@@ -1602,6 +1669,10 @@
     <Content Include="weblogin\commodity\pEditCommodity.aspx" />
     <Content Include="Content\adminLogin.css" />
     <Content Include="weblogin\commodity\pCommodityDetail.aspx" />
+    <Content Include="weblogin\dataresource\pDataResourceDetail.aspx" />
+    <Content Include="weblogin\dataresource\pDataResourceList.aspx" />
+    <Content Include="weblogin\dataresource\pAddDataResource.aspx" />
+    <Content Include="weblogin\dataresource\pEditDataResource.aspx" />
     <Content Include="weblogin\dwz.frag.xml" />
     <Content Include="weblogin\feedBack\pAddFeedBack.aspx" />
     <Content Include="weblogin\feedBack\pEditFeedBack.aspx" />
@@ -1710,6 +1781,10 @@
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pAddScoreOfItemInCommodityOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pEditScoreOfItemInCommodityOrder.aspx" />
     <Content Include="weblogin\scoreOfItemInCommodityOrder\pScoreOfItemInCommodityOrderList.aspx" />
+    <Content Include="weblogin\section\pAddSection.aspx" />
+    <Content Include="weblogin\section\pEditSection.aspx" />
+    <Content Include="weblogin\section\pSectionDetail.aspx" />
+    <Content Include="weblogin\section\pSectionList.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticDetail.aspx" />
     <Content Include="weblogin\shopStatistic\pShopStatisticList.aspx" />
     <Content Include="weblogin\skuProp\pAddSkuProp.aspx" />
@@ -2494,6 +2569,7 @@
     <Content Include="weblogin\commodity\ListCommodityByShop.aspx" />
     <Content Include="weblogin\ListSystemRole.aspx" />
     <Content Include="weblogin\propValue\pPropValueList.aspx" />
+    <Content Include="weblogin\ListSection.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2504,7 +2580,6 @@
     <Folder Include="Areas\Category\Views\Shared\" />
     <Folder Include="Areas\Message\Models\" />
     <Folder Include="Areas\Message\Views\Shared\" />
-    <Folder Include="Areas\OtherPage\Models\" />
     <Folder Include="Areas\PersonalCenter\Views\Shared\" />
     <Folder Include="Logs\" />
     <Folder Include="uploadimage\Image\News\" />
@@ -2553,6 +2628,7 @@
     <Content Include="Areas\OtherPage\Views\ShopRule\Index.cshtml" />
     <Content Include="Areas\Order\Views\Shared\_OrderScript.cshtml" />
     <Content Include="Areas\Order\Views\Success\Index.cshtml" />
+    <Content Include="Areas\OtherPage\Views\DataResource\Index.cshtml" />
     <None Include="notifymsg.json" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Brand.cshtml" />

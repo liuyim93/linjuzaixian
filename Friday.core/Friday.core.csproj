@@ -121,6 +121,8 @@
     <Compile Include="domain\RoleInMenuMap.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrder.cs" />
     <Compile Include="domain\ScoreOfItemInCommodityOrderMap.cs" />
+    <Compile Include="domain\Section.cs" />
+    <Compile Include="domain\SectionMap.cs" />
     <Compile Include="domain\SkuMap.cs" />
     <Compile Include="domain\SkuPropMap.cs" />
     <Compile Include="domain\SystemMenu.cs" />
@@ -129,6 +131,9 @@
     <Compile Include="domain\CategoryLogMap.cs" />
     <Compile Include="domain\ValuingComments.cs" />
     <Compile Include="domain\ValuingCommentsMap.cs" />
+    <Compile Include="domain\DataResource.cs" />
+    <Compile Include="domain\DataResourceMap.cs" />
+    <Compile Include="EnumType\CheckState.cs" />
     <Compile Include="Models\MerchantModel.cs" />
     <Compile Include="domain\PropID.cs" />
     <Compile Include="domain\PropValue.cs" />
@@ -171,6 +176,10 @@
     <Compile Include="repositories\IShoppingCartRepository.cs" />
     <Compile Include="repositories\ICartOfCommodityRepository.cs" />
     <Compile Include="repositories\CartOfCommodityRepository.cs" />
+    <Compile Include="repositories\DataResourceRepository.cs" />
+    <Compile Include="repositories\IDataResourceRepository.cs" />
+    <Compile Include="repositories\SectionRepository.cs" />
+    <Compile Include="repositories\ISectionRepository.cs" />
     <Compile Include="Service References\ServiceReference1\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -405,6 +414,10 @@
     <Compile Include="services\CartOfCommodityService.cs" />
     <Compile Include="services\AddressService.cs" />
     <Compile Include="services\IAddressService.cs" />
+    <Compile Include="services\DataResourceService.cs" />
+    <Compile Include="services\IDataResourceService.cs" />
+    <Compile Include="services\SectionService.cs" />
+    <Compile Include="services\ISectionService.cs" />
     <Compile Include="utils\CookieUtil.cs" />
     <Compile Include="utils\ILogger.cs" />
     <Compile Include="utils\Logger.cs" />

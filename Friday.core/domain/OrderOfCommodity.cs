@@ -14,6 +14,12 @@ namespace friday.core
 
             get;
         }
+        public virtual Sku Sku
+        {
+            set;
+
+            get;
+        }
         public virtual MyCommodityOrder MyCommodityOrder
         {
             set;

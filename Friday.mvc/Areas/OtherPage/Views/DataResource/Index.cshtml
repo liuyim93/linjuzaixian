@@ -1,0 +1,1056 @@
+﻿@using Friday.mvc.Models;
+@using Friday.core
+@model DataResourceModel
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@Model.DataResource.Title </title>
+
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/p/mall/base/global-v2.js")></script>
+    <script src=@Url.Content("/apps/tmall/fp/2012/core.js")></script>
+
+ 
+
+ @*   <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
+    <script src=@Url.Content("/apps/tmall/common/bottombar.js")></script>
+@*    <script src=@Url.Content("/p/header/adapter-min.js")></script>*@
+    <script src=@Url.Content("/apps/department/common/brandbar.js")></script>
+@*    <script src=@Url.Content("/apps/matrix-mission/feedback/feedback.js")></script>*@
+    <script src=@Url.Content("/apps/tmall/common/tgallery.js")></script>
+    <script src=@Url.Content("/p/tstart/1.0/build/tb-mpp-min.js")></script>
+    <script src=@Url.Content("/p/tlabs/1.0.0/tlabs-min.js")></script>
+@*    <script src=@Url.Content("/p/header/webww.js")></script>*@
+    <script src=@Url.Content("/s/tb-tracer.js")></script>
+    <script src=@Url.Content("/apps/lz/hc.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/base-min.js")></script>
+   
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/c2c-head-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/page-banner-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/shopinsearch-head-min.js")></script>
+
+     <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/customer-service-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/search-list-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/top-list-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/self-defined-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/recharge-center-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/mods/official/recharge-alimama-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/decoration/init-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/decoration/compatible-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/decoration/countdown-min.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/decoration/isv.js")></script>
+    <script src=@Url.Content("/p/shop/3.0/wangpu/init.js")></script>
+    <script src=@Url.Content("/apps/taesite/platinum/scripts/wangpu/decoration/shopmonitor.js")></script>
+    <script src=@Url.Content("/s/aplus_v2.js")></script>
+    <script src=@Url.Content("/s/fdc/spm.js")></script>
+    <script src=@Url.Content("/s/fdc/spmact.js")></script>
+
+ @*
+<script src="http://count.tbcdn.cn/counter6?keys=TCART_234_94db55a3e7f602b64b6418c9443b0ebe_q&amp;t=&amp;callback=xpj0&amp;1367980995191" async=""></script>
+<script src="http://amos.alicdn.com/muliuserstatus.aw?callback=Shopwwcallback7149738422&amp;beginnum=0&amp;site=cntaobao&amp;charset=utf-8&amp;uids=nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Aallison;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Atim;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Aanna;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Ajoanna;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Alisa;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Ayolanda;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Acoconut" async=""></script>
+<script src="http://amos.alicdn.com/muliuserstatus.aw?callback=Shopwwcallback8297461338&amp;beginnum=0&amp;site=cntaobao&amp;charset=utf-8&amp;uids=nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Aallison;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Atim;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Ajoanna;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Alisa;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Acoconut;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Aanna;nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97%3Ayolanda" async=""></script>
+*@
+<script src="http://www.taobao.com/go/app/tmall/login-api.php?0.2754917631391436" async="">
+    var userCookie = { _nk_: '', uc1: '', mt: '', l: '', version: '' }; TB && TB.Global && TB.Global.run && TB.Global.run();
+</script>
+
+@*<script src="http://a.tbcdn.cn/s/kissy/1.3.0/??,dom/base-min.js,event/base-min.js,event/dom/base-min.js,event/dom/focusin-min.js,event/custom-min.js,ajax-min.js,json-min.js,anim-min.js,base-min.js,node-min.js,overlay-min.js,component/base-min.js,rich-base-min.js,component/extension-min.js,suggest-min.js,cookie-min.js,switchable-min.js,datalazyload-min.js?t=20130415115744" async="" charset="utf-8"></script>
+
+<script src="http://a.tbcdn.cn/??s/kissy/1.3.0/seed-min.js,apps/tmall/tml/1.0/tml/tml-min.js,p/mall/base/global-v2.js,apps/tmall/header/shop/head-seed.js?t=2012041520130426.js"></script> 
+<script src="http://a.tbcdn.cn/p/shop/3.0/wangpu/init-min.js?t=20130226.js"></script>
+*@
+  <script type="text/javascript">
+      KISSY.use("wangpu/decoration/shopmonitor", function (S, Monitor) {
+          new Monitor()
+      });
+    </script>
+      
+ <script>
+     g_hb_monitor_st = +new Date();
+     window.g_config = { appId: 2, assetsHost: "http://a.tbcdn.cn", toolbar: false };
+     window.shop_config = {
+         "shopId": "71955116",
+         "siteId": "2",
+         "userId": "890482188",
+         "user_nick": "nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97",
+         "shopCategoryId": "18",
+         "template": {
+             "name": "",
+             "id": "",
+             "design_nick": ""
+         }
+     }
+     window.shop_config.isvStat = {
+         nickName: 'nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97',
+         userId: '890482188',
+         shopId: '71955116',
+         siteId: '2',
+         itemId: '',
+         shopStats: '1',
+         validatorUrl: 'http://store.taobao.com/tadget/shop_stats.htm',
+         templateId: '',
+         templateName: ''
+     };
+    </script>
+
+
+    <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+   @* <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/common.css") />*@
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/mui.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/copybase.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/head/head-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/foot/foot-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/shop-info-min.css") />
+
+@*     <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/other/head-info-min.css") />*@
+    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/s/shop-mods-min.css") />
+    <link rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/o/second-mods-min.css") />
+
+    <link rel="stylesheet" href=@Url.Content("/tbsp/tbsp.css") />
+    <link rel="stylesheet" href=@Url.Content("/tbsp/tbsp.source.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/newsroom/css/rules_detail.css") />
+
+ <style>
+       {
+                max-width: 150px !important
+            ;
+                display: none !important
+            ;
+            }
+                        </style>
+<style type="text/css">
+			#content {
+background-repeat:repeat-x;
+}
+#hd {
+background-image:url(http://localhost:7525/Images/Tshutiao.jpg);
+background-repeat:repeat-x;
+background-position:left 0;
+}	
+			</style>
+        <style>.ww-light{overflow:hidden;}.ww-block{display:block;margin-top:3px;}.ww-inline{display:inline-block;vertical-align:text-bottom;}.ww-light a{background:url(http://localhost:7525/Images/T1UPFAXnNfXXXXXXXX-130-60.gif) no-repeat 0 0;text-decoration:none!important;width:20px;height:20px;zoom:1;}.ww-large a{width:67px;}a.ww-offline{background-position:0 -20px;}a.ww-mobile{background-position:0 -40px;}.ww-small .ww-online{background-position:-80px 0;}.ww-small .ww-offline{background-position:-80px -20px;}.ww-small .ww-mobile{background-position:-80px -40px;}.ww-static .ww-online{background-position:-110px 0;}.ww-static .ww-offline{background-position:-110px -20px;}.ww-static .ww-mobile{background-position:-110px -40px;}.ww-light a span{display:none;}
+            </style>
+<style>.tml-overlay{position:absolute;left:-9999px;top:-9999px;}.tml-ext-mask{background-color:#000;opacity:.5;filter:alpha(opacity=50);}.tml-dialog .tml-stdmod-header,.tml-dialog .tml-ext-close{background:url(http://localhost:7525/Images/loginhead-126-41.png) no-repeat;}.tml-dialog{padding:10px;}.tml-dialog-skin{background:#716564;opacity:.4;filter:alpha(opacity=40);position:absolute;height:100%;width:100%;_padding:0 20px 0 0;top:0;left:0;}.tml-dialog-hasmask .tml-dialog-skin{background:#fff;}.tml-contentbox{position:relative;z-index:2;height:100%;background:#fff;border:1px solid #908b8b;overflow:hidden;}.tml-dialog .tml-stdmod-header{height:35px;line-height:35px;padding-left:10px;border-bottom:1px solid #8c0400;background-color:#b6000c;background-position:20px 10px;font-size:14px;font-weight:700;}.tml-dialog .tml-stdmod-body{overflow:hidden;}.tml-dialog .tml-ext-close{outline:medium none;position:absolute;z-index:3;right:20px;top:20px;overflow:hidden;display:block;height:16px;width:16px;line-height:99em;background-position:0 -25px;}.tml-dialog .tml-ext-close:hover{background-position:-16px -25px;}.tml-dialog-cat{position:absolute;top:0;left:50%;margin:-10px 0 0 -23px;width:55px;height:50px;background:url(http://localhost:7525/Images/blackcathead-55-20.png) no-repeat;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled="true",sizinMethod="scale",src="http://img04.taobaocdn.com/tps/i4/T1_z5sXidZXXaU9Uzi-55-20.png");_background:0;}.tml-dialog-default .tml-stdmod-header{background-image:none;color:#fff;}.tml-dialog-gray .tml-stdmod-header{background:#e6e6e6;border-bottom-color:#d9d9d9;}.tml-dialog-gray .tml-ext-close{background-position:-32px -25px;}.tml-dialog-gray .tml-ext-close:hover{background-position:-48px -25px;}body .tml-dialog-back{padding:0;border:1px solid #d5323d;}.tml-dialog-back .tml-stdmod-header{background:#fff9f9;border-bottom:1px solid #f5edec;line-height:25px;height:25px;}.tml-dialog-back .tml-contentbox{border:0;}.tml-dialog-back .tml-ext-close{background-position:-68px -25px;right:10px;top:6px;}.tml-dialog-back .tml-ext-close:hover{background-position:-84px -25px;}body .tml-dialog-back .tml-dialog-skin{padding:1px 1px 0 0;background:#999;left:2px;top:2px;}.tml-dialog-cfmTitle{margin:15px 5px 0 20px;border:0;background-color:#fff;color:#666;}.tml-dialog-btnArea{margin:10px 0 0 20px;padding:0 0 13px 0;}.tml-dialog-cfmOk,.tml-dialog-cfmCancel{margin:0 10px 0 0;padding-left:20px;padding-right:20px;}.tml-dialog-cfmTitle .ui-msg-con{border:0;background-color:#fff;}.tml-dialog-prtTip{margin:10px 0 0 20px;color:#666;}.tml-dialog-prtInput{width:318px;height:35px;display:block;margin:2px 0 0 20px;}.tml-dialog-prtError{margin:5px 0 0 20px;display:none;}.tmMCViewFull,.tmMCViewAll,.tmMCGroup.combo .tmMCGroupDel,.tmMCItemDel,.tmMCItemAdd,.tmMCItemMin,.tmMCGroupSlogon,.tmMCHandler .cannotCheck,.tmMCGo,.tmMCPrice,.tmMCViewIcon,.HdlOpen .tmMCHdLeft,.tmMCEx{background:url(http://localhost:7525/Images/shop_cart-300-210.png) no-repeat;}.tmMCHandler{background:url(http://localhost:7525/Images/login_cart-67-64.png) no-repeat;}.ui-msg-icon,.ui-msg-close,.ui-msg-arrow{background-image:url(http://localhost:7525/Images/msg.png);background-repeat:no-repeat;}.ui-msg{position:relative;display:inline-block;*display:inline;*zoom:1;border:1px solid #e1e1e1;border-radius:2px;background:#f5f5f5;padding-left:24px;box-shadow:1px 1px 1px #f5f5f5;}.ui-msg-block{display:block;}.ui-msg-con{line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #e7e7e7;margin:-1px;}.ui-msg-orange .ui-msg-con{color:#f19000;}.ui-msg-red .ui-msg-con{color:#b10000;}.ui-msg-arrow,.ui-msg-close,.ui-msg-icon{position:absolute;}.ui-msg-close{width:18px;height:18px;top:0;right:0;background-position:-21px 2px;cursor:pointer;}.ui-msg-close:hover{background-position:-40px 1px;}.ui-msg-arrow{width:5px;height:8px;left:-5px;top:7px;}.ui-msg-arrow-top,.ui-msg-arrow-down{width:8px;height:5px;background-position:-5px 0;top:-5px;left:7px;}.ui-msg-arrow-down{background-position:-13px 0;top:auto;bottom:-5px;}.ui-msg-icon{width:23px;height:22px;top:0;left:0;}.ui-msg-error .ui-msg-icon{background-position:-61px -26px;}.ui-msg-stop .ui-msg-icon{background-position:-61px -1px;}.ui-msg-ok .ui-msg-icon{background-position:-61px -51px;}.ui-msg-tip .ui-msg-icon{background-position:-61px -103px;}.ui-msg-attention .ui-msg-icon{background-position:-61px -79px;}.ui-msg-question .ui-msg-icon{background-position:-61px -126px;}.ui-msg-alert .ui-msg-icon{background-position:-61px -153px;}.ui-msg-notice .ui-msg-icon{background-position:-61px -177px;}.ui-msg-clean,.ui-msg-clean .ui-msg-clean{border:none;background:none;box-shadow:none;}.ui-msg-clean .ui-msg-con{padding-left:0;border:none;}.ui-page-tip{background:#fbfbfb;border-color:#efefef;}.ui-page-tip .ui-msg-con{border-left:1px solid #fbfbfb;padding-left:0;}.ui-top-tip{padding-left:58px;}.ui-top-tip .ui-msg-con{line-height:20px;padding:18px 28px 18px 12px;font-weight:bold;font-size:14px;}.ui-top-tip .ui-msg-icon{width:57px;height:56px;}.ui-top-tip .ui-msg-error .ui-msg-icon{background-position:11px -20px;}.ui-top-tip .ui-msg-stop .ui-msg-icon{background-position:11px -1px;}.ui-top-tip .ui-msg-ok .ui-msg-icon{background-position:11px -66px;}.ui-top-tip .ui-msg-tip .ui-msg-icon{background-position:11px -114px;}.ui-top-tip .ui-msg-attention .ui-msg-icon{background-position:11px -165px;}.ui-top-tip .ui-msg-question .ui-msg-icon{background-position:11px -215px;}.ui-top-tip .ui-msg-alert .ui-msg-icon{background-position:11px -265px;}.ui-top-tip .ui-msg-notice .ui-msg-icon{background-position:13px -315px;}.ui-top-tip .ui-msg-stop .ui-msg-icon{background-position:12px -362px;}.ui-msg-empty,.ui-msg-empty .ui-msg-con{background:none;border:none;padding:1px;box-shadow:none;}.ui-msg-empty .ui-msg-icon{position:static;display:inline-block;}.tmMC{margin-right:4px;color:#fff;z-index:100100;width:66px;zoom:1;position:relative;}.tmMC-proxy{padding-right:7px;height:31px;}.tmMCHandler{width:66px;height:31px;overflow:hidden;cursor:pointer;position:relative;z-index:100001;}.HdlShort:hover .tmMCEx,.tmMC .hdlHover .tmMCEx{background-image:-220px -100px;}.tmMCHandler .tmMCNum{padding-left:38px;_display:inline;}.HdlOpen .tmMCNum{padding-left:34px;display:inline-block;}.tmMC .unlogin_hover{background-position:0 -32px;}.tmMC .unlogin_hover .tmMCNum{display:none;}.tmMCEx{display:none;float:left;background-position:-220px -98px;width:15px;height:9px;overflow:hidden;margin:13px 0 0 32px;}.HdlShort .tmMCEx{background-position:-220px -108px;}.tmMCHdLeft{display:none;float:left;position:relative;z-index:100000;width:284px;height:31px;overflow:hidden;opacity:.9;filter:alpha(opacity=90);cursor:pointer;}.HdlOpen .tmMCHdLeft{background-position:0 -64px;}.tmMCHdLeft:hover{filter:alpha(opacity=95);opacity:.95;}.HdlShort .tmMCHdLeft{width:284px;}.HdlShort .tmMCHdLeft:hover .tmMCEx,.HdlShort .tmMCHandler .hover .tmMCEx{background-position:-235px -108px;}.tmMCHdLeft:hover .tmMCEx,.tmMCHandler .hover .tmMCEx{background-position:-235px -98px;}.tmMCPrice{float:left;margin-left:10px;}.tmMC .HdlOpen{width:283px;overflow:visible;background:none;cursor:default;}.HdlOpen .tmMCBody,.HdlOpen .tmMCHdLeft,.HdlOpen .tmMCGo{display:block;}.HdlOpen .tmMCNum{display:none;}.HdlOpen .tmMCHdLeft .tmMCNum{display:inline-block;}.tmMC .tmMCBotLink{margin-top:1px;float:left;color:#000;height:31px;position:relative9;z-index:10000109;line-height:33px;cursor:pointer;}.tmMC .tmMCBotLink:hover{color:#FEB1B2;text-decoration:underline;}.tmMCViewIcon{width:15px;height:15px;background-position:-188px -32px;position:absolute;top:3px;right:2px;display:none;}.tmMCViewIcon:hover{background-position:-203px -32px;}.tmMCPrice{margin-top:2px;float:right;padding-right:8px;height:31px;line-height:31px;font-weight:bold;background-position:-286px -24px;font-family:"Arial";padding-left:15px;}.tmMCGo{display:none;position:relative;z-index:100000;float:right;width:65px;height:31px;overflow:hidden;background-position:-67px 0;text-indent:-999px;cursor:pointer;}.HdlShort .tmMCGo{display:none;}.tmMCHandler .cannotCheck{background-position:-67px -32px;cursor:default;}.tmMCHandler .cannotCheck:hover{background-position:-67px -32px;}.tmMCGo:hover{background-position:-67px 0;}.tmMCNum span{display:block;}.tmMCBody,.tmMCTopBorder{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAMAAAC6sdbXAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAlQTFRF7u7u5ubm6urqYPTI0gAAAB9JREFUeNoUiLERAAAMRLD/0Pk0HGSChSOLP/HqBBgAAfcAItOjOxwAAAAASUVORK5CYII=");*background-image:url(http://img01.taobaocdn.com/tps/i1/T1PRWJXX4rXXXXXXXX-5-5.png);border:1px solid #d6d6d6;background-color:#f2f2f2;position:absolute;width:275px;}.tmMCTopBorder{height:33px;top:-4px;left:3px;display:none;}.tmMCBody{padding-top:8px;padding-bottom:20px;display:none;color:#000;text-align:left;margin:0 auto -4px auto;-webkit-box-shadow:0 0 3px rgba(0,0,0,0.2);-moz-box-shadow:0 0 3px rgba(0,0,0,0.2);box-shadow:0 0 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.Shadow(color="#e5e5e5",Direction=90,Strength=1);top:-30px;left:3px;}.tmMCLoading{display:none;background:url("data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH5BAkKAAAAIf4aQ3JlYXRlZCB3aXRoIGFqYXhsb2FkLmluZm8AIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOw==") 50% 50% no-repeat;*background:url(http://img03.taobaocdn.com/tps/i3/T1W3mKXdJXXXXXXXXX-16-16.gif) 50% 50% no-repeat;width:100%;height:20px;text-indent:-999px;overflow:hidden;}.tmMCTip{margin:0 auto 7px;width:165px;display:block;}.tmMCTip .ui-msg-con{background-color:transparent;}.tmMCTip .ui-msg-con a{color:#2953A6;margin-left:1px;}.HdlShort .tmMCCon{margin-top:5px;}.tmMCCon{width:265px;overflow:hidden;position:relative;margin:0 auto 0 9px;padding-bottom:4px;}.tmMCCon::-webkit-scrollbar-track-piece{background-color:rgba(0,0,0,0);-webkit-border-radius:0;}.tmMCCon::-webkit-scrollbar{width:6px;height:8px;}.tmMCCon::-webkit-scrollbar-thumb{height:50px;background-color:rgba(0,0,0,0.4);-webkit-border-radius:4px;}.tmMCCon::-webkit-scrollbar-thumb:hover{height:50px;background-color:rgba(0,0,0,0.5);-webkit-border-radius:4px;}.tmMCGroup{width:257px;overflow:hidden;_zoom:1;}.tmMCGroupTitle{height:18px;line-height:18px;vertical-align:bottom;}.tmMCAllCheckWp{position:relative;float:left;color:#808080;margin:0 5px 0 6px;width:250px;height:38px;*margin-left:2px;_display:inline;}.tmMCAllCheckWp label,.tmMCAllCheck{position:relative;top:10px;}.tmMCAllCheck{vertical-align:middle;margin:0 5px 0 0!important;margin-top:-2px!important;margin-bottom:1px!important;}.tmMCGroupCheckWp{float:left;margin-right:5px;}.tmMCGroupCheck{vertical-align:middle;margin:0!important;margin-top:-2px!important;margin-bottom:1px!important;}.tmMCGroupName{color:#808080;float:left;white-space:nowrap;width:220px;text-overflow:ellipsis;height:18px;overflow:hidden;}.tmMCGroupPrice{float:right;color:#999;padding-right:14px;}.tmMCGroupSlogon{float:left;background-position:-157px -45px;background-position:-151px -47px9;color:#fff;height:19px;width:69px;line-height:20px;overflow:hidden;font-family:B8BF53;padding-left:5px;margin:0 0 0 3px;}.tmMCSlogonItem{display:block;}.tmMCItemWp{border:1px solid #E3E3E3;width:255px;border-bottom:none;background:#fff;cursor:default;margin:2px 0 5px 0;}.tmMCItemWp .tmMCUncheck{background:#f5f5f4;}.tmMCUnCheck{background:#fff url(http://img02.taobaocdn.com/tps/i2/T1JFuKXbhgXXXXXXXX-5-5.png);}.tmMCItem{width:100%;height:56px;margin:0 auto;overflow:hidden;border-bottom:1px solid #E3E3E3;position:relative;_zoom:1;}.tmMCItemCheckWp,.tmMCItemImg,.tmMCItemDesc,.tmMCItemPrice,.tmMCItemDel{float:left;}.tmMCItemCheckWp{font-weight:normal;width:12px;height:60px;margin:0 5px;*margin:0 9px 0 1px;_margin:0 1px;color:#fff;}#J_TMiniCart input[type="checkbox"]{margin:0;}#J_TMiniCart .tmMCItemCheck{margin-top:20px!important;*margin-top:18px!important;}.tmMCBody .check{color:#000;}.tmMCItemImg{margin:3px 0 auto 3px;display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:44px;*font-family:Arial;width:50px;height:50px;}.tmMCItemImg{vertical-align:middle;}.tmMCItemskuWp{float:left;width:108px;height:40px;margin-left:8px;padding-top:10px;}.tmMCItemSku{display:block;width:100%;color:#999;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}.tmMCItemDesc{width:50px;margin:20px 0 0 0;overflow:hidden;}.tmMCItemQty{text-align:center;}.tmMCItemAdd,.tmMCItemMin{visibility:hidden;float:left;width:16px;height:16px;background-position:-284px -88px;cursor:pointer;}.tmMCItemAdd{width:16px;}.tmMCItemAdd{background-position:-284px -120px;}.tmMCItemMin:hover{background-position:-284px -104px;}.tmMCItemAdd:hover{background-position:-284px -152px;}.tmMCItemQtyNum{float:left;margin:-1px 2px 0;*margin-top:0;color:#999;_display:inline;width:14px;line-height:16px;word-wrap:break-word;word-break:break-all;}.tmMCItem .disableMin{background-position:-284px -72px;width:16px;cursor:default;}.tmMCItem .disableAdd{background-position:-284px -136px;cursor:default;}.tmMCItemPrice{margin:20px 0 0 0;color:#666;width:72px;text-align:right;word-wrap:break-word;word-break:break-all;}.tmMCItemDel{color:#f00;cursor:pointer;background-position:-251px -32px;display:block;width:14px;height:14px;position:absolute;right:11px;top:4px;}.tmMCItemDel:hover{background-position:-237px -32px;}.tmMCItem:hover .tmMCItemCheckWp,.tmMCBody .hover .tmMCItemCheckWp{display:inline-block;}.tmMCItem:hover .tmMCItemDel,.tmMCBody .hover .tmMCItemDel{display:block;}.tmMCItem:hover .tmMCItemAdd,.tmMCBody .hover .tmMCItemAdd,.tmMCItem:hover .tmMCItemMin,.tmMCBody .hover .tmMCItemMin{visibility:visible;}.tmMCGroup.combo{position:relative;}.tmMCGroup.combo .tmMCGroupDel{color:#f00;cursor:pointer;background-position:-250px -32px;display:block;width:14px;height:14px;position:absolute;right:12px;top:24px;z-index:999;}.tmMCGroup.combo.chover .tmMCGroupDel{display:block;}.tmMCGroup.combo.chover .tmMCGroupDel:hover{background-position:-236px -32px;}.tmMCGroup.combo .tmMCItemCheckWp{visibility:hidden;}.tmMCGroup.combo .tmMCItemMin{visibility:hidden;_display:none;}.tmMCGroup.combo .tmMCItemAdd{visibility:hidden;_display:none;}.tmMCGroup.combo .tmMCItemQtyNum{_margin-left:16px;}.tmMCViewMore{cursor:pointer;}.tmMCViewAll{cursor:pointer;display:block;width:257px;height:26px;margin:5px auto 0 -4px;background-position:0 -154px;}.tmMCViewAll:hover{background-position:0 -180px;}.tmMCBtnArea{width:256px;height:30px;margin:5px auto 0;position:relative;}.tmMCLose,.tmMCLose:hover,.tmMCLose:visited{color:#999;text-decoration:none;}.tmMCViewFull{position:absolute;display:block;right:1px;top:0;width:112px;height:26px;overflow:hidden;background-position:0 -128px;}.tmMCViewFull:hover{background-position:-113px -128px;}.tmMCBusy,.tmMCBusy:hover{width:190px;margin:5px auto 0;height:20px;line-height:20px;color:#999;}.tmMCTryFull,.tmMCTryFull:hover,.tmMCTryFull:visited{color:#2953A6;text-decoration:none;}.tmMCIframe{position:absolute;width:275px;z-index:-1;border:0;top:0;}#tm-minLogin{border:1px solid #c30009;background:#FAFAFA;width:412px;height:272px;overflow:hidden;position:fixed;_position:absolute;left:50%;top:50%;margin:-136px 0 0 -206px;z-index:10000000;}.tmml-close,.tmml-title{background:url(http://img02.taobaocdn.com/tps/i2/T13h1uXgdEXXXXXXXX-90-16.png) no-repeat;}.tmml-hd{position:relative;background:#fff8f7;border-bottom:1px solid #f3e9e7;}.tmml-title{line-height:99em;height:24px;overflow:hidden;background-position:0 4px;margin:0 0 0 5px;width:82px;}.tmml-close{position:absolute;top:8px;right:10px;width:8px;height:8px;line-height:99em;overflow:hidden;background-position:-82px -2px;cursor:pointer;}.tmml-mask{position:absolute;width:50px;background:#FAFAFA;height:100%;}#tm-minLogin iframe{margin-top:-39px;margin-left:43px;}.tmMCGuide{opacity:0;position:fixed;_position:absolute;bottom:0;right:176px;z-index:99999;}.guideHepler{position:absolute;bottom:5px;right:120px;z-index:99;}.confirmGuide{position:absolute;padding:90px 115px;right:110px;bottom:0;_padding:0;_width:230px;_height:180px;background:url(http://img02.taobaocdn.com/tps/i2/T1KznpXh8dXXaYREvd-155-79.png) no-repeat;_background-image:url(http://img01.taobaocdn.com/tps/i1/T1WM_jXmFuXXaYREvd-155-79.png);cursor:pointer;z-index:100;}.closeGuide{position:absolute;background:url(about:blank);display:block;text-indent:-100em;width:30px;height:20px;top:33px;left:95px;}.guideDetail{opacity:0;display:none9;position:relative;}:root .guideDetail{display:block9;}.endGuide{position:absolute;background:url(about:blank);display:block;text-indent:-100em;width:35px;height:35px;top:2px;left:4px;cursor:pointer;z-index:99;}.guideDetailBg{position:absolute;width:666px;height:280px;right:0;bottom:0;background:url(http://img01.taobaocdn.com/tps/i1/T1vSYpXjdgXXXgxU2b-666-280.png) no-repeat;_background-image:url(http://img04.taobaocdn.com/tps/i4/T1EbDpXXXkXXXgxU2b-666-280.png);}.guideCarousel{position:absolute;width:370px;height:160px;top:50px;left:60px;z-index:100;}.guidePrev,.guideNext{position:absolute;text-indent:-100em;width:30px;height:30px;z-index:9999;cursor:pointer;outline:none;top:55px;}.guidePrev{background:url(http://img02.taobaocdn.com/tps/i2/T1V1PnXnNtXXbSBwfc-30-30.png) no-repeat;left:-40px;}.guideNext{left:370px;background:url(http://img01.taobaocdn.com/tps/i1/T1kAbjXlxuXXbSBwfc-30-30.png) no-repeat;}.guideDisable{display:none;}.guideScroller{position:relative;width:370px;height:160px;overflow:hidden;}.guideConten{position:absolute;width:1110px;}.guideContent li{float:left;width:370px;height:160px;display:block;}.guideContent img{vertical-align:middle;margin-right:10px;}</style>
+<style>#J_BrandBar{font-size:12px;cursor:pointer;background-color:#EEEEEE;width:120px;margin:2px 5px 0 5px;height:28px;border:solid 1px #d0d0d0;-moz-border-radius: 3px 3px 0px 0px;-khtml-border-radius: 3px 3px 0px 0px;-webkit-border-radius: 3px 3px 0px 0px;border-radius: 3px 3px 0px 0px;}#J_BrandBar:hover,#J_BrandBar.hoverBrandBar{background-color:#d9d1d1;border-color:#bcb0b0}.BrandFlyer{width:20px;height:20px;float:left;margin:4px;background:url(http://img02.taobaocdn.com/tps/i2/T1_360XiFkXXcu5FDa-20-20.png);background-repeat:no-repeat;*background:none;*filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=noscale, src="http://img02.taobaocdn.com/tps/i2/T1_360XiFkXXcu5FDa-20-20.png");}#J_BrandBar a,#J_BrandBar a:hover{line-height:20px;display:block;margin:4px;float:left;color:#181818;text-decoration:none;}</style>
+<style>#J_CommonBottomBar{position:fixed;bottom:0;right:0;z-index:100002;_position:absolute;_bottom:auto;}#J_CommonBottomBar td{vertical-align:bottom;_position:relative;_overflow:hidden}.tm_cmbar_clearfix::after {clear: both;}.tm_cmbar_clearfix::after, .tm_cmbar_clearfix::before{display: table;content: "";overflow: hidden;}.tm_cmbar_clearfix {zoom: 1;}#J_CommonBottomBar .tm_cmbar{position:relative;}</style>
+<style id="ks-suggest-style">.ks-suggest-container{background:white;border:1px solid #999;z-index:99999}.ks-suggest-shim{z-index:99998}.ks-suggest-container li{color:#404040;padding:1px 0 2px;font-size:12px;line-height:18px;float:left;width:100%}.ks-suggest-container .ks-selected{background-color:#39F;cursor:default}.ks-suggest-key{float:left;text-align:left;padding-left:5px}.ks-suggest-result{float:right;text-align:right;padding-right:5px;color:green}.ks-suggest-container .ks-selected span{color:#FFF;cursor:default}.ks-suggest-footer{padding:0 5px 5px}.ks-suggest-closebtn{float:right}.ks-suggest-container li,.ks-suggest-footer{overflow:hidden;zoom:1;clear:both}.ks-suggest-container{*margin-left:2px;_margin-left:-2px;_margin-top:-3px}</style>
+
+
+</head>
+<body>
+              @Html.Partial("_SiteNav")
+         
+    <div id="header">
+        <!-- flash logo -->
+        <div id="headerCon">
+            <h1 id="mallLogo">
+                <span class="mlogo"><a href="http://localhost:7525/index.html" title="邻居在线.com"><s></s>邻居在线.com</a></span>
+            </h1>
+            <div id="tmallSearch">
+              @*  <form name="searchTop" action=" " class="mallSearch-form">
+                <fieldset>
+                    <legend>邻居在线搜索</legend>
+                    <div class="mallSearch-input clearfix">
+                        <label for="mq" style="visibility: visible;">
+                            搜索 邻居在线 商品/店铺</label>
+                        <input type="text" name="q" data-current="" accesskey="s" autocomplete="off"
+                            x-webkit-speech="" x-webkit-grammar="builtin:translate" value="" id="mq">
+                        <button id="J_CurrShopBtn" class="currShopBtn" type="button">
+                            搜本店<s></s></button>
+                        <button id="J_SearchBtn" type="submit">
+                            搜邻居在线<s></s></button>
+                        <input id="J_Type" type="hidden" name="type" value="p">
+                        <input id="J_MallSearchStyle" type="hidden" name="style" value="">
+                        <input id="J_Cat" type="hidden" name="cat" value="all">
+                    </div>
+                </fieldset>
+                </form>*@
+            </div>
+        </div>
+        <div class="headerNav">
+            <div class="headerNav-con">
+                <div class="headerCrumb" id="J_HeaderCrumb">
+                </div>
+                <ul class="headerPromise">
+               
+                </ul>
+                <!-- module-cache-info: module: shop.headerArchiveNoNav:1.1-b2c,moduleId=1240656693, key: user-890482188-prototype-57-20121105 cacheArea: 49 cachedTime: 2013-03-14 15:34:45 aliveTime: 28800 AppIP:172.24.173.88 -->
+                <div id="mall-shop">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+
+    <div id="content" class="tb-shop eshop " data-cat="J_Cat517765755">
+     
+                                                    
+    
+                 <p class="design-page hidden" id="J_DesignPage">
+                <a href=""
+                    target="_blank">
+                    <img src="http://localhost:7525/Images/color_pen-16-16.png">装修此页面</a>          </p>
+       
+                      
+ 
+            <div id="bd">
+                <div class="layout grid-m">
+                    <div class="col-main">
+                        <div class="main-wrap J_TRegion">
+                        </div>
+                    </div>
+                </div>
+                <div class="layout grid-s5m0 " style=" width:990px">
+                    <div class="col-main clearfix">
+                         
+                         <div class="layout" style=" width:990px">
+    <div class="content" style=" width:990px">
+     
+        <div class="grid-c2-s6">
+            <div class="col-main">
+                <div class="main-wrap"  style=" margin-left:0; width:988px;">
+                    <div class="col-main-content">
+                   <div class="crumbs">
+                            <a href="http://localhost:7525/index.html">首页</a><span>&gt;</span>
+                             @Model.DataResource.Section.Name  
+                              
+                        </div>
+                        <div class="rules-content clearfix">
+                            <h3 class="rules-title"> @Model.DataResource.Title  </h3>
+                            <div class="rules-param clearfix">
+                                <ul>
+                                    <li class="rules-source" style=" text-align:center">发布人： @Model.DataResource.LoginUser.LoginName</li>
+                                    <li class="rules-type"  style=" text-align:center">文件类型： @Model.DataResource.Section.Name  </li>
+                                    <li class="rules-mdify-time"  style=" text-align:center">发布时间： @Model.DataResource.CreateTime  </li>
+                                </ul>                        	
+                            </div>
+                            <div class="rules-text clearfix">
+							     @Model.DataResource.Description
+                            </div>
+                        
+                        </div>                	
+                    </div>
+                </div>
+            </div>
+      </div>
+     </div>
+  </div>
+
+                    </div>
+                </div>
+           </div>                               
+     
+@*            <!--保证 到 企业采购热线--->
+          <div id="ft">
+               <div class="layout grid-m">
+                <div class="col-main">
+                  *@
+             
+     
+          
+                                  
+            @Html.Partial("_Footer")
+
+@*                       </div>
+            </div>
+*@
+            </div> 
+               
+
+              
+</body>
+</html>
+
+
+@*<div class="layout">
+    <div class="content">
+     
+        <div class="grid-c2-s6">
+            <div class="col-main">
+                <div class="main-wrap">
+                    <div class="col-main-content">
+                        <div class="crumbs">
+                            <a href="http://rule.taobao.com">首页</a><span>&gt;</span>
+                             帮助中心  
+                              
+                        </div>
+                        <div class="rules-content clearfix">
+                            <h3 class="rules-title">邻居在线帮助中心</h3>
+                            <div class="rules-param clearfix">
+                                <ul>
+                                    <li class="rules-source" style=" text-align:center">发布部门：邻居在线</li>
+                                    <li class="rules-type"  style=" text-align:center">文件类型：用户帮助</li>
+                                    <li class="rules-mdify-time"  style=" text-align:center">发布时间：2013-04-19</li>
+                                </ul>                        	
+                            </div>
+                            <div class="rules-text clearfix">
+								<div > 
+                                <div class="content"> 
+<h2>1.联系我们</h2>
+<ul>
+<li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服热线：13648423008&nbsp;&nbsp;&nbsp;&nbsp; 15870542459</p>
+</li>
+<li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服QQ：743287305</p>
+</li>
+<li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;工作时间：8:30-22:00&nbsp;</p>
+</li>
+<li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;地址： 重庆市沙坪坝区大学城卓越熙街重庆农村商业银行楼上4-64（三美超市斜对面，美丽时光酒店楼梯口进）</p>
+</li>
+<li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;客服邮箱：<a href="mailto:linjuzaixian@163.com">linjuzaixian@163.com</a>&nbsp;</p>
+</li>
+<li>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;商务合作：<a href="mailto:cuesir@cincore.com">13573767377</a>&nbsp;</p>
+</li>
+</ul>
+<p>
+</p><div>&nbsp;</div>
+<h2>2.店铺和个人入驻规则和协议</h2>
+&nbsp;&nbsp;《邻居在线商家入驻规则和协议》<p></p>
+<span style="font-family:'宋体';font-size:10.5pt;"> <div>
+<p style="text-align:justify;text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">甲方：</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;重庆易家仁有限公司&nbsp;&nbsp;</span></p>
+<p style="text-align:justify;text-indent:44.88pt;"><span style="font-family:'楷体';font-size:12pt;">乙方：</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">根据中华人民共和国法律、法规的规定，甲乙双方本着互惠互利的原则，就乙方入驻甲方所经营的邻居在线网站项目事宜达成如下协议，以共同遵守。</span><span style="font-family:'宋体';font-size:12pt;">&nbsp;&nbsp;</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第一章&nbsp;甲方提供的服务内容</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第一条&nbsp;甲方向乙方免费提供网站平台，保障商家的网店能够稳定的运行。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第二条&nbsp;甲方向乙方免费提供商铺入驻平台的基本信息录入，包括乙方的个人真实身份的证明、店铺营业执照、商品货物和相关服务信息。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第三条&nbsp;甲方向乙方提供有偿的交易服务，消费者的订单将经过甲方系统及时准确的以短信方式送达乙方，甲方按照乙方和消费者成功进行的每一笔交易收取相关技术服务费。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第四条&nbsp;如果乙方是提供百货和餐饮订购服务类的商家，乙方自己不能提供配送到消费者要求的指定地点，则乙方可以选择甲方向乙方提供的有偿配送服务。服务内容是，甲方指派专人负责去乙方店铺接收消费者所订购的商品并配送到消费者要求的指定地点，另外负责从消费者手中接收清点商品款项并及时返还给乙方。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第五条&nbsp;甲方向乙方提供有偿的广告服务，例如在网站平台的首页上展示、陈列商铺或商品。在消费者搜索需要的信息时候，本平台提供按照成交量、信誉积分和价格排名的方式向消费者展示的服务，在消费者选择默认搜索方式的情况下，所有商品将按照乙方提供的相应广告费用而进行先后排名。</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第二章&nbsp;乙方需要遵守的条约</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第一条&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">暂未授权任何机构进行代理招商服务，入驻申请流程及相关的收费说明均以</span><span style="font-family:'楷体';font-size:12pt;">邻居在线</span><span style="font-family:'楷体';font-size:12pt;">官方招商</span><span style="font-family:'楷体';font-size:12pt;">网页</span><span style="font-family:'楷体';font-size:12pt;">为准。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第二条&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">有权根据包括但不仅限于品牌需求、公司经营状况、服务水平等其他因素退回客户申请；同时</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">有权在申请入驻及后续经营阶段要求客户提供其他资质；</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">将结合各行业发展动态、国家相关规定及消费者购买需求，不定期更新招商标准。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第三条&nbsp;请务必确保您申请入驻及后续经营阶段提供的相关资质的真实性（若</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">提供的相关资质为第三方提供，如商标注册证、授权书等，请务必先行核实文件的真实有效性），一旦发现虚假资质，</span><span style="font-family:'楷体';font-size:12pt;">乙方以及所代表的的经营项目</span><span style="font-family:'楷体';font-size:12pt;">将被列入非诚信客户名单，</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">将不再与</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">进行合作；</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第四条</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">为构建一个真实、售后有保障</span><span style="font-family:'楷体';font-size:12pt;">申</span><span style="font-family:'楷体';font-size:12pt;">的安全网络购物环境，</span><span style="font-family:'楷体';font-size:12pt;">入驻的商家</span><span style="font-family:'楷体';font-size:12pt;">必须向甲方</span><span style="font-family:'楷体';font-size:12pt;">提交真实资料，经由</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">审核批准入驻。</span><span style="font-family:'楷体';font-size:12pt;">提交的资料在保障不泄露商户个人信息权益的前提下以图片的方式悬挂在商铺网店上，需提交的资料有：商户法人代表的身份证原件和经营执照原件（仅限工作人员当面验证拍照）以及身份证复印件，经过商户确认签订的本《邻居在线商家入驻协议书》。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第五条</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;百货类的入驻商家在本网站出售的商品绝对不能以次充好、以假当真，餐饮类的商家所提供的餐饮一定要干净卫生，提供酒店预定、餐馆餐位预定类的商户绝对保障预定信息消费者的服务。请所有商户务必真实、详细的陈述所提供服务的信息，如若发现虚假信息，致使消费者利益受损的，消费者向甲方投诉或向工商局、卫生局等相关部门反映的，请自行负责后果。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第六条&nbsp;消费者下完订单，百货类和餐饮类等需要配送服务的，乙方如自备有配送服务，则必须及时送到消费者手中；如乙方选择甲方提供的配送服务，则应准备好订单，以备甲方的配送人员接收订单。预定服务类的，乙方则应保障用户</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第三章&nbsp;相关服务资费情况</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">保证金</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">主要用于保证商家按照邻居在线的规则进行经营，并且在</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">有违规</span><span style="font-family:'楷体';font-size:12pt;">交易</span><span style="font-family:'楷体';font-size:12pt;">行为时需向邻居在线消费者</span><span style="font-family:'楷体';font-size:12pt;">赔付损失</span><span style="font-family:'楷体';font-size:12pt;">。商家因违规行为被公司扣除保证金，而导致保证金不足额时，商家需要在10日内补足余额，逾期未补足的邻居在线将对商家店铺进行监管，直至补足。</span><span style="font-family:'楷体';font-size:12pt;">半年时间内，如乙方无违规行为且未有续约或者想退出的，</span><span style="font-family:'楷体';font-size:12pt;">经公司核准后可于网站下线，</span><span style="font-family:'楷体';font-size:12pt;">同时按照保证金的原额返还给乙方。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">于2013年10月以前，在邻居在线平台入驻的所有具备实体店铺的商家不要求强制缴纳</span><span style="font-family:'楷体';font-size:12pt;">保证金，实行自愿原则，且无规定数额。自愿缴纳保证金的，半年时间内，如乙方无违规行为且未有续约或者想退出的，甲方必须原额返还给乙方。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">自愿缴纳保证金的，在缴纳保证金期间，甲方在邻居在线平台标识乙方为诚信用户，并在消费者搜索信息的时候，乙方还享受排名优先的服务。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">年费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">在邻居在线</span><span style="font-family:'楷体';font-size:12pt;">入驻，前期不要求缴纳</span><span style="font-family:'楷体';font-size:12pt;">。年费金额按公司发展阶段为划分标准，初期一轮融资</span><span style="font-family:'楷体';font-size:12pt;">（规模向全国扩展）</span><span style="font-family:'楷体';font-size:12pt;">之前，根据商家规模</span><span style="font-family:'楷体';font-size:12pt;">年费</span><span style="font-family:'楷体';font-size:12pt;">1</span><span style="font-family:'楷体';font-size:12pt;">2</span><span style="font-family:'楷体';font-size:12pt;">0元/年</span><span style="font-family:'楷体';font-size:12pt;">起</span><span style="font-family:'楷体';font-size:12pt;">。续签商家下年费须在当年12月25日之前一次性缴纳；新签商家在申请入驻获得批准时一次性缴纳本年度的年费。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">退出机制：</span><span style="font-family:'楷体';font-size:12pt;">1、</span><span style="font-family:'楷体';font-size:12pt;">根据协议通知对方终止协议、试运营清退、按照实际经营期间，将全年年费返还均摊至自然月，按照实际经营期间来计算具体应当返还的年费</span><span style="font-family:'楷体';font-size:12pt;">。</span><span style="font-family:'楷体';font-size:12pt;">2、</span><span style="font-family:'楷体';font-size:12pt;">年费的返还结算在协议终止后进行。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">技术服务费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">甲方按照消费者和乙方在甲方所经营的邻居在线网站平台成功交易的每笔交易总额的5%收取技术服务费，不足0.10元的按照0.10元收取，费用的结算由甲方指派的负责区域配送人员在当天至第二天下午两点之前完成。提前预支付的，则给予10%的优惠。如乙方在甲方的邻居在线网站实现交易额为5万元，实际应向甲方缴纳2500元，若提前预支付的，只需支付5000X5%X(1-10%)=2250元。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">宅急送配送服务费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">此费用适用于乙方选择甲方提供的配送服务，费用的结算由甲方指派的负责区域配送人员在当天至第二天下午两点之前完成。提前预支付的，则给予10%的优惠。如乙方选择甲方同的配送服务，乙方在一定时期内实际应向甲方支付配送费用为5000元，若提前预支付的，则只需支付500X5%X(1-10%)=2250元。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">资费标准见表如下：</span></p>
+<table>
+<tbody>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">距离</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">重量</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">单件物品价格</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">备注</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤内</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">0.5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">不允许商品加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤—3.5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">不允许商品加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">3.5公斤—5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">商品可以稍微加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5公斤—10公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">3元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">10公斤—25公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">25公斤以上</span></p>
+</td>
+<td valign="top" width="305" colspan="2">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议自取，本公司不提供配送服务</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤内</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">不允许商品加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤—3.5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">商品可以稍微加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">3.5公斤—5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5公斤—10公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">4元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">10公斤—25公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">25公斤以上</span></p>
+</td>
+<td valign="top" width="305" colspan="2">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议自取，本公司暂不提供配送服务</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2.5km以上</span></p>
+</td>
+<td valign="top" width="458" colspan="3">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议发其他物流公司或自取，本公司暂不提供服务</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-family:'楷体';font-size:12pt;">广告费</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方想要吸引更多的消费者去网店消费，则可缴纳一定数额的广告费用后，甲方提供在网站平台的首页上展示、陈列乙方的商铺或商品，从而为乙方提高交易量。另外，在消费者搜索需要的信息时候，本平台提供按照成交量、信誉积分和价格排名的方式向消费者展示的服务，在消费者选择默认搜索方式的情况下，所有商品将按照乙方提供的广告费用多少而进行先后排名。</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">资费情况见表如下</span></p>
+<table>
+<tbody>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">广告细目</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">展示时间</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">最低费用</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">备注</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">首页图片广告位</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">30元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">首页菜单品牌</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">10元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">搜索排名</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">名企名店身份标识</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">信息发布</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1天</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">0.3元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">商铺装修和托管</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">20元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后开始执行</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">以上所有资费情况若有变化，请参照邻居在线官方网站的通知。</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第四章&nbsp;其他合作</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">乙方在实体店铺进行推广宣传的时候，愿意在宣传广告内容中推出甲方网站网址，宣传甲方网站提供的服务，则甲方应该给予乙方入驻邻居在线平台相关的适当优惠条件。</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第五章&nbsp;乙方向甲方缴纳的费用</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">保证金</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方缴纳保证金</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，有效期为</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日至</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">技术服务费</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方预支付技术服务费</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，永久有效，甲方承诺在以后的技术服务中优惠</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">宅急送服务费</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方预宅急送服务费</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，永久有效，甲方承诺在以后的技术服务中优惠</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">广告费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方支付用于</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">的</span><span style="font-family:'楷体';font-size:12pt;">广告费合计</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，有效期为</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日至</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">年费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方缴纳年费</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，有效期为</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日至</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日。</span></p>
+<p></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">本协议如有未尽事宜，应由甲乙双方共同讨论补充或修改；补充和修改的内容与本协议具有同等法律效力；</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">本协议正本一式五页共两份份，甲乙双方各执一份;&nbsp;如有遗失或损坏,&nbsp;乙方须向甲方申请并在场进行补充签署,&nbsp;个人增补视为无效;本协议自签订之日起生效。</span></p>
+<p></p>
+<p style="text-align:justify;"><span style="font-family:'楷体';font-size:12pt;">甲</span><span style="font-family:'楷体';font-size:12pt;">方</span><span style="font-family:'楷体';font-size:12pt;">：</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">重庆易家仁有限公司</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">乙</span><span style="font-family:'楷体';font-size:12pt;">方</span><span style="font-family:'楷体';font-size:12pt;">：________________</span></p>
+<p style="text-align:justify;"><span style="font-family:'楷体';font-size:12pt;">代表人：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;代表人：</span></p>
+<p style="text-align:justify;"><span style="font-family:'楷体';font-size:12pt;">签署日期：</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">签署日期：</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">____年____月____日</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">____年____月____日</span></p>
+</div>
+<!--EndFragment--></span> <ul>
+<li>
+<div>
+<p><span style="font-family:'宋体';font-size:10.5pt;">《邻居在线商个人开网店规则和协议》</span></p>
+</div>
+</li>
+</ul>
+<span style="font-family:'宋体';font-size:10.5pt;"> <p style="text-align:justify;text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">甲方：</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;重庆易家仁有限公司&nbsp;&nbsp;</span></p>
+<p style="text-align:justify;text-indent:44.88pt;"><span style="font-family:'楷体';font-size:12pt;">乙方：</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">根据中华人民共和国法律、法规的规定，甲乙双方本着互惠互利的原则，就乙方入驻甲方所经营的邻居在线网站项目事宜达成如下协议，以共同遵守。</span><span style="font-family:'宋体';font-size:12pt;">&nbsp;&nbsp;</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第一章&nbsp;甲方提供的服务内容</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第一条&nbsp;甲方向乙方免费提供网站平台，保障商家的网店能够稳定的运行。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第二条&nbsp;甲方向乙方免费提供商铺入驻平台的基本信息录入，包括乙方的个人真实身份的证明、现居地址、营业地址、商品货物和相关服务信息。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第三条&nbsp;甲方向乙方提供有偿的交易服务，消费者的订单将经过甲方系统及时准确的以短信方式送达乙方，甲方按照乙方和消费者成功进行的每一笔交易收取相关技术服务费。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第四条&nbsp;如果乙方是提供百货和餐饮订购服务类的个人，乙方自己不能提供配送到消费者要求的指定地点，则乙方可以选择甲方向乙方提供的有偿配送服务。服务内容是，甲方指派专人负责去乙方发货地接收消费者所订购的商品并配送到消费者要求的指定地点，另外负责从消费者手中接收清点商品款项并及时返还给乙方。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第五条&nbsp;甲方向乙方提供有偿的广告服务，例如在网站平台的首页上展示、陈列商铺或商品。在消费者搜索需要的信息时候，本平台提供按照成交量、信誉积分和价格排名的方式向消费者展示的服务，在消费者选择默认搜索方式的情况下，所有商品将按照乙方提供的相应广告费用而进行先后排名。</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第二章&nbsp;乙方需要遵守的条约</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第一条&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">暂未授权任何机构进行代理招商服务，入驻申请流程及相关的收费说明均以</span><span style="font-family:'楷体';font-size:12pt;">邻居在线</span><span style="font-family:'楷体';font-size:12pt;">官方招商</span><span style="font-family:'楷体';font-size:12pt;">网页</span><span style="font-family:'楷体';font-size:12pt;">为准。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第二条&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">有权根据包括但不仅限于品牌需求、公司经营状况、服务水平等其他因素退回客户申请；同时</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">有权在申请入驻及后续经营阶段要求客户提供其他资质；</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">将结合各行业发展动态、国家相关规定及消费者购买需求，不定期更新招商标准。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第三条&nbsp;请务必确保您申请入驻及后续经营阶段提供的相关资质的真实性（若</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">提供的相关资质为第三方提供，如商标注册证、授权书等，请务必先行核实文件的真实有效性），一旦发现虚假资质，</span><span style="font-family:'楷体';font-size:12pt;">乙方以及所代表的的经营项目</span><span style="font-family:'楷体';font-size:12pt;">将被列入非诚信客户名单，</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">将不再与</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">进行合作；</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第四条</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">为构建一个真实、售后有保障</span><span style="font-family:'楷体';font-size:12pt;">申</span><span style="font-family:'楷体';font-size:12pt;">的安全网络购物环境，</span><span style="font-family:'楷体';font-size:12pt;">入驻的</span><span style="font-family:'楷体';font-size:12pt;">个人必须向甲方</span><span style="font-family:'楷体';font-size:12pt;">提交真实资料，经由</span><span style="font-family:'楷体';font-size:12pt;">甲方</span><span style="font-family:'楷体';font-size:12pt;">审核批准入驻。</span><span style="font-family:'楷体';font-size:12pt;">提交的资料在保障不泄露乙方个人信息权益的前提下以图片的方式悬挂在商铺网店上，需提交的资料有：乙方个人的身份证原件和经营场所住址证明（仅限工作人员当面验证拍照）以及身份证复印件，经过乙方确认签订的本《邻居在线个人入驻协议书》。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第五条</span><span style="font-family:'楷体';font-size:12pt;">&nbsp;百货类的入驻个人在本网站出售的商品绝对不能以次充好、以假当真，餐饮类的不允许个人入驻，请所有入驻个人务必真实、详细的陈述所提供服务的信息，如若发现虚假信息，致使消费者利益受损的，消费者向甲方投诉或向工商局、卫生局等相关部门反映的，请自行负责后果。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">第六条&nbsp;消费者下完订单，需要配送服务的，乙方如自备有配送服务，则必须及时送到消费者手中；如乙方选择甲方提供的配送服务，则应准备好订单，以备甲方的配送人员接收订单。</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第三章&nbsp;相关服务资费情况</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">保证金</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">主要用于保证</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">按照邻居在线的规则进行经营，并且在</span><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">有违规</span><span style="font-family:'楷体';font-size:12pt;">交易</span><span style="font-family:'楷体';font-size:12pt;">行为时需向邻居在线消费者</span><span style="font-family:'楷体';font-size:12pt;">赔付损失</span><span style="font-family:'楷体';font-size:12pt;">。商家因违规行为被公司扣除保证金，而导致保证金不足额时，商家需要在10日内补足余额，逾期未补足的邻居在线将对商家店铺进行监管，直至补足。</span><span style="font-family:'楷体';font-size:12pt;">半年时间内，如乙方无违规行为且未有续约或者想退出的，</span><span style="font-family:'楷体';font-size:12pt;">经公司核准后可于网站下线，</span><span style="font-family:'楷体';font-size:12pt;">同时按照保证金的原额返还给乙方。</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">入驻个人必须缴纳保证金，视经营规模和经营范围缴纳。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">年费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">乙方</span><span style="font-family:'楷体';font-size:12pt;">在邻居在线</span><span style="font-family:'楷体';font-size:12pt;">入驻，前期不要求缴纳</span><span style="font-family:'楷体';font-size:12pt;">。年费金额按公司发展阶段为划分标准，初期一轮融资</span><span style="font-family:'楷体';font-size:12pt;">（规模向全国扩展）</span><span style="font-family:'楷体';font-size:12pt;">之前，根据</span><span style="font-family:'楷体';font-size:12pt;">个人经营</span><span style="font-family:'楷体';font-size:12pt;">规模</span><span style="font-family:'楷体';font-size:12pt;">按照年费</span><span style="font-family:'楷体';font-size:12pt;">1</span><span style="font-family:'楷体';font-size:12pt;">2</span><span style="font-family:'楷体';font-size:12pt;">0元/年</span><span style="font-family:'楷体';font-size:12pt;">起</span><span style="font-family:'楷体';font-size:12pt;">。续签</span><span style="font-family:'楷体';font-size:12pt;">个人</span><span style="font-family:'楷体';font-size:12pt;">下年费须在当年12月25日之前一次性缴纳；新签</span><span style="font-family:'楷体';font-size:12pt;">个人</span><span style="font-family:'楷体';font-size:12pt;">在申请入驻获得批准时一次性缴纳本年度的年费。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">退出机制：</span><span style="font-family:'楷体';font-size:12pt;">1、</span><span style="font-family:'楷体';font-size:12pt;">根据协议通知对方终止协议、试运营清退、按照实际经营期间，将全年年费返还均摊至自然月，按照实际经营期间来计算具体应当返还的年费</span><span style="font-family:'楷体';font-size:12pt;">。</span><span style="font-family:'楷体';font-size:12pt;">2、</span><span style="font-family:'楷体';font-size:12pt;">年费的返还结算在协议终止后进行。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">技术服务费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">甲方按照消费者和乙方在甲方所经营的邻居在线网站平台成功交易的每笔交易总额的5%收取技术服务费，不足0.10元的按照0.10元收取，费用的结算由甲方指派的负责区域配送人员在当天至第二天下午两点之前完成。提前预支付的，则给予10%的优惠。如乙方在甲方的邻居在线网站实现交易额为5万元，实际应向甲方缴纳2500元，若提前预支付的，只需支付50000X5%X(1-10%)=2250元。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">宅急送配送服务费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">此费用适用于乙方选择甲方提供的配送服务，费用的结算由甲方指派的负责区域配送人员在当天至第二天下午两点之前完成。提前预支付的，则给予10%的优惠。如乙方选择甲方同的配送服务，乙方在一定时期内实际应向甲方支付配送费用为5000元，若提前预支付的，则只需支付5000X5%X(1-10%)=2250元。</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">资费标准见表如下：</span></p>
+<p>
+</p><table>
+<tbody>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">距离</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">重量</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">单件物品价格</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">备注</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤内</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">0.5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">不允许商品加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤—3.5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">不允许商品加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">3.5公斤—5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">商品可以稍微加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5公斤—10公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">3元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">10公斤—25公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km内</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">25公斤以上</span></p>
+</td>
+<td valign="top" width="305" colspan="2">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议自取，本公司不提供配送服务</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤内</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">不允许商品加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2公斤—3.5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">商品可以稍微加价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">3.5公斤—5公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5公斤—10公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">4元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">10公斤—25公斤</span></p>
+</td>
+<td valign="top" width="113">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="192">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议商品加快递价</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1.5km—2.5km</span></p>
+</td>
+<td valign="top" width="153">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">25公斤以上</span></p>
+</td>
+<td valign="top" width="305" colspan="2">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议自取，本公司暂不提供配送服务</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="119">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2.5km以上</span></p>
+</td>
+<td valign="top" width="458" colspan="3">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">建议发其他物流公司或自取，本公司暂不提供服务</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p><span style="font-family:'楷体';font-size:12pt;">广告费</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方想要吸引更多的消费者去网店消费，则可缴纳一定数额的广告费用后，甲方提供在网站平台的首页上展示、陈列乙方的商铺或商品，从而为乙方提高交易量。另外，在消费者搜索需要的信息时候，本平台提供按照成交量、信誉积分和价格排名的方式向消费者展示的服务，在消费者选择默认搜索方式的情况下，所有商品将按照乙方提供的广告费用多少而进行先后排名。</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">资费情况见表如下</span></p>
+<p>
+</p><table>
+<tbody>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">广告细目</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">展示时间</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">最低费用</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">备注</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">首页图片广告位</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">30元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">首页菜单品牌</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">10元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">搜索排名</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">名企名店身份标识</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">5元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">信息发布</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1天</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">0.3元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后执行新的标准</span></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="147">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">商铺装修和托管</span></p>
+</td>
+<td valign="top" width="115">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">1个月</span></p>
+</td>
+<td valign="top" width="100">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">20元</span></p>
+</td>
+<td valign="top" width="210">
+<p style="text-align:center;"><span style="font-family:'楷体';font-size:12pt;">2013年9月后开始执行</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">以上所有资费情况若有变化，请参照邻居在线官方网站的通知。</span></p>
+<p><span style="font-family:'黑体';font-size:12pt;">第四章&nbsp;乙方向甲方缴纳的费用</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">保证金</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方向甲方缴纳保证金</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，有效期为</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日至</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">年</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">月</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">日。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">技术服务费</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方预支付技术服务费</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，永久有效，甲方承诺在以后的技术服务中优惠</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">宅急送服务费</span></p>
+<p style="text-indent:21pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方预宅急送服务费</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元</span><span style="font-family:'楷体';font-size:12pt;">，永久有效，甲方承诺在以后的技术服务中优惠</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;元。</span></p>
+<p><span style="font-family:'楷体';font-size:12pt;">广告费</span></p>
+<p style="text-indent:24pt;"><span style="font-family:'楷体';font-size:12pt;">乙方自愿向甲方支付用于</span><span style="font-family:'楷体';font-size:12pt;text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="font-family:'楷体';font-size:12pt;">的</span><span style="font-family:'楷体';font-size&lt;/div&gt;
+      &lt;/fieldset&gt;
+      &lt;style&gt;.button-c {padding:1px}&lt;/style&gt;
+&lt;script language='Javascript'&gt;
+$(function(){
+     $(" .edit").colorbox({width:400,="" height:200,="" iframe:true,="" transition:'elastic',="" speed:350,="" scrolling:true});="" })="" *="" delete="" a="" file.="" function="" deletefile(fileid)="" {="" if(!fileid)="" return;="" hiddenwin.location.href="createLink('file'," 'delete',="" 'fileid=" + fileID);
+}
+/* Download a file, append the mouse to the link. Thus we call decide to open the file in browser no download it. */
+function downloadFile(fileID)
+{
+    if(!fileID) return;
+    var sessionString = " ?sid="266c88bc842a4d35f19c8ebdd52d7fc1';" var="" url="createLink('file'," 'download',="" &mouse="left')" +="" sessionstring;="" window.open(url,="" '_blank');="" return="" false;="" }="" <="" script="">
+</span></p><fieldset>
+ 
+  <div>
+    </div>
+</fieldset>      <script language="Javascript">
+                     var fold = '-';
+                     var unfold = '+';
+                     function switchChange(historyID, type) {
+                         if (type == unfold) {
+                             $('#switchButton' + historyID).val(fold);
+                             $('#changeBox' + historyID).show();
+                         }
+                         else {
+                             $('#switchButton' + historyID).val(unfold);
+                             $('#changeBox' + historyID).hide();
+                         }
+                     }
+</script>
+<script src="/js/jquery/reverseorder/raw.js" type="text/javascript"></script>
+
+ 
+    </span></div>
+
+
+
+</div>
+                            </div>
+                        
+                        </div>                	
+                    </div>
+                </div>
+            </div>
+      </div>
+     </div>
+  </div>
+*@

@@ -115,7 +115,7 @@
               .change(function () {
                   var _args = DWZ.jsonEval($(this).val());
                   if ($(this).is(":checked")) {
-                      //debugger
+                      ////debugger
                       if ($.inArray(_args["IDSet"], id_set) === -1) {
                           id_set[id_set.length] = _args["IDSet"];
                           name_set[name_set.length] = _args["NameSet"];
@@ -125,7 +125,7 @@
 
                   }
                   else {
-                      //debugger
+                      ////debugger
                       var i_to_be_removed = $.inArray(_args["IDSet"], id_set);
                       if (i_to_be_removed > -1) {
                           var function_to_be_compared = function (elem, index) {
@@ -141,7 +141,7 @@
                       }
 
                   }
-                  debugger
+                  //debugger
                   $chooseResult.text($nameset.val());
               })
               .each(function () {

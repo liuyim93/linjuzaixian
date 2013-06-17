@@ -65,7 +65,11 @@ namespace friday.core.repositories
             var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.LoginName == loginName).Count() > 0 ? false : true; ;
             return q;
         }
-    
+        public bool IsHaveLoginName(string loginName)
+        {
+            var q = (from x in this.Session.Query<LoginUser>() select x).Where(o => o.IsDelete == false && o.LoginName == loginName).Count() > 0 ? true : false; ;
+            return q;
+        }
 
 
     }

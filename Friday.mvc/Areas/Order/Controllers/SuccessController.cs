@@ -101,7 +101,8 @@ namespace Friday.mvc.Areas.Order.Controllers
                             Amount = cartOfCommodity.Amount,
                             Price = cartOfCommodity.Price,
                             MyCommodityOrder = myCommodityOrder,
-                            Commodity = cartOfCommodity.Commodity
+                            Commodity = cartOfCommodity.Commodity,
+                            Sku = cartOfCommodity.Sku
                         };
                         sumPrice += cartOfCommodity.Price;
                         iOrderOfCommodityService.Save(orderOfCommodity);

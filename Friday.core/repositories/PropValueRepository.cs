@@ -49,9 +49,9 @@ namespace friday.core.repositories
             var pplist = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.Id == pid && o.IsDelete == false).ToList<PropValue>();
             return pplist;
         }
-        public IList<PropValue> GetAllByPropIDName(string propIDName) 
+        public IList<PropValue> GetAllByMerchantAndPropIDName(string mchtId, string propIDName) 
         {
-            var ppd = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.PropIDName == propIDName && o.IsDelete == false).ToList<PropValue>();
+            var ppd = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.PropIDName == propIDName &&o.Merchant.Id== mchtId && o.IsDelete == false).ToList<PropValue>();
             return ppd;
         } 
     }

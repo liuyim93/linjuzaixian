@@ -115,6 +115,7 @@ namespace friday.mvc
         {
 
             ValidateResult vr = new ValidateResult();
+            bool validateLoginName = false;
             if (!string.IsNullOrEmpty(account) && !string.IsNullOrEmpty(psw))
             {
                 //2013-02-28 basilwang temporialiy block verify code
@@ -124,18 +125,29 @@ namespace friday.mvc
                 //    return false;
                 //}
                 //else
-                var loginUser = iLoginUserRepository.GetLoginUserByLoginName(account);
-                userid = loginUser.Id;
+
+                validateLoginName = iLoginUserRepository.IsHaveLoginName(account);
+                if (validateLoginName)
                 {
-                    if (psw==loginUser.Password)
+                    var loginUser = iLoginUserRepository.GetLoginUserByLoginName(account);
+                    userid = loginUser.Id;
                     {
-                        vr.isSucceed = true;
+                        if (psw == loginUser.Password)
+                        {
+                            vr.isSucceed = true;
+                        }
+                        else
+                        {
+                            vr.message = "验证失败";
+                            vr.isSucceed = false;
+                        }
                     }
-                    else
-                    {
-                        vr.message = "验证失败";
-                        vr.isSucceed = false;
-                    }
+                }
+                else 
+                {
+                    vr.message = "不存在该用户名！";
+                    vr.isSucceed = false;
+                
                 }
             }
             else

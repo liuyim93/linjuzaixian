@@ -17,6 +17,6 @@ namespace friday.core.services
         IList<PropID> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool IsHaveTheSameName(string name);
         IList<PropID> GetPropIDByMerchantID(string mid);
-        PropID getPropIDbyPropIDName(string name);
+        PropID getPropIDbyMerchantAndPropIDName(string mchtId, string name);
     }
 }

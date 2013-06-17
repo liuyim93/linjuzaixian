@@ -44,7 +44,7 @@
             oObj = o;
 
             a.click(function (event) {
-                debugger
+                //debugger
                 var nameSet = [];
                 var idSet = [];
                 var nameString;
@@ -98,7 +98,7 @@
                     d.cascadecheck = true;
                     d.theme = "bbit-tree-lines";
                     //                    d.onnodeclick = function navi(item) {
-                    //                        debugger
+                    //                        //debugger
                     //                        a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
 
                     //                    }

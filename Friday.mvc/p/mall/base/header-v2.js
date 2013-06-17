@@ -150,6 +150,7 @@ TMall.THeader = function () {
             return
         }
         var v = "", u = false, x = false;
+        debugger
         l = f.get("#mq");
         i = p.prev(l);
         e = f.get("#J_Type");

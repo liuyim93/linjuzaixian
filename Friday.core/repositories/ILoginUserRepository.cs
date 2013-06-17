@@ -14,5 +14,6 @@ namespace friday.core.repositories
         IList<LoginUser> Search(List<DataFilter> termList, int start, int limit, out long total);
         LoginUser GetLoginUserByEmail(string email);
         bool ValidateLoginName(string loginName);
+        bool IsHaveLoginName(string loginName);
     }
 }

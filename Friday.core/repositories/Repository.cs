@@ -634,6 +634,133 @@ namespace friday.core.repositories
             parentSearch = oldParentSearch;
             return query;
         }
+        protected ICriteria SearchBySection(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchBySection(query, termList);
+        }
+        protected ICriteria SearchBySection(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchBySection(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchBySection(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "section.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "Section";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".Section";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "section");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+
+                    if (df.type.Equals("Section"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id", df.value));
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
+
+        protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList, bool isSelf)
+        {
+            return SearchByDataResource(query, termList);
+        }
+        protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList)
+        {
+            int deepIndex = 0;
+            string parentSearch = string.Empty;
+            return SearchByDataResource(query, termList, ref deepIndex, ref parentSearch);
+        }
+        protected ICriteria SearchByDataResource(ICriteria query, List<DataFilter> termList, ref int deepIndex, ref string parentSearch)
+        {
+            string notself = null;
+
+            string oldParentSearch = parentSearch;
+            string alias = string.Empty;
+            if (deepIndex > 0)
+            {
+                notself = "dataresource.";
+                if (deepIndex == 1)
+                {
+                    parentSearch = "DataResource";
+                }
+                else
+                {
+                    parentSearch = parentSearch + ".DataResource";
+
+                }
+                alias = parentSearch;
+                query.CreateAlias(alias, "dataresource");
+            }
+            deepIndex++;
+            if (termList.Count != 0)
+            {
+
+                foreach (DataFilter df in termList)
+                {
+                    if (df.type.Equals("IsDelete"))
+                    {
+                        query.Add(Expression.Eq(notself + "IsDelete", false));
+                        continue;
+                    }
+
+                    if (df.type.Equals("DataResource"))
+                    {
+                        query.Add(Restrictions.Eq(notself + "Id",df.value));
+                        continue;
+                    }
+                    if (df.type.Equals("Title"))
+                    {
+                        query.Add(Restrictions.Like(notself + "Title", df.value, MatchMode.Anywhere));
+                        continue;
+                    }
+
+                    if (df.type.Equals("Section"))
+                    {
+
+                        if (df.field != null && df.field.Count != 0)
+                        {
+                            SearchBySection(query, df.field, ref deepIndex, ref parentSearch);
+                        }
+                        continue;
+                    }
+                    //时间
+                    if (df.type.Equals("CreateTime"))
+                    {
+                        SearchByCreateTime(query, df, notself);
+                        continue;
+                    }
+
+                }
+            }
+            deepIndex--;
+            parentSearch = oldParentSearch;
+            return query;
+        }
         protected ICriteria SearchBySystemUser(ICriteria query, List<DataFilter> termList, bool isSelf)
         {
             return SearchBySystemUser(query, termList);

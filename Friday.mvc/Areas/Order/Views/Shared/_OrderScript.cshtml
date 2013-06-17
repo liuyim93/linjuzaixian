@@ -32,7 +32,13 @@
                for (int i = 0; i < Model.shops.Count; i++)
                {
                 <text>
-                ["@(Model.shops.ElementAt(i).Id)"],
+                ["@(Model.shops.ElementAt(i).Id)"]
+                @if(i!=Model.shops.Count-1)
+                {
+                    <text>
+                    ,
+                    </text>
+                }
                 </text>
                 }
             }
@@ -85,7 +91,13 @@
                                     for (int s = 0; s < skuProps.Count; s++)
                                     {
                                         <text>
-                                        "@(skuProps.ElementAt(s))":"@(skuValues.ElementAt(s))",
+                                        "@(skuProps.ElementAt(s))":"@(skuValues.ElementAt(s))"
+                                         @if(s!=skuProps.Count-1)
+                                            {
+                                                <text>
+                                                ,
+                                                </text>
+                                            }
                                         </text>
                                     }
                                  }
@@ -95,11 +107,11 @@
                             "seller": "@(Model.shops.ElementAt(i).Name)",
                             "sellerId": "@(Model.shops.ElementAt(i).Id)",
                             "price": {
-                                "now": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Price * 100)),
-                                "origin": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.OldPrice * 100)),
+                                "now": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100)),
+                                "origin": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100)),
                                 "descend": 0,
-                                "save": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.OldPrice * 100) - Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Price * 100)),
-                                "sum": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Commodity.Price * 100) * Model.cartOfCommodities.ElementAt(i).ElementAt(j).Amount),
+                                "save": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100) - Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100)),
+                                "sum": @(Convert.ToInt16(Model.cartOfCommodities.ElementAt(i).ElementAt(j).Sku.price * 100) * Model.cartOfCommodities.ElementAt(i).ElementAt(j).Amount),
                                 "actual": 0,
                                 "prepay": 0,
                                 "finalpay": 0
@@ -134,7 +146,14 @@
                             "realRootCat": 50011699,
                             "cbopt": 0,
                             "extraParam": ""
-                        },
+                        }
+
+                        @if (j != Model.cartOfCommodities.ElementAt(i).Count - 1)
+                        {
+                            <text>
+                            ,
+                            </text>
+                        }
                         </text>
                     }
                     }
@@ -188,8 +207,13 @@
                     }
                 }
                 ]
-            },
-            
+            }
+            @if (i != Model.shops.Count - 1)
+            {
+                <text>
+                ,
+                </text>
+            }
             </text>
             }
 

@@ -60,7 +60,7 @@
         var rawurl = '<%=Request.Path%>';
         var query = '<%=Request.Url.Query%>';
         var roleName = '<%=Request.Params["roleName"]%>';
-        debugger
+        //debugger
         var node_click_url = "permission/pSystemFunctionObjectDetail.aspx";
         query = query.replace(/\?/, "&").replace(/uid/i,"rid");
         //2013-01-15 basilwang must use one while not bind cause child panel may trigger panelloaded and bubble
@@ -68,7 +68,7 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
+            //debugger
             var $tree = o.find("#tree");
             var $form = o.find("#form");
             var rel_v3 = "#jbsxBox3";

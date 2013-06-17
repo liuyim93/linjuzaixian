@@ -61,6 +61,11 @@ namespace friday.core
         //    get;
         //    set;
         //}
+        public virtual Iesi.Collections.Generic.ISet<DataResource> DataResources
+        {
+            get;
+            set;
+        }
         public virtual Iesi.Collections.Generic.ISet<UserInRole> UserInRoles
         {
             get;

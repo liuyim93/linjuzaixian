@@ -126,7 +126,7 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            debugger
+            //debugger
             o.find("#AnonymousUserList table:eq(1) tr").click(function (e) {
                 if (!$(e.target).is("a")) {
                     $(this).find("td a").trigger("click");

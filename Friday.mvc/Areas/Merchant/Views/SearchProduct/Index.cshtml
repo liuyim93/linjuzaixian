@@ -14,7 +14,7 @@
     <title>邻居在线</title>
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
-    <script src="@Url.Content("/p/mall/base/header-v2.js")"></script>
+@*    <script src="@Url.Content("/p/mall/base/header-v2.js")"></script>*@
     <script src="@Url.Content("/apps/tmallsearch/1.0/suggest.js")"></script>
     <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
@@ -606,7 +606,7 @@
                                     </div>
                                 </div>
                                 <p class="productPrice">
-                                    <em title="199.00">¥@item.Price </em> <del>¥@item.OldPrice</del>
+                                    <em title="199.00">¥@minpricesku.price </em> <del>¥@minpricesku.price</del>
                                 </p>
                                 <p class="productTitle">
                                     <a href="http://localhost:7525/Merchant/Detail/Index?brandid=@item.Id" target="_blank" title="@item.Shop.Name @item.Name 2013春新款正品商务休闲正装舒适软面皮鞋包邮" data-i="18965187927" data-is="214204412" data-ci="50012906" data-p="1" atpanel="1,18965187927,50012906,214204412,spu,1,spu,260030441">@item.Shop.Name
@@ -786,12 +786,14 @@
                             @for (int i = 0; i < 6 && i < Model.recommendComdties.Count; i++)
                             {
                                 var hrcdty = @Model.recommendComdties.ElementAt(i);
+                                var minPrice = @Model.minRecommendSkuList.ElementAt(i);
+                                    
                                 <div class="product">
                                     <a href="http://localhost:7525/Merchant/Detail/Index?brandid=@hrcdty.Id" target="_blank" atpanel="-2,15690894056,,,spu,1,p4p," class="productImg">
                                         <img src="@hrcdty.Image">
                                     </a>
                                     <p class="productPrice ui-price">
-                                        ¥ @hrcdty.Price</p>
+                                        ¥ @minPrice.price</p>
                                     <p class="productTitle">
                                         <a href="http://localhost:7525/Merchant/Detail/Index?brandid=@hrcdty.Id" atpanel="-2,15690894056,,,spu,1,p4p," target="_blank">
                                         @hrcdty.Name</a></p>
@@ -846,5 +848,6 @@
         </div>
 
     }
+
 </body>
 </html>

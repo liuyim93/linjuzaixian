@@ -73,9 +73,9 @@
         //2013-02-10 basilwang use document
         $(document).one("panelloaded", function (e, o) {
             //o.find("a[rel_v3]").trigger("click");
-            //debugger;
+            ////debugger;
             o.find("#form").bind("submit", function (e) {
-                //debugger
+                ////debugger
                 return divSearch(this, rel_v3, $.get_target_type(prefix));
 
             });

@@ -45,10 +45,10 @@ namespace friday.coretest
             IList<PropValue> iPropValues = new List<PropValue>();
             IList<PropValue> iPropValues2 = new List<PropValue>();
             IRepository<SkuProp> iSkuPropRepository = UnityHelper.UnityToT<IRepository<SkuProp>>();
-            PropID ppt1 = propIDrep.getPropIDbyPropIDName("颜色");
-            PropID ppt2 = propIDrep.getPropIDbyPropIDName("尺寸");
-            iPropValues = propValuerep.GetAllByPropIDName("颜色");
-            iPropValues2 = propValuerep.GetAllByPropIDName("尺寸");
+            PropID ppt1 = propIDrep.getPropIDbyMerchantAndPropIDName(shop.Id, "颜色");
+            PropID ppt2 = propIDrep.getPropIDbyMerchantAndPropIDName(shop.Id, "尺寸");
+            iPropValues = propValuerep.GetAllByMerchantAndPropIDName(shop.Id, "颜色");
+            iPropValues2 = propValuerep.GetAllByMerchantAndPropIDName(shop.Id, "尺寸");
 
 
             string ggtfamily = mgt.Family + mgt.Id;
@@ -61,20 +61,20 @@ namespace friday.coretest
                     Price = i+10,
                     Image = "/uploadimage/c" + (i%10+1) + ".jpg",
                     IsDiscount = false,
-                    InventoryCount = 100,
+                    InventoryCount = 100+i*5,
                     GlobalGoodsType = mgt,
                     GlobalGoodsTypeFamily=ggtfamily,
                     Shop = shop,
                     ValuingCount=i,
                     Amount=i*10,
                     MonthAmount=i*3,
-                    AverageValuing = 4,
-                    DiscountInventoryCount = 50,
-                    DiscountPrice = 8.5,
-                    OldPrice = 15,
+                    AverageValuing = 1+i%4,
+                    DiscountInventoryCount = 50+i,
+                    DiscountPrice = 1.5+i%7,
+                    OldPrice = i,
                     IsEnabled = true,
                     IsLimited = false,
-                    Description = "五一大促销"
+                    Description = "五一大促销"+i
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);
@@ -124,20 +124,20 @@ namespace friday.coretest
                     Price = i + 10,
                     Image = "/uploadimage/c" + (i % 10 + 1) + ".jpg",
                     IsDiscount = false,
-                    InventoryCount = 100,
+                    InventoryCount = 100+i*5,
                     GlobalGoodsType = mgt,
                     GlobalGoodsTypeFamily = ggtfamily,
                     Shop = shop,
                     ValuingCount = i,
                     Amount = i * 10,
                     MonthAmount = i*4,
-                    AverageValuing = 4,
-                    DiscountInventoryCount = 50,
-                    DiscountPrice = 8.5,
-                    OldPrice = 15,
+                    AverageValuing = 1+i%4,
+                    DiscountInventoryCount = 50+i*5,
+                    DiscountPrice = 0.5+i%8,
+                    OldPrice = i,
                     IsEnabled = true,
                     IsLimited = false,
-                    Description = "五一大促销"
+                    Description = "五一大促销"+i
 
                 };
                 new CommodityRepository().SaveOrUpdate(commodity);

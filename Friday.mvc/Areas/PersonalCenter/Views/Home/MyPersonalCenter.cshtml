@@ -29,8 +29,10 @@
     <!-- start vmc js 3.1 -->
     @*<script src="http://a.tbcdn.cn//??s/kissy/1.3.0/kissy-min.js,p/global/1.0/global-min.js,apps/mytaobao/4.0/common/package-config.js,p/sns/1.1/sns.js,p/snsdk/core.js?t=2013050901.js"></script>*@
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
-    <script src=@Url.Content("/p/global/1.0/global-min.js")></script>
+@*    <script src=@Url.Content("/p/global/1.0/global-min.js")></script>*@
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
+    <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
+    <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
     <script src=@Url.Content("/apps/mytaobao/4.0/common/package-config.js")></script>
     <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
     <script src=@Url.Content("/p/snsdk/core.js")></script>
@@ -49,7 +51,8 @@
         (function (d) {
             var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
             t.setAttribute("exparams", "category=&userid=123072695&aplus");
-            t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            //t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            t.src = "http://localhost:7525/s/aplus_v2.js";
             d.getElementsByTagName("head")[0].appendChild(t);
         })(document);
     </script>
@@ -61,7 +64,7 @@
 
      
 
-        <script>            TB.Global.init();</script>
+@*        <script>            TB.Global.init();</script>*@
         <!-- end vmcommon/mytaobao -->
         <div class="grid-c2">
             <div class="col-main">
@@ -347,7 +350,7 @@
                                 {
                                    <li>
                                        <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585"><img src="@Model.Commodities.ElementAt(i).Image"/></a>
-                                       <p><span class="rmb">￥</span>@Model.Commodities.ElementAt(i).Price</p>
+                                       <p><span class="rmb">￥</span>@Model.OrderOfCommodity.ElementAt(i).Sku.price</p>
                                    </li>                                    
                                 }  
                              }
@@ -404,7 +407,7 @@
             <span class="sub" id="J_cart_discount_box"></span>
             <a class="more" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908601">更多</a>
         </header>
-        <div id="J_cart_container" data-url="http://i.taobao.com/trade/cart_info.htm?_tb_token_=I7X3qRRouAm">
+        <div id="J_cart_container">
             @{
                 if(Model.CartOfCommodities.Count==0)
                 {
@@ -443,13 +446,13 @@
                                     @{
                         if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
                                         {
-                                            <p class="new-price"><span class="rmb">￥</span>Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
+                                            <p class="new-price"><span class="rmb">￥</span>Model.CartOfCommodities.ElementAt(i).Sku.price</p>
                                         }
                                         else
                                         {
-                                            <p class="old-price"><span class="rmb">￥</span>@Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice</p>
-                                            <p class="new-price"><span class="rmb">￥</span>@Model.CartOfCommodities.ElementAt(i).Commodity.Price</p>
-                                            <p><span class="less-price">省@(Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice-Model.CartOfCommodities.ElementAt(i).Commodity.Price)</span></p>
+                                            <p class="old-price"><span class="rmb">￥</span>@Model.CartOfCommodities.ElementAt(i).Sku.price</p>
+                                            <p class="new-price"><span class="rmb">￥</span>@Model.CartOfCommodities.ElementAt(i).Sku.price</p>
+                                            <p><span class="less-price">省@(Model.CartOfCommodities.ElementAt(i).Sku.price - Model.CartOfCommodities.ElementAt(i).Sku.price)</span></p>
                                         }
                                      }
 

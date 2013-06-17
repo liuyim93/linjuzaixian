@@ -262,7 +262,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 sellCountDO = new SellCountDO()
                 {
                     cspuSellCountMap = new { },
-                    sellCount = 32
+                    sellCount = commodity.MonthAmount
                 },
                 specialServiceList = "[]",
                 tradeResult = new TradeResult()
