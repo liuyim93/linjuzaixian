@@ -97,16 +97,16 @@
          <div class="kv-item">
         <span style="color:#ffd0c0">切换区域：</span>
             <a id="J_AreaButton" type="button" href="" style="color:#ffd0c0">切换</a> 
-            
+            <input id="Temp_SelectedID" value="" type="hidden"/>
           </div>
         <script type="text/javascript">
             $(function () {
                 init();
-                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
+//                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
             });
 
             function init() {
-            //debugger
+            debugger
              @{  
                 <text>              
                 var loginState = "@Model.LoginStateFamily[0]"; 
@@ -123,28 +123,30 @@
                     </text>             
                   }
                   var userFamilyArray = userFamily.split(',');
+                  $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length-1]);
+                  $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                   updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
-
+                  
               }
-              else if(loginState=="isIP")
-              {
-                  @{  
+              else if(loginState=="isIP"){
+                 @{  
                     <text>              
                     userFamily = "@Model.LoginStateFamily[1]"; 
                     </text>             
                   }
                   var userFamilyArray = userFamily.split(',');
-                  //debugger
-                  updateOneList(0, 0, userFamilyArray[0],userFamilyArray);
+                  $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length-1]);
+                  $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                  updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
 
               }
-              else if(loginState=="noAll")
+              else
               {
-                    updateAfterList(0, 0);                
+                  updateNext(0,0);
               }
             }
 
-            function updateOneList(level, parentid , currentid, userFamilyArray) {
+            function updateNext(level, parentid) {
                 $.ajax({
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
@@ -162,7 +164,66 @@
                             else
                             {
                                 $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
+                                $("#Temp_SelectedID").val(parentid);
+                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                             }
+
+                            $("#Area_" + level).append("<option value=\"\" selected=\"true\">不限</option>");
+                            for (var i = 0; i < da.length; i++) {
+                                $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                            }
+
+                            $("#Area_" + level).bind("change", function () {
+                                deleteAfterList($(this).attr("level"));
+                                if($(this).val()!="")
+                                {
+                                    $("#Temp_SelectedID").val($(this).val());
+                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    updateNext(parseInt($(this).attr("level")) + parseInt(1),$(this).val());
+                                }
+                                else
+                                {
+                                    if($(this).attr("level")=="0")
+                                    {
+                                        $("#Temp_SelectedID").val("");
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool=");
+                                    }
+                                    else
+                                    {
+                                        $("#Temp_SelectedID").val($("#Area_"+(parseInt($(this).attr("level")) - parseInt(1))).val());
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    }
+                                }
+                            });
+                         }
+                    }
+                });
+            }
+
+            function updateOneList(level, parentid , currentid, userFamilyArray) {
+                $.ajax({
+                    type: "POST",
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                    data: "{'nvls':[{'name':'id','value':'" + parentid + "'}]}",
+                    dataType: "json",
+                    success: function (data) {
+                        //debugger
+                        var da = eval("(" + data.d + ")");
+                        if (da.length != 0) {
+                            $("#Temp_SelectedID").val(currentid);
+                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+
+                            if(level==0)
+                            {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton")
+                            }
+                            else
+                            {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
+                            }
+
+                            $("#Area_" + level).append("<option value=\"\" >不限</option>");
                             for (var i = 0; i < da.length; i++) {
                                 if(da[i].id==currentid)
                                 {
@@ -170,7 +231,9 @@
 
                                     if (da[i].hasChildren == true) {
                                         if(level<userFamilyArray.length-1)
-                                        updateOneList((parseInt(level) + parseInt(1)), userFamilyArray[level],userFamilyArray[parseInt(level) + parseInt(1)],userFamilyArray);
+                                            updateOneList((parseInt(level) + parseInt(1)), userFamilyArray[level],userFamilyArray[parseInt(level) + parseInt(1)],userFamilyArray);
+                                        else
+                                            updateNext((parseInt(level) + parseInt(1)),userFamilyArray[level]);
                                     }
                                 }
                                 else
@@ -181,64 +244,26 @@
 
                             $("#Area_" + level).bind("change", function () {
                                 deleteAfterList($(this).attr("level"));
-                                updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
-                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
+                                if($(this).val()!="")
+                                {
+                                    $("#Temp_SelectedID").val($(this).val());
+                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    updateNext(parseInt($(this).attr("level")) + parseInt(1),$(this).val());
+                                }
+                                else
+                                {
+                                    if($(this).attr("level")=="0")
+                                    {
+                                        $("#Temp_SelectedID").val("");
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool=");
+                                    }
+                                    else
+                                    {
+                                        $("#Temp_SelectedID").val($("#Area_"+(parseInt($(this).attr("level")) - parseInt(1))).val());
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    }
+                                }
                             });
-
-
-                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
-                        }
-                    }
-                });
-            }
-
-            function updateAfterList(level, id) {
-                $.ajax({
-                    type: "POST",
-                    contentType: 'application/json; charset=utf-8',
-                    url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
-                    data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
-                    dataType: "json",
-                    success: function (data) {
-                        //debugger
-                        var da = eval("(" + data.d + ")");
-                        if (da.length != 0) {
-                        //debugger
-                            if(level==0)
-                            {
-                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton");
-                                $("#Area_" + level).append("<option value=\"\" selected=\"true\">请选择</option>");
-                                for (var i = 0; i < da.length; i++) {
-                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
-                                }
-
-                                $("#Area_" + level).bind("change", function () {
-                                    deleteAfterList($(this).attr("level"));
-                                    updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
-                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
-                                });
-                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html");
-                            }
-                            else
-                            {
-                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
-
-                                $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
-                                for (var i = 1; i < da.length; i++) {
-                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
-                                }
-
-                                $("#Area_" + level).bind("change", function () {
-                                    deleteAfterList($(this).attr("level"));
-                                    updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
-                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
-                                });
-
-                                if (da[0].hasChildren == true) {
-                                    updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
-                                }
-                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
-                            }
                         }
                     }
                 });
