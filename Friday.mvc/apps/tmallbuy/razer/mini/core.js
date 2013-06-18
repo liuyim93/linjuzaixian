@@ -174,7 +174,8 @@
                             },
                             error: function () {
                                 b.call(Y, {
-                                    error: "\u670d\u52a1\u5668\u54cd\u5e94\u8d85\u65f6"
+                                    //error: "\u670d\u52a1\u5668\u54cd\u5e94\u8d85\u65f6"
+                                    error: "\u60A8\u5C1A\u672A\u767B\u5F55\uFF0C\u8BF7\u767B\u5F55\u540E\u518D\u8BD5\uFF01"
                                 })
                             }
                         })

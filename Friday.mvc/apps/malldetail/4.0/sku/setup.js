@@ -534,6 +534,11 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         })
     }
     function _sku_cfg_step1() {
+    //2013-06-18  wanghaichuan Token onInited first
+            _kissy_imp.mods.Token.onInited(function () {
+            _dom_form_id_J_FrmBid._tb_token_.value = _sku_cfg.valToken
+        })
+
         var _get_elem_by_id = function (_id_selector) {
             return _document.getElementById(_id_selector)
         };
@@ -563,18 +568,29 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         _sku_cfg.isLoadDealRecord = true;
         _sku_cfg.isLimitProm = false;
         _sku_cfg.isSupportCity = true;
-        _kissy_imp.mods.Token.init()
+        //2013-06-18 init token after TMiniCart
+        debugger
+        var _init_Token = function () {
+            if (typeof window.TMiniCart != "undefined") {
+                _kissy_imp.mods.Token.init();
+            }
+            else {
+                setTimeout(_init_Token, 200)
+            }
+        }
+        _init_Token();
     }
     _kissy_imp.mods.Token = { counter: 0, init: function () {
         //var S = _sku_cfg.isDaily ? "daily.taobao.net" : "tmall.com";
         //var T = "http://www." + (_sku_cfg.isDaily ? "daily.tmall.net" : "tmall.com") + "/go/rgn/tmall/t.php?t=20121104";
         var T = "http://localhost:7525/Account/Home/token?t=20121104"
-        var v = _dom.create('<iframe style="display:none" width="0" onload="_TShop.mods.Token.getIfrToken(this);" height="0" src="' + T + '"></iframe>');
+        var v = _dom.create('<iframe style="display:none" width="0" onload="TShop.mods.Token.getIfrToken(this);" height="0" src="' + T + '"></iframe>');
         //2013-06-02 basilwang don't use this;
         //debugger
         //_document.domain = _document.domain.split(".").slice(-2).join(".");
         _body.insertBefore(v, _body.firstChild);
     }, onInited: function (_token_inited_callback_fn) {
+    debugger
         if (_kissy.isFunction(_token_inited_callback_fn)) {
             if (this.inited) {
                 _token_inited_callback_fn()
@@ -583,7 +599,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
         }
     }, getIfrToken: function (z) {
-        //debugger
+        debugger
         var y = null;
         var _token = this;
         var S = function () {
@@ -653,4 +669,4 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         return _kissy_imp.cfg.apply(this, arguments)
     }
     }
-}, { requires: ["cookie", "malldetail/common/util", "malldetail/data/data", "malldetail/sku/util", "malldetail/sku/fastlogin", "malldetail/sku/buylink", "malldetail/sku/thumbViewer", "malldetail/sku/skuFeatureIcon", "malldetail/sku/sellCount", "malldetail/sku/skuLade", "malldetail/sku/paymethods", "malldetail/sku/skuTmVip", "malldetail/sku/skuAmount", "malldetail/sku/editEntry", "malldetail/sku/freight", "malldetail/sku/stock", "malldetail/sku/basketAnim", "malldetail/sku/shiptime", "malldetail/sku/linkbasket", "malldetail/sku/popupsimulate", "malldetail/sku/promotion", "malldetail/sku/ifclocation", "malldetail/sku/common", "malldetail/sku/propertyHandler", "malldetail/sku/3c", "malldetail/sku/areaSell", "malldetail/sku/price", "malldetail/sku/service", "malldetail/sku/stat", "malldetail/sku/double11"] });   /*pub-1|2013-02-28 21:14:22*/
+}, { requires: ["cookie", "malldetail/common/util", "malldetail/data/data", "malldetail/sku/util", "malldetail/sku/fastlogin", "malldetail/sku/buylink", "malldetail/sku/thumbViewer", "malldetail/sku/skuFeatureIcon", "malldetail/sku/sellCount", "malldetail/sku/skuLade", "malldetail/sku/paymethods", "malldetail/sku/skuTmVip", "malldetail/sku/skuAmount", "malldetail/sku/editEntry", "malldetail/sku/freight", "malldetail/sku/stock", "malldetail/sku/basketAnim", "malldetail/sku/shiptime", "malldetail/sku/linkbasket", "malldetail/sku/popupsimulate", "malldetail/sku/promotion", "malldetail/sku/ifclocation", "malldetail/sku/common", "malldetail/sku/propertyHandler", "malldetail/sku/3c", "malldetail/sku/areaSell", "malldetail/sku/price", "malldetail/sku/service", "malldetail/sku/stat", "malldetail/sku/double11"] });        /*pub-1|2013-02-28 21:14:22*/
