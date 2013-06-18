@@ -19,7 +19,7 @@ namespace Friday.mvc.weblogin
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
+            tagName = systemFunctionObjectService.基本信息模块.系统栏目管理.TagName;
             this.PermissionCheck(PermissionTag.Edit);
 
             if (Request.Params["__EVENTVALIDATION"] != null)

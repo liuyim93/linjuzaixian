@@ -20,12 +20,12 @@ namespace Friday.mvc.weblogin.dataresource
         IDataResourceService iDataResourceService = UnityHelper.UnityToT<IDataResourceService>();
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
+            this.tagName = systemFunctionObjectService.基本信息模块.网站信息管理.TagName;
             if (!this.PermissionValidate(PermissionTag.Enable))
             {
                 AjaxResult result = new AjaxResult();
                 result.statusCode = "300";
-                result.message = "没有DataResource增加权限";
+                result.message = "没有网站信息增加权限";
                 FormatJsonResult jsonResult = new FormatJsonResult();
                 jsonResult.Data = result;
                 Response.Write(jsonResult.FormatResult());

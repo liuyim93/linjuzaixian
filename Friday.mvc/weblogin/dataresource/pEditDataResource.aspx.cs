@@ -20,7 +20,7 @@ namespace Friday.mvc.weblogin.dataresource
         protected void Page_Load(object sender, EventArgs e)
         {
             string uid = Request.Params["uid"].ToString();
-            this.tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
+            this.tagName = systemFunctionObjectService.基本信息模块.网站信息管理.TagName;
             this.PermissionCheck(PermissionTag.Edit);
 
             dataresource = iDataResourceService.Load(uid);

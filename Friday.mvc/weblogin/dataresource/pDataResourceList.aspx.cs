@@ -28,7 +28,7 @@ namespace Friday.mvc.weblogin.dataresource
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            this.tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
+            this.tagName = systemFunctionObjectService.基本信息模块.网站信息管理.TagName;
             this.PermissionCheck(PermissionTag.Edit);
 
             if (Request.Params["flag"] != "alldelete")
@@ -97,11 +97,11 @@ namespace Friday.mvc.weblogin.dataresource
                 AjaxResult result = new AjaxResult();
                 FormatJsonResult jsonResult = new FormatJsonResult();
 
-                tagName = systemFunctionObjectService.基本信息模块.商家活动维护.TagName;
+                tagName = systemFunctionObjectService.基本信息模块.网站信息管理.TagName;
                 if (!this.PermissionValidate(PermissionTag.Delete))
                 {
                     result.statusCode = "300";
-                    result.message = "没有Food删除权限";
+                    result.message = "没有网站信息删除权限";
                     jsonResult.Data = result;
                     Response.Write(jsonResult.FormatResult());
                     Response.End();
