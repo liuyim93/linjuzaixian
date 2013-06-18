@@ -543,7 +543,7 @@ namespace Friday.Test2
 
                 foreach (FileInfo file in files)
                 {
-                    int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 30, 30 }, new int[] { 160, 160 }, new int[] { 200, 300 } };
+                    int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 40, 40 }, new int[] { 160, 160 }, new int[] { 200, 300 } };
                     string genaratePicPath = "";
                     System.Drawing.Image originalImage = System.Drawing.Image.FromFile(filePath.Substring(0, strLength - 10) + @"\uploadImage\commodityPic\" + file.Name);
                     foreach (int[] size in imageSize)

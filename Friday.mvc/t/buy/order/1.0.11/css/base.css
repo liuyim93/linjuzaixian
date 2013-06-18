@@ -1,7 +1,7 @@
 ﻿/*pub-1|2013-06-05 17:41:08*/html{overflow-y:scroll}
 .tpl-order img{vertical-align:top}
 .tpl-order input[type="checkbox"]{vertical-align:bottom;position:relative;top:-2px}
-.schedule-calendar .dateval,.fn-amount .minus,.fn-amount .plus,.grid-service .tube-img a,.grid-bundle .bundle-title,.addr .curmarker{background:url(http://img01.taobaocdn.com/tps/i1/T1E2CIXEdeXXcb7s2x-30-600.png) no-repeat}
+.schedule-calendar .dateval,.fn-amount .minus,.fn-amount .plus,.grid-service .tube-img a,.grid-bundle .bundle-title,.addr .curmarker{background:url(http://localhost:7525/Images/T1E2CIXEdeXXcb7s2x-30-600.png) no-repeat}
 .opt-Coupon .refreshCoupon:hover,.wrt-remind a:hover,.coupon-prepaid a:hover,.verify-img a:hover,.invoice-modify .ok:hover,.invoice-modify .cancel:hover,.addresses .showAll:hover,.addr .cancel-station:hover,.addr .change-station:hover,.addr .use-station:hover,.manageAddr:hover,.invoice .modify:hover,.grid-service .tube-img a:hover,.service-modify:hover,.top-back-cart a:hover{text-decoration:none;color:#b10000}
 .grid-service .tube-img a:hover ins{border-color:#b10000}
 .tpl-order .rmb{font-family:arial;margin-right:2px}

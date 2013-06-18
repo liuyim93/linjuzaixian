@@ -18,7 +18,7 @@ namespace friday.core.components
             string filesNewNameWithoutExt = "";
             string result = "";
             string genaratePicPath = "";
-            int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 30, 30 }, new int[] { 160, 160 }, new int[] { 200, 300 } };
+            int[][] imageSize = new int[][] { new int[] { 460, 460 }, new int[] { 120, 120 }, new int[] { 60, 60 }, new int[] { 40, 40 }, new int[] { 160, 160 }, new int[] { 200, 300 }};
 
             Random R = new Random();//创建产生随机数
             try

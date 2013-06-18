@@ -92,6 +92,7 @@ TML.add("minilogin", function (_tml) {
             _config.checkApi = undefined;
         //2013-03-04 basilwang use localhost domain
         //return _kissy.io({ type: "get", url: _config.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (_callback_info) {
+        debugger
         return _kissy.io({ type: "get", url: _config.checkApi || "http://" + _domain + "/member/user_login_info.do", success: function (_callback_info) {
             f = true;
             _fn(_callback_info.login)
