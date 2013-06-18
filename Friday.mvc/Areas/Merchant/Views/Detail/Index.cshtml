@@ -256,7 +256,7 @@
 			</div>
 			<div class="layout grid-s5m0" id="ks-lazyload287">
 				<div class="col-main tm-clear clearfix">
-					<div id="mainwrap" class="main-wrap J_TRegion tm-tabOther">
+					<div id="mainwrap" class="main-wrap J_TRegion">
 
 						<ul id="J_TabBar" class="tabbar tm-clear" style="position: static; top: 0px; display: block;">
 							<li class="selected" id="J_TabBar_Detail">
@@ -331,7 +331,7 @@
 							<div id="J_DcTopRight" class="J_DcAsyn">
 							</div>
 						</div>
-						<div id="description" class="J_DetailSection tshop-psm tshop-psm-bdetaildes">
+						<div id="description" class="tm-curTab">
 							<h4 class="hd">商品详情</h4>
 							@*<div class="content ke-post" id="J_ItemDesc">
                                 <p>
@@ -734,9 +734,9 @@
 								</p>
 							</div>
 						</div>*@
-						<div id="J_SellerInfo" class="simple J_DetailSection hslice tb-sellerinfo" data-url="http://localhost:7525/Merchant/Detail/seller_info?user_num_id=890482188&amp;user_tag=236548128&amp;shop_start=1337320843000">
+@*						<div id="J_SellerInfo" class="simple J_DetailSection hslice tb-sellerinfo" data-url="http://localhost:7525/Merchant/Detail/seller_info?user_num_id=890482188&amp;user_tag=236548128&amp;shop_start=1337320843000">
 							
-						</div>
+						</div>*@
 						@*<div id="J_TabRecommends" class="simple J_DetailSection hslice ">
 							<h4 class="hd">看了又看</h4>
 							<div class="tm-clear hidden J_BrandAttr"></div>
@@ -880,9 +880,7 @@
 								<dl class="tb-exemption">
 									<dt>免责声明：</dt>
 									<dd>
-										邻居在线所展示的宝贝供求信息由买卖双方自行提供，其真实性、准确性和合法性由信息发布人负责。邻居在线不提供任何保证，并不承担任何法律责任。邻居在线友情提醒：为保障您的利益，请网上成交，贵重宝贝，请使用
-										<a href="http://www.taobao.com/strade/strade.php" target="_blank">支付宝</a>
-										交易。
+										邻居在线所展示的宝贝供求信息由买卖双方自行提供，其真实性、准确性和合法性由信息发布人负责。邻居在线不提供任何保证，并不承担任何法律责任。邻居在线友情提醒：为保障您的利益，请网上成交，贵重宝贝，请使用支付宝交易。
 									</dd>
 								</dl>
 							</div>
@@ -1008,7 +1006,81 @@
 		
 	</div>
 </div>
-@Html.Partial("_Footer")
+<div id="footer">
+    <div id="mall-desc">
+        <dl id="ensure">
+        <dt><span>邻居保障</span></dt>
+        <dd>
+            <span><i></i>7天无理由退换货</span>
+            <span><i></i>提供发票</span>
+        </dd>
+    </dl>
+    <dl id="beginner">
+        <dt><span>新手上路</span></dt>
+        <dd>
+            <a href="http://localhost:7525/Account/register" target="_blank"><i></i>免费注册</a>
+            <a href="" target="_blank"><i></i>开通支付宝</a>
+            <a href="" target="_blank"><i></i>支付宝充值</a>
+            <a href="http://localhost:7525/OtherPage/DataResource?secitonName=帮助中心" target=""><i></i>帮助中心</a>
+        </dd>
+    </dl>
+    <dl id="payment">
+            <dt><span>支付方式</span></dt>
+            <dd>
+                <a href="http://kuai.alipay.com/product/" target="_blank"><i></i>支付宝快捷支付</a>
+                <a href="" target="_blank"><i></i>货到付款</a>
+                <a href="" target="_blank"><i></i>网上银行支付</a>
+            </dd>
+        </dl>
+
+    <dl id="seller">
+        <dt><span>商家服务</span></dt>
+        <dd>
+           <a href="http://localhost:7525/weblogin/login.aspx" target="_blank" class="join"><i></i>商家入驻&gt;&gt;</a>
+           <a href="http://localhost:7525/weblogin/login.aspx" target="_blank"><i></i>商家中心</a>
+		<a href="" target="_blank"><i></i>智库</a>
+           <a href="" target="http://localhost:7525/OtherPage/ShopRule"><i></i>开铺规则</a>
+        </dd>
+    </dl>
+            <script type="text/javascript">
+                $("#ensure dt span").attr("style", "background-position-x:0px;background-position-y:0px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+                $("#beginner dt span").attr("style", "background-position-x:0px;background-position-y:-20px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+                $("#payment dt span").attr("style", "background-position-x:0px;background-position-y:-40px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+                $("#seller dt span").attr("style", "background-position-x:0px;background-position-y:-60px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
+        </script>
+    <!--[if IE 6]><br /><![endif]-->
+    <h4 class="go-home"><a href="http://localhost:7525/index.html" target="_blank" title="返回首页">返回首页</a></h4>
+    </div>
+    <div id="copyright">
+        <!-- foot links from tms start -->
+    <p id="footer-Tmallinfo">
+        <a href=" " target="_blank">关于本站</a>
+        <a href=""  target="_blank">帮助中心</a>
+        <a href="" target="_blank">网站地图</a>
+        <a href=" " target="_blank">诚聘英才</a>
+        <a href=" " target="_blank">联系我们</a>
+        <a href=" " target="_blank">网站合作</a>
+        <a href="">版权说明</a>
+    </p>
+    <p id="footer-otherlink">
+	<a target="_blank" href="">邻居在线集团</a>：	
+      邻居在线网络 - <a target="_blank" href=" ">中国站</a> <a target="_blank" href=" ">国际站</a> 
+      <a target="_blank" href="">全球速卖通</a> <a target="_blank" href="">日文站</a> | 
+	<a target="_blank" href=" ">邻居在线网</a> | 
+	<a target="_blank" href=" ">邻居网</a> |
+	<a target="_blank" href=" ">聚划算</a> |
+	<a target="_blank" href="http://www.alipay.com/">支付宝</a> | 
+	<a target="_blank" href="http://www.yahoo.com.cn/">中国雅虎</a> | 
+	<a target="_blank" href=" ">邻居在线联盟</a> | 
+        <a target="_blank" href=" ">集团研究中心</a> |
+        <a href=" " target="_blank">邻居在线天下</a> | 
+        <a href="" target="_blank">邻居网</a> 
+    </p>
+    <p>Copyright&nbsp;2003-2013, 版权所有邻居在线.COM <br>增值电信业务经营许可证：浙B2-20110446<br>网络文化经营许可证：<a href="" target="_blank">重网文[2012]0234-028号</a><br>互联网医疗保健信息服务 审核同意书 重 卫网审【2012】6号<br>互联网药品信息服务资质证书编号：重-（经营性）-2012-0005</p>
+    <!-- foot links from tms end -->
+    </div>
+        <div id="server-num">版本V0.66</div>
+</div>
 </body>
 </html>
 <script type="text/javascript">
