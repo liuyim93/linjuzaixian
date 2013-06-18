@@ -58,6 +58,11 @@ namespace Friday.mvc.weblogin.feedBack
                     List<DataFilter> loginUserList = new List<DataFilter>();
                     List<DataFilter> systemUserList = new List<DataFilter>();
 
+                    filterList.Add(
+                        new DataFilter()
+                        {
+                            type = "IsDelete"
+                        });
                     //if (!this.CurrentUser.IsAdmin)
                     //{
                     //    loginUser = this.CurrentUser;

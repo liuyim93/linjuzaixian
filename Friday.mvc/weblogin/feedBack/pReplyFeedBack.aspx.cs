@@ -61,7 +61,7 @@ namespace Friday.mvc.weblogin.feedBack
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "回复成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
