@@ -79,13 +79,13 @@
             var target_type = $.get_target_type(prefix);
             if (/navtab/i.test(target_type)) {
                 o.find("#form").bind("submit", function (e) {
-                    return iframeCallback(this, navTabAjaxDone)
+                    return validateCallback(this, navTabAjaxDone)
 
                 });
             }
             else {
                 o.find("#form").bind("submit", function (e) {
-                    return iframeCallback(this, dialogAjaxDone)
+                    return validateCallback(this, dialogAjaxDone)
 
                 });
             }
