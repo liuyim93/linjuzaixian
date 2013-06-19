@@ -1,12 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MultiListSchool.aspx.cs" Inherits="Friday.mvc.weblogin.MultiListSchool" %>
 
-<div class="pageFormContent">
-    <form id="Form1" method="post" runat="server" class="pageForm required-validate">
-        <div class="panel" defh="270" style=" display: block; overflow: auto;
-            width: 790px; margin: 2px; border: solid 1px #CCC; line-height: 21px; background: #fff">
-            <div id="divTree">
-            </div>
 
+<div class="page">
+    <div class="pageContent">
+        <form id="Form1" method="post" runat="server" class="pageForm required-validate">
+        <div class="pageFormContent">
+            <div class="panel" defh="240" style="display: block; overflow: auto; width: 790px;
+                margin: 2px; border: solid 1px #CCC; line-height: 21px; background: #fff">
+                <div id="divTree">
+                </div>
+            </div>
+        </div>
         <div class="formBar">
             <ul>
                 <li>
@@ -25,8 +29,8 @@
                 </li>
             </ul>
         </div>
+        </form>
     </div>
-    </form>
 </div>
 <script type="text/javascript">
     $(function () {
@@ -38,13 +42,13 @@
             var dtree;
             var oObj;
             var a;
-
+            debugger
             dtree = o.find("#divTree");
             a = o.find("#btnSave a");
             oObj = o;
 
             a.click(function (event) {
-                //debugger
+                debugger
                 var nameSet = [];
                 var idSet = [];
                 var nameString;
