@@ -7,6 +7,7 @@
             _kissy_F.getScript("http://localhost:7525/apps/lz/hc.js?v=5");
             _malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
             if (!_g_config.offlineShop) {
+                if (TMall != null && TMall != undefined)
                 TMall.Head.init()
             }
             _malldetail_other_Extension.init();
