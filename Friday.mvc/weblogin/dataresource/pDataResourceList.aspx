@@ -110,8 +110,7 @@
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Section.Name")%></td>
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>
 					   <%--<td align="center"><img id="State" src="<%#RcheckState(Eval("CheckState").ToString())%>"/> </imag> </td>   <%----%>
-					 --%>
-				                 
+					  
 				</tr>
 			      
             </ItemTemplate>
