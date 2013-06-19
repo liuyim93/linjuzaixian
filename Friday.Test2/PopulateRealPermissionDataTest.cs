@@ -1857,7 +1857,7 @@ namespace Friday.Test2
 
             //------添加2级目录---------
             //2级"国际品牌"
-            string[] SecdSystemCat = { "关于本站", "帮助中心", "网站地图", "诚聘英才", "联系我们", "网站合作", "版权说明" };
+            string[] SecdSystemCat = { "关于本站", "帮助中心", "网站地图", "诚聘英才", "联系我们", "网站合作", "版权说明","商家入驻","开铺规则"};
             for (int i = 0; i < SecdSystemCat.Length; i++)
             {
 
