@@ -91,7 +91,7 @@
 					   <th width="10%" align="center">发布时间</th>
 					   <th width="17%" align="center">所属板块</th>
 					   <th width="18%" align="center">内容</th>
-			           <th width="10%" align="center">审核状态</th>
+			       <%--    <th width="10%" align="center">审核状态</th>--%>
 		   	    
                      </tr>
                 </thead>
@@ -109,8 +109,8 @@
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "CreateTime", "{0:yyyy-MM-dd}")%></td>
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Section.Name")%></td>
 					     <td align="center"><%#DataBinder.Eval(Container.DataItem, "Description")%></td>
-					   <td align="center"><img id="State" src="<%#RcheckState(Eval("CheckState").ToString())%>"/> </imag> </td>   <%----%>
-					 
+					   <%--<td align="center"><img id="State" src="<%#RcheckState(Eval("CheckState").ToString())%>"/> </imag> </td>   <%----%>
+					 --%>
 				                 
 				</tr>
 			      
