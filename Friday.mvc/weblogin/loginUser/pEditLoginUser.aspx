@@ -36,7 +36,7 @@
                         runat="server" readonly="true" />
                     <input type="hidden" id="SystemRoleID" size="35"  
                     runat="server" readonly="true" />
-                    <a class="btnLook" href="ListSystemRole.aspx"  rel=""  lookupgroup="">选择角色</a>
+                    <a class="btnLook" href="ListSystemRole.aspx" id="btnRole"  runat=server rel=""  lookupgroup="">选择角色</a>
                 </p>         
                 
                     <p>

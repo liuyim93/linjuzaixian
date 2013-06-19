@@ -37,6 +37,14 @@ namespace Friday.mvc.weblogin
             LoginUser loginUser = new LoginUser();
             LoginUser loginUserExist = new LoginUser();
 
+            ////商家账号登陆后，不能使用角色选择模块
+            //if(this.CurrentUser.IsAdmin!=true)
+            //{
+            //    this.btnRole.Visible = false;
+            //}
+
+
+
             loginUserExist = iLoginUserService.GetLoginUserByLoginName(Request.Params["LoginName"]);
 
             if (loginUserExist != null)

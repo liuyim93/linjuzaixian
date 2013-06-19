@@ -39,6 +39,7 @@ namespace Friday.mvc.weblogin
             {
                 uid = this.CurrentUser.Id;
                 this.IsAdminP.Visible = false;
+                this.btnRole.Visible = false;
             }
             if (!string.IsNullOrEmpty(Request.Params["uid"]))
             {
