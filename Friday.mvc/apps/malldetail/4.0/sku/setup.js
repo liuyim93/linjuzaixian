@@ -535,7 +535,8 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     }
     function _sku_cfg_step1() {
     //2013-06-18  wanghaichuan Token onInited first
-            _kissy_imp.mods.Token.onInited(function () {
+        _kissy_imp.mods.Token.onInited(function () {
+            if (_sku_cfg.valToken!=""&&_sku_cfg.valToken!=undefined)
             _dom_form_id_J_FrmBid._tb_token_.value = _sku_cfg.valToken
         })
 

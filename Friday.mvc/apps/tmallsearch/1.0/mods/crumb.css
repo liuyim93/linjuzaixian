@@ -1,4 +1,4 @@
-﻿.crumb{height:30px;background:#8e0000 url("data:image/gif;base64,R0lGODlhAQAeAIAAAI4AAI8BACH5BAAAAAAALAAAAAABAB4AAAIHRGChy+2KCgA7");margin-bottom:10px}
+﻿.crumb{height:30px;background:#8e0000 url("http://localhost:7525/Images/search_bar_background.png");margin-bottom:10px}
 .crumbCon{width:990px;margin:0 auto;line-height:27px;position:relative;z-index:10001}
 .crumbSlide-con .crumbTitle{color:#b0a59f}
 .crumbSlide{height:30px;margin-left:25px;margin-right:180px;position:relative}
@@ -13,7 +13,7 @@
 .crumbSlide-prev-shadow{background-position:-138px -79px;left:-2px}
 .crumbSlide-next-shadow{background-position:-138px -104px;right:-2px}
 .crumbSlide-attr{cursor:pointer;position:relative}
-.crumbArrow{color:#af4a4a;margin-left:3px;font-style:normal;font-family:\5b8b\4f53;vertical-align:middle;margin-top:2px;display:inline-block}
+.crumbArrow{color:rgb(200,222,230);margin-left:3px;font-style:normal;font-family:\5b8b\4f53;vertical-align:middle;margin-top:2px;display:inline-block}
 .crumbSlide-con a{color:#fff}
 .crumbSlide-con a:hover{color:#f2dcc7}
 .crumbDelete{position:relative;top:3px;*top:0;_margin-top:4px;display:inline-block;width:14px;height:14px;overflow:hidden;background-position:-14px -71px}
