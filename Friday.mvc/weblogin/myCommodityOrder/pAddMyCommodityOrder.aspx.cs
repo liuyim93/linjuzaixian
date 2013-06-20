@@ -35,22 +35,40 @@ namespace Friday.mvc.weblogin
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
             }
+            if (this.CurrentUser.IsAdmin == false)
+            {
+                this.addOrdMerchant.Visible = false;
+            }
 
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-
+              
                 SaveMyCommodityOrder();
             }
         }
 
         private void SaveMyCommodityOrder()
         {
-            shopObj = iShopRepository.Get(Request.Params["MerchantID"]);
+            string shopId;
+
+
+             if (this.CurrentUser.IsAdmin == false)
+            {
+                shopId=this.CurrentUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id;                 
+            }
+            else 
+            {   
+              shopId=Request.Params["MerchantID"];
+            }
+
+            shopObj = iShopRepository.Get(shopId);
             systemUserObj = iSystemUserRepository.Get(Request.Params["SystemUserID"]);
 
             myCommodityOrder.SystemUser = systemUserObj;
-            myCommodityOrder.Shop = shopObj;
 
+               
+            myCommodityOrder.Shop = shopObj;
+            
             BindingHelper.RequestToObject(myCommodityOrder);
             iMyCommodityOrderRepository.SaveOrUpdate(myCommodityOrder);
 

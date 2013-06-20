@@ -20,7 +20,7 @@
                  <input type="hidden" id="SystemUserID"  runat="server" />
                 <a class="btnLook" href="ListSystemUser.aspx" rel="" lookupgroup="">选择用户</a>
             </p>
-             <p>
+             <p id="addOrdMerchant" runat=server>
                 <label>
                     商铺名称：</label>
                 <input type="text" id="Merchant" size="30" class="required textInput gray"
