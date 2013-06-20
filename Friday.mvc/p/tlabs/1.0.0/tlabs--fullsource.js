@@ -309,5 +309,5 @@
 *      3. 鍏佽鎻愪緵 __tlabs_feature_id 鍜� __tlabs_feature_mod
 *      4. 濡傛灉涓嶆彁渚� __tlabs_feature_id , 閭ｄ箞褰撲綔鏂癋eature鏉ュ鐞�
 *      5. __tlabs_feature_mod 涓� 鏈湴Feature鍦板潃(js鍦板潃), 涓哄畨鍏ㄨ€冭檻, 鍦板潃鑷姩鍔犱笂鍓嶇紑 http://dev.tlabs/
-*      6. 寮€鍙戞椂缁戝畾 127.0.0.1 dev.tlabs
+*      6. 寮€鍙戞椂缁戝畾 localhost dev.tlabs
 */

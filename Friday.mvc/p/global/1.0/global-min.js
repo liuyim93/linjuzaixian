@@ -202,7 +202,8 @@ TB.namespace = TB.namespace || function() {
             while (Q.length > 3) {
                 Q.shift()
             }
-            Q = Q.join(".");
+            //Q = Q.join(".");
+            Q = location.hostname;
             for (; O < N; O++) {
                 P[O].href = P[O].href.replace("taobao.com", Q)
             }

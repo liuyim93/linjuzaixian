@@ -183,7 +183,8 @@ KISSY.add("ajax", function(a) {
 								if (ae > ac - 2) {
 									ae = ac - 2
 								}
-								return ad.slice(ae).join(ag)
+								//return ad.slice(ae).join(ag)
+                                return af
 							};
 							var Y = l.getElementsByTagName("head")[0] || l.documentElement,
 								X = l.createElement("link"),

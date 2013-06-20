@@ -8270,7 +8270,8 @@ TB.locale.Messages = {
             if (i >= h || h - i < 2) {
                 i = h - 2
             }
-            return j.slice(i).join(".")
+            //return j.slice(i).join(".")
+            return k
         },
         addBookmark: function (i, h) {
             if (window.sidebar) {

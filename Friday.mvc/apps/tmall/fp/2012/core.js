@@ -51,7 +51,8 @@
     }};
     try {
         var F = document.domain.split(".");
-        document.domain = F.slice(F.length - 2).join(".")
+        //document.domain = F.slice(F.length - 2).join(".")
+
     } catch (E) {
     }
     if (typeof console === "undefined") {

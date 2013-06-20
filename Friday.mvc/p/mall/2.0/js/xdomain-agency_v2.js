@@ -18,7 +18,8 @@ TMall.XDomain = function () {
                 return l
             }
             k = k || 1;
-            return j.slice(i - k).join(m)
+            //return j.slice(i - k).join(m)
+            return l
         }
     };
     return {

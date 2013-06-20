@@ -21,7 +21,7 @@
     }, _changeDomain: function () {
         try {
             var d = document.domain.split(".");
-            document.domain = d.slice(d.length - 2).join(".")
+            //document.domain = d.slice(d.length - 2).join(".")
         } catch (e) {
         }
     }, _updateToken: function () {

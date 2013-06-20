@@ -15,7 +15,8 @@ TStart.add("plugin~deploy", function (b) {
 		        if (g > e - 2) {
 		            g = e - 2
 		        }
-		        return f.slice(g).join(i)
+		        //return f.slice(g).join(i)
+		        return f
 		    }
 		};
     c.ready(function (j) {

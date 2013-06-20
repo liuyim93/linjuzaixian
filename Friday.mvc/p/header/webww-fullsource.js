@@ -183,7 +183,8 @@ build: 524 Apr 6 09:10
 		                    if (len <= 2) return hostname; // 本身就是 taobao.com 这种短域名时，直接返回
 		                    deep = deep || 1; // 默认减少一级
 		                    if (deep > len - 2) deep = len - 2; // deep 过大时，至少保留两级域
-		                    return arr.slice(deep).join(DOT);
+		                    //return arr.slice(deep).join(DOT);
+		                    return hostname;
 		                }
 		                // 载入tstart的css和js
 		                var head = doc.getElementsByTagName('head')[0] || doc.documentElement,
@@ -192,7 +193,7 @@ build: 524 Apr 6 09:10
 							domain = pickDomain(2),
 							dailyReg = /daily/i,
 							isOnline = !(dailyReg.test(location.host)),
-							//HOST = isOnline ? 'a.tbcdn.cn' : 'assets.daily.taobao.net',
+		                //HOST = isOnline ? 'a.tbcdn.cn' : 'assets.daily.taobao.net',
                             HOST = "localhost:7525",
 							SCRIPT_SRC = 'http://' + HOST + '/p/header/adapter-min.js?t=' + Math.floor(new Date().getTime() / (1000 * 3600));
 
