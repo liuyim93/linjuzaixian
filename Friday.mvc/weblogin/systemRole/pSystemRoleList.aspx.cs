@@ -75,7 +75,14 @@ namespace Friday.mvc.weblogin
 
 
             List<DataFilter> filterList = new List<DataFilter>();
-  
+
+            filterList.Add(new DataFilter()
+            {
+                type = "IsDelete",
+             
+
+            });
+
             if (!string.IsNullOrEmpty(Request.Form["Name"]))
                 filterList.Add(new DataFilter()
                 {
