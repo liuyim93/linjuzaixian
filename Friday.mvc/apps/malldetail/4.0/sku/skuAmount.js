@@ -12,11 +12,11 @@
         var T = parseInt(S, 10) || 1;
         switch (R) {
             case "decrease":
-                _kissy_imp.sendAtpanel("tmalldetail.13.8");
+                //_kissy_imp.sendAtpanel("tmalldetail.13.8");
                 T = T == 1 ? 1 : T - 1;
                 break;
             case "increase":
-                _kissy_imp.sendAtpanel("tmalldetail.13.7");
+                //_kissy_imp.sendAtpanel("tmalldetail.13.7");
                 T = T + 1;
                 break
         }

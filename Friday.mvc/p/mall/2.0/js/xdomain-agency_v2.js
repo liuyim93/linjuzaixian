@@ -24,7 +24,7 @@ TMall.XDomain = function () {
     };
     return {
         doAgent: function () {
-            document.domain = g.pickDomain(2);
+            //document.domain = g.pickDomain(2);
             d = f.parent.parent;
 
             function j() {

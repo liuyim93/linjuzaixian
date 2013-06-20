@@ -118,7 +118,7 @@ TML.add("minilogin", function (_tml) {
             };
             _proxy_url = _config.proxyURL + (_config.proxyURL.indexOf("?") > 0 ? "&" : "?") + "callback=" + _callbak;
             if (!_is_same_hostname(_config.proxyURL) && document.domain !== _segment_function)
-                document.domain = _segment_function;
+                //document.domain = _segment_function;
             if (_is_same_hostname(_config.proxyURL) && document.domain === location.hostname)
                 _proxy_url += "&nsdomain=true";
             _show_url += encodeURIComponent(_proxy_url) + "&full_redirect=false"

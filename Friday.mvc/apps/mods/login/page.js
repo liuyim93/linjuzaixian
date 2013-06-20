@@ -168,7 +168,7 @@ KISSY.add("login/page", function (_kissy, _safeedit, _submitbutton, _safemode, _
             //var _domain = window.location.hostname.split(".").slice(-2).join(".");
             var _domain = window.location.hostname;
             if (_domain.indexOf("taobao") !== -1) {
-                document.domain = _domain
+                //document.domain = _domain
             }
             _kissy.mix(login_core, { elStaticForm: _form_id_J_StaticForm, elUserName: _form_id_J_StaticForm.elements.TPL_username, elPassword: _form_id_J_StaticForm.elements.TPL_password, elDynamicForm: _dom.get("#J_DynamicForm"), elQuickLogin: _dom.get("#J_QuickLogin"), elLoginBox: _dom.get("#J_LoginBox") });
             this.longlogin = new _longlogin(this.cfg);

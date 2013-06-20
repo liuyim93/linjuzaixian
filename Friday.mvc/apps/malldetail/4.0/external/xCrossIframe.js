@@ -8,7 +8,7 @@ KISSY.add("malldetail/external/xCrossIframe", function (A) {
                 //return I.slice(H - 2).join(".")
                 return location.hostname
             };
-            document.domain = C();
+            //document.domain = C();
 
             function D(K) {
                 var I = location.href;

@@ -24,10 +24,10 @@ KISSY.add("malldetail/sku/stat", function (E, I, H, B) {
             }
         });
         H.on("#J_ReviewTabTrigger", "click", function () {
-            E.sendAtpanel("jsclick", { auc_detail: "b_already_feedback" })
+            //E.sendAtpanel("jsclick", { auc_detail: "b_already_feedback" })
         });
         H.on("#J_ScrollToTabBar", "click", function () {
-            E.sendAtpanel("jsclick", { auc_detail: "c_read_security" })
+            //E.sendAtpanel("jsclick", { auc_detail: "c_read_security" })
         })
     }, setCollectCount: function (K) {
         var J;

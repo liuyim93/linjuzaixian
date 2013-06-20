@@ -66,7 +66,7 @@
             _later_fn && _later_fn.cancel();
             _later_fn = _kissy.later(function () {
                 _thumbviewer._switchTo(_e.target);
-                _kissy.sendAtpanel("tmalldetail.13.6")
+                //_kissy.sendAtpanel("tmalldetail.13.6")
             }, _time)
         });
         _event.on(_dom_li_array, "mouseleave", function () {

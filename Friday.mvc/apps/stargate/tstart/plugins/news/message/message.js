@@ -938,7 +938,7 @@
 			arr = host.split("."),
 			len = arr.length,
 			ret = arr.slice(len - 2);
-        document.domain = ret.join(".")
+        //document.domain = ret.join(".")
     }
     function getHost(url) {
         if (!isOnline) {

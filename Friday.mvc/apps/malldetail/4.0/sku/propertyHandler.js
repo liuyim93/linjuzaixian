@@ -138,7 +138,7 @@ KISSY.add("malldetail/sku/propertyHandler", function (_kissy_imp, _malldetail_sk
                         var _click_fn = function (_event, Ag, AV) {
                             _event && _event.preventDefault();
                             if (_event) {
-                                _kissy_imp.sendAtpanel("tmalldetail.13.1")
+                                //_kissy_imp.sendAtpanel("tmalldetail.13.1")
                             }
                             if (_dom.hasClass(_dom_li_tmp, "tb-out-of-stock")) {
                                 return

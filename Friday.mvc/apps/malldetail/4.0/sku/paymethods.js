@@ -11,7 +11,7 @@
     }, _toggleHandler: function (G) {
         G.preventDefault();
         F[F.hasClass(C, E) ? "removeClass" : "addClass"](C, E);
-        D.sendAtpanel("tmalldetail.4.6")
+        //D.sendAtpanel("tmalldetail.4.6")
     }, _payCod: function (K) {
         if (!K.deliveryDO || !K.deliveryDO.otherServiceList) {
             return

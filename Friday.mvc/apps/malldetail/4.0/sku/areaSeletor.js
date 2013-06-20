@@ -22,7 +22,7 @@
         };
         function Z() {
             Y && Y.on(V.config.node, "click", function (a) {
-                C.sendAtpanel("tmalldetail.11.1");
+                //C.sendAtpanel("tmalldetail.11.1");
                 a.preventDefault();
                 if (V.isOpen) {
                     V.close()

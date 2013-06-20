@@ -568,7 +568,7 @@ KISSY.add("core/monitor", function(e, t, n) {
 }, {requires: ["dom", "event"]}), KISSY.add("mods/login/ui", function(e, t, n, r, i) {
     var s = {_init: function() {
         //document.domain = location.hostname.split(".").slice(-2).join("."), this._bindEvents()
-            document.domain = location.hostname
+            //document.domain = location.hostname
         },_bindEvents: function() {
             r.on(this.tempLoginEl, "click", this._initPopup, this), this.listen("checklogin", this.checkLogin, this)
         },_initPopup: function(n) {

@@ -6,7 +6,7 @@
                 var F = window.g_config;
                 var G = { style: "none", id: 1, container: "#J_IShare", type: "item", showRecTip: false, key: F.itemId };
                 new E(G).popup();
-                H.sendAtpanel("tmalldetail.13.11")
+                //H.sendAtpanel("tmalldetail.13.11")
             })
         })
     } 

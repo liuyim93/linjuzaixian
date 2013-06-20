@@ -158,7 +158,7 @@
                         J_AfterSales: "tmalldetail.4.5"
                     };
                     var _atpanel = _atpanel_page_config[_current_tab_id];
-                    _atpanel && _kissy.sendAtpanel(_atpanel);
+                    //_atpanel && _kissy.sendAtpanel(_atpanel);
                     if (_g_config.D950) {
                         if (_current_tab_id == "J_TabRecommends") {
                             if (_kissy.cfg("tag").isHasAttr) {

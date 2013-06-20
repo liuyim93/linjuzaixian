@@ -297,9 +297,9 @@
                         break;
                     case _target.tagName === "A" && ((z = _target.getAttribute("data-page")) != null):
                         if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "J_Reviews") {
-                            _kissy.sendAtpanel("tmalldetail.12.2")
+                            //_kissy.sendAtpanel("tmalldetail.12.2")
                         } else {
-                            _kissy.sendAtpanel("tmalldetail.12.4")
+                            //_kissy.sendAtpanel("tmalldetail.12.4")
                         }
                         o(z);
                         break;
@@ -345,9 +345,9 @@
                             return
                         }
                         if (_kissy.mods.TabBar && _kissy.mods.TabBar.curIndex() == "J_Reviews") {
-                            _kissy.sendAtpanel("tmalldetail.12.3")
+                            //_kissy.sendAtpanel("tmalldetail.12.3")
                         } else {
-                            _kissy.sendAtpanel("tmalldetail.12.5")
+                            //_kissy.sendAtpanel("tmalldetail.12.5")
                         }
                         _reviewsTmall_cfg.switchTab("J_TabRecommends");
                         break;

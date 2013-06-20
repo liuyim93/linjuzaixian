@@ -80,7 +80,7 @@
             var S = function () {
                 //debugger
                 _dom.addClass(_linkBasket_t, "tb-act");
-                _kissy_A.sendAtpanel("tmalljy.1.1", { shopid: _cfg.rstShopId, itemid: _cfg.itemDO.itemId, pos: "detailclickadd" });
+                //_kissy_A.sendAtpanel("tmalljy.1.1", { shopid: _cfg.rstShopId, itemid: _cfg.itemDO.itemId, pos: "detailclickadd" });
                 if (L || !_malldetail_sku_validator.run(true) || !_mods_SKU.dqCity.getOrder()) {
                     return false
                 }
@@ -98,7 +98,7 @@
                 })
             };
             !!_cfg.detail.loginBeforeCart ? _kissy_A.onLogin(S) : S();
-            _kissy_A.sendAtpanel("tmalldetail.50.3")
+            //_kissy_A.sendAtpanel("tmalldetail.50.3")
         }
         function J(U) {
             if (U.error) {

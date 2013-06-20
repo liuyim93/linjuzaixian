@@ -80,7 +80,7 @@
         if (_linkbuy) {
             _event.on(_linkbuy, "click", function (_event) {
                 _event.preventDefault();
-                _kissy_imp.sendAtpanel("tmalldetail.50.1");
+                //_kissy_imp.sendAtpanel("tmalldetail.50.1");
                 if (_dom.hasClass(_dom.parent(_event.target), "noPost")) {
                     return
                 }

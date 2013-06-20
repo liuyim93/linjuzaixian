@@ -186,10 +186,10 @@
                         return "item"
                 }
             },
-            sendAtpanel: function (I, J) {
-                var H = "http://localhost:7527/" + I;
-                this._sendImage(H, J)
-            },
+//            sendAtpanel: function (I, J) {
+//                var H = "http://localhost:7527/" + I;
+//                this._sendImage(H, J)
+//            },
             sendAcAtpanel: function (_tab_panel_id, J) {
                 var H = "http://localhost:7527/" + _tab_panel_id;
                 this._sendImage(H, J)
@@ -200,7 +200,7 @@
             sendErr: function (H, I) {
                 I = I || {};
                 I.type = H;
-                this.sendAtpanel("tmalldetail.15.2", I)
+                //this.sendAtpanel("tmalldetail.15.2", I)
             },
             scrollToElem: function (I) {
                 var H = _kissy.DOM, J = H.offset(I).top;
@@ -614,7 +614,7 @@
                     return R[Q - 2] + "." + R[Q - 1]
                 };
                 //document.domain = M(location.hostname)
-                document.domain = location.hostname
+                //document.domain = location.hostname
             }
             if (_foot_cfg.bidInit) {
                 _kissy_imp_t_x.getScript(_url + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + _g_config.ver + "/css/auction.css?t=" + _kissy_imp_t_x.t());

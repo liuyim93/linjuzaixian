@@ -656,7 +656,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
                         _event.on("#J_MallReviewTabTrigger", "click", function (y) {
                             y.preventDefault();
                             _sku_cfg.onReviewClick();
-                            _kissy.sendAtpanel("tmalldetail.12.1")
+                            //_kissy.sendAtpanel("tmalldetail.12.1")
                         })
                     }
                 }, 25)

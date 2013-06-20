@@ -216,7 +216,7 @@ KISSY.add("malldetail/sku/service", function (_kissy_B, _template) {
         function N(b) {
             _kissy_B.all("#J_regionSellServer li").on("click", function (f) {
                 f.preventDefault();
-                _kissy_B.sendAtpanel("tmalldetail.13.9");
+                //_kissy_B.sendAtpanel("tmalldetail.13.9");
                 var g = _kissy_B.one(this);
                 var d = g.parent();
                 if (!g.hasClass("freeService")) {

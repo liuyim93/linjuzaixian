@@ -86,9 +86,9 @@
                 var P = N.get("a", N.get("#J_TabBar .selected"));
                 if (P) {
                     if (P.herf == "#reviews") {
-                        D.sendAtpanel("tmalldetail.10.9")
+                        //D.sendAtpanel("tmalldetail.10.9")
                     } else {
-                        D.sendAtpanel("tmalldetail.10.15")
+                        //D.sendAtpanel("tmalldetail.10.15")
                     }
                 }
             },
@@ -96,9 +96,9 @@
                 var P = N.get("a", N.get("#J_TabBar .selected"));
                 if (P) {
                     if (P.herf == "#reviews") {
-                        D.sendAtpanel("tmalldetail.10.8")
+                        //D.sendAtpanel("tmalldetail.10.8")
                     } else {
-                        D.sendAtpanel("tmalldetail.10.14")
+                        //D.sendAtpanel("tmalldetail.10.14")
                     }
                 }
             }

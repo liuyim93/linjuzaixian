@@ -255,7 +255,7 @@ KISSY.add('utils/global', function (S) {
     }
 
     //document.domain = location.hostname.split('.').slice(-2).join('.');
-    document.domain = location.hostname;
+    //document.domain = location.hostname;
     S.io.setupConfig({
         xdr: {
             subDomain: {
