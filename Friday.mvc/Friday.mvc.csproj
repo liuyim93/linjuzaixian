@@ -1461,6 +1461,7 @@
     <Content Include="Images\b_red_5.gif" />
     <Content Include="Images\msg.png" />
     <Content Include="Images\popular_clothes-218-32.png" />
+    <Content Include="Images\search_bar_background.png" />
     <Content Include="Images\setlogo-242-139[0].png" />
     <Content Include="Images\setlogo-242-139.png" />
     <Content Include="Images\shandian-16-16.png" />
@@ -1469,6 +1470,9 @@
     <Content Include="Images\small_mcht_bar-175-35[1].png" />
     <Content Include="Images\spaceball.gif" />
     <Content Include="Images\T13iv_XiFdXXa94Hfd-32-32.png" />
+    <Content Include="Images\T1A_YVXXlgXXc7gDPS-300-210.png" />
+    <Content Include="Images\T1DvggXo8gXXXHSOcF-330-500.png" />
+    <Content Include="Images\T1E2CIXEdeXXcb7s2x-30-600.png" />
     <Content Include="Images\T1vQ51XsRfXXXup_Q9-900-90.png" />
     <Content Include="Images\TmallFooterBar-111-109.jpg" />
     <Content Include="Images\TmallFooterBar-111-109.png" />
