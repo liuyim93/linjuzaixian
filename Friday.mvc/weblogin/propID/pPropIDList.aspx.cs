@@ -51,12 +51,13 @@ namespace Friday.mvc.weblogin
                 //    Response.Write(jsonResult.FormatResult());
                 //    Response.End();
                 //}
-
+               
                 DeletePropID();
 
             }
             else
             {
+                
                 if (!this.CurrentUser.IsAdmin)
                 {
                     merchantId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
@@ -71,6 +72,7 @@ namespace Friday.mvc.weblogin
                     {
                         merchantId = Request.Params["merchant_id"];
                     }
+                    this.addPD.Visible = false;
                 }
                 numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
                 pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());

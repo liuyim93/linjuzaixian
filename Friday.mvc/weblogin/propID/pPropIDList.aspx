@@ -56,7 +56,7 @@
 </div>
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="propID/pAddPropID.aspx?merchant_id=<%= Request.Params["merchant_id"]%>" title="增加规格类型" target="dialog"
+        <li  id="addPD"  runat="server" ><a class="add" href="propID/pAddPropID.aspx?merchant_id=<%= Request.Params["merchant_id"]%>" title="增加规格类型" target="dialog"
             rel="" width="600" height="400"><span>增加规格类型</span></a></li>
     <%--    <li><a class="add" href="propID/pSelectGlobalGoodsType.aspx?mType=<%= Request.Params["merchantType"]%>&merchant_id={id}" title="选择系统商品类型" target="dialog"
             rel="" width="600" height="400"><span>选择系统商品类型</span></a></li>--%>

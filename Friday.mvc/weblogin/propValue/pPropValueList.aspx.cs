@@ -70,6 +70,7 @@ namespace Friday.mvc.weblogin
                     {
                         merchantId = Request.Params["merchant_id"];
                     }
+                    this.addPV.Visible = false;
                 }
                 numPerPageValue = Request.Form["numPerPage"] == null ? 5 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
                 pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
