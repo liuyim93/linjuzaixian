@@ -70,7 +70,7 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="message/pAddMessage.aspx" title="添加消息" target="navTab" rel=""><span>
+        <li  id="addMsg" runat=server><a class="add" href="message/pAddMessage.aspx" title="添加消息" target="navTab" rel=""><span>
             添加消息</span></a></li>
         <li runat=server id="tooledit"><a class="edit" href="message/pEditMessage.aspx?uid={id}" title="修改消息" rel="" target="navTab">
             <span>修改消息</span></a></li>

@@ -38,6 +38,10 @@ namespace Friday.mvc.weblogin.message
             {
                 this.tooledit.Visible = false;
             }
+            if (this.CurrentUser.IsAdmin == true)
+            {
+                this.addMsg.Visible = false;
+            }
 
             if (Request.Params["flag"] != "alldelete")
             {
@@ -51,7 +55,11 @@ namespace Friday.mvc.weblogin.message
                     List<DataFilter> filterList = new List<DataFilter>();
                     List<DataFilter> loginUserList = new List<DataFilter>();
                     List<DataFilter> merchantList = new List<DataFilter>();
-
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "IsDelete",
+                      
+                    });
                     if (!this.CurrentUser.IsAdmin)
                     {
                         merchantID = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;

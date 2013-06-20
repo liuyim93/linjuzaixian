@@ -8,7 +8,7 @@ namespace friday.core
 {
     public class Message:Entity
     {
-
+        //商家和用户之间互发消息的表
         public virtual LoginUser LoginUser
         {
             get;
