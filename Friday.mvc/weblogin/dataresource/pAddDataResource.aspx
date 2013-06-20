@@ -11,7 +11,7 @@
         </ul>
     </div>
         <form id="form" method="post"  class="pageForm required-validate" 
-        onsubmit="return validateCallback(this,navTabAjaxDone)" enctype="multipart/form-data" runat="server" >
+           onsubmit="return iframeCallback(this,navTabAjaxDone)" enctype="multipart/form-data" runat="server" >
         <div class="pageFormContent" style=" height:500px">
          
             <h1>
@@ -65,7 +65,7 @@
            <p style="height:1px;"></p>
 	 
                   
-       </div>
+        
     
         </div>
                 <div class="formBar">
