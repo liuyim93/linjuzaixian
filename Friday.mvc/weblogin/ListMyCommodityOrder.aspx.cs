@@ -36,6 +36,26 @@ namespace Friday.mvc.weblogin
             List<DataFilter> systemUserFilter = new List<DataFilter>();
             List<DataFilter> shopFilter = new List<DataFilter>();
 
+            //权限限定，当时管理员浏览时，可以看到所有的订单，当商家登录时，只能看到自己的订单列表
+
+            if (this.CurrentUser.IsAdmin == false)
+            {
+                shopFilter.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    value =this.CurrentUser.LoginUserOfMerchants.FirstOrDefault().Merchant.Id
+
+                });
+                filterList.Add(new DataFilter()
+                {
+                    type = "Shop",
+                    field = shopFilter
+                });
+
+            }      
+
+
+
             filterList.Add(new DataFilter()
             {
                 type = "IsDelete"
