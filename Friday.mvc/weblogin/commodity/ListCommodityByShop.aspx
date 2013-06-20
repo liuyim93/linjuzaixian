@@ -14,7 +14,7 @@
                      <tr>
                        <th width="40">序号</th> 
 					    <th width="200">商品名称</th> 
-                        <th width="100">商品单价</th> 
+                        <th width="100">商品月销售额</th> 
                         <th width="40">选择</th> 
                       </tr>
                  </thead>
@@ -24,7 +24,7 @@
                     <tr target="userid" rel="<%#Eval("Id")%>">
                      <td><%#Container.ItemIndex+1%></td>
 					 <td><%#DataBinder.Eval(Container.DataItem, "Name")%></td>
-					 <td><%#DataBinder.Eval(Container.DataItem, "Price")%></td>
+					 <td><%#DataBinder.Eval(Container.DataItem, "MonthAmount")%></td>
                      <td>
 					<a class="btnSelect" href=javascript:$.bringBack({CommodityID:'<%#DataBinder.Eval(Container.DataItem,"Id")%>',Commodity:'<%#DataBinder.Eval(Container.DataItem,"Name")%>',OnePrice:'<%#DataBinder.Eval(Container.DataItem,"Price")%>'}) title="查找带回">选择</a>
 				</td>				

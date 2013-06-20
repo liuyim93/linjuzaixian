@@ -17,11 +17,11 @@
                     商品名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" readonly="readonly" runat="server" />
             </p>
-            <p>
+           <%-- <p>
                 <label>
                     库存量：</label>
                 <input type="text" id="InventoryCount" size="30" class="required textInput gray" readonly="readonly" runat="server" />
-            </p>
+            </p>--%>
            
             <p>
             <label>

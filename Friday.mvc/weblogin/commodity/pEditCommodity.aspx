@@ -11,22 +11,22 @@
                     商品名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
+           <%-- <p>
                 <label>
                    商品当前价格：</label>
                 <input type="text" id="Price" size="30" class="required textInput gray number" min="0" runat="server" />
-            </p>
+            </p>--%>
             <p>
                 <label>
                    商品过去价格：</label>
                 <input type="text" id="OldPrice" size="30" class="required textInput gray number" min="0"  runat="server" />
             </p>
-            <p>
+         <%--   <p>
                 <label>
                     库存量：</label>
                 <input type="text" id="InventoryCount" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
-            
+            --%>
             <p>
                 <label>
                     Limited：</label>
