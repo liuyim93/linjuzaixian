@@ -42,7 +42,9 @@ namespace Friday.mvc.weblogin.feedBack
             
 
             FeedBack mss = new FeedBack();
-         
+           
+            mss.LoginUser = this.CurrentUser;
+
             BindingHelper.RequestToObject(mss);
             iFeedBackService.Save(mss);
 

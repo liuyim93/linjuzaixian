@@ -72,8 +72,8 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="feedBack/pAddFeedBack.aspx" title="添加反馈" target="navTab" rel=""><span>
-            添加反馈</span></a></li>
+         <li><a class="add" href="feedBack/pAddFeedBack.aspx" title="添加反馈" target="navTab" rel=""><span>
+            添加反馈</span></a></li> 
         <li runat=server id="tooledit"><a class="edit" href="feedBack/pEditFeedBack.aspx?uid={id}" title="修改反馈" rel="" target="navTab">
             <span>修改反馈</span></a></li>
          <li ><a class="add" href="feedBack/pReplyFeedBack.aspx?uid={id}" title="回复反馈" target="navTab" rel=""><span>

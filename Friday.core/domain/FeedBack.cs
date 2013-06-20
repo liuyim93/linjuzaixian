@@ -8,6 +8,7 @@ namespace friday.core.domain
 {
     public class FeedBack:Entity
     {
+        //LoginUser发消息给管理员的表，管理员给大家回复
         public FeedBack()
         {
             ChildFeedBacks = new Iesi.Collections.Generic.HashedSet<FeedBack>();
