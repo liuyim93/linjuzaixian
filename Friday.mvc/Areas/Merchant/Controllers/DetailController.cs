@@ -183,7 +183,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             signText=skulist[i].stock.ToString(),
                             type=0
                         }});
-
+                
              skuQuantity.Add(skulist[i].skuId.ToString(), new SkuQuantity()
                         {
                              quantity=skulist[i].stock,
@@ -199,6 +199,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                         });
                 totalquty = totalquty + skulist[i].stock;        
             };
+
+            //2013-06-20 增加业务规则，如果商品标识下架，前台显示下架
+
 
             DefaultModel defaultModel = new DefaultModel()
             {
