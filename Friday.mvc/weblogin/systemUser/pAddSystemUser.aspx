@@ -39,7 +39,7 @@
              <p>
                 <label>
                     个性签名：</label>
-                <input type="text" id="Description" size="30" class="required  textInput gray" runat="server" />
+                <input type="text" id="Description" size="30" class="  textInput gray" runat="server" />
             </p> 
             <p>
                 <label>
