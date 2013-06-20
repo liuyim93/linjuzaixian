@@ -93,7 +93,7 @@
 
             <p>
                 <label>
-                    附件上传：</label>
+                    图片上传：</label>
                 <input id="Logo" type="file" class="required textInput gray" runat="server" />
             </p>
             <p style="color: red">
