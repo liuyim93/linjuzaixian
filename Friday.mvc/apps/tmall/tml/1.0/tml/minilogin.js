@@ -48,10 +48,11 @@ TML.add("minilogin", function (_tml) {
         return _a_tag.hostname === location.hostname
     }
     var _kissy = KISSY, _dom = _kissy.DOM, _event = _kissy.Event,
-        _segment_function = function (_last_segment_count) {
-            var _hostname_array = location.hostname.split(".");
-            return _hostname_array.splice(_hostname_array.length - _last_segment_count > 0 ? _hostname_array.length - _last_segment_count : 0, _last_segment_count).join(".")
-        } (2),
+//        _segment_function = function (_last_segment_count) {
+//            var _hostname_array = location.hostname.split(".");
+//            return _hostname_array.splice(_hostname_array.length - _last_segment_count > 0 ? _hostname_array.length - _last_segment_count : 0, _last_segment_count).join(".")
+//        } (2),
+     _segment_function = location.hostname,
         //2013-03-04 basilwang daily means localhost in our context
         //is_daily = _segment_function.indexOf(".net") !== -1,
         is_daily = true,

@@ -5,7 +5,7 @@
     var C = /(\bspm=(\d+.){3})\w+\b/g;
     var B = Object.prototype.toString;
     D.util = {
-        BASEURL: D.dev ? "http://127.0.0.1/apps/tmall/ald" : "http://a.tbcdn.cn/apps/tmall/ald",
+        BASEURL: D.dev ? "http://localhost/apps/tmall/ald" : "http://a.tbcdn.cn/apps/tmall/ald",
         TIMESTAMP: "20120623",
         renders: {},
         add: function (H, G) {

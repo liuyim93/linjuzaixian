@@ -254,8 +254,8 @@ KISSY.add('utils/global', function (S) {
         serverHost = cdnHost = 'daily.taobao.net';
     }
 
-    document.domain = location.hostname.split('.').slice(-2).join('.');
-
+    //document.domain = location.hostname.split('.').slice(-2).join('.');
+    document.domain = location.hostname;
     S.io.setupConfig({
         xdr: {
             subDomain: {
@@ -548,7 +548,8 @@ KISSY.add('utils/global', function (S) {
             depth--;
         }
 
-        return ret.join('.');
+        //return ret.join('.');
+        returnhost;
     }
 
     return MT;

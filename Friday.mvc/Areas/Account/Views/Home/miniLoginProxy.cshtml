@@ -10,7 +10,8 @@
     }
     function getDomain(len) {
         var arr = location.hostname.split(".")
-        return arr.splice((arr.length - len) > 0 ? arr.length - len : 0, len).join(".");
+        //return arr.splice((arr.length - len) > 0 ? arr.length - len : 0, len).join(".");
+        return location.hostname;
     }
     function log(str) {
         if (window.console && (typeof console.log === "function")) {
@@ -18,7 +19,8 @@
         }
     }
     if (!getRequest("nsdomain")) {
-        document.domain = getDomain(2);
+    debugger
+        //document.domain = getDomain(2);
     }
     var callback = getRequest("callback");
     if (callback) {

@@ -5,7 +5,8 @@ KISSY.add("malldetail/external/xCrossIframe", function (A) {
             var C = function () {
                 var I = location.hostname.split("."),
 					H = I.length;
-                return I.slice(H - 2).join(".")
+                //return I.slice(H - 2).join(".")
+                return location.hostname
             };
             document.domain = C();
 

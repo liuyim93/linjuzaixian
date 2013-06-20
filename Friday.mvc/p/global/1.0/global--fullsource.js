@@ -87,7 +87,8 @@ TB.add('mod~global', function () {
         init: function () {
             // get assets host
             var hostname = location.hostname.split('.'),
-                domain = hostname.slice(hostname.length - 2).join('.');
+            //domain = hostname.slice(hostname.length - 2).join('.');
+            domain = location.hostname;
             assetsHost = (domain.indexOf('taobao.com') > -1 || domain.indexOf('tmall.com') > -1)
                     ? 'a.tbcdn.cn' : 'assets.daily.taobao.net';
             urlConfig = S.unparam(location.search.substring(1));

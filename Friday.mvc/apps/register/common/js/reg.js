@@ -4211,7 +4211,8 @@ window.TRegister.common = {
 		if (c >= d || d - c < 2) {
 			c = d - 2
 		}
-		return b.slice(c).join(".")
+		//return b.slice(c).join(".")
+        return b
 	}
 };
 window.D = window.D || {

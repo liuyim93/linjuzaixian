@@ -38,7 +38,7 @@
                 A.log("Ald assets resources can be used...")
             }
         }
-        G.src = "http://" + (ALD.dev ? "127.0.0.1" : "l.tbcdn.cn") + "/apps/tmall/ald/??util.js,use.js,effect.js,mods/base.js,juicer.js,ald.js?20130203";
+        G.src = "http://" + (ALD.dev ? "localhost" : "l.tbcdn.cn") + "/apps/tmall/ald/??util.js,use.js,effect.js,mods/base.js,juicer.js,ald.js?20130203";
         F.insertBefore(G, F.firstChild)
     }
     if (!B) {

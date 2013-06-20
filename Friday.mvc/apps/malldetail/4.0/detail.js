@@ -498,7 +498,7 @@
     try {
         var _domain_split_array = _document.domain.split(".");
         //2013-04-30 basilwang strip www
-        _document.domain = _domain_split_array.slice(_domain_split_array.length - 2).join(".")
+        //_document.domain = _domain_split_array.slice(_domain_split_array.length - 2).join(".")
     } catch (D) {
     }
     TShop.poc = function (H) {
@@ -613,7 +613,8 @@
                     }
                     return R[Q - 2] + "." + R[Q - 1]
                 };
-                document.domain = M(location.hostname)
+                //document.domain = M(location.hostname)
+                document.domain = location.hostname
             }
             if (_foot_cfg.bidInit) {
                 _kissy_imp_t_x.getScript(_url + "/apps/??auctionplatform/20111110/market/detail/module/bid_module.css,malldetail/" + _g_config.ver + "/css/auction.css?t=" + _kissy_imp_t_x.t());
