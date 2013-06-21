@@ -15,11 +15,11 @@ ChildNodes:[] // child nodes
 ]
 author:xuanye.wan@gmail.com
 ***************************************/
-(function($) {
-    $.fn.swapClass = function(c1, c2) {
+(function ($) {
+    $.fn.swapClass = function (c1, c2) {
         return this.removeClass(c1).addClass(c2);
     };
-    $.fn.switchClass = function(c1, c2) {
+    $.fn.switchClass = function (c1, c2) {
         if (this.hasClass(c1)) {
             return this.swapClass(c1, c2);
         }
@@ -27,7 +27,7 @@ author:xuanye.wan@gmail.com
             return this.swapClass(c2, c1);
         }
     };
-    $.fn.treeview = function(settings) {
+    $.fn.treeview = function (settings) {
         var dfop =
             {
                 method: "POST",
@@ -79,7 +79,7 @@ author:xuanye.wan@gmail.com
                 }
             }
             else {
-                asnyloadc(null, false, function(data) {
+                asnyloadc(null, false, function (data) {
                     if (data && data.length > 0) {
                         treenodes = data;
                         dfop.data = data;
@@ -145,7 +145,7 @@ author:xuanye.wan@gmail.com
                 ht.push("<img  id='", id, "_", nid, "_cb' class='bbit-tree-node-cb' src='", dfop.cbiconpath, dfop.icons[nd.checkstate], "'/>");
             }
             //a
-            ht.push("<a hideFocus class='bbit-tree-node-anchor' tabIndex=1 href='javascript:void(0);'>");
+            ht.push("<a hideFocus class='bbit-tree-node-anchor' tabIndex=1 href=javascript:$.bringBack({SectionName:'", nd.text,"',SectionID:'", nd.id, "'})>");
             ht.push("<span unselectable='on'>", nd.text, "</span>");
             ht.push("</a>");
             ht.push("</div>");
@@ -252,7 +252,7 @@ author:xuanye.wan@gmail.com
                         }
                         else {
                             $(this).addClass("bbit-tree-node-loading");
-                            asnyloadc(item, true, function(data) {
+                            asnyloadc(item, true, function (data) {
                                 item.complete = true;
                                 //2010-11-4
                                 data = eval('(' + data.d + ')');
@@ -309,7 +309,7 @@ author:xuanye.wan@gmail.com
                 $(this).addClass("bbit-tree-selected");
                 if (dfop.onnodeclick) {
                     if (!item.expand) {
-                        item.expand = function() { expandnode.call(item); };
+                        item.expand = function () { expandnode.call(item); };
                     }
                     dfop.onnodeclick.call(this, item);
                 }
@@ -350,7 +350,7 @@ author:xuanye.wan@gmail.com
                     async: isAsync,
                     dataType: dfop.datatype,
                     success: callback,
-                    error: function(e) { alert("error occur!"); }
+                    error: function (e) { alert("error occur!"); }
                 });
             }
         }
@@ -364,16 +364,16 @@ author:xuanye.wan@gmail.com
             return p;
         }
         function bindevent() {
-            $(this).hover(function() {
+            $(this).hover(function () {
                 $(this).addClass("bbit-tree-node-over");
-            }, function() {
+            }, function () {
                 $(this).removeClass("bbit-tree-node-over");
             }).click(nodeclick)
-             .find("img.bbit-tree-ec-icon").each(function(e) {
+             .find("img.bbit-tree-ec-icon").each(function (e) {
                  if (!$(this).hasClass("bbit-tree-elbow")) {
-                     $(this).hover(function() {
+                     $(this).hover(function () {
                          $(this).parent().addClass("bbit-tree-ec-over");
-                     }, function() {
+                     }, function () {
                          $(this).parent().removeClass("bbit-tree-ec-over");
                      });
                  }
@@ -393,10 +393,10 @@ author:xuanye.wan@gmail.com
                 var deep = path.split(".").length;
                 var item = getItem(path);
                 if (item) {
-                    asnyloadc(item, true, function(data) {
+                    asnyloadc(item, true, function (data) {
                         item.complete = true;
                         //2010-11-4
-                        data = eval('('+data.d+')');
+                        data = eval('(' + data.d + ')');
                         item.ChildNodes = data;
                         item.isexpand = true;
                         if (data && data.length > 0) {
@@ -438,25 +438,25 @@ author:xuanye.wan@gmail.com
             }
         }
         me[0].t = {
-            getSelectedNodes: function(gethalfchecknode) {
+            getSelectedNodes: function (gethalfchecknode) {
                 var s = [];
                 if (gethalfchecknode) {
-                    getCkAndHalfCk(treenodes, s, function(item) { return item; });
+                    getCkAndHalfCk(treenodes, s, function (item) { return item; });
                 }
                 else {
-                    getck(treenodes, s, function(item) { return item; });
+                    getck(treenodes, s, function (item) { return item; });
                 }
                 return s;
             },
-            getSelectedValues: function() {
+            getSelectedValues: function () {
                 var s = [];
-                getck(treenodes, s, function(item) { return item.value; });
+                getck(treenodes, s, function (item) { return item.value; });
                 return s;
             },
-            getCurrentItem: function() {
+            getCurrentItem: function () {
                 return dfop.citem;
             },
-            reflash: function(itemOrItemId) {
+            reflash: function (itemOrItemId) {
                 var id;
                 if (typeof (itemOrItemId) == "string") {
                     id = itemOrItemId;
@@ -470,26 +470,26 @@ author:xuanye.wan@gmail.com
         return me;
     };
     //获取所有选中的节点的Value数组
-    $.fn.getTSVs = function() {
+    $.fn.getTSVs = function () {
         if (this[0].t) {
             return this[0].t.getSelectedValues();
         }
         return null;
     };
     //获取所有选中的节点的Item数组
-    $.fn.getTSNs = function(gethalfchecknode) {
+    $.fn.getTSNs = function (gethalfchecknode) {
         if (this[0].t) {
             return this[0].t.getSelectedNodes(gethalfchecknode);
         }
         return null;
     };
-    $.fn.getTCT = function() {
+    $.fn.getTCT = function () {
         if (this[0].t) {
             return this[0].t.getCurrentItem();
         }
         return null;
     };
-    $.fn.reflash = function(ItemOrItemId) {
+    $.fn.reflash = function (ItemOrItemId) {
         if (this[0].t) {
             return this[0].t.reflash(ItemOrItemId);
         }
