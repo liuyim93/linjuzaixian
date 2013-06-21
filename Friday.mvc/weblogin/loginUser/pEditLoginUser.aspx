@@ -11,14 +11,14 @@
                     登录名：</label>
                 <input type="text" id="LoginName" size="30" class="required textInput gray"  runat="server" />
             </p>
-                <p  id="IsAdminP" runat=server>
+            <%--    <p  id="IsAdminP" runat=server>
                     <label  >管理员:</label>
                     <select name="IsAdminV" id="IsAdminV" class="required" runat="server">
                     <option value="">请选择</option>
                     <option value="是">是</option>
                     <option value="否">否</option>
                     </select>
-                </p>
+                </p>--%>
 
              <%--   <p>
                     <label>
