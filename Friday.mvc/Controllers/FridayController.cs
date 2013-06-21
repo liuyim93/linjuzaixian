@@ -115,10 +115,14 @@ namespace Friday.mvc.Controllers
         protected ValidateResult validateUser(string loginName, string pwd, out LoginUser loginUser)
         {
             ValidateResult vr = new ValidateResult();
-            if (!string.IsNullOrEmpty(loginName) && !string.IsNullOrEmpty(pwd))
+            //后台用户前台登陆问题
+            bool validateLoginHasSystemUser = iSystemUserRepository.ValidateLoginHasSystemUser(loginName);
+
+            if (!string.IsNullOrEmpty(loginName) && !string.IsNullOrEmpty(pwd) && validateLoginHasSystemUser)
             {
                 
                 loginUser = iUserService.getLoginUserByLoginName(loginName);
+               
                 if (loginUser == null)
                 {
                     loginUser = iUserService.getLoginUserByEmail(loginName);
