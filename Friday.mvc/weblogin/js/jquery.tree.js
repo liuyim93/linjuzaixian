@@ -145,7 +145,7 @@ author:xuanye.wan@gmail.com
                 ht.push("<img  id='", id, "_", nid, "_cb' class='bbit-tree-node-cb' src='", dfop.cbiconpath, dfop.icons[nd.checkstate], "'/>");
             }
             //a
-            ht.push("<a hideFocus class='bbit-tree-node-anchor' tabIndex=1 href=javascript:$.bringBack({SectionName:'", nd.text,"',SectionID:'", nd.id, "'})>");
+            ht.push("<a hideFocus class='bbit-tree-node-anchor' tabIndex=1 href='javascript:void(0);'>");
             ht.push("<span unselectable='on'>", nd.text, "</span>");
             ht.push("</a>");
             ht.push("</div>");
