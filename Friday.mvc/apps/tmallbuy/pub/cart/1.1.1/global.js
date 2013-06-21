@@ -75,7 +75,8 @@ KISSY.add("cart/global", function (D, K, H, G) {
             return L || M || ""
         },
         ww: function (L) {
-            return L ? '<span class="m-ww"><span class="J_WangWang" data-icon="small" data-nick="' + L + '" data-display="inline"></span></span>' : ""
+            //return L ? '<span class="m-ww"><span class="J_WangWang" data-icon="small" data-nick="' + L + '" data-display="inline"></span></span>' : ""
+            return ""
         },
         toShopUrl: function (L) {
             return L ? C.replace("{{userId}}", L) : ""

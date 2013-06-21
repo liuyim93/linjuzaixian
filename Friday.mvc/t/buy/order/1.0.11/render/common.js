@@ -15,7 +15,8 @@ KISSY.add("order/render/common", function (b, c) {
         var d = [f.id ? ('id="' + f.id + '"') : "", f.cls ? ('class="' + f.cls + '"') : "", 'name="' + f.name + '"', 'value="' + e + '"'];
         return '<input type="hidden" ' + d.join(" ") + "/>"
     }, toDog: function (d) {
-        return '<span class="J_WangWang" data-nick="' + d + '" data-display="inline" data-icon="small"></span>'
+        //return '<span class="J_WangWang" data-nick="' + d + '" data-display="inline" data-icon="small"></span>'
+        return ""
     }, toBackCart: function (d) {
         //2013-06-10 wanghaichuan
         //var e = "http://cart." + (c.daily ? "daily.tmall.net" : "tmall.com") + "/cart/myCart.htm";
