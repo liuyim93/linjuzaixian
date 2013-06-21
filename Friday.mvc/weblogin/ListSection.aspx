@@ -45,17 +45,17 @@
             a = o.find("#btnSave a");
             oObj = o;
 
-            b = o.find("#btnSave");
-            b.click(function (event) {
-                //alert("btnSave!!!");
-                if (a.attr("href") == "" || a.attr("href") == undefined) {
-                    alertMsg.error('请选择商品类型！');
-                    return false;
-                }
-            });
+//            b = o.find("#btnSave");
+//            b.click(function (event) {
+//                //alert("btnSave!!!");
+//                if (a.attr("href") == "" || a.attr("href") == undefined) {
+//                    alertMsg.error('请选择商品类型！');
+//                    return false;
+//                }
+//            });
 
             a.click(function (event) {
-                alert("!!!");
+                //alert("!!!");
                 if (a.attr("href") == "" || a.attr("href") == undefined) {
                     alertMsg.error('请选择商品类型！');
                     return false;
@@ -70,7 +70,7 @@
                 dataType: "json",
                 success: function (data) {
                     //debugger
-                    alert("Ajax!!!");
+                    //alert("Ajax!!!");
                     var d = { showcheck: false };
                     var da = eval("(" + data.d + ")");
                     d.data = da;
@@ -84,6 +84,7 @@
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);
                     dtree.treeview(d);
+                    dtree.t
                 }
             });
             o = null;
