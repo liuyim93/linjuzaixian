@@ -93,7 +93,7 @@
                             {
                                 var item = commodities.ElementAt(index);
                                 <li class="ks-switchable-panel-internal219"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
-                                <img alt="@item.Name" src="@item.Image"/></a></li>
+                                <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a></li>
                             }
                     </ul>
                             <ul class="fCs-nav fCs-nav-even fCs-nav-num3">
@@ -115,7 +115,7 @@
                                 var item = commodities.ElementAt(index);
                                 <a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
                             class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
-                            <img alt="@item.Name" src="@item.Image"/></a>
+                            <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a>
                             }
 
                     </div>

@@ -13,6 +13,7 @@ namespace friday.core.services
         void Save(Address address);
         void Update(Address address);
         void Delete(string id);
+        void PhysicsDelete(string id);
         IList<Address> Search(List<DataFilter> termList);
         IList<Address> Search(List<DataFilter> termList, int start, int limit, out long total);
     }

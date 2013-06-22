@@ -1499,6 +1499,8 @@
     <Content Include="Images\[1]logo.png" />
     <Content Include="Images\[1]setlogo-242-139.png" />
     <Content Include="Images\[T]TmallFooterBar-111-109.png" />
+    <Content Include="order\biz\addrmaker-min.js" />
+    <Content Include="order\biz\district-min.js" />
     <Content Include="plugins\opensearch\provider.xml" />
     <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
@@ -1608,9 +1610,11 @@
     <Content Include="tbsp\tbsp.source.css" />
     <Content Include="t\buy\order\1.0.11\app.js" />
     <Content Include="t\buy\order\1.0.11\biz\addr.js" />
+    <Content Include="t\buy\order\1.0.11\biz\addrmaker.js" />
     <Content Include="t\buy\order\1.0.11\biz\amount.js" />
     <Content Include="t\buy\order\1.0.11\biz\checkcode.js" />
     <Content Include="t\buy\order\1.0.11\biz\coupon.js" />
+    <Content Include="t\buy\order\1.0.11\biz\district.js" />
     <Content Include="t\buy\order\1.0.11\biz\go.js" />
     <Content Include="t\buy\order\1.0.11\biz\insure.js" />
     <Content Include="t\buy\order\1.0.11\biz\invoice.js" />
@@ -1623,6 +1627,7 @@
     <Content Include="t\buy\order\1.0.11\biz\shoppromo.js" />
     <Content Include="t\buy\order\1.0.11\biz\wrt.js" />
     <Content Include="t\buy\order\1.0.11\css\addr.css" />
+    <Content Include="t\buy\order\1.0.11\css\addrmaker.css" />
     <Content Include="t\buy\order\1.0.11\css\base.css" />
     <Content Include="t\buy\order\1.0.11\css\checkbar.css" />
     <Content Include="t\buy\order\1.0.11\css\core.css" />

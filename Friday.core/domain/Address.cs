@@ -15,6 +15,13 @@ namespace friday.core
             set;
         }
 
+        public virtual string StreetAddress
+        {
+            get;
+
+            set;
+        }
+
         public virtual string Tel
         {
             get;
@@ -22,6 +29,49 @@ namespace friday.core
             set;
         }
 
+        public virtual string prov
+        {
+            get;
+
+            set;
+        }
+
+        public virtual string city
+        {
+            get;
+
+            set;
+        }
+        public virtual string dist
+        {
+            get;
+
+            set;
+        }
+        public virtual string provName
+        {
+            get;
+
+            set;
+        }
+        public virtual string cityName
+        {
+            get;
+
+            set;
+        }
+        public virtual string distName
+        {
+            get;
+
+            set;
+        }
+        public virtual string post
+        {
+            get;
+
+            set;
+        }
         public virtual string BackupTel
         {
             get;

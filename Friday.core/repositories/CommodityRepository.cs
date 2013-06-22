@@ -133,7 +133,9 @@ namespace friday.core.repositories
                 
             }
             //2013-05-23 basilwang 重构
-            var query = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.GlobalGoodsTypeFamily.Contains(cat) || o.GlobalGoodsType.Id == cat) && o.IsDelete == false);
+            var query = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && o.IsDelete == false);
+            if (cat != "")
+                query = (from x in this.Session.Query<Commodity>() select x).Where(o => o.Name.Contains(keyword) && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1) && (o.GlobalGoodsTypeFamily.Contains(cat) || o.GlobalGoodsType.Id == cat) && o.IsDelete == false);
             IOrderedQueryable<Commodity> ordered_query;
             if(is_desc)
                 ordered_query=query.OrderByDescending(order_expression);

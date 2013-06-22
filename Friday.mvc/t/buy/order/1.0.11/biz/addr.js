@@ -128,7 +128,7 @@ KISSY.add("order/biz/addr", function (i, E, M, t, D, U, L, e, s) {
     function B(Y, ab, ac) {
         var aa = '<div class="container">';
         if (Y) {
-            aa += '<input type="checkbox" class="option-checkbox use-station" /><span class="station-label">\u4ee3\u6536\u5305\u88f9</span>'
+            //aa += '<input type="checkbox" class="option-checkbox use-station" /><span class="station-label">\u4ee3\u6536\u5305\u88f9</span>'
         }
         if (ab) {
             aa += '<input type="checkbox" class="option-checkbox use-shop" /><span class="shop-label">\u95e8\u5e97\u81ea\u63d0</span>';
