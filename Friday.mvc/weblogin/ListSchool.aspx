@@ -42,13 +42,13 @@
             dtree = o.find("#divTree");
             a = o.find("#btnSave a");
             oObj = o;
-
-            a.click(function (event) {
-                if (a.attr("href") == "" || a.attr("href") == undefined) {
-                    alertMsg.error('请选择所属地域！');
-                    return false;
-                }
-            });
+            saveBtn = o.find("#btnSave");
+//            a.click(function (event) {
+//                if (a.attr("href") == "" || a.attr("href") == undefined) {
+//                    alertMsg.error('请选择所属地域！');
+//                    return false;
+//                }
+//            });
 
             $.ajax({
                 type: "POST",
@@ -65,8 +65,10 @@
                     d.theme = "bbit-tree-lines";
                     d.onnodeclick = function navi(item) {
 
-                        a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
-
+                      //  a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
+                        saveBtn.click(function () {
+                            $.bringBack({ SchoolName: item.text, SchoolID: item.id });
+                        });
                     }
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);

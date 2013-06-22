@@ -38,7 +38,7 @@ namespace Friday.mvc.weblogin
             if (!this.CurrentUser.IsAdmin)
             {
                 uid = this.CurrentUser.Id;
-                this.IsAdminP.Visible = false;
+                //this.IsAdminP.Visible = false;
                 this.btnRole.Visible = false;
             }
             if (!string.IsNullOrEmpty(Request.Params["uid"]))
@@ -55,7 +55,7 @@ namespace Friday.mvc.weblogin
             else
             {
                 BindingHelper.ObjectToControl(loginUser, this);
-                IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
+               // IsAdminV.Value = (loginUser.IsAdmin == true ? "是" : "否");
 
                 string[] info = iUserInRoleService.GetRoleNamesAndIDByLoginUserID(uid);
                 if (info.Length!= 0)
@@ -76,7 +76,10 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(loginUser);
-            loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
+            
+            //loginUser.IsAdmin = (IsAdminV.Value == "是" ? true : false);
+            
+            
             iLoginUserService.Update(loginUser);
 
             iUserInRoleService.DeleteUserInRoleByLoginUserID(uid);

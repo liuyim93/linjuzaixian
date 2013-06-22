@@ -15,13 +15,13 @@
 
                 <p>
             <label>
-                 联系电话:</label>
-            <input type="text" id="Tel" size="30" class="required textInput gray phone" runat="server" />
+                 固定电话:</label>
+            <input type="text" id="Tel" size="30" class="required textInput gray" runat="server" />
             </p>
             <p>
                 <label>
-                    备用电话：</label>
-                <input type="text" id="BackupTel" size="30" class="required textInput gray phone" runat="server" />
+                    移动电话：</label>
+                <input type="text" id="BackupTel" size="30" class="required textInput gray" runat="server" />
             </p>          
             <p>
                 <label>

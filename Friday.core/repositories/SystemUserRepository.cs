@@ -24,6 +24,11 @@ namespace friday.core.repositories
             var q = (from x in this.Session.Query<SystemUser>() select x).Where(o => o.IsDelete == false && o.Tel== tel).Count() > 0 ? false : true; ;
             return q;
         }
+         public bool ValidateLoginHasSystemUser(string LName)
+         {
+             var q = (from x in this.Session.Query<SystemUser>() select x).Where(o => o.IsDelete == false && o.LoginUser.LoginName == LName).Count() > 0 ? true : false; ;
+             return q;
+         }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(SystemUser)); }

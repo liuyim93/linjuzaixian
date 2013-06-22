@@ -13,8 +13,8 @@
                 <li>
                     <div class="buttonActive">
                         <div class="buttonContent">
-                            <button id="btnSave" type="button">
-                                <a style="text-decoration: none" href="">保存</a></button></div>
+                            <button id="btnSave" type="button"> 
+                                <a style="text-decoration: none" href="">保存</a> </button></div>
                     </div>
                 </li>
                 <li>
@@ -43,15 +43,25 @@
 
             dtree = o.find("#divTree");
             a = o.find("#btnSave a");
+            saveBtn = o.find("#btnSave");
             oObj = o;
+            
+//            b = o.find("#btnSave");
+//            b.click(function (event) {
+//                //alert("btnSave!!!");
+//                if (a.attr("href") == "" || a.attr("href") == undefined) {
+//                    alertMsg.error('请选择商品类型！');
+//                    return false;
+//                }
+//            });
 
-            a.click(function (event) {
-                //alert("!!!");
-                if (a.attr("href") == "" || a.attr("href") == undefined) {
-                    alertMsg.error('请选择商品类型！');
-                    return false;
-                }
-            });
+//            a.click(function (event) {
+//                //alert("!!!");
+//                if (a.attr("href") == "" || a.attr("href") == undefined) {
+//                    alertMsg.error('请选择商品类型！');
+//                    return false;
+//                }
+//            });
 
             $.ajax({
                 type: "POST",
@@ -61,6 +71,7 @@
                 dataType: "json",
                 success: function (data) {
                     //debugger
+                    //alert("Ajax!!!");
                     var d = { showcheck: false };
                     var da = eval("(" + data.d + ")");
                     d.data = da;
@@ -68,12 +79,15 @@
                     d.theme = "bbit-tree-lines";
                     d.onnodeclick = function navi(item) {
 
-                        a.attr("href", "javascript:$.bringBack({SectionName:'" + item.text + "',SectionID:'" + item.id + "'})");
-
+                        //a.attr("href", "javascript:$.bringBack({SectionName:'" + item.text + "',SectionID:'" + item.id + "'})");
+                        saveBtn.click(function () {
+                            $.bringBack({ SectionName: item.text, SectionID: item.id });
+                        });
                     }
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);
                     dtree.treeview(d);
+                    dtree.t
                 }
             });
             o = null;
