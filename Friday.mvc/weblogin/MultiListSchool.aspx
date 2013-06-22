@@ -54,13 +54,14 @@
                 var idSet = [];
                 var nameString;
                 var idString;
+                debugger
                 var ht = dtree.getTSNs(true);
                 var j = dtree.getTSNs(true).length;
                 for (var i = 0; i < j; i++) {
-                    if (ht[i].hasChildren == false) {
+                    //if (ht[i].hasChildren == false) {
                         nameSet.push(ht[i].text);
                         idSet.push(ht[i].id);
-                    }
+                    //}
                 }
 
                 if (nameSet.length == 0) {

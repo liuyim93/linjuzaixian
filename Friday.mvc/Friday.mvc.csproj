@@ -1501,6 +1501,7 @@
     <Content Include="Images\[T]TmallFooterBar-111-109.png" />
     <Content Include="order\biz\addrmaker-min.js" />
     <Content Include="order\biz\district-min.js" />
+    <Content Include="order\css\addrmaker-min.css" />
     <Content Include="plugins\opensearch\provider.xml" />
     <Content Include="p\c2c\header-top-min.css" />
     <Content Include="p\et\et.js" />
