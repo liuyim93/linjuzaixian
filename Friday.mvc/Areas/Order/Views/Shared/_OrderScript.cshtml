@@ -218,40 +218,31 @@
             }
 
         }
-    ],
-        "addrData": {
-            "valOptions": [{
-                "id": 218929730,
-                "prov": 370000,
-                "city": 370100,
-                "dist": 370102,
-                "provName": "山东",
-                "cityName": "济南",
-                "distName": "历下区",
-                "post": "250000",
-                "addr": "二环东路7366号山东财经大学燕山校区",
-                "name": "张继鹏",
-                "tele": "",
-                "mobi": "13666666666",
-                "isSelected": true,
-                "isDefault": true
-            }, {
-                "id": 363640875,
-                "prov": 370000,
-                "city": 370300,
-                "dist": 370302,
-                "provName": "山东",
-                "cityName": "淄博",
-                "distName": "淄川区",
-                "post": "255100",
-                "addr": "颐泽花园7-1号楼",
-                "name": "刘志军",
-                "tele": "0531-88888888",
-                "mobi": "13888888888",
-                "isSelected": false,
-                "isDefault": false
-            }
-        ]
+    ]
+    @{
+        if(Model.address!=null)
+        {
+       <text> ,"addrData": {
+                "valOptions": [{
+                    "id": 218929730,
+                    "prov": @(Model.address.prov),
+                    "city": @(Model.address.city),
+                    "dist": @(Model.address.dist),
+                    "provName": "@(Model.address.provName)",
+                    "cityName": "@(Model.address.cityName)",
+                    "distName": "@(Model.address.distName)",
+                    "post": "@(Model.address.post)",
+                    "addr": "@(Model.address.StreetAddress)",
+                    "name": "@(Model.address.Linkman)",
+                    "tele": "@(Model.address.Tel)",
+                    "mobi": "@(Model.address.BackupTel)",
+                    "isSelected": true,
+                    "isDefault": true
+                }
+            ]}
+            </text>
         }
+     }
+        
     };
     </script>

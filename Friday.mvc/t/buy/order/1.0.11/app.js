@@ -59,14 +59,16 @@
         g.trace(H);
         d({ url: "/json/asyncRenderOrderV2.do", type: "post", data: H, dataType: "json", timeout: 12, success: function (I) {
             if (!I.success) {
-                location.href = "/error.htm?errorCode=" + I.error.errorCode;
+                //location.href = "/error.htm?errorCode=" + I.error.errorCode;
+                location.href = "http://localhost:7525/Order/Home/ConfirmOrder?from=cart"
                 return
             }
             l.fire("reRender");
             p(I);
             B.hide()
         }, error: function () {
-            location.href = "/error.htm?errorCode=SYSTEM_ERROR&ajaxerr"
+            //location.href = "/error.htm?errorCode=SYSTEM_ERROR&ajaxerr"
+            location.href = "http://localhost:7525/Order/Home/ConfirmOrder?from=cart"
         }
         })
     }, applyCod: function () {

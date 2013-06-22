@@ -1,0 +1,15 @@
+﻿/*pub-1|2013-06-09 15:49:18*/.addrmaker{width:960px}
+.addrmaker h4{color:#808080;font-size:14px;margin-bottom:15px}
+.addrmaker th,.addrmaker td{padding:5px 0;vertical-align:top}
+.addrmaker th{padding-left:8px;width:96px;text-align:right;color:#333;line-height:26px}
+.addrmaker .text{border:1px solid #ccc;padding:4px 3px;line-height:20px;outline:0;resize:none}
+.addrmaker textarea{width:600px;height:60px}
+.addrmaker select{width:140px;height:23px;line-height:23px;margin-right:15px}
+.addrmaker em{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;color:red;width:18px;text-align:center}
+.addrmaker .tip{margin-left:10px;color:#808080}
+.addrmaker .close{background:url(http://a.tbcdn.cn/app/tc/img/close.png) no-repeat 50% 50%;width:9px;height:9px;padding:5px;top:3px;right:3px;position:absolute;cursor:pointer}
+.addrmaker button{height:25px;line-height:25px;background:url(http://a.tbcdn.cn/apps/tmall/mui/btn/img/btn.png) repeat-x #ccc 0 -405px;border:0;border-left:1px solid #ccc;border-right:1px solid #ccc;outline:0;border-radius:2px;padding:0 15px;margin-right:10px;color:#333;cursor:pointer}
+.addrmaker button.primary{border-color:#950b00;background-position:0 -80px;color:#fff;font-weight:bold}
+.order-modal-popup button.hide{visibility:hidden}
+.am-err .text{border-color:#ff8080}
+.addrmaker .fn-feedback{visibility:hidden;display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin-top:3px;margin-left:10px}

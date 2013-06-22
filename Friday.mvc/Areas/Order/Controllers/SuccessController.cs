@@ -78,19 +78,29 @@ namespace Friday.mvc.Areas.Order.Controllers
                         merchantListItem.Add(shop.Id, cartOfCommodities);
                     }
                 }
+                Address addr = null;
+                foreach (Address a in systemUser.Addresses)
+                {
+                    if (a.prov != null && a.IsDelete == false)
+                    {
+                        addr = a;
+                        break;
+                    }
+                }
 
                 foreach (string key in merchantListItem.Keys.ToList())
                 {
                     shop = iShopService.Load(key);
                     MyCommodityOrder myCommodityOrder = new MyCommodityOrder() {
-                        Address = address,
-                        Linkman = systemUser.Name,
+                        Address = addr.AddressName,
+                        Linkman = addr.Linkman,
                         OrderNumber = new Guid().ToString(),
                         OrderStatus = friday.core.EnumType.MyOrderStatusEnum.配送中,
                         Shop = shop,
                         SystemUser = systemUser,
-                        Tel = phone,
-                        Price = 0
+                        Tel = addr.Tel,
+                        Price = 0,
+                        BackupTel = addr.BackupTel,
                     };
                     iMyCommodityOrderService.Save(myCommodityOrder);
 

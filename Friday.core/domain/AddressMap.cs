@@ -16,11 +16,18 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
 
             Map(o => o.AddressName).Not.Nullable();
-            Map(o => o.Tel).Not.Nullable();
+            Map(o => o.Tel);
             Map(o=>o.BackupTel);
             Map(o=>o.Email);
-             
+            Map(o => o.prov);
+            Map(o => o.city);
+            Map(o => o.dist);
+            Map(o => o.provName);
+            Map(o => o.cityName);
+            Map(o => o.distName);
+            Map(o => o.post);
             Map(o=>o.Linkman);
+            Map(o => o.StreetAddress);
             Map(o=>o.QQ);
             Map(o=>o.Weixin);
             References<SystemUser>(o => o.SystemUser).Not.Nullable();
