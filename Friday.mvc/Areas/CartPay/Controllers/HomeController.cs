@@ -217,8 +217,8 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                         isCod = false,
                         isAttention = true,
                         price = price,
-                        amount = amount,
-                        itemIcon = itemIcon
+                        amount = amount
+                        //itemIcon = itemIcon
                     };
 
                     dynamic skuObj = new Dictionary<string, string>();
