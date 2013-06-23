@@ -28,31 +28,31 @@
             <p>
                 <label>
                     活动事项：</label>
-                <input type="text" id="GoodsType" size="30" class="required textInput gray" runat="server"
+                <input type="text" id="GoodsType" size="25" class="required textInput gray" runat="server"
                     readonly="true" />
                 <input type="hidden" id="GoodsTypeID" runat="server" />
                 <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
             </p>
-            <p style="height: 40px">
+            <span style="clear:both;height:1px;width:100%;margin-top:-1px"></span>
+            <p style="height: 150px">
                 <label>
-                    背景图片上传：</label>
+                    幻灯图片上传：</label>
                 <input id="Image" type="file" class="required textInput gray" runat="server" />
-                <span style="color: red; width: 300px">请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+              
+                <img id="ImagePreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                  <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传1600×420的幻灯图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
                 </span>
             </p>
-            <p style="height: 40px">
+            <p style="height: 150px">
                 <label>
                     标题图片上传：</label>
                 <input id="SubImage" type="file" class="required textInput gray" runat="server" />
-                <span style="color: red; width: 300px">请上传大小为100×120的logo(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
+               
+                <img  id="SubImagePreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                 <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
                 </span>
             </p>
-            <p style="margin-left: 20px; height: 100px">
-                <img id="ImagePreview" runat="server" style="width: 120px; height: 100px" />
-            </p>
-            <p style="margin-left: 20px; height: 100px">
-                <img id="SubImagePreview" runat="server" style="width: 120px; height: 100px" />
-            </p>
+            <span style="clear:both;height:1px;width:100%;margin-top:-1px"></span>
             <p>
                     <label>
                         详细内容：</label>
