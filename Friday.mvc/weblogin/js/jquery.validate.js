@@ -22,6 +22,7 @@
                 return validator;
             }
             //2013-06-23 basilwang ie7 bug fix
+            var userAgent = window.navigator.userAgent.toLowerCase()
             if (!($.browser.msie && /msie 7\.0/i.test(userAgent)))
             // Add novalidate tag if HTML5.
                 this.attr('novalidate', 'novalidate');
