@@ -33,8 +33,8 @@
                 <input type="hidden" id="GoodsTypeID" runat="server" />
                 <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
             </p>
-            <span style="clear:both;height:1px;width:100%;margin-top:-1px"></span>
-            <p style="height: 150px">
+            <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left;height: 150px">
                 <label>
                     幻灯图片上传：</label>
                 <input id="Image" type="file" class="required textInput gray" runat="server" />
@@ -52,8 +52,8 @@
                  <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
                 </span>
             </p>
-            <span style="clear:both;height:1px;width:100%;margin-top:-1px"></span>
-            <p>
+            <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
                     <label>
                         详细内容：</label>
                     <div style="width: 100%;">
