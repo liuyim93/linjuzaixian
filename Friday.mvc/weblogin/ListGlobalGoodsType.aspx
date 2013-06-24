@@ -3,18 +3,17 @@
 
 <div class="pageFormContent">
     <form id="Form1" method="post" runat="server" class="pageForm required-validate">
-        <div class="panel" defh="270" style=" display: block; overflow: auto;
-            width: 790px; margin: 2px; border: solid 1px #CCC; line-height: 21px; background: #fff">
-            <div id="divTree">
-            </div>
-
+    <div class="panel" defh="270" style="display: block; overflow: auto; width: 790px;
+        margin: 2px; border: solid 1px #CCC; line-height: 21px; background: #fff">
+        <div id="divTree">
+        </div>
         <div class="formBar">
             <ul>
                 <li>
                     <div class="buttonActive">
                         <div class="buttonContent">
                             <button id="btnSave" type="button">
-                                <a style="text-decoration: none" href="">保存</a></button></div>
+                                保存</button></div>
                     </div>
                 </li>
                 <li>
@@ -41,9 +40,16 @@
             var a;
 
             dtree = o.find("#divTree");
-            a = o.find("#btnSave a");
+            //a = o.find("#btnSave a");
             saveBtn = o.find("#btnSave");
-            oObj = o;
+            //oObj = o;
+            var tree_selected_id = o.find("#tree_selected_id");
+            if (tree_selected_id.length == 0)
+                tree_selected_id = $("<input type='hidden' id='tree_selected_id' />").appendTo(o);
+
+            var tree_selected_text = o.find("#tree_selected_text");
+            if (tree_selected_text.length == 0)
+                tree_selected_text = $("<input type='hidden' id='tree_selected_text' />").appendTo(o);
 
             //            saveBtn.click(function (event) {
             //             if (saveBtn.attr("href") == "" || saveBtn.attr("href") == undefined) {
@@ -58,7 +64,9 @@
             return false;
             }
             });*/
-
+            saveBtn.click(function () {
+                $.bringBack({ GoodsType: tree_selected_text.val(), GoodsTypeID: tree_selected_id.val() });
+            });
             $.ajax({
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
@@ -75,10 +83,10 @@
                     d.onnodeclick = function navi(item) {
 
                         //a.attr("href", "javascript:$.bringBack({GoodsType:'" + item.text + "',GoodsTypeID:'" + item.id + "'})");
-                        saveBtn.click(function () {
-                            $.bringBack({ GoodsType: item.text, GoodsTypeID: item.id });
-                        });
-                    }
+                        tree_selected_id.val(item.id);
+                        tree_selected_text.val(item.text);
+                    };
+
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);
                     dtree.treeview(d);
@@ -87,4 +95,4 @@
             o = null;
         });
     });
- </script>
+</script>

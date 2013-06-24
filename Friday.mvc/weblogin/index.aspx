@@ -81,6 +81,17 @@
                 callback: function () {
                     initEnv();
                     $("#themeList").theme({ themeBase: "themes" }); // themeBase 相对于index页面的主题base路径
+                    var popup_timeout_fn = function () {
+                        var popup = $("#global_msg_popup");
+                        var data = { global: false, prefix: "global_msg_popup", "rel_v3": "global_msg_popup" };
+                        popup.loadUrl("message/pMessageNotification.aspx", data, function () {
+                            popup.find("[layoutH]").layoutH();
+                        });
+
+
+                        //setTimeout(popup_timeout_fn, 300000);
+                    };
+                    //setTimeout(popup_timeout_fn, 1000);
                 }
             });
         });
@@ -93,6 +104,8 @@
         <div id="header">
             <div class="headerNav">
                 <a class="logo" href="javascript:void(0)">标志</a>
+                <div id="global_msg_popup">
+                </div>
                 <ul class="nav">
                     <li>
                         <label id="labLogin" name="labLogin" runat="server" style="color: White; height: 18px;">
