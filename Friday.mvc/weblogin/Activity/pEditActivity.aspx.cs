@@ -97,6 +97,9 @@ namespace Friday.mvc.weblogin.activity
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
+            //2013-06-24 basilwang IE has issues with the "application/json" response from the iframe.
+            //see http://stackoverflow.com/questions/5340192/ie-wants-to-download-returned-json-from-django
+            Response.ContentType = "text/html";
             Response.End();
 
         
