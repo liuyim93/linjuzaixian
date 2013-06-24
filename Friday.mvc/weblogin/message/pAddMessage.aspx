@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddMessage.aspx.cs" Inherits="Friday.mvc.weblogin.message.pAddMessage"   validateRequest="false"  %>
 
 <div class="page" style="">
-    <div class="pageContent">
+    <div class="pageContent" layoutH="20">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
@@ -15,7 +15,7 @@
         <div class="pageFormContent" style=" height:300px">
          
             <h1>
-                消息</h1>
+                消息信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
           <p>
                 <label>
@@ -42,15 +42,15 @@
                         </select>
              </p>
   
-         <div style="  clear:left; width:80%; margin-top:0px" >
-             <p>
-                 <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Content"    name="Content" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
-                </p>
-                  
-       </div>
+           <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Content" name="Content" rows="10" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+             </p>
     
         </div>
                 <div class="formBar">

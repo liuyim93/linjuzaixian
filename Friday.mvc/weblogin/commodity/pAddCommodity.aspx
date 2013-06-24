@@ -16,17 +16,17 @@
                 <label>
                    商品当前价格：</label>
                 <input type="text" id="Price" size="30" class="required textInput gray number" min="0" runat="server" />
-            </p>--%>
+            </p> 
             <p>
                 <label>
                    商品过去价格：</label>
                 <input type="text" id="OldPrice" size="30" class="required textInput gray number" min="0"  runat="server" />
             </p>
-          <%--  <p>
+            <p>
                 <label>
                     库存量：</label>
                 <input type="text" id="InventoryCount" size="30" class="required textInput gray digits" min="0" runat="server" />
-            </p>--%>
+            </p>
             
             <p>
                 <label>
@@ -70,7 +70,7 @@
                     折扣价格：</label>
                 <input type="text" id="DiscountPrice" size="30" class="required textInput gray number" min="0" runat="server" />
             </p>
- 
+ --%>
             <p>
                 <label>
                     商品类型：</label>
@@ -100,7 +100,7 @@
                 请上传商品图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
             </p>
 
-            <div style="clear:left; margin-top:20px" >
+            <div style="clear:left; margin-top:0px" >
              <p>
                  <label>详细内容：</label>
                 <div>
