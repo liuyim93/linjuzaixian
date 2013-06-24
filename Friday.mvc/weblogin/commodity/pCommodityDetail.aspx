@@ -21,7 +21,7 @@
                 <label>
                     库存量：</label>
                 <input type="text" id="InventoryCount" size="30" class="required textInput gray" readonly="readonly" runat="server" />
-            </p>--%>
+            </p>
            
             <p>
             <label>
@@ -48,7 +48,15 @@
                     折扣库存量：</label>
                 <input type="text" id="DiscountInventoryCount" size="30" class="required textInput gray" readonly="readonly" runat="server" />
             </p>
-               
+               --%>
+               <p>
+                <label>
+                    商品类型：</label>
+                <input type="text" id="GoodsType" size="30" class="required textInput gray"
+                    runat="server" readonly="true" />
+                 <input type="hidden" id="GoodsTypeID"  runat="server" />
+                <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
+            </p>
             <p>
                 <label>
                     月售额：</label>
@@ -59,6 +67,14 @@
                     销售额：</label>
                 <input type="text" id="Amount" size="30" class="digits" readonly="readonly" runat="server" />
               </p>
+              <p style="height: 150px">
+                <label>
+                    标题图片上传：</label>
+                
+                <img  id="LogoPreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
+                </span>--%>
+            </p>
          </div>
 
         <div id="jbsxBox1" >

@@ -40,60 +40,6 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
         
         /// <summary>
-        /// OldPrice 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText OldPrice;
-        
-        /// <summary>
-        /// IsLimited 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsLimited;
-        
-        /// <summary>
-        /// IsEnabled 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsEnabled;
-        
-        /// <summary>
-        /// IsDiscount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsDiscount;
-        
-        /// <summary>
-        /// DiscountInventoryCount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DiscountInventoryCount;
-        
-        /// <summary>
-        /// DiscountPrice 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DiscountPrice;
-        
-        /// <summary>
         /// GoodsType 控件。
         /// </summary>
         /// <remarks>

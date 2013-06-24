@@ -22,31 +22,22 @@ namespace Friday.mvc.weblogin.sku {
         protected global::System.Web.UI.HtmlControls.HtmlInputText Name;
         
         /// <summary>
-        /// IsEnabled 控件。
+        /// GoodsType 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsEnabled;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText GoodsType;
         
         /// <summary>
-        /// IsDiscount 控件。
+        /// GoodsTypeID 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect IsDiscount;
-        
-        /// <summary>
-        /// DiscountInventoryCount 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText DiscountInventoryCount;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden GoodsTypeID;
         
         /// <summary>
         /// MonthAmount 控件。
@@ -65,5 +56,14 @@ namespace Friday.mvc.weblogin.sku {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Amount;
+        
+        /// <summary>
+        /// LogoPreview 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage LogoPreview;
     }
 }

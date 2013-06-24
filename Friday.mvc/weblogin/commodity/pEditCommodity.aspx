@@ -15,18 +15,18 @@
                 <label>
                    商品当前价格：</label>
                 <input type="text" id="Price" size="30" class="required textInput gray number" min="0" runat="server" />
-            </p>--%>
+            </p>
             <p>
                 <label>
                    商品过去价格：</label>
                 <input type="text" id="OldPrice" size="30" class="required textInput gray number" min="0"  runat="server" />
-            </p>
+            </p>--%>
          <%--   <p>
                 <label>
                     库存量：</label>
                 <input type="text" id="InventoryCount" size="30" class="required textInput gray digits" min="0" runat="server" />
             </p>
-            --%>
+           
             <p>
                 <label>
                     Limited：</label>
@@ -69,7 +69,7 @@
                     折扣价格：</label>
                 <input type="text" id="DiscountPrice" size="30" class="required textInput gray number" min="0" runat="server" />
             </p>
-
+ --%>
             <p>
                 <label>
                     商品类型：</label>
@@ -90,16 +90,16 @@
                 <input type="text" id="Amount" size="30" class="number required"  min="0"  runat="server" />
             </p>
 
-            <p>
+            <p style="height: 150px">
                 <label>
-                    附件上传：</label>
-                <input id="Logo" type="file" class="textInput gray" runat="server" />
+                    标题图片上传：</label>
+                <input id="Logo" type="file" class="required textInput gray" runat="server" />
+               
+                <img  id="LogoPreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
+                </span>--%>
             </p>
-            <p style="color: red">
-                请上传商品图片(支持格式：.jpg/.jpeg/.png/.gif/.bmp)
-            </p>
-
-             <div style="clear:left; margin-top:20px" >
+                <div style="clear:left; margin-top:0px" >
              <p>
                  <label>详细内容：</label>
                 <div>
