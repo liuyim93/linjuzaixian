@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddDataResource.aspx.cs" Inherits="Friday.mvc.weblogin.dataresource.pAddDataResource"   validateRequest="false"  %>
 
 <div class="page" style="">
-    <div class="pageContent">
+    <div class="pageContent" layoutH="20">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>添加信息</span>
+             <span>添加网站信息</span>
            </a></li>
            
         </ul>
@@ -15,7 +15,7 @@
         <div class="pageFormContent" style=" height:300px">
          
             <h1>
-                信息</h1>
+                网站信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
          
 			<p>
@@ -53,16 +53,15 @@
               --%>
                   
                  
-                     <div style="  clear:left; width:80%; margin-top:0px" >
-             <p>
-                 <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
-                </p>
-                  
-       </div>
-           <p style="height:1px;"></p>
+                   <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Description" name="Description" rows="10" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+             </p>
 	 
                   
         

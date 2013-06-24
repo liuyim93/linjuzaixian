@@ -52,16 +52,15 @@
               
                           
                  
-                     <div style="  clear:left; width:80%; margin-top:0px" >
-             <p>
-                 <label>详细内容：</label>
-             <div style="   width:100%; ">
-				 	<textarea id="Description"    name="Description" rows="20" cols="240" style="width: 100%" runat="server"></textarea>
-				</div>
-                </p>
-                  
-       </div>
-           <p style="height:1px;"></p>
+                   <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
+                    <label>
+                        详细内容：</label>
+                    <div style="width: 100%;">
+                        <textarea id="Description" name="Description" rows="10" cols="240" style="width: 100%"
+                            runat="server"></textarea>
+                    </div>
+             </p>
     
         </div>
                 <div class="formBar">

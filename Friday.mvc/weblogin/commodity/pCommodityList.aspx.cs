@@ -77,6 +77,10 @@ namespace Friday.mvc.weblogin.commodity
             {
                 shopId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
+            if (this.CurrentUser.IsAdmin)
+            {
+                this.addcomdty.Visible = false;
+            }
             if (!string.IsNullOrEmpty(Request.Form["shop_id"]))
             {
                 shopId = Request.Form["shop_id"];
