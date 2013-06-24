@@ -54,7 +54,7 @@
                 var idSet = [];
                 var nameString;
                 var idString;
-                debugger
+                //debugger
                 var ht = dtree.getTSNs(true);
                 var j = dtree.getTSNs(true).length;
                 for (var i = 0; i < j; i++) {
