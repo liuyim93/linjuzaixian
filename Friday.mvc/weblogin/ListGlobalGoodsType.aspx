@@ -3,7 +3,7 @@
 
 <div class="pageFormContent">
     <form id="Form1" method="post" runat="server" class="pageForm required-validate">
-    <div class="panel" defh="270" style="display: block; overflow: auto; width: 790px;
+        <div class="panel" defh="270" style="display: block; overflow: auto; width: 790px;
         margin: 2px; border: solid 1px #CCC; line-height: 21px; background: #fff">
         <div id="divTree">
         </div>
