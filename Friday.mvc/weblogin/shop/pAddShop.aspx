@@ -49,7 +49,7 @@
             <p>
                 <label>
                     Logo上传：</label>
-                <input id="Image" type="file" class="required textInput gray" readonly="true"  runat="server" />
+                <input id="Image" type="file" class="required textInput gray"   runat="server" />
                 <span style="color: red; width: 300px">
                 </span>
             </p>
