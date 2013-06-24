@@ -84,9 +84,17 @@ namespace Friday.mvc.Areas.Account.Controllers
             string msg = vr.message;
             if (vr.isSucceed)
             {
-                
-                userID = loginUser.SystemUser.Id;
-
+                //添加业务规则，用后台登陆的账号，没有SystemUser，直接报没有此用户即可。
+                //loginUser是否有SystemUser
+                bool validateLoginHasSystemUser = iSystemUserRepository.ValidateLoginHasSystemUser(loginUser.LoginName);
+                if (validateLoginHasSystemUser)
+                {
+                    userID = loginUser.SystemUser.Id;
+                }
+                else 
+                {
+                    userID = "000000000000";
+                }
                
                 populateFormAuthCookie(remember, userID, "");
 

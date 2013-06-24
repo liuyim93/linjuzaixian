@@ -42,14 +42,22 @@
 
             dtree = o.find("#divTree");
             a = o.find("#btnSave a");
+            saveBtn = o.find("#btnSave");
             oObj = o;
 
-            a.click(function (event) {
-                if (a.attr("href") == "" || a.attr("href") == undefined) {
-                    alertMsg.error('请选择商品类型！');
-                    return false;
-                }
-            });
+            //            saveBtn.click(function (event) {
+            //             if (saveBtn.attr("href") == "" || saveBtn.attr("href") == undefined) {
+            //                 alertMsg.error('请选择商品类型！');
+            //                return false;
+            //                }
+            //             });
+
+            /*a.click(function (event) {
+            if (a.attr("href") == "" || a.attr("href") == undefined) {
+            alertMsg.error('请选择商品类型！');
+            return false;
+            }
+            });*/
 
             $.ajax({
                 type: "POST",
@@ -66,8 +74,10 @@
                     d.theme = "bbit-tree-lines";
                     d.onnodeclick = function navi(item) {
 
-                        a.attr("href", "javascript:$.bringBack({GoodsType:'" + item.text + "',GoodsTypeID:'" + item.id + "'})");
-
+                        //a.attr("href", "javascript:$.bringBack({GoodsType:'" + item.text + "',GoodsTypeID:'" + item.id + "'})");
+                        saveBtn.click(function () {
+                            $.bringBack({ GoodsType: item.text, GoodsTypeID: item.id });
+                        });
                     }
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);

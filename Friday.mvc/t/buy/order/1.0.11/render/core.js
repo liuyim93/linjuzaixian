@@ -78,7 +78,7 @@ KISSY.add("order/render/core", function (j, q, f, k, h, a, i, o, c, m, e, p, g, 
         if (f.get("isForceAnony")) {
             //r += h.toHidden({ name: "anony", value: "one", id: "J_AnnonyBuy" }) + '<input type="checkbox" checked disabled/>'
         } else {
-            //r += '<input data-mm="tmalljy.2.6?action=anony" id="anonyBuy" type="checkbox" checked name="anony"/>'
+            r += '<input data-mm="tmalljy.2.6?action=anony" id="anonyBuy" type="checkbox" checked name="anony"/>'
         }
         //r += '<label for="anonyBuy">\u533f\u540d\u8d2d\u4e70</label></div>';
         r += '</div>';

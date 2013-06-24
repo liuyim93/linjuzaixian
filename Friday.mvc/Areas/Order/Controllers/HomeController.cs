@@ -11,6 +11,7 @@ using System.Runtime.Serialization.Json;
 using System.IO;
 using System.Text;
 using Friday.mvc.Models;
+using friday.core;
 
 namespace Friday.mvc.Areas.Order.Controllers
 {
@@ -50,7 +51,14 @@ namespace Friday.mvc.Areas.Order.Controllers
             else
             {
                 //配送地址信息
-                orderModel.addresses.AddRange(systemUser.Addresses);
+                foreach (Address a in systemUser.Addresses)
+                {
+                    if (a.prov != null&&a.IsDelete==false)
+                    {
+                        orderModel.address = a;
+                        break;
+                    }
+                }
 
                 //购物车信息
                 List<ShoppingCart> shoppingCarts = iShoppingCartService.getShoppingCartBySystemUser(systemUser.Id);
@@ -116,6 +124,46 @@ namespace Friday.mvc.Areas.Order.Controllers
             }
 
             return View(orderModel);
+        }
+
+        public ActionResult addBuyerAddress(string deliverPhoneBak, string deliverPhone, string deliverName, string deliverAddress, string postCode, string divisionCode,string province,string city,string distriction,string districtionName,string provinceName,string cityName)
+        {
+            SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
+            if (systemUser == null)
+            {
+                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/Order/Home/ConfirmOrder");
+            }
+
+            IList<Address> Addresses = systemUser.Addresses.ToList();
+            if (Addresses != null)
+            {
+                foreach (Address a in Addresses)
+                {
+                    if(a.IsDelete==false)
+                    iAddressService.Delete(a.Id);
+                }
+            }
+
+            Address address = new Address(){
+                    AddressName = provinceName + " " + cityName + " " + districtionName + "" + deliverAddress,
+                    StreetAddress = deliverAddress,
+                    SystemUser = systemUser,
+                    Tel = deliverPhone,
+                    BackupTel = deliverPhoneBak,
+                    Linkman = deliverName,
+                    prov = province,
+                    city = city,
+                    dist = distriction,
+                    post = postCode,
+                    distName = districtionName,
+                    cityName = cityName,
+                    provName = provinceName
+            };
+            iAddressService.Save(address);
+
+            //return Redirect("http://localhost:7525/Order/Home/ConfirmOrder");
+            string script = "{\"is_success\": 1,\"address_id\": 1199271214,\"params\":\"id=1199271214^^address=" + deliverAddress + "^^postCode=" + postCode + "^^addressee=" + deliverName + "^^phone=" + deliverPhone + "^^mobile=" + deliverPhoneBak + "^^areaCode=" + divisionCode + "\" }";
+            return JavaScript(script);
         }
     }
 }

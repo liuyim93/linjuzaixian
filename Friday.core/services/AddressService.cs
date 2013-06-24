@@ -40,6 +40,12 @@ namespace friday.core.services
             iLogger.LogMessage("删除Address数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
             iAddressRepository.Delete(id);
         }
+
+        public void PhysicsDelete(string id)
+        {
+            iLogger.LogMessage("物理删除Address数据，ID：" + id, this.GetType().FullName, EventDataTypeCategory.操作日志);
+            iAddressRepository.PhysicsDelete(id);
+        }
        
         public IList<Address> Search(List<DataFilter> termList)
         {

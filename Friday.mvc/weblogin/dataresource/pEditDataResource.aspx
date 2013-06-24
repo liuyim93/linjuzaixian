@@ -12,7 +12,7 @@
     </div>
        <form id="form" method="post"  class="pageForm required-validate" 
         onsubmit="return validateCallback (this,navTabAjaxDone)" enctype="multipart/form-data" runat="server" >
-        <div class="pageFormContent" style=" height:500px">
+        <div class="pageFormContent" style=" height:300px">
          
             <h1>
                 基本信息</h1>

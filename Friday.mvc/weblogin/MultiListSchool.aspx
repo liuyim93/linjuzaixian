@@ -46,20 +46,22 @@
             dtree = o.find("#divTree");
             a = o.find("#btnSave a");
             oObj = o;
+            btnC = o.find("#btnSave");
 
-            a.click(function (event) {
+            btnC.click(function (event) {
                 debugger
                 var nameSet = [];
                 var idSet = [];
                 var nameString;
                 var idString;
+                debugger
                 var ht = dtree.getTSNs(true);
                 var j = dtree.getTSNs(true).length;
                 for (var i = 0; i < j; i++) {
-                    if (ht[i].hasChildren == false) {
+                    //if (ht[i].hasChildren == false) {
                         nameSet.push(ht[i].text);
                         idSet.push(ht[i].id);
-                    }
+                    //}
                 }
 
                 if (nameSet.length == 0) {
@@ -84,10 +86,52 @@
                     else {
                         nameString = nameSet[i];
                         idString = idSet[i];
-                     }
-                    a.attr("href", "javascript:$.bringBack({NameSet:'" + nameString + "',IDSet:'" + idString + "'})");
+                    }
+                   // btnC.attr("href", "javascript:$.bringBack({NameSet:'" + nameString + "',IDSet:'" + idString + "'})");
+                    $.bringBack({ NameSet: nameString, IDSet: idString});
                 }
             });
+//            a.click(function (event) {
+//                debugger
+//                var nameSet = [];
+//                var idSet = [];
+//                var nameString;
+//                var idString;
+//                var ht = dtree.getTSNs(true);
+//                var j = dtree.getTSNs(true).length;
+//                for (var i = 0; i < j; i++) {
+//                    if (ht[i].hasChildren == false) {
+//                        nameSet.push(ht[i].text);
+//                        idSet.push(ht[i].id);
+//                    }
+//                }
+
+//                if (nameSet.length == 0) {
+//                    alertMsg.error('请选择所属地域！');
+//                    return false;
+//                }
+//                else {
+//                    for (var i = 0; i < nameSet.length - 1; i++) {
+//                        if (nameString != null && nameString != undefined && nameString != "") {
+//                            nameString = nameString + nameSet[i] + ",";
+//                            idString = idString + idSet[i] + ",";
+//                        }
+//                        else {
+//                            nameString = nameSet[i] + ",";
+//                            idString = idSet[i] + ",";
+//                        }
+//                    }
+//                    if (nameString != null && nameString != undefined && nameString != "") {
+//                        nameString = nameString + nameSet[nameSet.length - 1];
+//                        idString = idString + idSet[nameSet.length - 1];
+//                    }
+//                    else {
+//                        nameString = nameSet[i];
+//                        idString = idSet[i];
+//                     }
+//                    a.attr("href", "javascript:$.bringBack({NameSet:'" + nameString + "',IDSet:'" + idString + "'})");
+//                }
+//            });
 
             $.ajax({
                 type: "POST",
@@ -101,11 +145,13 @@
                     d.data = da;
                     d.cascadecheck = true;
                     d.theme = "bbit-tree-lines";
-                    //                    d.onnodeclick = function navi(item) {
-                    //                        //debugger
-                    //                        a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
-
-                    //                    }
+                    d.onnodeclick = function navi(item) {
+                                            //debugger
+                                            //a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
+//                        btnC.click(function () {
+//                            $.bringBack({ NameSet: item.text, GoodsTypeID: item.id });
+//                        });
+                                        }
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);
                     dtree.treeview(d);

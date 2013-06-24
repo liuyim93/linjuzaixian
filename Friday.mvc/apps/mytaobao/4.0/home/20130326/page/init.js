@@ -549,7 +549,7 @@ KISSY.add('utils/global', function (S) {
         }
 
         //return ret.join('.');
-        returnhost;
+        return host;
     }
 
     return MT;
@@ -2266,8 +2266,8 @@ KISSY.add('page/init', function (S) {
 
     //鎰忚鍙嶉
     if (S.UA.ie !== 6) {
-        var feedback = '<div style="position: fixed; right: 0px; top: 150px;" class="top-bug-btn"><a target="_blank" href="http://ur.taobao.com/survey/view.htm?id=1703">&nbsp;</a></div>';
-        S.one('body').append(feedback);
+        //var feedback = '<div style="position: fixed; right: 0px; top: 150px;" class="top-bug-btn"><a target="_blank" href="http://ur.taobao.com/survey/view.htm?id=1703">&nbsp;</a></div>';
+        //S.one('body').append(feedback);
     }
 
 }, { requires: [

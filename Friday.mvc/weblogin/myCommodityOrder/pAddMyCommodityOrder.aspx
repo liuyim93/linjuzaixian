@@ -52,7 +52,7 @@
              <p>
                 <label>
                     备用电话：</label>
-                <input type="text" id="BackupTel" size="30" class="required  textInput gray phone" runat="server" />
+                <input type="text" id="BackupTel" size="30" class="textInput gray phone" runat="server" />
             </p>
              <p>
                 <label>

@@ -112,7 +112,7 @@ namespace friday.core.components
             if (filesnewName == "")
                 return null;
             else
-                return "/uploadimage/" + ParentPath + "/" + filesnewName;
+                return "/weblogin/uploadimage/" + ParentPath + "/" + filesnewName;
         }
     }
 }
