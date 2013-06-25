@@ -1139,6 +1139,7 @@
     <Content Include="apps\lifeas\js\tdog\main.js" />
     <Content Include="apps\lifeas\js\tdog\tstart.css" />
     <Content Include="apps\lifeas\js\tdog\tstart.js" />
+    <Content Include="apps\login\static\js\2.0.1\login\login.js" />
     <Content Include="apps\lz\hc.js" />
     <Content Include="apps\malldetail\4.0\base.css" />
     <Content Include="apps\malldetail\4.0\common\tbskip.js" />

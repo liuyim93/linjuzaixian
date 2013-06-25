@@ -98,6 +98,7 @@ namespace Friday.mvc.Areas.Account.Controllers
                
                 populateFormAuthCookie(remember, userID, "");
 
+
                 //2013-03-04 basilwang TODO we need validate loginModel
                 //validate username and password
                 if (false /*is full login*/)
@@ -124,13 +125,27 @@ namespace Friday.mvc.Areas.Account.Controllers
             }
             else
             {
+                LoginModel lm = new LoginModel();
+
+                if (loginUser == null && redirect_url!="")
+                {
+                    lm.AuthenState = false;
+                }
+                else
+                {
+                    if (loginUser.SystemUser == null)
+                    {
+                        lm.AuthenState = false;
+                    }
+                }
+
                 var is_mini = false;
                 if (style == "miniall")
                     is_mini = true;
                 ViewData["PageID"] = is_mini ? "page2" : "page";
                 ViewData["IsMini"] = is_mini;
                 //2013-03-09 basilwang need show error message, shall we use this.ModelState.IsValid?
-                return View();
+                return View(lm);
 
             }
         }

@@ -8,6 +8,11 @@ namespace Friday.mvc.Models
 {
     public class LoginModel
     {
+        public LoginModel()
+        {
+            AuthenState = true;
+        }
+
         [Required]
         [Display(Name = "登录名")]
         public string TPL_username { get; set; }
@@ -19,5 +24,7 @@ namespace Friday.mvc.Models
 
         [Display(Name = "记住我?")]
         public bool RememberMe { get; set; }
+
+        public bool AuthenState { get; set; }
     }
 }

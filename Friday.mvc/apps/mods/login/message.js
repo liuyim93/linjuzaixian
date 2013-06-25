@@ -7,9 +7,15 @@
             _message = this
         }
         this.wrap = _kissy.one("#J_Message");
-        this.el = this.wrap.one("p")
+        this.el = this.wrap.one("p");
+        this._init()
     };
-    _kissy.augment(Message, { show: function (D, G) {
+    _kissy.augment(Message, { _init: function () {
+        if (!this.wrap || !this.content) {
+            return
+        }
+        return this
+    }, show: function (D, G) {
         var F = this.el, E = this.wrap;
         if (!F || !E) {
             return

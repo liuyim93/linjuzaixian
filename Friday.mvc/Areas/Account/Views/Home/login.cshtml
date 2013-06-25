@@ -51,10 +51,19 @@
                 <div id="J_LoginBox" class="login-box  no-longlogin module-static">
                     <div class="bd">
                         <div class="taobao-box">
-                            <div id="J_Message" style="display: none;" class="login-msg msg">
-                                <p class="error">
-                                </p>
-                            </div>
+                                @if (Model!=null)
+                                {
+                                    if (Model.AuthenState == false)
+                                    {
+                                        <text>
+                                    <div id="J_Message" class="login-msg msg">
+                                        <p class="error">
+                                            您输入的用户名或密码不正确。
+                                        </p>
+                                    </div> 
+                                        </text>
+                                    }
+                                 }
                             <!--登录的错误信息结束-->
                             <!--标准登录框-->
                             <div id="J_Static" class="static">
