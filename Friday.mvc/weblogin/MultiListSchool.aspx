@@ -17,7 +17,7 @@
                     <div class="buttonActive">
                         <div class="buttonContent">
                             <button id="btnSave" type="button">
-                                <a style="text-decoration: none" href="">保存</a></button></div>
+                                 保存 </button></div>
                     </div>
                 </li>
                 <li>
@@ -47,21 +47,32 @@
             a = o.find("#btnSave a");
             oObj = o;
             btnC = o.find("#btnSave");
+            //saveBtn = o.find("#btnSave");
+;
+//            var tree_selected_id = o.find("#tree_selected_id");
+//            if (tree_selected_id.length == 0)
+//                tree_selected_id = $("<input type='hidden' id='tree_selected_id' />").appendTo(o);
+
+//            var tree_selected_text = o.find("#tree_selected_text");
+//            if (tree_selected_text.length == 0)
+//                tree_selected_text = $("<input type='hidden' id='tree_selected_text' />").appendTo(o);
+
+
 
             btnC.click(function (event) {
-                debugger
+               // debugger
                 var nameSet = [];
                 var idSet = [];
                 var nameString;
                 var idString;
-                debugger
+                //debugger
                 var ht = dtree.getTSNs(true);
                 var j = dtree.getTSNs(true).length;
                 for (var i = 0; i < j; i++) {
-                    //if (ht[i].hasChildren == false) {
+                    if (ht[i].hasChildren == false) {
                         nameSet.push(ht[i].text);
                         idSet.push(ht[i].id);
-                    //}
+                    }
                 }
 
                 if (nameSet.length == 0) {
@@ -88,7 +99,8 @@
                         idString = idSet[i];
                     }
                    // btnC.attr("href", "javascript:$.bringBack({NameSet:'" + nameString + "',IDSet:'" + idString + "'})");
-                    $.bringBack({ NameSet: nameString, IDSet: idString});
+                   // $.bringBack({ GoodsType: tree_selected_text.val(), GoodsTypeID: tree_selected_id.val() });
+                  $.bringBack({ NameSet: nameString, IDSet: idString });
                 }
             });
 //            a.click(function (event) {
@@ -150,7 +162,9 @@
                                             //a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
 //                        btnC.click(function () {
 //                            $.bringBack({ NameSet: item.text, GoodsTypeID: item.id });
-//                        });
+                        //                        });
+//                        tree_selected_id.val(item.id);
+//                        tree_selected_text.val(item.text);
                                         }
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);

@@ -13,7 +13,7 @@
                     <div class="buttonActive">
                         <div class="buttonContent">
                             <button id="btnSave" type="button">
-                                <a style="text-decoration: none" href="">保存</a></button></div>
+                                保存</button></div>
                     </div>
                 </li>
                 <li>
@@ -40,16 +40,25 @@
             var a;
 
             dtree = o.find("#divTree");
-            a = o.find("#btnSave a");
-            oObj = o;
+            //a = o.find("#btnSave a");
             saveBtn = o.find("#btnSave");
+            //oObj = o;
+            var tree_selected_id = o.find("#tree_selected_id");
+            if (tree_selected_id.length == 0)
+                tree_selected_id = $("<input type='hidden' id='tree_selected_id' />").appendTo(o);
+
+            var tree_selected_text = o.find("#tree_selected_text");
+            if (tree_selected_text.length == 0)
+                tree_selected_text = $("<input type='hidden' id='tree_selected_text' />").appendTo(o);
 //            a.click(function (event) {
 //                if (a.attr("href") == "" || a.attr("href") == undefined) {
 //                    alertMsg.error('请选择所属地域！');
 //                    return false;
 //                }
 //            });
-
+            saveBtn.click(function () {
+                $.bringBack({ SchoolName: tree_selected_text.val(), SchoolID: tree_selected_id.val() });
+            });
             $.ajax({
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
@@ -66,9 +75,8 @@
                     d.onnodeclick = function navi(item) {
 
                       //  a.attr("href", "javascript:$.bringBack({SchoolName:'" + item.text + "',SchoolID:'" + item.id + "'})");
-                        saveBtn.click(function () {
-                            $.bringBack({ SchoolName: item.text, SchoolID: item.id });
-                        });
+                        tree_selected_id.val(item.id);
+                        tree_selected_text.val(item.text);
                     }
                     //点击触发事件
                     //$("#dtree", navTab.getCurrentPanel()).treeview(o);

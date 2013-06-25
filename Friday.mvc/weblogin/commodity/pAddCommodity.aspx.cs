@@ -76,12 +76,15 @@ namespace Friday.mvc.weblogin
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "添加成功";
             result.navTabId = "referer";
             result.callbackType = "closeCurrent";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());
+            //2013-06-24 basilwang IE has issues with the "application/json" response from the iframe.
+            //see http://stackoverflow.com/questions/5340192/ie-wants-to-download-returned-json-from-django
+            Response.ContentType = "text/html";
             Response.End();
         }
     }

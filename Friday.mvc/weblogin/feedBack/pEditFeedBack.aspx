@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditFeedBack.aspx.cs" Inherits="Friday.mvc.weblogin.feedBack.pEditFeedBack" %>
 
 <div class="page" style="">
-    <div class="pageContent">
+    <div class="pageContent" layoutH="20">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>修改活动信息</span>
+             <span>修改反馈信息</span>
            </a></li>
            
         </ul>
@@ -15,27 +15,24 @@
         <div class="pageFormContent" style=" height:300px">
          
             <h1>
-                基本信息</h1>
+                反馈信息</h1>
             <input type="hidden" id="MyOrderId" size="30" runat="server" />
       
             <p>
                 <label>
-                    消息类型：</label>
+                    反馈类型：</label>
                 <input type="text" id="Type" size="30" class="required textInput gray" runat="server" />
             </p>
-         <p>
-         </p>
-         <p></p>
-         
-             <p>
+       
+       <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
                     <label>
                         详细内容：</label>
-                     
-                        <textarea id="Contents" name="Contents" rows="20"   style="width:800px"
+                    <div style="width: 100%;">
+                        <textarea id="Contents" name="Contents" rows="10" cols="240" style="width: 100%"
                             runat="server"></textarea>
-                     
-                </p>
-    
+                    </div>
+             </p>
         </div>
                 <div class="formBar">
                 <ul>

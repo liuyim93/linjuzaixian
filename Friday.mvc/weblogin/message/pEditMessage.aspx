@@ -1,11 +1,11 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditMessage.aspx.cs" Inherits="Friday.mvc.weblogin.message.pEditMessage" %>
 
 <div class="page" style="">
-    <div class="pageContent">
+    <div class="pageContent" layoutH="20">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
-             <span>修改活动信息</span>
+             <span>修改消息信息</span>
            </a></li>
            
         </ul>

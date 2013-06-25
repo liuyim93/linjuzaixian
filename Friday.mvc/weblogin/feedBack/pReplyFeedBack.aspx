@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pReplyFeedBack.aspx.cs" Inherits="Friday.mvc.weblogin.feedBack.pReplyFeedBack" %>
 
 <div class="page" style="">
-    <div class="pageContent">
+    <div class="pageContent" layoutH="20">
     <div class="panelBar">
         <ul class="toolBar">
             <li>  <a class="add" href="OrderFoodList.aspx" target="dialog" rel="" >
@@ -24,17 +24,15 @@
                     回复类型：</label>
                 <input type="text" id="Type"  size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
-            </p>
-            <p></p>
-             <p>
+                 <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
                     <label>
                         详细内容：</label>
-                     
-                        <textarea id="Contents" name="Contents" rows="20"   style="width:800px"
+                    <div style="width: 100%;">
+                        <textarea id="Contents" name="Contents" rows="10" cols="240" style="width: 100%"
                             runat="server"></textarea>
-                     
-                </p>
+                    </div>
+             </p>
     
         </div>
                 <div class="formBar">

@@ -11,6 +11,7 @@
                 <li><a href="#"><span>配送时间</span></a></li>
                 <li><a href="#"><span>促销打折</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
+                <li><a href="#"><span>详细内容</span></a></li>
                <li><a href='commodity/pCommodityList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>商品</span></a></li><%--   --%>
                  <li><a href='merchantEmployee/pMerchantEmployeeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
@@ -115,31 +116,33 @@
          </div>
 
          <div>
-                     <div>
+                      
                 <p>
                     <label>
                         商铺公告：</label>
-                    <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="15"
-                        cols="42" runat="server"></textarea>
+                    <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="10"
+                        cols="20" runat="server"></textarea>
                 </p>
-            </div>
-            <div>
-                <p>
+            
+                <p style="margin-left:20px;">
                     <label>
                         商铺活动：</label>
-                    <textarea class="editor" name="Activity" id="Activity" rows="15" cols="42" runat="server"></textarea>
+                    <textarea class="editor" name="Activity" id="Activity" rows="10" cols="20" runat="server"></textarea>
                 </p>
-            </div>
-            <div style="clear: left; width: 80%; margin-top: 280px; margin-bottom: 60px;">
-                <p>
+          
+             
+             
+         </div>
+         <div>
+                <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear:left">
                     <label>
                         详细内容：</label>
                     <div style="width: 100%;">
-                        <textarea id="Description" name="Description" rows="20" cols="240" style="width: 100%"
+                        <textarea id="Description" name="Description" rows="10" cols="240" style="width: 100%"
                             runat="server"></textarea>
                     </div>
-                </p>
-            </div>
+             </p>
          </div>
            <div id="jbsxBox1" >
         </div>
