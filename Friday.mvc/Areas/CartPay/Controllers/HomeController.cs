@@ -89,6 +89,12 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                         cartOfCommodity.Price = cartOfCommodity.Amount * sku.price;
                     }
                 }
+                sku.stock = sku.stock - cartOfCommodity.Amount;
+                iSkuService.Update(sku);
+
+                friday.core.Commodity Commodity = cartOfCommodity.Commodity;
+                Commodity.MonthAmount = Commodity.MonthAmount + cartOfCommodity.Amount;
+                iCommodityService.Update(Commodity);
 
                 iCartOfCommodityService.Save(cartOfCommodity);
             }
@@ -543,6 +549,14 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                         {
                             iCartOfCommodityService.PhysicsDelete(deletedCartOfCommodity.Id);
                         }
+
+                        friday.core.Commodity Commodity = cartOfCommodity.Commodity;
+                        Commodity.MonthAmount = Commodity.MonthAmount - cartOfCommodity.Amount;
+                        iCommodityService.Update(Commodity);
+
+                        Sku sku = cartOfCommodity.Sku;
+                        sku.stock = sku.stock + cartOfCommodity.Amount;
+                        iSkuService.Update(sku);
                         iCartOfCommodityService.Delete(cartOfCommodity.Id);
                     }
                 }
@@ -582,7 +596,16 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             }
             else
             {
-                iCartOfCommodityService.Delete(iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartId, false).Id);
+                friday.core.CartOfCommodity cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cartId, false);
+
+                friday.core.Commodity Commodity = cartOfCommodity.Commodity;
+                Commodity.MonthAmount = Commodity.MonthAmount + cartOfCommodity.Amount;
+                iCommodityService.Update(Commodity);
+
+                Sku sku = cartOfCommodity.Sku;
+                sku.stock = sku.stock - cartOfCommodity.Amount;
+                iSkuService.Update(sku);
+                iCartOfCommodityService.Delete(cartOfCommodity.Id);
                 string script = callback + "({\"success\":true,\"globalData\":{\"sss\":{\"token\":\"ecdf69d87e98ddfc13c0ef61601e0dd4\",\"quantity\":-1},\"totalSize\":-100,\"invalidSize\":0,\"isAllCItem\":false,\"diffTairCount\":0,\"login\":true,\"openNoAttenItem\":false}})";
                 return JavaScript(script);
             }
@@ -593,8 +616,15 @@ namespace Friday.mvc.Areas.CartPay.Controllers
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             friday.core.CartOfCommodity cartOfCommodity;
             cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, cart_ids, true);
+            
+            friday.core.Commodity Commodity = cartOfCommodity.Commodity;
+            Commodity.MonthAmount = Commodity.MonthAmount - cartOfCommodity.Amount;
+            iCommodityService.Update(Commodity);
 
             int amount = cartOfCommodity.Amount;
+            Sku sku = cartOfCommodity.Sku;
+            sku.stock = sku.stock + amount;
+            iSkuService.Update(sku);
 
             cartOfCommodity.IsDelete = false;
             iCartOfCommodityService.Update(cartOfCommodity);

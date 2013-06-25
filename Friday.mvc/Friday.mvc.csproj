@@ -514,6 +514,13 @@
     <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
       <DependentUpon>pEditMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\message\pMessageNotification.aspx.cs">
+      <DependentUpon>pMessageNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\message\pMessageNotification.aspx.designer.cs">
+      <DependentUpon>pMessageNotification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\MultiListMerchant.aspx.cs">
       <DependentUpon>MultiListMerchant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1773,6 +1780,7 @@
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
     <Content Include="weblogin\message\pEditMessage.aspx" />
+    <Content Include="weblogin\message\pMessageNotification.aspx" />
     <Content Include="weblogin\MultiListMerchant.aspx" />
     <Content Include="weblogin\MultiListSystemRole.aspx" />
     <Content Include="weblogin\MultiListSchool.aspx" />

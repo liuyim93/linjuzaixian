@@ -10,12 +10,18 @@ using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
 using NHibernate.Linq;
+
 namespace friday.core.repositories
 {
     public class MessageRepository : Repository<Message>, IMessageRepository
     {
-            
- 
+
+        public IList<Message> GetNewMessageByShop(string shopID)
+        {
+            var q = (from x in this.Session.Query<Message>()
+                     where x.IsDelete == false && x.Merchant.Id==shopID && x.IsNew==true select x).Cast<Message>().ToList();
+            return q;
+        }
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(Message)); }

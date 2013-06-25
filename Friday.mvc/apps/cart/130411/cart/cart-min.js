@@ -1597,7 +1597,7 @@ KISSY.add("core/monitor", function(e, t, n) {
                     return e.inArray(t.cartId, s)
                 });
                 new v({delSelectTriggerEl: r,items: o,isComboDel: !0})
-            }), this.enableTiao && new E({items: this.items}), u.init({feedbackId: this.feedbackId,title: "给购物车提建议"}), this._bindEvents(), this.broadcast("cal"), this.add_userpath("a"), r.trace("InitEnd"), e.later(function() {
+            }), this.enableTiao && new E({items: this.items}),  this._bindEvents(), this.broadcast("cal"), this.add_userpath("a"), r.trace("InitEnd"), e.later(function() {
                 r.trace("UserReady")
             }, 0), r.init()
         },_bindEvents: function() {

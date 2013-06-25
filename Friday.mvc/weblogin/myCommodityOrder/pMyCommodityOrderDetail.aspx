@@ -74,8 +74,8 @@
             </p>
             <p>
                 <label>
-                    送货时间：</label>
-                <input type="text" id="SendTime" size="30" class="required  textInput gray" readonly="readonly" runat="server" />
+                    邮政编码：</label>
+                <input type="text" id="Description" size="30" class="required  textInput gray" readonly="readonly" runat="server" />
             </p>
          </div>
         
