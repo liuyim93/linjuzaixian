@@ -14,9 +14,10 @@ namespace Friday.mvc.weblogin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            IRepository<SystemRole> repoSystemRole = UnityHelper.UnityToT<IRepository<SystemRole>>();
+            ISystemRoleRepository repoSystemRole = UnityHelper.UnityToT<ISystemRoleRepository>();
             IList<SystemRole> merchants = new List<SystemRole>();
             merchants = repoSystemRole.GetAll();
+            merchants.Remove(repoSystemRole.GetRoleByName("顾客"));
             repeater.DataSource = merchants;
             repeater.DataBind();
         }
