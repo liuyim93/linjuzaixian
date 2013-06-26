@@ -77,10 +77,7 @@ namespace Friday.mvc.weblogin.commodity
             {
                 shopId = this.CurrentUser.LoginUserOfMerchants.SingleOrDefault().Merchant.Id;
             }
-            if (this.CurrentUser.IsAdmin)
-            {
-                this.addcomdty.Visible = false;
-            }
+     
             if (!string.IsNullOrEmpty(Request.Form["shop_id"]))
             {
                 shopId = Request.Form["shop_id"];
@@ -89,7 +86,11 @@ namespace Friday.mvc.weblogin.commodity
             {
                 shopId = Request.Params["shop_id"];
             }
-
+            if (this.CurrentUser.IsAdmin && string.IsNullOrEmpty(shopId))
+            {
+                this.addcomdty.Visible = false;
+                this.editcomdty.Visible = false;
+            }
             pageNum = Request.Form["pageNum"] == null ? 1 : Convert.ToInt32(Request.Form["pageNum"].ToString());
             int start = (pageNum - 1) * numPerPageValue;
             int limit = numPerPageValue;
