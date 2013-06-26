@@ -514,6 +514,13 @@
     <Compile Include="weblogin\message\pEditMessage.aspx.designer.cs">
       <DependentUpon>pEditMessage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="weblogin\message\pMessageNotification.aspx.cs">
+      <DependentUpon>pMessageNotification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="weblogin\message\pMessageNotification.aspx.designer.cs">
+      <DependentUpon>pMessageNotification.aspx</DependentUpon>
+    </Compile>
     <Compile Include="weblogin\MultiListMerchant.aspx.cs">
       <DependentUpon>MultiListMerchant.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1470,6 +1477,7 @@
     <Content Include="Images\small_mcht_bar-175-35.jpg" />
     <Content Include="Images\small_mcht_bar-175-35[1].png" />
     <Content Include="Images\spaceball.gif" />
+    <Content Include="Images\stuff.png" />
     <Content Include="Images\T13iv_XiFdXXa94Hfd-32-32.png" />
     <Content Include="Images\T1A_YVXXlgXXc7gDPS-300-210.png" />
     <Content Include="Images\T1DvggXo8gXXXHSOcF-330-500.png" />
@@ -1772,6 +1780,7 @@
     <Content Include="weblogin\message\pMessageList.aspx" />
     <Content Include="weblogin\message\pAddMessage.aspx" />
     <Content Include="weblogin\message\pEditMessage.aspx" />
+    <Content Include="weblogin\message\pMessageNotification.aspx" />
     <Content Include="weblogin\MultiListMerchant.aspx" />
     <Content Include="weblogin\MultiListSystemRole.aspx" />
     <Content Include="weblogin\MultiListSchool.aspx" />

@@ -9,6 +9,7 @@ using friday.core.services;
 using friday.core.repositories;
 using friday.core.domain;
 using friday.core.EnumType;
+using friday.core;
 
 namespace Friday.mvc.Areas.Category.Controllers
 {
@@ -17,14 +18,15 @@ namespace Friday.mvc.Areas.Category.Controllers
         IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository;
         IShopRepository iShopRepository;
         ISchoolService iSchoolService;
+        ICommodityRepository iCommodityRepository;
 
-        public HomeController(IShopRepository iShopRepository, IUserService iUserService, ISystemUserRepository iSystemUserRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, ISchoolService iSchoolService)
+        public HomeController(IShopRepository iShopRepository, IUserService iUserService, ISystemUserRepository iSystemUserRepository, IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository, ISchoolService iSchoolService, ICommodityRepository iCommodityRepository)
             : base(iUserService, iSystemUserRepository)
         {
             this.iGlobalGoodsTypeRepository = iGlobalGoodsTypeRepository;
             this.iShopRepository = iShopRepository;
             this.iSchoolService = iSchoolService;
-
+            this.iCommodityRepository = iCommodityRepository;
         } 
         public ActionResult all_cat_asyn()
         {
@@ -58,7 +60,13 @@ namespace Friday.mvc.Areas.Category.Controllers
                 IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货, selectIP);
                 categoryModel.shopModes = shopModesList;
 
-                IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆, selectIP);
+                IList<Commodity> cs = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID("46f9bf2d-0a21-4997-87fe-b21ac9abf8e7", selectIP);
+                IList<Shop> foodOrderModesList = new List<Shop>();
+                foreach (Commodity c in cs)
+                {
+                    if (!foodOrderModesList.Contains(c.Shop))
+                        foodOrderModesList.Add(c.Shop);
+                }
                 categoryModel.orderFoodModes = foodOrderModesList;
             }
             else
@@ -68,8 +76,14 @@ namespace Friday.mvc.Areas.Category.Controllers
                     IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货, systemUser.School.Id);
                     categoryModel.shopModes = shopModesList;
 
-                    IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆, systemUser.School.Id);
-                    categoryModel.orderFoodModes = foodOrderModesList;
+                    IList<Commodity> cs = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID("46f9bf2d-0a21-4997-87fe-b21ac9abf8e7", systemUser.School.Id);
+                    IList<Shop> foodOrderModesList = new List<Shop>();
+                    foreach (Commodity c in cs)
+                    {
+                        if (!foodOrderModesList.Contains(c.Shop))
+                            foodOrderModesList.Add(c.Shop);
+                    }
+                    categoryModel.orderFoodModes = foodOrderModesList; categoryModel.orderFoodModes = foodOrderModesList;
                 }
                 else
                 {
@@ -80,16 +94,28 @@ namespace Friday.mvc.Areas.Category.Controllers
                         IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货, ipLeafSchool.Id);
                         categoryModel.shopModes = shopModesList;
 
-                        IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆, ipLeafSchool.Id);
-                        categoryModel.orderFoodModes = foodOrderModesList;
+                        IList<Commodity> cs = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID("46f9bf2d-0a21-4997-87fe-b21ac9abf8e7", ipLeafSchool.Id);
+                        IList<Shop> foodOrderModesList = new List<Shop>();
+                        foreach (Commodity c in cs)
+                        {
+                            if (!foodOrderModesList.Contains(c.Shop))
+                                foodOrderModesList.Add(c.Shop);
+                        }
+                        categoryModel.orderFoodModes = foodOrderModesList; categoryModel.orderFoodModes = foodOrderModesList;
                     }
                     else
                     {
                         IList<Shop> shopModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.百货);
                         categoryModel.shopModes = shopModesList;
 
-                        IList<Shop> foodOrderModesList = iShopRepository.GetShopsByMerchantType(MerchantTypeEnum.餐馆);
-                        categoryModel.orderFoodModes = foodOrderModesList;
+                        IList<Commodity> cs = iCommodityRepository.GetCommodityByGoodsType("46f9bf2d-0a21-4997-87fe-b21ac9abf8e7");
+                        IList<Shop> foodOrderModesList = new List<Shop>();
+                        foreach (Commodity c in cs)
+                        {
+                            if (!foodOrderModesList.Contains(c.Shop))
+                                foodOrderModesList.Add(c.Shop);
+                        }
+                        categoryModel.orderFoodModes = foodOrderModesList; categoryModel.orderFoodModes = foodOrderModesList;
                     }
                 }
             }

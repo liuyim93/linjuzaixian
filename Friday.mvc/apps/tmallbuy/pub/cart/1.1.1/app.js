@@ -64,9 +64,9 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
                 }
             });
             F.init();
-            M.init({
-                title: "给购物车提建议"
-            })
+//            M.init({
+//                title: "给购物车提建议"
+//            })
         },
         stat: function (R) {
             this.stat2("2.7?" + R)

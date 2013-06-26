@@ -111,8 +111,15 @@ namespace Friday.mvc.weblogin
                 filterList.Add(new DataFilter() { type = "Order", field = dflForOrder });
 
                 IList<LoginUser> loginUserList = iLoginUserService.Search(filterList, start, limit, out total);
-
-                repeater.DataSource = loginUserList;
+                IList<LoginUser> finalUser = new List<LoginUser>();
+                foreach (LoginUser l in loginUserList)
+                {
+                    if (l.SystemUser == null)
+                    {
+                        finalUser.Add(l);
+                    }
+                }
+                repeater.DataSource = finalUser;
                 repeater.DataBind();
 
                 numPerPage.Value = numPerPageValue.ToString();

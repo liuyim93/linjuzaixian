@@ -80,7 +80,7 @@
                 <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
             </p>
                  
-            <p>
+<%--            <p>
                 <label>
                     月售额：</label>
                 <input type="text" id="MonthAmount" size="30" class="number required"  min="0"  runat="server" />
@@ -89,7 +89,7 @@
                 <label>
                     销售额：</label>
                 <input type="text" id="Amount" size="30" class="number required"  min="0"  runat="server" />
-            </p>
+            </p>--%>
 
             <p>
                 <label>

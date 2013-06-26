@@ -19,8 +19,10 @@ namespace Friday.mvc.Areas.Order.Controllers
         private IAddressService iAddressService;
         private IMyCommodityOrderService iMyCommodityOrderService;
         private IOrderOfCommodityService iOrderOfCommodityService;
+        private IMessageContentService iMessageContentService;
+        private IMessageService iMessageService;
 
-        public SuccessController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IAddressService iAddressService, IMyCommodityOrderService iMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService)
+        public SuccessController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IAddressService iAddressService, IMyCommodityOrderService iMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, IMessageContentService iMessageContentService, IMessageService iMessageService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
@@ -30,6 +32,8 @@ namespace Friday.mvc.Areas.Order.Controllers
             this.iAddressService = iAddressService;
             this.iMyCommodityOrderService = iMyCommodityOrderService;
             this.iOrderOfCommodityService = iOrderOfCommodityService;
+            this.iMessageContentService = iMessageContentService;
+            this.iMessageService = iMessageService;
         }
         //
         // GET: /Order/Success/
@@ -101,6 +105,7 @@ namespace Friday.mvc.Areas.Order.Controllers
                         Tel = addr.Tel,
                         Price = 0,
                         BackupTel = addr.BackupTel,
+                        Description = addr.post
                     };
                     iMyCommodityOrderService.Save(myCommodityOrder);
 
@@ -117,6 +122,20 @@ namespace Friday.mvc.Areas.Order.Controllers
                         sumPrice += cartOfCommodity.Price;
                         iOrderOfCommodityService.Save(orderOfCommodity);
                     }
+
+                    MessageContent messageCotent = new MessageContent() {
+                        Content = "您有新的订单，请及时处理！"
+                    };
+                    iMessageContentService.Save(messageCotent);
+
+                    friday.core.Message message = new friday.core.Message() {
+                        IsNew = true,
+                        LoginUser = systemUser.LoginUser,
+                        Merchant = myCommodityOrder.Shop,
+                        MessageContent = messageCotent
+                    };
+                    iMessageService.Save(message);
+
                     myCommodityOrder.Price = sumPrice;
                     iMyCommodityOrderService.Update(myCommodityOrder);
 

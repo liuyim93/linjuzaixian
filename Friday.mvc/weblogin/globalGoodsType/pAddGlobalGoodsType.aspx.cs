@@ -37,7 +37,7 @@ namespace Friday.mvc.weblogin
                 dic.ParentID = (Request.Params["code"] == "" || Request.Params["code"] == null) ? null : Request.Params["code"];
                 dic.TLevel = Convert.ToInt32(TLevel.Value);
                 //2013-05-09 basilwang add family
-                if (dic.ParentID == string.Empty)
+                if (dic.ParentID == string.Empty||dic.ParentID ==null)
                 {
                     dic.Family = "";
                 }
