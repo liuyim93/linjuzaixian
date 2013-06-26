@@ -41,11 +41,17 @@ namespace Friday.mvc.weblogin.activity
                     int limit = numPerPageValue;
 
                     List<DataFilter> filterList = new List<DataFilter>();
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "IsDelete",
+                        value = name = Request.Form["Name"]
+
+                    });
+
                     if (!string.IsNullOrEmpty(Request.Form["Name"]))
                         filterList.Add(new DataFilter()
                         {
                             type = "Name",
-                            value = name = Request.Form["Name"]
 
                         });
 
