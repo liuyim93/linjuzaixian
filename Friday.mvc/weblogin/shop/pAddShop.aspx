@@ -1,7 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pAddShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pAddShop"   validateRequest="false"  %>
 
 <div class="pageFormContent" layouth="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"    runat="server">
+  <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data"    runat="server">
+   
+   <%-- <form id="form" method="post" class="pageForm required-validate" onsubmit="return iframeCallback(this,navTabAjaxDone)"
+        enctype="multipart/form-data" runat="server">--%>
     <div class="panel collapse">
         <h1>
             商店基本信息</h1>

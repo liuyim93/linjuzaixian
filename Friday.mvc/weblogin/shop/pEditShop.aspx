@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="pEditShop.aspx.cs" Inherits="Friday.mvc.weblogin.shop.pEditShop" %>
 
 <div class="pageFormContent" layoutH="20">
-    <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
+      <%--<form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">>--%>
+      <form id="form" method="post" class="pageForm required-validate" onsubmit="return iframeCallback(this,navTabAjaxDone)"
+        enctype="multipart/form-data" runat="server">
     <div class="panel collapse">
         <h1>
             商店基本信息</h1>
@@ -33,7 +35,7 @@
             <p>
                 <label>
                     Logo上传：</label>
-                <input id="Image" type="file" class="textInput gray" readonly="true"  runat="server" />
+                <input id="Image" type="file" class="textInput gray"   runat="server" />
                 <span style="color: red; width: 300px">
                 </span>
             </p>
