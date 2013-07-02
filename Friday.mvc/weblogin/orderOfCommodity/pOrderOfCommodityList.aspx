@@ -9,8 +9,8 @@
 
 <div class="panelBar">
     <ul class="toolBar">
-        <li><a class="add" href="OrderOfCommodity/pAddOrderOfCommodity.aspx?myCommodityOrder_id=<%=Request.Params["myCommodityOrder_id"]%>&shop_id=<%=shop_id %>" title="增加订单明细" target="dialog"
-            rel="" width="600" height="400"><span>增加订单明细</span></a></li>
+<%--        <li><a class="add" href="OrderOfCommodity/pAddOrderOfCommodity.aspx?myCommodityOrder_id=<%=Request.Params["myCommodityOrder_id"]%>&shop_id=<%=shop_id %>" title="增加订单明细" target="dialog"
+            rel="" width="600" height="400"><span>增加订单明细</span></a></li>--%>
         <li><a class="edit" href="OrderOfCommodity/pEditOrderOfCommodity.aspx?uid={orderOfCommodityid}&myCommodityOrder_id=<%=Request.Params["myCommodityOrder_id"]%>" title="修改订单明细" rel="" target="dialog"
             height="480"><span>修改订单明细</span></a></li>
         <li><a class="delete" href="OrderOfCommodity/pOrderOfCommodityList.aspx?flag=alldelete&uid={orderOfCommodityid}&myCommodityOrder_id=<%=Request.Params["myCommodityOrder_id"]%>" target="ajaxTodo"
@@ -26,10 +26,11 @@
               <HeaderTemplate>
                       <thead>
                         <tr>
-                            <th width="10%" align="center">序 号</th>
+                            <th width="5%" align="center">序 号</th>
                             <th width="20%" align="center">商品名称</th>
+                            <th width="20%" align="center">规格</th>
                             <th width="10%" align="center">商品单价</th>
-                            <th width="15%" align="center">购买数量</th>
+                            <th width="10%" align="center">购买数量</th>
                             <th width="10%" align="center">总金额</th>
 
                         </tr>
@@ -41,6 +42,7 @@
                     <tr target="orderOfCommodityid" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Name")%></td> 
+                         <td align="center"><%#GetSkuProp(Eval("Id").ToString())%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Commodity.Price")%></td>
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "Amount")%></td>
                          <%--<td align="center"><%#Convert.ToInt16(DataBinder.Eval(Container.DataItem, "Amount")) *Convert.ToDouble(DataBinder.Eval(Container.DataItem, "Commodity.Price"))%></td>--%>

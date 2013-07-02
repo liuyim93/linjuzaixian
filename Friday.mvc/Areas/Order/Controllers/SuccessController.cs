@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using friday.core.domain;
 using friday.core.services;
 using friday.core;
+using System.Text;
+using System.Net;
 
 namespace Friday.mvc.Areas.Order.Controllers
 {
@@ -110,6 +112,7 @@ namespace Friday.mvc.Areas.Order.Controllers
                     iMyCommodityOrderService.Save(myCommodityOrder);
 
                     double sumPrice = 0;
+                    string msgContent = "您有新的订单！";
                     foreach (friday.core.CartOfCommodity cartOfCommodity in merchantListItem[key])
                     {
                         OrderOfCommodity orderOfCommodity = new OrderOfCommodity() {
@@ -120,7 +123,22 @@ namespace Friday.mvc.Areas.Order.Controllers
                             Sku = cartOfCommodity.Sku
                         };
                         sumPrice += cartOfCommodity.Price;
+                        msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "、";
                         iOrderOfCommodityService.Save(orderOfCommodity);
+                    }
+
+                    msgContent = msgContent.Substring(0, msgContent.Length - 1) + "，请及时处理！";
+
+                    if (shop.Tel != "" && shop.Tel != null)
+                    {
+                        Encoding myEncoding = Encoding.GetEncoding("utf-8");
+                        string msgAddress = String.Format("http://www.smsbao.com/sms?u=weiyan&p=a3860b550d9107569cba76ad68bdac92&m={0}&c={1}", HttpUtility.UrlEncode(shop.Tel, myEncoding), HttpUtility.UrlEncode(msgContent, myEncoding));
+                        HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(msgAddress);
+                        req.Method = "GET";
+                        using (WebResponse wr = req.GetResponse())
+                        {
+                            //在这里对接收到的页面内容进行处理
+                        }
                     }
 
                     MessageContent messageCotent = new MessageContent() {

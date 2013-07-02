@@ -23,6 +23,7 @@ namespace Friday.mvc.weblogin
 
         IOrderOfCommodityService iOrderOfCommodityService = UnityHelper.UnityToT<IOrderOfCommodityService>();
         IMyCommodityOrderService iMyCommodityOrderService = UnityHelper.UnityToT<IMyCommodityOrderService>();
+        ISkuPropService iSkuPropService = UnityHelper.UnityToT <ISkuPropService>();
 
         private MyCommodityOrder myCommodityOrder;
         private OrderOfCommodity orderOfCommodity;
@@ -114,6 +115,19 @@ namespace Friday.mvc.weblogin
 
 
             numPerPage.Value = numPerPageValue.ToString();
+        }
+
+        public string GetSkuProp(string orderOfCommodityID)
+        {
+            OrderOfCommodity cartOfCommodity = iOrderOfCommodityService.Load(orderOfCommodityID);
+
+            IList<SkuProp> skuProps = iSkuPropService.GetAllSkuPropsBySkuID(cartOfCommodity.Sku.skuId.ToString());
+            string skuPropValue = "";
+            foreach (SkuProp skuProp in skuProps)
+            {
+                skuPropValue = skuPropValue + skuProp.PropID.PropIDName + "：" + skuProp.PropValue.PropValueName + "、";
+            }
+            return skuPropValue.Substring(0, skuPropValue.Length-1);
         }
     }
 }
