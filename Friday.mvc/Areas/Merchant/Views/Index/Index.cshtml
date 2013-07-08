@@ -733,7 +733,12 @@ background-position:left 0;
                                                 <li class="shopkeeper">
                                                     <label>
                                                         商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
-                                                    @Model.SingleShop.LoginUserOfMerchants.FirstOrDefault().LoginUser.LoginName
+                                                        @if(Model.SingleShop.LoginUserOfMerchants.FirstOrDefault()!=null)
+                                                        {
+                                                            <text>
+                                                            Model.SingleShop.LoginUserOfMerchants.FirstOrDefault().LoginUser.LoginName
+                                                            </text>
+                                                        }
                                                     </li>
                                             @*    <li>
                                                     <label>
