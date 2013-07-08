@@ -49,11 +49,28 @@
                 <input type="text" id="SchoolOfMerchantID"  size="30" class="required textInput gray"
                     runat="server" readonly="true" />
             </p>--%>
-            <p>
+
+            <script type="text/javascript">
+                //本地预览
+                function readImageURL(input) {
+                    debugger
+                    var strSrc = $("#Image").val();
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#ImagePreview').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+
+            <p style="height: 120px">
                 <label>
                     Logo上传：</label>
-                <input id="Image" type="file" class="required textInput gray"   runat="server" />
-                <span style="color: red; width: 300px">
+                <input id="Image" type="file" class="required textInput gray"   runat="server" onchange="readImageURL(this);"/>
+                <img  id="ImagePreview" runat="server" style="margin:10px;width: 90px; height: 45px" />
+                 <span style="color: red; width: 380px">请上传90×45的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
                 </span>
             </p>
         </div>

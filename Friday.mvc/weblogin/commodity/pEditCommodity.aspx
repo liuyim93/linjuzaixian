@@ -90,15 +90,31 @@
                 <input type="text" id="Amount" size="30" class="number required"  min="0"  runat="server" />
             </p>--%>
 
+            <script type="text/javascript">
+                //本地预览
+                function readLogoURL(input) {
+                    debugger
+                    var strSrc = $("#Logo").val();
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#LogoPreview').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+
             <p style="height: 150px">
                 <label>
                     标题图片上传：</label>
-                <input id="Logo" type="file" class="required textInput gray" runat="server" />
+                <input id="Logo" type="file" class="required textInput gray" runat="server" onchange="readLogoURL(this);"/>
                
                 <img  id="LogoPreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
-                <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
-                </span>--%>
+                <span style="color: red; width: 380px">请上传600×900的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
+                </span>
             </p>
+
                 <div style="clear:left; margin-top:0px" >
              <p>
                  <label>详细内容：</label>

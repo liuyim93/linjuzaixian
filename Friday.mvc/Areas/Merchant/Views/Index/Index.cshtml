@@ -733,8 +733,8 @@ background-position:left 0;
                                                 <li class="shopkeeper">
                                                     <label>
                                                         商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
-                                                    <a href="http://rate.taobao.com//user-rate-54e6f94343b5d2d647fdde8a93634496--receivedOrPosted|0--buyerOrSeller|1.htm">
-                                                    </a></li>
+                                                    @Model.SingleShop.LoginUserOfMerchants.FirstOrDefault().LoginUser.LoginName
+                                                    </li>
                                             @*    <li>
                                                     <label>
                                                         客&nbsp;&nbsp;&nbsp;&nbsp;服：</label>

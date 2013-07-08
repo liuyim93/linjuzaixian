@@ -51,6 +51,7 @@ namespace Friday.mvc.weblogin.shop
 
                 BindingHelper.ObjectToControl(shop, this);
 
+                this.ImagePreview.Src = shop.Logo;
                 string[] namesAndIds = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
                 this.NameSet.Value = namesAndIds[0];
                 this.IDSet.Value = namesAndIds[1];
