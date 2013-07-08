@@ -53,6 +53,10 @@ namespace friday.core.services
         {
             return iDataResourceRepository.SearchBySectionName(sectionName);
         }
+        public DataResource SearchBySectionCode(string sectionCode)
+        {
+            return iDataResourceRepository.SearchBySectionCode(sectionCode);
+        }
         public IList<DataResource> Search(List<DataFilter> termList, int start, int limit, out long total)
         {
             return iDataResourceRepository.Search(termList, start, limit, out total);

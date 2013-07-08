@@ -26,10 +26,10 @@ namespace Friday.mvc.Areas.OtherPage.Controllers
         }
 
 
-        public ActionResult Index(string secitonName)
+        public ActionResult Index(string secitonCode)
         {
             DataResourceModel drm = new DataResourceModel();
-            drm.DataResource = iDataResourceService.SearchBySectionName(secitonName);
+            drm.DataResource = iDataResourceService.SearchBySectionCode(secitonCode);
 
             return View(drm);
         }

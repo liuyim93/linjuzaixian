@@ -18,5 +18,6 @@ namespace friday.core.services
         IList<DataResource> Search(List<DataFilter> termList, int start, int limit, out long total);
         IList<DataResource> GetAll();
         DataResource SearchBySectionName(string sectionName);
+        DataResource SearchBySectionCode(string sectionCode);
     }
 }
