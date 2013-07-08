@@ -71,7 +71,7 @@
                 <label>
                     标题图片上传：</label>
                 
-                <img  id="LogoPreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <img  id="Preview" runat="server" style="margin:10px;width: 360px; height: 95px" />
                 <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
                 </span>--%>
             </p>

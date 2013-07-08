@@ -34,20 +34,54 @@
                 <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
             </p>
             <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+
+
+            <script type="text/javascript">
+                //本地预览
+                function readImageURL(input) {
+                debugger
+                    var strSrc = $("#Image").val();
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#ImagePreview').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+
+            <script type="text/javascript">
+                //本地预览
+                function readSubImageURL(input) {
+                    debugger
+                    var strSrc = $("#SubImage").val();
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function (e) {
+                            $('#SubImagePreview').attr('src', e.target.result);
+                        };
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+            </script>
+
             <p style="clear:left;height: 150px">
                 <label>
                     幻灯图片上传：</label>
-                <input id="Image" type="file" class="required textInput gray" runat="server" />
-              
+                <input id="Image" type="file" class="required textInput gray" runat="server" onchange="readImageURL(this);"/>
+
                 <img id="ImagePreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
                   <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传1600×420的幻灯图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
                 </span>
             </p>
+
+
             <p style="height: 150px">
                 <label>
                     标题图片上传：</label>
-                <input id="SubImage" type="file" class="required textInput gray" runat="server" />
-               
+                <input id="SubImage" type="file" class="required textInput gray" runat="server"  onchange="readSubImageURL(this);"/>
+
                 <img  id="SubImagePreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
                  <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
                 </span>

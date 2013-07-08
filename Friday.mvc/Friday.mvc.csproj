@@ -1892,8 +1892,15 @@
     <Content Include="weblogin\themes\azure\images\tree\folder.png" />
     <Content Include="weblogin\themes\azure\images\tree\tree.png" />
     <Content Include="weblogin\themes\azure\style.css" />
+    <Content Include="weblogin\themes\css\border-anim-h.gif" />
+    <Content Include="weblogin\themes\css\border-anim-v.gif" />
+    <Content Include="weblogin\themes\css\border-h.gif" />
+    <Content Include="weblogin\themes\css\border-v.gif" />
     <Content Include="weblogin\themes\css\core.css" />
     <Content Include="weblogin\themes\css\ieHack.css" />
+    <Content Include="weblogin\themes\css\imgareaselect-animated.css" />
+    <Content Include="weblogin\themes\css\imgareaselect-default.css" />
+    <Content Include="weblogin\themes\css\imgareaselect-deprecated.css" />
     <Content Include="weblogin\themes\css\jquery.autocomplete.css" />
     <Content Include="weblogin\themes\css\jquery.sntable.css" />
     <Content Include="weblogin\themes\css\login.css" />
@@ -2223,6 +2230,10 @@
     <Content Include="weblogin\themes\purple\images\tree\folder.png" />
     <Content Include="weblogin\themes\purple\images\tree\tree.png" />
     <Content Include="weblogin\themes\purple\style.css" />
+    <Content Include="weblogin\themes\scripts\jquery.imgareaselect.js" />
+    <Content Include="weblogin\themes\scripts\jquery.imgareaselect.min.js" />
+    <Content Include="weblogin\themes\scripts\jquery.imgareaselect.pack.js" />
+    <Content Include="weblogin\themes\scripts\jquery.min.js" />
     <Content Include="weblogin\themes\silver\images\accordion\accordion.png" />
     <Content Include="weblogin\themes\silver\images\account_info_bg.png" />
     <Content Include="weblogin\themes\silver\images\alert\alertpanel.png" />

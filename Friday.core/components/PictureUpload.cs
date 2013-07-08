@@ -35,9 +35,9 @@ namespace friday.core.components
                         filesnewName = DateTime.Now.ToString("yyyyMMddHHmmss") + val.ToString() + val1.ToString() + fileExtension;
                         if (!string.IsNullOrEmpty(filesnewName))
                         {
-                            File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath) + filesnewName);
+                            File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesnewName);
                         }
-                        postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath) + filesnewName);
+                        postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/weblogin/uploadimage/" + ParentPath + "/") + filesnewName);
                     }
                 }
             }

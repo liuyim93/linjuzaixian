@@ -11,6 +11,7 @@
     <link href="themes/css/print.css" rel="stylesheet" type="text/css" media="print" />
     <link href="uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen" />
     <link href="treeview/tree.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="themes/css/imgareaselect-default.css" rel="stylesheet" type="text/css" media="screen" />
     <!--[if IE]>
 <link href="themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
 <![endif]-->
@@ -66,6 +67,7 @@
     <script src="js/dwz.history.js" type="text/javascript"></script>
     <script src="js/dwz.combox.js" type="text/javascript"></script>
     <script src="js/dwz.print.js" type="text/javascript"></script>
+    <script src="themes/scripts/jquery.imgareaselect.pack.js" type="text/javascript"></script>
     <!--
 <script src="bin/dwz.min.js" type="text/javascript"></script>
 -->
