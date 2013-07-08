@@ -23,6 +23,7 @@ namespace friday.core.domain
             Map(o => o.TLevel);
             Map(o => o.Name);
             Map(o => o.Leaf);
+            Map(o => o.SectionCode);
             Map(o => o.Description);
             Map(o => o.Family).Default("").Not.Nullable(); ;
            

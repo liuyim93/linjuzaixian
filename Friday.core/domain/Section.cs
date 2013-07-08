@@ -12,7 +12,12 @@ namespace friday.core.domain
     /// <remarks>新闻栏目类</remarks>
     public class Section : TreeNode
     {
+        public virtual string SectionCode
+        {
+            set;
 
+            get;
+        }
         public virtual string Description
         {
             get;
