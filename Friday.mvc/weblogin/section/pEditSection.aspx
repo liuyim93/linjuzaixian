@@ -13,6 +13,11 @@
                     类型名称：</label>
                 <asp:textbox id="Name" runat="server" class="required textInput gray"></asp:textbox>
             </p>
+                <p>
+                <label>
+                    类型编号：</label>
+                <asp:textbox id="SectionCode" runat="server"></asp:textbox>
+            </p>
             <p>
                 <label>
                     类型描述：</label>

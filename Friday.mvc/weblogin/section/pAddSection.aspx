@@ -13,6 +13,11 @@
             </p>
             <p>
                 <label>
+                    类型编号：</label>
+                <asp:textbox id="SectionCode" runat="server"></asp:textbox>
+            </p>
+            <p>
+                <label>
                     类型描述：</label>
                 <asp:textbox id="Description" runat="server"></asp:textbox>
             </p>
