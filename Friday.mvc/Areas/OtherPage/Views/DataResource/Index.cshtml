@@ -9,7 +9,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>@Model.DataResource.Title </title>
+    <title>
+      @if (@Model.DataResource != null)
+      {
+        @Model.DataResource.Title
+      }
+     </title>
 
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
     <script src=@Url.Content("/p/mall/base/global-v2.js")></script>
@@ -197,7 +202,7 @@ background-position:left 0;
                  <p class="design-page hidden" id="J_DesignPage">
                 <a href=""
                     target="_blank">
-                    <img src="http://localhost:7525/Images/color_pen-16-16.png">装修此页面</a>          </p>
+                    <img src="http://localhost:7525/Images/color_pen-16-16.png">@*装修此页面*@</a>          </p>
        
                       
  
@@ -218,7 +223,10 @@ background-position:left 0;
             <div class="col-main">
                 <div class="main-wrap"  style=" margin-left:0; width:988px;">
                     <div class="col-main-content">
-                   <div class="crumbs">
+
+                        @if (@Model.DataResource != null)
+                        {
+                       <div class="crumbs">
                             <a href="http://localhost:7525/index.html">首页</a><span>&gt;</span>
                              @Model.DataResource.Section.Name  
                               
@@ -236,7 +244,22 @@ background-position:left 0;
 							     @Html.Raw(Model.DataResource.Description)
                             </div>
                         
-                        </div>                	
+                        </div>  
+                        }
+                        else
+                        {
+                                
+                        <div class="rules-content clearfix">
+                             
+                            <div class="rules-text clearfix" style=" text-align:center; height:400px; padding-top:150px">
+							      Sorry!暂未发布！
+                            </div>
+                        
+                        </div> 
+                          
+                        }                       
+                        
+                                      	
                     </div>
                 </div>
             </div>
