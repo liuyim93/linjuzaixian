@@ -72,7 +72,7 @@ namespace friday.mvc
             }
             else
             {
-                expiredTime = DateTime.Now.AddMinutes(10);
+                expiredTime = DateTime.Now.AddMinutes(60);
             }
             FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1,
                                userID,
