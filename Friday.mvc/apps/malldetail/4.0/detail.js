@@ -3,7 +3,7 @@
     var _document = document,
         _window = window,
         _g_config = _window.g_config,
-        _url = _g_config.assetsHost || "http://localhost:7525";
+        _url = _g_config.assetsHost || "http://www.linjuzaixian.com";
     _g_config.t = _g_config.t + "d4";
     _kissy.config(
          { combine: false,
@@ -269,7 +269,7 @@
                 var K = J ? "daily.tmall.net" : "tmall.com";
                 //2013-05-06 basilwang use our own
                 //var H = _kissy.mix({ proxyURL: "http://detail." + K + "/cross/x_cross_iframe.htm?type=minilogin&t=" + _kissy.t() }, I);
-                var H = _kissy.mix({ proxyURL: "http://localhost:7525/Account/Home/XCrossIframe?type=minilogin&t=" + _kissy.t() }, I);
+                var H = _kissy.mix({ proxyURL: "http://www.linjuzaixian.com/Account/Home/XCrossIframe?type=minilogin&t=" + _kissy.t() }, I);
                 _kissy.use("tml/minilogin", function (M, N) {
                     N.show(L, H)
                 })
@@ -521,12 +521,12 @@
             //            _malldetail_common_util.loadAssets("/p/mall/2.0/js/zeroclipboard.js");
             //            _malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
             //            _malldetail_common_util.loadAssets("cps/trace.js?t=20120618");
-            _kissy.getScript("http://localhost:7525/apps/tmall/common/tgallery.js");
-            _kissy.getScript("http://localhost:7525/apps/tmall/common/bottombar.js");
-            _kissy.getScript("http://localhost:7525/apps/department/common/brandbar.js");
-            _kissy.getScript("http://localhost:7525/p/mall/2.0/js/zeroclipboard.js");
-            _kissy.getScript("http://localhost:7525/s/tb-tracer-min.js");
-            _kissy.getScript("http://localhost:7525/cps/trace.js");
+            _kissy.getScript("http://www.linjuzaixian.com/apps/tmall/common/tgallery.js");
+            _kissy.getScript("http://www.linjuzaixian.com/apps/tmall/common/bottombar.js");
+            _kissy.getScript("http://www.linjuzaixian.com/apps/department/common/brandbar.js");
+            _kissy.getScript("http://www.linjuzaixian.com/p/mall/2.0/js/zeroclipboard.js");
+            _kissy.getScript("http://www.linjuzaixian.com/s/tb-tracer-min.js");
+            _kissy.getScript("http://www.linjuzaixian.com/cps/trace.js");
             var I = 0;
             var _urlparams = _kissy_imp_t_x.getUrlParams();
             var _is_selected = _urlparams.selected ||

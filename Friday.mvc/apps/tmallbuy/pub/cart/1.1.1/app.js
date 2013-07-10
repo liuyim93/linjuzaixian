@@ -12,7 +12,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
         login: "https://login." + I + "/member/login.jhtml?from=buy&style=mini&redirect_url=http%3A%2F%2Fcart." + (P ? "daily.tmall.net" : "tmall.com") + "%2Fcart%2Flogin_success.htm%3Ffrom%3Dcart&is_ignore=false",
         //2013-05-06 basilwang use our own
         //go: "http://buy." + (P ? "daily.tmall.net" : "tmall.com") + "/order/confirm_order.htm?from=cart"
-        go: "http://localhost:7525/Order/Home/ConfirmOrder?from=cart"
+        go: "http://www.linjuzaixian.com/Order/Home/ConfirmOrder?from=cart"
     };
     if ("jz" === D.mode) {
         A.go = A.go.replace("buy.", "obuy.")

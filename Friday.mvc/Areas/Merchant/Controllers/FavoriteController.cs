@@ -101,7 +101,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             if (systemUser == null)
             {
-                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/myBrandsIndex.html");
+                return Redirect("http://www.linjuzaixian.com/member/login.jhtml?redirect_url=http://www.linjuzaixian.com/myBrandsIndex.html");
             }
 
             int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);

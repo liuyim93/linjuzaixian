@@ -43,7 +43,7 @@ button::-moz-focus-inner{border:0;padding:0;margin:0;}
 #mallNav .mallNav-last{border-right:none;background:none;}
 #mallNav .chnNew{position:absolute;z-index:11;display:block;width:23px;height:13px;overflow:hidden;right:-1px;top:-3px;top:-2 px\9;background-position:-146px -15px;}
 #mallNav .chnHot{display:block;z-index:11;height:12px;overflow:hidden;position:absolute;right:-1px;top:-3px;width:22px;background-position:-146px 0;}
-#mall-desc i,#mall-desc .go-home{background:url(http://localhost:7525/Images/TmallFooterBar-111-109.png) no-repeat;}
+#mall-desc i,#mall-desc .go-home{background:url(http://www.linjuzaixian.com/Images/TmallFooterBar-111-109.png) no-repeat;}
 #mall-desc dt span{display:block;height:25px;width:73px;overflow:hidden;}
 #ensure dt span{background-position:0 0;}
 #beginner dt span{background-position:0 -20px;}
