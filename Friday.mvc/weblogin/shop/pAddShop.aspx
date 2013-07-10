@@ -51,16 +51,35 @@
             </p>--%>
 
             <script type="text/javascript">
-                //本地预览
-                function readImageURL(input) {
+                function shopPreviewImage(file) {
                     debugger
-                    var strSrc = $("#Image").val();
-                    if (input.files && input.files[0]) {
+                    var porImg = $('#Add_Shop_ImagePreview');
+                    //判断该浏览器是否为w3c标准，既非IE浏览器   
+                    if (file["files"] && file["files"][0]) {
+                        //使用JavaScript的FileReader对象来读取本地数据，并且将数据结果赋值给image的src，具体该对象如何实现的还未深入研究  
                         var reader = new FileReader();
-                        reader.onload = function (e) {
-                            $('#ImagePreview').attr('src', e.target.result);
-                        };
-                        reader.readAsDataURL(input.files[0]);
+                        reader.onload = function (evt) {
+                            porImg.attr('src', evt.target.result);
+                        }
+                        reader.readAsDataURL(file.files[0]);
+                    }
+                    //如果是IE浏览器，采用滤镜效果，进行显示，但特别注意的是该滤镜效果使用的对象是div对象，并非img对象，因此我们需要将原有的img对象remove同时生成新的div对象，并且赋值相应的class和id  
+                    else {
+                        //创建需要滤镜显示的div的dom对象  
+                        var ieImageDom = document.createElement("div");
+                        //设置对象的css属性和原有的img对象属性相同，添加相应的id属性值  
+                        $(ieImageDom).css({
+                            margin: '10px',
+                            width: '90px',
+                            height: '45px'
+                        }).attr({ "id": "Add_Shop_ImagePreview" });
+                        //删除原有img对象，append创建div的dom对象  
+                        $(ieImageDom).insertAfter("#Add_Shop_Image");
+                        porImg.remove();
+                        //采用滤镜效果生成图片预览  
+                        file.select();
+                        path = document.selection.createRange().text;
+                        $(ieImageDom).css({ "filter": "progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true',sizingMethod='scale',src=\"" + path + "\")" });
                     }
                 }
             </script>
@@ -68,8 +87,8 @@
             <p style="height: 120px">
                 <label>
                     Logo上传：</label>
-                <input id="Image" type="file" class="required textInput gray"   runat="server" onchange="readImageURL(this);"/>
-                <img  id="ImagePreview" runat="server" style="margin:10px;width: 90px; height: 45px" />
+                <input id="Add_Shop_Image" type="file" class="required textInput gray"   runat="server" onchange="shopPreviewImage(this);"/>
+                <img  id="Add_Shop_ImagePreview" runat="server" style="margin:10px;width: 90px; height: 45px" />
                  <span style="color: red; width: 380px">请上传90×45的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
                 </span>
             </p>

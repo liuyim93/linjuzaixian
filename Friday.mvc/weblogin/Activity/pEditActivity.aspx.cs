@@ -33,8 +33,8 @@ namespace Friday.mvc.weblogin.activity
             {
 
                 BindingHelper.ObjectToControl(activity, this);
-                this.ImagePreview.Src = activity.Image;
-                this.SubImagePreview.Src = activity.SubImage;
+                this.Edit_Activity_ImagePreview.Src = activity.Image;
+                this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
             }
         }
 
@@ -45,7 +45,7 @@ namespace Friday.mvc.weblogin.activity
             string fileoldName = "";
             string fileExtension;
             string filesnewName = "";
-            string[] fileInput = { "Image", "SubImage" };
+            string[] fileInput = { "Edit_Activity_Image", "Edit_Activity_SubImage" };
             Random R = new Random();//创建产生随机数
             HttpFileCollection files = HttpContext.Current.Request.Files;
             try
@@ -69,16 +69,16 @@ namespace Friday.mvc.weblogin.activity
                             }
                             postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
                         }
-                        if (fileInput[num] == "Image")
+                        if (fileInput[num] == "Edit_Activity_Image")
                         {
                             activity.Image = "/uploadimage/" + filesnewName;
-                            this.ImagePreview.Src = activity.Image;
+                            this.Edit_Activity_ImagePreview.Src = activity.Image;
                         }
 
-                        if (fileInput[num] == "SubImage")
+                        if (fileInput[num] == "Edit_Activity_SubImage")
                         {
                             activity.SubImage = "/uploadimage/" + filesnewName;
-                            this.SubImagePreview.Src = activity.SubImage;
+                            this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
                         }
                     }
                 }

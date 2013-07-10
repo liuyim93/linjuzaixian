@@ -55,7 +55,7 @@ namespace Friday.mvc.weblogin
                 //this.GoodsType.Value = golbalGoodsType.GoodsType;
                 GoodsType.Value = f.GlobalGoodsType.Name;
                 GoodsTypeID.Value = f.GlobalGoodsType.Id;
-                this.LogoPreview.Src = f.Image;
+                this.Edit_Commodity_LogoPreview.Src = f.Image;
             }
         }
 

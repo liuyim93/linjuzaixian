@@ -58,22 +58,22 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden GoodsTypeID;
         
         /// <summary>
-        /// Logo 控件。
+        /// Add_Commodity_Logo 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile Logo;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile Add_Commodity_Logo;
         
         /// <summary>
-        /// LogoPreview 控件。
+        /// Add_Commodity_LogoPreview 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage LogoPreview;
+        protected global::System.Web.UI.HtmlControls.HtmlImage Add_Commodity_LogoPreview;
         
         /// <summary>
         /// Description 控件。

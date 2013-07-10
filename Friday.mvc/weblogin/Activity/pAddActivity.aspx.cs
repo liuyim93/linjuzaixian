@@ -49,7 +49,7 @@ namespace Friday.mvc.weblogin.activity
             string fileoldName = "";
             string fileExtension;
             string filesnewName = "";
-            string[] fileInput = { "Image", "SubImage" };
+            string[] fileInput = { "Add_Activity_Image", "Add_Activity_SubImage" };
             Random R = new Random();//创建产生随机数
             HttpFileCollection files = HttpContext.Current.Request.Files;
             try
@@ -74,16 +74,16 @@ namespace Friday.mvc.weblogin.activity
                             postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
                         }
 
-                        if (fileInput[num] == "Image")
+                        if (fileInput[num] == "Add_Activity_Image")
                         {
                             act.Image = "/uploadimage/" + filesnewName;
-                            this.ImagePreview.Src = act.Image;
+                            this.Add_Activity_ImagePreview.Src = act.Image;
                         }
 
-                        if (fileInput[num] == "SubImage")
+                        if (fileInput[num] == "Add_Activity_SubImage")
                         {
                             act.SubImage = "/uploadimage/" + filesnewName;
-                            this.SubImagePreview.Src = act.SubImage;
+                            this.Add_Activity_SubImagePreview.Src = act.SubImage;
                         }
                     }
                 }
