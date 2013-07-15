@@ -34,6 +34,7 @@ namespace Friday.mvc.weblogin.orderOfCommodity
             {
                 result.statusCode = "300";
                 result.message = "没有OrderOfCommodity增加权限";
+                result.callbackType = "closeCurrent";
                 jsonResult.Data = result;
                 Response.Write(jsonResult.FormatResult());
                 Response.End();

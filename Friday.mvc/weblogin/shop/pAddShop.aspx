@@ -87,7 +87,7 @@
             <p style="height: 120px">
                 <label>
                     Logo上传：</label>
-                <input id="Add_Shop_Image" type="file" class="required textInput gray"   runat="server" onchange="shopPreviewImage(this);"/>
+                <input id="Add_Shop_Image" type="file" class=" textInput gray"   runat="server" onchange="shopPreviewImage(this);"/>
                 <img  id="Add_Shop_ImagePreview" runat="server" style="margin:10px;width: 90px; height: 45px" />
                  <span style="color: red; width: 380px">请上传90×45的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
                 </span>

@@ -25,6 +25,7 @@ namespace Friday.mvc.weblogin.sku
                 AjaxResult result = new AjaxResult();
                 result.statusCode = "300";
                 result.message = "没有Commodity浏览权限";
+                result.callbackType = "closeCurrent";
                 FormatJsonResult jsonResult = new FormatJsonResult();
                 jsonResult.Data = result;
                 Response.Write(jsonResult.FormatResult());

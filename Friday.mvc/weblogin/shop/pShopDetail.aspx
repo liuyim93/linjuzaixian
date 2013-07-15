@@ -9,7 +9,7 @@
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
                  <li><a href="#"><span>服务的学校</span></a></li>
                 <li><a href="#"><span>配送时间</span></a></li>
-                <li><a href="#"><span>促销打折</span></a></li>
+                <li><a href="#"><span>电话地址</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
                 <li><a href="#"><span>详细内容</span></a></li>
                <li><a href='commodity/pCommodityList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
@@ -79,11 +79,7 @@
          </div>
 
          <div>
-          <p>
-                <label>
-                    距离：</label>
-                <input type="text" id="Distance" size="30" class="required textInput gray" runat="server" />
-            </p>
+ 
             <p>
                 <label>
                     折扣：</label>

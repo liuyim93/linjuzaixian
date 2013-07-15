@@ -91,7 +91,8 @@ namespace Friday.mvc.weblogin.activity
                 if (!this.PermissionValidate(PermissionTag.Delete))
                 {
                     result.statusCode = "300";
-                    result.message = "没有Food删除权限";
+                    result.message = "没有Activity删除权限";
+
                     jsonResult.Data = result;
                     Response.Write(jsonResult.FormatResult());
                     Response.End();

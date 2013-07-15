@@ -36,6 +36,7 @@ namespace Friday.mvc.weblogin
                 AjaxResult result = new AjaxResult();
                 result.statusCode = "300";
                 result.message = "没有Commodity增加权限";
+                result.callbackType = "closeCurrent";
                 FormatJsonResult jsonResult = new FormatJsonResult();
                 jsonResult.Data = result;
                 Response.Write(jsonResult.FormatResult());

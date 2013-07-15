@@ -28,6 +28,7 @@ namespace Friday.mvc.weblogin
             {
                 result.statusCode = "300";
                 result.message = "没有MerchantCategory增加权限";
+                result.callbackType = "closeCurrent";
                 jsonResult.Data = result;
                 Response.Write(jsonResult.FormatResult());
                 Response.End();
