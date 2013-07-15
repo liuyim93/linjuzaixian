@@ -25,10 +25,22 @@ namespace Friday.mvc
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            CurrentUser = iUserServie.GetLoginUser(new HttpContextWrapper(HttpContext.Current));
+            try
+            {
+                CurrentUser = iUserServie.GetLoginUser(new HttpContextWrapper(HttpContext.Current));
+            }
+            catch (Exception ex)
+            {
+                CurrentUser = null;
+                Response.Redirect("/weblogin/login.aspx?message=超时登录，请重新登录！");
+            }
         }
         protected void  PermissionCheck(PermissionTag tag=PermissionTag.Enable)
         {
+            if (CurrentUser == null)
+            {
+                Response.Redirect("/weblogin/login.aspx?message=TimeOut");
+            }
             if (string.IsNullOrEmpty(tagName))
             {
                 iLogger.LogMessage("没有设置tagName", this.GetType().FullName, EventDataTypeCategory.异常日志);
@@ -48,6 +60,10 @@ namespace Friday.mvc
         }
         protected bool PermissionValidate(PermissionTag tag=PermissionTag.Enable)
         {
+            if (CurrentUser == null)
+            {
+                Response.Redirect("/weblogin/login.aspx?message=TimeOut");
+            }
             if (string.IsNullOrEmpty(tagName))
             {
                 iLogger.LogMessage("没有设置tagName", this.GetType().FullName, EventDataTypeCategory.异常日志);
