@@ -13,5 +13,6 @@ namespace friday.core.repositories
         IList<SystemUser> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool ValidateTel(string tel); 
         bool ValidateLoginHasSystemUser(string LName);
+        IList<SystemUser> GetSystemUser(DateTime startTime, DateTime endTime, bool IsAnonymous);
     }
 }

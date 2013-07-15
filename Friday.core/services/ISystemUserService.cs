@@ -16,5 +16,6 @@ namespace friday.core.services
         IList<SystemUser> Search(List<DataFilter> termList);
         IList<SystemUser> Search(List<DataFilter> termList, int start, int limit, out long total);
         bool ValidateTel(string tel);
+        void DeleteAnomymous(DateTime startTime, DateTime endTime, bool isAnomymous);
     }
 }

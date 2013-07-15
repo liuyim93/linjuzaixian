@@ -21,6 +21,7 @@ namespace friday.core.repositories
         void Delete(string id);
         void Delete(int id);
         void PhysicsDelete(string id);
+        void DeleteAll(IList<T> list);
         IList<T> GetPageList(int start, int limit, out long total);
             }
 

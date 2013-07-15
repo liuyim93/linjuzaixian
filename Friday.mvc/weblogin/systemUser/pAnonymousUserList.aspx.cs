@@ -127,19 +127,25 @@ namespace Friday.mvc.weblogin
 
         private void DeleteAnonymousUser(string month)
         {
-            if (month == "0") 
-            { 
-            string LoginUserID = iSystemUserService.Load(Request.Params["uid"]).LoginUser.Id;
-            iSystemUserService.Delete(Request.Params["uid"]);
-            iLoginUserService.Delete(LoginUserID);
-            }
-            else if (month == "3")
+            if (month == "0")
             {
-
+                string LoginUserID = iSystemUserService.Load(Request.Params["uid"]).LoginUser.Id;
+                iSystemUserService.Delete(Request.Params["uid"]);
+                iLoginUserService.Delete(LoginUserID);
             }
-            else 
-            {            
-            
+            else
+            {
+                DateTime startTime;
+                if (month == "3")
+                {
+                    startTime = DateTime.Now.AddMonths(-3);
+                }
+                else
+                {
+                    startTime = DateTime.Now.AddMonths(-6);
+
+                }
+                iSystemUserService.DeleteAnomymous(startTime, DateTime.Now, true);
             }
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

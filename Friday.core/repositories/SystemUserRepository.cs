@@ -9,10 +9,7 @@ using System.Web.UI.WebControls;
 using friday.core.components;
 using friday.core.domain;
 using friday.core.EnumType;
-using System.Web.UI.WebControls;
-using friday.core.components;
-using friday.core.domain;
-using friday.core.EnumType;
+
 using NHibernate.Linq;
 
 namespace friday.core.repositories
@@ -32,6 +29,19 @@ namespace friday.core.repositories
         protected virtual ICriteria Query
         {
             get { return Session.CreateCriteria(typeof(SystemUser)); }
+        }
+
+        public IList<SystemUser> GetSystemUser(DateTime startTime,DateTime endTime, bool IsAnonymous)
+        {
+           
+            IList<SystemUser> systemUsers = (from s in this.Session.Query<SystemUser>()
+                                                            where 
+                                                            s.IsAnonymous == IsAnonymous
+                                                            &&s.CreateTime>startTime
+                                                            &&s.CreateTime<endTime
+                                                    
+                                                            select s).ToList();
+            return systemUsers;
         }
         //对外获取方法
         public IList<SystemUser> Search(List<DataFilter> termList)

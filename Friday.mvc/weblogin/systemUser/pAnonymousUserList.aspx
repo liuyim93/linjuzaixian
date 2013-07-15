@@ -55,9 +55,9 @@
     <ul class="toolBar">
         <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}&month=0"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
-        <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}&month=3"
+        <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&month=3"
             target="ajaxTodo" title="确定要删除吗?"><span>删除6个月前用户</span></a></li>
-       <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&uid={id}&month=6"
+       <li><a class="delete" href="systemUser/pAnonymousUserList.aspx?flag=alldelete&month=6"
             target="ajaxTodo" title="确定要删除吗?"><span>删除3个月前用户</span></a></li>
         <li class="line">line</li>
     </ul>

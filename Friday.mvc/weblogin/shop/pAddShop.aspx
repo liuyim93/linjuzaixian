@@ -107,7 +107,7 @@
     </div>
     <div class="panel close collapse">
         <h1>
-            促销打折</h1>
+            联系方式</h1>
         <div>
             <p>
                 <label>

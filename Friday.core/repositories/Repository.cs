@@ -68,7 +68,8 @@ namespace friday.core.repositories
             {
                 foreach (T t in list)
                 {
-                    Session.Delete(t);
+                    t.IsDelete = true;
+                    Session.Update(t);
                     Session.Flush();
                 }
             }
@@ -83,7 +84,8 @@ namespace friday.core.repositories
             {
                 foreach (T t in list)
                 {
-                    Session.Delete(t);
+                    t.IsDelete = true;
+                    Session.Update(t);
                     Session.Flush();
                 }
             }

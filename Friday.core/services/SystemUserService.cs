@@ -55,5 +55,11 @@ namespace friday.core.services
         {
             return iSystemUserRepository.ValidateTel(tel);
         }
+
+        public void DeleteAnomymous(DateTime startTime, DateTime endTime, bool isAnomymous)
+        {
+            IList<SystemUser> anomymous = iSystemUserRepository.GetSystemUser(startTime, endTime, isAnomymous);
+            iSystemUserRepository.DeleteAll(anomymous);
+        }
     }
 }
