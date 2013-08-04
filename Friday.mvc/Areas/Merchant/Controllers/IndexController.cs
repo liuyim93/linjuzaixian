@@ -140,6 +140,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             //scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
             friday.core.Merchant merchant = iMerchantService.Get(scid);
+            if (merchant.IsDelete == true)
+            {
+                return Redirect("/Index.html");
+            }
             merchantIndexModel.SingleMerchant =merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
             {

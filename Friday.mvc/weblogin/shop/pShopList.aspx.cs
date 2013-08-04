@@ -29,7 +29,7 @@ namespace Friday.mvc.weblogin.shop
         protected string _ShopStatus;
         protected string loginName;
         IShopService iShopService = UnityHelper.UnityToT<IShopService>();
-
+        IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
         protected void Page_Load(object sender, EventArgs e)
         {
             tagName = systemFunctionObjectService.商店模块.商店维护.TagName;
@@ -146,6 +146,10 @@ namespace Friday.mvc.weblogin.shop
         {
 
             string shopid = Request.Params["uid"];
+            Shop shop = iShopService.Load(shopid);
+
+            iGlobalGoodsTypeRepository.Delete(iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName(shop.Name).Id);
+
 
             iShopService.Delete(shopid);
 

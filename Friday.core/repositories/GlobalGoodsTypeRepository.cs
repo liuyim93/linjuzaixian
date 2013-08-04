@@ -39,6 +39,7 @@ namespace friday.core.repositories
             var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.Name == Name && o.IsDelete == false).SingleOrDefault();
             return gt;
         }
+
         public IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevel(int level)
         {
             var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.TLevel == level && o.IsDelete == false).OrderBy(o=>o.EntityIndex).ToList();

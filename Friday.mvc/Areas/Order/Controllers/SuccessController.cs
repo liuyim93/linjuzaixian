@@ -126,7 +126,7 @@ namespace Friday.mvc.Areas.Order.Controllers
                         msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "、";
                         iOrderOfCommodityService.Save(orderOfCommodity);
                     }
-
+                    msgContent += "收件人：" + addr.Linkman + "。地址" + addr.AddressName;
                     msgContent = msgContent.Substring(0, msgContent.Length - 1) + "，请及时处理！";
 
                     if (shop.Tel != "" && shop.Tel != null)

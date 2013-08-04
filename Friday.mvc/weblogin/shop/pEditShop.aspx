@@ -8,7 +8,7 @@
         <h1>
             商店基本信息</h1>
         <div>
-            <input type="hidden" id="MyOrderId" size="30" runat="server" />
+
             <p>
                 <label>
                     商店名称：</label>

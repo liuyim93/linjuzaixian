@@ -138,7 +138,7 @@
              <p>
                  <label>详细内容：</label>
                 <div>
-				 	<textarea id="Description" name="Description" rows="20" cols="200" style="width: 100%" runat="server"></textarea>
+				 	<textarea id="Description" name="Description" rows="15" cols="200" style="width: 100%" runat="server"></textarea>
 				</div>
                 </p>        
             </div> 

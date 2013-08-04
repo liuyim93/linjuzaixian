@@ -1,7 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" validateRequest="false" CodeBehind="pAddCommodity.aspx.cs" Inherits="Friday.mvc.weblogin.pAddCommodity" %>
 
-
-<div class="pageFormContent">
+<div class="pageFormContent" layouth="20">
     <form id="form" method="post" class="pageForm required-validate" enctype="multipart/form-data" runat="server">
     <div class="panel collapse">
             <h1>
@@ -140,7 +139,7 @@
              <p>
                  <label>详细内容：</label>
                 <div>
-				 	<textarea id="Description" name="Description" rows="20" cols="200" style="width: 100%" runat="server"></textarea>
+				 	<textarea id="Description" name="Description" rows="15" cols="20" style="width: 100%" runat="server"></textarea>
 				</div>
                 </p>        
             </div> 

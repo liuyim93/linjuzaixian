@@ -38,14 +38,19 @@ namespace Friday.mvc.Areas.Category.Controllers
             categoryModel.GlobalGoodsTypeTlevelSecond = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(2);
 
             //单独取出国际名牌
-            string  NationalLevelId=this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("国际品牌").Id;
-            IList<GlobalGoodsType> NationalGlobalGoodsTypes=this.iGlobalGoodsTypeRepository.GetChildrenByFamily(NationalLevelId);
-            IList<Shop> NationalShops=new List<Shop>();
-            for(int i=0;i<NationalGlobalGoodsTypes.Count;i++)
+            if (this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("国际品牌") != null)
             {
-                NationalShops.Add(this.iShopRepository.Get(NationalGlobalGoodsTypes[i].Description));
+                string NationalLevelId = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("国际品牌").Id;
+
+                IList<GlobalGoodsType> NationalGlobalGoodsTypes = this.iGlobalGoodsTypeRepository.GetChildrenByFamily(NationalLevelId);
+                IList<Shop> NationalShops = new List<Shop>();
+                for (int i = 0; i < NationalGlobalGoodsTypes.Count; i++)
+                {
+                    NationalShops.Add(this.iShopRepository.Get(NationalGlobalGoodsTypes[i].Description));
+                }
+
+                categoryModel.NationalShops = NationalShops;
             }
-            categoryModel.NationalShops = NationalShops;
             
             
             return View(categoryModel);

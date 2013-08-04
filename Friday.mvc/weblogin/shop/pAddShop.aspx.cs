@@ -17,7 +17,7 @@ namespace Friday.mvc.weblogin.shop
         IShopService iShopService = UnityHelper.UnityToT<IShopService>();
         ISchoolOfMerchantService iSchoolOfMerchantService = UnityHelper.UnityToT<ISchoolOfMerchantService>();
         ISchoolService iSchoolService = UnityHelper.UnityToT<ISchoolService>();
-   
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,8 +35,8 @@ namespace Friday.mvc.weblogin.shop
             }
             if (Request.Params["__EVENTVALIDATION"] != null)
             {
-                string schid="";
-                if (this.IDSet.Value != null && this.IDSet.Value !="")
+                string schid = "";
+                if (this.IDSet.Value != null && this.IDSet.Value != "")
                 {
                     schid = this.IDSet.Value;
                 }
@@ -47,21 +47,21 @@ namespace Friday.mvc.weblogin.shop
 
                 SaveShop(schid);
             }
-         
+
         }
 
         private void SaveShop(string schid)
-        {    
-            Shop  shop=new Shop();
+        {
+            Shop shop = new Shop();
 
             BindingHelper.RequestToObject(shop);
             shop.Logo = PictureUpload.UploadImage(HttpContext.Current.Request.Files, "logo");
             iShopService.Save(shop);
 
             if (schid != "")
-            { 
-                string[] sArray = schid.Split(',');    
-            
+            {
+                string[] sArray = schid.Split(',');
+
                 foreach (string shcidsz in sArray)
                 {
                     friday.core.domain.SchoolOfMerchant schofmt = new friday.core.domain.SchoolOfMerchant();
@@ -71,7 +71,7 @@ namespace Friday.mvc.weblogin.shop
                     iSchoolOfMerchantService.Save(schofmt);
                 }
             }
-            //shop.Schools = schid;
+            shop.Schools = schid;
             iShopService.Update(shop);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
