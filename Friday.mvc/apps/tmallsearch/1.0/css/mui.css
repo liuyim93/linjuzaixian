@@ -10,7 +10,7 @@
 .ui-page-prev{border-left:1px solid #E5E5E5!important;}
 .ui-page-cur,b.ui-page-next,b.ui-page-prev{background-color:#EFEFEF;}
 .ui-page-break{border-right:1px solid #E5E5E5;padding:0 4px;line-height:40px;font-weight:bold;}
-.ui-page-num{padding-top:19px;background:url("http://www.linjuzaixian.com/Images/page.png") no-repeat right 0;}
+.ui-page-num{padding-top:19px;background:url("http://localhost:7525/Images/page.png") no-repeat right 0;}
 .ui-page-skip{margin-top:19px;padding:10px 0 0 10px;}
 .ui-page-skipTo{width:32px;height:18px;margin:-2px 2px 0;line-height:20px;font-size:16px;color:#999;text-align:center;vertical-align:middle;border:1px solid #ccc;}
 .ui-page-skipBtn{margin:-2px 0 0 2px;}
@@ -22,16 +22,16 @@
 .ui-page-s b{background-color:#EFEFEF;}
 b.ui-page-s-len{background:none;line-height:20px;font-weight:normal;}
 .ui-more-drop-l,.ui-more-expand-l{vertical-align:middle;position:relative;display:inline-block;height:25px;line-height:25px;padding:0 24px 0 0;color:#806f66;}
-.ui-more-drop-l-arrow,.ui-more-expand-l-arrow{position:absolute;display:inline-block;top:11px;right:10px;height:5px;line-height:5px;width:9px;overflow:hidden;background:url(http://www.linjuzaixian.com/Images/more.png) -2px -66px no-repeat;}
+.ui-more-drop-l-arrow,.ui-more-expand-l-arrow{position:absolute;display:inline-block;top:11px;right:10px;height:5px;line-height:5px;width:9px;overflow:hidden;background:url(http://localhost:7525/Images/more.png) -2px -66px no-repeat;}
 .ui-more-expand-l-arrow{background-position:-2px -72px;}
 .ui-more-drop-l:hover,.ui-more-expand-l:hover{color:#b10000;text-decoration:none;}
 .ui-more-drop-l:hover .ui-more-drop-l-arrow{background-position:-2px -78px;}
 .ui-more-expand-l:hover .ui-more-expand-l-arrow{background-position:-2px -84px;}
-.ui-btn-search-l{width:97px;height:26px;line-height:26px;text-align:center;display:inline-block;overflow:hidden;border:none;outline:none;color:#fff;cursor:pointer;background:#684e41 url(http://www.linjuzaixian.com/Images/btn-search-l.png) no-repeat;}
+.ui-btn-search-l{width:97px;height:26px;line-height:26px;text-align:center;display:inline-block;overflow:hidden;border:none;outline:none;color:#fff;cursor:pointer;background:#684e41 url(http://localhost:7525/Images/btn-search-l.png) no-repeat;}
 .ui-btn-search-l:hover,.ui-btn-search-l-hover{text-decoration:none;background-color:#835a35;background-position:0 -26px;}
 .ui-btn-search-l:active,.ui-btn-search-l-active{background-color:#7a433b;background-position:0 -52px;}
 .ui-btn-search-l:visited,.ui-btn-search-l-selected{background-color:#784239;background-position:0 -78px;}
-.ui-btn-s-primary,.ui-btn-m-primary,.ui-btn-l-primary,.ui-btn-s,.ui-btn-m,.ui-btn-l{padding:0 10px;display:inline-block;height:20px;background:url(http://www.linjuzaixian.com/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;}
+.ui-btn-s-primary,.ui-btn-m-primary,.ui-btn-l-primary,.ui-btn-s,.ui-btn-m,.ui-btn-l{padding:0 10px;display:inline-block;height:20px;background:url(http://localhost:7525/Images/btn.png) repeat-x;color:#fff;font-size:12px;border:0 none;border-left:1px solid #950b00;border-right:1px solid #950b00;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;}
 .ui-btn-s-primary,.ui-btn-m-primary,.ui-btn-l-primary{background-color:#950b00;border-color:#950b00;color:#fff;}
 .ui-btn-s,.ui-btn-m,.ui-btn-l{background-color:#ccc;border-color:#ccc;color:#333;}
 button.ui-btn-s-primary,button.ui-btn-m-primary,button.ui-btn-l-primary,button.ui-btn-s,button.ui-btn-m,button.ui-btn-l{*border-color:black;*filter:chroma(color=black);}
@@ -94,26 +94,26 @@ button.ui-btn-l-primary,button.ui-btn-l{height:30px;*height:32px;line-height:27p
 .ui-price-original{font-family:'arial','verdana',sans-serif!important;color:#999;font-size:12px;}
 .ui-price-plain{font-family:'arial','verdana',sans-serif!important;color:#666;font-size:12px;}
 .ui-price-reverse{font-family:'arial','verdana',sans-serif!important;background-color:#C00;color:#fff;font-weight:bold;font-size:14px;}
-.ui-loading{background:url(http://www.linjuzaixian.com/Images/loading.gif) no-repeat scroll 50% 50%;}
+.ui-loading{background:url(http://localhost:7525/Images/loading.gif) no-repeat scroll 50% 50%;}
 .ui-more-bg{position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333;background:#e5e5e5;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;-khtml-border-radius:2px;-o-border-radius:2px;-ms-border-radius:2px;}
-.ui-more-bg-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://www.linjuzaixian.com/Images/more.png) no-repeat;overflow:hidden;}
+.ui-more-bg-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://localhost:7525/Images/more.png) no-repeat;overflow:hidden;}
 .ui-more-bg:hover{text-decoration:none;background-color:#b10000;color:#fff;}
 .ui-more-bg:hover .ui-more-bg-arrow{background-position:0 -13px;}
 .ui-more-nbg{position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333;}
-.ui-more-nbg-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://www.linjuzaixian.com/Images/more.png) 0 -26px no-repeat;}
+.ui-more-nbg-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://localhost:7525/Images/more.png) 0 -26px no-repeat;}
 .ui-more-nbg:hover{text-decoration:underline;color:#b10000;}
 .ui-more-nbg:hover .ui-more-nbg-arrow{background-position:0 -39px;}
 .ui-more-wb{position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;background:#333;color:#fff;}
-.ui-more-wb-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://www.linjuzaixian.com/Images/more.png) 0 -52px no-repeat;}
+.ui-more-wb-arrow{position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;background:url(http://localhost:7525/Images/more.png) 0 -52px no-repeat;}
 .ui-more-wb:hover{text-decoration:underline;}
 .ui-more-drop-l,.ui-more-expand-l{position:relative;display:inline-block;height:25px;line-height:25px;padding:0 24px 0 0;color:#806F66;}
-.ui-more-drop-l-arrow,.ui-more-expand-l-arrow{position:absolute;display:inline-block;top:10px;right:10px;height:5px;line-height:5px;width:9px;background:url(http://www.linjuzaixian.com/Images/more.png) -2px -66px no-repeat;}
+.ui-more-drop-l-arrow,.ui-more-expand-l-arrow{position:absolute;display:inline-block;top:10px;right:10px;height:5px;line-height:5px;width:9px;background:url(http://localhost:7525/Images/more.png) -2px -66px no-repeat;}
 .ui-more-expand-l-arrow{background-position:-2px -72px;}
 .ui-more-drop-l:hover,.ui-more-expand-l:hover{color:#b10000;text-decoration:none;}
 .ui-more-drop-l:hover .ui-more-drop-l-arrow{background-position:-2px -78px;}
 .ui-more-expand-l:hover .ui-more-expand-l-arrow{background-position:-2px -84px;}
 .ui-more-drop-s,.ui-more-expand-s{position:relative;display:inline-block;height:25px;line-height:25px;padding:0 20px 0 0;color:#333;}
-.ui-more-drop-s-arrow,.ui-more-expand-s-arrow{position:absolute;display:inline-block;top:12px;right:10px;height:3px;line-height:3px;width:5px;background:url(http://www.linjuzaixian.com/Images/more.png) -0px -90px no-repeat;}
+.ui-more-drop-s-arrow,.ui-more-expand-s-arrow{position:absolute;display:inline-block;top:12px;right:10px;height:3px;line-height:3px;width:5px;background:url(http://localhost:7525/Images/more.png) -0px -90px no-repeat;}
 .ui-more-expand-s-arrow{background-position:-6px -90px;}
 .ui-more-drop-s:hover,.ui-more-expand-s:hover{color:#b10000;text-decoration:none;}
 .ui-more-drop-s:hover .ui-more-drop-s-arrow{background-position:-0px -94px;}

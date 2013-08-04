@@ -102,7 +102,7 @@ KISSY.add("cart/recommend", function (H, Q, M) {
             }
             H.each(Z, function (b) {
                 //H.getScript("http://ald.taobao.com/recommend.htm?" + b.replace("{itemids}", W) + "&" + X + H.guid())
-                H.getScript("http://www.linjuzaixian.com/CartPay/Home/Recommend?" + b.replace("{itemids}", W) + "&" + X + H.guid())
+                H.getScript("http://localhost:7525/CartPay/Home/Recommend?" + b.replace("{itemids}", W) + "&" + X + H.guid())
             });
             setTimeout(function () {
                 if (G) {

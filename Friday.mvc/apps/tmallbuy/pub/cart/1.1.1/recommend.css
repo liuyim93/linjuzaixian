@@ -1,4 +1,4 @@
-﻿/*pub-1|2013-04-11 10:17:00*/.recommendBox h2,.recommendNav li,.recommendList .price strong,.recommendList .price del,.recommendCont .trigger s{background-image:url(http://www.linjuzaixian.com/Images/T1dseHXnXxXXXXXXXX-124-101.png);background-repeat:no-repeat;}
+﻿/*pub-1|2013-04-11 10:17:00*/.recommendBox h2,.recommendNav li,.recommendList .price strong,.recommendList .price del,.recommendCont .trigger s{background-image:url(http://localhost:7525/Images/T1dseHXnXxXXXXXXXX-124-101.png);background-repeat:no-repeat;}
 .recommendBox{height:340px;margin-bottom:40px;}
 .recommendBoxLoading{background:url(http://img02.taobaocdn.com/tps/i2/T16WJqXaXeXXXXXXXX-32-32.gif) no-repeat 50% 50%;}
 .recommendBox .hd{background:#f3f3f3;height:40px;line-height:40px;}
@@ -14,7 +14,7 @@
 .recommendList li{float:left;width:160px;height:267px;padding:25px 5px 5px;margin-right:13px;overflow:hidden;}
 .recommendList .img{width:160px;height:160px;margin-bottom:5px;overflow:hidden;}
 .recommendList .img a{display:table-cell;vertical-align:middle;text-align:center;*display:block;*font-size:144px;*font-family:Arial;background-color:#fff;}
-/*2013-05-08 wanghaichuan http://www.linjuzaixian.com/CartPay/Home/MyCartPay
+/*2013-05-08 wanghaichuan http://localhost:7525/CartPay/Home/MyCartPay
 .recommendList .img img{vertical-align:middle;}*/
 .recommendList .img img{vertical-align:middle;width: 160px;height: 160px;}
 .recommendList .title{word-break:break-all;}

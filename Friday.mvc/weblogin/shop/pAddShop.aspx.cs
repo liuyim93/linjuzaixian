@@ -71,7 +71,7 @@ namespace Friday.mvc.weblogin.shop
                     iSchoolOfMerchantService.Save(schofmt);
                 }
             }
-            shop.Schools = schid;
+            //shop.Schools = schid;
             iShopService.Update(shop);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";

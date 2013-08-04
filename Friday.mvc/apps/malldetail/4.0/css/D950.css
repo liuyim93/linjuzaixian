@@ -1,7 +1,7 @@
 ﻿.D950 #detail .tb-gallery{width:462px;}
 .D950 #detail .tb-property .tb-wrap{margin-left:470px;}
 .D950 #detail .tb-detail-hd{width:450px;text-indent:10px;margin-bottom:10px;}
-.D950 #detail .tb-thumb .tb-selected{background-image:url(http://www.linjuzaixian.com/Images/tmall_merchant_offical-190-266.png);background-repeat:no-repeat;}
+.D950 #detail .tb-thumb .tb-selected{background-image:url(http://localhost:7525/Images/tmall_merchant_offical-190-266.png);background-repeat:no-repeat;}
 .D950 #detail .tb-thumb{margin-top:6px;}
 .D950 #detail .tb-thumb .tb-pic{width:56px;height:56px;border:1px solid #edeeee;display:block;overflow:hidden;}
 .D950 #detail .tb-thumb .tb-selected .tb-pic{border-color:#e00001;}
@@ -10,7 +10,7 @@
 .D950 #detail .tb-thumb .tb-selected,.D950 #detail .tb-thumb li{height:auto;}
 .D950 .shop-basic .shop-promise,.D950 .shop-basic .shop-intro .grade,.D950 .shop-basic .shop-intro .extend,.D950 #content #bd .box .shop-basic .hd,.D950 .shop-basic .shop-rate{display:none;}
 .D950 #bd .shop-basic .bd{padding:0;}
-.D950 #bd .shop-basic .shop-intro .other a.enter{display:block;width:148px;height:30px;background-image:url(http://www.linjuzaixian.com/Images/tmall_merchant_offical-190-266.png)!important;background-position:0 -69px;margin:10px auto;}
+.D950 #bd .shop-basic .shop-intro .other a.enter{display:block;width:148px;height:30px;background-image:url(http://localhost:7525/Images/tmall_merchant_offical-190-266.png)!important;background-position:0 -69px;margin:10px auto;}
 .D950 #bd .shop-basic .shop-intro{margin-right:0;margin-left:0;padding-top:0;border-top-width:0;}
 .D950 #bd .shop-basic .shop-intro .other{text-align:center;background-color:#f6f6f6;padding:10px 0 12px;border-top-width:0;}
 .D950 #bd .shop-basic .shop-intro .other a:link,.fushi #bd .shop-basic .shop-intro .other a:visited{color:#2853b4;}

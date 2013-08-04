@@ -139,7 +139,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             IndexModel merchantIndexModel = new IndexModel();
 
             //scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
-            friday.core.Merchant merchant = iMerchantService.Load(scid);
+            friday.core.Merchant merchant = iMerchantService.Get(scid);
             merchantIndexModel.SingleMerchant =merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
             {

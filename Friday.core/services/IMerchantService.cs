@@ -12,6 +12,7 @@ namespace friday.core.services
         string GetMerchantsJson(SystemUser systemUser, string _selectIP);
         string GetMerchantsJson(SystemUser systemUser);
         Merchant Load(string id);
+        Merchant Get(string id);
         void Save(Merchant merchant);
         void Update(Merchant merchant);
         void Delete(string id);

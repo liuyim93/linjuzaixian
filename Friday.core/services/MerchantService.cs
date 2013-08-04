@@ -256,6 +256,11 @@ namespace friday.core.services
             return iMerchantRepository.Load(id);
         }
 
+        public Merchant Get(string id)
+        {
+            return iMerchantRepository.Get(id);
+        }
+
         public void Save(Merchant merchant)
         {
             iLogger.LogMessage("插入Merchant数据，ID：" + merchant.Id, this.GetType().FullName, EventDataTypeCategory.操作日志);

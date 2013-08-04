@@ -79,7 +79,7 @@
                 if (W == 2) {
                     var X = _dom.children(V)[4];
                     //Z += '<a href="' + _dom.attr(X, "href") + '" title="" target="_blank">更多品牌>></a>'
-                    Z += '<a href="http://www.linjuzaixian.com/index.html" title="" target="_blank">更多品牌>></a>'
+                    Z += '<a href="http://localhost:7525/index.html" title="" target="_blank">更多品牌>></a>'
                 }
                 _dom.html(V, Z)
             })

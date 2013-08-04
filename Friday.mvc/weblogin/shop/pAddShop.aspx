@@ -18,7 +18,7 @@
             <p>
                 <label>
                     简称：</label>
-                <input type="text" id="ShortName" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="ShortName" size="30" class=" textInput gray" runat="server" />
             </p>
             <p>
                 <label>
@@ -101,7 +101,7 @@
             <p>
                 <label>
                     营业时间：</label>
-                <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="ShopHours" size="30" class=" textInput gray" runat="server" />
             </p>
         </div>
     </div>
@@ -117,7 +117,7 @@
             <p>
                 <label>
                     Email：</label>
-                <input type="text" id="Email" size="30" class="required email" runat="server" />
+                <input type="text" id="Email" size="30" class=" email" runat="server" />
             </p>
             <p>
                 <label>
@@ -127,17 +127,17 @@
             <p>
                 <label>
                     距离：</label>
-                <input type="text" id="Distance" size="30" class="required textInput gray digits" min="0" runat="server" />
+                <input type="text" id="Distance" size="30" class=" textInput gray digits" min="0" runat="server" />
             </p>
             <p>
                 <label>
                     折扣：</label>
-                <input type="text" id="Rate" size="30" class="required textInput gray digits" min="0" runat="server" />
+                <input type="text" id="Rate" size="30" class=" textInput gray digits" min="0" runat="server" />
             </p>
             <p>
                 <label>
                     商铺当前状态：</label>
-                <select id="ShopStatus" class="required " style="width: 85px" runat="server">
+                <select id="ShopStatus" class=" " style="width: 85px" runat="server">
                     <option value="">请选择</option>
                     <option value="营业时间">营业时间</option>
                     <option value="正在休息">正在休息</option>

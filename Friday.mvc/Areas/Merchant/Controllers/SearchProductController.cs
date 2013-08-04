@@ -276,53 +276,53 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else
             {
-                string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
+                //string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
                 
-                //取IP “山东省济南市 山东经济学院” 的经济学院
-                string[] sArray = areaString[1].Split(' ');
+                ////取IP “山东省济南市 山东经济学院” 的经济学院
+                //string[] sArray = areaString[1].Split(' ');
 
-                School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
-                School ipLeafParentSchool;
-                if (ipLeafSchool != null)
-                {
-                    //用户未登录，但通过IP可以大体定位
-                    string[] family = ipLeafSchool.Family.Split(',');
-                    if (family.Length == 0)
-                    {
-                        searchProductModel.currentFirstSchool = ipLeafSchool;
-                        //只有同级地区
-                        searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafSchool.ParentID);
-                        searchProductModel.parentSiblingSchools = null;
-                    }
-                    else
-                    {
-                        //当前获取的ip地址为山东经济学院
-                        ipLeafParentSchool = iSchoolService.Load(ipLeafSchool.ParentID);
+                //School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
+                //School ipLeafParentSchool;
+                //if (ipLeafSchool != null)
+                //{
+                //    //用户未登录，但通过IP可以大体定位
+                //    string[] family = ipLeafSchool.Family.Split(',');
+                //    if (family.Length == 0)
+                //    {
+                //        searchProductModel.currentFirstSchool = ipLeafSchool;
+                //        //只有同级地区
+                //        searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafSchool.ParentID);
+                //        searchProductModel.parentSiblingSchools = null;
+                //    }
+                //    else
+                //    {
+                //        //当前获取的ip地址为山东经济学院
+                //        ipLeafParentSchool = iSchoolService.Load(ipLeafSchool.ParentID);
 
-                        searchProductModel.currentFirstSchool = iSchoolService.Load(ipLeafSchool.ParentID);
-                        searchProductModel.currentSecondSchool = ipLeafSchool;
+                //        searchProductModel.currentFirstSchool = iSchoolService.Load(ipLeafSchool.ParentID);
+                //        searchProductModel.currentSecondSchool = ipLeafSchool;
 
-                        searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafSchool.ParentID);
-                        if (ipLeafParentSchool.ParentID == null)
-                        {
-                            searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
-                        }
-                        else
-                        {
-                            searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafParentSchool.ParentID);
-                        }
-                    }
+                //        searchProductModel.siblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafSchool.ParentID);
+                //        if (ipLeafParentSchool.ParentID == null)
+                //        {
+                //            searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+                //        }
+                //        else
+                //        {
+                //            searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(ipLeafParentSchool.ParentID);
+                //        }
+                //    }
 
-                }
-                else
-                {
-                    //用户未登录，且通过IP也不可定位
-                    searchProductModel.currentFirstSchool = null;
-                    searchProductModel.currentSecondSchool = null;
+                //}
+                //else
+                //{
+                //    //用户未登录，且通过IP也不可定位
+                //    searchProductModel.currentFirstSchool = null;
+                //    searchProductModel.currentSecondSchool = null;
 
-                    //最顶级地区
-                    searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
-                }
+                //    //最顶级地区
+                //    searchProductModel.parentSiblingSchools = iSchoolService.GetChildrenFromParentID(null);
+                //}
             }
 
 
@@ -341,7 +341,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 Friday.mvc.Areas.Merchant.Models.CategoryItem categoryItem = new Models.CategoryItem()
                 {
-                    href = "http://www.linjuzaixian.com/Merchant/SearchProduct?cat="+ g.Id +"&amp;s=0&amp;n=0&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1",
+                    href = "http://localhost:7525/Merchant/SearchProduct?cat="+ g.Id +"&amp;s=0&amp;n=0&amp;sort=s&amp;style=g&amp;zk_type=0&amp;vmarket=0&amp;search_condition=23&amp;pic_detail=1&amp;area_code=370100&amp;from=sn_1_rightnav&amp;active=1",
                     title = g.Name,
                     atp = "1,cat-dropdown,,,,"+g.Id+",rightnav,"
                 };
