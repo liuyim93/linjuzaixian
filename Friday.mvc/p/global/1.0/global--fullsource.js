@@ -36,42 +36,7 @@ TB.add('mod~global', function () {
                 });
             },
 
-            /**
-            * WebWW (tdog)
-            */
-            tDog: function () {
-                // 鍔犺浇 webww js 鐨勫紑鍏筹細
-                // 锛坲rl 涓湁 tstart/tdog 鍙傛暟锛� 鎴� 锛堟湁 g_config 鍏ㄥ眬鍙橀噺锛屼笖 appId 鍊间笉涓� -1锛�
-                if ((('g_config' in win) && ('appId' in win['g_config']) && win['g_config']['appId'] != -1)
-                    || 'tstart' in urlConfig || 'tdog' in urlConfig) {
-                    S.ready(function () {
-                        var url = 'http://' + assetsHost + '/p/header/webww-min.js?t=20110629.js';
-                        S.getScript(url);
-                    });
-                }
-            },
-
-            /**
-            * 娣樺疂瀹為獙瀹�
-            */
-            tLabs: function () {
-                if (!getCookie('l')) return;
-
-                S.ready(function () {
-                    var url = 'http://' + assetsHost + '/p/tlabs/??' +
-                            'tlabs.js,base64.js,cookie.js,validator.js,loader.js,util.js,top.js?t=20101012.js';
-                    if ('ks-local' in urlConfig) {
-                        url = 'http://test.taobao.com/code/fed/2010/tlabs/combo.php?b=src&' +
-                                'f=tlabs.js,base64.js,cookie.js,validator.js,loader.js,util.js,top.js';
-                    }
-                    S.getScript(url, function () {
-                        if (typeof TLabs !== 'undefined') {
-                            var IS_DAILY = !(document.domain.indexOf('taobao.com') > -1 || document.domain.indexOf('tmall.com') > -1);
-                            TLabs.init(IS_DAILY ? { baseUrl: 'http://dev.labs.daily.taobao.net/l?b=/f/&f='} : {});
-                        }
-                    });
-                });
-            },
+           
 
             /**
             * 涓诲姩鎼滅储鐩戞帶

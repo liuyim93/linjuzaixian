@@ -60,8 +60,10 @@ TML.add("minilogin", function (_tml) {
         //_domain = is_daily ? "daily.tmall.net" : "tmall.com",
         _domain = is_daily ? "http://localhost:7525/" : "tmall.com",
         //2013-03-04 basilwang we use localhost
+
         //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
-        _url = "http" + (is_daily ? "" : "s") + "://" + _domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
+        //lampard 2013-8-6
+        _url =_domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
         //2013-03-04 basilwang we use localhost
         //_default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
         _default_config = { needRedirect: false, proxyURL: "http://" + _domain + "/miniLoginProxy.htm" };

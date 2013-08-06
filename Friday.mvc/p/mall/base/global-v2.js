@@ -153,7 +153,7 @@ TB.add("mod~global", function () {
             //2013-05-29 basilwang webww false
             window.g_config.webww = false;
             if ((_appid && _appid != -1 && _appid != 2000) || "tstart" in _param_array || "tdog" in _param_array) {
-                var S = "http://" + _own_domain_1 + "/p/header/webww-min.js?t=" + _tmall_config.commonJS.tDog.timestamp, i = 0;
+                var S = _own_domain_1 + "/p/header/webww-min.js?t=" + _tmall_config.commonJS.tDog.timestamp, i = 0;
                 _kissy.ready(function () {
                     if (_kissy.DOM) {
                         _kissy.getScript(S)
@@ -184,7 +184,7 @@ TB.add("mod~global", function () {
             match results are ["; cq=ccp%3D1", "ccp%3D1"]
 
             */
-            var _tlab_url = "http://" + _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp,
+            var _tlab_url =  _own_domain_1 + "/p/tlabs/1.0.0/tlabs-min.js?t=" + _tmall_config.commonJS.tLabs.timestamp,
                 _nick = _get_user_cookie_value("_nk_") || _get_user_cookie_value("tracknick");
             _nick = encodeURIComponent(_get_newly_created_div_innerHTML(unescape(_nick.replace(/\\u/g, "%u"))));
             _kissy.getScript(_tlab_url, function () {
@@ -449,9 +449,15 @@ TB.add("mod~global", function () {
     TB.Global = { init: function () {
         _div_named_site_nav = _document.getElementById("site-nav");
         this._subMenus = [];
+        for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
+            CommonJS[_name];
+        }
+        //2013-08-06 basilwang don't let tDogs and tLabs run
+        /*
         for (var _single_commonjs in CommonJS) {
             CommonJS[_single_commonjs]()
         }
+        */
     }, writeLoginInfo: function (_options) {
         _div_named_site_nav = _document.getElementById("site-nav");
         if (!_div_named_site_nav) {

@@ -126,53 +126,6 @@ TB.namespace = TB.namespace || function() {
                 var V = "http://vipservice" + y + "/medal/GetUserVisibleMedals.do?from=diaoding&nick=";
                 g.getScript(V + T + "&t=" + g.now() + "&callback=" + U, {charset: "utf-8"})
             })
-        },tDog: function() {
-            if ((s && s != -1) || "tstart" in p || "tdog" in p) {
-                //var i = "http://" + H + "/p/header/webww-min.js?t=20110629.js", N = 0;
-                var i = "http://localhost:7525/p/header/webww-min.js?t=20110629.js", N = 0;
-                g.ready(function() {
-                    if (g.DOM) {
-                        g.getScript(i)
-                    } else {
-                        if (N < 10) {
-                            setTimeout(arguments.callee, 1000);
-                            N++
-                        } else {
-                            g.use("core", function() {
-                                g.getScript(i)
-                            })
-                        }
-                    }
-                })
-            }
-        },tLabs: function() {
-            if (location.href.indexOf("tms.taobao.com") !== -1) {
-                return
-            }
-            var T = window.location.href.indexOf("__tlabs-dev") !== -1, R = TB.Global.isLogin();
-            if (!T) {
-                if (R) {
-                    var Q = h("l");
-                    if (Q) {
-                        var P = h("_nk_") || h("tracknick"), O = Q.split("::"), N = O[0], S = O[1], i = O[2].substring(0, 1) === "1";
-                        N = encodeURIComponent(a(unescape(N.replace(/\\u/g, "%u"))));
-                        if (N === P && i && new Date().getTime() < S) {
-                            return
-                        }
-                    }
-                } else {
-                    return
-                }
-            }
-            g.ready(function() {
-                var V = "http://" + H + "/p/tlabs/1.0.0/tlabs-min.js?t=1.0.0.js", U = h("_nk_") || h("tracknick");
-                U = encodeURIComponent(a(unescape(U.replace(/\\u/g, "%u"))));
-                g.getScript(V, function() {
-                    if (typeof TLabs !== "undefined") {
-                        TLabs.init({nick: U})
-                    }
-                })
-            })
         },POCMonitor: function() {
             var R = I._poc || [], Q, O = 0, N = [["_setAccount", (I.g_config || 0).appId], ["_setStartTime", (I.g_config || 0).startTime || I.HUBBLE_st || I.g_hb_monitor_st]], P = 10000;
             while ((Q = R[O++])) {
