@@ -60,13 +60,11 @@ TML.add("minilogin", function (_tml) {
         //_domain = is_daily ? "daily.tmall.net" : "tmall.com",
         _domain = is_daily ? "http://localhost:7525/" : "tmall.com",
         //2013-03-04 basilwang we use localhost
-
         //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
-        //lampard 2013-8-6
-        _url =_domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
+        _url = _domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
         //2013-03-04 basilwang we use localhost
         //_default_config = { needRedirect: false, proxyURL: "http://vip." + _domain + "/miniLoginProxy.htm" };
-        _default_config = { needRedirect: false, proxyURL: "http://" + _domain + "/miniLoginProxy.htm" };
+        _default_config = { needRedirect: false, proxyURL:  _domain + "/miniLoginProxy.htm" };
     MiniLogin = { show: function (_fn, _config) {
         var _mini_login = this;
         if (typeof _fn !== "function") {
@@ -105,6 +103,7 @@ TML.add("minilogin", function (_tml) {
         }, timeout: _timeout, dataType: "jsonp", cache: false
         })
     }, _show: function (_fn, _config) {
+        debugger;
         var _dom_div_id_tml_mLogin = _kissy.get("#tml-mLogin"), _callbak, _show_url = _url, _proxy_url = "";
         if (_config.needRedirect)
             _show_url += encodeURIComponent(location.href.split("#")[0]) + "&full_redirect=true";

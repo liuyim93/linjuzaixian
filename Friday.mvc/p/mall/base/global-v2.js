@@ -450,7 +450,7 @@ TB.add("mod~global", function () {
         _div_named_site_nav = _document.getElementById("site-nav");
         this._subMenus = [];
         for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
-            CommonJS[_name];
+            CommonJS[_commonjs_array[_name_index]];
         }
         //2013-08-06 basilwang don't let tDogs and tLabs run
         /*

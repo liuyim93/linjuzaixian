@@ -11,7 +11,7 @@ using friday.core;
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
     public class FavoriteController : Controller
-    {  
+    {
         private IMerchantService iMerchantService;
         private IUserService iUserService;
         private IMyFavoriteService iMyFavoriteService;
@@ -36,7 +36,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         {
             return View();
         }
-        public ActionResult AddToFav(string brandId,string _tb_token_, string callback)
+        public ActionResult AddToFav(string brandId, string _tb_token_, string callback)
         {
             MyFavorite myFavorite = new MyFavorite();
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
@@ -79,20 +79,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 }
                 else
                 {
-                    string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
-                    School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
-                    if (ipLeafSchool != null)
-                    {
-                        json = this.iMerchantService.GetMerchantsJson(null, ipLeafSchool.Id);
-                    }
-                    else
-                    {
-                        json = this.iMerchantService.GetMerchantsJson(null, "");
-                    }
+
+                    json = this.iMerchantService.GetMerchantsJson(null, "");
+
                 }
             }
 
-            string script = callback + "("+ json  +")";
+            string script = callback + "(" + json + ")";
 
             return JavaScript(script);
         }
@@ -117,7 +110,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             if (this.HttpContext.User.Identity.IsAuthenticated == true)
             {
                 //int start, int limit, out long total
-                IList<MyFavorite> myFavorites = this.iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser, start, limit,out total);
+                IList<MyFavorite> myFavorites = this.iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser, start, limit, out total);
                 myBrandsIndexModel.currenPage = currentPage;
                 myBrandsIndexModel.pageNum = total / numPerPageValue + 1;
 
@@ -142,7 +135,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     //    }
                     //}
                     //else
-                        if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+                    if (m.Merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
                     {
                         IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(m.Merchant.Id);
                         if (commoditys.Count > 0)
@@ -173,6 +166,6 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
 
             return View(myBrandsIndexModel);
-        }       
+        }
     }
 }

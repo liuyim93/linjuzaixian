@@ -16,7 +16,7 @@ using Friday.core.Models;
 
 namespace friday.core.services
 {
-    public class MerchantService:IMerchantService
+    public class MerchantService : IMerchantService
     {
         private IMerchantRepository iMerchantRepository;
         private IShopService iShopService;
@@ -126,9 +126,10 @@ namespace friday.core.services
             }
 
             FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = new { 
-              sBrands=sBrandModels,
-              bBrands=bBrandModels
+            jsonResult.Data = new
+            {
+                sBrands = sBrandModels,
+                bBrands = bBrandModels
             };
             return jsonResult.FormatResult();
         }
@@ -143,28 +144,18 @@ namespace friday.core.services
             IList<Shop> Merchants = new List<Shop>();
             if (systemUser != null)
             {
-                if (selectIP != "" && selectIP != null)
-                {
-                    myFavorites = iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser, selectIP);
-                }
-                else
-                {
-                    myFavorites = iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser);
-                }
+
+                myFavorites = iMyFavoriteService.GetMyFavoriteBySystemUser(systemUser);
+
                 foreach (MyFavorite m in myFavorites)
                 {
                     myFavoriteMerchant.Add(m.Merchant);
                 }
             }
 
-            if (selectIP != "" && selectIP != null)
-            {
-                Merchants = iShopService.GetShopsBySchoolID(selectIP);
-            }
-            else
-            {
-                Merchants = iShopService.GetAll();
-            }
+
+            Merchants = iShopService.GetAll();
+
             Merchant Merchant;
             int index;
 
