@@ -43,6 +43,13 @@ namespace Friday.mvc.weblogin.sku
             commodity = commodityService.Load(Request.Params["commodity_id"]);
             sku.Commodity = commodity;
 
+            Sku minSku = skuService.GetMinPriceSkusByCommodityID(commodity.Id);
+            if (sku.price < minSku.price)
+            {
+                commodity.Price = sku.price;
+            }
+            commodityService.Update(commodity);
+
             skuService.Save(sku);
 
             AjaxResult result = new AjaxResult();

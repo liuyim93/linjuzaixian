@@ -19,14 +19,12 @@ namespace friday.core.components
         /// <returns>一个一维字符串数组String(1)，String(0) = IP地址；String(1) = 查询结果或提示信息</returns>
         public static string[] GetAddress()
         {
-            //friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient ip = new friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient(new BasicHttpBinding(), new EndpointAddress("http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx"));
-            //string hostName = Dns.GetHostName();
-            //System.Net.IPAddress[] addressList = Dns.GetHostAddresses(hostName);
-            //IPAddress ipAddr = addressList[3];
+            friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient ip = new friday.core.ServiceReference1.IpAddressSearchWebServiceSoapClient(new BasicHttpBinding(), new EndpointAddress("http://www.webxml.com.cn/WebServices/IpAddressSearchWebService.asmx"));
+            string hostName = Dns.GetHostName();
+            System.Net.IPAddress[] addressList = Dns.GetHostAddresses(hostName);
+            IPAddress ipAddr = addressList[1];
 
-            //return ip.getCountryCityByIp(ipAddr.ToString());
-            string[] arr = { };
-            return arr;
+            return ip.getCountryCityByIp(ipAddr.ToString());
         }
 
         /// <summary>

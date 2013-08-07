@@ -15,6 +15,8 @@ namespace Friday.mvc.weblogin
     public partial class pEditSku : BasePage
     {
         private ISkuService iSkuService = UnityHelper.UnityToT<ISkuService>();
+        private ICommodityService commodityService = UnityHelper.UnityToT<ICommodityService>();
+
         private Sku sku;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -35,6 +37,12 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(sku);
+            Sku minSku = iSkuService.GetMinPriceSkusByCommodityID(sku.Commodity.Id);
+            if (sku.price < minSku.price)
+            {
+                sku.Commodity.Price = sku.price;
+            }
+            commodityService.Update(sku.Commodity);
             iSkuService.Save(sku);
 
             AjaxResult result = new AjaxResult();

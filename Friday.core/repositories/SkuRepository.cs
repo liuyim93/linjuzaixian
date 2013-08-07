@@ -12,31 +12,36 @@ namespace friday.core.repositories
     {
         public IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total)
         {
-            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).OrderByDescending(o=>o.CreateTime).Skip(start).Take(limit).ToList();
+            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).OrderByDescending(o => o.CreateTime).Skip(start).Take(limit).ToList();
             total = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Count();
             return list;
         }
         public Sku GetMinPriceSkusByCommodityID(string commodityID)
         {
             var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).ToList();
-            Sku skp = new Sku() 
+            Sku skp = new Sku()
             {
-               price=0,
+                price = 0,
             };//=list[0];
-            for(int i=0;i<list.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
                 if (i == 0)
                 {
-                    skp=list[0];
+                    skp = list[0];
                 }
-                if (list[i].price < skp.price) 
+                if (list[i].price < skp.price)
                 {
                     skp = list[i];
                 }
-                
+
             }
             return skp;
-           
+
+        }
+
+        public Double GetMinPriceByCommodityID(string commodityID)
+        {
+            return GetMinPriceSkusByCommodityID(commodityID).price;
         }
         public Sku getSkubyIntID(string id)
         {
@@ -62,6 +67,6 @@ namespace friday.core.repositories
                 }
             }
         }
-     
+
     }
 }

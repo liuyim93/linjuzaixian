@@ -123,10 +123,10 @@ namespace Friday.mvc.Areas.Order.Controllers
                             Sku = cartOfCommodity.Sku
                         };
                         sumPrice += cartOfCommodity.Price;
-                        msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "、";
+                        msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "，单价："+cartOfCommodity.Price+"、";
                         iOrderOfCommodityService.Save(orderOfCommodity);
                     }
-                    msgContent += "收件人：" + addr.Linkman + "。地址" + addr.AddressName;
+                    msgContent += "收件人：" + addr.Linkman + "。地址" + addr.AddressName+"联系电话"+addr.Tel+"。";
                     msgContent = msgContent.Substring(0, msgContent.Length - 1) + "，请及时处理！";
 
                     if (shop.Tel != "" && shop.Tel != null)
