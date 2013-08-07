@@ -24,7 +24,7 @@ namespace friday.core.repositories
 
         public CartOfCommodity getCommodityBySystemUserIDAndSkuID(string SystemUserID, string SkuID, bool isDelete)
         {
-            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.Sku.skuId == Convert.ToInt16(SkuID) && o.ShoppingCart.SystemUser.Id == SystemUserID && o.IsDelete == isDelete).SingleOrDefault();
+            var m = (from x in this.Session.Query<CartOfCommodity>() select x).Where(o => o.Sku.skuId == Convert.ToInt16(SkuID) &&o.ShoppingCart.IsDelete==false&& o.ShoppingCart.SystemUser.Id == SystemUserID && o.IsDelete == isDelete).SingleOrDefault();
             return m;
         }
 

@@ -322,7 +322,7 @@
                 d = "http://localhost:7525/",
             //AJ = d + "my_cart.htm",
                 AJ = d + "CartPay/Home/MyCartPay",
-                 AE = u ? "http://buy.daily.tmall.net/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8" : "http://buy.tmall.com/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8",
+                 //AE = u ? "http://buy.daily.tmall.net/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8" : "http://buy.tmall.com/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8",
                  AR = AG.viewportHeight(e),
                  W, Ac, J, r, P, AK, t, Aa, AU, j, U, AP, AW, k, Ad, z, AN, Z = false,
                  Al = false,
