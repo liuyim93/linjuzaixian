@@ -16,6 +16,7 @@ namespace Friday.mvc.weblogin.activity
     public partial class pEditActivity : BasePage
     {
         IActivityService iActivityService = UnityHelper.UnityToT<IActivityService>();
+        IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
         private Activity activity;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -35,12 +36,15 @@ namespace Friday.mvc.weblogin.activity
                 BindingHelper.ObjectToControl(activity, this);
                 this.Edit_Activity_ImagePreview.Src = activity.Image;
                 this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
+                GoodsTypeID.Value = activity.Matters;
+                GoodsType.Value = iGlobalGoodsTypeService.Load(activity.Matters).Name;
             }
         }
 
         private void SaveActivity()
         {
             BindingHelper.RequestToObject(activity);
+            activity.Matters = GoodsTypeID.Value;
 
             string fileoldName = "";
             string fileExtension;
@@ -68,18 +72,19 @@ namespace Friday.mvc.weblogin.activity
                                 File.Delete(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
                             }
                             postedFile.SaveAs(System.Web.HttpContext.Current.Request.MapPath("~/uploadimage/") + filesnewName);
-                        }
-                        if (fileInput[num] == "Edit_Activity_Image")
-                        {
-                            activity.Image = "/uploadimage/" + filesnewName;
-                            this.Edit_Activity_ImagePreview.Src = activity.Image;
-                        }
+                            if (fileInput[num] == "Edit_Activity_Image")
+                            {
+                                activity.Image = "/uploadimage/" + filesnewName;
+                                this.Edit_Activity_ImagePreview.Src = activity.Image;
+                            }
 
-                        if (fileInput[num] == "Edit_Activity_SubImage")
-                        {
-                            activity.SubImage = "/uploadimage/" + filesnewName;
-                            this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
+                            if (fileInput[num] == "Edit_Activity_SubImage")
+                            {
+                                activity.SubImage = "/uploadimage/" + filesnewName;
+                                this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
+                            }
                         }
+                       
                     }
                 }
             }

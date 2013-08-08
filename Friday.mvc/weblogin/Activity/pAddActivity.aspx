@@ -20,6 +20,7 @@
                     活动名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
             </p>
+        
             <%--  <p>
                 <label>
                     活动事项：</label>
@@ -27,11 +28,16 @@
             </p>--%>
             <p>
                 <label>
-                    活动事项：</label>
+                    活动类型：</label>
                 <input type="text" id="GoodsType" size="25" class="required textInput gray" runat="server"
                     readonly="true" />
                 <input type="hidden" id="GoodsTypeID" runat="server" />
                 <a class="btnLook" href="ListGlobalGoodsType.aspx" rel="" lookupgroup="">选择类型</a>
+            </p>
+              <p>
+                <label>
+                    活动指定商家ID：</label>
+                <input type="text" id="Description" size="30" class=" textInput gray" runat="server" />
             </p>
             <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
 
@@ -125,14 +131,7 @@
                 </span>
             </p>
             <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
-            <p style="clear:left">
-                    <label>
-                        详细内容：</label>
-                    <div style="width: 100%;">
-                        <textarea id="Description" name="Description" rows="10" cols="240" style="width: 100%"
-                            runat="server"></textarea>
-                    </div>
-             </p>
+          
 
         </div>
         <div class="formBar">

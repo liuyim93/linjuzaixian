@@ -14,8 +14,16 @@
                         <img src="@item.SubImage" width="760" height="210">
                     </b> 
                 }
+                @if (!string.IsNullOrEmpty(item.Description))
+                {
+                    <a class="mScm-link" href="http://localhost:7525/Merchant/index?scid=@item.Description"
+                            title="@item.Name" data-spm="d1"></a>
+                }
+                    else
+                    {
                     <a class="mScm-link" href="http://localhost:7525/Merchant/SearchProduct?cat=@item.Matters"
                             title="@item.Name" data-spm="d1"></a>
+                }
                 </div>
             </li>
               

@@ -28,6 +28,8 @@ namespace friday.core.domain
             get;
         }
 
+       
+
         public virtual string Image
         {
             set;

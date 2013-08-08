@@ -22,15 +22,6 @@ namespace Friday.mvc.weblogin.activity {
         protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// MyOrderId 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MyOrderId;
-        
-        /// <summary>
         /// Name 控件。
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace Friday.mvc.weblogin.activity {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden GoodsTypeID;
+        
+        /// <summary>
+        /// Description 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Description;
         
         /// <summary>
         /// Edit_Activity_Image 控件。
@@ -92,14 +92,5 @@ namespace Friday.mvc.weblogin.activity {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage Edit_Activity_SubImagePreview;
-        
-        /// <summary>
-        /// Description 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
     }
 }

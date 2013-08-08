@@ -56,7 +56,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
         public ActionResult Tab_Recommend(string brandId, string _ksTS, string callback)
         {
-            string recommends = "({\"list\": [{\"id\": 15052401756,\"sellerId\": 890482188,\"title\": \"Nike耐克官方PRO COMBAT HYPRWRM CREW男子紧身长袖针织衫456445\",\"url\": \"http://detail.tmall.com/item.htm?id=15052401756&pos=1&uuid=0fed7c063a684b439c2f2f482767520b&scm=1003.3.03040.1_1&acm=03040.1003.247.238.15052401756_1\",\"img\": \"http://img04.taobaocdn.com/bao/uploaded/i4/12188021901974974/T14w9eXyFfXXXXXXXX_!!0-item_pic.jpg\",\"commentNum\": 0,\"rate\": 0.0,\"price\": 349.0,\"marketPrice\": 349.0,\"comments\": [{\"content\": \"很好，很不错，也很保暖， 180个子，80公斤 L号，很有型\",\"nick\": \"h***7\"},{\"content\": \"颜色非常好，比图片上的好看，但是比较肥，不够紧身，保暖性能不错，适合现在的季节穿\\n我身高186，体重86公斤，上肢肌肉发达，穿XL的都觉得肥，长短正好，要是穿L的应该就短了，没办法\",\"nick\": \"q***y\"},{\"content\": \"无论速度、质量都好得不得了\",\"nick\": \"vincenttsang\"}],\"lastBitOfSCM\": \"1_1\"}],\"vid\": 0,\"curPage\": 1,\"step\": 6,\"maxPage\": 4,\"brand\": \"耐克/Nike\",\"brandLogo\": \"http://img04.taobaocdn.com/bao/uploaded/i4/T1zD7YXnpXXXXQXDnq-90-45.png\",\"brandId\": 20578,\"acurl\": \"http://ac.atpanel.com/1.gif?cache=9842315&com=02&apply=detail&cod=1.3.1&acm=03040.1003.247.238.16246683095_1&uid=&ver=&ip=&other=&uuid=0fed7c063a684b439c2f2f482767520b\"},null)";
+            string recommends = "({\"list\": [{\"id\": 15052401756,\"sellerId\": 890482188,\"title\": \"Nike耐克PRO COMBAT HYPRWRM CREW男子紧身长袖针织衫456445\",\"url\": \"http://detail.tmall.com/item.htm?id=15052401756&pos=1&uuid=0fed7c063a684b439c2f2f482767520b&scm=1003.3.03040.1_1&acm=03040.1003.247.238.15052401756_1\",\"img\": \"http://img04.taobaocdn.com/bao/uploaded/i4/12188021901974974/T14w9eXyFfXXXXXXXX_!!0-item_pic.jpg\",\"commentNum\": 0,\"rate\": 0.0,\"price\": 349.0,\"marketPrice\": 349.0,\"comments\": [{\"content\": \"很好，很不错，也很保暖， 180个子，80公斤 L号，很有型\",\"nick\": \"h***7\"},{\"content\": \"颜色非常好，比图片上的好看，但是比较肥，不够紧身，保暖性能不错，适合现在的季节穿\\n我身高186，体重86公斤，上肢肌肉发达，穿XL的都觉得肥，长短正好，要是穿L的应该就短了，没办法\",\"nick\": \"q***y\"},{\"content\": \"无论速度、质量都好得不得了\",\"nick\": \"vincenttsang\"}],\"lastBitOfSCM\": \"1_1\"}],\"vid\": 0,\"curPage\": 1,\"step\": 6,\"maxPage\": 4,\"brand\": \"耐克/Nike\",\"brandLogo\": \"http://img04.taobaocdn.com/bao/uploaded/i4/T1zD7YXnpXXXXQXDnq-90-45.png\",\"brandId\": 20578,\"acurl\": \"http://ac.atpanel.com/1.gif?cache=9842315&com=02&apply=detail&cod=1.3.1&acm=03040.1003.247.238.16246683095_1&uid=&ver=&ip=&other=&uuid=0fed7c063a684b439c2f2f482767520b\"},null)";
 
             string script = callback + recommends;
 
@@ -477,7 +477,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 {
                     	id="17124405607",
 		                sellerId="890482188",
-		                title=i+"Nike  耐克官方  AIR MAX FUSION WRM 女子训练鞋 555163",
+		                title=i+"Nike  耐克  AIR MAX FUSION WRM 女子训练鞋 555163",
 		                url="http://detail.tmall.com/item.htm?id=17124405607&pos=1&uuid=43f8d91add60486dad032e80ea4db029&scm=1003.3.03054.1_1&acm=03054.1003.656.250.17124405607_1",
 		                img="http://img04.taobaocdn.com/bao/uploaded/i4/12188019483228809/T1n8w4XfJgXXXXXXXX_!!0-item_pic.jpg",
 		                commentNum=i,
