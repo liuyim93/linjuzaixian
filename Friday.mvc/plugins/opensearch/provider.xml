@@ -3,6 +3,6 @@
   <InputEncoding>GB2312</InputEncoding>
   <ShortName>淘宝购物</ShortName>
   <Description>淘宝购物搜索 - 只有你想不到，没有你淘不到</Description>
-  <!--<Image height="16" width="16" type="image/vnd.microsoft.icon">http://www.linjuzaixian.com/Images/favicon.ico</Image>-->
+  <!--<Image height="16" width="16" type="image/vnd.microsoft.icon">http://localhost:7525/Images/favicon.ico</Image>-->
   <Url type="text/html" template="http://search1.taobao.com/browse/search_auction.htm?q={searchTerms}" />
 </OpenSearchDescription>

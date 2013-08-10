@@ -58,7 +58,7 @@ TML.add("minilogin", function (_tml) {
         is_daily = true,
         //2013-03-04 basilwang daily means localhost in our context
         //_domain = is_daily ? "daily.tmall.net" : "tmall.com",
-        _domain = is_daily ? "http://www.linjuzaixian.com/" : "tmall.com",
+        _domain = is_daily ? "http://localhost:7525/" : "tmall.com",
         //2013-03-04 basilwang we use localhost
         //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
         _url = _domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",

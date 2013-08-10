@@ -2,7 +2,7 @@
 #mallCate #mallCate-bd li{margin-left:25px;}
 .sn-mcate-bd .sn-mcate-ctn-con{width:950px;background-position:-268px 5px;}
 .sn-mcate-bd .sn-mcate-ctn li{padding-right:0;}
-#mallLogo .mlogo s,#mallLogo .slogo,.mcate-hd i,.headerPromise li a,#tmallSearch button,#tmallSearch button:hover,#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://www.linjuzaixian.com/Images/tmall_official-191-240.png) no-repeat;}
+#mallLogo .mlogo s,#mallLogo .slogo,.mcate-hd i,.headerPromise li a,#tmallSearch button,#tmallSearch button:hover,#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://localhost:7525/Images/tmall_official-191-240.png) no-repeat;}
 .hidden{display:none;}
 .clearfix{*zoom:1;}
 .clearfix:after{content:'\20';display:block;height:0;clear:both;}
@@ -26,7 +26,7 @@
 .hasSubLogo #mallLogo a:hover{text-decoration:none;border-bottom:2px solid #fff;}
 #mallLogo .mlogo{padding-right:7px;}
 #mallLogo .mlogo a{height:30px;font-size:22px!important;width:170px;overflow:hidden;}
-#mallLogo .mlogo s{background-image:url(http://www.linjuzaixian.com/Images/tmall_official-191-240.png)!important;position:absolute;display:block;top:0;cursor:pointer;background-position:0 0!important;height:30px!important;width:170px!important;}
+#mallLogo .mlogo s{background-image:url(http://localhost:7525/Images/tmall_official-191-240.png)!important;position:absolute;display:block;top:0;cursor:pointer;background-position:0 0!important;height:30px!important;width:170px!important;}
 #mallLogo .slogo{padding-top:8px;padding-left:17px;background-position:-174px -1px;}
 #mallLogo .slogo a{font-family:'Lucida Grande','\5fae\8f6f\96c5\9ed1';font-size:15px;height:22px;line-height:22px;overflow:hidden; }
 #tmallSearch{float:right;width:510px;padding-top:11px;}

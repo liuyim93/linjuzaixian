@@ -8,13 +8,13 @@ TMall.Head = function () {
         _STR_MOUSEENTER = "mouseenter",
         _STR_MOUSELEAVE = "mouseleave";
     //var _url = ~location.host.indexOf(".net") ? "assets.daily.taobao.net" : "a.tbcdn.cn";
-    var _url="http://www.linjuzaixian.com/";
+    var _url="http://localhost:7525/";
     var _dom_scripts = _document.getElementsByTagName("script");
     var _last_dom_script = _dom_scripts[_dom_scripts.length - 1];
     var _script_src = _last_dom_script.src || "";
     var C = _script_src.substring(_script_src.lastIndexOf("?") + 1, _script_src.length);
     var B = "http://" + _url + "/apps/tmall/header/shop/header.js?t=" + (C || "20120926");
-    var _cat_nav_asyn_url = "http://www.linjuzaixian.com/category/home/cat_nav_asyn";
+    var _cat_nav_asyn_url = "http://localhost:7525/category/home/cat_nav_asyn";
     var _dom_id_mallSearch;
     var _is_loaded = false;
     function _getElementById(_id) {

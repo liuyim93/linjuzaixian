@@ -45,7 +45,7 @@ namespace Friday.mvc.Areas.Order.Controllers
             SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
             if (systemUser == null)
             {
-                return Redirect("http://www.linjuzaixian.com/member/login.jhtml?redirect_url=http://www.linjuzaixian.com/index.html");
+                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/index.html");
             }
 
             if (isCod != null && isCod != "")
@@ -61,7 +61,7 @@ namespace Friday.mvc.Areas.Order.Controllers
 
                 if (cartOfCommoditys.Count == 0)
                 {
-                    return Redirect("http://www.linjuzaixian.com/CartPay/Home/MyCartPay");
+                    return Redirect("http://localhost:7525/CartPay/Home/MyCartPay");
                 }
 
                 Dictionary<string, List<friday.core.CartOfCommodity>> merchantListItem = new Dictionary<string, List<friday.core.CartOfCommodity>>();
@@ -126,7 +126,7 @@ namespace Friday.mvc.Areas.Order.Controllers
                         msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "，单价："+cartOfCommodity.Price+"、";
                         iOrderOfCommodityService.Save(orderOfCommodity);
                     }
-                    msgContent += "收件人：" + addr.Linkman + "。地址" + addr.AddressName+"联系电话"+addr.Tel+"。";
+                    msgContent += "收件人：" + addr.Linkman + "。地址" + addr.AddressName+"联系电话:"+addr.Tel+","+addr.BackupTel+"。";
                     msgContent = msgContent.Substring(0, msgContent.Length - 1) + "，请及时处理！";
 
                     if (shop.Tel != "" && shop.Tel != null)

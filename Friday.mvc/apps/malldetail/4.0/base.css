@@ -172,7 +172,7 @@ a{color:#36c;}
 #content .c-value-0 em{width:1px;}
 #content .shop-promise li,#content .shop-intro li,#content .shop-search li{color:#404040;}
 table img,#description img,.col-sub img,.shop-banner img{vertical-align:top;}
-#content .pagination{color:#999;font-size:14px;font-weight:bold;float:right;background:url(http://www.linjuzaixian.com/Images/mall_head-70-20.png) no-repeat right 0;padding-top:19px;height:auto;}
+#content .pagination{color:#999;font-size:14px;font-weight:bold;float:right;background:url(http://localhost:7525/Images/mall_head-70-20.png) no-repeat right 0;padding-top:19px;height:auto;}
 #content .pagination a,#content .page-prev,#content .page-cur,#content .page-start,#content .page-end,#content .page-break,#content .page-skip{float:left;}
 #content .pagination a,#content .page-prev,#content .page-start,#content .page-cur,#content .page-end,#content .page-skip,#content .page-break{height:28px;padding:10px 14px 0;margin:0;width:auto;}
 #content .page-cur,#content .pagination a,#content .page-end{border:1px solid #e5e5e5;border-left-width:0;}

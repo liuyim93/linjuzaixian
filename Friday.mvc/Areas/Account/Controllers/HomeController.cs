@@ -108,17 +108,17 @@ namespace Friday.mvc.Areas.Account.Controllers
 
                 if (redirect_url != "" && redirect_url != null)
                 {
-                    if (redirect_url.Contains("http://www.linjuzaixian.com/index.html"))
+                    if (redirect_url.Contains("http://localhost:7525/index.html"))
                     {
-                        redirect_url = "http://www.linjuzaixian.com/index.html";
+                        redirect_url = "http://localhost:7525/index.html";
                     }
                     return Redirect(redirect_url);
                 }
                 else
                 {
-                    if (tpl_redirect_url.Contains("http://www.linjuzaixian.com/index.html"))
+                    if (tpl_redirect_url.Contains("http://localhost:7525/index.html"))
                     {
-                        tpl_redirect_url = "http://www.linjuzaixian.com/index.html";
+                        tpl_redirect_url = "http://localhost:7525/index.html";
                     }
                     return Redirect(tpl_redirect_url);
                 }
@@ -167,7 +167,7 @@ namespace Friday.mvc.Areas.Account.Controllers
             string script;
             if (systemUser == null)
             {
-                //return Redirect("http://www.linjuzaixian.com/member/login.jhtml?redirect_url=http://www.linjuzaixian.com/Merchant/Detail?brandId="+id);
+                //return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/Merchant/Detail?brandId="+id);
                 script = "login_indicator={\"hasLoggedIn\":false,\"token\":[],\"success\":true,\"fastBuy\":false}";
             }
             else
@@ -184,18 +184,18 @@ namespace Friday.mvc.Areas.Account.Controllers
 
             if (systemUser == null)
             {
-                if (redirectURL.Contains("http://www.linjuzaixian.com/index.html"))
+                if (redirectURL.Contains("http://localhost:7525/index.html"))
                 {
-                    redirectURL = "http://www.linjuzaixian.com/index.html";
+                    redirectURL = "http://localhost:7525/index.html";
                 }
                 return Redirect(redirectURL);
             }
             else
             {
                 FormsAuthentication.SignOut();
-                if (redirectURL.Contains("http://www.linjuzaixian.com/index.html"))
+                if (redirectURL.Contains("http://localhost:7525/index.html"))
                 {
-                    redirectURL = "http://www.linjuzaixian.com/index.html";
+                    redirectURL = "http://localhost:7525/index.html";
                 }
                 return Redirect(redirectURL);
             }
