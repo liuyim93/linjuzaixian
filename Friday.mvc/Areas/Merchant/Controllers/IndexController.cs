@@ -104,7 +104,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //2013-05-22 basilwang 默认为s
             if (string.IsNullOrEmpty(sort))
             {
-                sort = "p"; //默认按价格升序排列 
+                sort = "md"; //默认按价格升序排列 
             }
             //2013-05-23 basilwang 默认为g
             //if (string.IsNullOrEmpty(style))
