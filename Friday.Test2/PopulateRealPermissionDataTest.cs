@@ -81,7 +81,7 @@ namespace Friday.Test2
             //添加商铺的相关信息
             //add_RestaurantInfo();
             //add_RentInfo();
-            add_ShopInfo();
+            //add_ShopInfo();
         }
         //添加学校、地区
         private  void add_School()

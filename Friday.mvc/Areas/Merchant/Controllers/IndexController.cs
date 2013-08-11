@@ -137,9 +137,16 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 keyword =""; 
             }
             IndexModel merchantIndexModel = new IndexModel();
-
+            friday.core.Merchant merchant;
             //scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
-            friday.core.Merchant merchant = iMerchantService.Get(scid);
+            try
+            {
+                 merchant = iMerchantService.Get(scid);
+            }
+            catch (Exception ex)
+            {
+                return Redirect("/Index.html");
+            }
             if (merchant.IsDelete == true)
             {
                 return Redirect("/Index.html");
