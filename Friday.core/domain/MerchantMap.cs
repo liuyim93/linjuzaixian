@@ -33,6 +33,14 @@ namespace friday.core.domain
             Map(o => o.Activity);
             Map(o => o.Distance);
             Map(o => o.Rate);
+            Map(o => o.NightStartHour);
+            Map(o => o.NightEndHour);
+            Map(o => o.MorningBeginHour);
+            Map(o => o.MorningEndHour);
+            Map(o => o.AfternoonBeginHour);
+            Map(o => o.AfternoonEndHour);
+
+
             Map(o => o.Schools).Length(1000);
             Map(o => o.ShopStatus).CustomType<ShopStatusEnum>();
             Map(o => o.MerchantType).CustomType<MerchantTypeEnum>();

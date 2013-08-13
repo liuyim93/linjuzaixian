@@ -77,7 +77,7 @@
                       <thead>
                         <tr>
                            <th width="10%" align="center">序 号</th>
-                            <th width="20%" orderField="Name" class="asc" align="center">菜 品 名</th>
+                            <th width="20%" orderField="Name" class="asc" align="center">商 品 名</th>
                             <th width="15%" orderField="MonthAmount" class="desc" align="center">月 售 额</th>
                             <th width="20%" align="center">创建时间</th>
                             <th width="20%" align="center">删除标记</th>

@@ -19,5 +19,6 @@ namespace friday.core.services
         IList<Merchant> GetAll();
         IList<Merchant> Search(List<DataFilter> termList);
         IList<Merchant> Search(List<DataFilter> termList, int start, int limit, out long total);
+        ValidateResult isOpend(Merchant shop);
     }
 }

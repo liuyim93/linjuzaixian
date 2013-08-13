@@ -10,6 +10,7 @@ using friday.core;
 using friday.core.components;
 using friday.core.EnumType;
 using friday.core.services;
+using System.Text;
 
 namespace Friday.mvc.weblogin.shop
 {
@@ -55,6 +56,8 @@ namespace Friday.mvc.weblogin.shop
                 string[] namesAndIds = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
                 this.NameSet.Value = namesAndIds[0];
                 this.IDSet.Value = namesAndIds[1];
+
+                ShopStatus.Value =((int)shop.ShopStatus).ToString();
             }
         }
 
@@ -62,6 +65,14 @@ namespace Friday.mvc.weblogin.shop
         {
 
             BindingHelper.RequestToObject(shop);
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Request.Params["MorningBeginHour"]).Append("--").Append(Request.Params["MorningEndHour"])
+                .Append("/").Append(Request.Params["AfternoonBeginHour"]).Append("--").Append(Request.Params["AfternoonEndHour"])
+                .Append("/").Append(Request.Params["NightStartHour"]).Append("--").Append(Request.Params["NightEndHour"]);
+
+            shop.ShopHours = sb.ToString();
+            shop.Schools = schid;
             string imageStr = PictureUpload.UploadImage(HttpContext.Current.Request.Files, "logo");
             if (imageStr != null)
             { shop.Logo = imageStr; }
@@ -83,7 +94,8 @@ namespace Friday.mvc.weblogin.shop
                     iSchoolOfMerchantService.Update(schofmt);
                 }
             }
-            shop.Schools = schid;
+
+          
             iShopService.Update(shop);
 
             AjaxResult result = new AjaxResult();

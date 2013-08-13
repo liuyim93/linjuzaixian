@@ -39,7 +39,7 @@ namespace Friday.mvc
         {
             if (CurrentUser == null)
             {
-                Response.Redirect("/weblogin/login.aspx?message=TimeOut");
+                Response.Redirect("/weblogin/login.aspx?message=请重新登录");
             }
             if (string.IsNullOrEmpty(tagName))
             {
@@ -62,7 +62,7 @@ namespace Friday.mvc
         {
             if (CurrentUser == null)
             {
-                Response.Redirect("/weblogin/login.aspx?message=TimeOut");
+                Response.Redirect("/weblogin/login.aspx?message=请重新登录");
             }
             if (string.IsNullOrEmpty(tagName))
             {

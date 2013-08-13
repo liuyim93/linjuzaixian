@@ -111,6 +111,7 @@
     <Compile Include="components\permission\FunctionObj.cs" />
     <Compile Include="components\permission\FunctionTag.cs" />
     <Compile Include="components\permission\PermissionSettingAttribute.cs" />
+    <Compile Include="components\ValidateResult.cs" />
     <Compile Include="domain\Category.cs" />
     <Compile Include="domain\CategoryLog.cs" />
     <Compile Include="domain\CategoryMap.cs" />

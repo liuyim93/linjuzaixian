@@ -7,7 +7,7 @@ namespace friday.core.EnumType
 {
     public enum ShopStatusEnum
     {
-        接受预定=0,
+        不限时间=0,
         营业时间=1,
         正在休息=2
     }

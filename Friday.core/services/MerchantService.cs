@@ -283,5 +283,89 @@ namespace friday.core.services
         {
             return iMerchantRepository.GetAll();
         }
+
+        public ValidateResult isOpend(Merchant shop)
+        {
+            ValidateResult vr = new ValidateResult();
+            if (shop != null)
+            {
+                DateTime morningStartTime = Convert.ToDateTime(shop.MorningBeginHour);
+                DateTime morningEndTime = Convert.ToDateTime(shop.MorningEndHour);
+                DateTime afternoonStartTime = Convert.ToDateTime(shop.AfternoonBeginHour);//字符串为空自动转成00:00:00
+                DateTime afternoonEndTime = Convert.ToDateTime(shop.AfternoonEndHour);
+                DateTime nightStartTime = Convert.ToDateTime(shop.NightStartHour);
+                DateTime nightEndTime = Convert.ToDateTime(shop.NightEndHour);
+                DateTime now = DateTime.Now;
+                bool moreMorSt = DateTime.Compare(now, morningStartTime) > 0;
+                bool lessMorEnd = DateTime.Compare(now, morningEndTime) < 0;
+                bool moreAfSt = DateTime.Compare(now, afternoonStartTime) > 0;
+                bool lessAfEnd = DateTime.Compare(now, afternoonEndTime) < 0;
+                bool moreNiSt = DateTime.Compare(now, nightStartTime) > 0;
+                bool lessNiEnd = DateTime.Compare(now, nightEndTime) < 0;
+                #region
+                if (shop.ShopStatus.Equals(ShopStatusEnum.营业时间))
+                {
+                    if ((moreMorSt && lessMorEnd) ||
+                        (moreAfSt && lessAfEnd) ||
+                        (moreNiSt && lessNiEnd))
+                    {
+                        vr.isSucceed = true;
+
+                        vr.message = "营业时间";
+                    }
+
+                    else
+                    {
+                        vr.isSucceed = true;
+                        vr.message = "接受预定";
+                        if (!moreMorSt)
+                        {
+                            vr.nextTime = shop.MorningBeginHour;
+                        }
+                        else
+                        {
+                            if (!moreAfSt)
+                            {
+                                vr.nextTime = shop.AfternoonBeginHour;
+                            }
+                            else
+                            {
+                                if (!moreNiSt)
+                                {
+                                    vr.nextTime = shop.NightStartHour;
+                                }
+                                else
+                                {
+                                    vr.isSucceed = false;
+                                    vr.message = "已打烊";
+                                    vr.nextTime = shop.MorningBeginHour;
+                                }
+                            }
+                        }
+                    }
+                }
+                #endregion
+                else
+                {
+                    if (shop.ShopStatus == ShopStatusEnum.不限时间)
+                    {
+                        vr.isSucceed = true;
+                    }
+
+                    else
+                    {
+                        vr.isSucceed = false;
+                        vr.message = "餐厅已休假";
+                    }
+
+                }
+            }
+            else
+            {
+                vr.isSucceed = false;
+                vr.message = "商铺信息获取失败";
+            }
+            return vr;
+        }
     }
 }

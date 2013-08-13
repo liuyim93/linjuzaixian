@@ -15,7 +15,7 @@
                       {
                           var item=Model.NationalShops.ElementAt(i);
                       <li class="first">          
-                  <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@item.Name">
+                  <a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Id" target="_blank" title="@item.Name">
                
                   <span>@item.Name</span><b></b></a>
                      </li>  
@@ -49,7 +49,7 @@
                              }
                      @:<li class="subItem">
 
-                     @:<h3 class="subItem-hd"><a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level1_obj.Id#J_crumbs" target="_blank"> @level1_obj.Name</a> </h3>
+                     @:<h3 class="subItem-hd"><a href="http://www.linjuzaixian.com/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level1_obj.Id#J_crumbs" target="_blank"> @level1_obj.Name</a> </h3>
                 
                      @:<p class="subItem-cat">
                         for (int level2 = 0; level2 < Model.GlobalGoodsTypeTlevelSecond.Count(); level2++)
@@ -57,7 +57,7 @@
                             var level2_obj = Model.GlobalGoodsTypeTlevelSecond.ElementAt(level2);
                             if (level2_obj.ParentID == level1_obj.Id)
                             {
-                               <a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level2_obj.Id#J_crumbs" target="_blank">@level2_obj.Name</a>
+                               <a href="http://www.linjuzaixian.com/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level2_obj.Id#J_crumbs" target="_blank">@level2_obj.Name</a>
                             }
 
                         }  

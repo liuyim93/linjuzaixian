@@ -94,13 +94,67 @@ namespace Friday.mvc.weblogin.shop {
         protected global::System.Web.UI.HtmlControls.HtmlImage Add_Shop_ImagePreview;
         
         /// <summary>
-        /// ShopHours 控件。
+        /// ShopStatus 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText ShopHours;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ShopStatus;
+        
+        /// <summary>
+        /// MorningBeginHour 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MorningBeginHour;
+        
+        /// <summary>
+        /// MorningEndHour 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText MorningEndHour;
+        
+        /// <summary>
+        /// AfternoonBeginHour 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText AfternoonBeginHour;
+        
+        /// <summary>
+        /// AfternoonEndHour 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText AfternoonEndHour;
+        
+        /// <summary>
+        /// NightStartHour 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NightStartHour;
+        
+        /// <summary>
+        /// NightEndHour 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText NightEndHour;
         
         /// <summary>
         /// Tel 控件。
@@ -146,15 +200,6 @@ namespace Friday.mvc.weblogin.shop {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText Rate;
-        
-        /// <summary>
-        /// ShopStatus 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ShopStatus;
         
         /// <summary>
         /// Bulletins 控件。

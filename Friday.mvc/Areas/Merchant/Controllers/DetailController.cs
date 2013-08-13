@@ -72,7 +72,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             DetailModel detailModel = new DetailModel();
             detailModel.Commodity = commodity;
 
-            friday.core.Merchant merchant = iMerchantService.Load(commodity.Shop.Id);           
+            friday.core.Merchant merchant = iMerchantService.Load(commodity.Shop.Id);
+
+            ValidateResult vr = iMerchantService.isOpend(merchant);
 
             detailModel.Merchant = merchant;
             int index = 0;
@@ -132,6 +134,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //        }
             //    }
             //}
+                ViewBag.ValidateResult = vr;
 
             return View(detailModel);
         }

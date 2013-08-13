@@ -37,6 +37,7 @@ namespace Friday.mvc.weblogin.shop
             shop = iShopService.Load(uid);
 
             BindingHelper.ObjectToControl(shop, this);
+            ShopStatus.Value = ((int)shop.ShopStatus).ToString();
 
             string[] schofmntname = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
             //string[] arrname = schofmntname.Split('，');

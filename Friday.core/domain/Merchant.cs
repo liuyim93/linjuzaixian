@@ -69,6 +69,12 @@ namespace friday.core
             set;
 
         }
+        public virtual bool IsOpen//not map
+        {
+            set;
+            get;
+        }
+
         public virtual string bBrand
         {
             get;
@@ -123,6 +129,51 @@ namespace friday.core
 
             get;
         }
+
+        public virtual string MorningBeginHour
+        {
+            get;
+
+            set;
+
+        }
+        public virtual string MorningEndHour
+        {
+            get;
+
+            set;
+
+        }
+        public virtual string AfternoonBeginHour
+        {
+            get;
+
+            set;
+
+        }
+
+        public virtual string AfternoonEndHour
+        {
+            get;
+
+            set;
+
+        }
+        public virtual string NightStartHour
+        {
+
+            set;
+            get;
+        }
+
+        public virtual string NightEndHour
+        {
+
+            set;
+
+            get;
+        }
+
 
         public virtual MerchantTypeEnum MerchantType
         {

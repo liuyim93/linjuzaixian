@@ -10,19 +10,18 @@
             <div class="tb-wrap">
                 <div class="tb-detail-hd">
                     <h3 data-spm="1000983">
-                        <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@(Model.Commodity.Id)">
+                        <a target="_blank" href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@(Model.Commodity.Id)">
                             @Model.Commodity.Name</a>
                     </h3>
                 </div>
                 <ul class="tb-meta">
-                    <li class="tb-detail-price tm-clear" id="J_StrPriceModBox"><span class="tb-metatit">
-                        价格</span> <strong id="J_StrPrice"></strong><span class="yuan">元</span> </li>
+                    <li class="tb-detail-price tm-clear" id="J_StrPriceModBox"><span class="tb-metatit">价格</span> <strong id="J_StrPrice"></strong><span class="yuan">元</span> </li>
                     <li class="tb-detail-price tm-clear tb-promo-price  tb-hidden" id="J_PromoPrice"><span
                         class="tb-metatit">促销</span>
                         <div id="J_PromoBox">
                         </div>
                     </li>
-@*                    <li class="tb-delivery tm-clear" id="J_RSPostageCont"><span class="tb-metatit">配送</span>
+                    @*                    <li class="tb-delivery tm-clear" id="J_RSPostageCont"><span class="tb-metatit">配送</span>
                         <div class="tb-postAge">
                             <a id="J_dqPostAgeCont" href="#" class="tb-postAgeCont" data-spm-anchor-id="a220o.1000855.0.65">
                                 至&nbsp;济南</a>
@@ -35,8 +34,7 @@
                             </div>
                         </div>
                     </li>*@
-                    <li class="tb-sold-out tm-clear J_MonSales" style="display: list-item;"><span class="tb-metatit">
-                        总销量</span> <em class="J_MonSalesNum"></em>件 </li>
+                    <li class="tb-sold-out tm-clear J_MonSales" style="display: list-item;"><span class="tb-metatit">总销量</span> <em class="J_MonSalesNum"></em>件 </li>
                     <li class="tb-item-rates tm-clear" id="J_ItemRates" style="display: list-item;"><span
                         class="tb-metatit">评价</span>暂无评价
                         @*
@@ -56,28 +54,28 @@
                             <!--  -->
                             <!-- meizInfo.vm end-->
                             @{
-                                if(Model.Commodity.Skus.Count!=0)
+                                if (Model.Commodity.Skus.Count != 0)
                                 {
                                     var sku = Model.Commodity.Skus.ElementAt(0);
                                     for (var propIndex = 0; propIndex < sku.SKUProps.Count; propIndex++)
                                     {
-                                        var prop=sku.SKUProps.ElementAt(propIndex);
-                                        var propid=prop.PropID;
-                                        <dl class="tb-prop tm-clear">
-                                            <dt class="tb-metatit">@prop.PropID.PropIDName</dt>
-                                            <dd>
-                                                <ul data-property="@prop.PropID.PropIDName" class="tm-clear J_TSaleProp  ">
-                                                   @for (var propValueIndex = 0; propValueIndex < propid.PropValues.Count(); propValueIndex++)
-                                                   {
-                                                       var propvalue = propid.PropValues.ElementAt(propValueIndex);
-                                                       <li data-value="@propid.Id:@propvalue.Id"><a href="#"><span>@propvalue.PropValueName</span> </a></li>
-                                                   }
-                                                </ul>
-                                            </dd>
-                                        </dl>
+                                        var prop = sku.SKUProps.ElementAt(propIndex);
+                                        var propid = prop.PropID;
+                                <dl class="tb-prop tm-clear">
+                                    <dt class="tb-metatit">@prop.PropID.PropIDName</dt>
+                                    <dd>
+                                        <ul data-property="@prop.PropID.PropIDName" class="tm-clear J_TSaleProp  ">
+                                            @for (var propValueIndex = 0; propValueIndex < propid.PropValues.Count(); propValueIndex++)
+                                            {
+                                                var propvalue = propid.PropValues.ElementAt(propValueIndex);
+                                                <li data-value="@propid.Id:@propvalue.Id"><a href="#"><span>@propvalue.PropValueName</span> </a></li>
+                                            }
+                                        </ul>
+                                    </dd>
+                                </dl>
                                     }
                                 }
-                             }
+                            }
                             @*<dl class="tb-prop tm-clear">
                                 <dt class="tb-metatit">运动服尺寸</dt>
                                 <dd>
@@ -119,22 +117,32 @@
                                     <em>"运动服尺寸"</em> <em>"颜色分类"</em>
                                 </dd>
                             </dl>
-                            <div class="tb-action tm-clear ">
-                                <div class="tb-btn-buy tb-btn-sku">
-                                    <a id="J_LinkBuy" href="#" data-addfastbuy="true" title="点击此按钮，到下一步确认购买信息。">立刻购买 <b>
-                                    </b></a>
+                            @if (ViewBag.ValidateResult.isSucceed)
+                            {
+                                <div class="tb-action tm-clear ">
+                                    <div class="tb-btn-buy tb-btn-sku">
+                                        <a id="J_LinkBuy" href="#" data-addfastbuy="true" title="点击此按钮，到下一步确认购买信息。">立刻购买 <b></b></a>
+                                    </div>
+                                    <div class="tb-btn-basket tb-btn-sku">
+                                        <a href="#" id="J_LinkBasket">加入购物车 <b></b></a>
+                                    </div>
+                                    <div class="tb-btn-add tb-btn-sku tb-hidden">
+                                        <a href="#" id="J_LinkAdd">加入购物车 <b></b></a>
+                                    </div>
                                 </div>
-                                <div class="tb-btn-basket tb-btn-sku">
-                                    <a href="#" id="J_LinkBasket">加入购物车 <b></b></a>
+                            }
+                            else
+                            {
+                                <div class="tb-action tm-clear ">
+                                    <div >
+                                        <span>暂不在营业时间，不能购买 </span>
+                                    </div>
                                 </div>
-                                <div class="tb-btn-add tb-btn-sku tb-hidden">
-                                    <a href="#" id="J_LinkAdd">加入购物车 <b></b></a>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>
-@*                <ul class="tb-meta">
+                @*                <ul class="tb-meta">
                     <li>
                         <ul class="tb-meta tb-serUnified tm-clear">
                             <li><span class="tb-metatit" data-spm="1000988"><a href=" "
@@ -182,7 +190,7 @@
                         </dl>
                     </li>
                 </ul>*@
-@*                <ul class="tb-meta">
+                @*                <ul class="tb-meta">
                     <li class="tb-other tm-clear "><span class="tb-metatit">爱分享</span> <span id="J_IShare">
                         <div class="TMLShareTrigger" id="tml-share-trigger">
                             <div class="tml-share-ctn TMLShareCtn">
@@ -217,48 +225,47 @@
         <div class="tb-gallery">
 
             <div class="tb-booth tb-pic tb-s460">
-                    @{
-                        string imagePath = Model.Commodity.Image;
-                        string[] images = imagePath.Split(';');
+                @{
+                    string imagePath = Model.Commodity.Image;
+                    string[] images = imagePath.Split(';');
                         
                        
                         
-                        <a href="#" target="_blank">
+                    <a href="#" target="_blank">
                         <img id="J_ImgBooth" data-haszoom="700">
-                     
-                        </a>
-                      }  
+                    </a>
+                }
             </div>
             <ul id="J_UlThumb" class="tb-thumb tm-clear">
-            @{
+                @{
 
-                for (int a=0;a< images.Length;a++)
-                {
-                    var src = "http://localhost:7525/"+images[a]+"_60x60.jpg";     
-                                   
-                    if(a==0)
+                    for (int a = 0; a < images.Length; a++)
                     {
-                        @*<image data-ks-lazyload="@src_0" />*@
+                        var src = "http://www.linjuzaixian.com/" + images[a] + "_60x60.jpg";
+
+                        if (a == 0)
+                        {
+@*<image data-ks-lazyload="@src_0" />*@
                 
-                        <li class="tb-selected" >
-                            <div class="tb-pic tb-s60">
-                                <a href="#">
-                                    <img src="@src"></a>
-                            </div>
-                        </li>
-                    }
-                    else
-                    {
+                    <li class="tb-selected">
+                        <div class="tb-pic tb-s60">
+                            <a href="#">
+                                <img src="@src"></a>
+                        </div>
+                    </li>
+                        }
+                        else
+                        {
 
-                         <li >
-                            <div class="tb-pic tb-s60">
-                                <a href="#">
-                                    <img src="@src"></a>
-                            </div>
-                        </li>  
+                    <li>
+                        <div class="tb-pic tb-s60">
+                            <a href="#">
+                                <img src="@src"></a>
+                        </div>
+                    </li>  
+                        }
                     }
                 }
-            }
             </ul>
         </div>
     </div>

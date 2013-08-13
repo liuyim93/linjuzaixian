@@ -86,7 +86,7 @@
                     var popup_timeout_fn = function () {
                         var popup = $("#global_msg_popup");
                         var data = { global: false, prefix: "global_msg_popup", "rel_v3": "global_msg_popup" };
-                        popup.loadUrl("http://localhost:7525/weblogin/message/pMessageNotification.aspx", data, function () {
+                        popup.loadUrl("http://www.linjuzaixian.com/weblogin/message/pMessageNotification.aspx", data, function () {
                             popup.find("[layoutH]").layoutH();
                         });
 
@@ -197,7 +197,7 @@
         </div>
     </div>
     <div id="footer">
-        Copyright &copy; 2012 <a href="">weat</a>
+        Copyright &copy; 2013 <a href="">ÁÚ¾ÓÔÚÏß</a>
     </div>
     <form id="pagerForm">
     </form>

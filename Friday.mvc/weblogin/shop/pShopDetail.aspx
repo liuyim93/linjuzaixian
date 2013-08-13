@@ -64,17 +64,27 @@
                 <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
                     <input type="hidden" id="IDSet" size="30" runat="server" />
-                <a class="btnLook" href="MultiListSchool.aspx"  rel=""  lookupgroup="">选择学校</a>
+           
             </p>
 
          </div>
 
          <div>
+              <p>
+                <label>
+                    商铺当前状态：</label>
+                <select id="ShopStatus" style="width: 85px" runat="server">
+      
+                    <option value="0">不限时间</option>
+                    <option value="1">营业时间</option>
+                     <option value="2">正在休息</option>
+                </select>
+            </p>
      
             <p>
                 <label>
                     营业时间：</label>
-                <input type="text" id="ShopHours" size="30" class="required textInput gray" runat="server" />
+                <input type="text" id="ShopHours" size="30" class=" textInput gray" runat="server" />
             </p>
          </div>
 
@@ -100,15 +110,7 @@
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
-            <p>
-                <label>
-                    商铺当前状态：</label>
-                <select id="ShopStatus" style="width: 85px" runat="server">
-                    <option value="">请选择</option>
-                    <option value="营业时间">营业时间</option>
-                    <option value="正在休息">正在休息</option>
-                </select>
-            </p>
+           
          </div>
 
          <div>

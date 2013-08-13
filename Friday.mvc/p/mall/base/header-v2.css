@@ -4,7 +4,7 @@
 #site-nav-bd{width:990px;}
 #header #site-nav,#mall-category,#content,#mall-desc,#copyright{width:990px;margin:auto;}
 .hidden{display:none;}
-.subLogo,.subLogo-hd i,#mallLogo .mlogo s,.subLogo,#mallNav .chnNew,#mallNav .chnHot,#mallSearch button,#mallSearch button:hover,#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://localhost:7525/Images/TmallMchtHeader-189-26.png) no-repeat;}
+.subLogo,.subLogo-hd i,#mallLogo .mlogo s,.subLogo,#mallNav .chnNew,#mallNav .chnHot,#mallSearch button,#mallSearch button:hover,#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://www.linjuzaixian.com/Images/TmallMchtHeader-189-26.png) no-repeat;}
 .headerCon:after,.clearfix:after,.clearfix:before,.headerCon:before{display:table;content:"";overflow:hidden;}
 .headerCon:after,.clearfix:after{clear:both;}
 .headerCon,.clearfix{zoom:1;}

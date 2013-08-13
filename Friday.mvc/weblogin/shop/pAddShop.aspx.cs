@@ -9,6 +9,8 @@ using friday.core.repositories;
 using friday.core;
 using friday.core.components;
 using friday.core.services;
+using System.Text;
+using friday.core.EnumType;
 
 namespace Friday.mvc.weblogin.shop
 {
@@ -56,6 +58,15 @@ namespace Friday.mvc.weblogin.shop
 
             BindingHelper.RequestToObject(shop);
             shop.Logo = PictureUpload.UploadImage(HttpContext.Current.Request.Files, "logo");
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(Request.Params["MorningBeginHour"]).Append("--").Append(Request.Params["MorningEndHour"])
+                .Append("/").Append(Request.Params["AfternoonBeginHour"]).Append("--").Append(Request.Params["AfternoonEndHour"])
+                .Append("/").Append(Request.Params["NightStartHour"]).Append("--").Append(Request.Params["NightEndHour"]);
+
+            shop.ShopHours = sb.ToString();
+
+            shop.ShopStatus = (ShopStatusEnum)Int32.Parse(ShopStatus.Value);
             iShopService.Save(shop);
 
             if (schid != "")
