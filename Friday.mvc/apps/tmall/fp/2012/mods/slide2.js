@@ -185,54 +185,83 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                     if (!g_config.closeOptSlideImg) { _img_url += _postfix } return _img_url
                 },
                 _triggerAnim: function () {
-                    var h = this.slide; var Z; var k; var a; var m; var d, j; var e = 0; var g;
-                    function S(o) {
-                        var n = "rotate(" + o + "deg)";
-                        a.css({ "-webkit-transform": n, "-moz-transform": n, "-o-transform": n })
+                    var slide = this.slide;
+                    var timer;
+                    var gray;
+                    var rotator;
+                    var mask;
+                    var clock, clockTimer;
+                    var degrees = 0;
+                    var isHover;
+                    function setDegree(degrees) {
+                        var degreeCSS = "rotate(" + degrees + "deg)";
+                        rotator.css({ "-webkit-transform": degreeCSS, "-moz-transform": degreeCSS, "-o-transform": degreeCSS })
                     }
-                    function i(o) {
-                        if (g) { return } var n = o || (5000 / 180); clearInterval(d); d = setInterval(function (p) {
-                            if (e < 360) { e += 2; S(e) } if (e > 180)
-                            { k.addClass("move"); a.addClass("move"); m.addClass("move") } if (e > 359) { c() }
-                        }, n)
+                    function startClock(interval) {
+                        if (isHover)
+                            return;
+                        var intervalTime = interval || 5e3 / 180;
+                        clearInterval(clock);
+                        clock = setInterval(function (e) {
+                            if (degrees < 360) {
+                                degrees += 2;
+                                setDegree(degrees)
+                            }
+                            if (degrees > 180) {
+                                gray.addClass("move");
+                                rotator.addClass("move");
+                                mask.addClass("move")
+                            }
+                            if (degrees > 359) {
+                                pauseClock()
+                            }
+                        }, intervalTime)
                     }
-                    function c() {
-                        clearInterval(d)
+                    function pauseClock() {
+                        clearInterval(clock)
                     }
-                    function f() {
-                        k.removeClass("move");
-                        a.removeClass("move");
-                        m.removeClass("move");
-                        clearInterval(d); e = 0; S(e)
+                    function stopClock() {
+                        gray.removeClass("move");
+                        rotator.removeClass("move");
+                        mask.removeClass("move");
+                        clearInterval(clock);
+                        degrees = 0;
+                        setDegree(degrees)
                     }
-                    function b(n) {
-                        var o = -336 + (14 + 8) * n;
-                        _dom.css(Z, { "margin-left": o + "px" })
+                    function shiftClock(index) {
+                        var marginLeft = -336 + (14 + 8) * index;
+                        DOM.css(timer, { "margin-left": marginLeft + "px" })
                     }
-                    function l() {
-                        if (!Z) {
-                            var n = '<div class="timer"><span class="gray"></span><span class="mask"><span class="rotator"></span></span></div>';
-                            Z = _dom.create(n);
-                            _dom.append(Z, h.container);
-                            Z = _kissy.one(".timer");
-                            k = _kissy.one(".gray");
-                            a = _kissy.one(".rotator");
-                            m = _kissy.one(".mask")
-                        } i();
-                        h.on("beforeSwitch", function (o) {
-                            f();
-                            b(o.toIndex);
-                            i()
+                    function triggerAnim() {
+                        if (!timer) {
+                            var timerTPL = '<div class="timer"><span class="gray"></span><span class="mask"><span class="rotator"></span></span></div>';
+                            timer = DOM.create(timerTPL);
+                            DOM.append(timer, slide.container);
+                            timer = S.one(".timer");
+                            gray = S.one(".gray");
+                            rotator = S.one(".rotator");
+                            mask = S.one(".mask")
+                        }
+                        startClock();
+                        slide.on("beforeSwitch", function (ev) {
+                            stopClock();
+                            shiftClock(ev.toIndex);
+                            startClock()
                         });
-                        _event.on(h.container, "mouseenter", function () { g = true; c() });
-                        _event.on(h.container, "mouseleave", function () {
-                            g = false; if (j) { clearTimeout(j) }
-                            j = setTimeout(
-                            function ()
-                            { i(10000 / (360 - e)) }, 200)
+                        Event.on(slide.container, "mouseenter", function () {
+                            isHover = true;
+                            pauseClock()
+                        });
+                        Event.on(slide.container, "mouseleave", function () {
+                            isHover = false;
+                            if (clockTimer)
+                                clearTimeout(clockTimer);
+                            clockTimer = setTimeout(function () {
+                                startClock(1e4 / (360 - degrees))
+                            }, 200)
                         })
                     }
-                    l()
+                    triggerAnim()
 
                 }
 
