@@ -69,6 +69,14 @@
 			[/(.+\/tmallsearch\/.+)-min.css(.*)$/, "$1.css$2"]
 		]
     });
+    //2013-08-21 basilwang add for tmall/mui/brandbar
+     _kissy_d.config(
+        { map:
+           [
+           ],
+            packages: [{ name: "tmall", charset: "gbk", path: "../apps/", tag: _timestamp}]
+        }
+         );
     if ((DEV_EV === "online" && location.href.indexOf("ks-debug") == -1) || typeof console === "undefined") {
         _window.console = {
             log: function () { }

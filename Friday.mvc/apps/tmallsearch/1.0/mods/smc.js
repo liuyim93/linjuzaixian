@@ -100,7 +100,8 @@
     });
     return {
         init: function () {
-            new j()
+            //2013-08-21 basilwang we don't want load smc
+            //new j()
         }
     }
 });

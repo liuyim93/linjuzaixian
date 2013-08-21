@@ -1,4 +1,4 @@
-﻿KISSY.add(V + "/list", function (b, t, c, f) {
+﻿KISSY.add(V + "/list", function (b, t, f) {
     var n = b.DOM,
 		m = b.Event,
 		a = window,
@@ -38,6 +38,7 @@
             d.init()
         }
     }
+    //2013-08-21 basilwang 我们可能不需要这个
     t(o, {
         mod: "manual",
         diff: 500
@@ -45,7 +46,8 @@
     LIST.msg.fire("ie6Hover", {
         classname: ["product", "productImg-wrap"]
     });
-    new c().init();
+    //2013-08-21 basilwang 我们可能不需要这个p4p
+    //new c().init();
     b.ready(function (v) {
         !!e && LIST.msg.fire("expand", {
             el: e,
@@ -65,5 +67,5 @@
         }
     })
 }, {
-    requires: ["datalazyload", "./mods/p4p", "./mods/dsr", "./mods/ald", "./mods/crumb", "./mods/attr", "./mods/album", "./mods/filter", "./mods/item-sku", "./mods/product", "./mods/list-view", "./mods/ald03046", "./mods/smc", "./mods/error", "./mods/target", "./mods/minisite", "./mods/accessorie"]
+    requires: ["datalazyload","./mods/dsr", "./mods/ald", "./mods/crumb", "./mods/attr", "./mods/album", "./mods/filter", "./mods/item-sku", "./mods/product", "./mods/list-view", "./mods/ald03046", "./mods/error", "./mods/target", "./mods/minisite", "./mods/accessorie"]
 }); 
