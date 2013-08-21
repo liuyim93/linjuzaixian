@@ -10,19 +10,14 @@
     <meta name="spm-id" content="a220m.1000858">
     <meta charset="gbk">
     <meta name="description" content="鞋,品类齐全，欢迎选购！">
-    <meta name="keywords" content="鞋,邻居在线,邻居在线商城,taobao">
+    <meta name="keywords" content="鞋,邻居在线,邻居在线商城">
     <title>邻居在线</title>
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
-    @*    <script src="@Url.Content("/p/mall/base/header-v2.js")"></script>*@
-    <script src="@Url.Content("/apps/tmallsearch/1.0/suggest.js")"></script>
+@*    <script src="@Url.Content("/p/mall/base/header-v2.js")"></script>*@
     <script src="@Url.Content("/apps/tmall/mui/tml/tml.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
     @*    <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
-    <script>        window.g_config = { appId: 7 };</script>
-    @*<link rel="shortcut icon" href=@Url.Content("/p/mall/base/favicon.ico")  type="image/x-icon"/>*@
-    @*<link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
-    <link rel="stylesheet" href=@Url.Content("/p/mall/base/header-v2.css") />*@
     <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/layout.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/base.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmallsearch/1.0/css/mui.css") />
@@ -41,28 +36,11 @@
    
 </head>
 <body>
-    <div class="ks-suggest-container mall-suggest-container" style="position: absolute; visibility: hidden; left: 686px; top: 76px; width: 538px;">
-        <div class="ks-suggest-content">
-        </div>
-        <div class="ks-suggest-footer">
-        </div>
-    </div>
-    <input type="hidden" value="6WL3REzzmdLb" id="J_TbToken">
-    <!-- 20130418|20130426  -->
-    <script>        g_hb_monitor_st = +new Date; window._poc = window._poc || []; var TMPoc = { add: function (a) { window._poc.push(["_trackCustomTime", "tt_" + a, +new Date]) } }; (function () { var c = KISSY, a = c.DOM, j = c.Event, e = c.all, f = window, i = document, g = i.body, m = c.UA.ie, h = m < 9, b = m == 6, d = c.UA.core == "webkit"; if (m) { a.addClass(g, "ie" + m) } f.g_config = c.merge(f.g_config || {}, { v: "1.0", t: "20130418", aldt: "20130228", vps: d ? [1210 + 17, 1410 + 17] : [1210, 1410] }); f.LIST = f.LIST || {}; LIST.msg = c.mix({}, c.EventTarget); LIST.updateView = function (l, k) { k = k || 0; if (!l) { f.g_config.view = 0 } else { if (k == f.g_config.vps.length || l < f.g_config.vps[k]) { f.g_config.view = k } else { this.updateView(l, ++k) } } }; LIST.changeView = function (t) { var l = a.viewportWidth(), k = f.g_config.view || 0; if (t) l -= 17; this.updateView(l); if (h) { a.removeClass(g, "w" + k); a.addClass(g, "w" + f.g_config.view) } return l }; LIST.changeView(1); j.on(f, "resize", function () { var k = f.g_config.view || 0, l = LIST.changeView(); if (f.g_config.view !== k) { LIST.msg.fire("viewchange", { vp: l, view: f.g_config.view }) } }) })();</script>
     @{
 
-
-        <!-- system-announce -->
-        <!--TMall:OptClose-->
-
-    
-
-        <!-- 新风尚顶天banner -->
         @Html.Partial("_SiteNav")
         @Html.Partial("_Header")
         <div class="page">
-            <script>                TMall.THeader.init();</script>
             <div class="crumb" id="J_crumbs">
                 <div class="crumbCon">
                     <div class="crumbSlide" id="J_CrumbSlide">

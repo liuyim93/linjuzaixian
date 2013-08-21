@@ -139,7 +139,7 @@ TMall.THeader = function () {
     }
     function b() {
         setTimeout(function () {
-            i.innerHTML = "\u641c\u7d22 \u5929\u732b \u5546\u54c1/\u5e97\u94fa";
+            i.innerHTML = "搜索 商品/店铺";
             if (l.value == "") {
                 i.style.visibility = "visible"
             }
@@ -238,7 +238,7 @@ TMall.THeader = function () {
         });
         function t() {
             if ("" == f.trim(l.value)) {
-                i.innerHTML = "\u8bf7\u8f93\u5165\u5173\u952e\u5b57";
+                i.innerHTML = "请输入关键字";
                 i.style.visibility = "visible";
                 A()
             }
