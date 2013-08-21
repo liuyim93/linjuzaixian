@@ -138,7 +138,7 @@
                     _try_times--;
                     return
                 }
-                _kissy.use("tgallery/department/common/brandbar", function (_kissy_imp, _brandbar) {
+                _kissy.use("tmall/mui/brandbar", function (_kissy_imp, _brandbar) {
                     var b = function (f) {
                         var d = _dom.get("s", f);
                         var e = _dom.get("b", f);

@@ -404,14 +404,14 @@ TB.add("mod~global", function () {
                 if (window.g_config.closeBrandBar || _if_we_can_try() || _tmall_config.commonJS.brandBar.off) {
                     return
                 }
-                function _use(_namespace, _fn) {
-                    function _onReady() {
-                        _kissy.onTgalleryReady(_namespace, _fn)
-                    }
-                    _kissy.configTgallery = { tag: _tmall_config.commonJS.brandBar.timestamp, path: _own_domain_1 + "/apps/" };
-                    _kissy.onTgalleryReady ? _onReady() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, _onReady)
-                }
-                _use("tgallery/department/common/brandbar", function (_kissy_tmp, _brandbar) {
+//                function _use(_namespace, _fn) {
+//                    function _onReady() {
+//                        _kissy.onTgalleryReady(_namespace, _fn)
+//                    }
+//                    _kissy.configTgallery = { tag: _tmall_config.commonJS.brandBar.timestamp, path: _own_domain_1 + "/apps/" };
+//                    _kissy.onTgalleryReady ? _onReady() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, _onReady)
+//                }
+                _kissy.use("tmall/mui/brandbar", function (_kissy_tmp, _brandbar) {
                     //2013-03-08 basilwang use our own
                     //var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
                     var q = "http://localhost:7525";
@@ -434,7 +434,7 @@ TB.add("mod~global", function () {
     //2013-03-09 element in _commonjs_array will be replaced by setTimeout function wrapper
     //2013-05-29 basilwang remove sth
     //var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
-    var _commonjs_array = ["minBag", "brandBar", "shareFB"];
+    var _commonjs_array = ["brandBar"];
 
     for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
         (function (_name) {

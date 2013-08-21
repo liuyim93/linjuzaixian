@@ -58,7 +58,7 @@ TML.add("minilogin", function (_tml) {
         is_daily = true,
         //2013-03-04 basilwang daily means localhost in our context
         //_domain = is_daily ? "daily.tmall.net" : "tmall.com",
-        _domain = is_daily ? "http://localhost:7525/" : "tmall.com",
+        _domain = is_daily ? "http://localhost:7525" : "tmall.com",
         //2013-03-04 basilwang we use localhost
         //_url = "http" + (is_daily ? "" : "s") + "://login." + (is_daily ? "daily.taobao.net" : "taobao.com") + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
         _url = _domain + "/member/login.jhtml?style=miniall&css_style=tmall&from=tmall&tpl_redirect_url=",
@@ -94,7 +94,7 @@ TML.add("minilogin", function (_tml) {
         //2013-03-04 basilwang use localhost domain
         //return _kissy.io({ type: "get", url: _config.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (_callback_info) {
         debugger
-        return _kissy.io({ type: "get", url: _config.checkApi || "http://" + _domain + "/member/user_login_info.do", success: function (_callback_info) {
+        return _kissy.io({ type: "get", url: _config.checkApi ||  _domain + "/member/user_login_info.do", success: function (_callback_info) {
             f = true;
             _fn(_callback_info.login)
         }, error: function () {
@@ -134,7 +134,7 @@ TML.add("minilogin", function (_tml) {
         if (b && b.proxyUrl && b.proxyUrl.indexOf(".tmall.") == -1)
             b.proxyUrl = undefined;
         return _default_config = _kissy.merge(_default_config, b)
-    } 
+    }
     };
     return _tml.MiniLogin = MiniLogin
 }, { requires: ["overlay/css/overlay.css"] });
