@@ -92,7 +92,7 @@
 
             <script type="text/javascript">
                 function commodityPreviewImage(file) {
-                    debugger
+                   //debugger
                     var porImg = $('#Add_Commodity_LogoPreview');
                     //判断该浏览器是否为w3c标准，既非IE浏览器   
                     if (file["files"] && file["files"][0]) {

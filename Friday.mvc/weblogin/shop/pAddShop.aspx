@@ -51,7 +51,7 @@
 
                 <script type="text/javascript">
                     function shopPreviewImage(file) {
-                        debugger
+                       //debugger
                         var porImg = $('#Add_Shop_ImagePreview');
                         //判断该浏览器是否为w3c标准，既非IE浏览器   
                         if (file["files"] && file["files"][0]) {

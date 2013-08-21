@@ -844,7 +844,7 @@ TB.add("mod~global", function () {
             }
         })
     }, initMiniBag: function () {
-    debugger
+   //debugger
         if (window.g_config.closeMiniBag || _if_we_can_try() || _tmall_config.commonJS.miniBag.off) {
             TB.Global.initMiniCart();
             return

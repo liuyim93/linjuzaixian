@@ -570,7 +570,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         _sku_cfg.isLimitProm = false;
         _sku_cfg.isSupportCity = true;
         //2013-06-18 init token after TMiniCart
-        debugger
+       //debugger
         var _init_Token = function () {
             if (typeof window.TMiniCart != "undefined") {
                 _kissy_imp.mods.Token.init();
@@ -591,7 +591,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
         //_document.domain = _document.domain.split(".").slice(-2).join(".");
         _body.insertBefore(v, _body.firstChild);
     }, onInited: function (_token_inited_callback_fn) {
-    debugger
+   //debugger
         if (_kissy.isFunction(_token_inited_callback_fn)) {
             if (this.inited) {
                 _token_inited_callback_fn()
@@ -600,7 +600,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             }
         }
     }, getIfrToken: function (z) {
-        debugger
+       //debugger
         var y = null;
         var _token = this;
         var S = function () {

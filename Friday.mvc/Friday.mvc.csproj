@@ -1339,7 +1339,7 @@
     <Content Include="apps\tmall\ald\init.js" />
     <Content Include="apps\tmall\ald\use.js" />
     <Content Include="apps\tmall\ald\util.js" />
-    <Content Include="apps\tmall\common\bottombar.js" />
+    <Content Include="apps\tmall\mui\bottombar.js" />
     <Content Include="apps\tmall\common\tbuser.js" />
     <Content Include="apps\tmall\common\tgallery.js" />
     <Content Include="apps\tmall\fp\2012\core.js" />
@@ -1380,7 +1380,10 @@
     <Content Include="apps\tmall\mods\ald.js" />
     <Content Include="apps\tmall\mods\base.js" />
     <Content Include="apps\tmall\ald\juicer.js" />
-    <Content Include="apps\tmall\mui\backtop\js\backtop.js" />
+    <Content Include="apps\tmall\mui\backtop\backtop.png" />
+    <Content Include="apps\tmall\mui\backtop\backtopv2.css" />
+    <Content Include="apps\tmall\mui\backtop\backtopv2.js" />
+    <Content Include="apps\tmall\mui\backtop\up.png" />
     <Content Include="apps\tmall\mui\feed\js\feed.js" />
     <Content Include="apps\tmall\tml\1.0\tml\minilogin.js" />
     <Content Include="apps\tmall\tml\1.0\tml\overlay.js" />

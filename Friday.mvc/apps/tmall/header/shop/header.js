@@ -128,7 +128,7 @@ TMall.THeader = function() {
                     } else {
                         if (G || d.hasClass(F, "j_MallSearchArea")) {
                             var L = G || F,
-                            debugger
+                           //debugger
                                 C = d.attr(L, "data-url") || "http://list.tmall.com/search_dispatcher.htm";
                             i.setAttribute("action", C);
                             if (d.hasClass(L, "j_MallSearchTaobao")) {
@@ -203,7 +203,7 @@ TMall.THeader = function() {
                 var w = "",
                     v = false,
                     y = false;
-                    debugger
+                   //debugger
                 o = b.get("#mq");
                 r = d.prev(o);
                 p = b.get("#J_Type");

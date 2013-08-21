@@ -93,7 +93,7 @@ TML.add("minilogin", function (_tml) {
             _config.checkApi = undefined;
         //2013-03-04 basilwang use localhost domain
         //return _kissy.io({ type: "get", url: _config.checkApi || "http://vip." + _domain + "/member/user_login_info.do", success: function (_callback_info) {
-        debugger
+       //debugger
         return _kissy.io({ type: "get", url: _config.checkApi ||  _domain + "/member/user_login_info.do", success: function (_callback_info) {
             f = true;
             _fn(_callback_info.login)
@@ -103,7 +103,7 @@ TML.add("minilogin", function (_tml) {
         }, timeout: _timeout, dataType: "jsonp", cache: false
         })
     }, _show: function (_fn, _config) {
-        debugger;
+       //debugger;
         var _dom_div_id_tml_mLogin = _kissy.get("#tml-mLogin"), _callbak, _show_url = _url, _proxy_url = "";
         if (_config.needRedirect)
             _show_url += encodeURIComponent(location.href.split("#")[0]) + "&full_redirect=true";

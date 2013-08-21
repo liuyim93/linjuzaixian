@@ -16,7 +16,7 @@ KISSY.add("login/page", function (_kissy, _safeedit, _submitbutton, _safemode, _
             isCBU: (_kissy.one("#J_loginsite") ? _kissy.one("#J_loginsite").val() : "") === "3"
         },
         _checkStaticForm: function () {
-        debugger
+       //debugger
             var _login_core = this,
             _dom_form_id_J_StaticForm = _login_core.elStaticForm,
             _dom_input_name_TPL_username = _dom_form_id_J_StaticForm.elements.TPL_username,

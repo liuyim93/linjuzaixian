@@ -44,7 +44,7 @@
 
             <script type="text/javascript">
                 function activityPreviewImage(file) {
-                debugger
+               //debugger
                 var porImg = $('#Add_Activity_ImagePreview');
                     //判断该浏览器是否为w3c标准，既非IE浏览器   
                     if (file["files"] && file["files"][0]) {
@@ -78,7 +78,7 @@
 
             <script type="text/javascript">
                 function activityPreviewSubImage(file) {
-                    debugger
+                   //debugger
                     var porImg = $('#Add_Activity_SubImagePreview');
                     //判断该浏览器是否为w3c标准，既非IE浏览器   
                     if (file["files"] && file["files"][0]) {

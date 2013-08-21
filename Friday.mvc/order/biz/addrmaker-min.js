@@ -326,7 +326,7 @@ KISSY.add("order/biz/addrmaker", function (h, m, l, d, b, f, k) {
             var _province = A.addrProv.value;
             var _city = A.addrCity.value;
             var _distriction = A.addrDist.value;
-            debugger
+           //debugger
             var _provinceName = A.addrProv.children[A.addrProv.selectedIndex].innerHTML;
             var _cityName = A.addrCity.children[A.addrCity.selectedIndex].innerHTML;
             var _districtionName = A.addrDist.children[A.addrDist.selectedIndex].innerHTML;

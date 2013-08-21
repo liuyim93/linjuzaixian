@@ -86,7 +86,7 @@
         _addDom: function () {
             var Q = {}, E = "",
 				D;
-            debugger
+           //debugger
             Q.query = A.val("#mq") || "";
             Q.query = Q.query.replace(/[?,\uff1f]/g, "");
             Q.cat = A.val("#J_Cat") || "";
