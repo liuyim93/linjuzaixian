@@ -408,17 +408,17 @@ TB.add("mod~global", function () {
                     function _onReady() {
                         _kissy.onTgalleryReady(_namespace, _fn)
                     }
-                    _kissy.configTgallery = { tag: _tmall_config.commonJS.brandBar.timestamp, path: "http://" + _own_domain_1 + "/apps/" };
+                    _kissy.configTgallery = { tag: _tmall_config.commonJS.brandBar.timestamp, path: _own_domain_1 + "/apps/" };
                     _kissy.onTgalleryReady ? _onReady() : _kissy.getScript(_kissy.configTgallery.path + "tmall/common/tgallery.js?t=" + _kissy.configTgallery.tag, _onReady)
                 }
                 _use("tgallery/department/common/brandbar", function (_kissy_tmp, _brandbar) {
                     //2013-03-08 basilwang use our own
                     //var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
-                    var q = "http://localhost:7525/";
-                    _brandbar.show({ urlMyBrand: "http://" + q + "/myBrandsIndex.html", newWindow: true });
+                    var q = "http://localhost:7525";
+                    _brandbar.show({ urlMyBrand: q + "/myBrandsIndex.html", newWindow: true });
                     //2013-03-08 basilwang use our own
                     //_brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
-                    _brandbar.bindEl(".j_CollectBrand", { addServer: "http://" + q + "/Favorite/AddToFav" })
+                    _brandbar.bindEl(".j_CollectBrand", { addServer:   q + "/Favorite/AddToFav" })
                 })
             })
         }, shareFB: function () {
@@ -435,7 +435,7 @@ TB.add("mod~global", function () {
     //2013-05-29 basilwang remove sth
     //var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
     var _commonjs_array = ["minBag", "brandBar", "shareFB"];
-    
+
     for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
         (function (_name) {
             var _selected_function = CommonJS[_name];
@@ -450,7 +450,7 @@ TB.add("mod~global", function () {
         _div_named_site_nav = _document.getElementById("site-nav");
         this._subMenus = [];
         for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
-            CommonJS[_commonjs_array[_name_index]];
+            CommonJS[_commonjs_array[_name_index]]();
         }
         //2013-08-06 basilwang don't let tDogs and tLabs run
         /*
@@ -689,7 +689,7 @@ TB.add("mod~global", function () {
 //        if (TB.environment.isDaily) {
 //            _member_url = "http://tmm.daily.taobao.net/member/query_member_top.do"
         //        }
-        _member_url = "http://localhost:7525/Account/Home/query_member_top"    
+        _member_url = "http://localhost:7525/Account/Home/query_member_top"
         _member_url += "?callback=_initMemberInfoCallback&t=" + _kissy.now();
         window._initMemberInfoCallback = function (p) {
             TB.userInfo.memberInfo = p;

@@ -25,7 +25,7 @@
                     })
                 }
             }
-            _kissy_tmp.onTgalleryReady("tgallery/tmall/common/bottombar", function (_kissy, _bottombar) {
+            _kissy_tmp.use("tmall/mui/bottombar", function (_kissy, _bottombar) {
                 _bottombar.add(_dom_div_id_J_BrandBar)
             })
         }, bindEl: function (_selector, _opts) {
@@ -101,7 +101,7 @@
                         if (_brandbar_imp.fire("flyComplete", Q) === false || S === false) {
                             return
                         }
-                    } 
+                    }
                     })
                 })
             };
@@ -155,7 +155,7 @@
             _kissy_tmp.onTgalleryReady("tgallery/department/common/brandfollow", function (_kissy, _brandfollow) {
                 _brandfollow.add(_brandid, _options)
             })
-        } 
+        }
         };
         _kissy_tmp.mix(BrandBar, _kissy_tmp.EventTarget);
         return _kissy_tmp[_namespace_brandbar] = _kissy_tmp[_namespace_brandbar] || BrandBar
