@@ -41,5 +41,5 @@
         })
     }, version: "1.0"
     };
-    KISSY.config && KISSY.config({ packages: [{ name: "tml", tag: "20121030", path: "/apps/tmall/tml/1.0/", charset: "utf-8"}] })
+    KISSY.config && KISSY.config({ packages: [{ name: "tml", tag: "20121030", path: "/apps/tmall/mui/", charset: "utf-8"}] })
 })();
