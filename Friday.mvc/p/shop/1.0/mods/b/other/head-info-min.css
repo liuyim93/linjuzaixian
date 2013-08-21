@@ -1,6 +1,6 @@
 ﻿#header{position:relative;z-index:1900;}
 .shop-status .i,.shop-status .ww-large .ww-inline,.shop-grade a,.shop-grade .c-value-no,.extra-info .other a,.extra-info .opt b{background:url(http://img01.taobaocdn.com/tps/i1/T19mWaXgtjXXXXXXXX-148-83.png) no-repeat 999em;}
-.extra-info .c-value-no{background:url("http://www.linjuzaixian.com/Images/T1JLtRXhlAXXXXXXXX-128-83.png") -64px -12px repeat;}
+.extra-info .c-value-no{background:url("http://localhost:7525/Images/T1JLtRXhlAXXXXXXXX-128-83.png") -64px -12px repeat;}
 #mall-shop{position:relative;z-index:990;}
 #shop-info{float:left;position:absolute;top:5px;left:190px;_left:10px;padding:0 1px;width:237px;background-color:#015CA3;border:1px solid #00739E;border-left-color:#00739E;border-right-color:#00739E;}
 #shop-info .main-info{height:38px;width:228px;padding-left:8px;padding-top:3px;border:1px solid #00739E;border-left:none;background-color:#015CA3;overflow:hidden;}

@@ -9,7 +9,7 @@
         var _dom_id_J_ItemDesc_clone;
         var _regex = /(<img[^>]*)(src *= *("[^"]*"|'[^']*'|[^ >]*))/g;
         var _image_count = 0;
-        var _spaceball = "http://www.linjuzaixian.com/Images/spaceball.gif";
+        var _spaceball = "http://localhost:7525/Images/spaceball.gif";
         var _q75_prefix = "_q75.jpg";
         if (!_dom_id_J_ItemDesc) {
             return

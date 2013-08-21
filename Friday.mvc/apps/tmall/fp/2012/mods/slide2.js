@@ -42,6 +42,8 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                 //2013-02-19 basilwang don't use direct-promo
                 //_mfp.on("directSuccess", function (_event) { _slide2._directImg(_event.data) });
                 _dom.show(_slide.nav);
+                //2013-08-21 basilwang 解决幻灯片第一页加载的bug
+                _slide2._lazyLoad({ toIndex: 0 });
                 //2013-02-19 basilwang remove tanx
                 //E.ready(function () { Z._tanxAd() });
                 ; _slide2._hoverMask();
@@ -167,7 +169,7 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                     var _slide = this.slide;
                     var _set_filter_and_spaceball = function (_dom_img_t) {
                         _dom.css(_dom_img_t, { filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' + (_img_url || _dom.attr(_dom_img_t, _str_data_text_src) || _dom_img_t.src) + '",enabled="true", sizinMethod="scale");' });
-                        _dom_img_t.src = "http://www.linjuzaixian.com/Images/spaceball.gif";
+                        _dom_img_t.src = "http://localhost:7525/Images/spaceball.gif";
                         _dom.show(_dom_img_t)
                     };
                     _dom_img ? _set_filter_and_spaceball(_dom_img) : _kissy.each(_slide.panels, function (_panel) {

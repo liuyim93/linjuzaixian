@@ -1,64 +1,58 @@
-﻿KISSY.add("2012/util/util", function (C) {
-    var F = window;
-    var C = KISSY,
-		E = C.DOM,
-		B = C.Event;
-    var A = {};
-    var D;
-    A.getToken = function (H) {
-        if (typeof H !== "function") {
-            return
-        }
-        var G = "http://www." + (~location.host.indexOf("tmall.net") ? "daily.tmall.net" : "tmall.com") + "/go/rgn/mfp2012/token.php";
-        if (!(F._tb_token_ && D)) {
-            D = E.create("<iframe>");
-            D.src = G + "?t=" + +new Date;
-            D.style.display = "none";
-            if (D.attachEvent) {
-                D.attachEvent("onload", function () {
-                    F._tb_token_ = F._tb_token_ || D.contentWindow.getToken();
-                    H()
+﻿KISSY.add("2012/util/util", function(S, DOM, Event, Node) {
+    var win = window;
+    var util = {};
+    var iframe;
+    util.getToken = function(callback) {
+        if (typeof callback !== "function")
+            return;
+        var tokenUrl = "http://www." + (~location.host.indexOf("tmall.net") ? "daily.tmall.net" : "tmall.com") + "/go/rgn/mfp2012/token.php";
+        if (!(win._tb_token_ && iframe)) {
+            iframe = DOM.create("<iframe>");
+            iframe.src = tokenUrl + "?t=" + +new Date;
+            iframe.style.display = "none";
+            if (iframe.attachEvent) {
+                iframe.attachEvent("onload", function() {
+                    win._tb_token_ = win._tb_token_ || iframe.contentWindow.getToken();
+                    callback()
                 })
             } else {
-                D.onload = function () {
-                    F._tb_token_ = F._tb_token_ || D.contentWindow.getToken();
-                    H()
+                iframe.onload = function() {
+                    win._tb_token_ = win._tb_token_ || iframe.contentWindow.getToken();
+                    callback()
                 }
             }
-            E.append(D, "body")
+            DOM.append(iframe, "body")
         } else {
-            H()
+            callback()
         }
     };
-    A.randomImgUrl = function (K, G) {
-        var H = 0,
-			I, J = K.charAt(1);
-        if (J && !isNaN(J)) {
-            I = J
+    util.randomImgUrl = function(str, suf) {
+        var num = 0, random, strNum = str.charAt(1);
+        if (strNum && !isNaN(strNum) && strNum > 0 && strNum < 5) {
+            random = strNum
         } else {
-            C.each(K.split(""), function (L) {
-                H += parseInt(L.charCodeAt(0))
+            S.each(str.split(""), function(c) {
+                num += parseInt(c.charCodeAt(0))
             });
-            I = H % 4 + 1
+            random = num % 4 + 1
         }
-        return "http://img0" + I + ".taobaocdn.com/tps/" + K + (G || "")
+        return "http://img0" + random + ".taobaocdn.com/tps/" + str + (suf || "")
     };
-    A.miniLogin = function (H, G) {
-        C.use("tml/minilogin,tml/overlay/css/overlay.css", function (J, I) {
-            typeof G === "function" && G();
-            typeof H === "function" && I.show(function () {
-                H();
+    util.miniLogin = function(loginCallback, showCallback) {
+        S.use("tml/minilogin,tml/overlay/css/overlay.css", function(S, MiniLogin) {
+            typeof showCallback === "function" && showCallback();
+            typeof loginCallback === "function" && MiniLogin.show(function() {
+                loginCallback();
                 try {
                     if (TB && TB.Global && TB.Global.writeLoginInfo) {
                         TB._isMemberInfoReady = false;
                         TB._isLoginStatusReady = false;
-                        TB.Global.writeLoginInfo({
-                            isApp: false
-                        })
+                        TB.Global.writeLoginInfo({isApp: false})
                     }
-                } catch (K) { }
+                } catch (e) {
+                }
             })
         })
     };
-    return A
-});
+    return util
+}, {requires: ["dom", "event", "node"]});

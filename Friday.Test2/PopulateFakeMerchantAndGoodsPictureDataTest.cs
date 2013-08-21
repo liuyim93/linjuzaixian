@@ -445,9 +445,10 @@ namespace Friday.Test2
               }
 
               //国际品牌中添加银座
-              GlobalGoodsType ggdtyz = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("银座商城");
-              ggdtyz.Description = iShopRepository.SearchByShortName("银座").Id;
-              iGlobalGoodsTypeService.Save(ggdtyz); 
+              //2013-08-21 basilwang 不要在Description中加id
+              //GlobalGoodsType ggdtyz = iGlobalGoodsTypeService.GetGlobalGoodsTypeByName("银座商城");
+              //ggdtyz.Description = iShopRepository.SearchByShortName("银座").Id;
+              //iGlobalGoodsTypeService.Save(ggdtyz); 
 
 
             //for (int i = 0 ; i < 13; i++)
