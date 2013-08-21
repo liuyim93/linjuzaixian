@@ -35,6 +35,13 @@
                 packages: [{ name: "2012", charset: "gbk", path: "./apps/tmall/fp/", tag: _timestamp}]
          }
          );
+    _kissy.config(
+        { map:
+           [
+           ],
+            packages: [{ name: "tmall", charset: "gbk", path: "./apps/", tag: _timestamp}]
+        }
+         );
     //                packages: [{ name: "2012", charset: "gbk", path: "http://" + _url + "/apps/tmall/fp/", tag: _timestamp}]
     _window._poc = _window._poc || [];
     MFP.POC = {add: function(K) {

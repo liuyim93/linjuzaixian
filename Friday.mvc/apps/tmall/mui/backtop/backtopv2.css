@@ -1,0 +1,109 @@
+.ui-scrolltop {
+    display: block;
+    position: fixed;
+    _position: absolute;
+    right: 10px;
+    bottom: 200px;
+    z-index: 9999;
+    height: 60px;
+    width: 60px;
+    text-indent: -999999px;
+    overflow: hidden;
+    background: #000 url(up.png) 18px 21px no-repeat;
+    *background-image: url(backtop.png);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    opacity: 0.5;
+    cursor: pointer;
+    -webkit-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -moz-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -o-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -ms-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    opacity: 1;
+    -webkit-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-hidden {
+    visibility: hidden;
+    -moz-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-hidden {
+    visibility: hidden;
+    -o-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-hidden {
+    visibility: hidden;
+    -ms-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-hidden {
+    visibility: hidden;
+    transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-hidden {
+    visibility: hidden;
+    _visibility: visible;
+    _display: none;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-wb {
+    background-position: -25px 21px;
+    -moz-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-wb {
+    background-position: -25px 21px;
+    -o-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-wb {
+    background-position: -25px 21px;
+    -ms-transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-wb {
+    background-position: -25px 21px;
+    transition: opacity 0.3s ease-in,;
+}
+
+.ui-scrolltop-wb {
+    background-position: -25px 21px;
+    background-color: #fff;
+}

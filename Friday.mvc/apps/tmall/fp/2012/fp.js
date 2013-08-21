@@ -75,7 +75,11 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
             var _scroll_fn = function() {
                 if (_dom.scrollTop(_document) > 400) {
                     _kissy.log("load backtop ...");
-                    _kissy.getScript("http://a.tbcdn.cn/apps/tmall/mui/backtop/js/backtop.js");
+                    //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/mui/backtop/js/backtop.js");
+                    //2013-08-21 basilwang 使用自己的backtopv2
+                    _kissy.use('tmall/mui/backtop/backtopv2', function () {
+                        arguments[1].init();
+                    });
                     _event.detach(_window, "scroll", _scroll_fn)
                 }
             };
