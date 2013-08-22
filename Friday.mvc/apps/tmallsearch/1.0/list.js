@@ -38,7 +38,6 @@
             d.init()
         }
     }
-    //2013-08-21 basilwang 我们可能不需要这个
     t(o, {
         mod: "manual",
         diff: 500
