@@ -31,8 +31,8 @@
     <script src="@Url.Content("/apps/tmall/mui/tml/tml.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
     <script src=@Url.Content("/apps/mytaobao/4.0/common/package-config.js")></script>
-    <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
-    <script src=@Url.Content("/p/snsdk/core.js")></script>
+@*    <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
+    <script src=@Url.Content("/p/snsdk/core.js")></script>*@
     <script src=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init.js")></script>
     @*<script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
     <!-- end vmc js 3.1 -->
@@ -143,10 +143,7 @@
         </li>
     </ul>
 </div>*@
-@*<script type="text/javascript" src="http://localhost:7525/apps/support/robot/js/minerva_entry.js?t=1352262426117"></script>*@
-<script type="text/javascript">
-    MINERVA_POPUP_URL = 'http://service.taobao.com/support/minerva/beta_robot_main.htm?sourceId=1317095351';
-</script>
+
 
 
 </article>
@@ -536,10 +533,9 @@
     </div>
 </article>
                     <article id="app-collect-shop" class="mt-app">
-    <img src="http://log.mmstat.com/sns.20.6?cache=1368450150662" style="display:none;">
-    <div class="inner" data-spm="5864401">
+    <div class="inner" >
         <header>
-            <h3><a href="http://localhost:7525/myBrandsIndex.html" target="_blank" data-spm="d4908613">我收藏的店铺</a><i data-title="店铺动态全新改版！点击图标，发现惊喜"  class="why"></i></h3>
+            <h3><a href="http://localhost:7525/myBrandsIndex.html" target="_blank" >我收藏的店铺</a><i data-title="店铺动态全新改版！点击图标，发现惊喜"  class="why"></i></h3>
         </header>
 		
 
@@ -550,19 +546,17 @@
     			    		@{
                                 for (int i = 0; i < ((Model.FavMerchants.Count) > 3 ? 3 : Model.FavMerchants.Count); i++)
                                 {
-     				                <a data-spm="d4908617" href="http://localhost:7525/merchant/index?scid=@Model.FavMerchants.ElementAt(i).Id" target="_blank" data-title="@Model.FavMerchants.ElementAt(i).Name" class="J_collect_shop">
+     				                <a  href="http://localhost:7525/merchant/index?scid=@Model.FavMerchants.ElementAt(i).Id" target="_blank" data-title="@Model.FavMerchants.ElementAt(i).Name" class="J_collect_shop">
     				    					                <img src="@Model.FavMerchants.ElementAt(i).Logo"/>
     				                 </a>                                   
                                 }
                             }
     				    			    				
-@*    				<a data-spm="d4908617" href="http://dongtai.taobao.com/microshop/front.htm?feedCatId=1&amp;sellerId=6655&amp;scm=1046.1.5.2" target="_blank" data-title="幸运叶子运动名品网  邻居在线运动分类第一名" class="J_collect_shop">
-    				    					<img src="http://logo.taobao.com/shop-logo//69/75/T18Y5cXoFoXXartXjX_60x60"/>
-    				 </a>*@
+
     				    			            </section>
     		                 			<footer>
-                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm="d4908621">新品上架</a>
-                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm="d4908625">优惠活动</a>
+                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" >新品上架</a>
+                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" >优惠活动</a>
             </footer>
 							
     </div>
