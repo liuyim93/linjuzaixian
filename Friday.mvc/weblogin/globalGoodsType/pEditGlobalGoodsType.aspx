@@ -15,8 +15,12 @@
             </p>
             <p>
                 <label>
-                    类型描述：</label>
-                <asp:textbox id="Description" runat="server"></asp:textbox>
+                    商铺：</label>
+                <input type="text" id="Merchant"  name="Merchant" size="35" 
+                        runat="server" readonly="true" />
+                    <input type="hidden" id="MerchantID" name="MerchantID" size="35"   
+                    runat="server" readonly="true" />
+                  <a class="btnLook" href="ListMerchant.aspx"  rel=""    runat=server lookupgroup="">选择商铺</a> 
             </p>
             <p>
                 <label>

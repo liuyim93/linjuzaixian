@@ -38,7 +38,7 @@ namespace Friday.mvc.weblogin
 
             BindingHelper.RequestToObject(sku);
             Sku minSku = iSkuService.GetMinPriceSkusByCommodityID(sku.Commodity.Id);
-            if (sku.price < minSku.price)
+            if (minSku != null || sku.price < minSku.price)
             {
                 sku.Commodity.Price = sku.price;
             }

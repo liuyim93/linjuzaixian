@@ -69,5 +69,6 @@ namespace friday.core.services
             return iShopRepository.GetShopsBySchoolID(SchoolID);
         }
 
+
     }
 }

@@ -49,13 +49,31 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.WebControls.TextBox Name;
         
         /// <summary>
-        /// Description 控件。
+        /// Merchant 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Description;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Merchant;
+        
+        /// <summary>
+        /// MerchantID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden MerchantID;
+        
+        /// <summary>
+        /// A1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlAnchor A1;
         
         /// <summary>
         /// Leaff 控件。

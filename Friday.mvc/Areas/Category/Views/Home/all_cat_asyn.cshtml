@@ -5,27 +5,8 @@
 <div>
 @for (var level0 = 0; level0 < Model.GlobalGoodsTypeTlevelZero.Count(); level0++)
              {
-                 if (level0 == 0) 
-                 {
-                 @*<div class="subView subView0N j_SubView hidden" data-spm="3.420198.322489">
-		         <h3 class="subItem-hd">@Model.GlobalGoodsTypeTlevelZero.ElementAt(0).Name</h3>
-		            <div class="subItem-list">
-			         <ul>     
-                      @for (int i = 0; i < Model.NationalShops.Count;i++ )
-                      {
-                          var item=Model.NationalShops.ElementAt(i);
-                      <li class="first">          
-                  <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@item.Name">
-               
-                  <span>@item.Name</span><b></b></a>
-                     </li>  
-                      }                                    			
-		       	</ul>                          
-		       </div>
-	           </div>*@
-                 }
-                 else
-                 {
+         
+           
                  @:<div class="subView j_SubView hidden">         
  
                      var level0_obj = Model.GlobalGoodsTypeTlevelZero.ElementAt(level0);
@@ -57,7 +38,15 @@
                             var level2_obj = Model.GlobalGoodsTypeTlevelSecond.ElementAt(level2);
                             if (level2_obj.ParentID == level1_obj.Id)
                             {
+                                if (string.IsNullOrEmpty(level2_obj.Description))
+                                {
                                <a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@level2_obj.Id#J_crumbs" target="_blank">@level2_obj.Name</a>
+                                    
+                                }
+                                else
+                                {
+                                    <a href="http://localhost:7525/Merchant/index?scid=@level2_obj.Description">@level2_obj.Name</a>
+                                }
                             }
 
                         }  
@@ -71,7 +60,7 @@
                      @:</ul>
                  }
                  @:</div>
-              }
+              
              }
 
 </div>

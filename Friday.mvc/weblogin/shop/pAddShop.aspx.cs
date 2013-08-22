@@ -67,6 +67,8 @@ namespace Friday.mvc.weblogin.shop
             shop.ShopHours = sb.ToString();
 
             shop.ShopStatus = (ShopStatusEnum)Int32.Parse(ShopStatus.Value);
+
+            shop.MerchantType = (MerchantTypeEnum)Int32.Parse(Type.Value);
             iShopService.Save(shop);
 
             if (schid != "")

@@ -42,7 +42,7 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                 //2013-02-19 basilwang don't use direct-promo
                 //_mfp.on("directSuccess", function (_event) { _slide2._directImg(_event.data) });
                 _dom.show(_slide.nav);
-                //2013-08-21 basilwang ½â¾ö»ÃµÆÆ¬µÚÒ»Ò³¼ÓÔØµÄbug
+                //2013-08-21 basilwang ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Æ¬ï¿½ï¿½Ò»Ò³ï¿½ï¿½ï¿½Øµï¿½bug
                 _slide2._lazyLoad({ toIndex: 0 });
                 //2013-02-19 basilwang remove tanx
                 //E.ready(function () { Z._tanxAd() });

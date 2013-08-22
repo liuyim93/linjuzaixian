@@ -41,8 +41,13 @@ namespace friday.core.repositories
         }
         public bool IsHaveChild(Section section)
         {
-            var isHaveChild = (from x in this.Session.Query<Section>() select x).Where(o => o.ParentID == section.Id && o.IsDelete == false).Count() > 0 ? true : false;
-            return isHaveChild;
+            var isHaveChild = (from x in this.Session.Query<Section>() select x).Where(o => o.ParentID == section.Id && o.IsDelete == false);
+            if (isHaveChild.Any())
+            {
+                return true;
+            }
+            return false;
+
         }
         protected virtual ICriteria Query
         {

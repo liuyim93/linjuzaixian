@@ -16,6 +16,17 @@
                 </p>
                 <p>
                     <label>
+                        商店类型：</label>
+                    <select id="Type" runat="server" class="required">
+                          <option value=""></option>
+                        <option value=" 2">超市百货</option>
+                        <option value="0">订餐</option>
+                         <option value="1">租房</option>
+
+                    </select>
+                </p>
+                <p>
+                    <label>
                         简称：</label>
                     <input type="text" id="ShortName" size="30" class=" textInput gray" runat="server" />
                 </p>
@@ -96,7 +107,7 @@
         <div class="panel collapse">
             <h1>配送时间</h1>
             <div>
-                 <p>
+                <p>
                     <span style="color: red; width: 380px">如有营业时间限制，状态请选择营业时间</span>
                 </p>
                 <p></p>

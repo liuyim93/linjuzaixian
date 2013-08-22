@@ -473,7 +473,7 @@ background-position:left 0;
                                                    @for (var index = 0; index < Model.Commoditys.Count(); index++)
                                                    {
                                                        var item = Model.Commoditys.ElementAt(index);
-                                                       var minPrice = Model.minPriceSkuList.ElementAt(index);
+                                                       //var minPrice = Model.minPriceSkuList.ElementAt(index);
                                                 <li>
                                                     <div class="item">
                                                         <div class="pic">
@@ -486,7 +486,7 @@ background-position:left 0;
                                                             @item.Name <br />   @m.Name  </a>
                                                         </div>
                                                         <div class="price">
-                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@minPrice.price</strong>
+                                                            <span>一口价 </span><s class="symbol">¥</s><strong>@item.Price</strong>
                                                         </div>
                                                         <div class="sales-amount">
                                                             月销量：<em>@item.MonthAmount</em>件
@@ -739,7 +739,7 @@ background-position:left 0;
                                                         @if(Model.SingleShop.LoginUserOfMerchants.FirstOrDefault()!=null)
                                                         {
                                                             <text>
-                                                            Model.SingleShop.LoginUserOfMerchants.FirstOrDefault().LoginUser.LoginName
+                                                            @Model.SingleShop.LoginUserOfMerchants.FirstOrDefault().LoginUser.LoginName
                                                             </text>
                                                         }
                                                     </li>

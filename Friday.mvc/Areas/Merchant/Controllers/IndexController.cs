@@ -196,13 +196,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             merchantIndexModel.SingleShop = shop;
             merchantIndexModel.Commoditys = myCommodities;
 
-            IList<Sku> minPriceSkuComlist = new List<Sku>();
-            for (int i = 0; i < myCommodities.Count; i++)
-            {
-                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
-                minPriceSkuComlist.Add(minpricesku);
-            }
-            merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
+            //IList<Sku> minPriceSkuComlist = new List<Sku>();
+            //for (int i = 0; i < myCommodities.Count; i++)
+            //{
+            //    Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
+            //    minPriceSkuComlist.Add(minpricesku);
+            //}
+            //merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
 
             merchantIndexModel.currentPage = currentPage;
             merchantIndexModel.pageNum = total / numPerPageValue + 1;

@@ -25,15 +25,7 @@
                         名称:</label>
                     <input type="text" name="Name" class="textInput" value="<%=name %>" value="" />
                 </td>
-                <td>
-                     <label>商家类型:</label>
-                    <select name="sMerchantType" id="sMerchantType" runat="server">
-                    <option value="">请选择</option>
-                    <option value="0">餐馆</option>
-                    <option value="1">租房</option>
-                    <option value="2">百货</option>
-                    </select>
-                </td>
+              
                 <td>
                     
                 </td>

@@ -55,6 +55,8 @@ namespace Friday.mvc.weblogin
                 {
                     dic.Leaf = false;
                 }
+
+                dic.Description = Request.Params["MerchantID"];
                 iGlobalGoodsTypeService.Save(dic);
 
                 AjaxResult result1 = new AjaxResult();
@@ -70,6 +72,7 @@ namespace Friday.mvc.weblogin
             }
             else
             {
+
                 if (Request.Params["code"] == "" || Request.Params["code"] == null)
                 {
                     TLevel.Value = Convert.ToString(0);
