@@ -5,7 +5,7 @@
             var _g_config = _window.g_config;
             //F.getScript("http://l.tbcdn.cn/apps/lz/hc.js?v=5");
             //2013-08-22 basilwang remove lz/hc
-            //_kissy_F.getScript("http://localhost:7525/apps/lz/hc.js?v=5");
+            //_kissy_F.getScript("http://www.linjuzaixian.com/apps/lz/hc.js?v=5");
             //2013-08-22 basilwang remove tb-tracer
             //_malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
             if (!_g_config.offlineShop) {

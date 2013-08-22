@@ -1136,9 +1136,6 @@
     <Content Include="apps\department\brand\2.0\fav.js" />
     <Content Include="apps\department\brand\2.0\mods\dialog.js" />
     <Content Include="apps\department\brand\2.0\mods\item.js" />
-    <Content Include="apps\department\common\brandbar-fly.js" />
-    <Content Include="apps\department\common\brandbar.js" />
-    <Content Include="apps\department\common\brandfollow.js" />
     <Content Include="apps\malldetail\4.0\base.css" />
     <Content Include="apps\malldetail\4.0\common\tbskip.js" />
     <Content Include="apps\malldetail\4.0\common\util.js" />

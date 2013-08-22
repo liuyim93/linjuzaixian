@@ -9,8 +9,8 @@
     var goodsType = Model.GlobalGoodsTypeTlevelZero.ElementAt(goodsTypeId);
     var commodities = Model.CommoditiesSearchByGoodsType.ElementAt(goodsTypeId);
     var shops = Model.Shops.ElementAt(goodsTypeId);
-<div class="floor-loading" id="floorLink@(goodsTypeId + 1)">
-    <textarea class="floor-area ks-datalazyload">
+    <div class="floor-loading" id="floorLink@(goodsTypeId + 1)">
+        <textarea class="floor-area ks-datalazyload">
     <div>
         <div class="floor" id="floor@(goodsTypeId + 1)" >
             <h2>
@@ -22,16 +22,17 @@
                          var item = Model.GlobalGoodsTypeTlevelFirst.ElementAt(index);
                          if (item.ParentID == goodsType.Id)
                          {
-                             if (goodsTypeId != 0)
+                             if (string.IsNullOrEmpty(item.Description))
                              {
-                            <li><a href="http://localhost:7525/Merchant/SearchProduct?cat=@item.Id"
+                            <li><a href="http://www.linjuzaixian.com/Merchant/SearchProduct?cat=@item.Id"
                                  target="_blank">@item.Name</a></li>
                              }
-                             else 
+                             else
                              {
-                            <li><a href="http://localhost:7525/Merchant/index?scid=@item.Description"
-                                 target="_blank">@item.Name</a></li>
+                                 <li><a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Description" target="_blank">@item.Name</a></li>
                              }
+                             
+                         
                          }
 
                      }
@@ -50,7 +51,7 @@
                                 @for (var item_index = page_index * num_per_page; item_index < (page_index + 1) * num_per_page; item_index++)
                                 {
                                     var item = shops.ElementAt(item_index);                               
-                                    <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
+                                    <a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
                                         <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
                                     </a>
                             
@@ -63,7 +64,7 @@
                                 @for (var item_index = 0; item_index < count; item_index++)
                                 {
                                     var item = shops.ElementAt(item_index);                               
-                                    <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
+                                    <a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
                                         <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
                                     </a>
                             
@@ -74,12 +75,12 @@
                     </ul>
                     <ul class="fCl-nav ui-slide-nav-mini">
                         @{
-                        for (var i = 0; i < page_num; i++)
-                        {
+                     for (var i = 0; i < page_num; i++)
+                     {
                             @:<li>•</li>
                             }
-                        if (Convert.ToInt16(page_num) == 0 && count != 0)
-                        {
+                     if (Convert.ToInt16(page_num) == 0 && count != 0)
+                     {
                             @:<li>•</li>
                         }
                         }
@@ -92,7 +93,7 @@
                             @for (var index = 0; index < (commodities.Count() > 3 ? 3 : commodities.Count()); index++)
                             {
                                 var item = commodities.ElementAt(index);
-                                <li class="ks-switchable-panel-internal219"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
+                                <li class="ks-switchable-panel-internal219"><a href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
                                 <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a></li>
                             }
                     </ul>
@@ -104,7 +105,7 @@
                                 var classAfterFormat = string.Format(classBeforeFormat, index + 1);
 
                                 var item = commodities.ElementAt(index);
-                                <li class="@Html.Raw(classAfterFormat)"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
+                                <li class="@Html.Raw(classAfterFormat)"><a href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@item.Id"
                                     target="_blank" title="@item.Name">@item.Name</a><s></s></li>
                             }
                             </ul>
@@ -113,7 +114,7 @@
                             @for (var index = 3; index < (commodities.Count() > 6 ? 6 : commodities.Count()); index++)
                             {
                                 var item = commodities.ElementAt(index);
-                                <a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
+                                <a href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@item.Id"
                             class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
                             <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a>
                             }
@@ -129,6 +130,6 @@
         })
 </script>
  </textarea>
-</div>
+    </div>
     
 }

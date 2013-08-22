@@ -169,7 +169,7 @@ KISSY.add("2012/mods/slide2", function (_kissy, _switchable) {
                     var _slide = this.slide;
                     var _set_filter_and_spaceball = function (_dom_img_t) {
                         _dom.css(_dom_img_t, { filter: 'progid:DXImageTransform.Microsoft.AlphaImageLoader(src="' + (_img_url || _dom.attr(_dom_img_t, _str_data_text_src) || _dom_img_t.src) + '",enabled="true", sizinMethod="scale");' });
-                        _dom_img_t.src = "http://localhost:7525/Images/spaceball.gif";
+                        _dom_img_t.src = "http://www.linjuzaixian.com/Images/spaceball.gif";
                         _dom.show(_dom_img_t)
                     };
                     _dom_img ? _set_filter_and_spaceball(_dom_img) : _kissy.each(_slide.panels, function (_panel) {

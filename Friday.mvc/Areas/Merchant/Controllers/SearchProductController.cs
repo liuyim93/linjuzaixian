@@ -176,13 +176,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchProductModel.count = commList.Count;
 
             //2013-05-25根据CommodityList找到每一个Commodity的Sku的价格最小值
-            IList<Sku> minPriceSkuComlist = new List<Sku>();
-            for (int i=0;i<commList.Count ;i++ )
-            {
-                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(commList[i].Id);
-                minPriceSkuComlist.Add(minpricesku);
-            }
-            searchProductModel.minPriceSkuList = minPriceSkuComlist;
+            //IList<Sku> minPriceSkuComlist = new List<Sku>();
+            //for (int i=0;i<commList.Count ;i++ )
+            //{
+            //    Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(commList[i].Id);
+            //    minPriceSkuComlist.Add(minpricesku);
+            //}
+            //searchProductModel.minPriceSkuList = minPriceSkuComlist;
 
             //需要根据 commlist  找出其对应的 Merchants            
             foreach (var i in commList)
