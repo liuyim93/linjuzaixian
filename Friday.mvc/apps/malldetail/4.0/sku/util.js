@@ -84,7 +84,7 @@
 function _getTrackID(N) {
     //debugger
     //var M = _kissy_imp.cfg("url").tbskip + "/json/get_tb_ck_ps.htm";
-    var M = "http://localhost:7525/member/get_tb_ck_ps.do";
+    var M = "http://www.linjuzaixian.com/member/get_tb_ck_ps.do";
         _kissy.use("cookie", function (P, O) {
             O = O || P.Cookie;
             var Q = O.get("t") || _kissy_imp.cfg("valCT");

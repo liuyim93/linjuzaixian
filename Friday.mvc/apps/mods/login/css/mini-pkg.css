@@ -25,7 +25,7 @@ a.long-btn:hover{color:#fff;}
 .clearfix:after{content:'\0020';display:block;height:0;clear:both;}
 .clearfix{zoom:1;}
 .username-field{position:relative;}
-.login-box .msg p.error,.login-box .submit button,.login-box .mobile-num,.login-box .entries li,.install-plugin-popup .hd,.install-plugin-popup h3,.install-plugin-popup .bd ul li,.install-plugin-popup .bd strong,.long-login-help,.login-box ul.entries{background:url(http://localhost:7525/images/stuff.png) no-repeat 1000px 1000px;}
+.login-box .msg p.error,.login-box .submit button,.login-box .mobile-num,.login-box .entries li,.install-plugin-popup .hd,.install-plugin-popup h3,.install-plugin-popup .bd ul li,.install-plugin-popup .bd strong,.long-login-help,.login-box ul.entries{background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat 1000px 1000px;}
 html,body{overflow-x:hidden;overflow-y:auto;background-color:#fafafa;height:100%;}
 .login-box{width:310px;overflow:hidden;margin:0 auto;}
 .login-tab li,.login-tab li a,.login-tab li h2,.login-tab li span{background:url(../images/login_tab_new.png);}

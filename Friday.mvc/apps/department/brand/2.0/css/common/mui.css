@@ -1,15 +1,15 @@
 ﻿.ui-more-nbg {position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333; }
-.ui-more-nbg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;overflow:hidden;width:13px;background:url(http://localhost:7525/Images/more.png) 0 -26px no-repeat; }
+.ui-more-nbg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;overflow:hidden;width:13px;background:url(http://www.linjuzaixian.com/Images/more.png) 0 -26px no-repeat; }
 .ui-more-nbg:hover {text-decoration:underline;color:#b10000; }
 .ui-more-nbg:hover .ui-more-nbg-arrow {background-position:0 -39px; }
 .ui-more-bg {position:relative;display:inline-block;height:25px;line-height:25px;padding:0 28px 0 10px;color:#333;background:#e5e5e5;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;-khtml-border-radius:2px;-o-border-radius:2px;-ms-border-radius:2px; }
-.ui-more-bg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;overflow:hidden;background:url(http://localhost:7525/Images/more.png) no-repeat; }
+.ui-more-bg-arrow {position:absolute;display:inline-block;top:6px;right:10px;height:13px;line-height:13px;width:13px;overflow:hidden;background:url(http://www.linjuzaixian.com/Images/more.png) no-repeat; }
 .ui-more-bg:hover {text-decoration:none;background-color:#b10000;color:#fff; }
 .ui-more-bg:hover .ui-more-bg-arrow {background-position:0 -13px; }
 .ui-slide-arrow-l,.ui-slide-arrow-m,.ui-slide-arrow-s,.ui-slide-arrow-mini:hover,.ui-slide-nav-c-l li,.ui-slide-nav-c-l .active,.ui-slide-nav-c-m li,.ui-slide-nav-c-m .active {background:url(http://a.tbcdn.cn/apps/tmall/mui/slide/img/slide.png) no-repeat\9;_background:none; }
 .ui-slide-arrow-l {display:inline-block;height:55px;width:55px;background-color:#b8b2b1;background-color:transparent\9;background-color:#b8b2b1\9\0;_background-color:#b8b2b1;background-position:0 0;color:#fff;text-align:center;font:bold 24px \5b8b\4f53,Hei;line-height:55px;border-radius:28px;-ms-border-radius:28px;-moz-border-radius:28px;-webkit-border-radius:28px;-o-border-radius:28px;-khtml-border-radius:28px; }
 .ui-slide-arrow-l:hover {text-decoration:none;background-color:#B91919;background-color:transparent\9;background-color:#B91919\9\0;_background-color:#B91919;background-position:0 -56px;-moz-transition:background .2s ease-in,color .2s ease-out;-webkit-transition:background .2s ease-in,color .2s ease-out;-o-transition:background .2s ease-in,color .2s ease-out;transition:background .2s ease-in,color .2s ease-out; }
-.ui-btn-l-primary,.ui-btn-m-primary,.ui-btn-m,.ui-btn-l {padding:0 10px;display:inline-block;height:25px;line-height:25px;font-weight:bold;background:#ccc url(http://localhost:7525/Images/btn.png) repeat-x;color:#333;font-size:12px;border:0 none;border-left:1px solid #ccc;border-right:1px solid #ccc;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1; }
+.ui-btn-l-primary,.ui-btn-m-primary,.ui-btn-m,.ui-btn-l {padding:0 10px;display:inline-block;height:25px;line-height:25px;font-weight:bold;background:#ccc url(http://www.linjuzaixian.com/Images/btn.png) repeat-x;color:#333;font-size:12px;border:0 none;border-left:1px solid #ccc;border-right:1px solid #ccc;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1; }
 .ui-btn-m {background-position:0 -380px; }
 .ui-btn-m-hover,.ui-btn-m:hover {background-position:0 -405px;text-decoration:none; }
 .ui-btn-m-active,.ui-btn-m:active {background-position:0 -430px; }
@@ -52,11 +52,11 @@ b.ui-page-s-len {background:none;line-height:20px;font-weight:normal; }
 .ui-page-prev {border-left:1px solid #E5E5E5!important; }
 .ui-page-cur,b.ui-page-next,b.ui-page-prev {background-color:#EFEFEF; }
 .ui-page-break {border-right:1px solid #E5E5E5;padding:0 4px;line-height:40px;font-weight:bold; }
-.ui-page-num {padding-top:19px;background:url("http://localhost:7525/Images/page.png") no-repeat right 0; }
+.ui-page-num {padding-top:19px;background:url("http://www.linjuzaixian.com/Images/page.png") no-repeat right 0; }
 .ui-page-skip {margin-top:19px;padding:10px 0 0 10px; }
 .ui-page-skipTo {width:32px;height:18px;margin:-2px 2px 0;line-height:20px;font-size:16px;color:#999;text-align:center;vertical-align:middle;border:1px solid #ccc; }
 .ui-page-skipBtn {margin:-2px 0 0 2px; }
-.ui-btn-s {padding:0 10px;display:inline-block;vertical-align:middle;background:#ccc url(http://localhost:7525/Images/btn.png) repeat-x;color:#333;border:0;border-left:1px solid #ccc;border-right:1px solid #ccc;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;*border-color:black;*filter:chroma(color=black);height:20px;*height:22px;font-size:12px;font-weight:normal; }
+.ui-btn-s {padding:0 10px;display:inline-block;vertical-align:middle;background:#ccc url(http://www.linjuzaixian.com/Images/btn.png) repeat-x;color:#333;border:0;border-left:1px solid #ccc;border-right:1px solid #ccc;cursor:pointer;outline:none;overflow:visible;-moz-border-radius:2px;-khtml-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;*zoom:1;*border-color:black;*filter:chroma(color=black);height:20px;*height:22px;font-size:12px;font-weight:normal; }
 .ui-btn-s {background-position:0 -300px; }
 .ui-btn-s-hover,.ui-btn-s:hover {background-position:0 -320px; }
 .ui-btn-s-active,.ui-btn-s:active {background-position:0 -340px; }
@@ -72,7 +72,7 @@ b.ui-page-s-len {background:none;line-height:20px;font-weight:normal; }
 .ui-title-con:hover .ui-title-arrow {background-position:-173px -62px; }
 .ui-label-nbg {display:inline-block;height:20px;line-height:20px;padding:0 10px;overflow:hidden;color:#666;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;-o-border-radius:2px;-khtml-border-radius:2px; }
 .ui-label-nbg:hover,.ui-label-select {background:#333;text-decoration:none;color:#fff; }
-.ui-msg-icon,.ui-msg-close,.ui-msg-arrow {background-image:url(http://localhost:7525/Images/msg.png);background-repeat:no-repeat; }
+.ui-msg-icon,.ui-msg-close,.ui-msg-arrow {background-image:url(http://www.linjuzaixian.com/Images/msg.png);background-repeat:no-repeat; }
 .ui-msg {position:relative;display:inline-block;*display:inline;*zoom:1;border:1px solid #e1e1e1;border-radius:2px;background:#f5f5f5;padding-left:24px;box-shadow:1px 1px 1px #f5f5f5; }
 .ui-msg-block {display:block; }
 .ui-msg-con {line-height:16px;color:#666;background:#fbfbfb;padding:3px 10px 3px 5px;border:1px solid #efefef;border-left:1px solid #e7e7e7;margin:-1px; }
