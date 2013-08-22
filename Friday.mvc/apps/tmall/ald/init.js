@@ -38,8 +38,9 @@
                 A.log("Ald assets resources can be used...")
             }
         }
-        G.src = "http://" + (ALD.dev ? "localhost" : "l.tbcdn.cn") + "/apps/tmall/ald/??util.js,use.js,effect.js,mods/base.js,juicer.js,ald.js?20130203";
-        F.insertBefore(G, F.firstChild)
+        //2013-08-22 basilwang 暂时不需要这个
+//        G.src = "http://" + (ALD.dev ? "localhost" : "l.tbcdn.cn") + "/apps/tmall/ald/??util.js,use.js,effect.js,mods/base.js,juicer.js,ald.js?20130203";
+//        F.insertBefore(G, F.firstChild)
     }
     if (!B) {
         C()

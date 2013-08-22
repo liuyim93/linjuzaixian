@@ -89,11 +89,12 @@
         init: function () {
             var M = this;
             L = F.DOM;
-            F.getScript(G.g_config.assetsHost + "/apps/tmall/ald/??util.js,use.js,effect.js,mods/base.js,juicer.js,ald.js?t=" + E.t(), function () {
-                if (E.cfg("tag").isRightRecommend && !D.isSpu && !D.offlineShop && G.screen.width > 1024) {
-                    M.install("skuRight", "body")
-                }
-            })
+            //2013-08-22 basilwang 暂时不需要这个
+//            F.getScript(G.g_config.assetsHost + "/apps/tmall/ald/??util.js,use.js,effect.js,mods/base.js,juicer.js,ald.js?t=" + E.t(), function () {
+//                if (E.cfg("tag").isRightRecommend && !D.isSpu && !D.offlineShop && G.screen.width > 1024) {
+//                    M.install("skuRight", "body")
+//                }
+//            })
         },
         install: function (N, _selector, Q) {
             var P = A[N];

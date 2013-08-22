@@ -40,11 +40,12 @@
                         })
                     })
                 });
-                if (!_g_config.offlineShop && (_kissy_F.cfg("itemDO").categoryId == "1512" || _g_config.D950)) {
-                    _kissy_F.use("malldetail/other/feedback", function (Q, P) {
-                        P.init()
-                    })
-                }
+                //2013-08-22 basilwang 暂时不需要这个
+//                if (!_g_config.offlineShop && (_kissy_F.cfg("itemDO").categoryId == "1512" || _g_config.D950)) {
+//                    _kissy_F.use("malldetail/other/feedback", function (Q, P) {
+//                        P.init()
+//                    })
+//                }
                 if (_g_config.offlineShop || !_kissy_F.cfg("valItemInfo")) {
                     _g_config.closePoc = true
                 } else {
