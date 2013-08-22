@@ -44,7 +44,7 @@ namespace Friday.mvc.weblogin.sku
             sku.Commodity = commodity;
 
             Sku minSku = skuService.GetMinPriceSkusByCommodityID(commodity.Id);
-            if (sku.price < minSku.price)
+            if (minSku!=null||sku.price < minSku.price)
             {
                 commodity.Price = sku.price;
             }

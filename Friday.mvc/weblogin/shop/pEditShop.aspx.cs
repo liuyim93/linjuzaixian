@@ -57,6 +57,8 @@ namespace Friday.mvc.weblogin.shop
                 this.NameSet.Value = namesAndIds[0];
                 this.IDSet.Value = namesAndIds[1];
 
+                Type.Value = ((int)shop.MerchantType).ToString();
+
                 ShopStatus.Value =((int)shop.ShopStatus).ToString();
             }
         }
@@ -66,7 +68,7 @@ namespace Friday.mvc.weblogin.shop
 
             BindingHelper.RequestToObject(shop);
             StringBuilder sb = new StringBuilder();
-
+            shop.MerchantType = (MerchantTypeEnum)Int32.Parse(Type.Value);
             sb.Append(Request.Params["MorningBeginHour"]).Append("--").Append(Request.Params["MorningEndHour"])
                 .Append("/").Append(Request.Params["AfternoonBeginHour"]).Append("--").Append(Request.Params["AfternoonEndHour"])
                 .Append("/").Append(Request.Params["NightStartHour"]).Append("--").Append(Request.Params["NightEndHour"]);

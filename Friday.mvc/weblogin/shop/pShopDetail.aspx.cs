@@ -38,6 +38,7 @@ namespace Friday.mvc.weblogin.shop
 
             BindingHelper.ObjectToControl(shop, this);
             ShopStatus.Value = ((int)shop.ShopStatus).ToString();
+            Type.Value = ((int)shop.MerchantType).ToString();
 
             string[] schofmntname = iSchoolOfMerchantService.GetSchoolNamesAndIdsByMerchantID(uid);
             //string[] arrname = schofmntname.Split('，');

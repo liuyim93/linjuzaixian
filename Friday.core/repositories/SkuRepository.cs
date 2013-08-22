@@ -18,7 +18,7 @@ namespace friday.core.repositories
         }
         public Sku GetMinPriceSkusByCommodityID(string commodityID)
         {
-            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).ToList();
+            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false&&o.price!=0).ToList();
             Sku skp = new Sku()
             {
                 price = 0,

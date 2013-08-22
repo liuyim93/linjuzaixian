@@ -5,33 +5,45 @@
 <div class="tabs">
     <div class="tabsHeader">
         <div class="tabsHeaderContent">
-          <ul>
+            <ul>
                 <li class="selected"><a href="#"><span>基本信息</span></a></li>
-                 <li><a href="#"><span>服务的学校</span></a></li>
+                <li><a href="#"><span>服务的学校</span></a></li>
                 <li><a href="#"><span>配送时间</span></a></li>
                 <li><a href="#"><span>电话地址</span></a></li>
                 <li><a href="#"><span>公告和Logo</span></a></li>
                 <li><a href="#"><span>详细内容</span></a></li>
-               <li><a href='commodity/pCommodityList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
-                target="ajax"><span>商品</span></a></li><%--   --%>
-                 <li><a href='merchantEmployee/pMerchantEmployeeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
-                target="ajax"><span>员工列表</span></a></li>
-              <%--   <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
+                <li><a href='commodity/pCommodityList.aspx?shop_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
+                    target="ajax"><span>商品</span></a></li>
+                <%--   --%>
+                <li><a href='merchantEmployee/pMerchantEmployeeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox2"
+                    target="ajax"><span>员工列表</span></a></li>
+                <%--   <li><a href='merchantGoodsType/pMerchantGoodsTypeList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox111"
                 target="ajax"><span>商品类型管理</span></a></li>--%>
                 <li><a href='propID/pPropIDList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox222"
-                target="ajax"><span>规格类型管理</span></a></li>
+                    target="ajax"><span>规格类型管理</span></a></li>
                 <li><a href='propValue/pPropValueList.aspx?merchantType=Shop&merchant_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox333"
-                target="ajax"><span>规格明细管理</span></a></li>
-           </ul>
+                    target="ajax"><span>规格明细管理</span></a></li>
+            </ul>
         </div>
     </div>
     <div class="tabsContent" style="height: 250px;">
-         <div>
-             <input type="hidden" id="MyOrderId" size="30" runat="server" />
+        <div>
+            <input type="hidden" id="MyOrderId" size="30" runat="server" />
             <p>
                 <label>
                     商店名称：</label>
                 <input type="text" id="Name" size="30" class="required textInput gray" runat="server" />
+            </p>
+            <p>
+                <label>
+                    商店类型：</label>
+                <select id="Type" runat="server" disabled="disabled" class="required">
+
+                    <option value=" 2">超市百货</option>
+                    <option value="0">订餐</option>
+                    <option value="1">租房</option>
+
+                </select>
             </p>
             <p>
                 <label>
@@ -43,9 +55,9 @@
                     店主：</label>
                 <input type="text" id="Owener" size="30" class="required textInput gray" runat="server" />
             </p>
-         </div>
-         <div>
-<%--            <p>
+        </div>
+        <div>
+            <%--            <p>
                 <label>
                     服务的学校：</label>
                 <input type="text" id="SchoolOfMerchant" size="30"  
@@ -57,39 +69,39 @@
                     仅演示，应隐藏ID</label>
                 <input type="text" id="SchoolOfMerchantID"  size="30" 
                     runat="server" readonly="true" />
-            </p>--%> 
+            </p>--%>
             <p>
                 <label>
                     服务的区域：</label>
                 <input type="text" id="NameSet" size="35" class="required textInput gray"
                     runat="server" readonly="true" />
-                    <input type="hidden" id="IDSet" size="30" runat="server" />
-           
+                <input type="hidden" id="IDSet" size="30" runat="server" />
+
             </p>
 
-         </div>
+        </div>
 
-         <div>
-              <p>
+        <div>
+            <p>
                 <label>
                     商铺当前状态：</label>
                 <select id="ShopStatus" style="width: 85px" runat="server">
-      
+
                     <option value="0">不限时间</option>
                     <option value="1">营业时间</option>
-                     <option value="2">正在休息</option>
+                    <option value="2">正在休息</option>
                 </select>
             </p>
-     
+
             <p>
                 <label>
                     营业时间：</label>
                 <input type="text" id="ShopHours" size="30" class=" textInput gray" runat="server" />
             </p>
-         </div>
+        </div>
 
-         <div>
- 
+        <div>
+
             <p>
                 <label>
                     折扣：</label>
@@ -110,47 +122,47 @@
                     地址：</label>
                 <input type="text" id="Address" size="30" class="required textInput gray" runat="server" />
             </p>
-           
-         </div>
 
-         <div>
-                      
-                <p>
-                    <label>
-                        商铺公告：</label>
-                    <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="10"
-                        cols="20" runat="server"></textarea>
-                </p>
-            
-                <p style="margin-left:20px;">
-                    <label>
-                        商铺活动：</label>
-                    <textarea class="editor" name="Activity" id="Activity" rows="10" cols="20" runat="server"></textarea>
-                </p>
-          
-             
-             
-         </div>
-         <div>
-                <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
-            <p style="clear:left">
-                    <label>
-                        详细内容：</label>
-                    <div style="width: 100%;">
-                        <textarea id="Description" name="Description" rows="10" cols="240" style="width: 100%"
-                            runat="server"></textarea>
-                    </div>
-             </p>
-         </div>
-           <div id="jbsxBox1" >
         </div>
-         <div id="jbsxBox2" >
+
+        <div>
+
+            <p>
+                <label>
+                    商铺公告：</label>
+                <textarea class="editor" tools="simple" name="Bulletins" id="Bulletins" rows="10"
+                    cols="20" runat="server"></textarea>
+            </p>
+
+            <p style="margin-left: 20px;">
+                <label>
+                    商铺活动：</label>
+                <textarea class="editor" name="Activity" id="Activity" rows="10" cols="20" runat="server"></textarea>
+            </p>
+
+
+
         </div>
-       <%--  <div id="jbsxBox111" >
+        <div>
+            <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
+            <p style="clear: left">
+                <label>
+                    详细内容：</label>
+                <div style="width: 100%;">
+                    <textarea id="Description" name="Description" rows="10" cols="240" style="width: 100%"
+                        runat="server"></textarea>
+                </div>
+            </p>
+        </div>
+        <div id="jbsxBox1">
+        </div>
+        <div id="jbsxBox2">
+        </div>
+        <%--  <div id="jbsxBox111" >
         </div>--%>
-         <div id="jbsxBox222" >
+        <div id="jbsxBox222">
         </div>
-         <div id="jbsxBox333" >
+        <div id="jbsxBox333">
         </div>
     </div>
     <div class="tabsFooter">
