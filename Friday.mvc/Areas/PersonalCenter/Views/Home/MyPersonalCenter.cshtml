@@ -3,7 +3,6 @@
 }
 @using Friday.mvc.Areas.PersonalCenter.Models
 @model PersonalCenterModel
-
 @*<html class="ks-webkit537 ks-webkit ks-chrome26 ks-chrome">*@
 <!DOCTYPE HTML>
 <html>
@@ -16,28 +15,25 @@
     <meta name="description" content="中国最大、最安全的网上交易社区，尽享邻居在线乐趣！" />
     @*<link rel="shortcut icon" href="http://localhost:7525/Images/favicon.ico" type="image/x-icon" />*@
     <!-- start vmc css 3.1-->
-@*    <link rel="stylesheet" href="http://a.tbcdn.cn//??p/global/1.0/global-min.css,apps/mytaobao/3.0/mt/base/base.css,apps/mytaobao/4.0/home/20130326/page/init.css?t=2013050901.css" />*@
+    @*    <link rel="stylesheet" href="http://a.tbcdn.cn//??p/global/1.0/global-min.css,apps/mytaobao/3.0/mt/base/base.css,apps/mytaobao/4.0/home/20130326/page/init.css?t=2013050901.css" />*@
     @*<link rel="stylesheet" href=@Url.Content("/p/global/1.0/global-min.css") />*@
     <link rel="stylesheet" href=@Url.Content("/apps/mytaobao/3.0/mt/base/base.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init.css") />
-
     <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
     <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
-
     <!-- end vmc css 3.1-->
     <!-- start vmc js 3.1 -->
     @*<script src="http://a.tbcdn.cn//??s/kissy/1.3.0/kissy-min.js,p/global/1.0/global-min.js,apps/mytaobao/4.0/common/package-config.js,p/sns/1.1/sns.js,p/snsdk/core.js?t=2013050901.js"></script>*@
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
-@*    <script src=@Url.Content("/p/global/1.0/global-min.js")></script>*@
+    @*    <script src=@Url.Content("/p/global/1.0/global-min.js")></script>*@
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
-    <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
+    <script src="@Url.Content("/apps/tmall/mui/tml/tml.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
     <script src=@Url.Content("/apps/mytaobao/4.0/common/package-config.js")></script>
     <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
     <script src=@Url.Content("/p/snsdk/core.js")></script>
     <script src=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init.js")></script>
-
     @*<script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
     <!-- end vmc js 3.1 -->
     <!--[if lt IE 9]>
@@ -46,25 +42,11 @@
     <link rel="stylesheet" href=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init-ie.css") />
     <![endif]-->
 </head>
-<body data-spm="1">
-    <script type="text/javascript">
-        (function (d) {
-            var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
-            t.setAttribute("exparams", "category=&userid=123072695&aplus");
-            //t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
-            t.src = "http://localhost:7525/s/aplus_v2.js";
-            d.getElementsByTagName("head")[0].appendChild(t);
-        })(document);
-    </script>
-    <!-- start vmc 3.1 -->
-
+<body>
     @Html.Partial("_SiteNav")
     @Html.Partial("_Header")
     <div id="layout-center">
-
-     
-
-@*        <script>            TB.Global.init();</script>*@
+        @*        <script>            TB.Global.init();</script>*@
         <!-- end vmcommon/mytaobao -->
         <div class="grid-c2">
             <div class="col-main">
@@ -168,32 +150,123 @@
 
 
 </article>
-
-<article id="usernew">
+                    <article id="usernew">
     <style type="text/css">
-  .newUserCon{height: 205px;width: 828px; overflow:hidden}
-  .newUserCon li{float: left;height:205px;}
-  .newUserCon li.item-1,.newUserCon li.item-2{width:277px;}
-  .newUserCon li.item-1 a{display:block;width:100%;height:100%;background:url(http://localhost:7525/Images/jianmianli__-277-205.gif) no-repeat;}
-  .newUserCon li.item-2 a{display:block;width:100%;height:100%;background:url(http://localhost:7525/Images/jiaowotao-277-205.gif) no-repeat;}
-  .newUserCon li.item-3{width:274px;height:205px;background:url(http://localhost:7525/Images/dajiadoumaisha-276-205.gif) no-repeat}
-  .newUserCon li.item-3 .labelCon{margin-top:60px}
-  .newUserCon li.item-1 a:hover,.newUserCon li.item-2 a:hover{filter:alpha(opacity=85);-moz-opacity:0.85;-khtml-opacity:0.85;opacity: 0.85;}
-	.labelCon{line-height: 40px;font-family: "Microsoft Yahei", "oúì?";font-size: 15px;}
-	.labelCon span{float: left;width: 67px;height: 40px;text-align: center;overflow: hidden;}
-	.style1{color: #676767;}
-	.style2{color: #ff9191;font-size: 19px}
-	.style3{color: #858585}
-	.style4{color: #666666}
-	.style5{color: #98815e;font-size: 17px}
-	.style6{color: #6cde67}
-	.style7{color: #ff925c;font-size: 19px;}
-	.style8{color: #6fbdff;font-size: 14px;}
-	.style9{color: #ff925c;font-size: 17px;}
-	.style10{color: #6cde67}
-	.style11{color: #9bddd6}
-	.style12{color: #fbca19;font-size: 19px}
-</style>
+        .newUserCon
+        {
+            height: 205px;
+            width: 828px;
+            overflow: hidden;
+        }
+        .newUserCon li
+        {
+            float: left;
+            height: 205px;
+        }
+        .newUserCon li.item-1, .newUserCon li.item-2
+        {
+            width: 277px;
+        }
+        .newUserCon li.item-1 a
+        {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(http://localhost:7525/Images/jianmianli__-277-205.gif) no-repeat;
+        }
+        .newUserCon li.item-2 a
+        {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url(http://localhost:7525/Images/jiaowotao-277-205.gif) no-repeat;
+        }
+        .newUserCon li.item-3
+        {
+            width: 274px;
+            height: 205px;
+            background: url(http://localhost:7525/Images/dajiadoumaisha-276-205.gif) no-repeat;
+        }
+        .newUserCon li.item-3 .labelCon
+        {
+            margin-top: 60px;
+        }
+        .newUserCon li.item-1 a:hover, .newUserCon li.item-2 a:hover
+        {
+            filter: alpha(opacity=85);
+            -moz-opacity: 0.85;
+            -khtml-opacity: 0.85;
+            opacity: 0.85;
+        }
+        .labelCon
+        {
+            line-height: 40px;
+            font-family: "Microsoft Yahei" , "oúì?";
+            font-size: 15px;
+        }
+        .labelCon span
+        {
+            float: left;
+            width: 67px;
+            height: 40px;
+            text-align: center;
+            overflow: hidden;
+        }
+        .style1
+        {
+            color: #676767;
+        }
+        .style2
+        {
+            color: #ff9191;
+            font-size: 19px;
+        }
+        .style3
+        {
+            color: #858585;
+        }
+        .style4
+        {
+            color: #666666;
+        }
+        .style5
+        {
+            color: #98815e;
+            font-size: 17px;
+        }
+        .style6
+        {
+            color: #6cde67;
+        }
+        .style7
+        {
+            color: #ff925c;
+            font-size: 19px;
+        }
+        .style8
+        {
+            color: #6fbdff;
+            font-size: 14px;
+        }
+        .style9
+        {
+            color: #ff925c;
+            font-size: 17px;
+        }
+        .style10
+        {
+            color: #6cde67;
+        }
+        .style11
+        {
+            color: #9bddd6;
+        }
+        .style12
+        {
+            color: #fbca19;
+            font-size: 19px;
+        }
+    </style>
 <script type="text/javascript">
     KISSY.ready(function (S) {
         var $ = S.all;
@@ -330,8 +403,6 @@
 	</ul>
 </div>
 </article>
-
-
                     <article id="has-buy">
     <div class="J_zoomIn" data-spm="5864393">
         <div class="inner">
@@ -346,13 +417,13 @@
                    <section >
                         <ul class="hasbuy-item-list">
                            @{
-                                for (int i = 0; i < ((Model.Commodities.Count) > 6 ? 6 : Model.Commodities.Count); i++)
-                                {
+                    for (int i = 0; i < ((Model.Commodities.Count) > 6 ? 6 : Model.Commodities.Count); i++)
+                    {
                                    <li>
                                        <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585"><img src="@Model.Commodities.ElementAt(i).Image"/></a>
                                        <p><span class="rmb">￥</span>@(Model.OrderOfCommodity.ElementAt(i).Sku.price)</p>
                                    </li>                                    
-                                }  
+                    }  
                              }
 
                         </ul>
@@ -409,7 +480,7 @@
         </header>
         <div id="J_cart_container">
             @{
-                if(Model.CartOfCommodities.Count==0)
+                if (Model.CartOfCommodities.Count == 0)
                 {
                     <div class="shop-cart-list cart-0">
                         <a class="nodata-icon">购物车没有宝贝</a>
@@ -430,14 +501,14 @@
                                     <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" title="@Model.CartOfCommodities.ElementAt(i).Commodity.Name" data-spm="d4908609">
                                     @{
                                         
-                                        if (Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length > 15)
-                                        {
-                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0,15)+"...")</text>
-                                        }
-                                        else
-                                        {
-                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0,Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length))</text>
-                                        }
+                        if (Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length > 15)
+                        {
+                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0, 15) + "...")</text>
+                        }
+                        else
+                        {
+                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0, Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length))</text>
+                        }
                                       }
                                     </a>
                                 </dd> 
@@ -445,15 +516,15 @@
                                 <dd class="item-price">
                                     @{
                         if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
-                                        {
+                        {
                                             <p class="new-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
-                                        }
-                                        else
-                                        {
+                        }
+                        else
+                        {
                                             <p class="old-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
                                             <p class="new-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
                                             <p><span class="less-price">省@(Model.CartOfCommodities.ElementAt(i).Sku.price - Model.CartOfCommodities.ElementAt(i).Sku.price)</span></p>
-                                        }
+                        }
                                      }
 
                                 </dd>        
@@ -496,8 +567,6 @@
 							
     </div>
 </article>
-
-                
                     <article id="app-more" class="mt-app">
     <div class="inner">
         更多内容，敬请期待...
@@ -548,8 +617,7 @@
         </div>
     </div>
     <!-- from vmcommon -->
-            @Html.Partial("_Footer")
-
+    @Html.Partial("_Footer")
     <!-- end vmcommon -->
     <script type="text/javascript">
         FB.config({
@@ -561,7 +629,5 @@
         //业务逻辑代码
         KISSY.use('page/init');
     </script>
-    <img src="http://log.mmstat.com/sns.20.40?cache=g,nbqwsy3iovqw4mzqgaya1368450150576"
-        style="display: none;">
 </body>
 </html>
