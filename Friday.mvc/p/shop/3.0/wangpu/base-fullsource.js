@@ -51,7 +51,7 @@
                 dialog.show()
             });
             dialog.on("show", function () {
-                var self = this, targetURL = addTimeStamp(trigger.href) + (isTMall ? "&isTmall=1" : ""), html = '<a class="close-btn" href="javascript:void(0)"' + 'style="position: absolute; top: 5px; right: 4px; outline: none;' + 'display: block; width: 15px; height: 15px; background: url(http://www.linjuzaixian.com/Images/close_btn.png) no-repeat; text-decoration: none; text-indent: -99999px">X</a>' + '<iframe src="' + targetURL + '" width="' + width + '" height="' + height + '" name="popupIframe" frameborder="0" scrolling="no"></iframe>';
+                var self = this, targetURL = addTimeStamp(trigger.href) + (isTMall ? "&isTmall=1" : ""), html = '<a class="close-btn" href="javascript:void(0)"' + 'style="position: absolute; top: 5px; right: 4px; outline: none;' + 'display: block; width: 15px; height: 15px; background: url(http://localhost:7525/Images/close_btn.png) no-repeat; text-decoration: none; text-indent: -99999px">X</a>' + '<iframe src="' + targetURL + '" width="' + width + '" height="' + height + '" name="popupIframe" frameborder="0" scrolling="no"></iframe>';
                 self.set("width", width);
                 self.set("height", height);
                 DOM.html(container, html);

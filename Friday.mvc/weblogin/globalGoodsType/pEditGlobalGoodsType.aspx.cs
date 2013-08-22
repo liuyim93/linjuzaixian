@@ -16,7 +16,7 @@ namespace Friday.mvc.weblogin
     public partial class pEditGlobalGoodsType : BasePage
     {
         private IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
-
+        private IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
         protected void Page_Load(object sender, EventArgs e)
         {
             tagName = systemFunctionObjectService.基本信息模块.公共商品类型维护.TagName;
@@ -36,7 +36,7 @@ namespace Friday.mvc.weblogin
                 {
                     category.Leaf = false;
                 }
-
+                category.Description = Request.Params["MerchantID"];
                 iGlobalGoodsTypeService.Update(category);
                 AjaxResult result = new AjaxResult();
                 result.statusCode = "200";
@@ -53,12 +53,29 @@ namespace Friday.mvc.weblogin
                 GlobalGoodsType category = iGlobalGoodsTypeService.Load(code);
 
                 bool ISC = iGlobalGoodsTypeService.IsHaveChild(category);
-
                 if (category != null)
                 {
-                    BindingHelper.ObjectToControl(category, Page);
-                    Leaff.Value = Convert.ToString(category.Leaf);
-                    TLevel.Value = Convert.ToString(category.TLevel);
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(category.Description))
+                        {
+                            friday.core.Merchant shop = iMerchantService.Load(category.Description);
+                            Merchant.Value = shop.Name;
+                            MerchantID.Value = shop.Id;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        category.Description = null;
+                        iGlobalGoodsTypeService.Update(category);
+                    }
+
+                    finally
+                    {
+                        BindingHelper.ObjectToControl(category, Page);
+                        Leaff.Value = Convert.ToString(category.Leaf);
+                        TLevel.Value = Convert.ToString(category.TLevel);
+                    }
                 }
 
             }

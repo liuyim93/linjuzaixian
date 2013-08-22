@@ -95,7 +95,7 @@ namespace Friday.mvc.weblogin.shop
                 }
             }
 
-          
+            shop.Schools = schid;
             iShopService.Update(shop);
 
             AjaxResult result = new AjaxResult();

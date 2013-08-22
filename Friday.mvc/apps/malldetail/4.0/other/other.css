@@ -139,7 +139,7 @@
 #J_regionSellServer .tb-serviceShow{height:55px;overflow:hidden;}
 #J_regionSellServer .tb-serviceShow .pay-toggler{background-position:right -96px;}
 #J_similarShop{background-color:#FFF;}
-#J_similarShop .head{height:20px;background:url(http://www.linjuzaixian.com/Images/mall_head-70-20.png) no-repeat center center;}
+#J_similarShop .head{height:20px;background:url(http://localhost:7525/Images/mall_head-70-20.png) no-repeat center center;}
 #J_similarShop .body{background-color:#e5e5e5;color:#333;font-weight:bolder;height:25px;line-height:25px;text-align:center;}
 #J_similarShop .shop{border:solid 2px #e5e5e5;border-width:0 2px;overflow:hidden;}
 #J_similarShop .shopWrap{border-bottom:dotted 1px #CCC;margin:7px 0;padding:0 7px 7px 7px;}

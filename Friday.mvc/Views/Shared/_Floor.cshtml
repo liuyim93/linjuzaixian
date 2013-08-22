@@ -24,12 +24,12 @@
                          {
                              if (goodsTypeId != 0)
                              {
-                            <li><a href="http://www.linjuzaixian.com/Merchant/SearchProduct?cat=@item.Id"
+                            <li><a href="http://localhost:7525/Merchant/SearchProduct?cat=@item.Id"
                                  target="_blank">@item.Name</a></li>
                              }
                              else 
                              {
-                            <li><a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Description"
+                            <li><a href="http://localhost:7525/Merchant/index?scid=@item.Description"
                                  target="_blank">@item.Name</a></li>
                              }
                          }
@@ -50,7 +50,7 @@
                                 @for (var item_index = page_index * num_per_page; item_index < (page_index + 1) * num_per_page; item_index++)
                                 {
                                     var item = shops.ElementAt(item_index);                               
-                                    <a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
+                                    <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
                                         <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
                                     </a>
                             
@@ -63,7 +63,7 @@
                                 @for (var item_index = 0; item_index < count; item_index++)
                                 {
                                     var item = shops.ElementAt(item_index);                               
-                                    <a href="http://www.linjuzaixian.com/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
+                                    <a href="http://localhost:7525/Merchant/index?scid=@item.Id" target="_blank" title="@Html.Encode(item.Name)">
                                         <img width="90" height="45" alt="@Html.Encode(item.Name)" data-src="@Html.Encode(item.Logo)">
                                     </a>
                             
@@ -92,7 +92,7 @@
                             @for (var index = 0; index < (commodities.Count() > 3 ? 3 : commodities.Count()); index++)
                             {
                                 var item = commodities.ElementAt(index);
-                                <li class="ks-switchable-panel-internal219"><a href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
+                                <li class="ks-switchable-panel-internal219"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
                                 <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a></li>
                             }
                     </ul>
@@ -104,7 +104,7 @@
                                 var classAfterFormat = string.Format(classBeforeFormat, index + 1);
 
                                 var item = commodities.ElementAt(index);
-                                <li class="@Html.Raw(classAfterFormat)"><a href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@item.Id"
+                                <li class="@Html.Raw(classAfterFormat)"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
                                     target="_blank" title="@item.Name">@item.Name</a><s></s></li>
                             }
                             </ul>
@@ -113,7 +113,7 @@
                             @for (var index = 3; index < (commodities.Count() > 6 ? 6 : commodities.Count()); index++)
                             {
                                 var item = commodities.ElementAt(index);
-                                <a href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@item.Id"
+                                <a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id"
                             class="floorCon-banner j_floorBanner" title="@item.Name" target="_blank">
                             <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a>
                             }

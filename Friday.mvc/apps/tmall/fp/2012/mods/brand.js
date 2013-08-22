@@ -26,7 +26,7 @@
     var K = false;
     //2013-03-08 basilwang use our own
     //var _recommend_url = "http://" + (_is_test_env ? "ald.taobao.com" : "ald.taobao.com") + "/recommend.htm?appId=12002";
-    var _recommend_url =(_is_test_env ? "http://www.linjuzaixian.com/" : "http://www.linjuzaixian.com/") + "/Merchant/Favorite/Recommend";
+    var _recommend_url =(_is_test_env ? "http://localhost:7525/" : "http://localhost:7525/") + "/Merchant/Favorite/Recommend";
     //2013-03-08 basilwang seems no use
     //var O = "http://" + (_is_test_env ? "brand.daily.tmall.net" : "brand.tmall.com") + "/ajax/brandAddToFav.htm";
     //var J = "http://" + (_is_test_env ? "brand.daily.tmall.net" : "brand.tmall.com") + "/ajax/homePageGetBrand.htm";

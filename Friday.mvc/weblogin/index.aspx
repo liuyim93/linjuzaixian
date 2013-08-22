@@ -86,7 +86,7 @@
                     var popup_timeout_fn = function () {
                         var popup = $("#global_msg_popup");
                         var data = { global: false, prefix: "global_msg_popup", "rel_v3": "global_msg_popup" };
-                        popup.loadUrl("http://www.linjuzaixian.com/weblogin/message/pMessageNotification.aspx", data, function () {
+                        popup.loadUrl("http://localhost:7525/weblogin/message/pMessageNotification.aspx", data, function () {
                             popup.find("[layoutH]").layoutH();
                         });
 

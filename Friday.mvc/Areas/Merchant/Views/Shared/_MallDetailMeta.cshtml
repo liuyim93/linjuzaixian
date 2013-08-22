@@ -10,7 +10,7 @@
             <div class="tb-wrap">
                 <div class="tb-detail-hd">
                     <h3 data-spm="1000983">
-                        <a target="_blank" href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@(Model.Commodity.Id)">
+                        <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@(Model.Commodity.Id)">
                             @Model.Commodity.Name</a>
                     </h3>
                 </div>
@@ -241,7 +241,7 @@
 
                     for (int a = 0; a < images.Length; a++)
                     {
-                        var src = "http://www.linjuzaixian.com/" + images[a] + "_60x60.jpg";
+                        var src = "http://localhost:7525/" + images[a] + "_60x60.jpg";
 
                         if (a == 0)
                         {

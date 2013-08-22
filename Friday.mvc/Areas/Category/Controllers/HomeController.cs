@@ -31,9 +31,19 @@ namespace Friday.mvc.Areas.Category.Controllers
         public ActionResult all_cat_asyn()
         {
             CategoryModel categoryModel = new CategoryModel();
+            categoryModel.GlobalGoodsTypeTlevelZero=new List<GlobalGoodsType>();
             //mainModel.MerchantRentCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.租房);
             //mainModel.MerchantRestaurantCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
-            categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+            //categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+            IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+            foreach (GlobalGoodsType g in globalGoodsTypes)
+            {
+                List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsType(g.Id);
+                if (commodities != null && commodities.Count != 0)
+                {
+                    categoryModel.GlobalGoodsTypeTlevelZero.Add(g);
+                }
+            }
             categoryModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
             categoryModel.GlobalGoodsTypeTlevelSecond = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(2);
 
