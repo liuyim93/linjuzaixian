@@ -24,6 +24,15 @@
          }
     );
     _kissy.config({ packages: [{ name: "wangpu", tag: "20130106", path: _url + "/p/shop/3.0/", charset: "utf-8"}] });
+    //2013-08-22 basilwang 增加tmall namespace
+    _kissy.config(
+        { map:
+           [
+           ],
+            packages: [{ name: "tmall", charset: "gbk", path: "../../apps/", tag: "20130106"}]
+        }
+         );
+    
     //debugger
     TShop = _kissy;
     _kissy.add("tb-core", function () {
@@ -513,7 +522,7 @@
         (_window._poc = _window._poc || []).push(["_trackCustomTime", "tt_" + H, new Date().valueOf()])
     };
     TShop.initFoot = function (_foot_cfg) {
-        _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init"], function (_kissy_imp_t_x, _dom, _malldetail_common_util) {
+        _kissy.use(["dom", "malldetail/common/util", "malldetail/other/lazy", "malldetail/dc/dc", "malldetail/other/leftSlide", "malldetail/other/mainBody", "malldetail/other/init", "tmall/mui/bottombar","tmall/mui/brandbar"], function (_kissy_imp_t_x, _dom, _malldetail_common_util) {
             _malldetail_common_util.initHover();
             //            _malldetail_common_util.loadAssets("apps/tmall/common/tgallery.js?t=20121028");
             //            _malldetail_common_util.loadAssets("/apps/tmall/common/bottombar.js?t=20121028");
@@ -521,12 +530,8 @@
             //            _malldetail_common_util.loadAssets("/p/mall/2.0/js/zeroclipboard.js");
             //            _malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
             //            _malldetail_common_util.loadAssets("cps/trace.js?t=20120618");
-            _kissy.getScript("http://localhost:7525/apps/tmall/common/tgallery.js");
-            _kissy.getScript("http://localhost:7525/apps/tmall/common/bottombar.js");
-            _kissy.getScript("http://localhost:7525/apps/department/common/brandbar.js");
-            _kissy.getScript("http://localhost:7525/p/mall/2.0/js/zeroclipboard.js");
-            _kissy.getScript("http://localhost:7525/s/tb-tracer-min.js");
-            _kissy.getScript("http://localhost:7525/cps/trace.js");
+            //_kissy.getScript("http://localhost:7525/apps/tmall/mui/bottombar.js");
+            //_kissy.getScript("http://localhost:7525/apps/tmall/mui/brandbar.js");
             var I = 0;
             var _urlparams = _kissy_imp_t_x.getUrlParams();
             var _is_selected = _urlparams.selected ||

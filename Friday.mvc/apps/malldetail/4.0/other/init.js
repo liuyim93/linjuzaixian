@@ -4,8 +4,10 @@
             var _window = window;
             var _g_config = _window.g_config;
             //F.getScript("http://l.tbcdn.cn/apps/lz/hc.js?v=5");
-            _kissy_F.getScript("http://localhost:7525/apps/lz/hc.js?v=5");
-            _malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
+            //2013-08-22 basilwang remove lz/hc
+            //_kissy_F.getScript("http://localhost:7525/apps/lz/hc.js?v=5");
+            //2013-08-22 basilwang remove tb-tracer
+            //_malldetail_common_util.loadAssets("s/tb-tracer-min.js?t=20110628");
             if (!_g_config.offlineShop) {
                 if (typeof (TMall) != "undefined")
                     TMall.Head.init()
@@ -30,7 +32,7 @@
                 _malldetail_common_tbskip.init();
                 _malldetail_recommend_common.init();
                 _kissy_F.use("anim", function () {
-                    _malldetail_common_util.loadAssets("apps/tmall/mui/backtop/js/backtop.js", function () {
+                    _kissy_F.use("tmall/mui/backtop/backtopv2", function () {
                         _kissy_F.onBDclick(function (Q, P) {
                             if (P.id == "J_ScrollTopBtn") {
                                 //_kissy_F.sendAtpanel("tmalldetail.13.5")

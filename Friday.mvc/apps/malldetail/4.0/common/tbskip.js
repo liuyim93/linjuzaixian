@@ -14,33 +14,34 @@
             if (!G.fpv()) {
                 return
             }
-            N = window.g_config.assetsHost + "/app/tbskip/lsoSaver.swf?t=_1.swf";
-            N = N.replace(/l\.tbcdn\.cn/, "a.tbcdn.cn");
+            //2013-08-22 basilwang don't use lsoSaver
+//            N = window.g_config.assetsHost + "/app/tbskip/lsoSaver.swf?t=_1.swf";
+//            N = N.replace(/l\.tbcdn\.cn/, "a.tbcdn.cn");
 
-            function K() {
-                if (I && I.read && I.save) {
-                    L._saveData();
-                    C.log("tbskip: save", "info")
-                } else {
-                    if (M > 20) {
-                        C.log("tbskip: end", "info")
-                    } else {
-                        C.later(arguments.callee, 100);
-                        M++
-                    }
-                }
-            }
-            I = new G({
-                src: N,
-                attrs: {
-                    width: 1,
-                    height: 1
-                },
-                params: {
-                    allowScriptAccess: "always"
-                }
-            }).get("el");
-            K()
+//            function K() {
+//                if (I && I.read && I.save) {
+//                    L._saveData();
+//                    C.log("tbskip: save", "info")
+//                } else {
+//                    if (M > 20) {
+//                        C.log("tbskip: end", "info")
+//                    } else {
+//                        C.later(arguments.callee, 100);
+//                        M++
+//                    }
+//                }
+//            }
+//            I = new G({
+//                src: N,
+//                attrs: {
+//                    width: 1,
+//                    height: 1
+//                },
+//                params: {
+//                    allowScriptAccess: "always"
+//                }
+//            }).get("el");
+//            K()
         },
         _saveData: function () {
             var N = this,

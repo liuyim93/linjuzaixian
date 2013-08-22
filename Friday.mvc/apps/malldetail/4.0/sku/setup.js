@@ -142,13 +142,14 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
             })
         }
         _malldetail_sku_sellCount.init(_defaultMode.sellCountDO);
-        _malldetail_common_util.loadAssets("cps/trace.js?t=20120618", function () {
-            var T = _g_config.isSpu ? 1 : ((_sku_cfg.userInfoDO && _sku_cfg.userInfoDO.juKeBuyerLogin) ? 4 : 2);
-            try {
-                window.CPS.trace({ type: 1, subtype: T, itemid: _sku_cfg.itemDO.itemId, sellerid: _sku_cfg.itemDO.userId })
-            } catch (v) {
-            }
-        })
+        //2013-08-22 basilwang remove cps/trace
+//        _malldetail_common_util.loadAssets("cps/trace.js?t=20120618", function () {
+//            var T = _g_config.isSpu ? 1 : ((_sku_cfg.userInfoDO && _sku_cfg.userInfoDO.juKeBuyerLogin) ? 4 : 2);
+//            try {
+//                window.CPS.trace({ type: 1, subtype: T, itemid: _sku_cfg.itemDO.itemId, sellerid: _sku_cfg.itemDO.userId })
+//            } catch (v) {
+//            }
+//        })
     }
     function _toggleStockArea(_isRemoveClass) {
         //2013-04-10 王海川  set _isRemoveClass default value
