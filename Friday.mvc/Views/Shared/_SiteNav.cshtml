@@ -8,7 +8,7 @@
         <div class="sn-container">
             <p id="login-info" class="sn-login-info">
                 <script>
-                    TB.use("mod~global", function () {
+                    (typeof TB !='undefined')&&TB.use("mod~global", function () {
                         if (TB && TB.Global && TB.Global.writeLoginInfo) {
                             TB.Global.writeLoginInfo({
                                 isApp: false
@@ -32,7 +32,7 @@
     </div>
 </div>
 <script>
-    TB.use("mod~global", function () {
+    (typeof TB != 'undefined') && TB.use("mod~global", function () {
         if (TB && TB.Global && TB.Global.init) {
             TB.Global.init();
         }

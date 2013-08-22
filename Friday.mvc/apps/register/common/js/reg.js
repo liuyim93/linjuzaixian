@@ -4201,6 +4201,32 @@ KISSY.add("AlipayAgreement", function(b) {
 	});
 	return a
 });
+KISSY.use("Email,SubmitForm", function (A, C, B) {
+    KISSY.ready(function (E) {
+        var D = C({
+            input: "#J_email_input",
+            errCls: "err_input",
+            on: "blur",
+            tip: "#J_email_tip",
+            suggest: true,
+            host: ["", "163.com", "qq.com", "126.com", "hotmail.com", "gmail.com", "yahoo.com", "263.com", "sohu.com", "sina.com"],
+            defaultTip: {
+                type: "tips",
+                msg: {
+                    content: "\u6b64\u90ae\u7bb1\u53ef\u4f5c\u4e3a\u767b\u5f55\u8d26\u6237\uff0c\u8bf7\u9009\u62e9\u5e38\u7528\u90ae\u7bb1\uff0c\u907f\u514d\u9057\u5fd8"
+                }
+            }
+        }).init();
+        B({
+            form: "#J_new_email_form",
+            checkers: [D]
+        }).init();
+        B({
+            form: "#J_email_check_form",
+            checkers: [D]
+        }).init()
+    })
+});
 window.TRegister = window.TRegister || {};
 window.TRegister.common = {
 	pickDocumentDomain: function() {

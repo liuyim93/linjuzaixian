@@ -5,176 +5,69 @@
 }
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    	<!-- ************************** new ********************************* -->
-    	<meta http-equiv="Content-Type" content="text/html;">
-        @*<link rel="shortcut icon" href="http://localhost:7525/Images/favicon.ico" type="image/x-icon">*@
-		<meta name="data-spm" content="a1z08">
-        <title>新会员免费注册</title>
-        <meta http-equiv="X-UA-Compatible" content="IE=7">
-        <meta name="description" content="欢迎免费注册淘宝，淘宝 - 亚洲最大的网上交易平台，拥有近2亿商品，提供安全便捷的购物体验，提供先行赔付、假一赔三、7天无理由退货等售后服务，同时这里还提供了各类网上赚钱的机会。">
-        <meta name="keywords" content="会员注册 免费 淘宝 网上开店 网上购物 网上交易 网上商店 免费开店 网上买东西">
-   
-   <link rel="search" type="application/opensearchdescription+xml" href="http://assets.taobaocdn.com//plugins/opensearch/provider.xml" title="�Ա�����">	
+    <!-- ************************** new ********************************* -->
+    <meta http-equiv="Content-Type" content="text/html;">
+    @*<link rel="shortcut icon" href="http://localhost:7525/Images/favicon.ico" type="image/x-icon">*@
+    <title>新会员免费注册</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
     <link   rel="stylesheet" href=@Url.Content("/p/mall/2.0/css/tmall_reg.css") />
-   <link   rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
-   <link   rel="stylesheet" href=@Url.Content("/tbra/2.0/tbsp.css") />
-   <link   rel="stylesheet" href=@Url.Content("/p/mall/base/header-v2.css") />
-     <link   rel="stylesheet" href=@Url.Content("/p/shop/1.0/mods/b/foot/foot-min.css") />
-   
-       <script src="https://s.tbcdn.cn/s/kissy/1.2.0/kissy-min.js"></script>
-       <script src="https://s.tbcdn.cn/s/kissy/1.2.0/suggest-min.js"></script>
-       <script src=@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")></script>
-       <script src=@Url.Content("/s/tbra/1.0/tbra-widgets.js")></script>
-        
-        <script src=@Url.Content("/apps/matrix-mission/feedback/feedback.js")></script>
-        <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
-       <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
-    <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
-    <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
-    <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script> 
- 
-
- 
-       </head>
-    <body class="chl-reg" data-spm="4">
-    <script type="text/javascript">
-                                           (function (d) {
-                                               var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
-                                               t.setAttribute("exparams", "category=&userid=&aplus");
-                                               t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
-                                               d.getElementsByTagName("head")[0].appendChild(t);
-                                           })(document);
-</script>
-
-    	<script type="text/javascript">
-    	    function pageBeforeunload(evt, type) {
-    	        var xhr;
-    	        if (window.XMLHttpRequest) {
-    	            xhr = new XMLHttpRequest();
-    	        }
-    	        else {
-    	            try {
-    	                xhr = new ActiveXObject('Microsoft.XMLHTTP');
-    	            }
-    	            catch (e) { }
-    	        }
-    	        var start = document.getElementById("reg_st_id").value;
-    	        var url = "http://reg.taobao.com/member/statistics/register_statistic.do?t=1";
-    	        url = url + "&s=" + start + "&e=" + new Date().getTime();
-    	        xhr.open('GET', url, true);
-    	        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-    	        xhr.send();
-    	    }
-    	    (function () {
-    	        window.onbeforeunload = pageBeforeunload;
-    	        var v = document.createElement("input");
-    	        v.setAttribute("id", "reg_st_id");
-    	        v.setAttribute("name", "reg_st");
-    	        v.setAttribute("type", "hidden");
-    	        v.setAttribute("value", new Date().getTime());
-    	        //v.value=(new Date()).getTime();
-    	        document.body.appendChild(v);
-    	    })();
-		</script><input id="reg_st_id" name="reg_st" type="hidden" value="1368433456280">
-    	<!--umid:嵌套页面，向alipay传递参数umidtoken-->
-		<div style="display:none;">
-			
-
-
-		</div>
-		
- 
- 
- @Html.Partial("_SiteNav") 
-
-   <div id="header" class="mallChn"  style="background:hsl(206, 99%, 32%)!important;">
-    <div class="headerLayout">
-	   	         <!-- flash logo -->
-
-
-
-        <div class="headerCon  hasSubLogo ">
-        <h1 id="mallLogo">
-	    <span class="mlogo"><a href="http://localhost:7525/index.html" title="邻居在线.com"><s> </s> </a></span>
-	    <span class="slogo">@* <a href="http://localhost:7525/Account/Register" class="register"><s></s></a>*@</span>
-            </h1>
-
-                                    </div>
+    <link   rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src=@Url.Content("/apps/tmall/mui/tml/tml.js")></script>
+    <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+</head>
+<body class="chl-reg">
+    @Html.Partial("_SiteNav")
+    <div id="header" class="mallChn" style="background: hsl(206, 99%, 32%)!important;">
+        <div class="headerLayout">
+            <!-- flash logo -->
+            <div class="headerCon  hasSubLogo ">
+                <h1 id="mallLogo">
+                    <a href="http://localhost:7525/index.html">
+                        <img style="" src="http://localhost:7525/Images/TmallMchtHeader-189-26.png" alt="邻居在线.com"
+                            width="189" height="26" /></a>
+                </h1>
+            </div>
+        </div>
     </div>
-</div>
-
- 
-<!-- system-announce -->
-
-<!-- end vmc 3.1 -->
-				    		<script>
-				    		    try { TB.Global.init(); TB.Header.init(); } catch (e) { }
-    		</script>
-
-<div id="page">
- @Html.Partial("_Header")
-<!--语音验证码服务器url-->
-
-
-<script>
-    var UA_Opt = new Object;
-    UA_Opt.ExTarget = ['J_RePwd', 'J_Pwd'];
-    UA_Opt.FormId = "J_Step1Form";
-    UA_Opt.Token = "spl3JZLZwAm";
-    UA_Opt.MaxMCLog = 150;
-    UA_Opt.MaxKSLog = 150;
-    UA_Opt.MaxMPLog = 150;
-    UA_Opt.MPInterval = 150;
-    UA_Opt.SendInterval = 10;
-    UA_Opt.SendMethod = 1;
-    UA_Opt.Flag = 131071;
-</script>
-
-
-<link   rel="stylesheet" href=@Url.Content("/app/register/common/css/reg.20130313.css") />
-<script src=@Url.Content("/apps/register/common/js/reg.js")></script>
-<script src=@Url.Content("/apps/register/common/js/step_first.js")></script>
-<script src=@Url.Content("/apps/register/common/js/step_phone.js")></script>
-<script src=@Url.Content("/apps/register/common/js/client.js")></script>
-<script src=@Url.Content("/apps/aq/js/email.js")></script>
-<script>    KISSY.ready(function () { KISSY.getScript('http://acjs.aliyun.com/actionlog/js/ua.js', function () { try { UA_Opt.reload(); } catch (e) { } }); });</script>
-
-
-    <div id="content" >
-           
-           
-
-        <div class="reg clearfix">
-            <div class="form">
-                <div class="form-list">
-
-                @if (Model.isReg == false)
-                {
-                    <form id="J_Step1Form" name="formRegStep1Main" action="http://localhost:7525/Account/Register/Store" method="post">
-                    <input type="hidden" name="ua" id="UA_InputId" value="133u5ObXObBitH2MRYO9Oz0bASM1EzUrOTDGcM=|uKBnf0cvp+/X76f/l8/XX4U=|uZFW7MvyeVWudS4JzunB2f45HmT/FF+k2OTDGcM=|voZB+/M0PPvjq+PrLFQ8RIOb05uTVMzEzAsTWxMb3FQ8NO40|vzfw1/Aq|vCTjxOM5|vaW9esDnbCBsYMg/yOS/xCNvdI+kv0SjmGO4T5TPFD9kSL9UD3OJpf6FHiJuNRn+Vd6SSYJ6ET3GHcWJUkmCSS417uJaAY137Adsl08oM+jkXAeLcU3WrUae+eI5NY22irZMcDygazDopH9kr2QDGMPPdzvj+8OrI2tj65O7k7RzVHOpcw==|sqqCRWJeUpmhCKJrwb2kf1iC|s6sz9E52samx6cEGPvneSeGqjVeN|sKigZ0D64orCSnK1f1hAeBCY0OjA+OC4MKgw/PQTC0PL09vza1PbU8ujq+O7o2lOiZFLbLY=|samRVuzLsSrBinENMTZOaa6J82qDhJyEQ3u8hJxbc0tjRJ5E|tu4pk7STVO6mjpZRefGJU5ScW3xbnIS81Ow27A==|t+8okrWSVe+nj5dQePCIUpWdWn1anYUNNW23bQ==|tPw7gaaBRj52LunRSXG2jgae1q50rg==|te0qkLeQV+2V3ZVSavLKENffGD8Y3+d/Z19HnUc=|qvI1j6iPSPKK4rp9RT2lf7iwd1B3sPiQCGBYglg=|q8MEvpm+eWFJcba+eTG5semhe6E=|qOAnnbqBepHdhm0hBsHpwfk+Jl4m4bnx6bHpM+k=|qeEmnLswa3A7YExrrISc5CO70xSclLyU/Cb8|rubu5iEp7sYBaa7GzglxGd7G3oZBWWEZ3ua+hkHZwQYeRt4ZAUmOlq5pUZaOllFJQYaupmG2rmm+lkw=">
-                        
-						
-						
-					<div class="kv-item kv-nick">
-                            <span class="kv-label"><label for="J_Nick">会员名：</label></span>
-                            <input class="i-text" id="J_Nick" name="J_Nick" value="" type="text">
-
-							<div class="msg-box">
-	                        	<div class="msg-weak msg-inline hide" id="J_NickTip">
-								                                    <i></i>
-                                    <div class="msg-cnt">
-                                    	
-                															</div>
+    <div id="page">
+        @Html.Partial("_Header")
+        <link   rel="stylesheet" href=@Url.Content("/apps/register/common/css/reg.css") />
+        <script src=@Url.Content("/apps/register/common/js/reg.js")></script>
+        <script src=@Url.Content("/apps/register/common/js/step_first.js")></script>
+        <script src=@Url.Content("/apps/register/common/js/step_phone.js")></script>
+        <script src=@Url.Content("/apps/register/common/js/client.js")></script>
+        <div id="content">
+            <div class="reg clearfix">
+                <div class="form">
+                    <div class="form-list">
+                        @if (Model.isReg == false)
+                        {
+                            <form id="J_Step1Form" name="formRegStep1Main" action="http://localhost:7525/Account/Register/Store"
+                            method="post">
+                            <div class="kv-item kv-nick">
+                                <span class="kv-label">
+                                    <label for="J_Nick">
+                                        会员名：</label></span>
+                                <input class="i-text" id="J_Nick" name="J_Nick" value="" type="text">
+                                <div class="msg-box">
+                                    <div class="msg-weak msg-inline hide" id="J_NickTip">
+                                        <i></i>
+                                        <div class="msg-cnt">
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-							<div class="num-tip" id="J_NumTip"></div>
-                          @*  <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
+                                <div class="num-tip" id="J_NumTip">
+                                </div>
+                                @*  <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
                                 <span class="nick-suggest-tit">推荐你使用：</span>
                                 <ul id="J_NickSuggestList">
                                 </ul>
                             </div>*@
-                        </div>	
-@*	
+                            </div>
+                            @*	
                       	<div class="kv-item kv-nick">
                             <span class="kv-label"><label for="J_Nick">会员名：</label></span>
                             <input class="i-text" id="MemberName" name="MemberName" value="" type="text">
@@ -193,9 +86,7 @@
                                 <ul id="J_NickSuggestList">
                                 </ul>
                             </div>
-                        </div>*@
-
-                       @*  <div class="kv-item kv-nick">
+                        </div>*@ @*  <div class="kv-item kv-nick">
                             <span class="kv-label"><label for="J_Phone">手机号：</label></span>
                             <input class="i-text" id="J_Phone" name="J_Phone" value="" type="text">
 
@@ -214,57 +105,50 @@
                                 </ul>
                             </div>
                         </div>*@
-
-                        <div class="kv-item">
-                            <span class="kv-label">您的手机号码：</span>
-                            <div class="phone-input-box">
-                                <span class="area-code" id="J_AreaCode">+86</span>
-                                <input class="J-Mobile i-text" id="J_PhoneInput" type="text" value="" name="mobile">
-                            </div>
-
-
-                                <div class="msg-weak msg-inline hide" id="J_PhoneTip" style="visibility: hidden; ">
-                                    <i></i>
-                                    <div class="msg-cnt"></div>
+                            <div class="kv-item">
+                                <span class="kv-label">您的手机号码：</span>
+                                <div class="phone-input-box">
+                                    <span class="area-code" id="J_AreaCode">+86</span>
+                                    <input class="J-Mobile i-text" id="J_PhoneInput" type="text" value="" name="mobile">
                                 </div>
-
-
-                        </div>
-
-
-                        	
-						 <div class="kv-item">
-                            <span class="kv-label"><label for="J_Nick">邮箱：</label></span>
-                            <input class="i-text" id="J_email_input" name="email" autocomplete="off" value="" type="text">
-
-					@*		<div class="msg-box">
+                                <div class="msg-weak msg-inline hide" id="J_PhoneTip" style="visibility: hidden;">
+                                    <i></i>
+                                    <div class="msg-cnt">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="kv-item">
+                                <span class="kv-label">
+                                    <label for="J_Nick">
+                                        邮箱：</label></span>
+                                <input class="i-text" id="J_email_input" name="email" autocomplete="off" value=""
+                                    type="text">
+                                @*		<div class="msg-box">
 						 	<div class="msg-weak msg-inline hide" id="J_NickTip">
 								                                    <i></i>
                                     <div class="msg-cnt">
                                     	
                 															</div>
                                 </div>
-                            </div>*@
-							        @*  <div class=" msg-inline  msg-weak hide" id="J_email_tip" style="visibility: hidden; ">
+                            </div>*@ @*  <div class=" msg-inline  msg-weak hide" id="J_email_tip" style="visibility: hidden; ">
                                  
                                             <i></i>
                                             <div class="msg-content vm"> </div>
                                              <div class="msg-default  msg-error "></div>  *@
-                             <div class="msg msg-inline msg-weak hide" id="J_email_tip" style="visibility: hidden; ">
-                                        <div class="msg-default  msg-tips ">
-                                            <i class="msg-icon"></i>
-                                            <div class="msg-content vm">此邮箱可作为登录账户，请选择常用邮箱，避免遗忘</div>
-                                        </div>
+                                <div class="msg msg-inline msg-weak hide" id="J_email_tip" style="visibility: hidden;">
+                                    <div class="msg-default  msg-tips ">
+                                        <i class="msg-icon"></i>
+                                        <div class="msg-content vm">
+                                            此邮箱可作为登录账户，请选择常用邮箱，避免遗忘</div>
                                     </div>
-             
-                             <div class="nomad_email_suggest" style="position: absolute; left: 506.5px; top: 323.5px; min-width: 186px; display: none; "><span class="nomad_email_suggest_title">请选择</span><ul></ul>
-                                </div> 
-                                    </div>
-                        
-                    
-
-
-                       @* <div class="kv_item">
+                                </div>
+                                <div class="nomad_email_suggest" style="position: absolute; left: 506.5px; top: 323.5px;
+                                    min-width: 186px; display: none;">
+                                    <span class="nomad_email_suggest_title">请选择</span><ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            @* <div class="kv_item">
                                     <span class="kv_label"><label for="J_Nick">邮箱：</label></span>
                                    
 
@@ -280,332 +164,257 @@
                                 </div> 
                              
                                 </div>*@
-                        
-                        
-                        	
-						<div class="kv-item" id="Address_div">
-                            <span class="kv-label"><label for="J_Nick">现居地：</label></span>
-                            <input id="J_Address" name="J_Address" type="hidden" value="" type="text"  class="i-text">
-
-                            <script type="text/javascript">
-                                $(function () {
-                                    init();
-                                    $("#J_Address").val($("#Address_div select:last-child").val());
-                                });
-
-                                function init() {
-                                    $.ajax({
-                                        type: "POST",
-                                        contentType: 'application/json; charset=utf-8',
-                                        url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
-                                        data: "{'nvls':[{'name':'id','value':'0'}]}",
-                                        dataType: "json",
-                                        success: function (data) {
-                                            //debugger
-                                            var da = eval("(" + data.d + ")");
-                                            updateAfterList(0,0);
-                                        }
+                            <div class="kv-item" id="Address_div">
+                                <span class="kv-label">
+                                    <label for="J_Nick">
+                                        现居地：</label></span>
+                                <input id="J_Address" name="J_Address" type="hidden" value="" type="text" class="i-text">
+                                <script type="text/javascript">
+                                    $(function () {
+                                        init();
+                                        $("#J_Address").val($("#Address_div select:last-child").val());
                                     });
-                                }
 
-                                function updateAfterList(level, id) {
-                                    $.ajax({
-                                        type: "POST",
-                                        contentType: 'application/json; charset=utf-8',
-                                        url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
-                                        data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
-                                        dataType: "json",
-                                        success: function (data) {
-                                            //debugger
-                                            var da = eval("(" + data.d + ")");
-                                            if (da.length != 0) {
-                                                $("#Address_div").append("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>");
-
-                                                $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
-
-
-                                                for (var i = 1; i < da.length; i++) {
-                                                    $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
-                                                }
-
-                                                $("#Area_" + level).bind("change", function () {
-                                                    deleteAfterList($(this).attr("level"));
-                                                    updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
-                                                    $("#J_Address").val($("#Address_div select:last-child").val());
-                                                });
-
-                                                if (da[0].hasChildren == true) {
-                                                    updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
-                                                }
-                                                $("#J_Address").val($("#Address_div select:last-child").val());
+                                    function init() {
+                                        $.ajax({
+                                            type: "POST",
+                                            contentType: 'application/json; charset=utf-8',
+                                            url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                                            data: "{'nvls':[{'name':'id','value':'0'}]}",
+                                            dataType: "json",
+                                            success: function (data) {
+                                                //debugger
+                                                var da = eval("(" + data.d + ")");
+                                                updateAfterList(0, 0);
                                             }
+                                        });
+                                    }
+
+                                    function updateAfterList(level, id) {
+                                        $.ajax({
+                                            type: "POST",
+                                            contentType: 'application/json; charset=utf-8',
+                                            url: "/weblogin/school/pSchoolList.aspx/RegisterGetSchool?t=" + (new Date().getTime()),
+                                            data: "{'nvls':[{'name':'id','value':'" + id + "'}]}",
+                                            dataType: "json",
+                                            success: function (data) {
+                                                //debugger
+                                                var da = eval("(" + data.d + ")");
+                                                if (da.length != 0) {
+                                                    $("#Address_div").append("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>");
+
+                                                    $("#Area_" + level).append("<option value=\"" + da[0].id + "\" selected=\"true\">" + da[0].text + "</option>");
+
+
+                                                    for (var i = 1; i < da.length; i++) {
+                                                        $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
+                                                    }
+
+                                                    $("#Area_" + level).bind("change", function () {
+                                                        deleteAfterList($(this).attr("level"));
+                                                        updateAfterList(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
+                                                        $("#J_Address").val($("#Address_div select:last-child").val());
+                                                    });
+
+                                                    if (da[0].hasChildren == true) {
+                                                        updateAfterList((parseInt(level) + parseInt(1)), da[0].id);
+                                                    }
+                                                    $("#J_Address").val($("#Address_div select:last-child").val());
+                                                }
+                                            }
+                                        });
+                                    }
+
+                                    function deleteAfterList(level) {
+                                        //debugger
+                                        var sumSelect = $("#Address_div select");
+                                        for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
+                                            $(sumSelect[i]).remove();
                                         }
-                                    });
-                                }
+                                    }
 
-                                function deleteAfterList(level) {
-                                    //debugger
-                                    var sumSelect = $("#Address_div select");
-                                    for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
-                                        $(sumSelect[i]).remove();
-                                     }
-                                 }
-
-                            </script>
-
-@*							<div class="msg-box">
+                                </script>
+                                @*							<div class="msg-box">
 				            <div class="msg-weak msg-inline hide" id="J_NickTip">
 								                                    <i></i>
                                     <div class="msg-cnt">
                                     	
                 															</div>
                                 </div>
-                            </div>*@
-							@*<div class="num-tip" id="J_NumTip"></div>*@
-                          @*  <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
+                            </div>*@ @*<div class="num-tip" id="J_NumTip"></div>*@ @*  <div class="nick-suggest" id="J_NickSuggest" style="display: none; ">
                                 <span class="nick-suggest-tit">推荐你使用：</span>
                                 <ul id="J_NickSuggestList">
                                 </ul>
                             </div>*@
-                        </div>
-
-                        <div class="kv-item">
-                            <span class="kv-label"><label for="J_Pwd">登录密码：</label></span>
-                            <input class="i-text" id="J_Pwd" name="J_Pwd" type="password" value="">
-							<div class="msg-box">
-								                                <div class="msg-weak msg-inline hide" id="J_PwdTip">
-								                                    <i></i>
-                                    <div class="msg-cnt">
-										请填写登录密码
-                                    	
-                															</div>
+                            </div>
+                            <div class="kv-item">
+                                <span class="kv-label">
+                                    <label for="J_Pwd">
+                                        登录密码：</label></span>
+                                <input class="i-text" id="J_Pwd" name="J_Pwd" type="password" value="">
+                                <div class="msg-box">
+                                    <div class="msg-weak msg-inline hide" id="J_PwdTip">
+                                        <i></i>
+                                        <div class="msg-cnt">
+                                            请填写登录密码
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="pw-strength pw-weak" id="J_PwdStrength">
+                                    <div class="pw-bar">
+                                    </div>
+                                    <div class="pw-letter">
+                                        <span>弱</span><span>中</span><span>强</span></div>
                                 </div>
                             </div>
-
-							<div class="pw-strength pw-weak" id="J_PwdStrength">
-                                <div class="pw-bar"></div>
-                                <div class="pw-letter"><span>弱</span><span>中</span><span>强</span></div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="kv-item">
-                            <span class="kv-label"><label for="J_RePwd">确认密码：</label></span>
-                            <input class="i-text" id="J_RePwd" type="password" name="_fm.n._0.c" value="" disabled="">
-                            <div class="msg-box">
-								                                <div class="msg-weak msg-inline hide" id="J_RePwdTip" style="visibility: hidden; ">
-								                                    <i></i>
-                                    <div class="msg-cnt">
-                                    	
-                															</div>
+                            <div class="kv-item">
+                                <span class="kv-label">
+                                    <label for="J_RePwd">
+                                        确认密码：</label></span>
+                                <input class="i-text" id="J_RePwd" type="password" name="_fm.n._0.c" value="" disabled="">
+                                <div class="msg-box">
+                                    <div class="msg-weak msg-inline hide" id="J_RePwdTip" style="visibility: hidden;">
+                                        <i></i>
+                                        <div class="msg-cnt">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-
-                        <div class="kv-item">
-                            <span class="kv-label"><label for="J_Code">验证码：</label></span>
-                            <input class="i-shorttext" id="J_Code" type="text" autocomplete="off" name="5QMixZL5qQAKsZzv2hTzUUs0q/zlr+xjKrr9mONtYmT50fbVtASfqgVJFrsLBXLSE3l7iydxLZp8dnuECrJIiAE=" maxlength="4">
-							
-							<img class="checkcode-img dn" id="J_CheckCodeImg" data-src="http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db" width="102" height="26" />
-                            @*<span class="checkcode-change">
+                            <div class="kv-item">
+                                <span class="kv-label">
+                                    <label for="J_Code">
+                                        验证码：</label></span>
+                                <input class="i-shorttext" id="J_Code" type="text" autocomplete="off" name="5QMixZL5qQAKsZzv2hTzUUs0q/zlr+xjKrr9mONtYmT50fbVtASfqgVJFrsLBXLSE3l7iydxLZp8dnuECrJIiAE="
+                                    maxlength="4">
+                                <img class="checkcode-img dn" id="J_CheckCodeImg" data-src="http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db"
+                                    width="102" height="26" />
+                                @*<span class="checkcode-change">
 								看不清？<a href="#nogo" id="J_ImgCodeHandle">换一张</a>
                             </span>
                             <a href="#nogo" id="J_AudioCodeHandle" class="audiocode-ico" data-url="http://pin.aliyun.com/get_audio?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db"><img alt="点击后键入您听到的数字" src="http://img02.taobaocdn.com/tps/i2/T1S4eLXeFmXXXXXXXX-16-16.png"></a>
 							*@
-							<div id="J_CheckCode" class="checkcode" data-imgurl="http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db" data-audiourl="http://pin.aliyun.com/get_audio?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db" data-apiserver="http://pin.aliyun.com/"></div>
-
-							<div class="msg-box w180">
-																	<div class="msg-weak msg-inline hide" id="J_CheckCodeTip" style="visibility: hidden; ">
-								                                    <i></i>
-                                    <div class="msg-cnt">
-    																		</div>
+                                <div id="J_CheckCode" class="checkcode" data-imgurl="http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db"
+                                    data-audiourl="http://pin.aliyun.com/get_audio?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db"
+                                    data-apiserver="http://pin.aliyun.com/">
+                                </div>
+                                <div class="msg-box w180">
+                                    <div class="msg-weak msg-inline hide" id="J_CheckCodeTip" style="visibility: hidden;">
+                                        <i></i>
+                                        <div class="msg-cnt">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-
-
-                        <div class="kv-item form-meta">
-					
-	  
-           	<button class="btn-long" id="J_BtnBasicInfoForm" type="submit"> 注册</button>
-							@*
+                            <div class="kv-item form-meta">
+                                <button class="btn-long" id="J_BtnBasicInfoForm" type="submit">
+                                    注册</button>
+                                @*
 							    							<div class="agreement">
                                     <a href="http://reg.taobao.com/member/agreement.jhtml" target="_blank" id="J_TbAgreementHandle" data-url="http://reg.taobao.com/member/agreement.jhtml">《邻居在线服务协议》</a>
                                     <div class="agreement-content" id="J_AgreementContainer"></div>
                                 </div>*@
-                                                    </div>
-                    </form>
-                }
-                else 
-                { 
-                    <div class="success clearfix">
-		            <div class="success-taobao">
-                <div class="msg-b msg-b-ok">
-                    <i></i>
-											<h2> <em>@Model.loginName</em>，恭喜亲成功开通邻居在线服务！</h2>
-														@*		<script>
-																    (function () {
-																        var tips = [];
-																        tips.push({ text: '新人礼金免费拿，速速来领！', link: 'http://vip.taobao.com/newuser/newGift.htm' });
-																        var tip = tips.length ? tips[Math.floor(tips.length * Math.random())] : null;
-																        if (tip) {
-																            document.write('<div class="tip-box"><div class="tip tip-up"><i></i><div class="tip-content">' + tip.text + '<a href="' + tip.link + '" target="_blank" onclick=" (function(){var img = new Image(); img.src = \'http://www.atpanel.com/member.1.3.12\';})()">查看详情</a></div></div></div>');
-																        }
-																        function log() {
+                            </div>
+                            </form>
+                        }
+                        else
+                        { 
+                            <div class="success clearfix">
+                                <div class="success-taobao">
+                                    <div class="msg-b msg-b-ok">
+                                        <i></i>
+                                        <h2>
+                                            <em>@Model.loginName</em>，恭喜亲成功开通邻居在线服务！</h2>
+                                        @*		<script>
+                                          		    (function () {
+                                          		        var tips = [];
+                                          		        tips.push({ text: '新人礼金免费拿，速速来领！', link: 'http://vip.taobao.com/newuser/newGift.htm' });
+                                          		        var tip = tips.length ? tips[Math.floor(tips.length * Math.random())] : null;
+                                          		        if (tip) {
+                                          		            document.write('<div class="tip-box"><div class="tip tip-up"><i></i><div class="tip-content">' + tip.text + '<a href="' + tip.link + '" target="_blank" onclick=" (function(){var img = new Image(); img.src = \'http://www.atpanel.com/member.1.3.12\';})()">查看详情</a></div></div></div>');
+                                          		        }
+                                          		        function log() {
 
-																        }
-																    })();
+                                          		        }
+                                          		    })();
                                         </script>*@
                                         <div class="tip-box">
-                                        <div class="tip tip-up"><i></i>
-                                        <div class="tip-content">点击转入<a href="http://localhost:7525/PersonalCenter/Home/MyPersonalCenter" target="_blank" >个人中心</a>！</div></div></div>
-					                </div>
-				<div class="success-taobao-remark">
-                	<p>您的用户名为：<em>@Model.loginName</em>     @* *@
-					<p>您的手机号码为：<em>@Model.tel</em>
-				 											@*也可作为登录名。*@
-																</p>
-
-				</div>
-            </div>
-        </div>
+                                            <div class="tip tip-up">
+                                                <i></i>
+                                                <div class="tip-content">
+                                                    点击转入<a href="http://localhost:7525/PersonalCenter/Home/MyPersonalCenter" target="_blank">个人中心</a>！</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="success-taobao-remark">
+                                        <p>
+                                            您的用户名为：<em>@Model.loginName</em> @* *@
+                                            <p>
+                                                您的手机号码为：<em>@Model.tel</em> @*也可作为登录名。*@
+                                            </p>
+                                    </div>
+                                </div>
+                            </div>
                     
      
-                }
-                
+                        }
+                    </div>
+                </div>
+                <div class="quick-reg">
+                    @*     @Html.Partial("_RegSlide")*@ <em class="quick-tit">快速注册</em>
+                    <div class="quick-detail">
+                        欢迎注册成为<em>邻居在线</em>会员<br>@**@ <em class="phone-num"></em>
+                    </div>
                 </div>
             </div>
-			                <div class="quick-reg">
-                     
-                        
-                               @*     @Html.Partial("_RegSlide")*@
-            
-            
-                   <em class="quick-tit">快速注册</em>
-                    <div class="quick-detail">
-                        欢迎注册成为<em>邻居在线</em>会员<br>@**@
-                        <em class="phone-num"> </em>
-                    </div> 
-
-
-
-
-
-                </div>
-		           </div>
-
-		<div class="ue-suggest">
-           @* <img width="18" height="18" alt="注册改进建议" src="http://localhost:7525/Images/messageTip-18-18.png">
+            <div class="ue-suggest">
+                @* <img width="18" height="18" alt="注册改进建议" src="http://localhost:7525/Images/messageTip-18-18.png">
             <a target="_blank" href=" ">"邻居在线注册"改进建议</a>*@
+            </div>
+            <script type="text/javascript">
+                window.TRegister = window.TRegister || {};
+                TRegister.CONSTANTS = {
+                    ERROR_MISS_NICK_NAME: "请填写会员名",
+                    ERROR_MISS_PASSWORD: "请填写密码",
+                    ERROR_MISS_PASSWORD_CONFIRM: "请重新填写一遍密码",
+                    ERROR_MISS_EMAIL: "请输入电子邮箱",
+                    ERROR_MALFORM_NICK_NAME_TOO_SHORT: "会员名在5-25个字符内",
+                    ERROR_MALFORM_NICK_NAME_TOO_LONG: "会员名在5-25个字符内",
+                    ERROR_DUP_NICK_NAME: "该会员名已被使用。您可以:1、重新输入或选择推荐的会员名。2、使用该会员名<a href='http://localhost:7525/Account/register' target='_blank'>登录</a>.",
+                    ERROR_MALFORM_PASSWORD: "您的密码过于简单，请不要使用纯数字、纯字母或连续相同字符。",
+                    ERROR_PASSWORD_NOT_MATCH: "登录密码与再次输入密码不一致",
+                    ERROR_MALFORM_PASSWORD_TOO_SHORT: "密码太短，建议您的密码大于6个字符",
+                    ERROR_MALFORM_PASSWORD_TOO_LONG: "密码太长，建议您的密码小于16个字符",
+                    ERROR_MALFORM_EMAIL: "请输入正确格式的邮箱",
+                    ERROR_MALFORM_EMAIL_TOO_SHORT: "邮件地址太短",
+                    ERROR_FORBIDDEN_EMAIL: "您输入电子邮箱的邮件服务商不能正常收取淘宝的系统邮件,推荐使用&lt;a href=&#39;http://mail.cn.yahoo.com/&#39; target=&#39;_blank&#39;&gt;雅虎邮箱&lt;/a&gt;",
+                    ERROR_DUP_EMAIL: "该电子邮箱已注册，请换用其他电子邮箱注册或用该电子邮箱<a href='http://localhost:7525/member/login.jhtml' target='_blank'>登录</a>",
+                    ERROR_CELLPHONE_OTHERBU_EXISTED: "该手机已经注册过，请换用其他手机号码注册",
+                    JOIN_HAVE_GLOBAL_MEMBER: "该手机已注册过支付宝，请点此<a href='http://www.alipay.com/user/login.htm' target='_blank'>登录支付宝</a>快速成为淘宝会员。",
+                    JOIN_LOCAL_EXIST: "该手机号码已注册，请换用其他手机号码注册或用该手机号码<a href='http://localhost:7525/Account/register' target='_blank'>登录</a>",
+                    JOIN_HAVE_NOT_GLOBAL_BUT_FAIL: "该手机已注册，请更换为邮箱注册",
+                    JOIN_HAVE_TEMP_MEMBER: "该手机号码已注册，请更换其他手机或使用邮箱注册",
+                    ERROR_MALFORM_MOBILE: "该手机号码不存在",
+                    ERROR_CELLPHONE_WAP_SMS: "该手机号码已使用手机快速注册,您可以继续在页面完成注册流程，或者按照短信提示操作。",
+                    ERROR_CELLPHONE_EXISTED: "该手机号码已注册，请换用其他手机号码注册或用该手机号码<a href='https://login.taobao.com/member/login.jhtml' target='_blank'>登录</a>",
+                    ERROR_CELLPHONE_MEMBER_FANGKE_ERROR: "该手机曾快速购买过商品，可使用手机动态密码<a href='https://login.taobao.com/member/login.jhtml?tag=1' target='_blank'>登录</a>；继续使用该手机注册，原快速购买记录将不可查询。",
+                    ERROR_CELLPHONE_DIRTY: '该手机号码已注册，建议您即刻<a href="http://localhost:7525/Account/register">找回</a>；或<a href="http://localhost:7525/Account/register">登录</a>后在“账号管理”解绑该手机后再次注册',
+                    ERROR_UNDERLINE: "&#20250;&#21592;&#21517;&#39318;&#20301;&#21644;&#26411;&#20301;&#19981;&#33021;&#26159;&#19979;&#21010;&#32447;'_'",
+                    ERROR_MALFORM_NICK_NAME: "会员名不能全为数字，或包含非法字符",
+                    ERROR_PASSWORD_LIKE_NICK: "您的登录密码与会员名过于相似，为了您的安全建议您更换密码",
+                    ERROR_BANNED_WORDS: "会员名包含非法字符",
+                    ERROR_EMAIL_BLACKLIST: "系统调整，暂不接受此网站邮箱注册，请尝试使用其他网站邮箱。"
+                };
+
+                TRegister.INITDATA = {
+                    userNameValidateUrl: "http://localhost:7525/Account/Register/check_nick",
+                    passwordValidateUrl: "http://reg.taobao.com/member/check_password.do",
+                    checkCodeUrl: "http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db",
+                    changeCodeUrl: "http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db",
+                    audioCodeUrl: "http://pin.aliyun.com/get_audio?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db"
+                };
+            </script>
         </div>
-
-              <script type="text/javascript">
-                  window.TRegister = window.TRegister || {};
-                  TRegister.CONSTANTS = {
-                      ERROR_MISS_NICK_NAME: "请填写会员名",
-                      ERROR_MISS_PASSWORD: "请填写密码",
-                      ERROR_MISS_PASSWORD_CONFIRM: "请重新填写一遍密码",
-                      ERROR_MISS_EMAIL: "请输入电子邮箱",
-                      ERROR_MALFORM_NICK_NAME_TOO_SHORT: "会员名在5-25个字符内",
-                      ERROR_MALFORM_NICK_NAME_TOO_LONG: "会员名在5-25个字符内",
-                      ERROR_DUP_NICK_NAME: "该会员名已被使用。您可以:1、重新输入或选择推荐的会员名。2、使用该会员名<a href='http://localhost:7525/Account/register' target='_blank'>登录</a>.",
-                      ERROR_MALFORM_PASSWORD: "您的密码过于简单，请不要使用纯数字、纯字母或连续相同字符。",
-                      ERROR_PASSWORD_NOT_MATCH: "登录密码与再次输入密码不一致",
-                      ERROR_MALFORM_PASSWORD_TOO_SHORT: "密码太短，建议您的密码大于6个字符",
-                      ERROR_MALFORM_PASSWORD_TOO_LONG: "密码太长，建议您的密码小于16个字符",
-                      ERROR_MALFORM_EMAIL: "请输入正确格式的邮箱",
-                      ERROR_MALFORM_EMAIL_TOO_SHORT: "邮件地址太短",
-                      ERROR_FORBIDDEN_EMAIL: "您输入电子邮箱的邮件服务商不能正常收取淘宝的系统邮件,推荐使用&lt;a href=&#39;http://mail.cn.yahoo.com/&#39; target=&#39;_blank&#39;&gt;雅虎邮箱&lt;/a&gt;",
-                      ERROR_DUP_EMAIL: "该电子邮箱已注册，请换用其他电子邮箱注册或用该电子邮箱<a href='http://localhost:7525/member/login.jhtml' target='_blank'>登录</a>",
-                      ERROR_CELLPHONE_OTHERBU_EXISTED: "该手机已经注册过，请换用其他手机号码注册",
-                      JOIN_HAVE_GLOBAL_MEMBER: "该手机已注册过支付宝，请点此<a href='http://www.alipay.com/user/login.htm' target='_blank'>登录支付宝</a>快速成为淘宝会员。",
-                      JOIN_LOCAL_EXIST: "该手机号码已注册，请换用其他手机号码注册或用该手机号码<a href='http://localhost:7525/Account/register' target='_blank'>登录</a>",
-                      JOIN_HAVE_NOT_GLOBAL_BUT_FAIL: "该手机已注册，请更换为邮箱注册",
-                      JOIN_HAVE_TEMP_MEMBER: "该手机号码已注册，请更换其他手机或使用邮箱注册",
-                      ERROR_MALFORM_MOBILE: "该手机号码不存在",
-                      ERROR_CELLPHONE_WAP_SMS: "该手机号码已使用手机快速注册,您可以继续在页面完成注册流程，或者按照短信提示操作。",
-                      ERROR_CELLPHONE_EXISTED: "该手机号码已注册，请换用其他手机号码注册或用该手机号码<a href='https://login.taobao.com/member/login.jhtml' target='_blank'>登录</a>",
-                      ERROR_CELLPHONE_MEMBER_FANGKE_ERROR: "该手机曾快速购买过商品，可使用手机动态密码<a href='https://login.taobao.com/member/login.jhtml?tag=1' target='_blank'>登录</a>；继续使用该手机注册，原快速购买记录将不可查询。",
-                      ERROR_CELLPHONE_DIRTY: '该手机号码已注册，建议您即刻<a href="http://localhost:7525/Account/register">找回</a>；或<a href="http://localhost:7525/Account/register">登录</a>后在“账号管理”解绑该手机后再次注册',
-                      ERROR_UNDERLINE: "&#20250;&#21592;&#21517;&#39318;&#20301;&#21644;&#26411;&#20301;&#19981;&#33021;&#26159;&#19979;&#21010;&#32447;'_'",
-                      ERROR_MALFORM_NICK_NAME: "会员名不能全为数字，或包含非法字符",
-                      ERROR_PASSWORD_LIKE_NICK: "您的登录密码与会员名过于相似，为了您的安全建议您更换密码",
-                      ERROR_BANNED_WORDS: "会员名包含非法字符",
-                      ERROR_EMAIL_BLACKLIST: "系统调整，暂不接受此网站邮箱注册，请尝试使用其他网站邮箱。"
-                  };
-
-                  TRegister.INITDATA = {
-                      userNameValidateUrl: "http://localhost:7525/Account/Register/check_nick",
-                      passwordValidateUrl: "http://reg.taobao.com/member/check_password.do",
-                      checkCodeUrl: "http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db",
-                      changeCodeUrl: "http://pin.aliyun.com/get_img?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db",
-                      audioCodeUrl: "http://pin.aliyun.com/get_audio?identity=member1.taobao.com&amp;sessionid=5ac61eb2b583eda146d302cc492bd0db"
-                  };
-              </script>
+        @Html.Partial("_Footer")
     </div>
-
-	<script type="text/javascript">
-	    (function () {
-	        var D = window.D || { get: function (id) { return document.getElementById(id); } };
-
-
-
-
-	        document.getElementById('J_Code').name = '5QMixZL5qQAKsZzv2hTzUUs0q/zlr+xjKrr9mONtYmT50fbVtASfqgVJFrsLBXLSE3l7iydxLZp8dnuECrJIiAE=';
-
-
-
-
-	    })();
-	</script>
-
-	<div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 0px; height: 0px; left: 225px; top: 628px; "></div>
-    <object width="190" height="26" classid="clsid:488A4255-3236-44B3-8F27-FA1AECAA8844" id="Password_Edit_IE" style="visibility: hidden;">
-        <param value="0613110323" name="cm5ts">
-        <param value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDDS92pDVyWNT7dzG9zH0opH44z9FayCZTX5iqGUxUjPi667IkyaqrsmDPqKsJp47lJ29lzs+Qv8zjPPdmnxjFteMrfpc4ui24gL1iZnch
-        wX87Ox/+Xrm8HFmKlhmUO9n/QgTT+Nz1RGMEN1+HijvsoAhS0TS8XjSfzRkrwvK2pJQIDAQAB" name="cm5pk">
-        <param value="4" name="CryptoMode">
-        <div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 190px; height: 26px; left: 225px; top: 628px; "></div><embed width="190" height="26" id="Password_Edit_NoIE" type="application/aliedit">
-    </object>
-
-
-<script>
-    KISSY.later(function () {
-        if (KISSY.UA.shell == "ie") {
-            var aa = document.getElementById("Password_Edit_IE");
-        }
-        else {
-            var aa = document.getElementById("Password_Edit_NoIE");
-        }
-        var tid = document.getElementById("tid");
-        tid.value = aa.ci1();
-    }, 2000, false, null);
-</script>
-
-
-
-
-    		    			<!-- from vmcommon -->
-
-
-   @Html.Partial("_Footer")
-
-
-
-<!-- end vmcommon -->
-	
-    		    	</div>
-		
-    
-    
-<div style="height: 0px; width: 0px; overflow: hidden; "><div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 0px; height: 0px; left: 0px; top: 777px; "></div>
-<object width="0" height="0" style="height:0;width:0;overflow:hidden;" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab" id="JSocket"><param name="allowScriptAccess" value="always"><param name="movie" value="http://acjs.aliyun.com/actionlog/flash/JSocket.swf"> <div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 0px; height: 0px; left: 0px; top: 777px; "></div><embed src="http://acjs.aliyun.com/actionlog/flash/JSocket.swf" name="JSocket" allowscriptaccess="always" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cn" width="0" height="0"></object></div><div><div class="RDVideoHelper" style="position: absolute; z-index: -1; display: block; width: 0px; height: 0px; left: 0px; top: 777px; "></div><object id="ClCache" click="sendMsg" host="" width="0" height="0">
-</object>
-</div>
-
- 
 </body>
 </html>
