@@ -54,6 +54,8 @@ namespace friday.core.repositories
             return list;
         }
 
+       
+
     }
      
 }

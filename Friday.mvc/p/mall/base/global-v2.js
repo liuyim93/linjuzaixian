@@ -39,9 +39,9 @@ TB.add("mod~global", function () {
         _is_own = !(_domain.indexOf("taobao.com") > -1 || _is_tmall),
     //2013-03-06 basilwang use our own
     //_own_domain = _is_own ? ".daily.taobao.net" : ".taobao.com";
-        _own_domain = _is_own ? "http://www.linjuzaixian.com/" : ".taobao.com";
+        _own_domain = _is_own ? "http://localhost:7525/" : ".taobao.com";
     //var g = _is_own ? "assets.daily.taobao.net" : "a.tbcdn.cn",
-    var _own_domain_1 = _is_own ? "http://www.linjuzaixian.com/" : "a.tbcdn.cn",
+    var _own_domain_1 = _is_own ? "http://localhost:7525/" : "a.tbcdn.cn",
         _param_array = _kissy.unparam(location.search.substring(1)),
         _appid = "g_config" in _window ? ("appId" in _window.g_config ? parseInt(_window.g_config["appId"]) : undefined) : undefined;
     //2013-02-20 basilwang is Https or not
@@ -84,7 +84,7 @@ TB.add("mod~global", function () {
         _kissy.ready(function () {
             _kissy.use("event", function (_kissy_imp, _event) {
                 _event = _event || _kissy_imp.Event;
-                var _url = "http://www.linjuzaixian.com/category/home/cat_nav_asyn";
+                var _url = "http://localhost:7525/category/home/cat_nav_asyn";
                 var _j_mall_cate = document.getElementById("J_MallCate");
                 var _div_named_sn_menu = _findChildElementByClassName("sn-menu", _j_mall_cate);
                 if (_j_mall_cate && _div_named_sn_menu) {
@@ -414,7 +414,7 @@ TB.add("mod~global", function () {
                 _kissy.use("tmall/mui/brandbar", function (_kissy_tmp, _brandbar) {
                     //2013-03-08 basilwang use our own
                     //var q = TB.environment.isDaily ? "brand.daily.tmall.net" : "brand.tmall.com";
-                    var q = "http://www.linjuzaixian.com";
+                    var q = "http://localhost:7525";
                     _brandbar.show({ urlMyBrand: q + "/myBrandsIndex.html", newWindow: true });
                     //2013-03-08 basilwang use our own
                     //_brandbar.bindEl(".j_CollectBrand", {addServer: "http://" + q + "/ajax/brandAddToFav.htm"})
@@ -467,10 +467,10 @@ TB.add("mod~global", function () {
            {
                isApp: false,
                passCookie: true,
-               loginServer: "http://www.linjuzaixian.com/member/login.jhtml",
-               logoutServer: "http://www.linjuzaixian.com/Account/Home/loginOut",
-               registerServer: "http://www.linjuzaixian.com/Account/register",
-               spaceServer: "http://www.linjuzaixian.com/PersonalCenter/Home/MyPersonalCenter"
+               loginServer: "http://localhost:7525/member/login.jhtml",
+               logoutServer: "http://localhost:7525/Account/Home/loginOut",
+               registerServer: "http://localhost:7525/Account/register",
+               spaceServer: "http://localhost:7525/PersonalCenter/Home/MyPersonalCenter"
                //spaceServer: "http://jianghu.taobao.com/admin/home.htm"
                /*
                loginServer: "http://login.tmall.com",
@@ -501,7 +501,7 @@ TB.add("mod~global", function () {
 
             if (TB.environment.isDaily) {
                 _loginserver = "http://login.daily.taobao.net/?redirect_url=" + encodeURIComponent(_real_url_redirect);
-                _spaceserver = "http://www.linjuzaixian.com/index.html";
+                _spaceserver = "http://localhost:7525/index.html";
                 _registerserver += "?isDaily=1";
                 _logoutserver = "http://login.daily.taobao.net/member/logout.jhtml?f=top&redirectURL=http://login.daily.taobao.net/member/login.jhtml?redirect_url%3D" + encodeURIComponent("" + encodeURIComponent(_real_url_redirect))
             }
@@ -513,7 +513,7 @@ TB.add("mod~global", function () {
             var _user_info_snippet = "";
             if (_user_info.isLogin) {
                 //_user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><a class="j_Point sn-point hidden" target="_top" href=" ">积分<em class="j_PointValue sn-point-value">0</em></a><span class="j_Message sn-message hidden"><a target="_top" href="" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
-                _user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><div style="display:none"><a class="j_Point sn-point hidden" target="_top" href="http://www.linjuzaixian.com/index.html">积分<em class="j_PointValue sn-point-value">0</em></a></div><span class="j_Message sn-message hidden"><a target="_top" href="http://www.linjuzaixian.com/index.html" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
+                _user_info_snippet = 'HI,<a target="_top" href="' + _spaceserver + '" class="j_UserNick sn-user-nick">' + _user_info.nick + '</a>\uff01<a class="j_Identity sn-identity hidden" target="_top"></a><div style="display:none"><a class="j_Point sn-point hidden" target="_top" href="http://localhost:7525/index.html">积分<em class="j_PointValue sn-point-value">0</em></a></div><span class="j_Message sn-message hidden"><a target="_top" href="http://localhost:7525/index.html" class="j_MessageText">消息<em class="j_MessageNum sn-msg-num">0</em></a><span class="sn-msg-box  j_MesssageBox hidden"><i class="sn-msg-hd"></i><span class="sn-msg-bd"><a href="#" class="j_MessageTitle sn-msg-title">加入Tmall俱乐部</a><b class="j_CloseMessage sn-msg-close">&times;</b></span></span></span><a class="sn-logout" target="_top" href="' + _logoutserver + '" id="J_Logout">退出</a><i class="sn-separator"></i>';
                 _dom_id_login_info.innerHTML = _user_info_snippet;
                 if (_is_ie6) {
                     var _elem = _findChildElementByClassName("j_UserNick", _div_named_site_nav);
@@ -531,7 +531,7 @@ TB.add("mod~global", function () {
                         if (_memberInfo.activeStatus >= 1) {
                             _addClassName(AE, "sn-vip" + _memberInfo.activeStatus);
                             //AE.href = ""; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
-                            AE.href = "http://www.linjuzaixian.com/index.html"; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
+                            AE.href = "http://localhost:7525/index.html"; /* http://vip.tmall.com/vip/index.htm?from=top&scm=1027.1.1.2 */
                             AE.title = "_getOffsetTotal" + _memberInfo.activeStatus + "邻居\u8fbe\u4eba"
                         } else {
                             _addClassName(AE, "sn-vip-unactivated");
@@ -647,7 +647,7 @@ TB.add("mod~global", function () {
             //2013-03-09 basilwang use our own domain
             // after call query_cookie_info  , below is return
             // var userCookie={_nk_:'',uc1:'',mt:'',l:'',version:''};TB && TB.Global && TB.Global.run && TB.Global.run();
-            var _login_url = "http://www.linjuzaixian.com/Account/Home/query_cookie_info";
+            var _login_url = "http://localhost:7525/Account/Home/query_cookie_info";
             /*
             var _login_url = "http://www.taobao.com/go/app/tmall/login-api.php";
             if (TB.environment.isDaily) {
@@ -689,7 +689,7 @@ TB.add("mod~global", function () {
 //        if (TB.environment.isDaily) {
 //            _member_url = "http://tmm.daily.taobao.net/member/query_member_top.do"
         //        }
-        _member_url = "http://www.linjuzaixian.com/Account/Home/query_member_top"
+        _member_url = "http://localhost:7525/Account/Home/query_member_top"
         _member_url += "?callback=_initMemberInfoCallback&t=" + _kissy.now();
         window._initMemberInfoCallback = function (p) {
             TB.userInfo.memberInfo = p;
@@ -856,7 +856,7 @@ TB.add("mod~global", function () {
             return
         }
         //var _trackid, _count_url = "http://" + (TB.environment.isDaily ? "count.config-vip.taobao.net:8888" : "count.tbcdn.cn") + "/counter3";
-        var _trackid, _count_url = "http://www.linjuzaixian.com/Account/Home/counter";
+        var _trackid, _count_url = "http://localhost:7525/Account/Home/counter";
         TB.Global.memberInfoReady(function (_userinfo) {
             if (_userinfo.isLogin) {
                 _trackid = (_userinfo.memberInfo.cookies && _userinfo.memberInfo.cookies.unb) ? _userinfo.memberInfo.cookies.unb.value : _userinfo.trackId
@@ -887,7 +887,7 @@ TB.add("mod~global", function () {
         }
         _dom_a.innerHTML = _snippet + '<span class="mc-count' + (_cart_num < 10 ? " mc-pt3" : _no_class) + '">' + _cart_num + "</span>件";
         //_dom_a.href = "http://" + (TB.environment.isDaily ? "cart.daily.tmall.net" : "cart.tmall.com") + "/cart/myCart.htm?from=btop";
-        _dom_a.href = "http://www.linjuzaixian.com/CartPay/Home/MyCartPay?from=btop";
+        _dom_a.href = "http://localhost:7525/CartPay/Home/MyCartPay?from=btop";
         _addClassName(_cart_elem, _str_class_mini_cart);
         _addClassName(_cart_elem, "menu");
         _addClassName(_dom_a, "menu-hd");
@@ -924,7 +924,7 @@ TB.add("mod~global", function () {
     };
     TB.Cart = _kissy.merge({},
                {
-                   domain: (document.domain.indexOf("taobao.com") > -1 || document.domain.indexOf("tmall.com") > -1) ? "taobao.com" : "http://www.linjuzaixian.com/",
+                   domain: (document.domain.indexOf("taobao.com") > -1 || document.domain.indexOf("tmall.com") > -1) ? "taobao.com" : "http://localhost:7525/",
                    API: "http://%domain%/check_cart_login.htm",
                    cache: {},
                    popup: null,
@@ -988,7 +988,7 @@ TB.add("mod~global", function () {
                    _kissy.DOM.css(this.popup, "top", _top)
                    },_addStyleSheetOnce: function() {
                    if (!this._stylesheetAdded) {
-                   _kissy.DOM.addStyleSheet("#g-cartlogin{position:fixed;_position:absolute;border:1px solid #aaa;left:50%;top:120px;margin-left:-206px;width:412px;height:272px;z-index:90010;background:#fafafa;-moz-box-shadow:rgba(0,0,0,0.2) 3px 3px 3px;-webkit-box-shadow:3px 3px 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3,OffY=3,Color=#16000000,Positive=true);} #g_minicart_login_close{position:absolute;right:5px;top:5px;width:17px;height:17px;background:url(http://www.linjuzaixian.com/Images/194-382.png) no-repeat -100px -69px;text-indent:-999em;overflow:hidden;}#g-cartlogin-close{cursor:pointer;position:absolute;right:5px;top:5px;width:17px;height:17px;line-height:0;overflow:hidden;background:url(http://www.linjuzaixian.com/Images/fenxiang-146-77.png) no-repeat -132px 0;text-indent:-999em;}");
+                   _kissy.DOM.addStyleSheet("#g-cartlogin{position:fixed;_position:absolute;border:1px solid #aaa;left:50%;top:120px;margin-left:-206px;width:412px;height:272px;z-index:90010;background:#fafafa;-moz-box-shadow:rgba(0,0,0,0.2) 3px 3px 3px;-webkit-box-shadow:3px 3px 3px rgba(0,0,0,0.2);filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=3,OffY=3,Color=#16000000,Positive=true);} #g_minicart_login_close{position:absolute;right:5px;top:5px;width:17px;height:17px;background:url(http://localhost:7525/Images/194-382.png) no-repeat -100px -69px;text-indent:-999em;overflow:hidden;}#g-cartlogin-close{cursor:pointer;position:absolute;right:5px;top:5px;width:17px;height:17px;line-height:0;overflow:hidden;background:url(http://localhost:7525/Images/fenxiang-146-77.png) no-repeat -132px 0;text-indent:-999em;}");
                    this._stylesheetAdded = true
                    }
                    },_initPopup: function() {

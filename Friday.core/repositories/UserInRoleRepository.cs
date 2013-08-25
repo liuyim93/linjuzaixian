@@ -62,6 +62,26 @@ namespace friday.core.repositories
 
        }
 
+        public void UnDeleteUserInRoleByLoginUserID(string MID)
+        {
+
+            using (ITransaction tran = Session.BeginTransaction())
+            {
+                try
+                {
+                    Session.CreateQuery(@"update UserInRole set IsDelete=false  where  LoginUser.Id=:LId ")
+                         .SetString("LId", MID).ExecuteUpdate();
+                    tran.Commit();
+                }
+                catch (Exception ex)
+                {
+                    tran.Rollback();
+                    throw ex;
+                }
+            }
+
+        }
+
 
     }
      

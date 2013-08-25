@@ -92,8 +92,8 @@ namespace Friday.mvc.weblogin.activity
             catch (System.Exception Ex)
             {
             }
-            
 
+            act.Description = Request.Params["MerchantID"];
             iActivityService.Save(act);
 
             AjaxResult result = new AjaxResult();

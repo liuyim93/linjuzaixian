@@ -117,14 +117,18 @@ function navTabAjaxDone(json){
 	if (json.statusCode == DWZ.statusCode.ok){
 	    if (json.navTabId) { //把指定navTab页面标记为需要“重新载入”。注意navTabId不能是当前navTab页面的
 	        //2013-01-15 basilwang reload referer
-	        if (json.navTabId == "referer") {
-                //2013-02-17 basilwang we don't need consider the stituation that navtab refresh dialog here. 
-                var referer_url = $.referer_url(navTab.getCurrentPanelPrefix());
+	        if (json.navTabId == "referer" || json.navTabId == "self") {
+	            //2013-02-17 basilwang we don't need consider the stituation that navtab refresh dialog here.
+	            var refresh_url="";
+                if(json.navTabId == "referer")
+                    refresh_url = $.referer_url(navTab.getCurrentPanelPrefix());
+                else if (json.navTabId == "self")
+                    refresh_url = navTab.getCurrentPanelPrefix();
                 //2013-02-13 basilwang send panelId to reloadFlag
                 //I think there are two situations when navTab._reload get called after setting reloadFlag several times.
                 // 1 panelId exists, which means we need refresh a panel of referer
                 // 2 panelId doesn't exists(must set null if panelId doesn't exist when set reloadFalg)  just refresh referer as usual
-                navTab.reloadFlag(referer_url, json.panelId);
+                navTab.reloadFlag(refresh_url, json.panelId);
 
 	        }
 	        else {
@@ -359,12 +363,13 @@ function dialogPageBreak(args, rel){
 }
 
 
-function ajaxTodo(url, callback){
+function ajaxTodo(url, callback,_data){
 	var $callback = callback || navTabAjaxDone;
 	if (! $.isFunction($callback)) $callback = eval('(' + callback + ')');
 	$.ajax({
 		type:'POST',
-		url:url,
+		url: url,
+        data:_data,
 		dataType:"json",
 		cache: false,
 		success: $callback,
@@ -416,50 +421,50 @@ function uploadifyError(event, queueId, fileObj, errorObj){
 
 
 $.fn.extend({
-	ajaxTodo:function(){
-		return this.each(function(){
-			var $this = $(this);
-			$this.click(function(event){
-				var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
-				DWZ.debug(url);
-				if (!url.isFinishedTm()) {
-					alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
-					return false;
-				}
-				var title = $this.attr("title");
-				if (title) {
-					alertMsg.confirm(title, {
-						okCall: function(){
-							ajaxTodo(url, $this.attr("callback"));
-						}
-					});
-				} else {
-					ajaxTodo(url, $this.attr("callback"));
-				}
-				event.preventDefault();
-			});
-		});
-	},
-	dwzExport: function(){
-		function _doExport($this) {
-			var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
-			var $form = $("#pagerForm", $p);
-			var url = $this.attr("href");
-			window.location = url+(url.indexOf('?') == -1 ? "?" : "&")+$form.serialize();
-		}
-		
-		return this.each(function(){
-			var $this = $(this);
-			$this.click(function(event){
-				var title = $this.attr("title");
-				if (title) {
-					alertMsg.confirm(title, {
-						okCall: function(){_doExport($this);}
-					});
-				} else {_doExport($this);}
-			
-				event.preventDefault();
-			});
-		});
-	}
+    ajaxTodo: function (_rel_hook) {
+        return this.each(function () {
+            var $this = $(this);
+            $this.click(function (event) {
+                var url = unescape($this.attr("href")).replaceTmById($(event.target).parents(".unitBox:first"));
+                DWZ.debug(url);
+                if (!url.isFinishedTm()) {
+                    alertMsg.error($this.attr("warn") || DWZ.msg("alertSelectMsg"));
+                    return false;
+                }
+                var title = $this.attr("title");
+                if (title) {
+                    alertMsg.confirm(title, {
+                        okCall: function () {
+                            ajaxTodo(url, $this.attr("callback"), {rel_hook:_rel_hook});
+                        }
+                    });
+                } else {
+                    ajaxTodo(url, $this.attr("callback"), { rel_hook: _rel_hook });
+                }
+                event.preventDefault();
+            });
+        });
+    },
+    dwzExport: function () {
+        function _doExport($this) {
+            var $p = $this.attr("targetType") == "dialog" ? $.pdialog.getCurrent() : navTab.getCurrentPanel();
+            var $form = $("#pagerForm", $p);
+            var url = $this.attr("href");
+            window.location = url + (url.indexOf('?') == -1 ? "?" : "&") + $form.serialize();
+        }
+
+        return this.each(function () {
+            var $this = $(this);
+            $this.click(function (event) {
+                var title = $this.attr("title");
+                if (title) {
+                    alertMsg.confirm(title, {
+                        okCall: function () { _doExport($this); }
+                    });
+                } else { _doExport($this); }
+
+                event.preventDefault();
+            });
+        });
+    }
 });

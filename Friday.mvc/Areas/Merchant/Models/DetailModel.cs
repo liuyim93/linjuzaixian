@@ -47,5 +47,9 @@ namespace Friday.mvc.Models
         //public IList<House> Houses { get; set; }
         public IList<Commodity> Commoditys { get; set; }
 
+        public IList<PropID> PropIDs { get; set; }
+
+        public IList<Sku> Skus { set; get; }
+
     }
 }

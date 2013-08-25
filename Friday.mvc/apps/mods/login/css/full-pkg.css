@@ -46,7 +46,7 @@ a.long-btn:hover{color:#fff;}
 :root .g_foot-toy{right:-20px\9;}
 .g_foot-line{position:absolute;background:url(../images/line.png) no-repeat;width:104px;height:1px;display:block;right:45px;top:33px;}
 #page,#page3{width:950px;margin-left:auto;margin-right:auto;}
-.login-box .msg p.error{background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat -319px -449px #FFF2F2;border-color:#FF8080;line-height:18px;padding:2px 10px 2px 23px;}
+.login-box .msg p.error{background:url(http://localhost:7525/images/stuff.png) no-repeat -319px -449px #FFF2F2;border-color:#FF8080;line-height:18px;padding:2px 10px 2px 23px;}
 .login-box .msg p{border:1px solid #ccc;float:none;white-space:normal;word-wrap:break-word;}
 body{background-image:none;}
 #header{padding-top:0;}
@@ -74,7 +74,7 @@ body{background-image:none;}
 #J_StandardPwd{display:inline-block;height:28px;vertical-align:middle;}
 .login-box .password-edit-tmp{display:block;width:0;height:0;overflow:hidden;}
 .J_CheckCode{ime-mode:disabled;}
-.login-box .mobile-num{background:#FFF url(http://www.linjuzaixian.com/images/stuff.png) no-repeat 234px -164px;}
+.login-box .mobile-num{background:#FFF url(http://localhost:7525/images/stuff.png) no-repeat 234px -164px;}
 .login-box .mobile-check{width:80px;}
 .login-box .field-checkcode{padding-top:5px;padding-bottom:0;}
 .login-box .checkcode{width:65px;}
@@ -113,32 +113,32 @@ body{background-image:none;}
 .login-box .dynamic-link:hover{color:#F60;}
 .login-box .msg{overflow:hidden;margin-bottom:5px;}
 .login-box .msg p{float:none;white-space:normal;word-wrap:break-word;}
-.login-box .msg p.error{background-image:url(http://www.linjuzaixian.com/images/stuff.png);background-position:-319px -449px;}
+.login-box .msg p.error{background-image:url(http://localhost:7525/images/stuff.png);background-position:-319px -449px;}
 .login-box .msg p.dynamic{line-height:18px;border:solid 1px #ffcc7f;padding:2px 10px 2px 30px;background:#ffffe5 url(../images/sending.gif) no-repeat 8px 4px;color:#404040;}
 .login-help,.login-help .hd,.login-help .bd,.login-help .ft{background:url(../images/arrow_box_bg.png) no-repeat;}
 .login-help{position:absolute;width:455px;left:35px;top:48px;background-position:-540px 0;background-repeat:repeat-y;z-index:2;}
 .login-help .hd{height:20px;padding-top:14px;line-height:20px;background-position:-50px 0;}
-.login-help .hd h2{font-size:14px;text-indent:35px;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat -308px -385px;}
+.login-help .hd h2{font-size:14px;text-indent:35px;background:url(http://localhost:7525/images/stuff.png) no-repeat -308px -385px;}
 .login-help .bd{padding:0 36px 0 14px;background-position:428px 40%;}
-.login-help .bd dt{line-height:22px;margin-top:12px;font-weight:bold;padding-left:20px;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat -318px -415px;}
+.login-help .bd dt{line-height:22px;margin-top:12px;font-weight:bold;padding-left:20px;background:url(http://localhost:7525/images/stuff.png) no-repeat -318px -415px;}
 .login-help .bd dd{line-height:20px;padding-left:20px;}
 .login-help .ft{height:24px;background-position:-1020px bottom;}
 .install-plugin-popup{position:absolute;width:341px;margin-left:-170px;padding:3px;border:solid 1px #bcbcbc;top:160px;left:50%;background:#efefef;z-index:100003;}
 .install-plugin-popup .wrap{border:solid 1px #dedede;background:#fff;}
-.install-plugin-popup .hd{height:32px;padding-left:20px;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat 0 0;}
+.install-plugin-popup .hd{height:32px;padding-left:20px;background:url(http://localhost:7525/images/stuff.png) no-repeat 0 0;}
 .install-plugin-popup h3{height:32px;line-height:32px;font-size:14px;color:#fff;}
 .install-plugin-popup .close{position:absolute;width:15px;height:15px;line-height:100px;overflow:hidden;right:14px;top:12px;cursor:pointer;}
 .install-plugin-popup .bd{padding:20px 25px;}
 .install-plugin-popup .bd h4{font-size:12px;font-weight:bold;}
 .install-plugin-popup .bd ul{margin:5px 0 8px;color:#636363;}
-.install-plugin-popup .bd ul li{line-height:20px;padding-left:8px;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat 0 -40px;}
-.install-plugin-popup .bd strong{display:block;padding-left:15px;font-size:12px;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat -326px -62px;color:#f60;}
+.install-plugin-popup .bd ul li{line-height:20px;padding-left:8px;background:url(http://localhost:7525/images/stuff.png) no-repeat 0 -40px;}
+.install-plugin-popup .bd strong{display:block;padding-left:15px;font-size:12px;background:url(http://localhost:7525/images/stuff.png) no-repeat -326px -62px;color:#f60;}
 .install-plugin-popup .bd .buttons{margin:18px 0 2px;text-align:center;}
 .popup-mask{position:absolute;width:100%;height:100%;left:0;top:0;background:#000;opacity:.5;filter:alpha(opacity=50);z-index:100002;}
 * html .popup-shim{position:absolute;width:100%;height:100%;border:0;left:0;top:0;filter:alpha(opacity=0);z-index:100001;}
 .beta-tip{margin-bottom:20px;text-align:center;}
 .long-login-hover,.safe-login-hover{background:url(../images/sprit2.png) no-repeat 0 0;}
-.long-login-help{width:12px;height:12px;*margin-left:3px;display:inline-block;*display:inline;zoom:1;text-indent:-1000px;overflow:hidden;font-size:0;vertical-align:middle;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat -325px -367px;}
+.long-login-help{width:12px;height:12px;*margin-left:3px;display:inline-block;*display:inline;zoom:1;text-indent:-1000px;overflow:hidden;font-size:0;vertical-align:middle;background:url(http://localhost:7525/images/stuff.png) no-repeat -325px -367px;}
 .long-login,.safe-login{position:relative;zoom:1;height:22px;display:inline-block;*display:inline;vertical-align:middle;line-height:22px;padding:2px 0 2px 3px;color:#999;overflow:hidden;z-index:5;*padding:2px 0 2px 4px;}
 .long-login-hover,.safe-login-hover{background-position:0 4px;background-position:0 2px\0;*background-position:1px 2px;}
 .login-tips{line-height:18px;clear:both;overflow:visible;color:#ca3e12;background-color:#fff;border:1px solid #ccc;display:none;margin-top:-1px;_margin-top:0;word-wrap:break-word;background-position:0 -26px;padding:0 5px 2px;border-radius:4px;filter:alpha(opacity=85);opacity:.85;position:absolute;*left:0;*top:25px;}
@@ -177,7 +177,7 @@ to{opacity:1;top:-10px;}
 .phone-tips{height:16px;line-height:16px;padding:3px 5px;color:#666;background-color:#FFF8E7;border:1px solid #D4C9B3;border-radius:3px;position:absolute;left:50px;top:-10px;}
 .phone-tips.show{animation:phoneTipsShow .5s;-webkit-animation:phoneTipsShow .5s;}
 .phone-tips i{display:block;width:12px;height:6px;overflow:hidden;position:absolute;left:8px;bottom:-6px;background:url(../images/phone-tip.png) no-repeat 0 0;}
-.phone-tips a{display:inline-block;zoom:1;*display:inline;width:16px;height:16px;margin-left:2px;vertical-align:middle;text-indent:-9999em;outline:none;background:url(http://www.linjuzaixian.com/images/stuff.png) no-repeat -325px -367px;}
+.phone-tips a{display:inline-block;zoom:1;*display:inline;width:16px;height:16px;margin-left:2px;vertical-align:middle;text-indent:-9999em;outline:none;background:url(http://localhost:7525/images/stuff.png) no-repeat -325px -367px;}
 .remark{display:none;position:absolute;padding:25px 20px 0;}
 .remark em{color:#999;}
 .alipay-page .remark{padding:10px 20px 0;}

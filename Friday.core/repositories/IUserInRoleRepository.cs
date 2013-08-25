@@ -10,5 +10,6 @@ namespace friday.core.repositories
     {
         string[] GetRoleNamesAndIDByLoginUserID(string userID);
         void DeleteUserInRoleByLoginUserID(string LID);
+        void UnDeleteUserInRoleByLoginUserID(string MID);
     }
 }

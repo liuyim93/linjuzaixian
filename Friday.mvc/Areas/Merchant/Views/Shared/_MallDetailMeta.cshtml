@@ -10,7 +10,7 @@
             <div class="tb-wrap">
                 <div class="tb-detail-hd">
                     <h3 data-spm="1000983">
-                        <a target="_blank" href="http://www.linjuzaixian.com/Merchant/Detail?brandId=@(Model.Commodity.Id)">
+                        <a target="_blank" href="http://localhost:7525/Merchant/Detail?brandId=@(Model.Commodity.Id)">
                             @Model.Commodity.Name</a>
                     </h3>
                 </div>
@@ -54,17 +54,17 @@
                             <!--  -->
                             <!-- meizInfo.vm end-->
                             @{
-                                if (Model.Commodity.Skus.Count != 0)
+                                if (Model.PropIDs != null && Model.PropIDs.Count != 0)
                                 {
-                                    var sku = Model.Commodity.Skus.ElementAt(0);
-                                    for (var propIndex = 0; propIndex < sku.SKUProps.Count; propIndex++)
+
+                                    for (var propIndex = 0; propIndex < Model.PropIDs.Count; propIndex++)
                                     {
-                                        var prop = sku.SKUProps.ElementAt(propIndex);
-                                        var propid = prop.PropID;
+                                        var propid = Model.PropIDs.ElementAt(propIndex);
+                                
                                 <dl class="tb-prop tm-clear">
-                                    <dt class="tb-metatit">@prop.PropID.PropIDName</dt>
+                                    <dt class="tb-metatit">@propid.PropIDName</dt>
                                     <dd>
-                                        <ul data-property="@prop.PropID.PropIDName" class="tm-clear J_TSaleProp  ">
+                                        <ul data-property="@propid.PropIDName" class="tm-clear J_TSaleProp  ">
                                             @for (var propValueIndex = 0; propValueIndex < propid.PropValues.Count(); propValueIndex++)
                                             {
                                                 var propvalue = propid.PropValues.ElementAt(propValueIndex);
@@ -76,29 +76,7 @@
                                     }
                                 }
                             }
-                            @*<dl class="tb-prop tm-clear">
-                                <dt class="tb-metatit">运动服尺寸</dt>
-                                <dd>
-                                    <ul data-property="运动服尺寸" class="tm-clear J_TSaleProp  ">
-                                        <li data-value="1626580:28316"><a href="#" data-spm-anchor-id="a220o.1000855.0.67"><span>
-                                            S</span> </a></li>
-                                        <li data-value="1626580:28317"><a href="#" data-spm-anchor-id="a220o.1000855.0.67"><span>
-                                            M</span> </a></li>
-                                        <li data-value="1626580:28318"><a href="#" data-spm-anchor-id="a220o.1000855.0.67"><span>
-                                            L</span> </a></li>
-                                    </ul>
-                                </dd>
-                            </dl>
-                            <dl class="tb-prop tm-clear">
-                                <dt class="tb-metatit tb-h">颜色分类</dt>
-                                <dd>
-                                    <ul data-property="颜色分类" class="tm-clear J_TSaleProp tb-img  ">
-                                        <li data-value="1627207:28341" title="010黑"><a href="#" style="background: url(http://img02.taobaocdn.com/bao/uploaded/i2/890482188/T2UkdZXaNcXXXXXXXX_!!890482188.png_30x30.jpg) center no-repeat;">
-                                            <span>010黑</span> </a></li>
-                                        <li data-value="1627207:28340" title="010白"><a href="#"><span>011白</span> </a></li>
-                                    </ul>
-                                </dd>
-                            </dl>*@
+                         
                             <dl class="tb-amount tm-clear">
                                 <dt class="tb-metatit">数量</dt>
                                 <dd id="J_Amount">
@@ -241,7 +219,7 @@
 
                     for (int a = 0; a < images.Length; a++)
                     {
-                        var src = "http://www.linjuzaixian.com/" + images[a] + "_60x60.jpg";
+                        var src = "http://localhost:7525/" + images[a] + "_60x60.jpg";
 
                         if (a == 0)
                         {

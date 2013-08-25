@@ -50,6 +50,10 @@ namespace friday.core.services
         {
             iUserInRoleRepository.DeleteUserInRoleByLoginUserID(MID);
         }
+        public void UnDeleteUserInRoleByLoginUserID(string MID)
+        {
+            iUserInRoleRepository.UnDeleteUserInRoleByLoginUserID(MID);
+        }
                
     }
 }

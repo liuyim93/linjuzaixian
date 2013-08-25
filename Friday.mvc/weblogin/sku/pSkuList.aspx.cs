@@ -44,7 +44,12 @@ namespace Friday.mvc.weblogin.sku
 
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "操作成功";
+            result.message = "删除成功";
+          
+            if (Request.Params["rel_hook"] != null)
+            {
+                result.panelId = Request.Params["rel_hook"];
+            }
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

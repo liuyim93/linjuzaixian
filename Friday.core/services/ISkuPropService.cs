@@ -12,6 +12,7 @@ namespace friday.core.services
         SkuProp getSkuPropbyIntID(string id);
         void deleteSkuPropbyID(string id);
         IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total);
+        IList<PropID> GetProp(string cid);
         SkuProp Load(string id);
         void Save(SkuProp skuProp);
         void Update(SkuProp skuProp);

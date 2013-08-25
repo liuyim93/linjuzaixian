@@ -371,7 +371,9 @@ function initUI(_box, _prefix,_rel_hook) {
     if ($.fn.sortDrag) $("div.sortDrag", $p).sortDrag();
 
     // dwz.ajax.js
-    if ($.fn.ajaxTodo) $("a[target=ajaxTodo]", $p).ajaxTodo();
+    if ($.fn.ajaxTodo) $("a[target=ajaxTodo]", $p).ajaxTodo(rel_hook);
+
+
     if ($.fn.dwzExport) $("a[target=dwzExport]", $p).dwzExport();
 
     if ($.fn.lookup) $("a[lookupGroup]", $p).lookup();

@@ -51,7 +51,7 @@
         <script type="text/javascript">
             $(function () {
                 init();
-//                $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#sn-bd select:last").val());
+//                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
             });
 
             function init() {
@@ -73,7 +73,7 @@
                   }
                   var userFamilyArray = userFamily.split(',');
                   $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length-1]);
-                  $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                  $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                   updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
                   
               }
@@ -85,7 +85,7 @@
                   }
                   var userFamilyArray = userFamily.split(',');
                   $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length-1]);
-                  $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                  $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                   updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
 
               }
@@ -114,7 +114,7 @@
                             {
                                 $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
                                 $("#Temp_SelectedID").val(parentid);
-                                $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                             }
 
                             $("#Area_" + level).append("<option value=\"\" selected=\"true\">不限</option>");
@@ -127,7 +127,7 @@
                                 if($(this).val()!="")
                                 {
                                     $("#Temp_SelectedID").val($(this).val());
-                                    $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                                     updateNext(parseInt($(this).attr("level")) + parseInt(1),$(this).val());
                                 }
                                 else
@@ -135,12 +135,12 @@
                                     if($(this).attr("level")=="0")
                                     {
                                         $("#Temp_SelectedID").val("");
-                                        $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool=");
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool=");
                                     }
                                     else
                                     {
                                         $("#Temp_SelectedID").val($("#Area_"+(parseInt($(this).attr("level")) - parseInt(1))).val());
-                                        $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                                     }
                                 }
                             });
@@ -161,7 +161,7 @@
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
                             $("#Temp_SelectedID").val(currentid);
-                            $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
 
                             if(level==0)
                             {
@@ -196,7 +196,7 @@
                                 if($(this).val()!="")
                                 {
                                     $("#Temp_SelectedID").val($(this).val());
-                                    $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                                     updateNext(parseInt($(this).attr("level")) + parseInt(1),$(this).val());
                                 }
                                 else
@@ -204,12 +204,12 @@
                                     if($(this).attr("level")=="0")
                                     {
                                         $("#Temp_SelectedID").val("");
-                                        $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool=");
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool=");
                                     }
                                     else
                                     {
                                         $("#Temp_SelectedID").val($("#Area_"+(parseInt($(this).attr("level")) - parseInt(1))).val());
-                                        $("#J_AreaButton").attr("href","http://www.linjuzaixian.com/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
                                     }
                                 }
                             });
@@ -246,7 +246,7 @@
 
             <ul class="sn-quick-menu">
 
-                <li class="cart"><a href="http://www.linjuzaixian.com/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s>
+                <li class="cart"><a href="http://localhost:7525/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s>
                 </s>购物车 </a></li>
                
                
@@ -271,10 +271,10 @@
                 <ul class="mallNav-main">
                     <li data-catid="mallfp" class="nav curChn "><span class="item">首页</span></li>
                     <li class="nav slideDown" data-catid="map">
-                        <a class="navA" href="http://www.linjuzaixian.com/Merchant/SearchProduct?&s=0&n=60&sort=sd&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs">超市百货模式</a>
+                        <a class="navA" href="http://localhost:7525/Merchant/SearchProduct?&s=0&n=60&sort=sd&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs">超市百货模式</a>
                     </li>
                     <li class="nav slideDown"  data-catid="temai">
-                        <a class="navA" href="http://www.linjuzaixian.com/Merchant/SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=s&q=%D0%AC&n=60&s=0#J_crumbs">订餐</a>
+                        <a class="navA" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&area_code=370100&style=g&sort=s&q=%D0%AC&n=60&s=0#J_crumbs">订餐</a>
                     </li>
                     <!--
                    <li class="nav" data-catid="brand">

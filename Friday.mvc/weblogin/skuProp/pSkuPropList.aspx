@@ -28,6 +28,7 @@
                             <th width="10%" align="center">序 号</th>
                             <th width="20%" align="center">规格</th>
                             <th width="20%" align="center">规格值</th>
+        
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +39,7 @@
                          <td align="center"><%#Container.ItemIndex+1%></td> 
                          <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropID.PropIDName")%></td> 
                           <td align="center"><%#DataBinder.Eval(Container.DataItem, "PropValue.PropValueName")%></td>
+          
                     </tr>
 			      
                 </ItemTemplate>

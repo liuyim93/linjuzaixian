@@ -62,5 +62,9 @@ namespace friday.core.services
             return iSkuPropRepository.GetAllSkuPropsBySkuID(Sku_ID);
         }
 
+        public IList<PropID> GetProp(string cid)
+        {
+            return iSkuPropRepository.GetProp(cid);
+        }
     }
 }

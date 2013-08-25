@@ -33,6 +33,11 @@ namespace Friday.mvc.weblogin
                 DeleteLoginUser();
 
             }
+
+            if (Request.Params["flag"] == "undelete")
+            {
+                UnDelete();
+            }
             else
             {
                 numPerPageValue = Request.Form["numPerPage"] == null ? 10 : Convert.ToInt32(Request.Form["numPerPage"].ToString());
@@ -47,10 +52,6 @@ namespace Friday.mvc.weblogin
 
 
 
-                filterList.Add(new DataFilter()
-                {
-                    type = "IsDelete"
-                });
 
                 if (!string.IsNullOrEmpty(Request.Form["LoginName"]))
                     filterList.Add(new DataFilter()
@@ -69,14 +70,14 @@ namespace Friday.mvc.weblogin
                     });
 
                 if (!string.IsNullOrEmpty(Request.Form["IDSet"]))
-                   {
-                      merchant = iMerchantService.Load(Request.Form["IDSet"]);
-                      //merchantType=EnumDescription.GetFieldText(merchant.MerchantType);
-                      if (merchant.MerchantType == MerchantTypeEnum.餐馆)
+                {
+                    merchant = iMerchantService.Load(Request.Form["IDSet"]);
+                    //merchantType=EnumDescription.GetFieldText(merchant.MerchantType);
+                    if (merchant.MerchantType == MerchantTypeEnum.餐馆)
                     {
                         merchantType = "Restaurant";
                     }
-                    if (merchant.MerchantType ==MerchantTypeEnum.租房)
+                    if (merchant.MerchantType == MerchantTypeEnum.租房)
                     {
                         merchantType = "Rent";
                     }
@@ -85,25 +86,25 @@ namespace Friday.mvc.weblogin
                         merchantType = "Shop";
                     }
 
-                     MerchantList.Add(new DataFilter()
-                     {
-                         type = merchantType,
+                    MerchantList.Add(new DataFilter()
+                    {
+                        type = merchantType,
                         value = Request.Form["IDSet"]
 
-                     });
-                     loginUserOfMerchantList.Add(new DataFilter()
-                     {
-                         type = merchantType,
-                          field=MerchantList
+                    });
+                    loginUserOfMerchantList.Add(new DataFilter()
+                    {
+                        type = merchantType,
+                        field = MerchantList
 
-                     });
-                     filterList.Add(new DataFilter()
-                     {
-                         type = "LoginUserOfMerchant",
-                         field = loginUserOfMerchantList
-                     });
+                    });
+                    filterList.Add(new DataFilter()
+                    {
+                        type = "LoginUserOfMerchant",
+                        field = loginUserOfMerchantList
+                    });
 
-                    }
+                }
                 List<DataFilter> dflForOrder = new List<DataFilter>();
                 string orderField = string.IsNullOrEmpty(Request.Form["orderField"]) ? "CreateTime" : Request.Form["orderField"];
                 string orderDirection = string.IsNullOrEmpty(Request.Form["orderDirection"]) ? "Desc" : Request.Form["orderDirection"];
@@ -135,6 +136,24 @@ namespace Friday.mvc.weblogin
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
             result.message = "修改成功";
+            FormatJsonResult jsonResult = new FormatJsonResult();
+            jsonResult.Data = result;
+            Response.Write(jsonResult.FormatResult());
+            Response.End();
+        }
+
+        private void UnDelete()
+        {
+            LoginUser loginUser=iLoginUserService.Load(Request.Params["uid"]);
+            loginUser.IsDelete = false;
+            iLoginUserService.Update(loginUser);
+            
+            iUserInRoleService.UnDeleteUserInRoleByLoginUserID(Request.Params["uid"]);
+            iPermissionManager.RefreshUserInRole();
+
+            AjaxResult result = new AjaxResult();
+            result.statusCode = "200";
+            result.message = "恢复成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

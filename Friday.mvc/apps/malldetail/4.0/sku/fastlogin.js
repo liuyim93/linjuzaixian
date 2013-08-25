@@ -105,7 +105,7 @@
     }
     function _buglogin(a, _fastbuy_cfg_t) {
         //var _buy_url = "http://buy." + M + "/login/buy.do?from=itemDetail&var=login_indicator&id=" + _cfg.itemDO.itemId + "&shop_id=" + _cfg.rstShopId + "&cart_ids=";
-        var _buy_url = "http://www.linjuzaixian.com/Account/Home/buy_do/?from=itemDetail&var=login_indicator&id=" + _cfg.itemDO.itemId + "&shop_id=" + _cfg.rstShopId + "&cart_ids=";
+        var _buy_url = "http://localhost:7525/Account/Home/buy_do/?from=itemDetail&var=login_indicator&id=" + _cfg.itemDO.itemId + "&shop_id=" + _cfg.rstShopId + "&cart_ids=";
         var _fastbuy_cfg = _kissy_D.mix({ fastbuy: true }, _fastbuy_cfg_t);
         var _frmBid = _cfg.frmBid;
         _cookie.remove("cookie2", "");

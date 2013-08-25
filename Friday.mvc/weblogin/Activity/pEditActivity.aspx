@@ -37,8 +37,12 @@
             </p>
              <p>
                 <label>
-                    活动指定商家ID：</label>
-                <input type="text" id="Description" size="30" class=" textInput gray" runat="server" />
+                    活动指定商家：</label>
+                 <input type="text" id="Merchant"  name="Merchant" size="35" 
+                        runat="server" readonly="true" />
+                    <input type="hidden" id="MerchantID" name="MerchantID" size="35"   
+                    runat="server" readonly="true" />
+                  <a id="A1" class="btnLook" href="ListMerchant.aspx"  rel=""    runat=server lookupgroup="">选择商铺</a> 
             </p>
             <!--[if lte IE 7]><span style="clear:both;height:1px;width:100%;margin-top:-1px"></span><![endif]-->
 

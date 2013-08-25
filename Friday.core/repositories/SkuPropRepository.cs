@@ -10,12 +10,20 @@ namespace friday.core.repositories
 {
     public class SkuPropRepository : Repository<SkuProp>, ISkuPropRepository
     {
-        public IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total)
+        public IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total,bool isDelete)
         {
-            var list = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).OrderByDescending(o => o.CreateTime).Skip(start).Take(limit).ToList();
-            total = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == false).Count();
+            var list = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == isDelete).OrderByDescending(o => o.CreateTime).Skip(start).Take(limit).ToList();
+            total = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID) && o.IsDelete == isDelete).Count();
             return list;
         }
+        public IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total)
+        {
+            var list = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID)).OrderByDescending(o => o.CreateTime).Skip(start).Take(limit).ToList();
+            total = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU.skuId == Convert.ToInt16(Sku_ID)).Count();
+            return list;
+        }
+
+        
 
         public IList<SkuProp> GetAllSkuPropsBySkuID(string Sku_ID)
         {
@@ -32,12 +40,13 @@ namespace friday.core.repositories
 
         public void deleteSkuPropbyID(string id)
         {
+            int uid = Int32.Parse(id);
             using (ITransaction tran = Session.BeginTransaction())
             {
                 try
                 {
-                    Session.CreateQuery(@"update SkuProp set IsDelete=true  where  Id=:sId ")
-                         .SetString("sId", id).ExecuteUpdate();
+                    Session.CreateQuery(@"delete SkuProp  where  Id=:sId ")
+                         .SetInt32("sId", uid).ExecuteUpdate();
                     tran.Commit();
                 }
                 catch (Exception ex)
@@ -46,6 +55,23 @@ namespace friday.core.repositories
                     throw ex;
                 }
             }
+        }
+
+        public IList<PropID> GetProp(string cid)
+        {
+
+            var list = (from x in this.Session.Query<SkuProp>() 
+                        where x.SKU.Commodity.Id==cid
+                        &&x.IsDelete==false
+                        &&x.SKU.IsDelete==false
+                        
+                        select x.PropID)
+                .Where(
+                o => o.IsDelete == false
+                
+                ).Distinct()
+                .ToList();
+            return list;
         }
     }
 }

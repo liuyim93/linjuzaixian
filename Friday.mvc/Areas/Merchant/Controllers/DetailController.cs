@@ -36,7 +36,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService;
         //private IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService;
 
-        public DetailController(IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService)
+        public DetailController(ISkuPropService iSkuPropService, IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
@@ -49,6 +49,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //this.iValuingOfMyFoodOrderService = iValuingOfMyFoodOrderService;
             //this.iValuingOfMyHouseOrderService = iValuingOfMyHouseOrderService;
 
+            this.iSkuPropService = iSkuPropService;
             this.iOrderOfCommodityService = iOrderOfCommodityService;
             //this.iOrderOfFoodService = iOrderOfFoodService;
             //this.iOrderOfHouseService = iOrderOfHouseService;
@@ -70,8 +71,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             string commodity_id = Request.Params["brandId"].ToString();
             Commodity commodity = iCommodityService.Load(commodity_id);
             DetailModel detailModel = new DetailModel();
+            
             detailModel.Commodity = commodity;
-
+            //detailModel.Skus= iSkuService.GetSkusByCommodityID(commodity.Id);
+            detailModel.PropIDs = iSkuPropService.GetProp(commodity.Id);
+           
             friday.core.Merchant merchant = iMerchantService.Load(commodity.Shop.Id);
 
             ValidateResult vr = iMerchantService.isOpend(merchant);
@@ -79,62 +83,26 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             detailModel.Merchant = merchant;
             int index = 0;
 
-            //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
-            //{
-            //    IList<Food> foods = iFoodService.GetFoodByRestaurantIDOrderByMonthAmountDesc(merchant.Id);
-            //    if (foods.Count > 0)
-            //    {
-            //        foreach (Food f in foods)
-            //        {
-            //            detailModel.Foods.Add(f);
 
-            //            IList<ValuingOfMyFoodOrder> valuingOfMyFoodOrders = iValuingOfMyFoodOrderService.GetValuingOfMyFoodOrderByFoodID(f.Id);
-            //            foreach (ValuingOfMyFoodOrder v in valuingOfMyFoodOrders)
-            //            {
-            //                detailModel.ValuingOfMyFoodOrders[index].Add(v);
-            //            }
-            //            index++;
-            //        }
-            //    }
-            //}
-            //else
-                if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
+
+            IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchant.Id);
+            if (commoditys.Count > 0)
             {
-                IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchant.Id);
-                if (commoditys.Count > 0)
+                foreach (Commodity c in commoditys)
                 {
-                    foreach (Commodity c in commoditys)
-                    {
-                        detailModel.Commoditys.Add(c);
+                    detailModel.Commoditys.Add(c);
 
-                        IList<ValuingOfMyCommodityOrder> valuingOfMyCommodityOrders = iValuingOfMyCommodityOrderService.GetValuingOfMyCommodityOrderByCommodityID(c.Id);
-                        foreach (ValuingOfMyCommodityOrder v in valuingOfMyCommodityOrders)
-                        {
-                            detailModel.ValuingOfMyCommodityOrders[index].Add(v);
-                        }
-                        index++;
+                    IList<ValuingOfMyCommodityOrder> valuingOfMyCommodityOrders = iValuingOfMyCommodityOrderService.GetValuingOfMyCommodityOrderByCommodityID(c.Id);
+                    foreach (ValuingOfMyCommodityOrder v in valuingOfMyCommodityOrders)
+                    {
+                        detailModel.ValuingOfMyCommodityOrders[index].Add(v);
                     }
+                    index++;
                 }
             }
-            //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.租房)
-            //{
-            //    IList<House> houses = iHouseService.GetHouseByRentIDOrderByMonthAmountDesc(merchant.Id);
-            //    if (houses.Count > 0)
-            //    {
-            //        foreach (House h in houses)
-            //        {
-            //            detailModel.Houses.Add(h);
 
-            //            IList<ValuingOfMyHouseOrder> valuingOfMyHouseOrders = iValuingOfMyHouseOrderService.GetValuingOfMyHouseOrderByHouseID(h.Id);
-            //            foreach (ValuingOfMyHouseOrder v in valuingOfMyHouseOrders)
-            //            {
-            //                detailModel.ValuingOfMyHouseOrders[index].Add(v);
-            //            }
-            //            index++;
-            //        }
-            //    }
-            //}
-                ViewBag.ValidateResult = vr;
+          
+            ViewBag.ValidateResult = vr;
 
             return View(detailModel);
         }
@@ -152,7 +120,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             Commodity commodity = iCommodityService.Load(itemId);
             skulist = commodity.Skus.ToList<Sku>();
-           
+
 
             //=========Test=============
             //Commodity commodity = iCommodityService.Load(itemId);
@@ -176,8 +144,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //=========Test=============
 
             for (int i = 0; i < skulist.Count; i++)
-            {          
-             deliverySkuMap.Add(skulist[i].skuId.ToString(), new List<SKUDO>(){new SKUDO()
+            {
+                deliverySkuMap.Add(skulist[i].skuId.ToString(), new List<SKUDO>(){new SKUDO()
                         {
                             money=skulist[i].price.ToString(),
                             name=skulist[i].Commodity.Name,
@@ -186,21 +154,21 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                             signText=skulist[i].stock.ToString(),
                             type=0
                         }});
-                
-             skuQuantity.Add(skulist[i].skuId.ToString(), new SkuQuantity()
-                        {
-                             quantity=skulist[i].stock,
-                             type=skulist[i].Commodity.Version
-                        });
-             priceInfo.Add(skulist[i].skuId.ToString(), new PriceInfo()
-                        {
-                             areaSold = true,
-                             price = (float)skulist[i].price,//commodity.Price,
-                             promotionList = null,
-                             tagPrice = null,
-                             umpBigPromotionDisplayPrice = null
-                        });
-                totalquty = totalquty + skulist[i].stock;        
+
+                skuQuantity.Add(skulist[i].skuId.ToString(), new SkuQuantity()
+                           {
+                               quantity = skulist[i].stock,
+                               type = skulist[i].Commodity.Version
+                           });
+                priceInfo.Add(skulist[i].skuId.ToString(), new PriceInfo()
+                           {
+                               areaSold = true,
+                               price = (float)skulist[i].price,//commodity.Price,
+                               promotionList = null,
+                               tagPrice = null,
+                               umpBigPromotionDisplayPrice = null
+                           });
+                totalquty = totalquty + skulist[i].stock;
             };
 
             //2013-06-20 增加业务规则，如果商品标识下架，前台显示下架
@@ -210,9 +178,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 deliveryDO = new DeliveryDO()
                 {
-                    deliveryAddress="广东广州",
+                    deliveryAddress = "广东广州",
                     deliverySkuMap = deliverySkuMap,
-                    hasHomeDeliveryService=false,
+                    hasHomeDeliveryService = false,
                     otherServiceList = "[]"
                 },
                 gatewayDO = new GatewayDO()
@@ -290,13 +258,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             };
             FormatJsonResult jsonResult = new FormatJsonResult();
-            jsonResult.Data = new 
+            jsonResult.Data = new
             {
-                isSuccess=true,
-                defaultModel=defaultModel
+                isSuccess = true,
+                defaultModel = defaultModel
             };
             string json = jsonResult.FormatResult();
-            string script = "onMdskip("   +  json +  ")";
+            string script = "onMdskip(" + json + ")";
 
             return JavaScript(script);
         }
@@ -339,7 +307,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     hasHomeDeliveryService = false,
                     otherServiceList = "[]"
                 },
-           
+
                 inventoryDO = new InventoryDO()
                 {
                     icTotalQuantity = totalquty,
@@ -347,7 +315,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                     success = true,
                     totalQuantity = totalquty,
                     type = 1
-                },               
+                },
                 memberRightDO = new MemberRightDO()
                 {
                     discount = 0,
@@ -371,20 +339,20 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
-        public ActionResult ListDsrInfo(string itemId,string sellerId, string callback)
+        public ActionResult ListDsrInfo(string itemId, string sellerId, string callback)
         {
             DSRModel dsrModel = new DSRModel()
             {
                 dsr = new DSR()
                 {
-                  gradeAvg=4.8f,
-                   itemId=itemId,
-                   peopleNum=16,
-                   periodSoldQuantity=0,
-                   rateTotal=40,
-                  sellerId = sellerId,
-                  spuId = "203480309",
-                  totalSoldQuantity=0
+                    gradeAvg = 4.8f,
+                    itemId = itemId,
+                    peopleNum = 16,
+                    periodSoldQuantity = 0,
+                    rateTotal = 40,
+                    sellerId = sellerId,
+                    spuId = "203480309",
+                    totalSoldQuantity = 0
                 }
             };
             FormatJsonResult jsonResult = new FormatJsonResult();
@@ -394,7 +362,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             return JavaScript(script);
         }
-        public ActionResult ListDetailRate(string itemId,string callback)
+        public ActionResult ListDetailRate(string itemId, string callback)
         {
 
             var rateList = new List<Rate>();
@@ -438,25 +406,25 @@ namespace Friday.mvc.Areas.Merchant.Controllers
            {
                paginator = new Paginator()
                {
-                    items=318,
-			        lastPage=16,
-			        page=1
+                   items = 318,
+                   lastPage = 16,
+                   page = 1
                },
                rateCount = new RateCount()
                {
-                  	shop=0,
-			        total=0,
-			        used=12
+                   shop = 0,
+                   total = 0,
+                   used = 12
                },
                rateDanceInfo = new RateDanceInfo()
                {
-                   currentMilles="1366244482350",
-			       intervalMilles="215087439000",
-			       showChooseTopic=false,
-			       storeType=1
+                   currentMilles = "1366244482350",
+                   intervalMilles = "215087439000",
+                   showChooseTopic = false,
+                   storeType = 1
                },
                rateList = rateList,
-               tags=""
+               tags = ""
            };
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = new
@@ -478,16 +446,16 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 recommendList.Add(i.ToString(), new Recommend()
                 {
-                    	id="17124405607",
-		                sellerId="890482188",
-		                title=i+"Nike  耐克  AIR MAX FUSION WRM 女子训练鞋 555163",
-		                url="http://detail.tmall.com/item.htm?id=17124405607&pos=1&uuid=43f8d91add60486dad032e80ea4db029&scm=1003.3.03054.1_1&acm=03054.1003.656.250.17124405607_1",
-		                img="http://img04.taobaocdn.com/bao/uploaded/i4/12188019483228809/T1n8w4XfJgXXXXXXXX_!!0-item_pic.jpg",
-		                commentNum=i,
-		                rate=i,
-		                price=584.0+i,
-		                marketPrice=729.0+i,
-                        lastBitOfSCM=i.ToString()
+                    id = "17124405607",
+                    sellerId = "890482188",
+                    title = i + "Nike  耐克  AIR MAX FUSION WRM 女子训练鞋 555163",
+                    url = "http://detail.tmall.com/item.htm?id=17124405607&pos=1&uuid=43f8d91add60486dad032e80ea4db029&scm=1003.3.03054.1_1&acm=03054.1003.656.250.17124405607_1",
+                    img = "http://img04.taobaocdn.com/bao/uploaded/i4/12188019483228809/T1n8w4XfJgXXXXXXXX_!!0-item_pic.jpg",
+                    commentNum = i,
+                    rate = i,
+                    price = 584.0 + i,
+                    marketPrice = 729.0 + i,
+                    lastBitOfSCM = i.ToString()
                 });
             }
 
@@ -502,14 +470,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 rateDetail = recommendDetailModel
             };
             string json = jsonResult.FormatResult();
-            string script = "ald318(" + json+","+null+")";
+            string script = "ald318(" + json + "," + null + ")";
 
             return JavaScript(script);
         }
 
         public ActionResult seller_info()
         {
-            string html = RenderRazorViewToString("seller_info_partial",null);
+            string html = RenderRazorViewToString("seller_info_partial", null);
             html = html.Replace("\"", "\\\"").Replace("\r\n", ""); ;
             string script = "jsonpSellerInfo(\"" + html + "\",\"J_sellerinfo\")";
             return JavaScript(script);

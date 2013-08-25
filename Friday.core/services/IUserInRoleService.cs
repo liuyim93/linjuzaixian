@@ -15,6 +15,7 @@ namespace friday.core.services
         void Delete(string id);
         string[] GetRoleNamesAndIDByLoginUserID(string userID);
         void DeleteUserInRoleByLoginUserID(string MID);
+        void UnDeleteUserInRoleByLoginUserID(string MID);
        
     }
 }

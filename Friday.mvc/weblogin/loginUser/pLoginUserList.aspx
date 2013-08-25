@@ -83,6 +83,8 @@
         <span>密码重置</span></a></li>
         <li><a class="delete" href="loginUser/pLoginUserList.aspx?flag=alldelete&uid={id}"
             target="ajaxTodo" title="确定要删除吗?"><span>删除用户</span></a></li>
+            <li><a class="add" href="loginUser/pLoginUserList.aspx?flag=undelete&uid={id}"
+            target="ajaxTodo" title="确定要恢复吗?"><span>恢复用户</span></a></li>
         <li class="line">line</li>
     </ul>
 </div>
@@ -93,9 +95,10 @@
                 <thead>
                 <tr>
                     <th width="10%" align="center">序 号</th>
-                      <th width="10%" align="center">ID</th>
+                    
                         <th width="10%" align="center">登录名</th>
                         <th width="10%" align="center">密码</th>
+                        <th width="10%" align="center">删除标记</th>
                         <%--<th width="10%" align="center">管理员</th>
                         <th width="10%" align="center">用户类型</th>--%>
                 </tr>
@@ -106,10 +109,11 @@
                 
                 <tr target="id" rel="<%#Eval("Id")%>&discriminer=<%#Eval("Id")%>">
                         <td align="center"><%#Container.ItemIndex+1%></td> 
-                        <td><a href="loginUser/pLoginUserDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#Eval("Id")%>
+                        <td><a href="loginUser/pLoginUserDetail.aspx?uid=<%#Eval("Id")%>" prefix='<%=Request.Params["prefix"] %>'  target="ajax" rel_v3="jbsxBox3"><%#DataBinder.Eval(Container.DataItem, "LoginName")%>
                             </a></td>
-                        <td><%#DataBinder.Eval(Container.DataItem, "LoginName")%></td>
+                   
                         <td><%#DataBinder.Eval(Container.DataItem, "Password")%></td>
+                         <td><%#DataBinder.Eval(Container.DataItem, "IsDelete")%></td>
                    <%--     <td align="center"><%#(DataBinder.Eval(Container.DataItem, "IsAdmin").ToString()=="True")?"是":"否"%></td>      --%>                   
                         <%--<td align="center"><%#friday.core.components.EnumDescription.GetFieldText(DataBinder.Eval(Container.DataItem, "UserType"))%></td>              
 				         <td><%#DataBinder.Eval(Container.DataItem, "UserInRole.ID")%></td> --%> 

@@ -81,10 +81,10 @@ namespace Friday.mvc.weblogin
                 List<DataFilter> filterPropIdList = new List<DataFilter>(); 
      
 
-                filterList.Add(new DataFilter()
-                {
-                    type = "IsDelete"
-                });
+                //filterList.Add(new DataFilter()
+                //{
+                //    type = "IsDelete"
+                //});
 
                 if (!string.IsNullOrEmpty(Request.Form["PropValueName"]))
                     filterList.Add(new DataFilter()
@@ -147,7 +147,7 @@ namespace Friday.mvc.weblogin
             iPropValueService.Delete(intid);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "修改成功";
+            result.message = "删除成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

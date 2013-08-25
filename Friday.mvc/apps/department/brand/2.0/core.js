@@ -27,7 +27,7 @@
     }
     ASSETS_SERVER = _dom_a.host || _host;
     */
-    SERVER_URL=DEV_EV=ASSETS_SERVER="http://www.linjuzaixian.com/";
+    SERVER_URL=DEV_EV=ASSETS_SERVER="http://localhost:7525/";
 
     if ("t" in _search_params) {
         _t_in_search_params = _search_params.t

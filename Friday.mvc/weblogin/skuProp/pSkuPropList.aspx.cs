@@ -36,13 +36,13 @@ namespace Friday.mvc.weblogin
             iSkuPropRepository.deleteSkuPropbyID(Request.Params["uid"]);
             AjaxResult result = new AjaxResult();
             result.statusCode = "200";
-            result.message = "删除成功";
-            result.navTabId = "referer";
-            //2013-02-13 basilwang set rel_hook to panelId
             if (Request.Params["rel_hook"] != null)
             {
                 result.panelId = Request.Params["rel_hook"];
             }
+            result.navTabId = "self";
+
+            result.message = "操作成功";
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = result;
             Response.Write(jsonResult.FormatResult());

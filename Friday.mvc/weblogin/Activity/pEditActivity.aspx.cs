@@ -17,6 +17,7 @@ namespace Friday.mvc.weblogin.activity
     {
         IActivityService iActivityService = UnityHelper.UnityToT<IActivityService>();
         IGlobalGoodsTypeService iGlobalGoodsTypeService = UnityHelper.UnityToT<IGlobalGoodsTypeService>();
+        private IMerchantService iMerchantService = UnityHelper.UnityToT<IMerchantService>();
         private Activity activity;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,12 +33,29 @@ namespace Friday.mvc.weblogin.activity
             }
             else
             {
+                try
+                {
+                    if (!string.IsNullOrEmpty(activity.Description))
+                    {
+                        friday.core.Merchant shop = iMerchantService.Load(activity.Description);
+                        Merchant.Value = shop.Name;
+                        MerchantID.Value = shop.Id;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    activity.Description = null;
+                    iActivityService.Update(activity);
 
-                BindingHelper.ObjectToControl(activity, this);
-                this.Edit_Activity_ImagePreview.Src = activity.Image;
-                this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
-                GoodsTypeID.Value = activity.Matters;
-                GoodsType.Value = iGlobalGoodsTypeService.Load(activity.Matters).Name;
+                }
+                finally
+                {
+                    BindingHelper.ObjectToControl(activity, this);
+                    this.Edit_Activity_ImagePreview.Src = activity.Image;
+                    this.Edit_Activity_SubImagePreview.Src = activity.SubImage;
+                    GoodsTypeID.Value = activity.Matters;
+                    GoodsType.Value = iGlobalGoodsTypeService.Load(activity.Matters).Name;
+                }
             }
         }
 
@@ -91,7 +109,7 @@ namespace Friday.mvc.weblogin.activity
             catch (System.Exception Ex)
             {
             }
-
+            activity.Description = Request.Params["MerchantID"];
             iActivityService.Update(activity);
 
             AjaxResult result = new AjaxResult();

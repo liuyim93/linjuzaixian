@@ -23,6 +23,10 @@ namespace friday.core.services
         {
             return iSkuRepository.GetSkusByCommodityID(commodityID, start, limit, out total);
         }
+        public IList<Sku> GetSkusByCommodityID(string commodityID)
+        {
+            return iSkuRepository.GetSkusByCommodityID(commodityID);
+        }
         public Sku GetMinPriceSkusByCommodityID(string commodityID) 
         {
             return iSkuRepository.GetMinPriceSkusByCommodityID(commodityID);

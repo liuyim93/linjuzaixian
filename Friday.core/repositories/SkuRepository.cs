@@ -16,6 +16,12 @@ namespace friday.core.repositories
             total = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).Count();
             return list;
         }
+
+        public IList<Sku> GetSkusByCommodityID(string commodityID)
+        {
+            var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).ToList();
+            return list;
+        }
         public Sku GetMinPriceSkusByCommodityID(string commodityID)
         {
             var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false&&o.price!=0).ToList();
