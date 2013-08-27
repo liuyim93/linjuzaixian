@@ -234,7 +234,7 @@ background-position:left 0;
                                                     <span>旺旺在线</span></a></span> </li>*@
                                         <li>
                                             <label>
-                                                公 司 名：
+                                                商家：
                                             </label>
                                             @m.Name </li>
                                         <li class="locus">
@@ -720,7 +720,7 @@ background-position:left 0;
                                             <ul>
                                                 <li>
                                                     <label>
-                                                        公 司 名：</label>
+                                                        商家：</label>
                                                     @Model.SingleMerchant.Name
                                                 </li>
                                                 <li class="locus">
@@ -735,13 +735,9 @@ background-position:left 0;
                                                 </li>
                                                 <li class="shopkeeper">
                                                     <label>
-                                                        商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
-                                                        @if(Model.SingleShop.LoginUserOfMerchants.FirstOrDefault()!=null)
-                                                        {
-                                                            <text>
-                                                            @Model.SingleShop.LoginUserOfMerchants.FirstOrDefault().LoginUser.LoginName
-                                                            </text>
-                                                        }
+                                                       联系方式：</label>
+                                                       @Model.SingleMerchant.Tel
+
                                                     </li>
                                             @*    <li>
                                                     <label>

@@ -54,6 +54,16 @@ namespace friday.core.domain
             get;
             set;
         }
+
+        public override string ToString()
+        {
+            string result=string.Empty;
+            foreach (SkuProp prop in SKUProps)
+            {
+                result+=prop.PropID.PropIDName +"--"+ prop.PropValue.PropValueName+".";
+            }
+            return result;
+        }
         //2013-04-16 basilwang to generate skumap key in cshtml
         public virtual string SKUPropString
         {
