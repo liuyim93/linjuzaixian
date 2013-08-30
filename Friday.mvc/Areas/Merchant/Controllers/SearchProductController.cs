@@ -231,6 +231,8 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             searchProductModel.pageNum = total / numPerPageValue + 1;
             searchProductModel.count = total;
 
+
+            ViewData["mtype"] = type;
             ViewData["skeyword"] = keyword;
             ViewData["sprice1"] = price1;
             ViewData["sprice2"] = price2;
