@@ -56,49 +56,55 @@ namespace friday.core.services
             //Logo
             for (int i = 0; i < 6; i++)
             {
-                index = rand.Next(Merchants.Count);
-                Merchant = Merchants.ElementAt(index);
-                MerchantModel a = new MerchantModel();
-                a.logoPicType = "logo";
-                a.logo = Merchant.Logo;
-                a.source = "sBrands";
-                if (myFavoriteMerchant.Contains(Merchant))
+                if (Merchants.Count != 0)
                 {
-                    a.isCol = "True";
+                    index = rand.Next(Merchants.Count);
+                    Merchant = Merchants.ElementAt(index);
+                    MerchantModel a = new MerchantModel();
+                    a.logoPicType = "logo";
+                    a.logo = Merchant.Logo;
+                    a.source = "sBrands";
+                    if (myFavoriteMerchant.Contains(Merchant))
+                    {
+                        a.isCol = "True";
+                    }
+                    else
+                    {
+                        a.isCol = "";
+                    }
+                    a.brandId = Merchant.Id;
+                    a.brandName = Merchant.Name;
+                    a.brandDesc = Merchant.Description;
+                    sBrandModels.Add(a);
+                    Merchants.RemoveAt(index);
                 }
-                else
-                {
-                    a.isCol = "";
-                }
-                a.brandId = Merchant.Id;
-                a.brandName = Merchant.Name;
-                a.brandDesc = Merchant.Description;
-                sBrandModels.Add(a);
-                Merchants.RemoveAt(index);
             }
 
             //sBrand 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 9; i++)
             {
-                index = rand.Next(Merchants.Count);
-                Merchant = Merchants.ElementAt(index);
-                MerchantModel a = new MerchantModel();
-                a.logoPicType = "logo";
-                a.logo = Merchant.sBrand;
-                a.source = "sBrands";
-                if (myFavoriteMerchant.Contains(Merchant))
+                if (Merchants.Count != 0)
                 {
-                    a.isCol = "True";
+                    index = rand.Next(Merchants.Count);
+                    Merchant = Merchants.ElementAt(index);
+                    MerchantModel a = new MerchantModel();
+                    a.logoPicType = "logo";
+                    a.logo = Merchant.sBrand;
+                    a.source = "sBrands";
+                    if (myFavoriteMerchant.Contains(Merchant))
+                    {
+                        a.isCol = "True";
+                    }
+                    else
+                    {
+                        a.isCol = "";
+                    }
+                    a.brandId = Merchant.Id;
+                    a.brandName = Merchant.Name;
+                    a.brandDesc = Merchant.Description;
+                    sBrandModels.Add(a);
+                    Merchants.RemoveAt(index);
                 }
-                else
-                {
-                    a.isCol = "";
-                }
-                a.brandId = Merchant.Id;
-                a.brandName = Merchant.Name;
-                a.brandDesc = Merchant.Description;
-                sBrandModels.Add(a);
-                Merchants.RemoveAt(index);
             }
 
             //bBrand
@@ -191,7 +197,7 @@ namespace friday.core.services
 
 
                 //sBrand 
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     if (Merchants.Count != 0)
                     {
