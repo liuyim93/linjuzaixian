@@ -199,7 +199,7 @@ namespace friday.core.services
                         Merchant = Merchants.ElementAt(index);
                         MerchantModel a = new MerchantModel();
                         a.logoPicType = "logo";
-                        a.logo = Merchant.sBrand;
+                        a.logo = Merchant.Logo;
                         a.source = "sBrands";
                         if (myFavoriteMerchant.Contains(Merchant))
                         {
@@ -226,7 +226,7 @@ namespace friday.core.services
                         Merchant = Merchants.ElementAt(index);
                         MerchantModel a = new MerchantModel();
                         a.logoPicType = "bBrand";
-                        a.logo = Merchant.bBrand;
+                        a.logo = Merchant.Logo;
                         a.source = "bBrands";
                         if (myFavoriteMerchant.Contains(Merchant))
                         {
