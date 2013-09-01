@@ -82,5 +82,9 @@ namespace friday.core.services
         {
             return iGlobalGoodsTypeRepository.GetFirstLevelAll();
         }
+        public IList<GlobalGoodsType> GetSelledG()
+        {
+            return iGlobalGoodsTypeRepository.GetSelledG();
+        }
     }
 }

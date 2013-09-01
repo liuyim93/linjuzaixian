@@ -22,5 +22,6 @@ namespace friday.core.services
         IList<GlobalGoodsType> GetAll();
         GlobalGoodsType GetGlobalGoodsTypeByName(string Name);
         IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword);
+        IList<GlobalGoodsType> GetSelledG();
     }
 }

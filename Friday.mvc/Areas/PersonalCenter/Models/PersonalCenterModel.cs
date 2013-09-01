@@ -14,6 +14,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Models
             CartOfCommodities = new List<friday.core.CartOfCommodity>();
             Commodities = new List<friday.core.Commodity>();
             OrderOfCommodity = new List<friday.core.OrderOfCommodity>();
+            GlobalGoodsTypes = new List<friday.core.domain.GlobalGoodsType>();
         }
 
         public IList<friday.core.Merchant> FavMerchants { get; set; }
@@ -23,6 +24,8 @@ namespace Friday.mvc.Areas.PersonalCenter.Models
         public IList<friday.core.Commodity> Commodities { get; set; }
 
         public IList<friday.core.OrderOfCommodity> OrderOfCommodity { get; set; }
+
+        public IList<friday.core.domain.GlobalGoodsType> GlobalGoodsTypes {set;get; }
 
         public friday.core.domain.SystemUser systemUser { get; set; }
     }
