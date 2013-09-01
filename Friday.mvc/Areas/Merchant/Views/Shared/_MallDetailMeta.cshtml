@@ -65,9 +65,9 @@
                                     <dt class="tb-metatit">@propid.PropIDName</dt>
                                     <dd>
                                         <ul data-property="@propid.PropIDName" class="tm-clear J_TSaleProp  ">
-                                            @for (var propValueIndex = 0; propValueIndex < propid.PropValues.Count(); propValueIndex++)
+                                            @for (var propValueIndex = 0; propValueIndex < propid.CommidyValues.Count(); propValueIndex++)
                                             {
-                                                var propvalue = propid.PropValues.ElementAt(propValueIndex);
+                                                var propvalue = propid.CommidyValues.ElementAt(propValueIndex);
                                                 <li data-value="@propid.Id:@propvalue.Id"><a href="#"><span>@propvalue.PropValueName</span> </a></li>
                                             }
                                         </ul>

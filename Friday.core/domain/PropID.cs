@@ -12,6 +12,7 @@ namespace friday.core.domain
         {
             CreateTime = DateTime.Now;
             PropValues = new Iesi.Collections.Generic.HashedSet<PropValue>();
+            CommidyValues = new List<PropValue>();
         }
         public virtual int Id
         {
@@ -38,6 +39,12 @@ namespace friday.core.domain
         {
             get;
             set;
+        }
+
+        public virtual IList<PropValue> CommidyValues//not map
+        {
+            set;
+            get;
         }
     }
 }

@@ -266,7 +266,7 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>()
                      where x.IsDelete == false && x.GlobalGoodsTypeFamily.Contains(goodsTypeId) && x.Shop.Schools.Contains(schoolID)
                      select x
-                    ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
+                    ).ToList();
             return s;
         }
 
@@ -275,7 +275,7 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>()
                      where x.IsDelete == false && x.Shop.Schools.Contains(schoolID)
                      select x
-                    ).OrderByDescending(o => o.CreateTime).ToList();
+                    ).ToList();
             return s;
         }
 

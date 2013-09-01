@@ -51,8 +51,8 @@ namespace Friday.mvc.Controllers
             if (selectedSchool == "" || selectedSchool == null)
             {
                 SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
-                mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
-                //mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+                //mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+                mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
                 mainModel.Activities = this.iActivityRepository.GetAll();
 
                 if (systemUser != null)
@@ -140,7 +140,8 @@ namespace Friday.mvc.Controllers
                             if (commodities != null && commodities.Count != 0)
                             {
                                 mainModel.GlobalGoodsTypeTlevelZero.Add(g);
-                                mainModel.CommoditiesSearchByGoodsType.Add(this.iCommodityRepository.GetCommodityByGoodsType(g.Id));
+                               
+                                mainModel.CommoditiesSearchByGoodsType.Add(commodities);
 
                                 IList<Shop> shops = new List<Shop>();
                                 foreach (Commodity c in commodities)
