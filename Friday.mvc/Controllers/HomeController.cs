@@ -52,7 +52,7 @@ namespace Friday.mvc.Controllers
             {
                 SystemUser systemUser = iUserService.GetOrCreateUser(this.HttpContext);
                 mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
-                mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+                //mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
                 mainModel.Activities = this.iActivityRepository.GetAll();
 
                 if (systemUser != null)
@@ -165,7 +165,7 @@ namespace Friday.mvc.Controllers
             }
             else
             {
-                mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
+                //mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
                 mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
                 mainModel.Activities = this.iActivityRepository.GetAll();
 

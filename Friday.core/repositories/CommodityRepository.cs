@@ -257,7 +257,7 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>()
                      where x.IsDelete == false && x.GlobalGoodsTypeFamily.Contains(goodsTypeId)
                      select x                
-                    ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
+                    ).ToList();
             return s;
         }
 
