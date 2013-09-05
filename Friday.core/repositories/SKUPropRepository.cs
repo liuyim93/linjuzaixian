@@ -64,7 +64,7 @@ namespace friday.core.repositories
                         where x.SKU.Commodity.Id==cid
                         &&x.IsDelete==false
                         &&x.SKU.IsDelete==false
-                        
+                     
                         select x.PropID)
                 .Where(
                 o => o.IsDelete == false

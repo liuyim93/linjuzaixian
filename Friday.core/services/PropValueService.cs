@@ -56,6 +56,11 @@ namespace friday.core.services
         public IList<PropValue>  GetAllByMerchantAndPropIDName(string mchtId, string propIDName) 
         {
             return iPropValueRepository.GetAllByMerchantAndPropIDName(mchtId, propIDName);
-        }   
+        }
+
+        public IList<PropValue> GetByComAndProId(PropID PropId, string cid)
+        {
+            return iPropValueRepository.GetByComAndProId(PropId,cid);
+        }
       }
 }

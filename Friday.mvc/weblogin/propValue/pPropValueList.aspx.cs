@@ -81,10 +81,10 @@ namespace Friday.mvc.weblogin
                 List<DataFilter> filterPropIdList = new List<DataFilter>(); 
      
 
-                //filterList.Add(new DataFilter()
-                //{
-                //    type = "IsDelete"
-                //});
+                filterList.Add(new DataFilter()
+                {
+                    type = "IsDelete"
+                });
 
                 if (!string.IsNullOrEmpty(Request.Form["PropValueName"]))
                     filterList.Add(new DataFilter()

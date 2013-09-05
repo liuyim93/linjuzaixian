@@ -18,6 +18,6 @@ namespace friday.core.repositories
         GlobalGoodsType GetGlobalGoodsTypeByName(string Name);
         IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevel(int level);
         IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword);
-         
+        IList<GlobalGoodsType> GetSelledG();
     }
 }

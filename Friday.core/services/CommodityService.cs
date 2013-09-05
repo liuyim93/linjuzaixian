@@ -111,5 +111,10 @@ namespace friday.core.services
         {
             return iCommodityRepository.GetCommodityBySchoolID(schoolID);
         }
+
+        public IList<Commodity> GetCommodityByType(string page, double price1, double price2, int start, int limit, out int total, string sort, friday.core.EnumType.MerchantTypeEnum type)
+        {
+            return iCommodityRepository.GetCommodityByType(page,price1,price2,start,limit,out total,sort,type);
+        }
     }
 }

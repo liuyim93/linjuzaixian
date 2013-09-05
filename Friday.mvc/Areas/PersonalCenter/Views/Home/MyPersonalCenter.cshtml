@@ -31,7 +31,7 @@
     <script src="@Url.Content("/apps/tmall/mui/tml/tml.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
     <script src=@Url.Content("/apps/mytaobao/4.0/common/package-config.js")></script>
-@*    <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
+    @*    <script src=@Url.Content("/p/sns/1.1/sns.js")></script>
     <script src=@Url.Content("/p/snsdk/core.js")></script>*@
     <script src=@Url.Content("/apps/mytaobao/4.0/home/20130326/page/init.js")></script>
     @*<script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
@@ -52,16 +52,16 @@
             <div class="col-main">
                 <div class="main-wrap">
                     <article id="userinfo" class="mt-user-info-box">
-    <div class="mt-userinfo clearfix">
-    <div class="name-info">
-        <span class="name">
-                        <a title="@Model.systemUser.Name" target="_blank" href="">@Model.systemUser.Name</a>
-                <span class="nick">(@Model.systemUser.LoginUser.LoginName)</span>
-                    </span>
-@*        <span class="prestige">
+                        <div class="mt-userinfo clearfix">
+                            <div class="name-info">
+                                <span class="name">
+                                    <a title="@Model.systemUser.Name" target="_blank" href="">@Model.systemUser.Name</a>
+                                    <span class="nick">(@Model.systemUser.LoginUser.LoginName)</span>
+                                </span>
+                                @*        <span class="prestige">
                                         
 <a href=" " target="_blank" data-spm="d1000296"><img src="http://localhost:7525/Images/b_red_2.gif" title="27个买家信用积分，请点击查看详情" border="0" align="absmiddle" class="rank" /></a>                    </span>*@
-@*        <div id="J_MyAlipayBtn" class="mt-alipay-wrap">
+                                @*        <div id="J_MyAlipayBtn" class="mt-alipay-wrap">
             <!--认证标志-->
         <span class="realy-name">
 		<a class="icon" title="支付宝实名认证" target="_blank" href=" " data-spm="d1000297"></a>
@@ -86,19 +86,20 @@
     </div>
 </span>
         </div>*@
-        
-    </div>
-    @*<div class="shopping-info">
+
+                            </div>
+                            @*<div class="shopping-info">
             <span class="to-pay">待付款<em class="num">0</em></span>
                 <span class="to-sure">待确认收货<em class="num">0</em></span>
                 <a href="   " class="to-reply" target="_blank" data-spm="d1000304">
             待评价<em class="num">1</em></a>
         <!---该处只有不为0时显示 START-->
             	<a href=" " class="address" target="_blank" data-spm="d1000308">收货地址管理</a>
-	</div>*@</div>
-</article>
+	</div>*@
+                        </div>
+                    </article>
                     <article id="userinfomore" class="mt-userinfo-sub">
-@*    <div class="sub-info">
+                        @*    <div class="sub-info">
     <ul class="main-ul">
         <li class="coin">
                                                 <p class="tao-coin"><a href=" " target="_blank" data-spm="d1000326">领<em>5</em>淘金币</a></p>
@@ -146,304 +147,277 @@
 
 
 
-</article>
+                    </article>
                     <article id="usernew">
-    <style type="text/css">
-        .newUserCon
-        {
-            height: 205px;
-            width: 828px;
-            overflow: hidden;
-        }
-        .newUserCon li
-        {
-            float: left;
-            height: 205px;
-        }
-        .newUserCon li.item-1, .newUserCon li.item-2
-        {
-            width: 277px;
-        }
-        .newUserCon li.item-1 a
-        {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: url(http://localhost:7525/Images/jianmianli__-277-205.gif) no-repeat;
-        }
-        .newUserCon li.item-2 a
-        {
-            display: block;
-            width: 100%;
-            height: 100%;
-            background: url(http://localhost:7525/Images/jiaowotao-277-205.gif) no-repeat;
-        }
-        .newUserCon li.item-3
-        {
-            width: 274px;
-            height: 205px;
-            background: url(http://localhost:7525/Images/dajiadoumaisha-276-205.gif) no-repeat;
-        }
-        .newUserCon li.item-3 .labelCon
-        {
-            margin-top: 60px;
-        }
-        .newUserCon li.item-1 a:hover, .newUserCon li.item-2 a:hover
-        {
-            filter: alpha(opacity=85);
-            -moz-opacity: 0.85;
-            -khtml-opacity: 0.85;
-            opacity: 0.85;
-        }
-        .labelCon
-        {
-            line-height: 40px;
-            font-family: "Microsoft Yahei" , "oúì?";
-            font-size: 15px;
-        }
-        .labelCon span
-        {
-            float: left;
-            width: 67px;
-            height: 40px;
-            text-align: center;
-            overflow: hidden;
-        }
-        .style1
-        {
-            color: #676767;
-        }
-        .style2
-        {
-            color: #ff9191;
-            font-size: 19px;
-        }
-        .style3
-        {
-            color: #858585;
-        }
-        .style4
-        {
-            color: #666666;
-        }
-        .style5
-        {
-            color: #98815e;
-            font-size: 17px;
-        }
-        .style6
-        {
-            color: #6cde67;
-        }
-        .style7
-        {
-            color: #ff925c;
-            font-size: 19px;
-        }
-        .style8
-        {
-            color: #6fbdff;
-            font-size: 14px;
-        }
-        .style9
-        {
-            color: #ff925c;
-            font-size: 17px;
-        }
-        .style10
-        {
-            color: #6cde67;
-        }
-        .style11
-        {
-            color: #9bddd6;
-        }
-        .style12
-        {
-            color: #fbca19;
-            font-size: 19px;
-        }
-    </style>
-<script type="text/javascript">
-    KISSY.ready(function (S) {
-        var $ = S.all;
-        var styleArr = ['style1', 'style2', 'style3', 'style4', 'style5', 'style6', 'style7', 'style8', 'style9', 'style10', 'style11', 'style12'];
-        var textArr = [];
-        var linkArr = [];
-        var arr = [];
-        var tml = '<span><a href="{link}" target="_blank" class="{style}">{text}</a></span>';
-        var tmlHtml = '';
-        var num;
-        var repeat;
-        var aList = $("#J_labelCon a");
-        var roundNumArr = [];
+                        <style type="text/css">
+                            .newUserCon {
+                                height: 205px;
+                                width: 828px;
+                                overflow: hidden;
+                            }
 
-        S.each(aList, function (v) {
-            textArr.push($(v).text());
-            linkArr.push($(v).attr('href'));
-        })
+                                .newUserCon li {
+                                    float: left;
+                                    height: 205px;
+                                }
 
-        styleArr.sort(RandomSort);
-        if (aList.length >= styleArr.length) {
-            roundNumArr = getRoundArr(styleArr, linkArr);
-        }
+                                    .newUserCon li.item-1, .newUserCon li.item-2 {
+                                        width: 277px;
+                                    }
 
-        for (var i = 0, l = roundNumArr.length; i < l; i++) {
-            tmlHtml += S.substitute(tml, {
-                link: linkArr[roundNumArr[i]],
-                style: styleArr[i],
-                text: textArr[roundNumArr[i]]
-            })
-        }
+                                        .newUserCon li.item-1 a {
+                                            display: block;
+                                            width: 100%;
+                                            height: 100%;
+                                            background: url(http://localhost:7525/Images/jianmianli__-277-205.gif) no-repeat;
+                                        }
 
-        S.one('#J_labelCon').html(tmlHtml);
+                                        .newUserCon li.item-2 a {
+                                            display: block;
+                                            width: 100%;
+                                            height: 100%;
+                                            background: url(http://localhost:7525/Images/jiaowotao-277-205.gif) no-repeat;
+                                        }
 
-        function RandomSort(a, b) {
-            return (Math.round(Math.random()) - 0.5);
-        }
+                                    .newUserCon li.item-3 {
+                                        width: 274px;
+                                        height: 205px;
+                                        background: url(http://localhost:7525/Images/dajiadoumaisha-276-205.gif) no-repeat;
+                                    }
 
-        function getRoundArr(bassArr, originalArr) {
-            var n = bassArr.length || 12;
-            while (arr.length < n) {
-                repeat = false;
-                num = parseInt(originalArr.length * Math.random());
-                if (arr.length > 0) {
-                    for (var i = 0; i < arr.length; i++) {
-                        if (arr[i] == num) {
-                            repeat = true;
-                            break;
-                        }
-                    }
-                    if (!repeat) {
-                        arr.push(num);
-                    }
+                                        .newUserCon li.item-3 .labelCon {
+                                            margin-top: 60px;
+                                        }
 
-                } else {
-                    arr.push(num);
-                }
+                                    .newUserCon li.item-1 a:hover, .newUserCon li.item-2 a:hover {
+                                        filter: alpha(opacity=85);
+                                        -moz-opacity: 0.85;
+                                        -khtml-opacity: 0.85;
+                                        opacity: 0.85;
+                                    }
 
-            }
-            return arr;
-        }
+                            .labelCon {
+                                line-height: 40px;
+                                font-family: "Microsoft Yahei", "oúì?";
+                                font-size: 15px;
+                            }
+
+                                .labelCon span {
+                                    float: left;
+                                    width: 67px;
+                                    height: 40px;
+                                    text-align: center;
+                                    overflow: hidden;
+                                }
+
+                            .style1 {
+                                color: #676767;
+                            }
+
+                            .style2 {
+                                color: #ff9191;
+                                font-size: 19px;
+                            }
+
+                            .style3 {
+                                color: #858585;
+                            }
+
+                            .style4 {
+                                color: #666666;
+                            }
+
+                            .style5 {
+                                color: #98815e;
+                                font-size: 17px;
+                            }
+
+                            .style6 {
+                                color: #6cde67;
+                            }
+
+                            .style7 {
+                                color: #ff925c;
+                                font-size: 19px;
+                            }
+
+                            .style8 {
+                                color: #6fbdff;
+                                font-size: 14px;
+                            }
+
+                            .style9 {
+                                color: #ff925c;
+                                font-size: 17px;
+                            }
+
+                            .style10 {
+                                color: #6cde67;
+                            }
+
+                            .style11 {
+                                color: #9bddd6;
+                            }
+
+                            .style12 {
+                                color: #fbca19;
+                                font-size: 19px;
+                            }
+                        </style>
+                        <script type="text/javascript">
+                            KISSY.ready(function (S) {
+                                var $ = S.all;
+                                var styleArr = ['style1', 'style2', 'style3', 'style4', 'style5', 'style6', 'style7', 'style8', 'style9', 'style10', 'style11', 'style12'];
+                                var textArr = [];
+                                var linkArr = [];
+                                var arr = [];
+                                var tml = '<span><a href="{link}" target="_blank" class="{style}">{text}</a></span>';
+                                var tmlHtml = '';
+                                var num;
+                                var repeat;
+                                var aList = $("#J_labelCon a");
+                                var roundNumArr = [];
+
+                                S.each(aList, function (v) {
+                                    textArr.push($(v).text());
+                                    linkArr.push($(v).attr('href'));
+                                })
+
+                                styleArr.sort(RandomSort);
+                                if (aList.length >= styleArr.length) {
+                                    roundNumArr = getRoundArr(styleArr, linkArr);
+                                }
+
+                                for (var i = 0, l = roundNumArr.length; i < l; i++) {
+                                    tmlHtml += S.substitute(tml, {
+                                        link: linkArr[roundNumArr[i]],
+                                        style: styleArr[i],
+                                        text: textArr[roundNumArr[i]]
+                                    })
+                                }
+
+                                S.one('#J_labelCon').html(tmlHtml);
+
+                                function RandomSort(a, b) {
+                                    return (Math.round(Math.random()) - 0.5);
+                                }
+
+                                function getRoundArr(bassArr, originalArr) {
+                                    var n = bassArr.length || 12;
+                                    while (arr.length < n) {
+                                        repeat = false;
+                                        num = parseInt(originalArr.length * Math.random());
+                                        if (arr.length > 0) {
+                                            for (var i = 0; i < arr.length; i++) {
+                                                if (arr[i] == num) {
+                                                    repeat = true;
+                                                    break;
+                                                }
+                                            }
+                                            if (!repeat) {
+                                                arr.push(num);
+                                            }
+
+                                        } else {
+                                            arr.push(num);
+                                        }
+
+                                    }
+                                    return arr;
+                                }
 
 
-    })
-</script>
-<div id="J_newUser" class="newUserCon">
-	<ul class="newUserList">
-		<li class="item-1">
-          
-          <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm-anchor-id="a1z02.1.a2145jt.1">
-         
-          </a>
-          
-      </li>
-		<li class="item-2">
-        
-          <a href="http://localhost:7525/merchant/searchproduct" target="_blank">
-            
-          </a>
-           
-      </li>
-		<li class="item-3">
-			<div id="J_labelCon" class="labelCon">
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E4%BC%91%E9%97%B2&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style10">休闲</a>
-                </span>
+                            })
+                        </script>
+                        <div id="J_newUser" class="newUserCon">
+                            <ul class="newUserList">
+                                <li class="item-1">
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E9%A3%8E%E8%A1%A3&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style12">风衣</a>
-                </span>
+                                    <a href="http://localhost:7525/merchant/searchproduct" target="_blank" data-spm-anchor-id="a1z02.1.a2145jt.1"></a>
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E7%9A%AE%E9%9E%8B&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style8">皮鞋</a>
-                </span>
+                                </li>
+                                <li class="item-2">
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=T%E6%81%A4&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style6">T恤</a>
-                </span>
+                                    <a href="http://localhost:7525/merchant/searchproduct" target="_blank"></a>
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E7%9F%AD%E8%A3%A4&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style2">短裤</a>
-                </span>
+                                </li>
+                                <li class="item-3">
+                                    <div id="J_labelCon" class="labelCon">
+                                        @if (Model.GlobalGoodsTypes != null && Model.GlobalGoodsTypes.Count != 0)
+                                        {
+                                            Random r = new Random();
+                                            for (int index = 0; index < Model.GlobalGoodsTypes.Count; index++)
+                                            {
+                                                var item = Model.GlobalGoodsTypes.ElementAt(index);
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E5%8D%AB%E8%A1%A3&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style9">卫衣</a>
-                </span>
+                                                var s = r.Next(1, 12);
+                                                var style = "style" + s;
+                       
+                                            <span>
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E6%88%92%E6%8C%87&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style7">戒指</a>
-                </span>
+                                                @if (string.IsNullOrEmpty(item.Description))
+                                                {
+                                                    @:<a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@item.Id#J_crumbs" target="_blank" class="@style">@Html.Encode(item.Name)</a>
+                                                }
+                                                else
+                                                {
+                                                    @:<a href="http://localhost:7525/Merchant/index?scid=@item.Description" target="_blank" class="@style">@Html.Encode(item.Name)</a>                       
+                                                }
+                                            </span>
+                                            }
+                                        }
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E5%86%85%E8%A1%A3&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style4">内衣</a>
-                </span>
 
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E8%BF%90%E5%8A%A8%E9%9E%8B&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style3">运动鞋</a>
-                </span>
-
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E6%89%8B%E6%9C%BA%E6%95%B0%E7%A0%81&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style11">手机数码</a>
-                </span>
-
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E5%8C%96%E5%A6%86%E5%93%81&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style1">化妆品</a>
-                </span>
-
-                <span>
-                    <a href="http://localhost:7525/merchant/searchproduct?cat=&keyword=%E6%AF%8D%E5%A9%B4&area_code=370100&sort=s&style=g&vmarket=0" target="_blank" class="style5">母婴</a>
-                </span>
-
-            </div>
-		</li>
-	</ul>
-</div>
-</article>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
                     <article id="has-buy">
-    <div class="J_zoomIn" data-spm="5864393">
-        <div class="inner">
-            <header>
-                @*<h2><a href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm?tracelog=yimaidaotitle" target="_blank" data-spm="d4908581">已买到的宝贝</a></h2>*@
-              <h2><a href="javascript: return false;" style="cursor:default" target="_blank" data-spm="d4908581">已买到的宝贝</a></h2>    
-            </header>
-            @{
-                if (Model.Commodities.Count != 0)
-                {
-                   <div class="J_hasbuy_scroll hasbuy-2">
-                   <section >
-                        <ul class="hasbuy-item-list">
-                           @{
-                    for (int i = 0; i < ((Model.Commodities.Count) > 6 ? 6 : Model.Commodities.Count); i++)
-                    {
-                                   <li>
-                                       <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585"><img src="@Model.Commodities.ElementAt(i).Image"/></a>
-                                       <p><span class="rmb">￥</span>@(Model.OrderOfCommodity.ElementAt(i).Sku.price)</p>
-                                   </li>                                    
-                    }  
-                             }
+                        <div class="J_zoomIn" data-spm="5864393">
+                            <div class="inner">
+                                <header>
+                                    @*<h2><a href="http://trade.taobao.com/trade/itemlist/list_bought_items.htm?tracelog=yimaidaotitle" target="_blank" data-spm="d4908581">已买到的宝贝</a></h2>*@
+                                    <h2><a href="javascript: return false;" style="cursor: default" target="_blank" data-spm="d4908581">已买到的宝贝</a></h2>
+                                </header>
+                                @{
+                                    if (Model.Commodities.Count != 0)
+                                    {
+                                    <div class="J_hasbuy_scroll hasbuy-2">
+                                        <section>
+                                            <ul class="hasbuy-item-list">
+                                                @{
+                                        for (int i = 0; i < ((Model.Commodities.Count) > 6 ? 6 : Model.Commodities.Count); i++)
+                                        {
+                                                    <li>
+                                                        <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.Commodities.ElementAt(i).Id" target="_blank" title="@Model.Commodities.ElementAt(i).Name" data-spm="d4908585">
+                                                            <img src="@Model.Commodities.ElementAt(i).Image"/></a>
+                                                        <p><span class="rmb">￥</span>@(Model.OrderOfCommodity.ElementAt(i).Sku.price)</p>
+                                                    </li>                                    
+                                        }  
+                                                }
 
-                        </ul>
-                    </section>
+                                            </ul>
+                                        </section>
+
+                                        <section class="hasbuy-item-1">
+                                            <span class="nodata-icon">购物的路如人生，只有不断向前才有更美的风景，继续购吧！</span>
+                                        </section>
+                                    </div> 
+                                    }
+                                    else
+                                    {
+                                    <div class="J_hasbuy_scroll hasbuy-0">
+                                        <section class="hasbuy-item-0">
+                                            <a class="nodata-icon">没有宝贝在路上</a>
+                                            <p class="app-mark"><span><a>去购物吧，没有包裹在路上总觉得缺点什么。</a></span></p>
+                                        </section>
+                                    </div>
                 
-                    <section class="hasbuy-item-1">
-                        <span class="nodata-icon">购物的路如人生，只有不断向前才有更美的风景，继续购吧！</span>
-                    </section>
-                    </div> 
-                }
-                else
-                {
-                    <div class="J_hasbuy_scroll hasbuy-0">
-                    <section class="hasbuy-item-0">
-                        <a class="nodata-icon">没有宝贝在路上</a>
-                        <p class="app-mark"><span><a>去购物吧，没有包裹在路上总觉得缺点什么。</a></span></p>
-                    </section>
-                    </div>
                 
-                
-                }
-             }
-@*            <div class="J_hasbuy_scroll hasbuy-2">
+                                    }
+                                }
+                                @*            <div class="J_hasbuy_scroll hasbuy-2">
                    <section >
                         <ul class="hasbuy-item-list">
                            <li>
@@ -465,144 +439,144 @@
                     </section>
             </div>*@
 
-        </div>
-    </div>
-</article>
+                            </div>
+                        </div>
+                    </article>
                     <article id="shop-cart">
-    <div class="inner" data-spm="5864397">
-        <header>
-            <h2><a href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908597">购物车</a></h2>
-            <span class="sub" id="J_cart_discount_box"></span>
-            <a class="more" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908601">更多</a>
-        </header>
-        <div id="J_cart_container">
-            @{
-                if (Model.CartOfCommodities.Count == 0)
-                {
-                    <div class="shop-cart-list cart-0">
-                        <a class="nodata-icon">购物车没有宝贝</a>
-                        <p class="app-mark"><span><a data-spm="d4908601" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank">把想买的宝贝放进来吧，有了优惠我会提醒你哦。</a></span></p>
-                    </div>
-                }
-                else
-                {
-                    for (int i = 0; i < ((Model.CartOfCommodities.Count) > 3 ? 3 : Model.CartOfCommodities.Count); i++)
-                    {
-                        <dl class="shop-cart-list cart-3">
-                                <dt class="item-image">
-                                    <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" data-spm="d4908605">
-                                    <img src="@Model.CartOfCommodities.ElementAt(i).Commodity.Image"></a>
-                                </dt>
+                        <div class="inner" data-spm="5864397">
+                            <header>
+                                <h2><a href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908597">购物车</a></h2>
+                                <span class="sub" id="J_cart_discount_box"></span>
+                                <a class="more" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" data-spm="d4908601">更多</a>
+                            </header>
+                            <div id="J_cart_container">
+                                @{
+                                    if (Model.CartOfCommodities.Count == 0)
+                                    {
+                                    <div class="shop-cart-list cart-0">
+                                        <a class="nodata-icon">购物车没有宝贝</a>
+                                        <p class="app-mark"><span><a data-spm="d4908601" href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank">把想买的宝贝放进来吧，有了优惠我会提醒你哦。</a></span></p>
+                                    </div>
+                                    }
+                                    else
+                                    {
+                                        for (int i = 0; i < ((Model.CartOfCommodities.Count) > 3 ? 3 : Model.CartOfCommodities.Count); i++)
+                                        {
+                                    <dl class="shop-cart-list cart-3">
+                                        <dt class="item-image">
+                                            <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" data-spm="d4908605">
+                                                <img src="@Model.CartOfCommodities.ElementAt(i).Commodity.Image"></a>
+                                        </dt>
 
-                                <dd class="item-name">
-                                    <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" title="@Model.CartOfCommodities.ElementAt(i).Commodity.Name" data-spm="d4908609">
-                                    @{
+                                        <dd class="item-name">
+                                            <a href="http://localhost:7525/merchant/detail/index?brandId=@Model.CartOfCommodities.ElementAt(i).Commodity.Id" target="_blank" title="@Model.CartOfCommodities.ElementAt(i).Commodity.Name" data-spm="d4908609">
+                                                @{
                                         
-                        if (Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length > 15)
-                        {
-                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0, 15) + "...")</text>
-                        }
-                        else
-                        {
-                                            <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0, Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length))</text>
-                        }
-                                      }
-                                    </a>
-                                </dd> 
+                                            if (Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length > 15)
+                                            {
+                                                    <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0, 15) + "...")</text>
+                                            }
+                                            else
+                                            {
+                                                    <text>@(Model.CartOfCommodities.ElementAt(i).Commodity.Name.Substring(0, Model.CartOfCommodities.ElementAt(i).Commodity.Name.Length))</text>
+                                            }
+                                                }
+                                            </a>
+                                        </dd>
 
-                                <dd class="item-price">
-                                    @{
-                        if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
-                        {
-                                            <p class="new-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
-                        }
-                        else
-                        {
-                                            <p class="old-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
-                                            <p class="new-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
-                                            <p><span class="less-price">省@(Model.CartOfCommodities.ElementAt(i).Sku.price - Model.CartOfCommodities.ElementAt(i).Sku.price)</span></p>
-                        }
-                                     }
+                                        <dd class="item-price">
+                                            @{
+                                            if (Model.CartOfCommodities.ElementAt(i).Commodity.OldPrice <= Model.CartOfCommodities.ElementAt(i).Commodity.Price)
+                                            {
+                                                <p class="new-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="old-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
+                                                <p class="new-price"><span class="rmb">￥</span>@(Model.CartOfCommodities.ElementAt(i).Sku.price)</p>
+                                                <p><span class="less-price">省@(Model.CartOfCommodities.ElementAt(i).Sku.price - Model.CartOfCommodities.ElementAt(i).Sku.price)</span></p>
+                                            }
+                                            }
 
-                                </dd>        
-                        </dl>                             
-                    }
-                }
-              }
-        </div>
-    </div>
-</article>
-                    <article id="app-collect-shop" class="mt-app">
-    <div class="inner" >
-        <header>
-            <h3><a href="http://localhost:7525/myBrandsIndex.html" target="_blank" >我收藏的店铺</a><i data-title="店铺动态全新改版！点击图标，发现惊喜"  class="why"></i></h3>
-        </header>
-		
-
-		<!-- 如果接口失败 -->	
-		            <!-- 四个店铺 -->
-    		
-    		             <section class="shop-2">
-    			    		@{
-                                for (int i = 0; i < ((Model.FavMerchants.Count) > 3 ? 3 : Model.FavMerchants.Count); i++)
-                                {
-     				                <a  href="http://localhost:7525/merchant/index?scid=@Model.FavMerchants.ElementAt(i).Id" target="_blank" data-title="@Model.FavMerchants.ElementAt(i).Name" class="J_collect_shop">
-    				    					                <img src="@Model.FavMerchants.ElementAt(i).Logo"/>
-    				                 </a>                                   
+                                        </dd>
+                                    </dl>                             
+                                        }
+                                    }
                                 }
-                            }
-    				    			    				
+                            </div>
+                        </div>
+                    </article>
+                    <article id="app-collect-shop" class="mt-app">
+                        <div class="inner">
+                            <header>
+                                <h3><a href="http://localhost:7525/myBrandsIndex.html" target="_blank">我收藏的店铺</a><i data-title="店铺动态全新改版！点击图标，发现惊喜" class="why"></i></h3>
+                            </header>
 
-    				    			            </section>
-    		                 			<footer>
-                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" >新品上架</a>
-                <a href="http://localhost:7525/merchant/searchproduct" target="_blank" >优惠活动</a>
-            </footer>
-							
-    </div>
-</article>
+
+                            <!-- 如果接口失败 -->
+                            <!-- 四个店铺 -->
+
+                            <section class="shop-2">
+                                @{
+                                    for (int i = 0; i < ((Model.FavMerchants.Count) > 3 ? 3 : Model.FavMerchants.Count); i++)
+                                    {
+                                    <a  href="http://localhost:7525/merchant/index?scid=@Model.FavMerchants.ElementAt(i).Id" target="_blank" data-title="@Model.FavMerchants.ElementAt(i).Name" class="J_collect_shop">
+                                        <img src="@Model.FavMerchants.ElementAt(i).Logo"/>
+                                    </a>                                   
+                                    }
+                                }
+
+
+                            </section>
+                            <footer>
+                                <a href="http://localhost:7525/merchant/searchproduct" target="_blank">新品上架</a>
+                                <a href="http://localhost:7525/merchant/searchproduct" target="_blank">优惠活动</a>
+                            </footer>
+
+                        </div>
+                    </article>
                     <article id="app-more" class="mt-app">
-    <div class="inner">
-        更多内容，敬请期待...
-    </div>
-</article>
+                        <div class="inner">
+                            更多内容，敬请期待...
+                        </div>
+                    </article>
                 </div>
             </div>
             <section class="col-sub">
                 <!--sns mytaobao_menu.vm-->
-	
 
 
-<!-- 6 -->
-	<aside class="mt-menu" id="J_MtSideMenu">
-		<div class="mt-avatar">
-			<div class="mt-avatar-box" id="J_MtAvatarBox">
-									@*<a class="mt-user-avatar" href="" target="_blank">*@
-								<img src="http://localhost:7525/Images/avatar-100.png"></img>@*</a>*@
-				@*<a class="mt-avatar-operation hide" id="J_MtAvatarOperation" href=" ">上传新头像</a>*@
-			</div>
-@*			<div class="mt-edit-userinfo">
+
+                <!-- 6 -->
+                <aside class="mt-menu" id="J_MtSideMenu">
+                    <div class="mt-avatar">
+                        <div class="mt-avatar-box" id="J_MtAvatarBox">
+                            @*<a class="mt-user-avatar" href="" target="_blank">*@
+                            <img src="http://localhost:7525/Images/avatar-100.png"></img>@*</a>*@
+                            @*<a class="mt-avatar-operation hide" id="J_MtAvatarOperation" href=" ">上传新头像</a>*@
+                        </div>
+                        @*			<div class="mt-edit-userinfo">
 				<a href=" " class="mt-edit-info">编辑资料</a>
 				<a href=" " class="mt-edit-private">隐私设置</a>
 			</div>*@
-		</div>
+                    </div>
 
-		<div class="mt-menu-tree"> 					
-			<dl class="mt-menu-item" data-spm="a2109">
-				<dt class="fs14">我的交易</dt>
-				<dd>
-					<a href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" role="menuitem" data-spm="d1000367">我的购物车</a>
-				</dd>
- 
-				<dd id="favorite"><a href="http://localhost:7525/myBrandsIndex.html" data-spm="d1000374">我的收藏</a></dd>
- 
-			</dl>
+                    <div class="mt-menu-tree">
+                        <dl class="mt-menu-item" data-spm="a2109">
+                            <dt class="fs14">我的交易</dt>
+                            <dd>
+                                <a href="http://localhost:7525/CartPay/Home/MyCartPay" target="_blank" role="menuitem" data-spm="d1000367">我的购物车</a>
+                            </dd>
+
+                            <dd id="favorite"><a href="http://localhost:7525/myBrandsIndex.html" data-spm="d1000374">我的收藏</a></dd>
+
+                        </dl>
 
 
- 
-		</div>		
 
-	</aside>
+                    </div>
+
+                </aside>
 
 
 

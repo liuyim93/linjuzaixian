@@ -146,7 +146,48 @@ namespace friday.core.repositories
             return paged_ordered_query.ToList();
             
         }
+        public IList<Commodity> GetCommodityByType(string page, double price1, double price2, int start, int limit, out int total, string sort,MerchantTypeEnum type)
+        {
+            Expression<Func<Commodity, object>> order_expression = o => o.MonthAmount;
+            bool is_desc = true;
+            switch (sort)
+            {
+                case "p":
+                    order_expression = o => o.Price;
+                    is_desc = false;
+                    break;
+                case "pd":
+                    order_expression = o => o.Price;
+                    is_desc = true;
+                    break;
+                case "td":
+                    order_expression = o => o.Amount;
+                    is_desc = true;
+                    break;
+                case "d":
+                    order_expression = o => o.MonthAmount;
+                    is_desc = true;
+                    break;
+                case "s":
+                case "st":
+                case "pt":
+                    order_expression = o => o.CreateTime;
+                    is_desc = true;
+                    break;
 
+            }
+            //2013-05-23 basilwang 重构
+            var query = (from x in this.Session.Query<Commodity>() select x).Where((o => o.IsDelete == false && (o.Price >= price1 || price1 == -1) && (o.Price <= price2 || price2 == -1)&&o.Shop.MerchantType==type));
+
+            IOrderedQueryable<Commodity> ordered_query;
+            if (is_desc)
+                ordered_query = query.OrderByDescending(order_expression);
+            else
+                ordered_query = query.OrderBy(order_expression);
+            var paged_ordered_query = ordered_query.Skip(start).Take(limit);
+            total = query.Count();
+            return paged_ordered_query.ToList();
+        }
         public IList<Commodity> GetCommodityByShopIDAndKeywordAndPrice(string shopID, string page, string keyword, double price1, double price2, int start, int limit, out int total,string sort)
         {           
             Expression<Func<Commodity, object>> order_expression = o => o.MonthAmount;
@@ -216,7 +257,7 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>()
                      where x.IsDelete == false && x.GlobalGoodsTypeFamily.Contains(goodsTypeId)
                      select x                
-                    ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
+                    ).ToList();
             return s;
         }
 
@@ -225,7 +266,7 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>()
                      where x.IsDelete == false && x.GlobalGoodsTypeFamily.Contains(goodsTypeId) && x.Shop.Schools.Contains(schoolID)
                      select x
-                    ).OrderByDescending(o => o.CreateTime).Take(6).ToList();
+                    ).ToList();
             return s;
         }
 
@@ -234,7 +275,7 @@ namespace friday.core.repositories
             var s = (from x in this.Session.Query<Commodity>()
                      where x.IsDelete == false && x.Shop.Schools.Contains(schoolID)
                      select x
-                    ).OrderByDescending(o => o.CreateTime).ToList();
+                    ).ToList();
             return s;
         }
 

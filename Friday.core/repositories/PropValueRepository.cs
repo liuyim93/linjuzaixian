@@ -53,7 +53,26 @@ namespace friday.core.repositories
         {
             var ppd = (from x in this.Session.Query<PropValue>() select x).Where(o => o.PropID.PropIDName == propIDName &&o.Merchant.Id== mchtId && o.IsDelete == false).ToList<PropValue>();
             return ppd;
-        } 
+        }
+
+        public IList<PropValue> GetByComAndProId(PropID PropId,string cid)
+        {
+            var list = (from x in this.Session.Query<SkuProp>()
+                        where x.SKU.Commodity.Id == cid
+                        && x.IsDelete == false
+                        && x.SKU.IsDelete == false
+                        &&x.PropID==PropId
+                        
+                        select x.PropValue
+                       
+                        )
+               .Where(
+               o => o.IsDelete == false
+
+               ).Distinct()
+               .ToList();
+            return list;
+        }
     }
      
 }

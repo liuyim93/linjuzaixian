@@ -127,7 +127,7 @@
             <p style="height: 150px">
                 <label>
                     标题图片上传：</label>
-                <input id="Edit_Commodity_Logo" type="file" class="required textInput gray" runat="server" onchange="commodityPreviewImage(this);"/>
+                <input id="Edit_Commodity_Logo" type="file" class=" textInput gray" runat="server" onchange="commodityPreviewImage(this);"/>
                
                 <img  id="Edit_Commodity_LogoPreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
                 <span style="color: red; width: 380px">请上传600×900的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)

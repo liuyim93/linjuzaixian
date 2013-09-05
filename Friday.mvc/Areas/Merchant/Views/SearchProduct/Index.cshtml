@@ -228,7 +228,8 @@
                                 @for (var index = 0; index < Model.globalGoodsTypes.Count(); index++)
                                 {
                                     var item = Model.globalGoodsTypes.ElementAt(index); 
-                                    <a href="SearchProduct?keyword=@item.Name" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
+                
+                                    <a href="SearchProduct?cat=@item.Id&k=@item.Description" atpanel="1,%C6%BD%B5%D7%D0%AC,,,spu-key,5,key,">@item.Name</a>
         
                                 }
                             </p>
@@ -266,8 +267,9 @@
 
                                 <form class="fAl-custom" action="">
                                     <input type="text" data-val="输入城市名" id="J_FOAInput" name="loc">
-                                    <input type="hidden" value="@ViewData["skeywords"]" name="q">
+                                    <input type="hidden" value="@ViewData["skeyword"]" name="keyword">
                                     <input type="hidden" name="cat" value="@ViewData["cat"]">
+                                    <input type="hidden" name="mtype" value="@ViewData["mtype"]">
                                     <input type="hidden" name="sort" value="@ViewData["sort"]">
                                     <input type="hidden" name="style" value="@ViewData["style"]">
                                     <input type="hidden" name="vmarket" value="0">
@@ -406,28 +408,28 @@
                                 }
                             </b><i class="f-ico-triangle-rb"></i>
                             <ul class="fR-list" data-atp="{loc},price_ascending,,,spu-sort,20,sort,">
-                                <li><a href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=p&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                                <li><a href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=p&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                                 atpanel="1,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-pu"></i>价格从低到高</a>
                                 </li>
-                                <li><a href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=pd&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                                <li><a href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=pd&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                                 atpanel="2,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-pd"></i>价格从高到低</a>
                                 </li>
-                                <li><a href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=td&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                                <li><a href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=td&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                                 atpanel="3,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-sd"></i>总销量从高到低</a>
                                 </li>
-                                <li><a href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=d&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                                <li><a href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=d&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                                 atpanel="4,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-msd"></i>月销量从高到低</a>
                                 </li>
-                                <li><a href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=pt&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                                <li><a href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=pt&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                                 atpanel="5,price_ascending,,,spu-sort,20,sort,"><i class="fRl-ico-td"></i>按发布时间排序</a>
                                 </li>
-                                <li><a href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=st&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                                <li><a href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=st&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                                 atpanel="6,price_ascending,,,spu-sort,20,sort,">恢复默认排序</a> </li>
                             </ul>
                         </div>
-                        <a class="fSort @(ViewData["sort"].ToString() == "d" ? "fSort-cur" : "")" href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "d" ? "s" : "d")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                        <a class="fSort @(ViewData["sort"].ToString() == "d" ? "fSort-cur" : "")" href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "d" ? "s" : "d")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                         title="@(ViewData["sort"].ToString() == "d" ? "点击后恢复默认排序" : "点击后按月销量从高到低")" atpanel="7,week_sale,,,spu-sort,20,sort,">销量<i class="f-ico-arrow-d"></i></a>
-                        <a class="fSort @((ViewData["sort"].ToString() == "pd" || ViewData["sort"].ToString() == "p") ? "fSort-cur" : "")" href="SearchProduct?cat=@ViewData["cat"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
+                        <a class="fSort @((ViewData["sort"].ToString() == "pd" || ViewData["sort"].ToString() == "p") ? "fSort-cur" : "")" href="SearchProduct?cat=@ViewData["cat"]&keyword=@ViewData["skeyword"]&mtype=@ViewData["mtype"]&s=0&n=60&sort=@(ViewData["sort"].ToString() == "p" ? "pd" : "p")&style=g&vmarket=0&pic_detail=1&active=1#J_Filter"
                         title="@(ViewData["sort"].ToString() == "p" ? "点击后按价格从高到低" : "点击后按价格从低到高")" atpanel="9,price_ascending,,,spu-sort,20,sort,">价格
                            <i class="f-ico-triangle-mt @(ViewData["sort"].ToString() == "p" ? "f-ico-triangle-mt-slctd" : "")"></i>
                             <i class="f-ico-triangle-mb @(ViewData["sort"].ToString() == "pd" ? "f-ico-triangle-mb-slctd" : "")"></i></a>
@@ -474,6 +476,7 @@
 *@
                         <input type="hidden" name="search_condition" value="16">
                         <input type="hidden" name="cat" value="@ViewData["cat"]">
+                        <input type="hidden" name="mtype" value="@ViewData["mtype"]" />
                         <input type="hidden" name="sort" value="@ViewData["sort"]">
                         <input type="hidden" name="style" value="@ViewData["style"]">
                         <input type="hidden" name="vmarket" value="0">
@@ -486,7 +489,7 @@
                         @if (Model.currentPage == 1 && Model.pageNum != 1)
                         { 
                             <b class="ui-page-s-prev" title="上一页">&lt;</b>
-                            <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
+                            <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
                         }
                         else if (Model.currentPage == 1 && Model.pageNum == 1)
                         {
@@ -496,13 +499,13 @@
                         }
                         else if (Model.currentPage == Model.pageNum && Model.pageNum != 1)
                         {                                            
-                            <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
+                            <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
                             <b class="ui-page-s-next" title="下一页">&gt;</b>
                         }
                         else
                         {
-                            <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
-                            <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
+                            <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-prev" atpanel="1,pagedn,,,,20,fservice," title="上一页">&lt;</a>                 
+                            <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="ui-page-s-next" atpanel="1,pagedn,,,,20,fservice," title="下一页">&gt;</a>                 
                         }
                     </p>
                 </div>
@@ -569,7 +572,7 @@
                             <b class="ui-page-num">
                                 @if (Model.currentPage > 1)
                                 {
-                                    <a class="ui-page-prev j_PageChange " data-page="@(Model.currentPage - 1)" href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">&lt;&lt; 上一页</a>
+                                    <a class="ui-page-prev j_PageChange " data-page="@(Model.currentPage - 1)" href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage - 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">&lt;&lt; 上一页</a>
                                 }
                                 else
                                 {
@@ -587,7 +590,7 @@
                                             }
                                             else
                                             {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&&mtype=@ViewData["mtype"]sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
                                             }
                                         }
                                     }
@@ -603,7 +606,7 @@
                                                 }
                                                 else
                                                 {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
                                                 }
                                             }
                                     <b class="ui-page-break">...</b>  
@@ -618,7 +621,7 @@
                                                 }
                                                 else
                                                 {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
                                                 }
                                             }
                                         }
@@ -635,15 +638,15 @@
                                                 }
                                                 else
                                                 {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
                                                 }
                                             }
                                     <b class="ui-page-break">...</b>  
                                         }
                                         else if (Model.currentPage <= Model.pageNum - 4)
                                         {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=1&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="1">1</a>
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=2&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="2">2</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=1&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="1">1</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=2&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="2">2</a>
                                     <b class="ui-page-break">...</b>  
                                 
                                             for (int i = (Model.currentPage - 2); i <= (Model.currentPage + 2); i++)
@@ -654,15 +657,15 @@
                                                 }
                                                 else
                                                 {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
                                                 }
                                             }
                                     <b class="ui-page-break">...</b> 
                                         }
                                         else
                                         {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=1&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="1">1</a>
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=2&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="2">2</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=1&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="1">1</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=2&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="2">2</a>
                                     <b class="ui-page-break">...</b> 
                     
                                             for (int i = (Model.currentPage - 2); i <= Model.pageNum; i++)
@@ -673,7 +676,7 @@
                                                 }
                                                 else
                                                 {
-                                    <a href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
+                                    <a href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(i)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum" class="j_PageChange" data-page="@i">@i</a>
                                                 }
                                             }
                                         }
@@ -682,7 +685,7 @@
                                 }
                                 @if (Model.currentPage < Model.pageNum)
                                 {
-                                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?cat=@ViewData["cat"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">&lt;&lt; 下一页</a>
+                                    <a class="ui-page-next j_PageChange " data-page="@(Model.currentPage + 1)" href="SearchProduct?cat=@ViewData["cat"]&mtype=@ViewData["mtype"]&sort=@ViewData["sort"]&style=@ViewData["style"]&page=@(Model.currentPage + 1)&orderType=ValuingCount&keyword=@ViewData["skeyword"]&price1=@ViewData["sprice1"]&price2=@ViewData["sprice2"]&pagenum=@Model.pageNum">&lt;&lt; 下一页</a>
                                 }
                                 else
                                 {
@@ -694,6 +697,7 @@
                             <b class="ui-page-skip">共@(Model.pageNum)页，去第
      <input type="text" value="@Model.currentPage"   size="3" class="ui-page-skipTo j_PageChangeInput" name="page">
                                 <input type="hidden" value="@Model.pageNum"   size="3" class="ui-page-skipTo j_PageChangeInput" name="pagenum">
+                                <input type="hidden" name="mtype" value="@ViewData["mtype"]" />
                                 <input type="hidden" value="@ViewData["skeyword"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="keyword">
                                 <input type="hidden" value="@ViewData["sprice1"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="price1">
                                 <input type="hidden" value="@ViewData["sprice2"]"   size="3" class="ui-page-skipTo j_PageChangeInput" name="price2">

@@ -29,8 +29,8 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
         private IMyCommodityOrderService iMyCommodityOrderService;
         private IOrderOfCommodityService iOrderOfCommodityService;
         private ISkuService iSkuService;
-
-        public HomeController(IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, IMyCommodityOrderService iMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, ISkuService iSkuService)
+        private IGlobalGoodsTypeService iGlobalGoodsTypeService;
+        public HomeController(IGlobalGoodsTypeService iGlobalGoodsTypeService, IUserService iUserService, IShoppingCartService iShoppingCartService, IShopService iShopService, ICartOfCommodityService iCartOfCommodityService, ICommodityService iCommodityService, IMyFavoriteService iMyFavoriteService, IMyCommodityOrderService iMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, ISkuService iSkuService)
         {
             this.iShopService = iShopService;
             this.iUserService = iUserService;
@@ -41,6 +41,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
             this.iMyCommodityOrderService = iMyCommodityOrderService;
             this.iOrderOfCommodityService = iOrderOfCommodityService;
             this.iSkuService = iSkuService;
+            this.iGlobalGoodsTypeService = iGlobalGoodsTypeService;
         }
 
         public ActionResult MyPersonalCenter()
@@ -87,6 +88,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
                     }
                 }
             }
+            personalCenterModel.GlobalGoodsTypes = iGlobalGoodsTypeService.GetSelledG();
 
             return View(personalCenterModel);
         }

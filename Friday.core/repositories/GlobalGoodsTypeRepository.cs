@@ -31,7 +31,7 @@ namespace friday.core.repositories
         }
         public IList<GlobalGoodsType> GetFirstLevelAll()
         {
-            var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID==null && o.IsDelete == false).ToList();
+            var list = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.ParentID == null && o.IsDelete == false).ToList();
             return list;
         }
         public GlobalGoodsType GetGlobalGoodsTypeByName(string Name)
@@ -42,7 +42,7 @@ namespace friday.core.repositories
 
         public IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevel(int level)
         {
-            var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.TLevel == level && o.IsDelete == false).OrderBy(o=>o.EntityIndex).ToList();
+            var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.TLevel == level && o.IsDelete == false).OrderBy(o => o.EntityIndex).ToList();
             return gt;
         }
         public IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword)
@@ -77,7 +77,21 @@ namespace friday.core.repositories
                  .SetMaxResults(limit)
                  .List<GlobalGoodsType>();
         }
-      
+
+        public IList<GlobalGoodsType> GetSelledG()
+        {
+            var list = (from x in this.Session.Query<CartOfCommodity>()
+                        where x.IsDelete == false
+
+
+                        select x.Commodity.GlobalGoodsType
+
+                       )
+           .Distinct().Take(16)
+              .ToList();
+            return list;
+        }
+
     }
 
 }

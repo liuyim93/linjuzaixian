@@ -123,9 +123,13 @@ namespace Friday.mvc.Areas.Order.Controllers
                             Sku = cartOfCommodity.Sku
                         };
                         sumPrice += cartOfCommodity.Price;
-                        msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "，单价：" + cartOfCommodity.Price +",类型:"+"、";
+                        msgContent = msgContent + cartOfCommodity.Sku.Commodity.Name + "，数量：" + cartOfCommodity.Amount + "，单价：" + cartOfCommodity.Price + ",类型:" + cartOfCommodity .Sku.ToString()+ "、";
+
                         iOrderOfCommodityService.Save(orderOfCommodity);
                     }
+            
+
+
                     msgContent += "收件人：" + addr.Linkman + "。地址" + addr.AddressName+"联系电话:"+addr.Tel+","+addr.BackupTel+"。";
                     msgContent = msgContent.Substring(0, msgContent.Length - 1) + "，请及时处理！";
 

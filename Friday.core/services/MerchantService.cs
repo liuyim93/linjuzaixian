@@ -56,74 +56,80 @@ namespace friday.core.services
             //Logo
             for (int i = 0; i < 6; i++)
             {
-                index = rand.Next(Merchants.Count);
-                Merchant = Merchants.ElementAt(index);
-                MerchantModel a = new MerchantModel();
-                a.logoPicType = "logo";
-                a.logo = Merchant.Logo;
-                a.source = "sBrands";
-                if (myFavoriteMerchant.Contains(Merchant))
+                if (Merchants.Count != 0)
                 {
-                    a.isCol = "True";
+                    index = rand.Next(Merchants.Count);
+                    Merchant = Merchants.ElementAt(index);
+                    MerchantModel a = new MerchantModel();
+                    a.logoPicType = "logo";
+                    a.logo = Merchant.Logo;
+                    a.source = "sBrands";
+                    if (myFavoriteMerchant.Contains(Merchant))
+                    {
+                        a.isCol = "True";
+                    }
+                    else
+                    {
+                        a.isCol = "";
+                    }
+                    a.brandId = Merchant.Id;
+                    a.brandName = Merchant.Name;
+                    a.brandDesc = Merchant.Description;
+                    sBrandModels.Add(a);
+                    Merchants.RemoveAt(index);
                 }
-                else
-                {
-                    a.isCol = "";
-                }
-                a.brandId = Merchant.Id;
-                a.brandName = Merchant.Name;
-                a.brandDesc = Merchant.Description;
-                sBrandModels.Add(a);
-                Merchants.RemoveAt(index);
             }
 
             //sBrand 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 9; i++)
             {
-                index = rand.Next(Merchants.Count);
-                Merchant = Merchants.ElementAt(index);
-                MerchantModel a = new MerchantModel();
-                a.logoPicType = "logo";
-                a.logo = Merchant.sBrand;
-                a.source = "sBrands";
-                if (myFavoriteMerchant.Contains(Merchant))
+                if (Merchants.Count != 0)
                 {
-                    a.isCol = "True";
+                    index = rand.Next(Merchants.Count);
+                    Merchant = Merchants.ElementAt(index);
+                    MerchantModel a = new MerchantModel();
+                    a.logoPicType = "logo";
+                    a.logo = Merchant.sBrand;
+                    a.source = "sBrands";
+                    if (myFavoriteMerchant.Contains(Merchant))
+                    {
+                        a.isCol = "True";
+                    }
+                    else
+                    {
+                        a.isCol = "";
+                    }
+                    a.brandId = Merchant.Id;
+                    a.brandName = Merchant.Name;
+                    a.brandDesc = Merchant.Description;
+                    sBrandModels.Add(a);
+                    Merchants.RemoveAt(index);
                 }
-                else
-                {
-                    a.isCol = "";
-                }
-                a.brandId = Merchant.Id;
-                a.brandName = Merchant.Name;
-                a.brandDesc = Merchant.Description;
-                sBrandModels.Add(a);
-                Merchants.RemoveAt(index);
             }
 
             //bBrand
-            for (int i = 0; i < 3; i++)
-            {
-                index = rand.Next(Merchants.Count);
-                Merchant = Merchants.ElementAt(index);
-                MerchantModel a = new MerchantModel();
-                a.logoPicType = "bBrand";
-                a.logo = Merchant.bBrand;
-                a.source = "bBrands";
-                if (myFavoriteMerchant.Contains(Merchant))
-                {
-                    a.isCol = "True";
-                }
-                else
-                {
-                    a.isCol = "";
-                }
-                a.brandId = Merchant.Id;
-                a.brandName = Merchant.Name;
-                a.brandDesc = Merchant.Description;
-                bBrandModels.Add(a);
-                Merchants.RemoveAt(index);
-            }
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    index = rand.Next(Merchants.Count);
+            //    Merchant = Merchants.ElementAt(index);
+            //    MerchantModel a = new MerchantModel();
+            //    a.logoPicType = "bBrand";
+            //    a.logo = Merchant.bBrand;
+            //    a.source = "bBrands";
+            //    if (myFavoriteMerchant.Contains(Merchant))
+            //    {
+            //        a.isCol = "True";
+            //    }
+            //    else
+            //    {
+            //        a.isCol = "";
+            //    }
+            //    a.brandId = Merchant.Id;
+            //    a.brandName = Merchant.Name;
+            //    a.brandDesc = Merchant.Description;
+            //    bBrandModels.Add(a);
+            //    Merchants.RemoveAt(index);
+            //}
 
             FormatJsonResult jsonResult = new FormatJsonResult();
             jsonResult.Data = new
@@ -191,7 +197,7 @@ namespace friday.core.services
 
 
                 //sBrand 
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 9; i++)
                 {
                     if (Merchants.Count != 0)
                     {
@@ -199,7 +205,7 @@ namespace friday.core.services
                         Merchant = Merchants.ElementAt(index);
                         MerchantModel a = new MerchantModel();
                         a.logoPicType = "logo";
-                        a.logo = Merchant.sBrand;
+                        a.logo = Merchant.Logo;
                         a.source = "sBrands";
                         if (myFavoriteMerchant.Contains(Merchant))
                         {
@@ -218,31 +224,31 @@ namespace friday.core.services
                 }
 
                 //bBrand
-                for (int i = 0; i < 3; i++)
-                {
-                    if (Merchants.Count != 0)
-                    {
-                        index = rand.Next(Merchants.Count - 1);
-                        Merchant = Merchants.ElementAt(index);
-                        MerchantModel a = new MerchantModel();
-                        a.logoPicType = "bBrand";
-                        a.logo = Merchant.bBrand;
-                        a.source = "bBrands";
-                        if (myFavoriteMerchant.Contains(Merchant))
-                        {
-                            a.isCol = "True";
-                        }
-                        else
-                        {
-                            a.isCol = "";
-                        }
-                        a.brandId = Merchant.Id;
-                        a.brandName = Merchant.Name;
-                        a.brandDesc = Merchant.Description;
-                        bBrandModels.Add(a);
-                        Merchants.RemoveAt(index);
-                    }
-                }
+                //for (int i = 0; i < 3; i++)
+                //{
+                //    if (Merchants.Count != 0)
+                //    {
+                //        index = rand.Next(Merchants.Count - 1);
+                //        Merchant = Merchants.ElementAt(index);
+                //        MerchantModel a = new MerchantModel();
+                //        a.logoPicType = "bBrand";
+                //        a.logo = Merchant.Logo;
+                //        a.source = "bBrands";
+                //        if (myFavoriteMerchant.Contains(Merchant))
+                //        {
+                //            a.isCol = "True";
+                //        }
+                //        else
+                //        {
+                //            a.isCol = "";
+                //        }
+                //        a.brandId = Merchant.Id;
+                //        a.brandName = Merchant.Name;
+                //        a.brandDesc = Merchant.Description;
+                //        bBrandModels.Add(a);
+                //        Merchants.RemoveAt(index);
+                //    }
+                //}
             }
 
             FormatJsonResult jsonResult = new FormatJsonResult();

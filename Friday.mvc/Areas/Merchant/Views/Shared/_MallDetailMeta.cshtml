@@ -65,9 +65,9 @@
                                     <dt class="tb-metatit">@propid.PropIDName</dt>
                                     <dd>
                                         <ul data-property="@propid.PropIDName" class="tm-clear J_TSaleProp  ">
-                                            @for (var propValueIndex = 0; propValueIndex < propid.PropValues.Count(); propValueIndex++)
+                                            @for (var propValueIndex = 0; propValueIndex < propid.CommidyValues.Count(); propValueIndex++)
                                             {
-                                                var propvalue = propid.PropValues.ElementAt(propValueIndex);
+                                                var propvalue = propid.CommidyValues.ElementAt(propValueIndex);
                                                 <li data-value="@propid.Id:@propvalue.Id"><a href="#"><span>@propvalue.PropValueName</span> </a></li>
                                             }
                                         </ul>
@@ -97,6 +97,13 @@
                             </dl>
                             @if (ViewBag.ValidateResult.isSucceed)
                             {
+                                var message=string.Empty;
+                                if (ViewBag.ValidateResult.message == "接受预定")
+                                {
+                                    message = "暂不在营业时间，接受预定,下一次配送时间为" + ViewBag.ValidateResult.nextTime;
+                                }
+                              
+                                    
                                 <div class="tb-action tm-clear ">
                                     <div class="tb-btn-buy tb-btn-sku">
                                         <a id="J_LinkBuy" href="#" data-addfastbuy="true" title="点击此按钮，到下一步确认购买信息。">立刻购买 <b></b></a>
@@ -108,6 +115,15 @@
                                         <a href="#" id="J_LinkAdd">加入购物车 <b></b></a>
                                     </div>
                                 </div>
+                                if(!string.IsNullOrEmpty(message))
+                                {
+                                <div class="tb-action tm-clear ">
+                                    <div >
+                                        <span>@message </span>
+                                    </div>
+                                </div>
+                            }
+                            
                             }
                             else
                             {

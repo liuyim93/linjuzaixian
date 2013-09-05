@@ -36,11 +36,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService;
         //private IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService;
 
-        public DetailController(ISkuPropService iSkuPropService, IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService)
+        public DetailController(ISkuPropService iSkuPropService, IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, IPropValueService iPropValueService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
-
+            this.iPropValueService = iPropValueService;
             //this.iFoodService = iFoodService;
             //this.iHouseService = iHouseService;
             this.iCommodityService = iCommodityService;
@@ -74,8 +74,12 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             
             detailModel.Commodity = commodity;
             //detailModel.Skus= iSkuService.GetSkusByCommodityID(commodity.Id);
-            detailModel.PropIDs = iSkuPropService.GetProp(commodity.Id);
-           
+            IList<PropID> PropIDs = iSkuPropService.GetProp(commodity.Id);
+            foreach (PropID pi in PropIDs)
+            {
+                pi.CommidyValues = iPropValueService.GetByComAndProId(pi, commodity_id);
+            }
+            detailModel.PropIDs = PropIDs;
             friday.core.Merchant merchant = iMerchantService.Load(commodity.Shop.Id);
 
             ValidateResult vr = iMerchantService.isOpend(merchant);
