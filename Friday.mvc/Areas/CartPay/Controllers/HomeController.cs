@@ -178,7 +178,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                     amount amount = new amount()
                     {
                         now = cartOfCommodity.Amount,
-                        max = Convert.ToInt16(cartOfCommodity.Commodity.InventoryCount)
+                        max = Convert.ToInt16(cartOfCommodity.Sku.stock)
                     };
 
                     List<ItemIconMeta> itemIconMetas = new List<ItemIconMeta>();

@@ -62,9 +62,10 @@ namespace friday.core.repositories
                         && x.IsDelete == false
                         && x.SKU.IsDelete == false
                         &&x.PropID==PropId
-                        
+                       
                         select x.PropValue
                        
+                        
                         )
                .Where(
                o => o.IsDelete == false

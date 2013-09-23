@@ -8,7 +8,7 @@ KISSY.add("cart/app", function (K, Q, O, E, N, L, D, G, B, F, M) {
         "delete": "/cart/deleteCart.do",
         check: "/cart/checkCart.do",
         undel: "/cart/undelCart.do",
-        loginIndicator: "http://locahost:7525/"+ I + "/auction/buy.htm?from=cart",
+        loginIndicator: "http://localhost:7525/"+ I + "/auction/buy.htm?from=cart",
         login: "https://login." + I + "/member/login.jhtml?from=buy&style=mini&redirect_url=http%3A%2F%2Fcart." + (P ? "daily.tmall.net" : "tmall.com") + "%2Fcart%2Flogin_success.htm%3Ffrom%3Dcart&is_ignore=false",
         //2013-05-06 basilwang use our own
         //go: "http://buy." + (P ? "daily.tmall.net" : "tmall.com") + "/order/confirm_order.htm?from=cart"

@@ -8,32 +8,44 @@
             var item = Model.Activities.ElementAt(index);
             <li data-image="@item.Image">
                 <div class="mSc-main">
-               @* 2013-08-21 basilwang 如果没有<b><img/></b> 代码逻辑不会加载图片 *@
-                @if (item.SubImage != "")
-                {
-                    <b class="mScm-text1">
-                        <img src="@item.SubImage" width="760" height="210">
-                    </b> 
-                }
-                else
-                {
-                    <b><img /></b>
-                }
-                @if (!string.IsNullOrEmpty(item.Description))
-                {
-                    <a class="mScm-link" href="http://localhost:7525/Merchant/index?scid=@item.Description"
+                    @* 2013-08-21 basilwang 如果没有<b><img/></b> 代码逻辑不会加载图片 *@
+                    @if (!string.IsNullOrEmpty(item.Image))
+                    {
+                        <b class="mScm-text1">
+
+                            <embed src="@item.Image" height="400" width="900" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"/>
+
+                        </b>
+                    }
+                    else
+                    {
+                        if (item.SubImage != "")
+                        {
+                        <b class="mScm-text1">
+                            <img src="@item.SubImage" width="760" height="210">
+                        </b> 
+                        }
+                        else
+                        {
+                        <b>
+                            <img /></b>
+                        }
+                    }
+                    @if (!string.IsNullOrEmpty(item.Description))
+                    {
+                        <a class="mScm-link" href="http://localhost:7525/Merchant/index?scid=@item.Description"
                             title="@item.Name" data-spm="d1"></a>
-                }
-                else
-                {
-                    <a class="mScm-link" href="http://localhost:7525/Merchant/SearchProduct?cat=@item.Matters"
+                    }
+                    else
+                    {
+                        <a class="mScm-link" href="http://localhost:7525/Merchant/SearchProduct?cat=@item.Matters"
                             title="@item.Name" data-spm="d1"></a>
-                }
+                    }
                 </div>
             </li>
               
         }
-         
+
     </ul>
     <ul class="mfpSlide-nav" style="">
         @for (var index = 0; index < (Model.Activities.Count() > 5 ? 5 : Model.Activities.Count()); index++)

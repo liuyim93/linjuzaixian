@@ -23,10 +23,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
 
-        private ISkuService iSkuService;
+        //private ISkuService iSkuService;
         private ISkuPropService iSkuPropService;
         private IPropValueService iPropValueService;
-        private IPropIDService iPropIDService;
+        //private IPropIDService iPropIDService;
 
         private IOrderOfCommodityService iOrderOfCommodityService;
         //private IOrderOfFoodService iOrderOfFoodService;
@@ -80,6 +80,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 pi.CommidyValues = iPropValueService.GetByComAndProId(pi, commodity_id);
             }
             detailModel.PropIDs = PropIDs;
+
             friday.core.Merchant merchant = iMerchantService.Load(commodity.Shop.Id);
 
             ValidateResult vr = iMerchantService.isOpend(merchant);
@@ -126,26 +127,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             skulist = commodity.Skus.ToList<Sku>();
 
 
-            //=========Test=============
-            //Commodity commodity = iCommodityService.Load(itemId);
-            //IList<Sku> skulistreal = new List<Sku>();
-            //skulistreal = commodity.Skus.ToList<Sku>();
-
-            //IList<SkuProp> skuproplistreal = new List<SkuProp>();
-            //for (int i = 0; i < skulistreal.Count; i++) 
-            //{
-            //    Sku sk = skulistreal[i];
-            //    skuproplistreal = sk.SKUProps.ToList<SkuProp>();
-
-            //    for (int j = 0; j<skuproplistreal.Count;j++ )
-            //    {
-            //        PropID ppid = skuproplistreal[j].PropID;
-            //        PropValue ppvalue = skuproplistreal[j].PropValue;                   
-
-            //    }           
-            //}
-
-            //=========Test=============
+           
 
             for (int i = 0; i < skulist.Count; i++)
             {
