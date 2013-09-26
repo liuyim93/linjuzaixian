@@ -17,5 +17,6 @@ namespace friday.core.services
         void Save(SkuProp skuProp);
         void Update(SkuProp skuProp);
         void Delete(string id);
+      
     }
 }

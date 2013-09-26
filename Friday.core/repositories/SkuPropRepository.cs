@@ -38,6 +38,15 @@ namespace friday.core.repositories
             return ppd;
         }
 
+        public IList<SkuProp> GetSkuProOrderByID(Sku sku)
+        {
+            var query = (from x in this.Session.Query<SkuProp>() select x).Where(o => o.SKU == sku && o.IsDelete == false)
+                
+                .OrderBy(o=>o.PropID);
+
+            return query.ToList<SkuProp>();
+        }
+
         public void deleteSkuPropbyID(string id)
         {
             int uid = Int32.Parse(id);

@@ -11,9 +11,9 @@
      
      var skuMap = {
      </text>
-     for(var skuIndex=0;skuIndex<Model.Commodity.Skus.Count;skuIndex++)
+     for(var skuIndex=0;skuIndex<ViewBag.Skus.Length;skuIndex++)
      {
-        var sku=Model.Commodity.Skus.ElementAt(skuIndex);
+         var sku = ViewBag.Skus[skuIndex];
         <text>"@sku.SKUPropString":{ "skuId": "@sku.skuId", "price": "@sku.price", "priceCent": "@sku.priceCent", "stock": "@sku.stock" }</text>
         if(skuIndex!=Model.Commodity.Skus.Count-1)
         {

@@ -11,10 +11,12 @@ namespace friday.core.services
     public class SkuService:ISkuService
     {
         private ISkuRepository iSkuRepository;
+        private ISkuPropRepository iSkuPropRepository;
         private ILogger iLogger;
 
-        public SkuService(ISkuRepository iSkuRepository, ILogger iLogger)
+        public SkuService(ISkuRepository iSkuRepository, ILogger iLogger, ISkuPropRepository iSkuPropRepository)
         {
+            this.iSkuPropRepository = iSkuPropRepository;
             this.iSkuRepository = iSkuRepository;
             this.iLogger = iLogger;
         }
@@ -65,5 +67,27 @@ namespace friday.core.services
             iSkuRepository.deleteSkubyID(id);
         }
 
+        public IList<Sku> GetSkusByCommodityOrderByID(Commodity commodity)
+        {
+            return iSkuRepository.GetSkusByCommodityOrderByID(commodity);
+        }
+
+
+        public string GetProString(Sku sku)
+        {
+            IList<SkuProp> skuProps = iSkuPropRepository.GetSkuProOrderByID(sku);
+            string comma = ";";
+            string propStr = comma;
+            for (var i = 0; i < skuProps.Count; i++)
+            {
+                var prop = skuProps.ElementAt(i);
+                propStr += prop.PropID.Id.ToString() + ":" + prop.PropValue.Id.ToString();
+                if (i < skuProps.Count)
+                {
+                    propStr += comma;
+                }
+            }
+            return propStr;
+        }
     }
 }

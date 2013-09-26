@@ -67,21 +67,11 @@ namespace friday.core.domain
         //2013-04-16 basilwang to generate skumap key in cshtml
         public virtual string SKUPropString
         {
-            get
-            {
-                string comma = ";";
-                string propStr = comma;
-                for(var i=0;i<SKUProps.Count;i++)
-                {  
-                    var prop=SKUProps.ElementAt(i);
-                    propStr += prop.PropID.Id.ToString() + ":" + prop.PropValue.Id.ToString();
-                    if (i < SKUProps.Count)
-                    {
-                        propStr += comma;
-                    }
-                }
-                return propStr;
-            }
+
+            set;
+            get;
+
+
         }
     }
 }

@@ -22,6 +22,17 @@ namespace friday.core.repositories
             var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false).ToList();
             return list;
         }
+
+        public IList<Sku> GetSkusByCommodityOrderByID(Commodity commodity)
+        {
+            var query = (from x in this.Session.Query<Sku>()
+                         where x.Commodity == commodity
+                         && x.IsDelete == false
+                        
+                         select x).OrderBy(o=>o.skuId);
+            return query.ToList<Sku>();
+
+        }
         public Sku GetMinPriceSkusByCommodityID(string commodityID)
         {
             var list = (from x in this.Session.Query<Sku>() select x).Where(o => o.Commodity.Id == commodityID && o.IsDelete == false&&o.price!=0).ToList();

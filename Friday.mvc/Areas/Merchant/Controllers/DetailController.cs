@@ -26,6 +26,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private ISkuService iSkuService;
         private ISkuPropService iSkuPropService;
         private IPropValueService iPropValueService;
+        private ISkuService iSkuService;
         //private IPropIDService iPropIDService;
 
         private IOrderOfCommodityService iOrderOfCommodityService;
@@ -36,7 +37,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IValuingOfMyFoodOrderService iValuingOfMyFoodOrderService;
         //private IValuingOfMyHouseOrderService iValuingOfMyHouseOrderService;
 
-        public DetailController(ISkuPropService iSkuPropService, IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, IPropValueService iPropValueService)
+        public DetailController(ISkuService iSkuService,ISkuPropService iSkuPropService, IMerchantService iMerchantService, IUserService iUserService, ICommodityService iCommodityService, IValuingOfMyCommodityOrderService iValuingOfMyCommodityOrderService, IOrderOfCommodityService iOrderOfCommodityService, IPropValueService iPropValueService)
         {
             this.iMerchantService = iMerchantService;
             this.iUserService = iUserService;
@@ -44,6 +45,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //this.iFoodService = iFoodService;
             //this.iHouseService = iHouseService;
             this.iCommodityService = iCommodityService;
+            this.iSkuService = iSkuService;
 
             this.iValuingOfMyCommodityOrderService = iValuingOfMyCommodityOrderService;
             //this.iValuingOfMyFoodOrderService = iValuingOfMyFoodOrderService;
@@ -91,6 +93,13 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
 
             IList<Commodity> commoditys = iCommodityService.GetCommodityByShopIDOrderByMonthAmountDesc(merchant.Id);
+
+            IList<Sku> skuList=iSkuService.GetSkusByCommodityOrderByID(commodity);
+
+            foreach(Sku sku in skuList)
+            {
+                sku.SKUPropString = iSkuService.GetProString(sku);
+            }
             if (commoditys.Count > 0)
             {
                 foreach (Commodity c in commoditys)
@@ -108,6 +117,9 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
           
             ViewBag.ValidateResult = vr;
+            ViewBag.Skus = skuList.ToArray();
+
+            
 
             return View(detailModel);
         }
@@ -124,9 +136,12 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             dynamic priceInfo = new Dictionary<string, PriceInfo>();
 
             Commodity commodity = iCommodityService.Load(itemId);
-            skulist = commodity.Skus.ToList<Sku>();
+          //  skulist = commodity.Skus.ToList<Sku>();
 
+            skulist = iSkuService.GetSkusByCommodityOrderByID(commodity);
+            
 
+            
            
 
             for (int i = 0; i < skulist.Count; i++)

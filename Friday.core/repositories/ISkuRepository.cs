@@ -13,6 +13,8 @@ namespace friday.core.repositories
         IList<Sku> GetSkusByCommodityID(string commodityID, int start, int limit, out long total);
         IList<Sku> GetSkusByCommodityID(string commodityID);
         Sku GetMinPriceSkusByCommodityID(string commodityID);
+        IList<Sku> GetSkusByCommodityOrderByID(Commodity commodity);
+       // IList<SkuProp> getSkuProOrderByID(Sku sku);
 
     }
 }

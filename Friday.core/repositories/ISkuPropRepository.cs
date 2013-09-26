@@ -14,5 +14,6 @@ namespace friday.core.repositories
         IList<SkuProp> GetSkuPropsBySkuID(string SKU_ID, int start, int limit, out long total);
         IList<SkuProp> GetSkuPropsBySkuID(string Sku_ID, int start, int limit, out long total, bool isDelete);
         IList<PropID> GetProp(string cid);
+        IList<SkuProp> GetSkuProOrderByID(Sku sku);
     }
 }

@@ -17,5 +17,7 @@ namespace friday.core.services
         void Save(Sku sku);
         void Update(Sku sku);
         void Delete(string id);
+        IList<Sku> GetSkusByCommodityOrderByID(Commodity commodity);
+        string GetProString(Sku sku);
     }
 }
