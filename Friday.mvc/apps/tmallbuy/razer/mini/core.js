@@ -1409,20 +1409,19 @@
             K(_minilogin_t)
         };
         if (!TML) {
+            //2013-10-5 basilwang I think TML always not be null here
             //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/??tml-min.js,minilogin-min.js?t=20121022", function () {
 //            KISSY.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/minilogin.js?t=20121022", function () {
 //                window.TML.use("minilogin", function (M, L) {
 //                    J(L || M.MiniLogin)
 //                })
 //            })
-//            _kissy.use("tml/minilogin,tml/overlay/css/overlay.css", function (_kissy_u, _minilogin) {
-//                  J(_minilogin || _kissy_u.MiniLogin)
-//            })
         } else {
             if (TML.MiniLogin) {
 //                TML.use("minilogin", function (M, L) {
 //                    J(L || M.MiniLogin)
 //                })
+                  //2013-10-5 basilwang if minilogin was load before, don't use TML.use("minilogin" ...)
                   J(TML.MiniLogin)
             } else {
                 //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/minilogin-min.js?t=20121022", function () {
@@ -1432,6 +1431,7 @@
 //                    })
 //
 //                })
+                //2013-10-5 basilwang  don't use getScript(very ugly)
                 TML.use("minilogin,overlay/css/overlay.css", function (_tml, _minilogin) {
                   J(_minilogin || _tml.MiniLogin)
                 })
