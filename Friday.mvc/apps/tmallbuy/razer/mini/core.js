@@ -337,7 +337,7 @@
                 _dom.css(_dom_tmMCTopBorder, "display", S === Y ? "block" : "none")
             }
 
-            function Ag(_options_t) {
+            function TMiniCartView(_options_t) {
                 T = document.body;
                 _options = _kissy_w.mix({
                     El: "#J_TMiniCart",
@@ -421,9 +421,9 @@
                     app: "vip"
                 })]
             }
-            _kissy_w.augment(Ag, {
+            _kissy_w.augment(TMiniCartView, {
                 bindModel: function (An) {
-                    var S = this;
+                    var _tMiniCartView = this;
                     a = An;
                     a.on("loginInit", function (Ao) {
                         if (!Ao.isLogin) {
@@ -431,7 +431,7 @@
                         } else {
                             Al = true
                         }
-                        S.bindEvent()
+                        _tMiniCartView.bindEvent()
                     });
                     a.on("numInit", function (Ap) {
                         var Ao = Ap.hideNum ? "" : parseInt(Ap.num, 10);
@@ -465,7 +465,7 @@
                     })
                 },
                 bindEvent: function () {
-                    var S = this;
+                    var _tMiniCartView = this;
                     _event.on(_dom_handlerEl, "click", function () {
                         _window.TStart && TStart.closePanel && TStart.closePanel();
                         if (AZ || _dom.hasClass(_dom_minicart, "tmMCErr")) {
@@ -474,8 +474,8 @@
                         m();
                         x();
                         if (_dom.hasClass(this, "unlogin") && _dom_numEl[0].innerHTML == 0) {
-                            D(function (Ao) {
-                                Ao.show(function () {
+                            D(function (_minilogin) {
+                                _minilogin.show(function () {
                                     if (TB && TB.Global && TB.Global.writeLoginInfo) {
                                         TB._isMemberInfoReady = false;
                                         TB._isLoginStatusReady = false;
@@ -498,7 +498,7 @@
                             return false
                         }
                         if (!Z) {
-                            S.stretchMyCart();
+                            _tMiniCartView.stretchMyCart();
                             if (_dom_numEl[0].innerHTML != 0) { }
                         } else {
                             N(true)
@@ -525,7 +525,7 @@
                         if (At == "tmMCItemAdd" || At == "tmMCItemMin") {
                             var Aw = Ah(As),
                                  Av = f(Aw);
-                            S.updateQuantity(Aw, At, As)
+                            _tMiniCartView.updateQuantity(Aw, At, As)
                         } else {
                             if (_dom.hasClass(As, "tmMCAllCheck")) {
                                 var Aq = _dom.query(_options.groupCheckEl, _dom_minicart);
@@ -572,12 +572,12 @@
                                         if (_dom.hasClass(As, "tmMCItemDel")) {
                                             var Aw = Ah(As),
                                                  Av = f(Aw);
-                                            S.removeItem(Aw);
+                                            _tMiniCartView.removeItem(Aw);
                                             return false
                                         } else {
                                             if (_dom.hasClass(As, "tmMCGroupDel")) {
                                                 var Av = f(As);
-                                                S.removeItem(_dom.query(_options.itemEl, f(As)));
+                                                _tMiniCartView.removeItem(_dom.query(_options.itemEl, f(As)));
                                                 return false
                                             } else {
                                                 if (_dom.hasClass(As, "tmMCViewAll")) {
@@ -1227,37 +1227,37 @@
             function AY(S) {
                 new Image().src = S
             }
-            _kissy_w.TMiniCartView = Ag;
-            return Ag
+            _kissy_w.TMiniCartView = TMiniCartView;
+            return TMiniCartView
         });
-        KISSY.add("TMiniCart", function (N, M, L) {
+        KISSY.add("TMiniCart", function (_kissy_N, TMiniCartModel_Class, TMiniCartView_Class) {
             //debugger
 
-            var O = N.DOM,
-                 K = N.Event,
-                 P = {
+            var _dom = _kissy_N.DOM,
+                 _event = _kissy_N.Event,
+                 _options = {
                      loadUrl: "load.htm",
                      updateUrl: "updateItem.htm",
                      EVT_ONSTOP: "evt_stop",
-                     onCustomEvent: N.merge({}, N.EventTarget)
+                     onCustomEvent: _kissy_N.merge({}, _kissy_N.EventTarget)
                  };
 
-            function J(Q) {
-                var R = this;
-                P = N.mix(P, Q);
-                M = M || N.TMiniCartModel;
-                var S = new M({
-                    loadUrl: P.loadUrl,
-                    updateUrl: P.updateUrl
+            function TMiniCart(_options_t) {
+                var _tMiniCart = this;
+                _options = _kissy_N.mix(_options, _options_t);
+                TMiniCartModel_Class = TMiniCartModel_Class || _kissy_N.TMiniCartModel;
+                var _tMiniCartModel_t = new TMiniCartModel_Class({
+                    loadUrl: _options.loadUrl,
+                    updateUrl: _options.updateUrl
                 });
-                L = L || N.TMiniCartView;
-                var T = new L(P);
-                T.bindModel(S);
-                S.init();
-                this.model = S;
-                this.view = T
+                TMiniCartView_Class = TMiniCartView_Class || _kissy_N.TMiniCartView;
+                var _tMiniCartView_t = new TMiniCartView_Class(_options);
+                _tMiniCartView_t.bindModel(_tMiniCartModel_t);
+                _tMiniCartModel_t.init();
+                this.model = _tMiniCartModel_t;
+                this.view = _tMiniCartView_t
             }
-            N.augment(J, {
+            _kissy_N.augment(TMiniCart, {
                 add: function (Q, R) {
                     this.model.commonAdd(Q, R)
                 },
@@ -1271,31 +1271,31 @@
                     this.model.loadNum(Q)
                 },
                 miniLogin: function (Q) {
-                    if (!N.MiniLogin) {
+                    if (!_kissy_N.MiniLogin) {
                         return
                     }
-                    N.MiniLogin.show(function () {
+                    _kissy_N.MiniLogin.show(function () {
                         if (Q) {
                             Q.call()
                         }
                     })
                 },
                 onstop: function (Q) {
-                    if (N.isFunction(Q)) {
-                        P.onCustomEvent.on(P.EVT_ONSTOP, Q)
+                    if (_kissy_N.isFunction(Q)) {
+                        _options.onCustomEvent.on(_options.EVT_ONSTOP, Q)
                     }
                 }
             });
-            N.TMiniCart = J;
-            return J
+            _kissy_N.TMiniCart = TMiniCart;
+            return TMiniCart
         }, {
             requires: ["TMiniCartModel", "TMiniCartView"]
         });
-        _kissy_E.use("TMiniCart", function (K, J) {
-            K.ready(function () {
+        _kissy_E.use("TMiniCart", function (_kissy_K, _tMiniCart) {
+            _kissy_K.ready(function () {
                 if (!window.TMiniCart) {
-                    J = J || K.TMiniCart;
-                    window.TMiniCart = new J()
+                    _tMiniCart = _tMiniCart || _kissy_K.TMiniCart;
+                    window.TMiniCart = new _tMiniCart()
                 }
             })
         })
@@ -1391,41 +1391,49 @@
         }
         R.insertBefore(N, R.firstChild)
     }
-    var F;
-    var A = false;
+    var _minilogin_t;
+    var _is_load_minilogin = false;
 
     function D(K) {
-        if (A) {
+        if (_is_load_minilogin) {
             return
         }
-        if (F) {
-            return K(F)
+        if (_minilogin_t) {
+            return K(_minilogin_t)
         }
-        A = true;
-        var I = window.TML;
-        var J = function (L) {
-            A = false;
-            F = L;
-            K(F)
+        _is_load_minilogin = true;
+        var TML = window.TML;
+        var J = function (_minilogin) {
+            _is_load_minilogin = false;
+            _minilogin_t = _minilogin;
+            K(_minilogin_t)
         };
-        if (!I) {
+        if (!TML) {
             //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/??tml-min.js,minilogin-min.js?t=20121022", function () {
-            KISSY.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/minilogin.js?t=20121022", function () {
-                window.TML.use("minilogin", function (M, L) {
-                    J(L || M.MiniLogin)
-                })
-            })
+//            KISSY.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/minilogin.js?t=20121022", function () {
+//                window.TML.use("minilogin", function (M, L) {
+//                    J(L || M.MiniLogin)
+//                })
+//            })
+//            _kissy.use("tml/minilogin,tml/overlay/css/overlay.css", function (_kissy_u, _minilogin) {
+//                  J(_minilogin || _kissy_u.MiniLogin)
+//            })
         } else {
-            if (I.MiniLogin) {
-                I.use("minilogin", function (M, L) {
-                    J(L || M.MiniLogin)
-                })
+            if (TML.MiniLogin) {
+//                TML.use("minilogin", function (M, L) {
+//                    J(L || M.MiniLogin)
+//                })
+                  J(TML.MiniLogin)
             } else {
                 //_kissy.getScript("http://a.tbcdn.cn/apps/tmall/tml/1.0/tml/minilogin-min.js?t=20121022", function () {
-                KISSY.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/minilogin.js?t=20121022", function () {
-                    I.use("minilogin", function (M, L) {
-                        J(L || M.MiniLogin)
-                    })
+//                KISSY.getScript("http://localhost:7525/apps/tmall/tml/1.0/tml/minilogin.js?t=20121022", function () {
+//                    TML.use("minilogin", function (M, L) {
+//                        J(L || M.MiniLogin)
+//                    })
+//
+//                })
+                TML.use("minilogin,overlay/css/overlay.css", function (_tml, _minilogin) {
+                  J(_minilogin || _tml.MiniLogin)
                 })
             }
         }
