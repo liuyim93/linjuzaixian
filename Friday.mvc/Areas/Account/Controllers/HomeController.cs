@@ -34,7 +34,8 @@ namespace Friday.mvc.Areas.Account.Controllers
             bool loginStatus=false;
             if (isAuthenticated())
                 loginStatus = true;
-            string script = callback + "({\"login\":" + loginStatus + ",\"nick\":\"\",\"uid\":0})";
+            //2013-10-05 basilwang add loginStatus lower 否则未登录时点击立即购买不弹出登陆框
+            string script = callback + "({\"login\":" + loginStatus.ToString().ToLower() + ",\"nick\":\"\",\"uid\":0})";
             return JavaScript(script);
         }
         public ActionResult query_cookie_info()
