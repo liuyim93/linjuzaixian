@@ -434,7 +434,7 @@ TB.add("mod~global", function () {
     //2013-03-09 element in _commonjs_array will be replaced by setTimeout function wrapper
     //2013-05-29 basilwang remove sth
     //var _commonjs_array = ["tDog", "tLabs", "test", "mpp", "minBag", "brandBar", "shareFB"];
-    var _commonjs_array = ["brandBar"];
+    var _commonjs_array = ["brandBar","minBag"];
 
     for (var _name_index = 0; _name_index < _commonjs_array.length; _name_index++) {
         (function (_name) {
@@ -850,7 +850,7 @@ TB.add("mod~global", function () {
             TB.Global.initMiniCart();
             return
         }
-        var _corejs_url = "http://" + _own_domain_1 + "/apps/tmallbuy/razer/mini/core.js";
+        var _corejs_url = _own_domain_1 + "/apps/tmallbuy/razer/mini/core.js";
         _kissy.getScript(_corejs_url + "?t=" + _tmall_config.commonJS.miniBag.timestamp)
     }, initMiniCart: function () {
         if (window.g_config.closeMiniCart || _tmall_config.commonJS.miniCart.off || !TB.Global.getCartElem()) {

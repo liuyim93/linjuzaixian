@@ -17,7 +17,7 @@
                         _malldetail_other_bread.init(_results.breadCrumbDO);
                         _malldetail_other_attributes.init(_results.spuMaintainerDO);
                         if (_kissy_D.mods.SKU) {
-                            _kissy_D.mods.SKU.Promotion.Mjs(_results.shopPromotionDO)
+                            //_kissy_D.mods.SKU.Promotion.Mjs(_results.shopPromotionDO)
                         }
                     }
                 }

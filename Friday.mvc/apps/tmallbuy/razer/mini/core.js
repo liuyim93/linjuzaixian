@@ -1,20 +1,20 @@
 ﻿
 /*pub-1|2013-01-18 10:51:20*/
-(function (E) {
+(function (_kissy_E) {
     if (window.TMiniCart) {
         return
     }
-    var C = window.TShop ? window.TShop : KISSY,
-         B = window.TShop ? "tb-core" : "core";
-    C.use(B, function (I) {
-        KISSY.add("TMiniCartModel", function (O) {
+    var _kissy_C = window.TShop ? window.TShop : KISSY,
+         _str_core = window.TShop ? "tb-core" : "core";
+    _kissy_C.use(_str_core, function (_kissy_I) {
+        KISSY.add("TMiniCartModel", function (_kissy_O) {
             var W = location.hostname.indexOf(".net") != -1,
                  X = W ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/",
                  J = W ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/",
                  Q = W ? "http://count.config-vip.taobao.net:8888/" : "http://count.tbcdn.cn/",
                  P = W ? "http://assets.daily.taobao.net/" : "http://a.tbcdn.cn/",
                  X = J = Q = P = "http://localhost:7525/",
-                 L = {
+                 _default_options = {
                      //Query_Num: Q + "counter6?keys=TCART_234_{uid}_q&t=",
                      Query_Num: Q + "Account/Home/counter?keys=TCART_234_{uid}_q&t=",
                      //LOAD_API: X + "cart/mini/trailMiniCart.htm",
@@ -38,39 +38,39 @@
                 if ("success" in Z) {
                     Z.status = Z.success;
                     var Y = Z.globalData;
-                    if (O.isPlainObject(Y)) {
+                    if (_kissy_O.isPlainObject(Y)) {
                         Z.sss = Y.sss;
                         Z.cartnum = Y.totalSize
                     }
                     var S = Z.error;
-                    if (O.isPlainObject(S)) {
+                    if (_kissy_O.isPlainObject(S)) {
                         Z.errType = S.errCode || S.errorCode;
                         Z.errMsg = S.errMessage || S.errorMessage
                     }
                 }
             };
 
-            function M(S) {
-                L = O.mix(L, S);
+            function TMiniCartModel(_options) {
+                _default_options = _kissy_O.mix(_default_options, _options);
                 this.cartNum = 0
             }
-            O.augment(M, O.EventTarget, {
+            _kissy_O.augment(TMiniCartModel, _kissy_O.EventTarget, {
                 init: function () {
-                    var S = this;
+                    var _tMiniCartModel = this;
                     var Y = setTimeout(function () {
-                        S.fire("loginInit", {
+                        _tMiniCartModel.fire("loginInit", {
                             isLogin: false
                         })
                     }, 5000);
                     var Z = setTimeout(function () {
-                        S.fire("numInit", {
+                        _tMiniCartModel.fire("numInit", {
                             num: -1
                         })
                     }, 8000);
                     TB.Global.loginStatusReady(function (a) {
                         var b = a.isLogin || false;
                         clearTimeout(Y);
-                        S.fire("loginInit", {
+                        _tMiniCartModel.fire("loginInit", {
                             isLogin: b
                         });
                         TB.Global.memberInfoReady(function (c) {
@@ -85,8 +85,8 @@
                             if (d) {
                                 N = d
                             }
-                            S.loadNum(function (f) {
-                                S.fire("numInit", {
+                            _tMiniCartModel.loadNum(function (f) {
+                                _tMiniCartModel.fire("numInit", {
                                     num: f,
                                     isLogin: b
                                 })
@@ -95,38 +95,38 @@
                     })
                 },
                 loadNum: function (Y) {
-                    var S = this;
-                    H(L.Query_Num.replace("{uid}", N), {
+                    var _tMiniCartModel = this;
+                    H(_default_options.Query_Num.replace("{uid}", N), {
                         success: function (a) {
                             var Z = R(a["TCART_234_" + N + "_q"]);
-                            S.cartNum = Z;
+                            _tMiniCartModel.cartNum = Z;
                             V(Z);
-                            Y.call(S, Z)
+                            Y.call(_tMiniCartModel, Z)
                         },
                         error: function () {
-                            S.cartNum = -1;
+                            _tMiniCartModel.cartNum = -1;
                             V(-1);
-                            Y.call(S, -1)
+                            Y.call(_tMiniCartModel, -1)
                         }
                     })
                 },
                 load: function (Y) {
-                    var S = this;
-                    H(L.LOAD_API, {
+                    var _tMiniCartModel = this;
+                    H(_default_options.LOAD_API, {
                         success: function (Z) {
                             U(Z);
                             if (Y) {
-                                Y.call(S, Z)
+                                Y.call(_tMiniCartModel, Z)
                             }
                             if (Z.status) {
                                 K = Z
                             }
-                            S.cartNum = R(Z.cartnum);
-                            V(S.cartNum)
+                            _tMiniCartModel.cartNum = R(Z.cartnum);
+                            V(_tMiniCartModel.cartNum)
                         },
                         error: function () {
                             if (Y) {
-                                Y.call(S, {
+                                Y.call(_tMiniCartModel, {
                                     status: false,
                                     errType: "trailCartDegr"
                                 })
@@ -135,8 +135,8 @@
                     })
                 },
                 sss: function (S) {
-                    if (O.isPlainObject(S) && S.quantity) {
-                        new Image().src = L.SSS_PATH + "?quantity=" + S.quantity + "&tk=" + S.token + "&" + O.now()
+                    if (_kissy_O.isPlainObject(S) && S.quantity) {
+                        new Image().src = _default_options.SSS_PATH + "?quantity=" + S.quantity + "&tk=" + S.token + "&" + _kissy_O.now()
                     }
                 },
                 commonAdd: function (a, b) {
@@ -146,13 +146,13 @@
                     if ("string" === typeof a.add) {
                         a.ify = 1
                     } else {
-                        a.add = O.JSON.stringify(a.add)
+                        a.add = _kissy_O.JSON.stringify(a.add)
                     }
                     var Z = function () {
                         if (T) {
                             a._tb_token_ = T
                         }
-                        H(L.COMMONADD_API + "?" + O.param(a) + (S > 0 ? ("&retry=" + S) : ""), {
+                        H(_default_options.COMMONADD_API + "?" + _kissy_O.param(a) + (S > 0 ? ("&retry=" + S) : ""), {
                             success: function (c) {
                                 if ("CsrfCheckFail" === c.errorCode && c.tk && S < 1) {
                                     S++;
@@ -161,7 +161,7 @@
                                 }
                                 b.call(Y, c);
                                 if (c.success) {
-                                    Y.sss(O.JSON.parse(c.sss));
+                                    Y.sss(_kissy_O.JSON.parse(c.sss));
                                     Y.fire("addSuccess", {
                                         repeat: c.repeat || false,
                                         cartnum: c.cartNum
@@ -200,7 +200,7 @@
                         if (T) {
                             b._tb_token_ = T
                         }
-                        H(O.substitute(L.ADD_API, b) + (S > 0 ? ("&retry=" + S) : ""), {
+                        H(_kissy_O.substitute(_default_options.ADD_API, b) + (S > 0 ? ("&retry=" + S) : ""), {
                             success: function (d) {
                                 if ("CsrfCheckFail" === d.errorCode && d.tk && S < 1) {
                                     S++;
@@ -236,7 +236,7 @@
                         if (T) {
                             a._tb_token_ = T
                         }
-                        H(L.ADDCOMBO_API + "?" + O.param(a) + (S > 0 ? ("&retry=" + S) : ""), {
+                        H(_default_options.ADDCOMBO_API + "?" + _kissy_O.param(a) + (S > 0 ? ("&retry=" + S) : ""), {
                             success: function (c) {
                                 if ("CsrfCheckFail" === c.errorCode && c.tk && S < 1) {
                                     S++;
@@ -271,9 +271,9 @@
                              cartId: Z.cartId,
                              quantity: Z.quantity,
                              tkKey: Z.tk[0] || "now",
-                             tkVal: Z.tk[1] || O.now()
+                             tkVal: Z.tk[1] || _kissy_O.now()
                          };
-                    H(O.substitute(L.UPDATE_API, Y), function (b) {
+                    H(_kissy_O.substitute(_default_options.UPDATE_API, Y), function (b) {
                         U(b);
                         a.call(S, b)
                     })
@@ -282,7 +282,7 @@
                     var Y = this,
                          S = {};
                     S = {
-                        url: L.REMOVE_API + a.join(","),
+                        url: _default_options.REMOVE_API + a.join(","),
                         data: {},
                         dataType: "jsonp",
                         success: function (c) {
@@ -297,49 +297,49 @@
                     if (Z) {
                         S.data[Z[0]] = Z[1]
                     }
-                    O.io(S)
+                    _kissy_O.io(S)
                 }
             });
-            O.TMiniCartModel = M;
-            return M
+            _kissy_O.TMiniCartModel = TMiniCartModel;
+            return TMiniCartModel
         });
-        KISSY.add("TMiniCartView", function (w) {
-            var AG = w.DOM,
-                 n = w.Event,
-                 y = w.Cookie,
-                 a, AH = window,
-                 e = document,
-                 T, AS = w.Node,
-                 Af = KISSY.UA.ie,
-                 l = (Af == 6 ? true : false),
+        KISSY.add("TMiniCartView", function (_kissy_w) {
+            var _dom = _kissy_w.DOM,
+                 _event = _kissy_w.Event,
+                 _cookie = _kissy_w.Cookie,
+                 a, _window = window,
+                 _document = document,
+                 T, _node = _kissy_w.Node,
+                 _ie = KISSY.UA.ie,
+                 _is_ie_6 = (_ie == 6 ? true : false),
                  AC, u = location.hostname.indexOf(".net") > -1,
             //Ak = u ? "http://cart.daily.tmall.net/" : "http://cart.tmall.com/",
             //AQ = Ak + "cart/myCart.htm",
-                Ak = "http://localhost:7525/",
-                AQ = Ak + "CartPay/Home/MyCartPay",
+                _url = "http://localhost:7525/",
+                _mycartpay_url = _url + "CartPay/Home/MyCartPay",
                 AT = u ? "{app}.daily.tmall.net" : "{app}.tmall.com",
             //d = u ? "http://cart.daily.taobao.net/" : "http://cart.taobao.com/",
                 d = "http://localhost:7525/",
             //AJ = d + "my_cart.htm",
                 AJ = d + "CartPay/Home/MyCartPay",
                  //AE = u ? "http://buy.daily.tmall.net/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8" : "http://buy.tmall.com/order/confirm_order.htm?from=mini&use_cod=false&_input_charset=UTF-8",
-                 AR = AG.viewportHeight(e),
-                 W, Ac, J, r, P, AK, t, Aa, AU, j, U, AP, AW, k, Ad, z, AN, Z = false,
+                 _viewport_height = _dom.viewportHeight(_document),
+                 _dom_minicart, _dom_handlerEl, _dom_conEl, _dom_footerEl, _dom_numEl, AK, t, Aa, AU, _dom_bodyEl, _dom_tmMCTopBorder, _dom_goCheckEl, _dom_loadingEl, k, _dom_tmMCViewIcon, z, AN, Z = false,
                  Al = false,
                  Aj = false,
                  b = 62,
                  Y = 283,
                  AZ = false,
-                 O, AF, AO, Q, AA;
+                 O, AF, AO, Q, _options;
 
             function AI(S) {
-                AG.width(W, S);
-                AG.css(U, "display", S === Y ? "block" : "none")
+                _dom.width(_dom_minicart, S);
+                _dom.css(_dom_tmMCTopBorder, "display", S === Y ? "block" : "none")
             }
 
-            function Ag(An) {
+            function Ag(_options_t) {
                 T = document.body;
-                AA = w.mix({
+                _options = _kissy_w.mix({
                     El: "#J_TMiniCart",
                     handlerEl: ".tmMCHandler",
                     hdEl: ".tmMCHd",
@@ -364,47 +364,52 @@
                     loadingEl: ".tmMCLoading",
                     tmMCTipEl: ".tmMCTip",
                     ie6Iframe: ".tmMCIframe"
-                }, An);
-                var S = '<div class="tmMC" id="J_TMiniCart"><div class="tmMCHandler"><div class="tmMCTopBorder"></div><div class="tmMCBody"><div class="tmMCLoading">正在加载…</div><div class="tmMCCon"></div></div>' + (l ? "<div></div>" : "") + '<span class="tmMCBotLink"><span class="tmMCNum">0</span></span><div class="tmMCHdLeft"><a class="tmMCBotLink" title="\u67e5\u770b\u8d2d\u7269\u8f66" href="' + AQ + '?from=botlink" target="_blank"><span class="tmMCNum">0</span></a><span class="tmMCEx"></span></div></div><form method="POST" id="tmMCOrderForm"><input id="tmMCCartIds" type="hidden" name="cartId"/><input id="tmMCDelCartIds" type="hidden" name="delCartIds"/><input type="hidden" name="needMerge"/></form></div>';
+                }, _options_t);
+                var _str_snippet_J_TMiniCart = '<div class="tmMC" id="J_TMiniCart"><div class="tmMCHandler"><div class="tmMCTopBorder"></div><div class="tmMCBody"><div class="tmMCLoading">正在加载…</div><div class="tmMCCon"></div></div>' + (_is_ie_6 ? "<div></div>" : "") + '<span class="tmMCBotLink"><span class="tmMCNum">0</span></span><div class="tmMCHdLeft"><a class="tmMCBotLink" title="\u67e5\u770b\u8d2d\u7269\u8f66" href="' + _mycartpay_url + '?from=botlink" target="_blank"><span class="tmMCNum">0</span></a><span class="tmMCEx"></span></div></div><form method="POST" id="tmMCOrderForm"><input id="tmMCCartIds" type="hidden" name="cartId"/><input id="tmMCDelCartIds" type="hidden" name="delCartIds"/><input type="hidden" name="needMerge"/></form></div>';
 
                 function Ap(Aq, At) {
                     function Ar() {
-                        w.onTgalleryReady(Aq, At)
+                        _kissy_w.onTgalleryReady(Aq, At)
                     }
                     var As = location.hostname.indexOf(".daily.") > -1 ? "assets.daily.taobao.net" : "a.tbcdn.cn";
-                    w.configTgallery = {
+                    _kissy_w.configTgallery = {
                         tag: "20121028",
                         path: "http://" + As + "/apps/"
                     };
                     //w.onTgalleryReady ? Ar() : w.getScript(w.configTgallery.path + "tmall/common/tgallery.js?t=" + w.configTgallery.tag, Ar)
-                    w.onTgalleryReady ? Ar() : w.getScript("http://localhost:7525/apps/tmall/common/tgallery.js?t=" + w.configTgallery.tag, Ar)
+                    _kissy_w.onTgalleryReady ? Ar() : _kissy_w.getScript("http://localhost:7525/apps/tmall/common/tgallery.js?t=" + _kissy_w.configTgallery.tag, Ar)
                 }
-                var Ao = AG.create(S);
-                Ap("tgallery/tmall/common/bottombar", function (Aq, Ar) {
-                    Ar.add(Ao, {
+                var _dom_J_TMiniCart = _dom.create(_str_snippet_J_TMiniCart);
+//                Ap("tgallery/tmall/common/bottombar", function (Aq, Ar) {
+//                    Ar.add(Ao, {
+//                        order: 50
+//                    })
+//                });
+                _kissy_w.use("tmall/mui/bottombar", function (_kissy, _bottombar) {
+                    _bottombar.add(_dom_J_TMiniCart, {
                         order: 50
                     })
-                });
-                W = Ao;
-                Ac = AG.get(AA.handlerEl, W);
-                j = AG.get(AA.bodyEl, W);
-                U = AG.get("div.tmMCTopBorder", W);
-                J = AG.get(AA.conEl, W);
-                r = AG.get(AA.footerEl, W);
-                P = AG.query(AA.numEl, W);
-                AP = AG.get(AA.goCheckEl, W);
-                AW = AG.get(AA.loadingEl, W);
-                Ad = AG.get(AA.tmMCViewIcon, W);
-                if (l) {
-                    ie6Iframe = AG.get(AA.ie6Iframe, W)
+                })
+                _dom_minicart = _dom_J_TMiniCart;
+                _dom_handlerEl = _dom.get(_options.handlerEl, _dom_minicart);
+                _dom_bodyEl = _dom.get(_options.bodyEl, _dom_minicart);
+                _dom_tmMCTopBorder = _dom.get("div.tmMCTopBorder", _dom_minicart);
+                _dom_conEl = _dom.get(_options.conEl, _dom_minicart);
+                _dom_footerEl = _dom.get(_options.footerEl, _dom_minicart);
+                _dom_numEl = _dom.query(_options.numEl, _dom_minicart);
+                _dom_goCheckEl = _dom.get(_options.goCheckEl, _dom_minicart);
+                _dom_loadingEl = _dom.get(_options.loadingEl, _dom_minicart);
+                _dom_tmMCViewIcon = _dom.get(_options.tmMCViewIcon, _dom_minicart);
+                if (_is_ie_6) {
+                    ie6Iframe = _dom.get(_options.ie6Iframe, _dom_minicart)
                 }
                 AO = false;
-                AF = w.Anim(j, {
+                AF = _kissy_w.Anim(_dom_bodyEl, {
                     top: "-4px"
                 }, 0.5, "easeOut", function () {
-                    AA.onCustomEvent.fire(AA.EVT_ONSTOP)
+                    _options.onCustomEvent.fire(_options.EVT_ONSTOP)
                 });
-                O = w.Anim(j, {
+                O = _kissy_w.Anim(_dom_bodyEl, {
                     top: "-40px"
                 }, 0.5, "easeOut", function () {
                     if (!AO) {
@@ -412,17 +417,17 @@
                     }
                     AO = false
                 }, false);
-                Q = [w.substitute(AT, {
+                Q = [_kissy_w.substitute(AT, {
                     app: "vip"
                 })]
             }
-            w.augment(Ag, {
+            _kissy_w.augment(Ag, {
                 bindModel: function (An) {
                     var S = this;
                     a = An;
                     a.on("loginInit", function (Ao) {
                         if (!Ao.isLogin) {
-                            AG.addClass(Ac, "unlogin")
+                            _dom.addClass(_dom_handlerEl, "unlogin")
                         } else {
                             Al = true
                         }
@@ -430,17 +435,17 @@
                     });
                     a.on("numInit", function (Ap) {
                         var Ao = Ap.hideNum ? "" : parseInt(Ap.num, 10);
-                        AG.html(P, (Ao > 0 ? ("购物车 " + Ao) : (0 > Ao ? "购物车" : "0")));
+                        _dom.html(_dom_numEl, (Ao > 0 ? ("购物车 " + Ao) : (0 > Ao ? "购物车" : "0")));
                         if (0 != Ao) {
-                            AG.addClass(Ac, "HdlOpen");
-                            AG.addClass(Ac, "HdlShort");
-                            AG.css(j, "display", "none");
+                            _dom.addClass(_dom_handlerEl, "HdlOpen");
+                            _dom.addClass(_dom_handlerEl, "HdlShort");
+                            _dom.css(_dom_bodyEl, "display", "none");
                             AI(Y)
                         }
                         if (0 > Ao) {
-                            AG.addClass(W, "tmMCErr")
+                            _dom.addClass(_dom_minicart, "tmMCErr")
                         }
-                        AA.onCustomEvent.fire("cartReady", {
+                        _options.onCustomEvent.fire("cartReady", {
                             num: Ao
                         })
                     });
@@ -461,14 +466,14 @@
                 },
                 bindEvent: function () {
                     var S = this;
-                    n.on(Ac, "click", function () {
-                        AH.TStart && TStart.closePanel && TStart.closePanel();
-                        if (AZ || AG.hasClass(W, "tmMCErr")) {
-                            return window.open(AQ, "_blank")
+                    _event.on(_dom_handlerEl, "click", function () {
+                        _window.TStart && TStart.closePanel && TStart.closePanel();
+                        if (AZ || _dom.hasClass(_dom_minicart, "tmMCErr")) {
+                            return window.open(_mycartpay_url, "_blank")
                         }
                         m();
                         x();
-                        if (AG.hasClass(this, "unlogin") && P[0].innerHTML == 0) {
+                        if (_dom.hasClass(this, "unlogin") && _dom_numEl[0].innerHTML == 0) {
                             D(function (Ao) {
                                 Ao.show(function () {
                                     if (TB && TB.Global && TB.Global.writeLoginInfo) {
@@ -476,14 +481,14 @@
                                         TB._isLoginStatusReady = false;
                                         TB.Global.writeLoginInfo()
                                     }
-                                    if (!Al && w.inArray(location.host, Q)) {
+                                    if (!Al && _kissy_w.inArray(location.host, Q)) {
                                         location.reload();
                                         return false
                                     }
-                                    AG.addClass(Ac, "HdlOpen");
+                                    _dom.addClass(_dom_handlerEl, "HdlOpen");
                                     AI(Y);
-                                    AG.removeClass(Ac, "unlogin");
-                                    AG.attr(Ac, "title", "");
+                                    _dom.removeClass(_dom_handlerEl, "unlogin");
+                                    _dom.attr(_dom_handlerEl, "title", "");
                                     Al = true;
                                     AB("handle", "&action=open");
                                     Z = true;
@@ -494,27 +499,27 @@
                         }
                         if (!Z) {
                             S.stretchMyCart();
-                            if (P[0].innerHTML != 0) { }
+                            if (_dom_numEl[0].innerHTML != 0) { }
                         } else {
                             N(true)
                         }
                         x()
                     });
-                    n.on(Ac, "mouseenter", function () {
-                        if (AG.hasClass(this, "unlogin") && P[0].innerHTML == 0) {
-                            AG.addClass(this, "unlogin_hover");
-                            AG.attr(this, "title", "\u767b\u5f55\u8d2d\u7269\u8f66")
+                    _event.on(_dom_handlerEl, "mouseenter", function () {
+                        if (_dom.hasClass(this, "unlogin") && _dom_numEl[0].innerHTML == 0) {
+                            _dom.addClass(this, "unlogin_hover");
+                            _dom.attr(this, "title", "\u767b\u5f55\u8d2d\u7269\u8f66")
                         }
                     });
-                    n.on(Ac, "mouseleave", function () {
-                        AG.removeClass(this, "unlogin_hover")
+                    _event.on(_dom_handlerEl, "mouseleave", function () {
+                        _dom.removeClass(this, "unlogin_hover")
                     });
-                    n.on(AG.query("a.tmMCBotLink", W), "click", function (Ao) {
+                    _event.on(_dom.query("a.tmMCBotLink", _dom_minicart), "click", function (Ao) {
                         this.blur();
                         AB("botlink");
                         Ao.stopPropagation()
                     });
-                    n.on(J, "click", function (Ar) {
+                    _event.on(_dom_conEl, "click", function (Ar) {
                         var As = Ar.target,
                              At = As.className;
                         if (At == "tmMCItemAdd" || At == "tmMCItemMin") {
@@ -522,20 +527,20 @@
                                  Av = f(Aw);
                             S.updateQuantity(Aw, At, As)
                         } else {
-                            if (AG.hasClass(As, "tmMCAllCheck")) {
-                                var Aq = AG.query(AA.groupCheckEl, W);
+                            if (_dom.hasClass(As, "tmMCAllCheck")) {
+                                var Aq = _dom.query(_options.groupCheckEl, _dom_minicart);
                                 setTimeout(function () {
-                                    w.each(Aq, function (Ay) {
+                                    _kissy_w.each(Aq, function (Ay) {
                                         Ay.checked = As.checked;
                                         var Az = f(Ay);
-                                        var Ax = AG.query(AA.itemCheckEl, Az);
+                                        var Ax = _dom.query(_options.itemCheckEl, Az);
                                         setTimeout(function () {
-                                            w.each(Ax, function (A1) {
+                                            _kissy_w.each(Ax, function (A1) {
                                                 A1.checked = Ay.checked;
                                                 var A0 = Ah(A1);
-                                                AG.removeClass(A0, "tmMCUncheck");
+                                                _dom.removeClass(A0, "tmMCUncheck");
                                                 if (!Ay.checked) {
-                                                    AG.addClass(A0, "tmMCUncheck")
+                                                    _dom.addClass(A0, "tmMCUncheck")
                                                 }
                                             });
                                             R()
@@ -543,55 +548,55 @@
                                     })
                                 }, 200)
                             } else {
-                                if (AG.hasClass(As, "tmMCGroupCheck")) {
+                                if (_dom.hasClass(As, "tmMCGroupCheck")) {
                                     var Av = f(As);
-                                    var Ap = AG.query(AA.itemCheckEl, Av);
+                                    var Ap = _dom.query(_options.itemCheckEl, Av);
                                     setTimeout(function () {
-                                        w.each(Ap, function (Ax) {
+                                        _kissy_w.each(Ap, function (Ax) {
                                             Ax.checked = As.checked;
                                             var Ay = Ah(Ax);
-                                            AG.removeClass(Ay, "tmMCUncheck");
+                                            _dom.removeClass(Ay, "tmMCUncheck");
                                             if (!As.checked) {
-                                                AG.addClass(Ay, "tmMCUncheck")
+                                                _dom.addClass(Ay, "tmMCUncheck")
                                             }
                                         });
                                         R()
                                     }, 200)
                                 } else {
-                                    if (AG.hasClass(As, "tmMCItemCheck")) {
+                                    if (_dom.hasClass(As, "tmMCItemCheck")) {
                                         var Aw = Ah(As),
                                              Av = f(Aw);
-                                        As.checked ? AG.removeClass(Aw, "tmMCUncheck") : AG.addClass(Aw, "tmMCUncheck");
+                                        As.checked ? _dom.removeClass(Aw, "tmMCUncheck") : _dom.addClass(Aw, "tmMCUncheck");
                                         R()
                                     } else {
-                                        if (AG.hasClass(As, "tmMCItemDel")) {
+                                        if (_dom.hasClass(As, "tmMCItemDel")) {
                                             var Aw = Ah(As),
                                                  Av = f(Aw);
                                             S.removeItem(Aw);
                                             return false
                                         } else {
-                                            if (AG.hasClass(As, "tmMCGroupDel")) {
+                                            if (_dom.hasClass(As, "tmMCGroupDel")) {
                                                 var Av = f(As);
-                                                S.removeItem(AG.query(AA.itemEl, f(As)));
+                                                S.removeItem(_dom.query(_options.itemEl, f(As)));
                                                 return false
                                             } else {
-                                                if (AG.hasClass(As, "tmMCViewAll")) {
+                                                if (_dom.hasClass(As, "tmMCViewAll")) {
                                                     AB("viewAll");
                                                     D(function (Ax) {
                                                         Ax.show(function () {
-                                                            if (!Al && w.inArray(location.host, Q)) {
+                                                            if (!Al && _kissy_w.inArray(location.host, Q)) {
                                                                 location.reload();
                                                                 return false
                                                             }
-                                                            AG.removeClass(Ac, "unlogin");
+                                                            _dom.removeClass(_dom_handlerEl, "unlogin");
                                                             Al = true;
                                                             Ae()
                                                         })
                                                     });
                                                     return false
                                                 } else {
-                                                    if (AG.hasClass(As, "tmMCViewFull")) {
-                                                        var Ao = AG.attr(As, "href"),
+                                                    if (_dom.hasClass(As, "tmMCViewFull")) {
+                                                        var Ao = _dom.attr(As, "href"),
                                                              Au = Ao.indexOf("from=upViewAll") !== -1;
                                                         As.blur();
                                                         if (Au) {
@@ -600,7 +605,7 @@
                                                             AB("viewbutton")
                                                         }
                                                     } else {
-                                                        if (AG.hasClass(As, "tmMCLose")) {
+                                                        if (_dom.hasClass(As, "tmMCLose")) {
                                                             AB("viewinvalid")
                                                         }
                                                     }
@@ -613,12 +618,12 @@
                         }
                         Ar.stopPropagation()
                     });
-                    n.on(W, "click", function (Ao) {
+                    _event.on(_dom_minicart, "click", function (Ao) {
                         Ao.halt(true)
                     });
 
                     function An(Ar, Aq) {
-                        var Ao = AG.height(Ar),
+                        var Ao = _dom.height(Ar),
                              Ap = Ar.scrollHeight,
                              As;
                         if (Aq.wheelDelta) {
@@ -627,39 +632,39 @@
                         if (Aq.detail) {
                             As = -Aq.detail / 3
                         }
-                        if (AG.css(Ar, "overflowY") == "scroll" && ((Ar.scrollTop == (Ap - Ao - 4) && As < 0) || (Ar.scrollTop == 0 && As > 0))) {
+                        if (_dom.css(Ar, "overflowY") == "scroll" && ((Ar.scrollTop == (Ap - Ao - 4) && As < 0) || (Ar.scrollTop == 0 && As > 0))) {
                             Aq.halt(true)
                         }
                     }
-                    if (w.UA.gecko) {
-                        n.on(J, "DOMMouseScroll", function (Ao) {
+                    if (_kissy_w.UA.gecko) {
+                        _event.on(_dom_conEl, "DOMMouseScroll", function (Ao) {
                             An(this, Ao)
                         })
                     } else {
-                        n.on(J, "mousewheel", function (Ao) {
+                        _event.on(_dom_conEl, "mousewheel", function (Ao) {
                             An(this, Ao)
                         })
                     }
-                    n.on(AH, "resize", function (Ao) {
-                        AR = AG.viewportHeight();
+                    _event.on(_window, "resize", function (Ao) {
+                        _viewport_height = _dom.viewportHeight();
                         if (Z) {
-                            !!!w.UA.ie ? p() : setTimeout(function () {
+                            !!!_kissy_w.UA.ie ? p() : setTimeout(function () {
                                 p()
                             }, 0)
                         }
                     });
-                    n.on(T, "click", function (Ap) {
+                    _event.on(T, "click", function (Ap) {
                         var Ao = Ap.target;
-                        if (AG.hasClass(Ao, "tb-act")) {
+                        if (_dom.hasClass(Ao, "tb-act")) {
                             return
                         }
-                        if (AG.hasClass(Ao, "j_CloseTips")) {
+                        if (_dom.hasClass(Ao, "j_CloseTips")) {
                             return
                         }
-                        if (AG.parent(Ao, ".j_TMMCGuide")) {
+                        if (_dom.parent(Ao, ".j_TMMCGuide")) {
                             return
                         }
-                        if (!AG.hasClass(Ac, "HdlOpen")) {
+                        if (!_dom.hasClass(_dom_handlerEl, "HdlOpen")) {
                             return
                         }
                         if (Z) {
@@ -669,17 +674,17 @@
                 },
                 stretchMyCart: function () {
                     var An;
-                    G("mini\u8d2d\u7269\u8f66-->\u5c55\u5f00");
+                    G("mini购物车-->展开");
                     AB("handle", "&action=open");
                     Z = true;
-                    AG.addClass(Ac, "HdlOpen");
+                    _dom.addClass(_dom_handlerEl, "HdlOpen");
                     AI(Y);
-                    if (AG.hasClass(Ac, "HdlShort")) {
-                        AG.removeClass(Ac, "HdlShort");
-                        AG.css(j, "top", -4);
-                        AG.css(j, "display", "block");
-                        var S = AG.height(j);
-                        An = w.Anim(j, {
+                    if (_dom.hasClass(_dom_handlerEl, "HdlShort")) {
+                        _dom.removeClass(_dom_handlerEl, "HdlShort");
+                        _dom.css(_dom_bodyEl, "top", -4);
+                        _dom.css(_dom_bodyEl, "display", "block");
+                        var S = _dom.height(_dom_bodyEl);
+                        An = _kissy_w.Anim(_dom_bodyEl, {
                             top: -S - 10 + "px"
                         }, 0.2, "easeOut", function () {
                             if (!AZ) {
@@ -689,10 +694,10 @@
                         An.run()
                     } else {
                         Ae(function () {
-                            var Ao = AG.height(j);
-                            AG.css(j, "top", -4);
-                            AG.css(j, "display", "block");
-                            An = w.Anim(j, {
+                            var Ao = _dom.height(_dom_bodyEl);
+                            _dom.css(_dom_bodyEl, "top", -4);
+                            _dom.css(_dom_bodyEl, "display", "block");
+                            An = _kissy_w.Anim(_dom_bodyEl, {
                                 top: -Ao - 10 + "px"
                             }, 0.2, "easeOut");
                             An.run()
@@ -704,16 +709,16 @@
                         return
                     }
                     var S = (Ao == "tmMCItemAdd" ? "add" : "minus");
-                    var Ar = AG.get(AA.itemNumEl, As),
+                    var Ar = _dom.get(_options.itemNumEl, As),
                          Ap = parseInt(Ar.innerHTML);
                     if (S == "add") {
                         var An = Ap + 1;
-                        AG.addClass(Aq, ".disableAdd")
+                        _dom.addClass(Aq, ".disableAdd")
                     } else {
                         var An = Ap - 1;
-                        AG.addClass(Aq, ".disableMin")
+                        _dom.addClass(Aq, ".disableMin")
                     }
-                    var At = AG.attr(As, "data-cartId");
+                    var At = _dom.attr(As, "data-cartId");
                     a.update({
                         cartId: At,
                         quantity: An,
@@ -726,24 +731,24 @@
                         Ar.innerHTML = Au.num;
                         s(As, Au.num, Au.inventory);
                         if (S == "add") {
-                            AG.removeClass(Aq, ".disableAdd")
+                            _dom.removeClass(Aq, ".disableAdd")
                         } else {
-                            AG.removeClass(Aq, ".disableMin")
+                            _dom.removeClass(Aq, ".disableMin")
                         }
                     })
                 },
                 removeItem: function (Ar, As) {
                     var Ao = this;
                     var Aq = [];
-                    Ar = w.isArray(Ar) ? Ar : [Ar];
-                    w.each(Ar, function (At) {
-                        Aq.push(AG.attr(At, "data-cartId"))
+                    Ar = _kissy_w.isArray(Ar) ? Ar : [Ar];
+                    _kissy_w.each(Ar, function (At) {
+                        Aq.push(_dom.attr(At, "data-cartId"))
                     });
                     var Ap = f(Ar[0]),
-                         An = AG.query(AA.itemEl, Ap);
+                         An = _dom.query(_options.itemEl, Ap);
                     var S = function (At) {
-                        if (AG.query("div.tmMCItem", AA.El).length <= 2) {
-                            AG.hide("span.tmMCAllCheckWp")
+                        if (_dom.query("div.tmMCItem", _options.El).length <= 2) {
+                            _dom.hide("span.tmMCAllCheckWp")
                         }
                         p();
                         At && o(At.cartnum)
@@ -753,8 +758,8 @@
                             return
                         }
                         if (An.length === Aq.length) {
-                            AS(Ap).fadeOut(0.2, function () {
-                                AG.remove(Ap);
+                            _node(Ap).fadeOut(0.2, function () {
+                                _dom.remove(Ap);
                                 S(Au)
                             })
                         } else {
@@ -762,7 +767,7 @@
                                 if (Ar.length === 0) {
                                     S(Au)
                                 }
-                                var Av = AS(Ar.shift());
+                                var Av = _node(Ar.shift());
                                 Av.fadeOut(0.2, function () {
                                     Av.remove();
                                     At()
@@ -773,27 +778,27 @@
                     })
                 },
                 getEl: function () {
-                    return W
+                    return _dom_minicart
                 }
             });
 
             function p() {
-                AG.height(J, "auto");
-                var Ap = AR - 150 - 32 - 18,
-                     An = AG.height(J);
+                _dom.height(_dom_conEl, "auto");
+                var Ap = _viewport_height - 150 - 32 - 18,
+                     An = _dom.height(_dom_conEl);
                 if (An < Ap) {
-                    AG.height(J, An);
-                    AG.css(J, "overflowY", "hidden")
+                    _dom.height(_dom_conEl, An);
+                    _dom.css(_dom_conEl, "overflowY", "hidden")
                 } else {
                     An = Ap;
-                    AG.height(J, Ap + 22);
-                    AG.css(J, "overflowY", "scroll")
+                    _dom.height(_dom_conEl, Ap + 22);
+                    _dom.css(_dom_conEl, "overflowY", "scroll")
                 }
-                var S = AG.height(j),
+                var S = _dom.height(_dom_bodyEl),
                      Ao = -S - 10;
-                AG.css(j, "top", Ao);
-                if (l) {
-                    AG.css(ie6Iframe, {
+                _dom.css(_dom_bodyEl, "top", Ao);
+                if (_is_ie_6) {
+                    _dom.css(ie6Iframe, {
                         height: S + 20
                     })
                 }
@@ -803,27 +808,27 @@
                 O.stop();
                 AF.stop();
                 AO = true;
-                AA.onCustomEvent.fire(AA.EVT_ONSTOP)
+                _options.onCustomEvent.fire(_options.EVT_ONSTOP)
             }
 
             function Ai() {
-                Aa = AG.query(AA.itemEl, W);
-                n.on(Aa, "mouseenter mouseleave", function () {
-                    if (AG.hasClass(this, "hover")) {
-                        AG.removeClass(this, "hover")
+                Aa = _dom.query(_options.itemEl, _dom_minicart);
+                _event.on(Aa, "mouseenter mouseleave", function () {
+                    if (_dom.hasClass(this, "hover")) {
+                        _dom.removeClass(this, "hover")
                     } else {
-                        AG.addClass(this, "hover")
+                        _dom.addClass(this, "hover")
                     }
                 })
             }
 
             function AX() {
-                groupEl = AG.query(AA.groupEl, W);
-                n.on(groupEl, "mouseenter mouseleave", function () {
-                    if (AG.hasClass(this, "chover")) {
-                        AG.removeClass(this, "chover")
+                groupEl = _dom.query(_options.groupEl, _dom_minicart);
+                _event.on(groupEl, "mouseenter mouseleave", function () {
+                    if (_dom.hasClass(this, "chover")) {
+                        _dom.removeClass(this, "chover")
                     } else {
-                        AG.addClass(this, "chover")
+                        _dom.addClass(this, "chover")
                     }
                 })
             }
@@ -840,15 +845,15 @@
                 }
                 var An = +(new Date());
                 a.load(function (Aq) {
-                    if ((+(new Date()) - An) < 1000 || l) {
+                    if ((+(new Date()) - An) < 1000 || _is_ie_6) {
                         if (Ao) {
                             clearTimeout(Ao)
                         }
                     }
                     if ("BUYER_IS_NULL" === Aq.errType) {
-                        AG.addClass(Ac, "unlogin");
+                        _dom.addClass(_dom_handlerEl, "unlogin");
                         try {
-                            Ac.click()
+                            _dom_handlerEl.click()
                         } catch (Ar) { }
                         return
                     }
@@ -859,7 +864,7 @@
                         h(Aq);
                         Ai();
                         AX();
-                        AG.removeClass(AP, "cannotCheck");
+                        _dom.removeClass(_dom_goCheckEl, "cannotCheck");
                         L(false);
                         if (Z || (!Aj && !Z)) {
                             p();
@@ -873,13 +878,13 @@
                         if (Aq.errMsg) {
                             alert(Aq.errMsg)
                         }
-                        AG.hide(W);
+                        _dom.hide(_dom_minicart);
                         setTimeout(function () {
-                            AG.css(j, "display", "none");
-                            AG.removeClass(Ac, "HdlOpen");
-                            AG.html(P, 0);
+                            _dom.css(_dom_bodyEl, "display", "none");
+                            _dom.removeClass(_dom_handlerEl, "HdlOpen");
+                            _dom.html(_dom_numEl, 0);
                             AI(b);
-                            AG.show(W);
+                            _dom.show(_dom_minicart);
                             p()
                         }, 0);
                         Z = false
@@ -888,15 +893,15 @@
             }
 
             function R() {
-                var S = AG.query(AA.itemCheckEl, W),
+                var S = _dom.query(_options.itemCheckEl, _dom_minicart),
                      An = [];
-                w.each(S, function (Ao) {
+                _kissy_w.each(S, function (Ao) {
                     var Ap = Ah(Ao);
                     if (Ao.checked === false) {
-                        An.push(AG.attr(Ap, "data-cartId"))
+                        An.push(_dom.attr(Ap, "data-cartId"))
                     }
                 });
-                y.set(AA.uncheckItems, An.join(","))
+                _cookie.set(_options.uncheckItems, An.join(","))
             }
 
             function h(Ao) {
@@ -911,11 +916,11 @@
                         var S = c(Ao.list, An, Ap.invalidSize);
                         AC = Ap.tk || []
                     }
-                    AG.html(P, (An > 0 ? ("\u8d2d\u7269\u8f66 " + An) : 0))
+                    _dom.html(_dom_numEl, (An > 0 ? ("购物车 " + An) : 0))
                 } else {
-                    var S = '<div class="tmMCBusy"><a class="tmMCViewFull" target="_blank" href="' + AQ + '"></a></div>'
+                    var S = '<div class="tmMCBusy"><a class="tmMCViewFull" target="_blank" href="' + _mycartpay_url + '"></a></div>'
                 }
-                J.innerHTML = S
+                _dom_conEl.innerHTML = S
             }
 
             function c(An, Ao, As, Ar) {
@@ -925,7 +930,7 @@
                      Ap = "";
                 if (Ao - As > 2) {
                     Ap += '<span class="tmMCAllCheckWp">';
-                    Ap += '<a class="tmMCViewFull" target="_blank" href="' + AQ + '?from=upViewAll"></a>';
+                    Ap += '<a class="tmMCViewFull" target="_blank" href="' + _mycartpay_url + '?from=upViewAll"></a>';
                     Ap += "</span>"
                 }
                 for (Aq; Aq < S; Aq++) {
@@ -937,9 +942,9 @@
                 if (Al) {
                     Ap += '<div class="tmMCBtnArea">';
                     if (!!As) {
-                        Ap += '<a class="tmMCLose" target="_blank" href="' + AQ + '">\u5931\u6548\u5546\u54c1(' + As + ")</a>"
+                        Ap += '<a class="tmMCLose" target="_blank" href="' + _mycartpay_url + '">\u5931\u6548\u5546\u54c1(' + As + ")</a>"
                     }
-                    Ap += '<a class="tmMCViewFull" target="_blank" href="' + AQ + '?from=viewbutton"></a>';
+                    Ap += '<a class="tmMCViewFull" target="_blank" href="' + _mycartpay_url + '?from=viewbutton"></a>';
                     Ap += "</div>"
                 }
                 Ap += "</div>";
@@ -952,10 +957,10 @@
 
             function X(An) {
                 var S = "";
-                if (An.isValid && w.isArray(An.bundles) && An.bundles.length) {
+                if (An.isValid && _kissy_w.isArray(An.bundles) && An.bundles.length) {
                     var Ao = "combo" === An.type;
-                    S += '<div class="tmMCGroup' + (Ao ? " combo" : "") + '"><div class="tmMCGroupTitle"><label title="' + An.title + '" class="tmMCGroupName">' + An.title + "</label>" + (Ao ? ('<a class="tmMCGroupDel"' + (l ? ' href="javascript:void(0)"' : "") + "></a>") : "") + '</div><div class="tmMCItemWp">';
-                    w.each(An.bundles, function (A0) {
+                    S += '<div class="tmMCGroup' + (Ao ? " combo" : "") + '"><div class="tmMCGroupTitle"><label title="' + An.title + '" class="tmMCGroupName">' + An.title + "</label>" + (Ao ? ('<a class="tmMCGroupDel"' + (_is_ie_6 ? ' href="javascript:void(0)"' : "") + "></a>") : "") + '</div><div class="tmMCItemWp">';
+                    _kissy_w.each(An.bundles, function (A0) {
                         var Aq = A0.orders;
                         for (var Ar = 0, Av = Aq.length; Ar < Av; Ar++) {
                             var Ax = Aq[Ar];
@@ -975,7 +980,7 @@
                                 Ay += '<span class="tmMCItemSku" title="' + Ap + '">' + Ap + "</span>";
                                 Az++
                             }
-                            S += '<div class="tmMCItem" id="cartItem-' + Ax.cartId + '" data-cartId="' + Ax.cartId + '" data-price="' + At + '" data-num="' + As + '"><a target="_blank" href="' + Ax.url + '" title="' + i(Ax.title) + '" class="tmMCItemImg"><img src="' + Ax.pic + '" alt="' + i(Ax.title) + '" width="50" height="50"/></a><div class="tmMCItemskuWp">' + Ay + '</div><span class="tmMCItemPrice">' + At + "</span>" + (l ? "<div></div>" : "") + (Ao ? "" : '<a class="tmMCItemDel"' + (l ? ' href="javascript:void(0);"' : "") + "></a>") + "</div>"
+                            S += '<div class="tmMCItem" id="cartItem-' + Ax.cartId + '" data-cartId="' + Ax.cartId + '" data-price="' + At + '" data-num="' + As + '"><a target="_blank" href="' + Ax.url + '" title="' + i(Ax.title) + '" class="tmMCItemImg"><img src="' + Ax.pic + '" alt="' + i(Ax.title) + '" width="50" height="50"/></a><div class="tmMCItemskuWp">' + Ay + '</div><span class="tmMCItemPrice">' + At + "</span>" + (_is_ie_6 ? "<div></div>" : "") + (Ao ? "" : '<a class="tmMCItemDel"' + (_is_ie_6 ? ' href="javascript:void(0);"' : "") + "></a>") + "</div>"
                         }
                     });
                     return S + "</div></div>"
@@ -989,18 +994,18 @@
                 }
                 var Ap = "";
                 var An = Ar.items;
-                var Ao = w.guid("cart");
-                var S = y.get(AA.uncheckItems) ? y.get(AA.uncheckItems).split(",") : [];
+                var Ao = _kissy_w.guid("cart");
+                var S = _cookie.get(_options.uncheckItems) ? _cookie.get(_options.uncheckItems).split(",") : [];
                 if (Ar.valid) {
                     var Aq = false;
-                    w.each(An, function (At) {
-                        if (w.inArray(At.cartId, S)) {
+                    _kissy_w.each(An, function (At) {
+                        if (_kissy_w.inArray(At.cartId, S)) {
                             Aq = true
                         }
                     });
                     var As = Ar.name || Ar.shopName;
                     if (Ar.type) {
-                        Ap += '<div class="tmMCGroup ' + Ar.type + '"><div class="tmMCGroupTitle"><label title="' + As + '" class="tmMCGroupName" for="group_id_' + (Ar.proId || Ao) + '">' + As + '</label><a class="tmMCGroupDel"' + (l ? ' href="javascript:void(0);"' : "") + "></a></div>"
+                        Ap += '<div class="tmMCGroup ' + Ar.type + '"><div class="tmMCGroupTitle"><label title="' + As + '" class="tmMCGroupName" for="group_id_' + (Ar.proId || Ao) + '">' + As + '</label><a class="tmMCGroupDel"' + (_is_ie_6 ? ' href="javascript:void(0);"' : "") + "></a></div>"
                     } else {
                         Ap += '<div class="tmMCGroup"><div class="tmMCGroupTitle"><label title="' + As + '" class="tmMCGroupName" for="group_id_' + (Ar.proId || Ao) + '">' + As + "</label></div>"
                     }
@@ -1014,15 +1019,15 @@
                 var Aq = '<div class="tmMCItemWp">',
                      S = Ao.length,
                      Ap = 0,
-                     An = y.get(AA.uncheckItems) ? y.get(AA.uncheckItems).split(",") : [];
+                     An = _cookie.get(_options.uncheckItems) ? _cookie.get(_options.uncheckItems).split(",") : [];
                 for (Ap; Ap < S; Ap++) {
                     var Ar = Ao[Ap];
                     if (Ar.valid) {
-                        var As = w.inArray(Ar.cartId, An);
+                        var As = _kissy_w.inArray(Ar.cartId, An);
                         if (Ar.cbId) {
-                            Aq += '<div class="tmMCItem' + (As ? " tmMCUncheck" : "") + '" id="cartItem-' + Ar.cartId + '" data-cartId="' + Ar.cartId + '" data-cbid="' + Ar.cbId + '" data-price="' + Ar.price + '" data-num="' + Ar.num + '"><a target="_blank" href="' + Ar.itemUrl + '" title="' + i(Ar.title) + '" class="tmMCItemImg"><img src="' + Ar.picUrl + '" alt="' + i(Ar.title) + '" width="50" height="50"/></a><div class="tmMCItemskuWp"><span class="tmMCItemSku" title="' + (Ar.sku[0] ? Ar.sku[0] : "") + '">' + (Ar.sku[0] ? Ar.sku[0] : "") + '</span><span class="tmMCItemSku" title="' + (Ar.sku[1] ? Ar.sku[1] : "") + '">' + (Ar.sku[1] ? Ar.sku[1] : "") + '</span></div><span class="tmMCItemPrice">' + Ar.price + "</span>" + (l ? "<div></div>" : "") + "</div>"
+                            Aq += '<div class="tmMCItem' + (As ? " tmMCUncheck" : "") + '" id="cartItem-' + Ar.cartId + '" data-cartId="' + Ar.cartId + '" data-cbid="' + Ar.cbId + '" data-price="' + Ar.price + '" data-num="' + Ar.num + '"><a target="_blank" href="' + Ar.itemUrl + '" title="' + i(Ar.title) + '" class="tmMCItemImg"><img src="' + Ar.picUrl + '" alt="' + i(Ar.title) + '" width="50" height="50"/></a><div class="tmMCItemskuWp"><span class="tmMCItemSku" title="' + (Ar.sku[0] ? Ar.sku[0] : "") + '">' + (Ar.sku[0] ? Ar.sku[0] : "") + '</span><span class="tmMCItemSku" title="' + (Ar.sku[1] ? Ar.sku[1] : "") + '">' + (Ar.sku[1] ? Ar.sku[1] : "") + '</span></div><span class="tmMCItemPrice">' + Ar.price + "</span>" + (_is_ie_6 ? "<div></div>" : "") + "</div>"
                         } else {
-                            Aq += '<div class="tmMCItem' + (As ? " tmMCUncheck" : "") + '" id="cartItem-' + Ar.cartId + '" data-cartId="' + Ar.cartId + '" data-price="' + Ar.price + '" data-num="' + Ar.num + '"><a target="_blank" href="' + Ar.itemUrl + '" title="' + i(Ar.title) + '" class="tmMCItemImg"><img src="' + Ar.picUrl + '" alt="' + i(Ar.title) + '" width="50" height="50"/></a><div class="tmMCItemskuWp"><span class="tmMCItemSku" title="' + (Ar.sku[0] ? Ar.sku[0] : "") + '">' + (Ar.sku[0] ? Ar.sku[0] : "") + '</span><span class="tmMCItemSku" title="' + (Ar.sku[1] ? Ar.sku[1] : "") + '">' + (Ar.sku[1] ? Ar.sku[1] : "") + '</span></div><span class="tmMCItemPrice">' + Ar.price + "</span>" + (l ? "<div></div>" : "") + '<a class="tmMCItemDel"' + (l ? ' href="javascript:void(0);"' : "") + "></a></div>"
+                            Aq += '<div class="tmMCItem' + (As ? " tmMCUncheck" : "") + '" id="cartItem-' + Ar.cartId + '" data-cartId="' + Ar.cartId + '" data-price="' + Ar.price + '" data-num="' + Ar.num + '"><a target="_blank" href="' + Ar.itemUrl + '" title="' + i(Ar.title) + '" class="tmMCItemImg"><img src="' + Ar.picUrl + '" alt="' + i(Ar.title) + '" width="50" height="50"/></a><div class="tmMCItemskuWp"><span class="tmMCItemSku" title="' + (Ar.sku[0] ? Ar.sku[0] : "") + '">' + (Ar.sku[0] ? Ar.sku[0] : "") + '</span><span class="tmMCItemSku" title="' + (Ar.sku[1] ? Ar.sku[1] : "") + '">' + (Ar.sku[1] ? Ar.sku[1] : "") + '</span></div><span class="tmMCItemPrice">' + Ar.price + "</span>" + (_is_ie_6 ? "<div></div>" : "") + '<a class="tmMCItemDel"' + (_is_ie_6 ? ' href="javascript:void(0);"' : "") + "></a></div>"
                         }
                     }
                 }
@@ -1047,51 +1052,51 @@
             }
 
             function Ah(S) {
-                if (AG.hasClass(AG.parent(S), "tmMCItem")) {
-                    return AG.parent(S)
+                if (_dom.hasClass(_dom.parent(S), "tmMCItem")) {
+                    return _dom.parent(S)
                 } else {
-                    return Ah(AG.parent(S))
+                    return Ah(_dom.parent(S))
                 }
             }
 
             function g(Ao) {
-                var S = AG.get(AA.itemNumEl, Ao),
-                     Ap = AG.attr(Ao, "data-price"),
+                var S = _dom.get(_options.itemNumEl, Ao),
+                     Ap = _dom.attr(Ao, "data-price"),
                      An = parseInt(S.innerHTML),
                      Aq = (An * Ap).toFixed(2);
-                AG.get(AA.itemPriceEl, Ao).innerHTML = Aq;
+                _dom.get(_options.itemPriceEl, Ao).innerHTML = Aq;
                 return Aq
             }
 
             function s(An, S, Aq) {
-                var Ap = AG.get(AA.itemAddEl, An),
-                     Ao = AG.get(AA.itemMinEl, An);
-                AG.removeClass(Ao, "disableMin");
-                AG.removeClass(Ap, "disableAdd");
+                var Ap = _dom.get(_options.itemAddEl, An),
+                     Ao = _dom.get(_options.itemMinEl, An);
+                _dom.removeClass(Ao, "disableMin");
+                _dom.removeClass(Ap, "disableAdd");
                 if (parseInt(S) <= 1) {
-                    AG.addClass(Ao, "disableMin")
+                    _dom.addClass(Ao, "disableMin")
                 }
                 if (S >= Aq) {
-                    AG.addClass(Ap, "disableAdd")
+                    _dom.addClass(Ap, "disableAdd")
                 }
             }
 
             function f(S) {
-                return AG.parent(S, ".tmMCGroup")
+                return _dom.parent(S, ".tmMCGroup")
             }
 
             function V() { }
 
             function AV() {
-                AG.removeClass(Ac, "HdlOpen");
+                _dom.removeClass(_dom_handlerEl, "HdlOpen");
                 AI(b);
-                AG.show(W);
-                AG.css(j, "display", "none");
-                AG.css(P[0], "visibility", "visible")
+                _dom.show(_dom_minicart);
+                _dom.css(_dom_bodyEl, "display", "none");
+                _dom.css(_dom_numEl[0], "visibility", "visible")
             }
 
             function AM() {
-                return AG.hasClass(Ac, "HdlOpen")
+                return _dom.hasClass(_dom_handlerEl, "HdlOpen")
             }
 
             function o(S) {
@@ -1101,10 +1106,10 @@
                 }
                 S = S > 0 ? S : 0;
                 var An = S == 0;
-                AG.html(P, An ? "0" : ("\u8d2d\u7269\u8f66" + S));
+                _dom.html(_dom_numEl, An ? "0" : ("购物车" + S));
                 if (An) {
-                    AG.hide(W);
-                    AG.css(P[0], "visibility", "hidden");
+                    _dom.hide(_dom_minicart);
+                    _dom.css(_dom_numEl[0], "visibility", "hidden");
                     setTimeout(function () {
                         AV()
                     }, 0);
@@ -1115,9 +1120,9 @@
 
             function q() {
                 var An = 0,
-                     S = AG.get(AA.El);
-                w.each(AG.query(AA.groupEl, S), function (Aq, Ap) {
-                    var Ao = AG.get(AA.groupPriceEl, Aq);
+                     S = _dom.get(_options.El);
+                _kissy_w.each(_dom.query(_options.groupEl, S), function (Aq, Ap) {
+                    var Ao = _dom.get(_options.groupPriceEl, Aq);
                     An += parseFloat(Ao.innerHTML)
                 });
                 An = An.toFixed(2);
@@ -1125,34 +1130,34 @@
             }
 
             function AD() {
-                if (P.length) {
-                    var S = parseInt(P[0].innerHTML.replace(/[^\d]/g, ""), 10);
-                    if (S > 0 && !AG.hasClass(Ac, "HdlOpen")) {
-                        AG.addClass(Ac, "HdlOpen");
-                        AG.addClass(Ac, "HdlShort");
-                        AG.css(j, "display", "none");
+                if (_dom_numEl.length) {
+                    var S = parseInt(_dom_numEl[0].innerHTML.replace(/[^\d]/g, ""), 10);
+                    if (S > 0 && !_dom.hasClass(_dom_handlerEl, "HdlOpen")) {
+                        _dom.addClass(_dom_handlerEl, "HdlOpen");
+                        _dom.addClass(_dom_handlerEl, "HdlShort");
+                        _dom.css(_dom_bodyEl, "display", "none");
                         AI(Y)
                     }
                 }
             }
 
             function M() {
-                AG.addClass(AP, "cannotCheck")
+                _dom.addClass(_dom_goCheckEl, "cannotCheck")
             }
 
             function K() {
-                var An = AG.query(AA.itemEl, W),
+                var An = _dom.query(_options.itemEl, _dom_minicart),
                      Ao = "";
-                w.each(An, function (Aq) {
-                    var Ap = AG.get(AA.itemCheckEl, Aq);
+                _kissy_w.each(An, function (Aq) {
+                    var Ap = _dom.get(_options.itemCheckEl, Aq);
                     if (Ap.checked) {
-                        Ao += (AG.attr(Aq, "data-cartId") + ",")
+                        Ao += (_dom.attr(Aq, "data-cartId") + ",")
                     }
                 });
                 Ao = Ao.substring(0, Ao.lastIndexOf(","));
                 var S = Ao.split(",");
                 if (S.length >= 30) {
-                    w.each(S, function (Aq, Ap) {
+                    _kissy_w.each(S, function (Aq, Ap) {
                         S[Ap] = (Aq * 1).toString(32)
                     });
                     Ao = "";
@@ -1163,10 +1168,10 @@
 
             function L(S) {
                 if (S) {
-                    AG.show(AW)
+                    _dom.show(_dom_loadingEl)
                 } else {
-                    AG.hide(AW);
-                    AG.css(AW, "marginTop", 5)
+                    _dom.hide(_dom_loadingEl);
+                    _dom.css(_dom_loadingEl, "marginTop", 5)
                 }
             }
 
@@ -1183,7 +1188,7 @@
                         Aq.itemId = Ao.rstItemId || ""
                     } catch (Ap) { }
                 }
-                (new Image()).src = w.substitute(An, Aq)
+                (new Image()).src = _kissy_w.substitute(An, Aq)
             }
 
             function N(An) {
@@ -1191,12 +1196,12 @@
                     AB("handle", "&action=close")
                 }
                 Z = false;
-                var S = AG.height(j);
-                anim = w.Anim(j, {
+                var S = _dom.height(_dom_bodyEl);
+                anim = _kissy_w.Anim(_dom_bodyEl, {
                     top: "-4px"
                 }, 0.2, "easeOut", function () {
-                    AG.css(j, "display", "none");
-                    AG.addClass(Ac, "HdlShort")
+                    _dom.css(_dom_bodyEl, "display", "none");
+                    _dom.addClass(_dom_handlerEl, "HdlShort")
                 }, false);
                 anim.run()
             }
@@ -1222,7 +1227,7 @@
             function AY(S) {
                 new Image().src = S
             }
-            w.TMiniCartView = Ag;
+            _kissy_w.TMiniCartView = Ag;
             return Ag
         });
         KISSY.add("TMiniCart", function (N, M, L) {
@@ -1286,7 +1291,7 @@
         }, {
             requires: ["TMiniCartModel", "TMiniCartView"]
         });
-        E.use("TMiniCart", function (K, J) {
+        _kissy_E.use("TMiniCart", function (K, J) {
             K.ready(function () {
                 if (!window.TMiniCart) {
                     J = J || K.TMiniCart;
@@ -1324,7 +1329,7 @@
             };
             O = {}
         }
-        L = E.merge({
+        L = _kissy_E.merge({
             timeout: 6
         }, L);
         var N = document.createElement("script");
@@ -1348,10 +1353,10 @@
             } catch (W) { }
         };
         if ("string" === typeof O) {
-            O = E.unparam(O)
+            O = _kissy_E.unparam(O)
         }
         O.callback = T;
-        N.src = I + (-1 < I.indexOf("?") ? "&" : "?") + E.param(O) + "&" + +new Date;
+        N.src = I + (-1 < I.indexOf("?") ? "&" : "?") + _kissy_E.param(O) + "&" + +new Date;
         N.async = true;
         if (L.charset) {
             N.charset = L.charset
@@ -1378,7 +1383,7 @@
         }
         var Q = L.timeout;
         if (Q) {
-            K = E.later(function () {
+            K = _kissy_E.later(function () {
                 U = function () { };
                 S();
                 P()
