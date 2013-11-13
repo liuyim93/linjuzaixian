@@ -26,8 +26,10 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 }
             })
         },
-        _initMain: function() {
+        _initMain: function () {
 
+            var index = location.href.indexOf("?");
+            var data = location.href.substring(index, location.href.length);
             new _slide2();
             new _brand();
             new _category("#J_Category", {
@@ -35,7 +37,7 @@ KISSY.add("2012/fp", function(_kissy, _datalazyload, _slide2, _category, _brand,
                 subViews: ".j_SubView",
                 triggers: ".j_MenuItem",
                 bottomCl: ".j_BottomMenu",
-                dataUrl: "http://" + location.host + "/category/home/all_cat_asyn"
+                dataUrl: "http://" + location.host + "/category/home/all_cat_asyn"+data
             });
 
             ////2013-05-28 wanghaichuan get URL params

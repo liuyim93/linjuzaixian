@@ -28,13 +28,11 @@ namespace Friday.mvc.Areas.Category.Controllers
             this.iSchoolService = iSchoolService;
             this.iCommodityRepository = iCommodityRepository;
         } 
-        public ActionResult all_cat_asyn()
+        public ActionResult all_cat_asyn(string selectedSchool="")//这里是根据什么提取
         {
             CategoryModel categoryModel = new CategoryModel();
-            categoryModel.GlobalGoodsTypeTlevelZero=new List<GlobalGoodsType>();
-            //mainModel.MerchantRentCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.租房);
-            //mainModel.MerchantRestaurantCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.餐馆);
-            //categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+            //categoryModel.GlobalGoodsTypeTlevelZero=new List<GlobalGoodsType>();
+       /*
             IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
             foreach (GlobalGoodsType g in globalGoodsTypes)
             {
@@ -43,24 +41,26 @@ namespace Friday.mvc.Areas.Category.Controllers
                 {
                     categoryModel.GlobalGoodsTypeTlevelZero.Add(g);
                 }
+            }*/
+            categoryModel.GlobalGoodsTypeTlevelSecond = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevelAndSchool(2, selectedSchool);
+
+            List<string> zeroIds = new List<string>();
+
+            foreach (GlobalGoodsType g in categoryModel.GlobalGoodsTypeTlevelSecond)
+            {
+                zeroIds.Add(g.Family.Split(',')[0]);
             }
-            categoryModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
-            categoryModel.GlobalGoodsTypeTlevelSecond = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(2);
 
-            ////单独取出国际名牌
-            //if (this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("国际品牌") != null)
-            //{
-            //    string NationalLevelId = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByName("国际品牌").Id;
+            List<string> seconds = new List<string>();
 
-            //    IList<GlobalGoodsType> NationalGlobalGoodsTypes = this.iGlobalGoodsTypeRepository.GetChildrenByFamily(NationalLevelId);
-            //    IList<Shop> NationalShops = new List<Shop>();
-            //    for (int i = 0; i < NationalGlobalGoodsTypes.Count; i++)
-            //    {
-            //        NationalShops.Add(this.iShopRepository.Get(NationalGlobalGoodsTypes[i].Description));
-            //    }
+            foreach (GlobalGoodsType g in categoryModel.GlobalGoodsTypeTlevelSecond)
+            {
+                seconds.Add(g.Family.Split(',')[1]);
+            }
 
-            //    categoryModel.NationalShops = NationalShops;
-            //}
+
+            categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(zeroIds,0);
+            categoryModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(seconds, 1);
             
             
             return View(categoryModel);

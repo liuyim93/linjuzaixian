@@ -5,6 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <link rel="stylesheet" href=@Url.Content("/tbsp/tbsp.css") />
     <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
     <script src=@Url.Content("/s/kissy/1.3.0/datalazyload-min.js")></script>
@@ -26,7 +27,7 @@
     <script src="@Url.Content("/apps/tmall/tml/1.0/tml/tml.js")"></script>
 
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
-@*    <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
+    @*    <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
     <meta charset="gbk" />
     <title>购物车-邻居在线.com</title>
     <script>        window.g_config = {
@@ -44,10 +45,10 @@
     <meta name="description" content="中国最大、最安全的网上交易社区，尽享淘宝乐趣！" />
     <meta name="keywords" content=",网上购物,购物,论坛,联盟,买,卖,1元,一元,电脑,视听,MP3,MD,CD,VCD,DV,耗材,化妆,相机,数码,配件,珠宝,手表,艺术,宠物,求购,出租,出售,二手,汽车,音响,保健,讨价换价,一口价,拍卖,auction,sell,buy,price,bid" />
     <meta name="format-detection" content="telephone=no" />
-@*    <link href="http://localhost:7525/Images/TmallT16-16.png" rel="shortcut icon"
+    @*    <link href="http://localhost:7525/Images/TmallT16-16.png" rel="shortcut icon"
         type="image/x-icon" />*@
     <!-- start vmc css 3.1-->
-@*    <link rel="stylesheet" href=@Url.Content("/p/global/1.0/global-min.css") />*@    
+    @*    <link rel="stylesheet" href=@Url.Content("/p/global/1.0/global-min.css") />*@
     <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
     <link rel="stylesheet" href=@Url.Content("/sys/p4p/css/p4pthemes.css") />
 
@@ -59,7 +60,7 @@
     <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
 
 
-    <script src=@Url.Content("/s/aplus_v2.js")></script> 
+    <script src=@Url.Content("/s/aplus_v2.js")></script>
     <script src=@Url.Content("/s/fdc/spm.js")></script>
     <script src=@Url.Content("/s/fdc/spmact.js")></script>
 
@@ -81,8 +82,8 @@
             d.getElementsByTagName("head")[0].appendChild(t);
         })(document);
     </script>
-    
-        <!-- start vmc 3.1 -->
+
+    <!-- start vmc 3.1 -->
     @Html.Partial("_SiteNav")
     @Html.Partial("_Header")
     <div id="page">
@@ -97,18 +98,20 @@
                     <li><span>2. 拍下商品</span></li>
                     <li><span>3. 确认订单</span></li>
                     <li class="last"><span>4. 货到付款</span></li>
-                  
+
                 </ol>
             </div>
             <div id="mcart">
                 <div class="m-loading" id="J_MLoading">
                     <p>
-                        正在加载购物车，请稍候</p>
+                        正在加载购物车，请稍候
+                    </p>
                 </div>
                 <div id="topinfo">
                     <div class="selectAllBox">
                         <label>
-                            <input type="checkbox" class="m-chk-all" data-job="selectCart" checked />全选</label></div>
+                            <input type="checkbox" class="m-chk-all" data-job="selectCart" checked />全选</label>
+                    </div>
                     <div id="J_StatusBar" class="status-bar" data-total="50" data-limit="45">
                         <div class="status-box">
                             <span class="label">购物车状态：</span>

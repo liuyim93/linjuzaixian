@@ -7,6 +7,7 @@ using friday.core.services;
 using friday.core.domain;
 using Friday.mvc.Models;
 using friday.core;
+using friday.core.repositories;
 using MvcPaging;
 namespace Friday.mvc.Areas.Merchant.Controllers
 {
@@ -22,6 +23,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
         //private IFoodService iFoodService;
         //private IHouseService iHouseService;
         private ICommodityService iCommodityService;
+
+        private ICommodityRepository iCommodityRepository = UnityHelper.UnityToT<ICommodityRepository>();
+
+        private IGlobalGoodsTypeRepository iGlobalGoodsTypeRepository = UnityHelper.UnityToT<IGlobalGoodsTypeRepository>();
+
         private ISkuService iSkuService;
 
         public IndexController(IMerchantService iMerchantService, IGlobalGoodsTypeService iGlobalGoodsTypeService, IShopService iShopService, ICommodityService iCommodityService, ISkuService iSkuService)
@@ -36,20 +42,20 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             //this.iHouseService = iHouseService;
             this.iSkuService = iSkuService;
         }
-        public ActionResult SearchGoods(string page ,string scid,string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        public ActionResult SearchGoods(string page, string scid, string goodTypeId)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
 
             IndexModel merchantIndexModel = new IndexModel();
 
             //scid = "885009d2-e184-41c3-913e-0b0caa058d41";
-        
+
             friday.core.Merchant merchant = iMerchantService.Load(scid);
             merchantIndexModel.SingleMerchant = merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
             {
                 //merchantIndexModel.SingleMerchantGoodsType = iGlobalGoodsTypeService.Load(goodTypeId);
             }
-            else 
+            else
             {
                 goodTypeId = "0";
             }
@@ -62,18 +68,18 @@ namespace Friday.mvc.Areas.Merchant.Controllers
 
             //if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.百货)
             //{
-                IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
-                Shop shop = this.iShopService.Load(scid);
-                merchantIndexModel.SingleShop = shop;
-                merchantIndexModel.Commoditys = myCommodities;
+            IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndMerchantGoodsTypeIDOrderByMonthAmountDesc(scid, goodTypeId, start, limit, out total);
+            Shop shop = this.iShopService.Load(scid);
+            merchantIndexModel.SingleShop = shop;
+            merchantIndexModel.Commoditys = myCommodities;
 
-                IList<Sku> minPriceSkuComlist = new List<Sku>();
-                for (int i = 0; i < myCommodities.Count; i++)
-                {
-                    Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
-                    minPriceSkuComlist.Add(minpricesku);
-                }
-                merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
+            IList<Sku> minPriceSkuComlist = new List<Sku>();
+            for (int i = 0; i < myCommodities.Count; i++)
+            {
+                Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
+                minPriceSkuComlist.Add(minpricesku);
+            }
+            merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
             //}
             //else if (merchant.MerchantType == friday.core.EnumType.MerchantTypeEnum.餐馆)
             //{
@@ -95,11 +101,11 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["sscid"] = scid;
             ViewData["sgoodTypeId"] = goodTypeId;
 
-            return View("Index",merchantIndexModel);
+            return View("Index", merchantIndexModel);
         }
 
         //2013-05-22 basilwang 增加排序   具体值 p为价格从低到高   pd为价格从高到低  st为默认排序  td为总销量从高到低  d为月销量从高到低 pt为发布时间排序 
-        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId,string pagenum,string sort)//,string style)// ,string baobei_type,string searchRange)//,string goodsTypeId)
+        public ActionResult Index(string page, string scid, string orderType, string viewType, string keyword, string price1, string price2, string goodTypeId, string pagenum, string sort, string gType)//,string style)// ,string baobei_type,string searchRange)//,string goodsTypeId)
         {
             //2013-05-22 basilwang 默认为s
             if (string.IsNullOrEmpty(sort))
@@ -116,7 +122,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 dbprice1 = -1; //约定-1 表示为空
             }
-            else 
+            else
             {
                 dbprice1 = Convert.ToDouble(price1);
             }
@@ -134,14 +140,14 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             if (string.IsNullOrEmpty(keyword))
             {
-                keyword =""; 
+                keyword = "";
             }
             IndexModel merchantIndexModel = new IndexModel();
             friday.core.Merchant merchant;
             //scid = "193cf240-cf1e-4eb7-b944-d3a561eb5ffb";
             try
             {
-                 merchant = iMerchantService.Get(scid);
+                merchant = iMerchantService.Get(scid);
             }
             catch (Exception ex)
             {
@@ -151,12 +157,12 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             {
                 return Redirect("/Index.html");
             }
-            merchantIndexModel.SingleMerchant =merchant;
+            merchantIndexModel.SingleMerchant = merchant;
             if (!string.IsNullOrEmpty(goodTypeId))
             {
                 //merchantIndexModel.SingleMerchantGoodsType = iGlobalGoodsTypeService.Load(goodTypeId);
             }
-            else 
+            else
             {
                 goodTypeId = "0";
             }
@@ -186,24 +192,27 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             int total;
             int start = (currentPage - 1) * numPerPageValue;
             int limit = numPerPageValue;
-   
-         
-       
+
+
+
             //IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndBetweenPriceOrderBy(scid, keyword, dbprice1, dbprice2, goodTypeId, orderType, start, limit, out total);
-            IList<Commodity> myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndPrice(scid,page, keyword, dbprice1, dbprice2, start, limit, out total ,sort);
-            
+            IList<Commodity> myCommodities;
+            if (string.IsNullOrEmpty(gType))
+            {
+                myCommodities = this.iCommodityService.GetCommodityByShopIDAndKeywordAndPrice(scid, page, keyword, dbprice1, dbprice2, start, limit, out total, sort);
+            }
+            else
+            {
+                myCommodities = this.iCommodityRepository.GetCommodityByShopIDAndKeywordAndPriceAndType(scid, page, keyword, dbprice1, dbprice2, start, limit, out total, sort, gType);
+            }
             Shop shop = this.iShopService.Load(scid);
             merchantIndexModel.SingleShop = shop;
             merchantIndexModel.Commoditys = myCommodities;
 
-            //IList<Sku> minPriceSkuComlist = new List<Sku>();
-            //for (int i = 0; i < myCommodities.Count; i++)
-            //{
-            //    Sku minpricesku = iSkuService.GetMinPriceSkusByCommodityID(myCommodities[i].Id);
-            //    minPriceSkuComlist.Add(minpricesku);
-            //}
-            //merchantIndexModel.minPriceSkuList = minPriceSkuComlist;
+            IList<GlobalGoodsType> thirdgoodTypes = iGlobalGoodsTypeRepository.GetByThirdGoodsTypeByMerchant(merchant, 2);
+            List<string> parentIds = thirdgoodTypes.Select(o => o.ParentID).Distinct().ToList<string>();
 
+            IList<GlobalGoodsType> secondgoodTypes = iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(parentIds, 1);
             merchantIndexModel.currentPage = currentPage;
             merchantIndexModel.pageNum = total / numPerPageValue + 1;
             merchantIndexModel.count = total;
@@ -215,7 +224,10 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             ViewData["sscid"] = scid;
             ViewData["sgoodTypeId"] = goodTypeId;
             ViewData["sort"] = sort;
-           
+            ViewData["gType"] = gType;
+
+            merchantIndexModel.ThirdTypes = thirdgoodTypes;
+            merchantIndexModel.SecondTypes = secondgoodTypes;
 
             return View(merchantIndexModel);
         }

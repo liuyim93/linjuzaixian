@@ -45,6 +45,40 @@ namespace friday.core.repositories
             var gt = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.TLevel == level && o.IsDelete == false).OrderBy(o => o.EntityIndex).ToList();
             return gt;
         }
+        public IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevelAndSchool(int level, string schoolId)
+        {
+            IList<string> merchants = (from x in this.Session.Query<Merchant>()
+                                       where x.Schools.Contains(schoolId)
+                                       && x.IsDelete == false
+
+                                       select x.Id).Distinct().ToList();
+
+            var gt = (from x in this.Session.Query<Commodity>()
+                      where merchants.Contains(x.Shop.Id)
+                      && x.IsDelete == false
+
+                      select x.GlobalGoodsType).Where(o => o.TLevel == level && o.IsDelete == false).Distinct();
+
+            return gt.ToList<GlobalGoodsType>();
+        }
+
+
+        public IList<GlobalGoodsType> GetGoodsTypeByIdAndLevel(List<string> ids,int level)
+        {
+            var m = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.TLevel == level && o.IsDelete == false && ids.Contains(o.Id)).ToList();
+            return m;
+        }
+
+        public IList<GlobalGoodsType> GetByThirdGoodsTypeByMerchant(Merchant merchant,int level)
+        {
+            var m = (from x in this.Session.Query<Commodity>() where x.IsDelete==false select x)
+                .Where(o =>o.Shop==merchant
+                      &&o.IsDelete==false
+                      && o.GlobalGoodsType.TLevel == level
+                         ).Select(o=>o.GlobalGoodsType).Distinct().ToList();
+            return m;
+        }
+
         public IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword)
         {
             var m = (from x in this.Session.Query<GlobalGoodsType>() select x).Where(o => o.Name.Contains(keyword) && o.IsDelete == false).ToList();

@@ -7,11 +7,12 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <title>@Model.Merchant.Name  @Model.Commodity.Name 邻居在线</title>
     <script>
         window.g_config =
-        { 
+        {
             startTime: (+new Date()),
             D950: true,
             bizTag: 12,
@@ -30,82 +31,85 @@
             pageType: ""
         };
     </script>
-    
-	<link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/base.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/mui.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/spriter.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/D950.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/shop.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/tabbar/tabbar.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/sku.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/other/other.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/sku/regionSell.css") />
-	<link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/spu/spu.css") />
-    
+
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/header/shop/head-info.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/base.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/mui.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/spriter.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/D950.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/shop.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/tabbar/tabbar.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/css/sku.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/other/other.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/sku/regionSell.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/spu/spu.css") />
+
     <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/other/attributes.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/malldetail/4.0/recommend/waterfall.css") />
-            <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
+    <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/header.css") />
     <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
 
-	<script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
+    <script src="http://a.tbcdn.cn/s/kissy/1.3.0/kissy.js"></script>
     <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
-    <script src=@Url.Content("/p/mall/base/global-v2.js")></script>    
+    <script src=@Url.Content("/p/mall/base/global-v2.js")></script>
     <script src=@Url.Content("/apps/tmall/mui/tml/tml.js")></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
     <script src=@Url.Content("/apps/malldetail/4.0/detail.js")></script>
-@*    <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
+    @*    <script src="@Url.Content("/apps/tmallbuy/razer/mini/core.js")"></script>*@
 
 </head>
 <body class="D950 enableHover">
-	@Html.Partial("_SiteNav")
-	<div id="header">?     
+  
+    @Html.Partial("_SiteNav")
+    <div id="header">
+        ?     
 		<!-- flash logo -->
-		<div id="headerCon">
-			<h1 id="mallLogo">
-				<span class="mlogo">
-					<a href="http://localhost:7525/index.html" title="邻居在线.com">
-						<s></s>
-						邻居在线.com
-					</a>
-				</span>
-			</h1>
-        <div id="mallSearch">
-            <form class="mallSearch-form" name="searchTop" target="_top" action="http://localhost:7525/Merchant/SearchProduct">
-            <fieldset>
-                <legend>邻居在线搜索</legend>
-                <div class="mallSearch-input clearfix">
-                    <label for="mq" style="visibility: visible; color: rgb(102, 102, 102);">
-                        搜索 邻居在线 商品</label>
-                    <input type="text" name="keyword" id="mq" accesskey="s" tabindex="9" autocomplete="off"
-                        autofocus="true" x-webkit-speech="" x-webkit-grammar="builtin:translate">
-                        <script type="text/javascript">
-                            $("#mq").bind("keydown", function () {
-                               //debugger
-                                if ($("#mq").val() == "")
-                                { $("#mallSearch label").attr("style", "visibility: visible; color: rgb(102, 102, 102);") }
-                                else
-                                { $("#mallSearch label").attr("style", "visibility: hidden; color: rgb(102, 102, 102);") }
-                            })
-                        </script>
-                    <button id="J_MallSearchBtn" type="submit">
-                        搜索<s></s></button>
-                    <input type="hidden" name="user_action" value="initiative">
-                    <input type="hidden" name="at_topsearch" value="1">
-                    <input type="hidden" name="sort" value="st">
-                    <input id="J_Type" type="hidden" name="type" value="p">
-                    <input id="J_Cat" type="hidden" name="cat">
-                </div>
-            </fieldset>
-            <input id="J_MallSearchStyle" type="hidden" value="" name="style"></form>
+        <div id="headerCon">
+            <h1 id="mallLogo">
+                <span class="mlogo">
+                    <a href="http://localhost:7525/index.html" title="邻居在线.com">
+                        <s></s>
+
+                    </a>
+                </span>
+            </h1>
+            <div id="mallSearch">
+                <form class="mallSearch-form" name="searchTop" target="_top" action="http://localhost:7525/Merchant/SearchProduct">
+                    <fieldset>
+                        <legend>邻居在线搜索</legend>
+                        <div class="mallSearch-input clearfix">
+                            <label for="mq" style="visibility: visible; color: rgb(102, 102, 102);">
+                                搜索 邻居在线 商品</label>
+                            <input type="text" name="keyword" id="mq" accesskey="s" tabindex="9" autocomplete="off"
+                                autofocus="true" x-webkit-speech="" x-webkit-grammar="builtin:translate">
+                            <script type="text/javascript">
+                                $("#mq").bind("keydown", function () {
+                                    //debugger
+                                    if ($("#mq").val() == "")
+                                    { $("#mallSearch label").attr("style", "visibility: visible; color: rgb(102, 102, 102);") }
+                                    else
+                                    { $("#mallSearch label").attr("style", "visibility: hidden; color: rgb(102, 102, 102);") }
+                                })
+                            </script>
+                            <button id="J_MallSearchBtn" type="submit">
+                                搜索<s></s></button>
+                            <input type="hidden" name="user_action" value="initiative">
+                            <input type="hidden" name="at_topsearch" value="1">
+                            <input type="hidden" name="sort" value="st">
+                            <input id="J_Type" type="hidden" name="type" value="p">
+                            <input id="J_Cat" type="hidden" name="cat">
+                        </div>
+                    </fieldset>
+                    <input id="J_MallSearchStyle" type="hidden" value="" name="style">
+                </form>
+            </div>
         </div>
-		</div>
-		<div class="headerNav">
-			<div class="headerNav-con">
-				<div class="headerCrumb" id="J_HeaderCrumb"></div>
-				<ul class="headerPromise">
-			@*		<li class="hPicon1">
+        <div class="headerNav">
+            <div class="headerNav-con">
+                <div class="headerCrumb" id="J_HeaderCrumb"></div>
+                <ul class="headerPromise">
+                    @*		<li class="hPicon1">
 						<a target="_blank" title="正品行货" href=" http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#ZPBZ">正品行货</a>
 					</li>
 					<li class="hPicon2">
@@ -114,26 +118,26 @@
 					<li class="hPicon3">
 						<a target="_blank" title="七天退换" href=" http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#QTTH">七天退换</a>
 					</li>*@
-				</ul>
-				<!-- module-cache-info: module: shop.headerArchiveNoNav:1.1-b2c,moduleId=1240656693, key: user-890482188-prototype-57-20121105 cacheArea: 49 cachedTime: 2013-03-14 15:34:45 aliveTime: 28800 AppIP:172.24.173.88 -->
-				<div id="mall-shop">
-					<div id="shop-info">
-						<div class="main-info">
-							<h3 class="shop-title" style=" text-align:center">
-								<a target="_blank" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name </a>
-							</h3>
-						
-							<p class="shop-grade">
-								@*<a target="_blank" href="">
+                </ul>
+                <!-- module-cache-info: module: shop.headerArchiveNoNav:1.1-b2c,moduleId=1240656693, key: user-890482188-prototype-57-20121105 cacheArea: 49 cachedTime: 2013-03-14 15:34:45 aliveTime: 28800 AppIP:172.24.173.88 -->
+                <div id="mall-shop">
+                    <div id="shop-info">
+                        <div class="main-info">
+                            <h3 class="shop-title" style="text-align: center">
+                                <a target="_blank" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name </a>
+                            </h3>
+
+                            <p class="shop-grade">
+                                @*<a target="_blank" href="">
 									<span title="4.7/5.0，共有40778人打分" class="c-value-no c-value-4d7"></span>
 										 4.7
 								</a>*@
-							</p>
-						</div>
-						<div class="extra-info">
-							<div class="bd">
-								<div class="shop-rate">
-								@*	<h4>
+                            </p>
+                        </div>
+                        <div class="extra-info">
+                            <div class="bd">
+                                <div class="shop-rate">
+                                    @*	<h4>
 										店铺动态评分
 										<span class="compare">与同行业相比</span>
 									</h4>
@@ -168,14 +172,14 @@
 											</a>
 										</li>
 									</ul>*@
-								</div>
-								<div class="extend">
-									<ul>
-										<li class="shopkeeper">
-											<label>掌 柜：</label>
-											<a href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name </a>
-										</li>
-								@*		<li>
+                                </div>
+                                <div class="extend">
+                                    <ul>
+                                        <li class="shopkeeper">
+                                            <label>掌 柜：</label>
+                                            <a href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id">@Model.Merchant.Name </a>
+                                        </li>
+                                        @*		<li>
 											<label>客 服：</label>
 											<span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97"
                                                 data-tnick="" data-encode="true" data-display="inline">
@@ -185,43 +189,43 @@
 												</a>
 											</span>
 										</li>*@
-										<li>
-											<label>公 司 名：</label>
-											@Model.Merchant.Name
-										</li>
-										<li class="locus">
-											<label>所 在 地：</label>
-											@Model.Merchant.Address
-										</li>
-									</ul>
-								</div>
-								<div class="other">
-									 @*<a id="xshop_collection_href" style="width: 84px;" href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
+                                        <li>
+                                            <label>公 司 名：</label>
+                                            @Model.Merchant.Name
+                                        </li>
+                                        <li class="locus">
+                                            <label>所 在 地：</label>
+                                            @Model.Merchant.Address
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="other">
+                                    @*<a id="xshop_collection_href" style="width: 84px;" href="http://favorite.taobao.com/popup/add_collection.htm?id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496&amp;scjjc=2&amp;_tb_token_=T6C62bS4Apux"
                                         mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496"
                                         class="J_PopupTrigger collection xshop_sc J_TDialogTrigger J_TokenSign" data-width="440"
                                         data-height="260" data-closebtn="true">
 										<span>收藏本店铺</span>
-									</a>*@ 
-								</div>
-							</div>
-							<div class="opt">
-								<b id="J_InfoTrigger">展开/收起</b>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="content" class="eshop ark" data-cat="J_Cat" data-type="normal">
-	
-		<div id="bd">
-			<div id="detail">
-                @Html.Partial("_MallDetailMeta")
-				
+									</a>*@
+                                </div>
+                            </div>
+                            <div class="opt">
+                                <b id="J_InfoTrigger">展开/收起</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="content" class="eshop ark" data-cat="J_Cat" data-type="normal">
 
-				<form id="J_FrmBid" name="bidForm" action="" method="post">
-@*					<input type="hidden" name="title" value="@Model.Merchant.Name  @Model.Commodity.Name 503555">
+        <div id="bd">
+            <div id="detail">
+                @Html.Partial("_MallDetailMeta")
+
+
+                <form id="J_FrmBid" name="bidForm" action="" method="post">
+                    @*					<input type="hidden" name="title" value="@Model.Merchant.Name  @Model.Commodity.Name 503555">
 					<input type="hidden" name="x_id" value="">
 					<input type="hidden" name="seller_id" value="54e6f94343b5d2d647fdde8a93634496">
 					<input type="hidden" name="seller_nickname" value="@Model.Merchant.Name ">
@@ -236,19 +240,19 @@
 
 					<input type="hidden" id="buyer_from" name="buyer_from" value="">*@
                 </form>
-					
-				<div id="J_itemViewed" catid="50022890" data-value="{&quot;itemId&quot;:&quot;16246683095&quot;,&quot;xid&quot;:&quot;&quot;,&quot;pic&quot;:&quot;i2/T1Yn61XcxnXXc.DMo._112320.jpg&quot;,&quot;price&quot;:&quot;19900&quot;,&quot;itemIdStr&quot;:&quot;16246683095&quot;,&quot;title&quot;:&quot;Nike 耐克 AS ADAPT INDY SHORT 女子紧身服 503555&quot;}"></div>
-				@Html.Partial("_MallDetailScript")             
-			</div>
-			<div class="layout grid-s5m0" id="ks-lazyload287">
-				<div class="col-main tm-clear clearfix">
-					<div id="mainwrap" class="main-wrap J_TRegion">
 
-						<ul id="J_TabBar" class="tabbar tm-clear" style="position: static; top: 0px; display: block;">
-							<li class="selected" id="J_TabBar_Detail">
-								<a href="#description">商品详情</a>
-							</li>
-@*							<li class="">
+                <div id="J_itemViewed" catid="50022890" data-value="{&quot;itemId&quot;:&quot;16246683095&quot;,&quot;xid&quot;:&quot;&quot;,&quot;pic&quot;:&quot;i2/T1Yn61XcxnXXc.DMo._112320.jpg&quot;,&quot;price&quot;:&quot;19900&quot;,&quot;itemIdStr&quot;:&quot;16246683095&quot;,&quot;title&quot;:&quot;Nike 耐克 AS ADAPT INDY SHORT 女子紧身服 503555&quot;}"></div>
+                @Html.Partial("_MallDetailScript")
+            </div>
+            <div class="layout grid-s5m0" id="ks-lazyload287">
+                <div class="col-main tm-clear clearfix">
+                    <div id="mainwrap" class="main-wrap J_TRegion">
+
+                        <ul id="J_TabBar" class="tabbar tm-clear" style="position: static; top: 0px; display: block;">
+                            <li class="selected" id="J_TabBar_Detail">
+                                <a href="#description">商品详情</a>
+                            </li>
+                            @*							<li class="">
 								<a href="#J_Reviews" data-spm-anchor-id="a220o.1000855.0.96">
 									累计评价
 									<span class="J_ReviewsCount" style="display: inline;">
@@ -265,7 +269,7 @@
 									</span>
 								</a>
 							</li>*@
-@*							<li class="">
+                            @*							<li class="">
 								<a href="#J_SellerInfo" data-spm-anchor-id="a220o.1000855.0.98">服务质量</a>
 							</li>
 							<li class="">
@@ -274,10 +278,10 @@
 							<li class="">
 								<a href="#J_AfterSales" data-spm-anchor-id="a220o.1000855.0.100">售后服务</a>
 							</li>*@
-						</ul>
+                        </ul>
 
-						<div id="attributes" class="attributes">
-@*							<div class="J_TMDStaticMod" data-params="{&quot;type&quot;:&quot;attrPromise&quot;}">
+                        <div id="attributes" class="attributes">
+                            @*							<div class="J_TMDStaticMod" data-params="{&quot;type&quot;:&quot;attrPromise&quot;}">
 								<div class="ui-msg attr-promise-tip">
 									<div class="ui-msg-con ui-msg-tip">
 										邻居在线商家承诺：您付款之后，如果商家延迟发货，可以获得商品价格30%（不大于500元）的赔付金，
@@ -286,9 +290,9 @@
 									</div>
 								</div>
 							</div>*@
-							<div id="J_Shoppromotions"></div>
+                            <div id="J_Shoppromotions"></div>
 
-@*							<div class="attributes-list" id="J_AttrList">
+                            @*							<div class="attributes-list" id="J_AttrList">
 
 								<div class="tm-clear hidden J_BrandAttr" id="J_BrandAttr"></div>
 								<ul id="J_AttrUL">
@@ -309,17 +313,17 @@
 									<li title="&nbsp;女性">运动服性别:&nbsp;女性</li>
 								</ul>
 							</div>*@
-						</div>
+                        </div>
 
-						<div id="mall-banner"></div>
+                        <div id="mall-banner"></div>
 
-						<div id="J_DcTopRightWrap">
-							<div id="J_DcTopRight" class="J_DcAsyn">
-							</div>
-						</div>
-						<div id="description" class="tm-curTab">
-							<h4 class="hd">商品详情</h4>
-							@*<div class="content ke-post" id="J_ItemDesc">
+                        <div id="J_DcTopRightWrap">
+                            <div id="J_DcTopRight" class="J_DcAsyn">
+                            </div>
+                        </div>
+                        <div id="description" class="tm-curTab">
+                            <h4 class="hd">商品详情</h4>
+                            @*<div class="content ke-post" id="J_ItemDesc">
                                 <p>
 									<img align="absMiddle" src="http://img02.taobaocdn.com/imgextra/i2/890482188/T2Jq4qXjtNXXXXXXXX_!!890482188.jpg"></p>
 								<p>
@@ -342,14 +346,14 @@
 								<p>&nbsp;</p>     
 							</div>*@
                             @Html.Raw(Model.Commodity.Description)
-						</div>
-						<div id="J_DcBottomRightWrap">
-							<div id="J_DcBottomRight" class="J_DcAsyn">
-							</div>
-						</div>
+                        </div>
+                        <div id="J_DcBottomRightWrap">
+                            <div id="J_DcBottomRight" class="J_DcAsyn">
+                            </div>
+                        </div>
 
-						<div class="tb-box tshop-psm tshop-psm-bdetailtabl" id="J_Detail">
-							@*<div id="J_Reviews" class="J_DetailSection">
+                        <div class="tb-box tshop-psm tshop-psm-bdetailtabl" id="J_Detail">
+                            @*<div id="J_Reviews" class="J_DetailSection">
 								<h4 class="hd">
 									累计评价
 									<span class="J_ReviewsCount" style="display: inline;">
@@ -359,7 +363,7 @@
 									</span>
 								</h4>
 							</div>*@
-							@*<div id="J_DealRecord" class="J_DetailSection">
+                            @*<div id="J_DealRecord" class="J_DetailSection">
 								<h4 class="hd">
 									月成交记录
 									<span class="J_MonSales" style="display: inline;">
@@ -720,10 +724,10 @@
 								</p>
 							</div>
 						</div>*@
-@*						<div id="J_SellerInfo" class="simple J_DetailSection hslice tb-sellerinfo" data-url="http://localhost:7525/Merchant/Detail/seller_info?user_num_id=890482188&amp;user_tag=236548128&amp;shop_start=1337320843000">
+                            @*						<div id="J_SellerInfo" class="simple J_DetailSection hslice tb-sellerinfo" data-url="http://localhost:7525/Merchant/Detail/seller_info?user_num_id=890482188&amp;user_tag=236548128&amp;shop_start=1337320843000">
 							
 						</div>*@
-						@*<div id="J_TabRecommends" class="simple J_DetailSection hslice ">
+                            @*<div id="J_TabRecommends" class="simple J_DetailSection hslice ">
 							<h4 class="hd">看了又看</h4>
 							<div class="tm-clear hidden J_BrandAttr"></div>
 							<div id="J_Tjwrap">
@@ -752,308 +756,302 @@
 							</div>
 							<div style="height: 200px; background-color: rgb(255, 255, 255); display: none;" class="ui-loading"></div>
 						</div>*@
-						<div id="J_AfterSales" class="J_DetailSection">
-							<h4 class="hd">售后服务</h4>
-							<ul class="content">
+                            <div id="J_AfterSales" class="J_DetailSection">
+                                <h4 class="hd">售后服务</h4>
+                                <ul class="content">
 
-								<li class="item-afterservices">
-									<div class="section-box">
-										<div id="J_AfterSalesWrap" data-url="" data-aftersaleid="0" data-showalipaypromise="true" data-shoppicurl="http://logo.taobaocdn.com/shop-logo/54/e6/T1GWrgXb4bXXb1upjX">
-											<div class="promise-info">
-												<dl class="promise-nav">
-													<dt class="highlight-extra-weight">卖家承诺：</dt>
-													<dd class="highlight-extra-weight">凡使用支付宝服务付款购买本店商品，若存在质量问题或与描述不符，本店支持退换货服务并承担来回邮费！</dd>
-												</dl>
-											</div>
-										</div>
-										<div class="J_TMDStaticMod" data-params="{&quot;type&quot;:&quot;afterSale&quot;,&quot;show7&quot;:true}">
-											<div class="server-container b-detail">
-												<dl class="promise-server">
-													<dt class="first-dt">
-														<a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#ZPBZ" target="_blank"></a>
-													</dt>
-													<dd class="first-dd">
-														<div>
-															邻居在线的商家出售均为正品，承诺提供"正品保障"服务，一旦发现有出售假货及非原厂正品商品,买家可在交易成功后向邻居在线投诉商家并申请邻居在线使用商家保证金余额进行先行赔付。
-														</div>
-													</dd>
-													<dt class="second-dt">
-														<a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#TGFP" target="_blank"></a>
-													</dt>
-													<dd class="second-dd">
-														<div>对于在邻居在线购物的买家均提供商品发票。</div>
-													</dd>
-													<dt class="third-dt">
-														<a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#QTTH" target="_blank"></a>
-													</dt>
-													<dd class="split-end third-dd">
-														<div>对于在邻居在线购物的买家提供"七天无理由退换货"的保障服务。</div>
-													</dd>
-												</dl>
-											</div>
-											<div class="tb-weiQuanBox">
-												<h5>
-													<b class="tb-title-cn"></b>
-													邻居在线承诺
-												</h5>
-												<ol class="tb-chengNuo">
-													<li>
-														1、您付款之后，如果商家延迟发货，可以获得商品价格30%（不大于500元）的赔付金，
+                                    <li class="item-afterservices">
+                                        <div class="section-box">
+                                            <div id="J_AfterSalesWrap" data-url="" data-aftersaleid="0" data-showalipaypromise="true" data-shoppicurl="http://logo.taobaocdn.com/shop-logo/54/e6/T1GWrgXb4bXXb1upjX">
+                                                <div class="promise-info">
+                                                    <dl class="promise-nav">
+                                                        <dt class="highlight-extra-weight">卖家承诺：</dt>
+                                                        <dd class="highlight-extra-weight">凡使用支付宝服务付款购买本店商品，若存在质量问题或与描述不符，本店支持退换货服务并承担来回邮费！</dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                            <div class="J_TMDStaticMod" data-params="{&quot;type&quot;:&quot;afterSale&quot;,&quot;show7&quot;:true}">
+                                                <div class="server-container b-detail">
+                                                    <dl class="promise-server">
+                                                        <dt class="first-dt">
+                                                            <a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#ZPBZ" target="_blank"></a>
+                                                        </dt>
+                                                        <dd class="first-dd">
+                                                            <div>
+                                                                邻居在线的商家出售均为正品，承诺提供"正品保障"服务，一旦发现有出售假货及非原厂正品商品,买家可在交易成功后向邻居在线投诉商家并申请邻居在线使用商家保证金余额进行先行赔付。
+                                                            </div>
+                                                        </dd>
+                                                        <dt class="second-dt">
+                                                            <a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#TGFP" target="_blank"></a>
+                                                        </dt>
+                                                        <dd class="second-dd">
+                                                            <div>对于在邻居在线购物的买家均提供商品发票。</div>
+                                                        </dd>
+                                                        <dt class="third-dt">
+                                                            <a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#QTTH" target="_blank"></a>
+                                                        </dt>
+                                                        <dd class="split-end third-dd">
+                                                            <div>对于在邻居在线购物的买家提供"七天无理由退换货"的保障服务。</div>
+                                                        </dd>
+                                                    </dl>
+                                                </div>
+                                                <div class="tb-weiQuanBox">
+                                                    <h5>
+                                                        <b class="tb-title-cn"></b>
+                                                        邻居在线承诺
+                                                    </h5>
+                                                    <ol class="tb-chengNuo">
+                                                        <li>1、您付款之后，如果商家延迟发货，可以获得商品价格30%（不大于500元）的赔付金，
 														<a href=" " target="_blank">详见</a>
-													</li>
-													<li>2、邻居在线所有在售商品均支持7天无理由退货（不包含珠宝类和定制商品）；</li>
-													<li>3、邻居在线所有在售商品均开具正规发票；</li>
-													<li>4、邻居在线所售商品均为正品行货，如商家出售假货，支持假一赔三处理，并清退商家。</li>
-												</ol>
-												<h5>
-													<b class="tb-title-lc"></b>
-													维权服务发起流程
-												</h5>
-												<p class="tb-weiQuanLiuCheng">
-													<b></b>
-													购买商品出现问题-未确认收货-发起退款申请-邻居在线客服48小时内介入纠纷调解-退款成功；
-													<br>购买商品出现问题-已确认收货-发起维权申请-邻居在线客服48小时内介入纠纷调解-维权成功</p>
-												<h5>
-													<b class="tb-title-bz"></b>
-													退换货服务标准
-												</h5>
-												<dl class="tb-tuiBiaoZhun">
-													<dt>退换货基本条件：</dt>
-													<dd>对全部商品：</dd>
-													<dd>外包装完整，且不影响二次销售。一旦拆封无法复原商品不可退货（质量问题除外）。</dd>
-													<dd>若交易已完成，发现质量问题，请在交易完成后15天内进行退款申请。</dd>
-													<dd>退款时买家需将发票和赠品一起退回。</dd>
-													<dt>不可退换货特殊说明：</dt>
-													<dd>无质量问题且外包装已拆无法复原，影响二次销售。</dd>
-													<dd>为客户特殊定制的商品不支持7天无理由退换货。</dd>
-													<dd>人为刻意损害或不可抗力导致的损坏。</dd>
-													<dd>7天无理由退换货超过食用期限的商品。</dd>
-													<dd>非邻居在线店铺出售的商品或已超出退换货期限的商品（7天无理由退货以签收日为准起始7日之内）。</dd>
-													<dd>商品的图片及信息仅供参考。因拍摄灯光及不同显示器色差等问题可能造成商品图片与实物有细微色差。</dd>
-													<dt>退换货费用说明：</dt>
-													<dd>如果是买家原因退货，由买家自行承担退货费用。</dd>
-													<dd>如果是商品质量问题、描述不符而导致的退货，退货费用则应由店铺承担。</dd>
-													<dt>退货时可能涉及的证明：</dt>
-													<dd>购货发票以及赠品。</dd>
-													<dd>权威检验机构以及品牌所有者出具的鉴定报告或其他能够证明所购买商品为假货的凭证。</dd>
-													<dd>
-														旺旺聊天记录截图（在使用阿里旺旺与店铺沟通时，请事先在系统设置-聊天设置中选择“将我的消息记录保存到阿里旺旺服务器上”）。
-													</dd>
-													<dd>其他邻居在线需要双方出具的证明文件。</dd>
-												</dl>
-											</div>
-										</div>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="J_TMDStaticMod" data-params="{&quot;type&quot;:&quot;official&quot;,&quot;offline&quot;:&quot;&quot;}">
-							<div id="official-remind">
-								<dl class="tb-secu">
-									<dt>安全提示：</dt>
-									<dd>
-										<p>交易过程中请勿随意接收卖家发送的可疑文件，请勿点击不明来源的链接，付款前请务必详细核对支付信息。</p>
-										<p class="tm-secu clearfix">
-											<em>推荐安全软件：</em>
-											<span class="tm-secu-tb">邻居在线浏览器</span>
-											<span class="tm-secu-360">360网盾</span>
-											<span class="tm-secu-king">金山卫士</span>
-											<span class="tm-secu-sogou">搜狗浏览器</span>
-											<a href="" target="_blank">邻居在线网安全中心&gt;&gt;</a>
-										</p>
-									</dd>
-								</dl>
-								<dl class="tb-exemption">
-									<dt>免责声明：</dt>
-									<dd>
-										邻居在线所展示的宝贝供求信息由买卖双方自行提供，其真实性、准确性和合法性由信息发布人负责。邻居在线不提供任何保证，并不承担任何法律责任。邻居在线友情提醒：为保障您的利益，请网上成交，贵重宝贝，请使用支付宝交易。
-									</dd>
-								</dl>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sub tb-shop" id="ks-lazyload289">
-				<div class="J_TRegion">
-					<!-- tair resultCode=code=0, msg=success, tair key: tsa890482188, version: 1, cdate: 1970-01-01 08:00:00, mdate: 2013-03-14 04:54:05, edate: 2013-03-14 08:54:05,  -->
-					<div class="box J_TBox tshop-psm tshop-psm-ssa10b" id="side-shop-info">
-						<div class="shop-basic">
-							<div class="hd">
-								<h3>
-									<span>商家信息</span>
-								</h3>
-							</div>
-							<div class="bd">
-								<div class="shop-promise">
-									<p>
-										<img alt="邻居在线，品质保证" src="http://localhost:7525/Images/small_mcht_bar-175-35.png"></p>
-									<ul>
-										<li>
-											<a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#ZPBZ" target="_blank">正品保障</a>
-										</li>
-										<li>
-											<a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#TGFP" target="_blank">提供发票</a>
-										</li>
-										<li id="J_7day" class="last">
-											<a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#QTTH" target="_blank">七天退换</a>
-										</li>
-									</ul>
-								</div>
+                                                        </li>
+                                                        <li>2、邻居在线所有在售商品均支持7天无理由退货（不包含珠宝类和定制商品）；</li>
+                                                        <li>3、邻居在线所有在售商品均开具正规发票；</li>
+                                                        <li>4、邻居在线所售商品均为正品行货，如商家出售假货，支持假一赔三处理，并清退商家。</li>
+                                                    </ol>
+                                                    <h5>
+                                                        <b class="tb-title-lc"></b>
+                                                        维权服务发起流程
+                                                    </h5>
+                                                    <p class="tb-weiQuanLiuCheng">
+                                                        <b></b>
+                                                        购买商品出现问题-未确认收货-发起退款申请-邻居在线客服48小时内介入纠纷调解-退款成功；
+													<br>
+                                                        购买商品出现问题-已确认收货-发起维权申请-邻居在线客服48小时内介入纠纷调解-维权成功
+                                                    </p>
+                                                    <h5>
+                                                        <b class="tb-title-bz"></b>
+                                                        退换货服务标准
+                                                    </h5>
+                                                    <dl class="tb-tuiBiaoZhun">
+                                                        <dt>退换货基本条件：</dt>
+                                                        <dd>对全部商品：</dd>
+                                                        <dd>外包装完整，且不影响二次销售。一旦拆封无法复原商品不可退货（质量问题除外）。</dd>
+                                                        <dd>若交易已完成，发现质量问题，请在交易完成后15天内进行退款申请。</dd>
+                                                        <dd>退款时买家需将发票和赠品一起退回。</dd>
+                                                        <dt>不可退换货特殊说明：</dt>
+                                                        <dd>无质量问题且外包装已拆无法复原，影响二次销售。</dd>
+                                                        <dd>为客户特殊定制的商品不支持7天无理由退换货。</dd>
+                                                        <dd>人为刻意损害或不可抗力导致的损坏。</dd>
+                                                        <dd>7天无理由退换货超过食用期限的商品。</dd>
+                                                        <dd>非邻居在线店铺出售的商品或已超出退换货期限的商品（7天无理由退货以签收日为准起始7日之内）。</dd>
+                                                        <dd>商品的图片及信息仅供参考。因拍摄灯光及不同显示器色差等问题可能造成商品图片与实物有细微色差。</dd>
+                                                        <dt>退换货费用说明：</dt>
+                                                        <dd>如果是买家原因退货，由买家自行承担退货费用。</dd>
+                                                        <dd>如果是商品质量问题、描述不符而导致的退货，退货费用则应由店铺承担。</dd>
+                                                        <dt>退货时可能涉及的证明：</dt>
+                                                        <dd>购货发票以及赠品。</dd>
+                                                        <dd>权威检验机构以及品牌所有者出具的鉴定报告或其他能够证明所购买商品为假货的凭证。</dd>
+                                                        <dd>旺旺聊天记录截图（在使用阿里旺旺与店铺沟通时，请事先在系统设置-聊天设置中选择“将我的消息记录保存到阿里旺旺服务器上”）。
+                                                        </dd>
+                                                        <dd>其他邻居在线需要双方出具的证明文件。</dd>
+                                                    </dl>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="J_TMDStaticMod" data-params="{&quot;type&quot;:&quot;official&quot;,&quot;offline&quot;:&quot;&quot;}">
+                                <div id="official-remind">
+                                    <dl class="tb-secu">
+                                        <dt>安全提示：</dt>
+                                        <dd>
+                                            <p>交易过程中请勿随意接收卖家发送的可疑文件，请勿点击不明来源的链接，付款前请务必详细核对支付信息。</p>
+                                            <p class="tm-secu clearfix">
+                                                <em>推荐安全软件：</em>
+                                                <span class="tm-secu-tb">邻居在线浏览器</span>
+                                                <span class="tm-secu-360">360网盾</span>
+                                                <span class="tm-secu-king">金山卫士</span>
+                                                <span class="tm-secu-sogou">搜狗浏览器</span>
+                                                <a href="" target="_blank">邻居在线网安全中心&gt;&gt;</a>
+                                            </p>
+                                        </dd>
+                                    </dl>
+                                    <dl class="tb-exemption">
+                                        <dt>免责声明：</dt>
+                                        <dd>邻居在线所展示的宝贝供求信息由买卖双方自行提供，其真实性、准确性和合法性由信息发布人负责。邻居在线不提供任何保证，并不承担任何法律责任。邻居在线友情提醒：为保障您的利益，请网上成交，贵重宝贝，请使用支付宝交易。
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sub tb-shop" id="ks-lazyload289">
+                    <div class="J_TRegion">
+                        <!-- tair resultCode=code=0, msg=success, tair key: tsa890482188, version: 1, cdate: 1970-01-01 08:00:00, mdate: 2013-03-14 04:54:05, edate: 2013-03-14 08:54:05,  -->
+                        <div class="box J_TBox tshop-psm tshop-psm-ssa10b" id="side-shop-info">
+                            <div class="shop-basic">
+                                <div class="hd">
+                                    <h3>
+                                        <span>商家信息</span>
+                                    </h3>
+                                </div>
+                                <div class="bd">
+                                    <div class="shop-promise">
+                                        <p>
+                                            <img alt="邻居在线，品质保证" src="http://localhost:7525/Images/small_mcht_bar-175-35.png">
+                                        </p>
+                                        <ul>
+                                            <li>
+                                                <a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#ZPBZ" target="_blank">正品保障</a>
+                                            </li>
+                                            <li>
+                                                <a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#TGFP" target="_blank">提供发票</a>
+                                            </li>
+                                            <li id="J_7day" class="last">
+                                                <a href="http://localhost:7525/index.htmlgo/chn/mall2010/promise.php#QTTH" target="_blank">七天退换</a>
+                                            </li>
+                                        </ul>
+                                    </div>
 
-								<div class="shop-intro">
-									<div class="name">
-										<span>NIKE</span>
-									</div>
-									<div class="shop-rate">
-										<h4>
-											店铺动态评分
+                                    <div class="shop-intro">
+                                        <div class="name">
+                                            <span>NIKE</span>
+                                        </div>
+                                        <div class="shop-rate">
+                                            <h4>店铺动态评分
 											<span class="compare">与同行业相比</span>
-										</h4>
-										<ul>
-											<li>
-												描述相符：
+                                            </h4>
+                                            <ul>
+                                                <li>描述相符：
 												<a target="_blank" href=" ">
-													<em class="count" title="4.76132分">4.7</em>
-													<span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
-														<b>持平</b>
-														<em>--------</em>
-													</span>
-												</a>
-											</li>
-											<li>
-												服务态度：
+                                                    <em class="count" title="4.76132分">4.7</em>
+                                                    <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
+                                                        <b>持平</b>
+                                                        <em>--------</em>
+                                                    </span>
+                                                </a>
+                                                </li>
+                                                <li>服务态度：
 												<a target="_blank" href=" ">
-													<em class="count" title="4.74458分">4.7</em>
-													<span class="rateinfo" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
-														<b class="lower">低于</b>
-														<em class="lower">1.35%</em>
-													</span>
-												</a>
-											</li>
-											<li>
-												发货速度：
+                                                    <em class="count" title="4.74458分">4.7</em>
+                                                    <span class="rateinfo" title="计算规则:(同行业平均分-店铺得分)/(同行业平均分-同行业店铺最低得分)">
+                                                        <b class="lower">低于</b>
+                                                        <em class="lower">1.35%</em>
+                                                    </span>
+                                                </a>
+                                                </li>
+                                                <li>发货速度：
 												<a target="_blank" href=" ">
-													<em class="count" title="4.7673分">4.7</em>
-													<span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
-														<b>持平</b>
-														<em>--------</em>
-													</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-									<div class="extend">
-										<ul>
-											<li>
-												<label>公 司 名：</label>
-												上海宝尊电子商务有限公司
-											</li>
-											<li class="locus">
-												<label>所 在 地：</label>
-												上海
-											</li>
-											<li class="shopkeeper">
-												<label>商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
-												<a href=" ">nike</a>
-											</li>
-											<li>
-												<label>客&nbsp;&nbsp;&nbsp;&nbsp;服：</label>
-												<span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97" data-tnick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%89%A6%E5%BA%97" data-encode="true" data-display="inline">
-													<a href=" " target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
-														<span>旺旺在线</span>
-													</a>
-												</span>
-											</li>
-										</ul>
-									</div>
-									<div class="other">
-										<a class="enter" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id" title="进入掌柜的店铺" target="_blank">
-											<span style="display:none;">进入掌柜的店铺</span>
-										</a>
-										<a id="xshop_collection_href" href=" " mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496" class="J_TDialogTrigger J_PopupTrigger collection xshop_sc J_TokenSign" data-width="458" data-height="346" data-closebtn="true" style="width:84px">
-											<span>收藏本店铺</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+                                                    <em class="count" title="4.7673分">4.7</em>
+                                                    <span class="rateinfo" title=" 计算规则:(店铺得分-同行业平均分)/(同行业店铺最高得分-同行业平均分) ">
+                                                        <b>持平</b>
+                                                        <em>--------</em>
+                                                    </span>
+                                                </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="extend">
+                                            <ul>
+                                                <li>
+                                                    <label>公 司 名：</label>
+                                                    上海宝尊电子商务有限公司
+                                                </li>
+                                                <li class="locus">
+                                                    <label>所 在 地：</label>
+                                                    上海
+                                                </li>
+                                                <li class="shopkeeper">
+                                                    <label>商&nbsp;&nbsp;&nbsp;&nbsp;家：</label>
+                                                    <a href=" ">nike</a>
+                                                </li>
+                                                <li>
+                                                    <label>客&nbsp;&nbsp;&nbsp;&nbsp;服：</label>
+                                                    <span class="ww-light ww-large" data-nick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%88%B0%E5%BA%97" data-tnick="nike%E5%AE%98%E6%96%B9%E6%97%97%E8%89%A6%E5%BA%97" data-encode="true" data-display="inline">
+                                                        <a href=" " target="_blank" class="ww-inline ww-online" title="点此可以直接和卖家交流选好的宝贝，或相互交流网购体验，还支持语音视频噢。">
+                                                            <span>旺旺在线</span>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="other">
+                                            <a class="enter" href="http://localhost:7525/merchant/index?scid=@Model.Merchant.Id" title="进入掌柜的店铺" target="_blank">
+                                                <span style="display: none;">进入掌柜的店铺</span>
+                                            </a>
+                                            <a id="xshop_collection_href" href=" " mercury:params="id=71955116&amp;itemid=71955116&amp;itemtype=0&amp;ownerid=54e6f94343b5d2d647fdde8a93634496" class="J_TDialogTrigger J_PopupTrigger collection xshop_sc J_TokenSign" data-width="458" data-height="346" data-closebtn="true" style="width: 84px">
+                                                <span>收藏本店铺</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-				</div>
-				<div id="J_DcLeft" class="J_DcAsyn">
-					
-				</div>
-			</div>
-		</div>
-	</div>
+                    </div>
+                    <div id="J_DcLeft" class="J_DcAsyn">
+                    </div>
+                </div>
+            </div>
+        </div>
 
-	<div id="J_DcFt" class="J_DcAsyn">
-		
-	</div>
-</div>
+        <div id="J_DcFt" class="J_DcAsyn">
+        </div>
+    </div>
     <div id="footer">
-    <div id="mall-desc">
-        <dl id="ensure">
-        <dt><span>邻居保障</span></dt>
-        <dd>
-@*            <span><i></i>7天无理由退换货</span>
+        <div id="mall-desc">
+            <dl id="ensure">
+                <dt><span>邻居保障</span></dt>
+                <dd>
+                    @*            <span><i></i>7天无理由退换货</span>
             <span><i></i>提供发票</span>*@
-        </dd>
-    </dl>
-    <dl id="beginner">
-        <dt><span>新手上路</span></dt>
-        <dd>
-            <a href="http://localhost:7525/Account/register" target="_blank"><i></i>免费注册</a>
-@*            <a href="" target="_blank"><i></i>开通支付宝</a>
+                </dd>
+            </dl>
+            <dl id="beginner">
+                <dt><span>新手上路</span></dt>
+                <dd>
+                    <a href="http://localhost:7525/Account/register" target="_blank"><i></i>免费注册</a>
+                    @*            <a href="" target="_blank"><i></i>开通支付宝</a>
             <a href="" target="_blank"><i></i>支付宝充值</a>*@
-            <a href="http://localhost:7525/OtherPage/DataResource?secitonName=帮助中心" target=""><i></i>帮助中心</a>
-        </dd>
-    </dl>
-    <dl id="payment">
-            <dt><span>支付方式</span></dt>
-            <dd>
-                @*<a href="http://kuai.alipay.com/product/" target="_blank"><i></i>支付宝快捷支付</a>*@
-                <a href="" target="_blank"><i></i>货到付款</a>
-                @*<a href="" target="_blank"><i></i>网上银行支付</a>*@
-            </dd>
-        </dl>
+                    <a href="http://localhost:7525/OtherPage/DataResource?secitonName=帮助中心" target=""><i></i>帮助中心</a>
+                </dd>
+            </dl>
+            <dl id="payment">
+                <dt><span>支付方式</span></dt>
+                <dd>
+                    @*<a href="http://kuai.alipay.com/product/" target="_blank"><i></i>支付宝快捷支付</a>*@
+                    <a href="" target="_blank"><i></i>货到付款</a>
+                    @*<a href="" target="_blank"><i></i>网上银行支付</a>*@
+                </dd>
+            </dl>
 
-    <dl id="seller">
-        <dt><span>商家服务</span></dt>
-        <dd>
-           <a href="http://localhost:7525/weblogin/login.aspx" target="_blank" class="join"><i></i>商家入驻&gt;&gt;</a>
-           <a href="http://localhost:7525/weblogin/login.aspx" target="_blank"><i></i>商家中心</a>
-		@*<a href="" target="_blank"><i></i>智库</a>*@
-           <a href="http://localhost:7525/OtherPage/DataResource?secitonName=开铺规则" target="_blank"><i></i>开铺规则</a>
-        </dd>
-    </dl>
+            <dl id="seller">
+                <dt><span>商家服务</span></dt>
+                <dd>
+                    <a href="http://localhost:7525/weblogin/login.aspx" target="_blank" class="join"><i></i>商家入驻&gt;&gt;</a>
+                    <a href="http://localhost:7525/weblogin/login.aspx" target="_blank"><i></i>商家中心</a>
+                    @*<a href="" target="_blank"><i></i>智库</a>*@
+                    <a href="http://localhost:7525/OtherPage/DataResource?secitonName=开铺规则" target="_blank"><i></i>开铺规则</a>
+                </dd>
+            </dl>
             <script type="text/javascript">
                 $("#ensure dt span").attr("style", "background-position-x:0px;background-position-y:0px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
                 $("#beginner dt span").attr("style", "background-position-x:0px;background-position-y:-20px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
                 $("#payment dt span").attr("style", "background-position-x:0px;background-position-y:-40px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
                 $("#seller dt span").attr("style", "background-position-x:0px;background-position-y:-60px;display:block;font-family:微软雅黑;font-size:18px;font-style:normal;font-variant:normal;font-weight:500;height:25px;line-height:1.5;overflow:hidden;text-align:left;width:73px;text-indent:0;background-image:url('');");
-        </script>
-    <!--[if IE 6]><br /><![endif]-->
-    <h4 class="go-home"><a href="http://localhost:7525/index.html" target="_blank" title="返回首页">返回首页</a></h4>
-    </div>
-    <div id="copyright">
-        <!-- foot links from tms start -->
-    <p id="footer-Tmallinfo">
-        <a href=" " target="_blank">关于本站</a>
-        <a href=""  target="_blank">帮助中心</a>
-        <a href="" target="_blank">网站地图</a>
-        <a href=" " target="_blank">诚聘英才</a>
-        <a href=" " target="_blank">联系我们</a>
-        <a href=" " target="_blank">网站合作</a>
-        <a href="">版权说明</a>
-    </p>
-    <p id="footer-otherlink">
-	<a target="_blank" href="#">邻居在线集团</a>@*：	
-      邻居在线网络 - <a target="_blank" href=" ">中国站</a> <a target="_blank" href=" ">国际站</a>*@ 
-    @*  <a target="_blank" href="">全球速卖通</a> <a target="_blank" href="">日文站</a> | *@
-	@*<a target="_blank" href=" ">邻居在线网</a> | *@
-@*	<a target="_blank" href=" ">邻居网</a> |
+            </script>
+            <!--[if IE 6]><br /><![endif]-->
+            <h4 class="go-home"><a href="http://localhost:7525/index.html" target="_blank" title="返回首页">返回首页</a></h4>
+        </div>
+        <div id="copyright">
+            <!-- foot links from tms start -->
+            <p id="footer-Tmallinfo">
+                <a href=" " target="_blank">关于本站</a>
+                <a href="" target="_blank">帮助中心</a>
+                <a href="" target="_blank">网站地图</a>
+                <a href=" " target="_blank">诚聘英才</a>
+                <a href=" " target="_blank">联系我们</a>
+                <a href=" " target="_blank">网站合作</a>
+                <a href="">版权说明</a>
+            </p>
+            <p id="footer-otherlink">
+                <a target="_blank" href="#">邻居在线集团</a>@*：	
+      邻居在线网络 - <a target="_blank" href=" ">中国站</a> <a target="_blank" href=" ">国际站</a>*@
+                @*  <a target="_blank" href="">全球速卖通</a> <a target="_blank" href="">日文站</a> | *@
+                @*<a target="_blank" href=" ">邻居在线网</a> | *@
+                @*	<a target="_blank" href=" ">邻居网</a> |
 	<a target="_blank" href=" ">聚划算</a> |
 	<a target="_blank" href="http://www.alipay.com/">支付宝</a> | 
 	<a target="_blank" href="http://www.yahoo.com.cn/">中国雅虎</a> | 
@@ -1061,21 +1059,27 @@
         <a target="_blank" href=" ">集团研究中心</a> |
         <a href=" " target="_blank">邻居在线天下</a> | 
         <a href="" target="_blank">邻居网</a> *@
-    </p>
-    <p>Copyright&nbsp;2003-2013, 版权所有邻居在线.COM <br>
-    增值电信业务经营许可证：重B2-20110446<br>网络文化经营许可证：
+            </p>
+            <p>
+                Copyright&nbsp;2003-2013, 版权所有邻居在线.COM
+                <br>
+                增值电信业务经营许可证：重B2-20110446<br>
+                网络文化经营许可证：
     <a href="" target="_blank">重网文[2012]0234-028号</a>
-    <br>互联网医疗保健信息服务 审核同意书 重 卫网审【2012】6号
-    <br>互联网药品信息服务资质证书编号：重-（经营性）-2012-0005</p>
-        <!-- foot links from tms end -->
-    </div>
+                <br>
+                互联网医疗保健信息服务 审核同意书 重 卫网审【2012】6号
+    <br>
+                互联网药品信息服务资质证书编号：重-（经营性）-2012-0005
+            </p>
+            <!-- foot links from tms end -->
+        </div>
         <div id="server-num">版本V0.81</div>
-</div>
+    </div>
 </body>
 </html>
 <script type="text/javascript">
     TShop.initFoot({});
 </script>
-						    <script type="text/javascript">
-						        //debugger
-                            </script>
+<script type="text/javascript">
+    //debugger
+</script>

@@ -22,5 +22,6 @@ namespace friday.core.repositories
         List<Commodity> GetCommodityByGoodsTypeAndSchoolID(string goodsTypeId, string schoolID);
         List<Commodity> GetCommodityBySchoolID(string schoolID);
         IList<Commodity> GetCommodityByType(string page, double price1, double price2, int start, int limit, out int total, string sort,friday.core.EnumType.MerchantTypeEnum type);
+        IList<Commodity> GetCommodityByShopIDAndKeywordAndPriceAndType(string shopID, string page, string keyword, double price1, double price2, int start, int limit, out int total, string sort, string goodType);
     }
 }

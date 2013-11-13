@@ -6,10 +6,11 @@
 @*<html class="ks-webkit537 ks-webkit ks-chrome26 ks-chrome">*@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta charset="gbk" />
-        <title>确认订单 - 邻居在线</title>
-        <script>            window.g_config = { appId: 15, toolbar: false }; g_hb_monitor_st = +new Date;</script>
+<head>
+    <meta charset="gbk" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <title>确认订单 - 邻居在线</title>
+    <script>            window.g_config = { appId: 15, toolbar: false }; g_hb_monitor_st = +new Date;</script>
     <link rel="stylesheet" href=@Url.Content("/p/c2c/header-top-min.css") />
     <link rel="stylesheet" href=@Url.Content("/sys/p4p/css/p4pthemes.css") />
     <link rel="stylesheet" href=@Url.Content("/tbra/2.0/tbsp.css") />
@@ -26,138 +27,153 @@
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
     <script src="@Url.Content("/p/mall/base/header-v2.js")"></script>
     <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
-        <!-- start vmc css-extra 3.1 -->
-<!-- end vmc css-extra 3.1 -->
-    		            <!-- start vmc css-global 3.1-->
-@*<link rel="stylesheet" href="http://a.tbcdn.cn/??p/mall/base/global-v2.css,tbra/2.0/tbsp.css,p/mall/base/header-v2.css?t=20121024.css"/>*@<!-- end vmc css-global 3.1-->
-<!-- start vmc js-global 3.1 -->
+    <!-- start vmc css-extra 3.1 -->
+    <!-- end vmc css-extra 3.1 -->
+    <!-- start vmc css-global 3.1-->
+    @*<link rel="stylesheet" href="http://a.tbcdn.cn/??p/mall/base/global-v2.css,tbra/2.0/tbsp.css,p/mall/base/header-v2.css?t=20121024.css"/>*@<!-- end vmc css-global 3.1-->
+    <!-- start vmc js-global 3.1 -->
 
-        @*<script src="http://a.tbcdn.cn/??s/kissy/1.3.0/kissy-min.js,apps/tmall/tml/1.0/tml/tml-min.js,p/mall/base/global-v2.js,p/mall/base/header-v2.js,s/kissy/1.3.0/suggest-min.js?t=20121022.js"></script>*@
+    @*<script src="http://a.tbcdn.cn/??s/kissy/1.3.0/kissy-min.js,apps/tmall/tml/1.0/tml/tml-min.js,p/mall/base/global-v2.js,p/mall/base/header-v2.js,s/kissy/1.3.0/suggest-min.js?t=20121022.js"></script>*@
     <!-- end vmc js-global 3.1 -->
 
 
-<script>    siteStyle = 'tm';</script>
+    <script>    siteStyle = 'tm';</script>
 
-                @*<link rel="stylesheet" href="http://a.tbcdn.cn/t/buy/order/1.0.11/css/??base.css,core.css,addr.css,order.css,checkbar.css" />*@
-                <meta name="spm-id" content="a220l.1"/>
-        <base target="_blank" />
-    </head>
-    <body><script type="text/javascript">
-              (function (d) {
-                  var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
-                  t.setAttribute("exparams", "category=&userid=123072695&aplus&at_topshop=199351217&");
-                  //t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
-                  t.src = "http://localhost:7525/s/aplus_v2.js";
-                  d.getElementsByTagName("head")[0].appendChild(t);
-              })(document);
-</script>
-        <!-- start vmc 3.1 -->
+    @*<link rel="stylesheet" href="http://a.tbcdn.cn/t/buy/order/1.0.11/css/??base.css,core.css,addr.css,order.css,checkbar.css" />*@
+    <meta name="spm-id" content="a220l.1" />
+    <base target="_blank" />
+</head>
+<body>
+    <script type="text/javascript">
+        (function (d) {
+            var t = d.createElement("script"); t.type = "text/javascript"; t.async = true; t.id = "tb-beacon-aplus";
+            t.setAttribute("exparams", "category=&userid=123072695&aplus&at_topshop=199351217&");
+            //t.src = ("https:" == d.location.protocol ? "https://s" : "http://a") + ".tbcdn.cn/s/aplus_v2.js";
+            t.src = "http://localhost:7525/s/aplus_v2.js";
+            d.getElementsByTagName("head")[0].appendChild(t);
+        })(document);
+    </script>
+    <!-- start vmc 3.1 -->
     @Html.Partial("_SiteNav")
     @Html.Partial("_Header")
-        <div id="page">
-            
-            <!-- system-announce -->
-<script>
-    TB.use("mod~global", function () {
-        if (TB && TB.Global && TB.Global.init) {
-            TB.Global.init();
-        }
-    });
-</script>
+    <div id="page">
 
-    <script>        window.g_config = window.g_config || {}; window.g_config.globalScriptTimeStamp = 20130608</script>
+        <!-- system-announce -->
+        <script>
+            TB.use("mod~global", function () {
+                if (TB && TB.Global && TB.Global.init) {
+                    TB.Global.init();
+                }
+            });
+        </script>
 
-            <div id="content" class="tpl-order">
-    <div class="flowstep" id="J_Flowstep">
-                    <ol class="flowstep-4">
-            <li class="step-first"><div class="step-done"><div class="step-name">拍下商品</div><div class="step-no"></div></div></li>
-            <li><div class="step-name">填写信息</div><div class="step-no">2</div></li>
-            <li><div class="step-name">确认订单</div><div class="step-no">3</div></li>
-            <li class="step-last"><div class="step-name">货到付款</div><div class="step-no">4</div></li>
-        </ol>
-         </div>
-    <div id="J_addresses" class="addresses"></div>
-    <form id="J_orderForm"  method="post" target="_self">
-        <input type="hidden" id="F_buyParam"  name="buy_params" value='23440068628_1_26748389241'/>
-<input type="hidden" id="F_cartId" name="cartIds" value=''/>
-<input type="hidden" id="F_deliveryCityCode" value='0'/>
-<input type="hidden" id="F_deliveryZoneCode" value='0'/>
-<input type="hidden" id="F_combo" name="combo" value=''/>
-<input type="hidden" id="F_mealId" name="mealId" value='' />
-<input type="hidden" id="F_delCartIds" name="delCartIds" value=''/>
-<input type="hidden" id="F_activity" name="activity" value=''/>
-<input type="hidden" id="F_hex" name="hex" value=''/>
-<input type="hidden" name="neoEtaoParam" id="F_neoEtaoParam"/>
-<input type="hidden" id="F_jhsKey" name="jhs_key" value=""/>
-<input type="hidden" id="F_tb_token" name="_tb_token_" value="WZYxUCPcVFkS" />
-<input type="hidden" id="F_action" name="action" value="/order/confirmOrderAction" />
-<input type="hidden" id="F_doConfirm" name="event_submit_do_confirm" value="1" />
-<input type="hidden" id="F_secret" name="encryptString" />
-<input type="hidden" id="F_cartItems" name="cart_items" />
-<input type="hidden" id="F_isCod" name="use_cod" value='false' />
-<input type="hidden" id="F_isCheckCode" name="isCheckCode" value="false"/>
-<input type="hidden" id="F_encrypterString" name="encrypterString" />
-<input type="hidden" id="F_sid" name="sid" />
-<input type="hidden" id="F_time" name="gmtCreate" />
-<input type="hidden" id="F_checkCodeUrl" value="http://buy.tmall.com/order/check_code.htm"/>
-<input type="hidden" id="F_sourceCss" name="sourceCss" value="tmall" />
-<input type="hidden" id="F_coref" name="coref" value="detail.tmall.com" />
-<input type="hidden" id="F_dref" name="dref" value=''/>
-<input type="hidden" id="F_deliveryId" name="deliverId" />
-<input type="hidden" id="F_globalExtraParameter" name="global_extra_parameter" value="{}" />
-<input type="hidden" id="F_totalFee" name="total_fee" />
-<input type="hidden" name="source" value="tmall"/>
-<input type="hidden" id="F_deliveryName" name="deliverName" />
-<input type="hidden" id="F_deliveryMobile" name="deliverMobile" />
-<input type="hidden" id="F_deliveryCode" name="deliverCode" />
-<input type="hidden" id="F_deliveryAddr" name="deliverAddr" />
-<input type="hidden" id="F_deliveryPostCode" name="postCode" />
-<input type="hidden" id="F_lgStationId" name="lgStationId"/>
-<input type="hidden" id="F_lgForwardId" name="lgForwardId"/>
-<input type="hidden"  name="t" value="" />
-<input type="hidden"  name="w" value="" />
-<input type="hidden"  name="msid" value='' />
-        <div id="J_orders"></div>
-        <div id="J_checkbar" class="checkbar"></div>
-        <div id="J_unvalids" class="unvalid-order"></div>
-    </form>
-</div>
+        <script>        window.g_config = window.g_config || {}; window.g_config.globalScriptTimeStamp = 20130608</script>
 
-@Html.Partial("_OrderScript")  
+        <div id="content" class="tpl-order">
+            <div class="flowstep" id="J_Flowstep">
+                <ol class="flowstep-4">
+                    <li class="step-first">
+                        <div class="step-done">
+                            <div class="step-name">拍下商品</div>
+                            <div class="step-no"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-name">填写信息</div>
+                        <div class="step-no">2</div>
+                    </li>
+                    <li>
+                        <div class="step-name">确认订单</div>
+                        <div class="step-no">3</div>
+                    </li>
+                    <li class="step-last">
+                        <div class="step-name">货到付款</div>
+                        <div class="step-no">4</div>
+                    </li>
+                </ol>
+            </div>
+            <div id="J_addresses" class="addresses"></div>
+            <form id="J_orderForm" method="post" target="_self">
+                <input type="hidden" id="F_buyParam" name="buy_params" value='23440068628_1_26748389241' />
+                <input type="hidden" id="F_cartId" name="cartIds" value='' />
+                <input type="hidden" id="F_deliveryCityCode" value='0' />
+                <input type="hidden" id="F_deliveryZoneCode" value='0' />
+                <input type="hidden" id="F_combo" name="combo" value='' />
+                <input type="hidden" id="F_mealId" name="mealId" value='' />
+                <input type="hidden" id="F_delCartIds" name="delCartIds" value='' />
+                <input type="hidden" id="F_activity" name="activity" value='' />
+                <input type="hidden" id="F_hex" name="hex" value='' />
+                <input type="hidden" name="neoEtaoParam" id="F_neoEtaoParam" />
+                <input type="hidden" id="F_jhsKey" name="jhs_key" value="" />
+                <input type="hidden" id="F_tb_token" name="_tb_token_" value="WZYxUCPcVFkS" />
+                <input type="hidden" id="F_action" name="action" value="/order/confirmOrderAction" />
+                <input type="hidden" id="F_doConfirm" name="event_submit_do_confirm" value="1" />
+                <input type="hidden" id="F_secret" name="encryptString" />
+                <input type="hidden" id="F_cartItems" name="cart_items" />
+                <input type="hidden" id="F_isCod" name="use_cod" value='false' />
+                <input type="hidden" id="F_isCheckCode" name="isCheckCode" value="false" />
+                <input type="hidden" id="F_encrypterString" name="encrypterString" />
+                <input type="hidden" id="F_sid" name="sid" />
+                <input type="hidden" id="F_time" name="gmtCreate" />
+                <input type="hidden" id="F_checkCodeUrl" value="http://buy.tmall.com/order/check_code.htm" />
+                <input type="hidden" id="F_sourceCss" name="sourceCss" value="tmall" />
+                <input type="hidden" id="F_coref" name="coref" value="detail.tmall.com" />
+                <input type="hidden" id="F_dref" name="dref" value='' />
+                <input type="hidden" id="F_deliveryId" name="deliverId" />
+                <input type="hidden" id="F_globalExtraParameter" name="global_extra_parameter" value="{}" />
+                <input type="hidden" id="F_totalFee" name="total_fee" />
+                <input type="hidden" name="source" value="tmall" />
+                <input type="hidden" id="F_deliveryName" name="deliverName" />
+                <input type="hidden" id="F_deliveryMobile" name="deliverMobile" />
+                <input type="hidden" id="F_deliveryCode" name="deliverCode" />
+                <input type="hidden" id="F_deliveryAddr" name="deliverAddr" />
+                <input type="hidden" id="F_deliveryPostCode" name="postCode" />
+                <input type="hidden" id="F_lgStationId" name="lgStationId" />
+                <input type="hidden" id="F_lgForwardId" name="lgForwardId" />
+                <input type="hidden" name="t" value="" />
+                <input type="hidden" name="w" value="" />
+                <input type="hidden" name="msid" value='' />
+                <div id="J_orders"></div>
+                <div id="J_checkbar" class="checkbar"></div>
+                <div id="J_unvalids" class="unvalid-order"></div>
+            </form>
+        </div>
 
-<script src="@Url.Content("/t/buy/order/1.0.11/app.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/model.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/render/common.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/render/core.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/render/order.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/addr.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/amount.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/checkcode.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/coupon.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/go.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/insure.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/invoice.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/mmstat.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/paytype.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/point.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/postage.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/promo.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/service.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/shoppromo.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/biz/wrt.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util/counter.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util/feedback.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util/gracetip.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util/inputmask.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util/popup.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/util/select.js")"></script>
-<script src="@Url.Content("/t/buy/order/1.0.11/init.js")"></script>
-@*<script src="http://a.tbcdn.cn/t/buy/order/1.0.11/??app.js,util.js,model.js,render/common.js,render/core.js,render/order.js,biz/addr.js,biz/amount.js,biz/checkcode.js,biz/coupon.js,biz/go.js,biz/insure.js,biz/invoice.js,biz/mmstat.js,biz/paytype.js,biz/point.js,biz/postage.js,biz/promo.js,biz/service.js,biz/shoppromo.js,biz/wrt.js,util/counter.js,util/feedback.js,util/gracetip.js,util/inputmask.js,util/popup.js,util/select.js,init.js"></script>*@
-<textarea id="fenqi-pic" style="display:none"><div class="fenqi-description"><img src="http://img02.taobaocdn.com/tps/i2/T1aJp2XBFcXXaeTqgS-770-75.png"/></div></textarea>
+        @Html.Partial("_OrderScript")
+
+        <script src="@Url.Content("/t/buy/order/1.0.11/app.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/model.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/render/common.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/render/core.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/render/order.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/addr.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/amount.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/checkcode.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/coupon.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/go.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/insure.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/invoice.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/mmstat.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/paytype.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/point.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/postage.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/promo.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/service.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/shoppromo.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/biz/wrt.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util/counter.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util/feedback.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util/gracetip.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util/inputmask.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util/popup.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/util/select.js")"></script>
+        <script src="@Url.Content("/t/buy/order/1.0.11/init.js")"></script>
+        @*<script src="http://a.tbcdn.cn/t/buy/order/1.0.11/??app.js,util.js,model.js,render/common.js,render/core.js,render/order.js,biz/addr.js,biz/amount.js,biz/checkcode.js,biz/coupon.js,biz/go.js,biz/insure.js,biz/invoice.js,biz/mmstat.js,biz/paytype.js,biz/point.js,biz/postage.js,biz/promo.js,biz/service.js,biz/shoppromo.js,biz/wrt.js,util/counter.js,util/feedback.js,util/gracetip.js,util/inputmask.js,util/popup.js,util/select.js,init.js"></script>*@
+        <textarea id="fenqi-pic" style="display: none"><div class="fenqi-description"><img src="http://img02.taobaocdn.com/tps/i2/T1aJp2XBFcXXaeTqgS-770-75.png"/></div></textarea>
 
         @Html.Partial("_Footer")
-<!-- foot script -->
-        </div>
-    </body>
+        <!-- foot script -->
+    </div>
+</body>
 </html>

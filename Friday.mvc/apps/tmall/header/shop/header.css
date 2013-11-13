@@ -1,90 +1,549 @@
-﻿#sn-bd,#mallCate-bd{width:950px;}
-#mallCate #mallCate-bd li{margin-left:25px;}
-.sn-mcate-bd .sn-mcate-ctn-con{width:950px;background-position:-268px 5px;}
-.sn-mcate-bd .sn-mcate-ctn li{padding-right:0;}
-#mallLogo .mlogo s,#mallLogo .slogo,.mcate-hd i,.headerPromise li a,#tmallSearch button,#tmallSearch button:hover,#footer,#mall-desc i,#mall-desc dt span,#mall-desc .go-home{background:url(http://localhost:7525/Images/tmall_official-191-240.png) no-repeat;}
-.hidden{display:none;}
-.clearfix{*zoom:1;}
-.clearfix:after{content:'\20';display:block;height:0;clear:both;}
-#header,#footer{margin-left:0!important;margin-right:0!important;min-width:950px;padding-left:0!important;padding-right:0!important;width:auto!important;}
-#header{background:#015ca3!important;margin-top:-30px!important;}
-#headerCon,.headerNav-con{width:950px!important;margin:0 auto;}
-#mall-desc,#copyright{width:990px!important;margin:0 auto;}
-.headerNav{background:#015ca3;height:40px;}
-.headerCrumb{position:relative;width:350px;height:30px;overflow:hidden;left:0;top:5px;}
-.headerPromise{position:absolute;right:0;top:10px;color:#fff;}
-.headerPromise li{float:left;margin-left:15px;height:25px;width:30px;}
-.headerPromise li a{display:block;float:left;height:25px;width:30px;line-height:10000px;overflow:hidden;}
-.headerPromise .hPicon1 a{background-position:-160px -34px;}
-.headerPromise .hPicon2 a{background-position:-160px -64px;}
-.headerPromise .hPicon3 a{background-position:-155px -94px;}
-#headerCon{padding-top:30px;height:63px;}
-.headerNav-con{height:40px;position:relative;width:990px;margin:0 auto;}
-#mallLogo{float:left;padding-top:12px;position:relative;}
-#mallLogo .mlogo,#mallLogo .slogo{float:left;}
-#mallLogo a{position:relative;display:block;color:#fff;text-indent:0!important;}
-.hasSubLogo #mallLogo a:hover{text-decoration:none;border-bottom:2px solid #fff;}
-#mallLogo .mlogo{padding-right:7px;}
-#mallLogo .mlogo a{height:30px;font-size:22px!important;width:170px;overflow:hidden;}
-#mallLogo .mlogo s{background-image:url(http://localhost:7525/Images/tmall_official-191-240.png)!important;position:absolute;display:block;top:0;cursor:pointer;background-position:0 0!important;height:30px!important;width:170px!important;}
-#mallLogo .slogo{padding-top:8px;padding-left:17px;background-position:-174px -1px;}
-#mallLogo .slogo a{font-family:'Lucida Grande','\5fae\8f6f\96c5\9ed1';font-size:15px;height:22px;line-height:22px;overflow:hidden; }
-#tmallSearch{float:right;width:510px;padding-top:11px;}
-#tmallSearch legend{display:none;}
-#tmallSearch fieldset{position:relative;}
-#tmallSearch .mallSearch-input{background:#fff;border-radius:2px;height:30px;position:relative;margin-left:0;}
-#tmallSearch label{visibility:hidden;color:#666;font-size:12px;line-height:28px;height:28px;position:absolute;left:8px;top:0;+top:1px;_top:2px;z-index:1;}
-#tmallSearch #mq{color:#000;margin:0;position:absolute;left:0;z-index:2;width:380px;height:20px;line-height:20px;padding:4px 3px 4px 5px;border:none;border-radius:2px 0 0 2px;border:1px solid #7f6b60;font-weight:900;background:url("data:image/gif;base64,R0lGODlhAQADAJEAAObm5t3d3ff39wAAACH5BAAAAAAALAAAAAABAAMAAAICDFQAOw==") repeat-x scroll 0 0 transparent;}
-#tmallSearch button{float:right;width:60px;border:0;font-size:12px;font-weight:bold;cursor:pointer;color:#fff;background-color:#462824;background-position:0 -91px;line-height:30px\9;padding-bottom:3px;padding-bottom:0\9;height:30px;overflow:hidden;}
-#tmallSearch button:hover{background-color:#866150;background-position:0 -121px;}
-button::-moz-focus-inner{border:0;padding:0;margin:0;}
-#tmallSearch .currShopBtn{background-position:-60px -91px;}
-#tmallSearch .currShopBtn:hover{background-position:-60px -121px;}
-.mall-suggest-container ol li{list-style:none;height:23px;line-height:23px;color:#000;}
-.mall-suggest-container ol .ks-suggest-key{padding-left:10px;}
-.mall-suggest-container .ks-suggest-cate{color:#7e7e7e;padding-left:10px;}
-.mall-suggest-container .ks-suggest-cate b{font-weight:bold;}
-.mall-suggest-container ol .ks-selected{background-color:#b10000;}
-.mall-suggest-container ol .ks-selected em{color:#fff;}
-.mall-suggest-container .ks-suggest-footer{padding:0;}
-.mallSearch-tip p{font-family:\5B8B\4F53;height:30px;line-height:30px;margin-top:1px;padding:0 10px;background:#efeceb;}
-.mallSearch-tip span{display:block;overflow:hidden;height:100%;color:#000;cursor:pointer;}
-.mallSearch-tip b{font-family:Arial;display:inline-block;vertical-align:middle;max-width:300px;text-overflow:ellipsis;-o-text-overflow:ellipsis;-moz-text-overflow:ellipsis;white-space:nowrap;overflow:hidden;}
-.mallSearch-tip em{margin:0 5px;font-weight:bold;color:#b10000;}
-#mallCate{display:none!important;}
-#mall-desc .propose i{background-position:-156px -86px;margin-right:.1em;display:inline-block;height:16px;overflow:hidden;vertical-align:text-bottom;width:16px;}
-#mall-desc dt span{display:block;height:19px;width:73px;text-indent:-999em;overflow:hidden;}
-#ensure dt span{background-position:0 -154px;}
-#beginner dt span{background-position:0 -174px;}
-#payment dt span{background-position:0 -195px;}
-#seller dt span{background-position:0 -215px;}
-#mall-desc{position:relative;margin-bottom:25px;text-align:left;zoom:1;}
-#mall-desc:after{content:"";display:block;clear:both;height:0;}
-#mall-desc dl{float:left;width:220px;}
-#mall-desc dl#payment{margin-left:145px;_display:inline;}
-#mall-desc dl#seller{float:right;width:180px;}
-#mall-desc dt{margin:0 40px 6px 0;padding-bottom:4px;border-bottom:1px solid #E2E2E2;}
-#mall-desc dl#seller dt{margin-right:0;}
-#mall-desc dd{margin-right:40px;}
-#mall-desc dl a,#mall-desc dl dd span{display:block;height:22px;line-height:1.8;color:#666;white-space:nowrap;}
-#mall-desc dl i{display:inline-block;width:16px;height:16px;vertical-align:text-bottom;overflow:hidden;background-position:-157px -218px;}
-#mall-desc .propose{clear:both;padding:0 0 8px 10px;border-bottom:1px solid #E6E6E6;text-align:left;}
-#ensure .seal{float:right;margin:-20px 10px 0 0;}
-#mall-desc .propose a,#mall-desc .join{color:#36c;}
-#mall-desc .go-home{position:absolute;left:50%;top:18px;margin-left:-74px;height:81px;width:82px;overflow:hidden;line-height:999px;background-position:-74px -154px;}
-#mall-desc .go-home a{display:block;}
-#footer{border-top:1px solid #D1D7DC;clear:both;margin:10px auto;text-align:center;padding-top:15px;background-position:0 -235px;background-repeat:repeat-x;background:#fff;position:relative;}
-#footer p{padding:5px 0;}
-#footer p strong{font-weight:normal;}
-#footer p a{margin-right:3px;color:#36c;}
-#server-num,#footer .server-num{color:#fff;font-size:11px;}
-.mallSearch-form{background-color:#980101!important;border:none!important;}
-.mallSearch-tip{height:auto!important;padding:0!important;}
-.quickSearchTip{height:30px;line-height:30px;color:#666;}
-.quickSearchTip i,.quickSearchTip em{background:white url(http://img03.taobaocdn.com/tps/i3/T1DGAyXahbXXXo2eDk-59-24.png) no-repeat;}
-.quickSearchTip i{display:block;float:left;width:23px;height:22px;margin-left:5px;background-position:-40px 5px;}
-.quickSearchTip em{color:#000;display:inline-block;height:23px;line-height:23px;width:35px;margin:0 3px;font-weight:bold;text-align:center;}
-.w990 #sn-bd,.w990 #headerCon,.w990 .headerNav-con{width:990px!important;}
-.w990 #header{min-width:990px;}
-.w990 #tmallSearch{width:550px;}
-.w990 #tmallSearch #mq{width:420px;}
+﻿#sn-bd, #mallCate-bd {
+    width: 950px;
+}
+
+#mallCate #mallCate-bd li {
+    margin-left: 25px;
+}
+
+.sn-mcate-bd .sn-mcate-ctn-con {
+    width: 950px;
+    background-position: -268px 5px;
+}
+
+.sn-mcate-bd .sn-mcate-ctn li {
+    padding-right: 0;
+}
+
+#mallLogo .mlogo s, #mallLogo .slogo, .mcate-hd i, .headerPromise li a, #tmallSearch button, #tmallSearch button:hover, #footer, #mall-desc i, #mall-desc dt span, #mall-desc .go-home {
+    background: url(http://localhost:7525/Images/tmall_official-191-240.png) no-repeat;
+}
+
+.hidden {
+    display: none;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+    .clearfix:after {
+        content: '\20';
+        display: block;
+        height: 0;
+        clear: both;
+    }
+
+#header, #footer {
+    margin-left: 0!important;
+    margin-right: 0!important;
+    min-width: 950px;
+    padding-left: 0!important;
+    padding-right: 0!important;
+    width: auto!important;
+}
+
+#header {
+    background-image: url(http://localhost:7525//images/tmallhead.gif);
+    margin-top: -30px!important;
+}
+
+#headerCon, .headerNav-con {
+    width: 950px!important;
+    margin: 0 auto;
+}
+
+#mall-desc, #copyright {
+    width: 990px!important;
+    margin: 0 auto;
+}
+
+.headerNav {
+    height: 40px;
+}
+
+.headerCrumb {
+    position: relative;
+    width: 350px;
+    height: 30px;
+    overflow: hidden;
+    left: 0;
+    top: 5px;
+}
+
+.headerPromise {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    color: #fff;
+}
+
+    .headerPromise li {
+        float: left;
+        margin-left: 15px;
+        height: 25px;
+        width: 30px;
+    }
+
+        .headerPromise li a {
+            display: block;
+            float: left;
+            height: 25px;
+            width: 30px;
+            line-height: 10000px;
+            overflow: hidden;
+        }
+
+    .headerPromise .hPicon1 a {
+        background-position: -160px -34px;
+    }
+
+    .headerPromise .hPicon2 a {
+        background-position: -160px -64px;
+    }
+
+    .headerPromise .hPicon3 a {
+        background-position: -155px -94px;
+    }
+
+#headerCon {
+    padding-top: 30px;
+    height: 63px;
+}
+
+.headerNav-con {
+    height: 40px;
+    position: relative;
+    width: 990px;
+    margin: 0 auto;
+}
+
+#mallLogo {
+    float: left;
+    padding-top: 12px;
+    position: relative;
+}
+
+    #mallLogo .mlogo, #mallLogo .slogo {
+        float: left;
+    }
+
+    #mallLogo a {
+        position: relative;
+        display: block;
+        color: #fff;
+        text-indent: 0!important;
+    }
+
+.hasSubLogo #mallLogo a:hover {
+    text-decoration: none;
+    border-bottom: 2px solid #fff;
+}
+
+#mallLogo .mlogo {
+    padding-right: 7px;
+}
+
+    #mallLogo .mlogo a {
+        height: 30px;
+        font-size: 22px!important;
+        width: 170px;
+        overflow: hidden;
+    }
+
+    #mallLogo .mlogo s {
+        background-image: url(http://localhost:7525/Images/TmallMchtHeader-189-26.png)!important;
+        position: absolute;
+        display: block;
+        top: 0;
+        cursor: pointer;
+        background-position: 0 0!important;
+        height: 30px!important;
+        width: 170px!important;
+    }
+
+#mallLogo .slogo {
+    padding-top: 8px;
+    padding-left: 17px;
+    background-position: -174px -1px;
+}
+
+    #mallLogo .slogo a {
+        font-family: 'Lucida Grande','\5fae\8f6f\96c5\9ed1';
+        font-size: 15px;
+        height: 22px;
+        line-height: 22px;
+        overflow: hidden;
+    }
+
+#tmallSearch {
+    float: right;
+    width: 510px;
+    padding-top: 11px;
+}
+
+    #tmallSearch legend {
+        display: none;
+    }
+
+    #tmallSearch fieldset {
+        position: relative;
+    }
+
+    #tmallSearch .mallSearch-input {
+        background: #fff;
+        border-radius: 2px;
+        height: 30px;
+        position: relative;
+        margin-left: 0;
+    }
+
+    #tmallSearch label {
+        visibility: hidden;
+        color: #666;
+        font-size: 12px;
+        line-height: 28px;
+        height: 28px;
+        position: absolute;
+        left: 8px;
+        top: 0;
+        +top:1px;
+        _top: 2px;
+        z-index: 1;
+    }
+
+    #tmallSearch #mq {
+        color: #000;
+        margin: 0;
+        position: absolute;
+        left: 0;
+        z-index: 2;
+        width: 380px;
+        height: 20px;
+        line-height: 20px;
+        padding: 4px 3px 4px 5px;
+        border: none;
+        border-radius: 2px 0 0 2px;
+        border: 1px solid #7f6b60;
+        font-weight: 900;
+        background: url("data:image/gif;base64,R0lGODlhAQADAJEAAObm5t3d3ff39wAAACH5BAAAAAAALAAAAAABAAMAAAICDFQAOw==") repeat-x scroll 0 0 transparent;
+    }
+
+    #tmallSearch button {
+        float: right;
+        width: 60px;
+        border: 0;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #fff;
+        background-color: #462824;
+        background-position: 0 -91px;
+        line-height: 30px\9;
+        padding-bottom: 3px;
+        padding-bottom: 0\9;
+        height: 30px;
+        overflow: hidden;
+    }
+
+        #tmallSearch button:hover {
+            background-color: #866150;
+            background-position: 0 -121px;
+        }
+
+button::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+#tmallSearch .currShopBtn {
+    background-position: -60px -91px;
+}
+
+    #tmallSearch .currShopBtn:hover {
+        background-position: -60px -121px;
+    }
+
+.mall-suggest-container ol li {
+    list-style: none;
+    height: 23px;
+    line-height: 23px;
+    color: #000;
+}
+
+.mall-suggest-container ol .ks-suggest-key {
+    padding-left: 10px;
+}
+
+.mall-suggest-container .ks-suggest-cate {
+    color: #7e7e7e;
+    padding-left: 10px;
+}
+
+    .mall-suggest-container .ks-suggest-cate b {
+        font-weight: bold;
+    }
+
+.mall-suggest-container ol .ks-selected {
+    background-color: #b10000;
+}
+
+    .mall-suggest-container ol .ks-selected em {
+        color: #fff;
+    }
+
+.mall-suggest-container .ks-suggest-footer {
+    padding: 0;
+}
+
+.mallSearch-tip p {
+    font-family: \5B8B\4F53;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 1px;
+    padding: 0 10px;
+    background: #efeceb;
+}
+
+.mallSearch-tip span {
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    color: #000;
+    cursor: pointer;
+}
+
+.mallSearch-tip b {
+    font-family: Arial;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 300px;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -moz-text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mallSearch-tip em {
+    margin: 0 5px;
+    font-weight: bold;
+    color: #b10000;
+}
+
+#mallCate {
+    display: none!important;
+}
+
+#mall-desc .propose i {
+    background-position: -156px -86px;
+    margin-right: .1em;
+    display: inline-block;
+    height: 16px;
+    overflow: hidden;
+    vertical-align: text-bottom;
+    width: 16px;
+}
+
+#mall-desc dt span {
+    display: block;
+    height: 19px;
+    width: 73px;
+    text-indent: -999em;
+    overflow: hidden;
+}
+
+#ensure dt span {
+    background-position: 0 -154px;
+}
+
+#beginner dt span {
+    background-position: 0 -174px;
+}
+
+#payment dt span {
+    background-position: 0 -195px;
+}
+
+#seller dt span {
+    background-position: 0 -215px;
+}
+
+#mall-desc {
+    position: relative;
+    margin-bottom: 25px;
+    text-align: left;
+    zoom: 1;
+}
+
+    #mall-desc:after {
+        content: "";
+        display: block;
+        clear: both;
+        height: 0;
+    }
+
+    #mall-desc dl {
+        float: left;
+        width: 220px;
+    }
+
+        #mall-desc dl#payment {
+            margin-left: 145px;
+            _display: inline;
+        }
+
+        #mall-desc dl#seller {
+            float: right;
+            width: 180px;
+        }
+
+    #mall-desc dt {
+        margin: 0 40px 6px 0;
+        padding-bottom: 4px;
+        border-bottom: 1px solid #E2E2E2;
+    }
+
+    #mall-desc dl#seller dt {
+        margin-right: 0;
+    }
+
+    #mall-desc dd {
+        margin-right: 40px;
+    }
+
+    #mall-desc dl a, #mall-desc dl dd span {
+        display: block;
+        height: 22px;
+        line-height: 1.8;
+        color: #666;
+        white-space: nowrap;
+    }
+
+    #mall-desc dl i {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        vertical-align: text-bottom;
+        overflow: hidden;
+        background-position: -157px -218px;
+    }
+
+    #mall-desc .propose {
+        clear: both;
+        padding: 0 0 8px 10px;
+        border-bottom: 1px solid #E6E6E6;
+        text-align: left;
+    }
+
+#ensure .seal {
+    float: right;
+    margin: -20px 10px 0 0;
+}
+
+#mall-desc .propose a, #mall-desc .join {
+    color: #36c;
+}
+
+#mall-desc .go-home {
+    position: absolute;
+    left: 50%;
+    top: 18px;
+    margin-left: -74px;
+    height: 81px;
+    width: 82px;
+    overflow: hidden;
+    line-height: 999px;
+    background-position: -74px -154px;
+}
+
+    #mall-desc .go-home a {
+        display: block;
+    }
+
+#footer {
+    border-top: 1px solid #D1D7DC;
+    clear: both;
+    margin: 10px auto;
+    text-align: center;
+    padding-top: 15px;
+    background-position: 0 -235px;
+    background-repeat: repeat-x;
+    background: #fff;
+    position: relative;
+}
+
+    #footer p {
+        padding: 5px 0;
+    }
+
+        #footer p strong {
+            font-weight: normal;
+        }
+
+        #footer p a {
+            margin-right: 3px;
+            color: #36c;
+        }
+
+    #server-num, #footer .server-num {
+        color: #fff;
+        font-size: 11px;
+    }
+
+.mallSearch-form {
+    background-color: #980101!important;
+    border: none!important;
+}
+
+.mallSearch-tip {
+    height: auto!important;
+    padding: 0!important;
+}
+
+.quickSearchTip {
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+}
+
+    .quickSearchTip i, .quickSearchTip em {
+        background: white url(http://img03.taobaocdn.com/tps/i3/T1DGAyXahbXXXo2eDk-59-24.png) no-repeat;
+    }
+
+    .quickSearchTip i {
+        display: block;
+        float: left;
+        width: 23px;
+        height: 22px;
+        margin-left: 5px;
+        background-position: -40px 5px;
+    }
+
+    .quickSearchTip em {
+        color: #000;
+        display: inline-block;
+        height: 23px;
+        line-height: 23px;
+        width: 35px;
+        margin: 0 3px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+.w990 #sn-bd, .w990 #headerCon, .w990 .headerNav-con {
+    width: 990px!important;
+}
+
+.w990 #header {
+    min-width: 990px;
+}
+
+.w990 #tmallSearch {
+    width: 550px;
+}
+
+    .w990 #tmallSearch #mq {
+        width: 420px;
+    }

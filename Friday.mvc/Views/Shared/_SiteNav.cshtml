@@ -8,7 +8,7 @@
         <div class="sn-container">
             <p id="login-info" class="sn-login-info">
                 <script>
-                    (typeof TB !='undefined')&&TB.use("mod~global", function () {
+                    (typeof TB != 'undefined') && TB.use("mod~global", function () {
                         if (TB && TB.Global && TB.Global.writeLoginInfo) {
                             TB.Global.writeLoginInfo({
                                 isApp: false
@@ -17,20 +17,72 @@
                     });
 
                 </script>
+
             </p>
 
 
 
             <ul class="sn-quick-menu">
 
-                <li class="cart"><a href="http://localhost:7525/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s>
-                </s>购物车 </a></li>
-               
-               
+                <li class="cart"><a href="http://localhost:7525/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s></s>购物车 </a></li>
+                <li class=""><a id="conectusLink" href="javaScript:void(0)" target="_top" rel="nofollow"><s></s>联系客服 </a></li>
+
+
+
+
             </ul>
         </div>
     </div>
 </div>
+<div id="modalBack" class="modalBack hide"></div>
+<script src="@Url.Content("/weblogin/js/jquery-1.7.2.js")"></script>
+<script type="text/ecmascript">
+    $(function () {
+        $("#conectus").hide();
+        $("#closeConect").click(function () {
+            $("#conectus").hide();
+            $("#modalBack").addClass("hide");
+            return false;
+        });
+        $("#conectusLink,#callme").click(function () {
+            $("#modalBack").removeClass("hide");
+            $("#conectus").show();
+        });
+    });
+
+</script>
+
+
+<div id="conectus" class="hide conectus" style="position: absolute; left: 375.5px; top: 50%; bottom: auto; margin-top: -150px;">
+    <div class="province_box" id="provinceBox">
+        <div class="province_title">
+            <h4>欢迎来到邻居在线</h4>
+            <p>在享受服务的时候有任何疑问或建议，请联系我们</p>
+
+            <i id="closeConect">×</i>
+        </div>
+        <div class="province_select">
+            <div class="bm">
+                <img class="bluemessage" src="http://localhost:7525/images/pic4.jpg" />
+            </div>
+            <div class="tel">
+
+                <div>魏延13648423008</div>
+                <div>夏宽18523291424</div>
+                <div>张凌峰13640565375</div>
+            </div>
+
+
+        </div>
+
+    </div>
+</div>
+<a href="#">
+    <div id="callme" class="callMe">
+        <img src="http://localhost:7525/Images/lianxiwomen.png" />
+        <span>联系我们</span>
+    </div>
+</a>
 <script>
     (typeof TB != 'undefined') && TB.use("mod~global", function () {
         if (TB && TB.Global && TB.Global.init) {

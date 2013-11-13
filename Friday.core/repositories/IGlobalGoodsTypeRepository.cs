@@ -19,5 +19,8 @@ namespace friday.core.repositories
         IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevel(int level);
         IList<GlobalGoodsType> GetSimilarGoodsTypeListInThirdLevelByKeyword(string keyword);
         IList<GlobalGoodsType> GetSelledG();
+        IList<GlobalGoodsType> GetGlobalGoodsTypeByTlevelAndSchool(int level, string schoolId);
+        IList<GlobalGoodsType> GetGoodsTypeByIdAndLevel(List<string> ids, int level);
+        IList<GlobalGoodsType> GetByThirdGoodsTypeByMerchant(Merchant merchant, int level);
     }
 }

@@ -93,44 +93,7 @@ namespace Friday.mvc.Controllers
                 }
                 else
                 {
-                    //string[] areaString = friday.core.components.IPAndLocationHelper.GetAddress();
-                    //School ipLeafSchool = iSchoolService.FilterSchoolByAreaString(areaString[1]).FirstOrDefault();
-                    //if (ipLeafSchool != null)
-                    //{
-                    //    mainModel.LoginStateFamily[0] = "isIP";
-                    //    mainModel.LoginStateFamily[1] = ipLeafSchool.Family + ipLeafSchool.Id;
-
-                    //    IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
-                    //    foreach (GlobalGoodsType g in globalGoodsTypes)
-                    //    {
-                    //        List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID(g.Id, ipLeafSchool.Id);
-                    //        if (commodities != null && commodities.Count != 0)
-                    //        {
-                    //            mainModel.GlobalGoodsTypeTlevelZero.Add(g);
-                    //            mainModel.CommoditiesSearchByGoodsType.Add(commodities);
-                    //            IList<Shop> shops = new List<Shop>();
-                    //            foreach (Commodity c in commodities)
-                    //            {
-                    //                if (shops.Count == 15)
-                    //                {
-                    //                    break;
-                    //                }
-                    //                else
-                    //                {
-                    //                    if (!shops.Contains(c.Shop))
-                    //                    {
-                    //                        shops.Add(c.Shop);
-                    //                    }
-                    //                }
-                    //            }
-                    //            mainModel.Shops.Add(shops);
-                    //        }
-                    //    }
-                    //    mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(ipLeafSchool.Id);
-
-                    //}
-                    //else
-                    //{
+                    
                         mainModel.LoginStateFamily[0] = "noAll";
 
                         IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
@@ -164,10 +127,10 @@ namespace Friday.mvc.Controllers
                     //}
                 }
             }
-            else
+            else//根据selectSchool取得相关
             {
                 //mainModel.MerchantShopCategories = this.iMerchantCategoryRepository.SearchByMerchantType(MerchantTypeEnum.百货);
-                mainModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(1);
+
                 mainModel.Activities = this.iActivityRepository.GetAll();
 
                 School ipLeafSchool = iSchoolService.Load(selectedSchool);
@@ -175,8 +138,25 @@ namespace Friday.mvc.Controllers
                 {
                     mainModel.LoginStateFamily[0] = "isIP";
                     mainModel.LoginStateFamily[1] = ipLeafSchool.Family + ipLeafSchool.Id;
+                    IList<GlobalGoodsType> globalGoodsTypeTwo = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevelAndSchool(2, selectedSchool);
 
-                    IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGlobalGoodsTypeByTlevel(0);
+                    List<string> zeroIds = new List<string>();
+                    foreach (GlobalGoodsType g in globalGoodsTypeTwo)
+                    {
+                        zeroIds.Add(g.Family.Split(',')[0]);
+                    }
+
+                    List<string> seconds = new List<string>();
+
+                    foreach (GlobalGoodsType g in globalGoodsTypeTwo)
+                    {
+                        seconds.Add(g.Family.Split(',')[1]);
+                    }
+
+                     mainModel.GlobalGoodsTypeTlevelFirst =this.iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(seconds,1);
+
+                    IList<GlobalGoodsType> globalGoodsTypes = this.iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(zeroIds,0);
+
                     foreach (GlobalGoodsType g in globalGoodsTypes)
                     {
                         List<Commodity> commodities = iCommodityRepository.GetCommodityByGoodsTypeAndSchoolID(g.Id, ipLeafSchool.Id);

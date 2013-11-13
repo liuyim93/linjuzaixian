@@ -5,6 +5,7 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta charset="utf-8" />
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/common.css") />
@@ -17,7 +18,7 @@
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/layout.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/act.css") />
     <link rel="stylesheet" href=@Url.Content("/apps/tmall/fp/2012/css/region.css") />
-@*    2013-08-22 basilwang 地区样式*@
+    @*    2013-08-22 basilwang 地区样式*@
     <link rel="stylesheet" href=@Url.Content("/p/mall/base/global-v2.css") />
     <script>
         _hb_monitor_st = +new Date;
@@ -27,72 +28,112 @@
     <script src=@Url.Content("/weblogin/js/jquery-1.7.2.js")></script>
     <script src="@Url.Content("/p/mall/base/global-v2.js")"></script>
     <script src="@Url.Content("/apps/tmall/mui/tml/tml.js")"></script>
-    <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script> 
+    <script src="@Url.Content("/apps/tmall/fp/2012/core.js")"></script>
+
+    <style type="text/css">
+        .popGeneral {
+            display: block;
+            position: fixed;
+            _position: absolute;
+            left: 50%;
+            bottom: -100%;
+            background-color: #fff;
+            border: 0 solid #cdcdcd;
+            z-index: 100010;
+            float: left;
+        }
+    </style>
 </head>
 <body>
     <div id="message">
     </div>
     <div id="status">
     </div>
-    
+
 
     <div id="site-nav">
-    <div id="sn-bg">
-        <div class="sn-bg-right">
+        <div id="sn-bg">
         </div>
-    </div>
-    <div id="sn-bd">
-        <b class="sn-edge"></b> 
-         <div class="kv-item">
-        <span style="color:#ffd0c0">切换区域：</span>
-            <a id="J_AreaButton" type="button" href="" style="color:#ffd0c0">切换</a> 
-            <input id="Temp_SelectedID" value="" type="hidden"/>
-          </div>
-        <script type="text/javascript">
-            $(function () {
-                init();
-//                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#sn-bd select:last").val());
-            });
+        <div id="sn-bd">
+            <b class="sn-edge"></b>
+            <div class="kv-item">
+                <div id="modalShow"><a href="#" style="color: #ffd0c0">切换区域</a></div>
+                <!--<a id="J_AreaButton" type="button" href="" style="color: #ffd0c0">切换</a>
+                <input id="Temp_SelectedID" value="" type="hidden" />-->
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    var address = location.href.toString();
 
-            function init() {
-           //debugger
+                    $("#conectus").hide();
+                    if (address.indexOf("selectedSchool") > 0) {
+                        $("#selectModal").hide();
+                    }
+                    else {
+                        $("#modalBack").removeClass("hide");
+                    }
+
+                    init();
+
+                    $("#closeConect").click(function () {
+                        $("#conectus").hide();
+                        $("#modalBack").addClass("hide");
+                        return false;
+                    });
+                    $("#conectusLink,#callme").click(function () {
+                        $("#modalBack").removeClass("hide");
+                        $("#conectus").show();
+                    });
+                    $("#StartBuy").click(function () {
+                        var url = $("#J_AreaButton").attr("href");
+
+                        location.href = url;
+                    });
+
+                    $("#modalShow").click(function () {
+                        $("#modalBack").removeClass("hide");
+                        $("#selectModal").show();
+                    });
+
+                });
+
+                function init() {
+                    //debugger
              @{  
-                <text>              
-                var loginState = "@Model.LoginStateFamily[0]"; 
+                <text>
+                    var loginState = "@Model.LoginStateFamily[0]"; 
                 </text>             
               }
 
-              var userFamily;
+                    var userFamily;
 
-              if(loginState=="isLogin")
-              {
+                    if (loginState == "isLogin") {
                   @{  
-                    <text>              
-                    userFamily = "@Model.LoginStateFamily[1]"; 
+                    <text>
+                        userFamily = "@Model.LoginStateFamily[1]"; 
                     </text>             
                   }
-                  var userFamilyArray = userFamily.split(',');
-                  $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length-1]);
-                  $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
-                  updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
-                  
-              }
-              else if(loginState=="isIP"){
-                 @{  
-                    <text>              
-                    userFamily = "@Model.LoginStateFamily[1]"; 
-                    </text>             
-                  }
-                  var userFamilyArray = userFamily.split(',');
-                  $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length-1]);
-                  $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
-                  updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
+                        var userFamilyArray = userFamily.split(',');
+                        $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length - 1]);
+                        $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
+                        updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
 
-              }
-              else
-              {
-                  updateNext(0,0);
-              }
+                    }
+                    else if (loginState == "isIP") {
+                 @{  
+                    <text>
+                        userFamily = "@Model.LoginStateFamily[1]"; 
+                    </text>             
+                  }
+                        var userFamilyArray = userFamily.split(',');
+                        $("#Temp_SelectedID").val(userFamilyArray[userFamilyArray.length - 1]);
+                        $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
+                        updateOneList(0, 0, userFamilyArray[0], userFamilyArray);
+
+                    }
+                    else {
+                        updateNext(0, 0);
+                    }
             }
 
             function updateNext(level, parentid) {
@@ -106,15 +147,13 @@
                         //debugger
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
-                            if(level==0)
-                            {
+                            if (level == 0) {
                                 $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton")
                             }
-                            else
-                            {
-                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
+                            else {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#modal-area select:last");
                                 $("#Temp_SelectedID").val(parentid);
-                                $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
                             }
 
                             $("#Area_" + level).append("<option value=\"\" selected=\"true\">不限</option>");
@@ -124,32 +163,28 @@
 
                             $("#Area_" + level).bind("change", function () {
                                 deleteAfterList($(this).attr("level"));
-                                if($(this).val()!="")
-                                {
+                                if ($(this).val() != "") {
                                     $("#Temp_SelectedID").val($(this).val());
-                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
-                                    updateNext(parseInt($(this).attr("level")) + parseInt(1),$(this).val());
+                                    $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
+                                    updateNext(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
                                 }
-                                else
-                                {
-                                    if($(this).attr("level")=="0")
-                                    {
+                                else {
+                                    if ($(this).attr("level") == "0") {
                                         $("#Temp_SelectedID").val("");
-                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool=");
+                                        $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=");
                                     }
-                                    else
-                                    {
-                                        $("#Temp_SelectedID").val($("#Area_"+(parseInt($(this).attr("level")) - parseInt(1))).val());
-                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    else {
+                                        $("#Temp_SelectedID").val($("#Area_" + (parseInt($(this).attr("level")) - parseInt(1))).val());
+                                        $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
                                     }
                                 }
                             });
-                         }
+                        }
                     }
                 });
             }
 
-            function updateOneList(level, parentid , currentid, userFamilyArray) {
+            function updateOneList(level, parentid, currentid, userFamilyArray) {
                 $.ajax({
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
@@ -161,55 +196,47 @@
                         var da = eval("(" + data.d + ")");
                         if (da.length != 0) {
                             $("#Temp_SelectedID").val(currentid);
-                            $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                            $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
 
-                            if(level==0)
-                            {
+                            if (level == 0) {
                                 $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertBefore("#J_AreaButton")
                             }
-                            else
-                            {
-                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#sn-bd select:last");
+                            else {
+                                $("<select id=\"Area_" + level + "\" level=\"" + level + "\"></select>").insertAfter("#modal-area select:last");
                             }
 
                             $("#Area_" + level).append("<option value=\"\" >不限</option>");
                             for (var i = 0; i < da.length; i++) {
-                                if(da[i].id==currentid)
-                                {
+                                if (da[i].id == currentid) {
                                     $("#Area_" + level).append("<option value=\"" + da[i].id + "\" selected=\"true\">" + da[i].text + "</option>");
 
                                     if (da[i].hasChildren == true) {
-                                        if(level<userFamilyArray.length-1)
-                                            updateOneList((parseInt(level) + parseInt(1)), userFamilyArray[level],userFamilyArray[parseInt(level) + parseInt(1)],userFamilyArray);
+                                        if (level < userFamilyArray.length - 1)
+                                            updateOneList((parseInt(level) + parseInt(1)), userFamilyArray[level], userFamilyArray[parseInt(level) + parseInt(1)], userFamilyArray);
                                         else
-                                            updateNext((parseInt(level) + parseInt(1)),userFamilyArray[level]);
+                                            updateNext((parseInt(level) + parseInt(1)), userFamilyArray[level]);
                                     }
                                 }
-                                else
-                                {
+                                else {
                                     $("#Area_" + level).append("<option value=\"" + da[i].id + "\">" + da[i].text + "</option>");
                                 }
                             }
 
                             $("#Area_" + level).bind("change", function () {
                                 deleteAfterList($(this).attr("level"));
-                                if($(this).val()!="")
-                                {
+                                if ($(this).val() != "") {
                                     $("#Temp_SelectedID").val($(this).val());
-                                    $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
-                                    updateNext(parseInt($(this).attr("level")) + parseInt(1),$(this).val());
+                                    $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
+                                    updateNext(parseInt($(this).attr("level")) + parseInt(1), $(this).val());
                                 }
-                                else
-                                {
-                                    if($(this).attr("level")=="0")
-                                    {
+                                else {
+                                    if ($(this).attr("level") == "0") {
                                         $("#Temp_SelectedID").val("");
-                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool=");
+                                        $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=");
                                     }
-                                    else
-                                    {
-                                        $("#Temp_SelectedID").val($("#Area_"+(parseInt($(this).attr("level")) - parseInt(1))).val());
-                                        $("#J_AreaButton").attr("href","http://localhost:7525/index.html?selectedSchool="+$("#Temp_SelectedID").val());
+                                    else {
+                                        $("#Temp_SelectedID").val($("#Area_" + (parseInt($(this).attr("level")) - parseInt(1))).val());
+                                        $("#J_AreaButton").attr("href", "http://localhost:7525/index.html?selectedSchool=" + $("#Temp_SelectedID").val());
                                     }
                                 }
                             });
@@ -220,47 +247,48 @@
 
             function deleteAfterList(level) {
                 //debugger
-                var sumSelect = $("#sn-bd select");
-                for (var i = (parseInt(level) + parseInt(1)); i < sumSelect.length; i++) {
+                var sumSelect = $("#modal-area select");
+                for (var i = (parseInt(level) + parseInt(1)) ; i < sumSelect.length; i++) {
                     $(sumSelect[i]).remove();
                 }
             }
-        </script>
+            </script>
 
 
-        <div class="sn-container">
-            <p id="login-info" class="sn-login-info">
-                <script>
-                    TB.use("mod~global", function () {
-                        if (TB && TB.Global && TB.Global.writeLoginInfo) {
-                            TB.Global.writeLoginInfo({
-                                isApp: false
-                            });
-                        }
-                    });
+            <div class="sn-container">
+                <p id="login-info" class="sn-login-info">
+                    <script>
+                        TB.use("mod~global", function () {
+                            if (TB && TB.Global && TB.Global.writeLoginInfo) {
+                                TB.Global.writeLoginInfo({
+                                    isApp: false
+                                });
+                            }
+                        });
 
-                </script>
-            </p>
+                    </script>
+                </p>
 
 
 
-            <ul class="sn-quick-menu">
+                <ul class="sn-quick-menu">
 
-                <li class="cart"><a href="http://localhost:7525/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s>
-                </s>购物车 </a></li>
-               
-               
-            </ul>
+                    <li class="cart"><a href="http://localhost:7525/CartPay/Home/MyCartPay?from=btop" target="_top" rel="nofollow"><s></s>购物车 </a></li>
+                    <i class="sn-separator"></i>
+                    <li class=""><a id="conectusLink" href="javaScript:void(0)" target="_top" rel="nofollow"><s></s>联系客服 </a></li>
+
+                </ul>
+
+            </div>
         </div>
     </div>
-</div>
-<script>
-    TB.use("mod~global", function () {
-        if (TB && TB.Global && TB.Global.init) {
-            TB.Global.init();
-        }
-    });
-</script>
+    <script>
+        TB.use("mod~global", function () {
+            if (TB && TB.Global && TB.Global.init) {
+                TB.Global.init();
+            }
+        });
+    </script>
 
 
 
@@ -273,7 +301,7 @@
                     <li class="nav slideDown" data-catid="map">
                         <a class="navA" href="http://localhost:7525/Merchant/SearchProduct?s=0&mtype=2&n=60&sort=sd&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs">超市百货模式</a>
                     </li>
-                    <li class="nav slideDown"  data-catid="temai">
+                    <li class="nav slideDown" data-catid="temai">
                         <a class="navA" href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&mtype=0&area_code=370100&style=g&sort=s&q=%D0%AC&n=60&s=0#J_crumbs">订餐</a>
                     </li>
                     <!--
@@ -296,6 +324,8 @@
                 @Html.Partial("_Category")
             </div>
         </div>
+
+
     </div>
     <script>
         /*
@@ -317,5 +347,61 @@
             new arguments[1]
         })
     </script>
+    <a href="#">
+        <div id="callme" class="callMe">
+            <img src="http://localhost:7525/Images/lianxiwomen.png" />
+            <span>联系我们</span>
+        </div>
+    </a>
+    <div id="modalBack" class="modalBack hide"></div>
+    <div class="hide popGeneral" id="selectModal" style="position: absolute; left: 375.5px; top: 50%; bottom: auto; margin-top: -150px;">
+        <div class="province_box" id="provinceBox">
+            <div class="province_title">
+                <h4>欢迎来到邻居在线</h4>
+                <p>目前我们提供货到付款的配送服务,请根据您的收货地址选择站点。</p>
+            </div>
+            <div class="province_select">
+                <div class="province_input">
+                    您的商品将会配送至：
+                </div>
+                <div id="modal-area">
+
+                    <a id="J_AreaButton" type="button" href=""></a>
+                    <input id="Temp_SelectedID" value="" type="hidden" />
+                    <br />
+
+
+                    <button id="StartBuy" style="float: right; margin-right: 10px">开始购物<span></span></button>
+
+                </div>
+                <p>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="conectus" class="hide conectus" style="position: absolute; left: 375.5px; top: 50%; bottom: auto; margin-top: -150px;">
+        <div class="province_box" id="provinceBox">
+            <div class="province_title">
+                <h4>欢迎来到邻居在线</h4>
+                <p>在享受服务的时候有任何疑问或建议，请联系我们</p>
+
+                <i id="closeConect">×</i>
+            </div>
+            <div class="province_select">
+                <div class="bm">
+                    <img class="bluemessage" src="http://localhost:7525/images/pic4.jpg" />
+                </div>
+                <div class="tel">
+
+                    <div>魏延13648423008</div>
+                    <div>夏宽18523291424</div>
+                    <div>张凌峰13640565375</div>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
 </body>
 </html>

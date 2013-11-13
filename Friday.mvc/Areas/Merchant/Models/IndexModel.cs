@@ -45,5 +45,8 @@ namespace Friday.mvc.Models
         //public IList<House> Houses { get; set; }
         public IList<Commodity> Commoditys { get; set; }
         public IList<Sku> minPriceSkuList { get; set; }
+
+        public IList<GlobalGoodsType> ThirdTypes { set; get; }
+        public IList<GlobalGoodsType> SecondTypes { set; get; }
     }
 }

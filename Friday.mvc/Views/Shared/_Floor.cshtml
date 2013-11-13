@@ -93,7 +93,7 @@
                             @for (var index = 0; index < (commodities.Count() > 3 ? 3 : commodities.Count()); index++)
                             {
                                 var item = commodities.ElementAt(index);
-                                <li class="ks-switchable-panel-internal219"><a href="http://localhost:7525/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
+                                <li class="ks-switchable-panel-internal219"><a style="height:200px;width:200px" href="http://localhost:7525/Merchant/Detail?brandId=@item.Id" target="_blank" title="@item.Name">
                                 <img alt="@item.Name" src="@(item.Image + "_200x300.jpg")"/></a></li>
                             }
                     </ul>
