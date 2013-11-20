@@ -1,9 +1,9 @@
 ﻿KISSY.add("malldetail/dc/dc", function (_kissy_F, _ajax, _dom, _ua, _malldetail_shop_shop, _malldetail_other_lazy) {
-    var K, _dc_cfg_wrapper, G;
+    var _shop_init, _dc_cfg_wrapper, G;
 
-    function J(N) {
+    function _jsonpDC(_url) {
         _ajax({
-            url: N,
+            url: _url,
             jsonpCallback: "jsonpDC",
             cache: true,
             dataType: "jsonp",
@@ -11,12 +11,12 @@
                 if (O.isSuccess) {
                     E(O)
                 }
-                K()
+                _shop_init()
             },
             timeout: 10000,
             error: function () {
                 _dom.hide("#J_DcHd");
-                K()
+                _shop_init()
             }
         })
     }
@@ -100,7 +100,7 @@
         });
         _kissy_F.flush()
     }
-    function K() {
+    function _shop_init() {
         _kissy_F.use("malldetail/shop/shop", function (N, O) {
             if (!N.mods.Token) {
                 O.init(_dc_cfg_wrapper);
@@ -112,17 +112,17 @@
                 })
             }, 30)
         });
-        K = function () { };
-        return K()
+        _shop_init = function () { };
+        return _shop_init()
     }
     return {
         init: function (_dc_cfg_wrapper_t) {
             _dc_cfg_wrapper = _dc_cfg_wrapper_t;
             var _fetchDcUrl = _kissy_F.cfg("api").fetchDcUrl;
             if (_fetchDcUrl) {
-                J(_fetchDcUrl)
+                _jsonpDC(_fetchDcUrl)
             } else {
-                K()
+                _shop_init()
             }
         }
     }
