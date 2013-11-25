@@ -60,15 +60,15 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                     {
                         SystemUser = systemUser,
                         Shop = commodity.Shop,
-                        Price = Convert.ToInt16(quantity) * sku.price
+                        Price = Convert.ToInt32(quantity) * sku.price
                     };
                     iShoppingCartService.Save(shoppingCart);
 
                     cartOfCommodity = new friday.core.CartOfCommodity();
-                    cartOfCommodity.Amount = Convert.ToInt16(quantity);
+                    cartOfCommodity.Amount = Convert.ToInt32(quantity);
                     cartOfCommodity.Sku = sku;
                     cartOfCommodity.Commodity = commodity;
-                    cartOfCommodity.Price = Convert.ToInt16(quantity) * sku.price;
+                    cartOfCommodity.Price = Convert.ToInt32(quantity) * sku.price;
                     cartOfCommodity.ShoppingCart = shoppingCart;
                 }
                 else
@@ -77,15 +77,15 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                     if (cartOfCommodity == null)
                     {
                         cartOfCommodity = new friday.core.CartOfCommodity();
-                        cartOfCommodity.Amount = Convert.ToInt16(quantity);
+                        cartOfCommodity.Amount = Convert.ToInt32(quantity);
                         cartOfCommodity.Sku = sku;
                         cartOfCommodity.Commodity = commodity;
-                        cartOfCommodity.Price = Convert.ToInt16(quantity) * sku.price;
+                        cartOfCommodity.Price = Convert.ToInt32(quantity) * sku.price;
                         cartOfCommodity.ShoppingCart = shoppingCart;
                     }
                     else
                     {
-                        cartOfCommodity.Amount = cartOfCommodity.Amount + Convert.ToInt16(quantity);
+                        cartOfCommodity.Amount = cartOfCommodity.Amount + Convert.ToInt32(quantity);
                         cartOfCommodity.Price = cartOfCommodity.Amount * sku.price;
                     }
                 }
@@ -167,18 +167,18 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                     price price = new price()
                     {
-                        now = Convert.ToInt16(cartOfCommodity.Sku.price * 100),
-                        origin = Convert.ToInt16(cartOfCommodity.Sku.price * 100),
+                        now = Convert.ToInt32(cartOfCommodity.Sku.price * 100),
+                        origin = Convert.ToInt32(cartOfCommodity.Sku.price * 100),
                         descend = 0,
-                        save = Convert.ToInt16(cartOfCommodity.Sku.price * 100) - Convert.ToInt16(cartOfCommodity.Sku.price * 100),
-                        sum = Convert.ToInt16(cartOfCommodity.Sku.price * 100) * cartOfCommodity.Amount,
+                        save = Convert.ToInt32(cartOfCommodity.Sku.price * 100) - Convert.ToInt32(cartOfCommodity.Sku.price * 100),
+                        sum = Convert.ToInt32(cartOfCommodity.Sku.price * 100) * cartOfCommodity.Amount,
                         actual = 0
                     };
 
                     amount amount = new amount()
                     {
                         now = cartOfCommodity.Amount,
-                        max = Convert.ToInt16(cartOfCommodity.Sku.stock)
+                        max = Convert.ToInt32(cartOfCommodity.Sku.stock)
                     };
 
                     List<ItemIconMeta> itemIconMetas = new List<ItemIconMeta>();
@@ -296,11 +296,11 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                 price price = new Models.price()
                 {
-                    now = Convert.ToInt16(cartOfCommodity.Sku.price * 100),
-                    origin = Convert.ToInt16(cartOfCommodity.Sku.price * 100),
+                    now = Convert.ToInt32(cartOfCommodity.Sku.price * 100),
+                    origin = Convert.ToInt32(cartOfCommodity.Sku.price * 100),
                     descend = 0,
-                    save = Convert.ToInt16(cartOfCommodity.Sku.price * 100) - Convert.ToInt16(cartOfCommodity.Sku.price * 100),
-                    sum = Convert.ToInt16(cartOfCommodity.Sku.price * 100) * cartItem.quantity,
+                    save = Convert.ToInt32(cartOfCommodity.Sku.price * 100) - Convert.ToInt32(cartOfCommodity.Sku.price * 100),
+                    sum = Convert.ToInt32(cartOfCommodity.Sku.price * 100) * cartItem.quantity,
                     actual = 0
                 };
 
@@ -410,35 +410,35 @@ namespace Friday.mvc.Areas.CartPay.Controllers
                 {
                     SystemUser = systemUser,
                     Shop = commodity.Shop,
-                    Price = Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price
+                    Price = Convert.ToInt32(detailFormDataItem.quantity) * commodity.Price
                 };
                 iShoppingCartService.Save(shoppingCart);
 
                 cartOfCommodity = new friday.core.CartOfCommodity();
-                cartOfCommodity.Amount = Convert.ToInt16(detailFormDataItem.quantity);
+                cartOfCommodity.Amount = Convert.ToInt32(detailFormDataItem.quantity);
                 cartOfCommodity.Sku = sku;
                 cartOfCommodity.Commodity = commodity;
-                cartOfCommodity.Price = Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price;
+                cartOfCommodity.Price = Convert.ToInt32(detailFormDataItem.quantity) * commodity.Price;
                 cartOfCommodity.ShoppingCart = shoppingCart;
             }
             else
             {
-                shoppingCart.Price = shoppingCart.Price + Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price;
+                shoppingCart.Price = shoppingCart.Price + Convert.ToInt32(detailFormDataItem.quantity) * commodity.Price;
                 iShoppingCartService.Save(shoppingCart);
 
                 cartOfCommodity = iCartOfCommodityService.getCommodityBySystemUserIDAndSkuID(systemUser.Id, detailFormDataItem.skuId, false);
                 if (cartOfCommodity == null)
                 {
                     cartOfCommodity = new friday.core.CartOfCommodity();
-                    cartOfCommodity.Amount = Convert.ToInt16(detailFormDataItem.quantity);
+                    cartOfCommodity.Amount = Convert.ToInt32(detailFormDataItem.quantity);
                     cartOfCommodity.Sku = sku;
                     cartOfCommodity.Commodity = commodity;
-                    cartOfCommodity.Price = Convert.ToInt16(detailFormDataItem.quantity) * commodity.Price;
+                    cartOfCommodity.Price = Convert.ToInt32(detailFormDataItem.quantity) * commodity.Price;
                     cartOfCommodity.ShoppingCart = shoppingCart;
                 }
                 else
                 {
-                    cartOfCommodity.Amount = cartOfCommodity.Amount + Convert.ToInt16(detailFormDataItem.quantity);
+                    cartOfCommodity.Amount = cartOfCommodity.Amount + Convert.ToInt32(detailFormDataItem.quantity);
                     cartOfCommodity.Price = cartOfCommodity.Amount * commodity.Price;
                 }
             }
@@ -447,7 +447,7 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
 
 
-            int quantity = Convert.ToInt16(detailFormDataItem.quantity);
+            int quantity = Convert.ToInt32(detailFormDataItem.quantity);
             string token = Guid.NewGuid().ToString();
             string cartNum = Guid.NewGuid().ToString();
             var results = new
@@ -523,11 +523,11 @@ namespace Friday.mvc.Areas.CartPay.Controllers
 
                         price price = new Models.price()
                         {
-                            now = Convert.ToInt16(cartOfCommodity.Sku.price * 100),
-                            origin = Convert.ToInt16(cartOfCommodity.Sku.price * 100),
+                            now = Convert.ToInt32(cartOfCommodity.Sku.price * 100),
+                            origin = Convert.ToInt32(cartOfCommodity.Sku.price * 100),
                             descend = 0,
-                            save = Convert.ToInt16(cartOfCommodity.Sku.price * 100) - Convert.ToInt16(cartOfCommodity.Sku.price * 100),
-                            sum = Convert.ToInt16(cartOfCommodity.Sku.price * 100) * cartItem.quantity,
+                            save = Convert.ToInt32(cartOfCommodity.Sku.price * 100) - Convert.ToInt32(cartOfCommodity.Sku.price * 100),
+                            sum = Convert.ToInt32(cartOfCommodity.Sku.price * 100) * cartItem.quantity,
                             actual = 0
                         };
 
