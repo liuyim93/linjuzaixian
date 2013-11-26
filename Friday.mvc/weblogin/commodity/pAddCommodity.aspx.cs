@@ -66,26 +66,26 @@ namespace Friday.mvc.weblogin
             Commodity f = new Commodity();
 
             BindingHelper.RequestToObject(f);
-            if (HttpContext.Current.Request.Files[0] != null)
+            if (HttpContext.Current.Request.Files[0] != null && HttpContext.Current.Request.Files[0].ContentLength!=0)
             {
                 HttpPostedFile file = HttpContext.Current.Request.Files[0];
                 f.Image = CommodityUploadImage.UploadImage(file, "commodityImage");
             }
-            if (HttpContext.Current.Request.Files[1] != null)
+            if (HttpContext.Current.Request.Files[1] != null && HttpContext.Current.Request.Files[1].ContentLength != 0)
             {
-                HttpPostedFile file = HttpContext.Current.Request.Files[0];
+                HttpPostedFile file = HttpContext.Current.Request.Files[1];
                 f.Image1 = CommodityUploadImage.UploadImage(file, "commodityImage");
             }
 
-            if (HttpContext.Current.Request.Files[2] != null)
+            if (HttpContext.Current.Request.Files[2] != null && HttpContext.Current.Request.Files[2].ContentLength != 0)
             {
-                HttpPostedFile file = HttpContext.Current.Request.Files[0];
+                HttpPostedFile file = HttpContext.Current.Request.Files[2];
                 f.Image2 = CommodityUploadImage.UploadImage(file, "commodityImage");
             }
 
-            if (HttpContext.Current.Request.Files[3] != null)
+            if (HttpContext.Current.Request.Files[3] != null && HttpContext.Current.Request.Files[3].ContentLength != 0)
             {
-                HttpPostedFile file = HttpContext.Current.Request.Files[0];
+                HttpPostedFile file = HttpContext.Current.Request.Files[3];
                 f.Image3 = CommodityUploadImage.UploadImage(file, "commodityImage");
             }
             
