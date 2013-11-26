@@ -5,6 +5,7 @@
         <div class="tabsHeaderContent">
           <ul>
                 <li class="selected"><a href="#"><span>商品基本信息</span></a></li>
+                <li class=""><a href="#"><span>商品图片信息</span></a></li>
                 <li><a href='sku/pSkuList.aspx?commodity_id=<%= Request.Params["uid"]%>' prefix='<%=Request.Params["prefix"] %>' rel_v3="jbsxBox1"
                 target="ajax"><span>商品种类</span></a></li>
            </ul>
@@ -76,7 +77,32 @@
                 </span>--%>
             </p>
          </div>
-
+        <div>
+              <p style="height: 150px">
+                <label>
+                    标题图片上传：</label>
+                
+                <img  id="Preview1" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
+                </span>--%>
+            </p>
+            <p style="height: 150px">
+                <label>
+                    标题图片上传：</label>
+                
+                <img  id="Preview2" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
+                </span>--%>
+            </p>
+            <p style="height: 150px">
+                <label>
+                    标题图片上传：</label>
+                
+                <img  id="Preview3" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <%-- <span style="color: red; width: 380px">&nbsp;&nbsp;&nbsp;&nbsp;请上传760×210的标题图片(格式：.png)
+                </span>--%>
+            </p>
+         </div>
         <div id="jbsxBox1" >
         </div>
     </div>
