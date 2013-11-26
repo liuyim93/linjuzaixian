@@ -221,14 +221,30 @@
             <div class="tb-booth tb-pic tb-s460">
                 @{
                     string imagePath = Model.Commodity.Image;
-                    string[] images = imagePath.Split(';');
-                        
-                       
-                        
+                    //string[] images = imagePath.Split(';');
+                   List<String> imageList=new List<string>();
+                   if(!string.IsNullOrEmpty(Model.Commodity.Image))
+                   {
+                       imageList.Add(Model.Commodity.Image);
+                   }
+                   if (!string.IsNullOrEmpty(Model.Commodity.Image1))
+                   {
+                       imageList.Add(Model.Commodity.Image1);
+                   }
+                   if (!string.IsNullOrEmpty(Model.Commodity.Image2))
+                   {
+                       imageList.Add(Model.Commodity.Image2);
+                   }
+                   if (!string.IsNullOrEmpty(Model.Commodity.Image3))
+                   {
+                       imageList.Add(Model.Commodity.Image3);         
+                   }              
+                   string[] images=imageList.ToArray();  
+                 
                     <a href="#" target="_blank">
                         <img id="J_ImgBooth" data-haszoom="700">
                     </a>
-                }
+                  }
             </div>
             <ul id="J_UlThumb" class="tb-thumb tm-clear">
                 @{
