@@ -49,7 +49,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             return View();
         }
         //2013-05-22 basilwang 增加排序   具体值 p为价格从低到高   pd为价格从高到低  st为默认排序  td为总销量从高到低  d为月销量从高到低 pt为发布时间排序 
-        public ActionResult Index(string page,string keyword, string price1, string price2 ,string pagenum,string cat,string sort,string style,string type)
+        public ActionResult Index(string selectSchool,string page,string keyword, string price1, string price2 ,string pagenum,string cat,string sort,string style,string type)
         {
             type=Request.Params["mtype"];
             //2013-05-22 basilwang 默认为s
@@ -92,18 +92,18 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             SearchProductModel searchProductModel = new SearchProductModel();
 
 
-            int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt16(page);
+            int currentPage = (page == "" || page == null) ? 1 : Convert.ToInt32(page);
             //page 边界限定
             if (!String.IsNullOrEmpty(page) && !String.IsNullOrEmpty(pagenum))
             {
-                if (Convert.ToInt16(page) <= 1)
+                if (Convert.ToInt32(page) <= 1)
                 {
                     currentPage = 1;
                     page = "1";
                 }
-                else if (Convert.ToInt16(page) >= Convert.ToInt16(pagenum))  //pageCount即PageNum
+                else if (Convert.ToInt32(page) >= Convert.ToInt32(pagenum))  //pageCount即PageNum
                 {
-                    currentPage = Convert.ToInt16(pagenum);
+                    currentPage = Convert.ToInt32(pagenum);
                     page = pagenum;
                 }
               
@@ -125,11 +125,12 @@ namespace Friday.mvc.Areas.Merchant.Controllers
             }
             else
             {
-                 commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total, cat, sort);
+                 commList = iCommodityService.GetCommodityByKeywordAndPrice(page, keyword, dbprice1, dbprice2, start, limit, out total, cat, sort,selectSchool);
             }
             if (cat == "" || cat == null)
             {
                 searchProductModel.headGlobalGoodsType = iGlobalGoodsTypeService.GetFirstLevelAll();
+
                 foreach (GlobalGoodsType globalGoodsType in searchProductModel.headGlobalGoodsType)
                 {
                     IList<GlobalGoodsType> getFamily = iGlobalGoodsTypeService.GetChildrenFromParentID(globalGoodsType.Id);
@@ -179,7 +180,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 formCatTypes.Remove(formCat);
                 formCatTypes.Insert(0, formCat);
                 searchProductModel.listBarGlobalGoodsType.Add(formCatTypes);
-            }
+            }//else
 
             searchProductModel.Commoditys = commList;
             searchProductModel.count = commList.Count;
@@ -336,6 +337,7 @@ namespace Friday.mvc.Areas.Merchant.Controllers
                 }
             }
 
+            ViewData["selectSchool"] = selectSchool;
 
             return View(searchProductModel);
         }
