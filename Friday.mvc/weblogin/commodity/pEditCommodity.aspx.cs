@@ -63,10 +63,28 @@ namespace Friday.mvc.weblogin
         {
 
             BindingHelper.RequestToObject(f);
-             
-            string imageStr = CommodityUploadImage.UploadImage(HttpContext.Current.Request.Files, "commodityImage");
-            if (!string.IsNullOrEmpty(imageStr))
-            { f.Image = imageStr; }
+            if (HttpContext.Current.Request.Files[0] != null)
+            {
+                HttpPostedFile file = HttpContext.Current.Request.Files[0];
+                f.Image = CommodityUploadImage.UploadImage(file, "commodityImage");
+            }
+            if (HttpContext.Current.Request.Files[1] != null)
+            {
+                HttpPostedFile file = HttpContext.Current.Request.Files[1];
+                f.Image1 = CommodityUploadImage.UploadImage(file, "commodityImage");
+            }
+
+            if (HttpContext.Current.Request.Files[2] != null)
+            {
+                HttpPostedFile file = HttpContext.Current.Request.Files[2];
+                f.Image2 = CommodityUploadImage.UploadImage(file, "commodityImage");
+            }
+
+            if (HttpContext.Current.Request.Files[3] != null)
+            {
+                HttpPostedFile file = HttpContext.Current.Request.Files[3];
+                f.Image3 = CommodityUploadImage.UploadImage(file, "commodityImage");
+            }
 
             Shop shop = iShopService.Load(mid);
             f.Shop = shop;

@@ -15,6 +15,27 @@ namespace friday.core
             set;
 
         }
+        public virtual string Image1
+        {
+            get;
+
+            set;
+
+        }
+        public virtual string Image2
+        {
+            get;
+
+            set;
+
+        }
+        public virtual string Image3
+        {
+            get;
+
+            set;
+
+        }
         public virtual string Name
         {
             get;

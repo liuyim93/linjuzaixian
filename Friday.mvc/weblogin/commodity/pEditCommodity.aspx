@@ -91,9 +91,9 @@
             </p>--%>
 
             <script type="text/javascript">
-                function commodityPreviewImage(file) {
+                function commodityPreviewImage(file,preview_filename, filename) {
                    //debugger
-                    var porImg = $('#Edit_Commodity_LogoPreview');
+                    var porImg = $('#' + preview_filename);
                     //判断该浏览器是否为w3c标准，既非IE浏览器   
                     if (file["files"] && file["files"][0]) {
                         //使用JavaScript的FileReader对象来读取本地数据，并且将数据结果赋值给image的src，具体该对象如何实现的还未深入研究  
@@ -112,9 +112,9 @@
                             margin: '10px',
                             width: '360px',
                             height: '95px'
-                        }).attr({ "id": "Edit_Commodity_LogoPreview" });
+                        }).attr({ "id": preview_filename });
                         //删除原有img对象，append创建div的dom对象  
-                        $(ieImageDom).insertAfter("#Edit_Commodity_Logo");
+                        $(ieImageDom).insertAfter("#" + filename);
                         porImg.remove();
                         //采用滤镜效果生成图片预览  
                         file.select();
@@ -127,13 +127,37 @@
             <p style="height: 150px">
                 <label>
                     标题图片上传：</label>
-                <input id="Edit_Commodity_Logo" type="file" class=" textInput gray" runat="server" onchange="commodityPreviewImage(this);"/>
+                <input id="Edit_Commodity_Logo" type="file" class=" textInput gray" runat="server" onchange="commodityPreviewImage(this,'Edit_Commodity_LogoPreview','Edit_Commodity_Logo');"/>
                
                 <img  id="Edit_Commodity_LogoPreview" runat="server" style="margin:10px;width: 360px; height: 95px" />
                 <span style="color: red; width: 380px">请上传600×900的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
                 </span>
             </p>
-
+             <p style="height: 150px">  
+                <label>
+                    标题图片上传：</label>
+                <input id="Edit_Commodity_Logo1" type="file" class=" textInput gray" runat="server" onchange="commodityPreviewImage(this,'Edit_Commodity_LogoPreview1','Edit_Commodity_Logo1');"/>
+               
+                <img  id="Edit_Commodity_LogoPreview1" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <span style="color: red; width: 380px">请上传600×900的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
+                </span>
+            </p><p style="height: 150px">
+                <label>
+                    标题图片上传：</label>
+                <input id="Edit_Commodity_Logo2" type="file" class=" textInput gray" runat="server" onchange="commodityPreviewImage(this,'Edit_Commodity_LogoPreview2','Edit_Commodity_Logo2');"/>
+               
+                <img  id="Edit_Commodity_LogoPreview2" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <span style="color: red; width: 380px">请上传600×900的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
+                </span>
+            </p><p style="height: 150px">
+                <label>
+                    标题图片上传：</label>
+                <input id="Edit_Commodity_Logo3" type="file" class=" textInput gray" runat="server" onchange="commodityPreviewImage(this,'Edit_Commodity_LogoPreview3','Edit_Commodity_Logo3');"/>
+               
+                <img  id="Edit_Commodity_LogoPreview3" runat="server" style="margin:10px;width: 360px; height: 95px" />
+                <span style="color: red; width: 380px">请上传600×900的标题图片(格式：.jpg/.jpeg/.png/.gif/.bmp)
+                </span>
+            </p>
                 <div style="clear:left; margin-top:0px" >
              <p>
                  <label>详细内容：</label>
