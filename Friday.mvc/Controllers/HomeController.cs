@@ -185,6 +185,8 @@ namespace Friday.mvc.Controllers
                     mainModel.Commoditys = this.iCommodityRepository.GetCommodityBySchoolID(ipLeafSchool.Id);
                 }
             }
+
+            ViewData["selectSchool"] = selectedSchool;
             return View(mainModel);
         }
 
