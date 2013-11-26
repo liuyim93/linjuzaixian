@@ -58,6 +58,15 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden GoodsTypeID;
         
         /// <summary>
+        /// Description 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
+        
+        /// <summary>
         /// Add_Commodity_Logo 控件。
         /// </summary>
         /// <remarks>
@@ -76,12 +85,57 @@ namespace Friday.mvc.weblogin {
         protected global::System.Web.UI.HtmlControls.HtmlImage Add_Commodity_LogoPreview;
         
         /// <summary>
-        /// Description 控件。
+        /// Add_Commodity_Logo1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea Description;
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile Add_Commodity_Logo1;
+        
+        /// <summary>
+        /// Add_Commodity_LogoPreview1 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Add_Commodity_LogoPreview1;
+        
+        /// <summary>
+        /// Add_Commodity_Logo2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile Add_Commodity_Logo2;
+        
+        /// <summary>
+        /// Add_Commodity_LogoPreview2 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Add_Commodity_LogoPreview2;
+        
+        /// <summary>
+        /// Add_Commodity_Logo3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile Add_Commodity_Logo3;
+        
+        /// <summary>
+        /// Add_Commodity_LogoPreview3 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage Add_Commodity_LogoPreview3;
     }
 }

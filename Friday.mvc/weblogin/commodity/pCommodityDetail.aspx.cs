@@ -37,6 +37,9 @@ namespace Friday.mvc.weblogin.sku
             this.GoodsType.Value = commodity.GlobalGoodsType.Name;
             this.GoodsTypeID.Value = commodity.GlobalGoodsType.Id;
             this.Preview.Src = commodity.Image;
+            this.Preview1.Src = commodity.Image1;
+            this.Preview2.Src = commodity.Image2;
+            this.Preview3.Src = commodity.Image3;
             BindingHelper.ObjectToControl(commodity, this);
         }
     }

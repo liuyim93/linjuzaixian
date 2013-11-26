@@ -23,6 +23,9 @@ namespace friday.core.domain
             Map(o => o.InventoryCount);
             Map(o => o.IsEnabled);
             Map(o => o.Image);
+            Map(o => o.Image1);
+            Map(o => o.Image2);
+            Map(o => o.Image3);
             Map(o => o.DiscountPrice);
             Map(o => o.DiscountInventoryCount);
             Map(o => o.IsDiscount);
