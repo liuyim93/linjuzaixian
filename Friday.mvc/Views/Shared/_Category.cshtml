@@ -41,7 +41,7 @@
                       {
                           if (string.IsNullOrEmpty(item.Description))
                           {
-                        @:<a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@item.Id#J_crumbs" target="_blank" class="item-col1">@Html.Encode(item.Name)</a>
+                        @:<a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&selectSchool=@ViewData["selectSchool"]&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@item.Id#J_crumbs" target="_blank" class="item-col1">@Html.Encode(item.Name)</a>
                           }
                           else
                           {
@@ -57,7 +57,7 @@
                            }
                           else
                           {
-                                @:<a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@item.Id#J_crumbs" target="_blank" >@Html.Encode(item.Name)</a>
+                                @:<a href="http://localhost:7525/Merchant/SearchProduct?from=sn_1_cat-qp&selectSchool=@ViewData["selectSchool"]&amp;area_code=370100&amp;style=g&amp;sort=s&amp;q=%D0%AC&amp;n=60&amp;s=0&amp;cat=@item.Id#J_crumbs" target="_blank" >@Html.Encode(item.Name)</a>
                         
                           }
                       }

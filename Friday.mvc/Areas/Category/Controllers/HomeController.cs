@@ -61,8 +61,8 @@ namespace Friday.mvc.Areas.Category.Controllers
 
             categoryModel.GlobalGoodsTypeTlevelZero = this.iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(zeroIds,0);
             categoryModel.GlobalGoodsTypeTlevelFirst = this.iGlobalGoodsTypeRepository.GetGoodsTypeByIdAndLevel(seconds, 1);
-            
-            
+
+            ViewData["selectSchool"] = selectedSchool;
             return View(categoryModel);
         }
         public ActionResult brand_cat_asyn(string selectIP)

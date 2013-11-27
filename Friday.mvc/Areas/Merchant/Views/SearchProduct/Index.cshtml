@@ -55,7 +55,7 @@
                                     {
                                         if (Model.listBarGlobalGoodsType.ElementAt(i).Count == 0)
                                         {
-                                    <li><a class="crumbStrong" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
+                                    <li><a class="crumbStrong" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&selectSchool=@ViewData["selectSchool"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs"
                  title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="2,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a>
                                         <i class="crumbArrow">&gt;</i> </li>
                                         }
@@ -63,7 +63,7 @@
                                         {
                                     <li>
                                         <div class="crumbDrop j_CrumbDrop">
-                                            <a class="crumbStrong crumbDrop-hd j_CrumbDropHd" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs" title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="3,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a><i></i>
+                                            <a class="crumbStrong crumbDrop-hd j_CrumbDropHd" href="SearchProduct?cat=@Model.headBarGlobalGoodsType.ElementAt(i).Id&s=0&selectSchool=@ViewData["selectSchool"]&n=60&sort=@ViewData["sort"]&style=g&zk_type=0&vmarket=0&search_condition=23&pic_detail=1&area_code=370100&from=sn_1_rightnav&active=1#J_crumbs&selectSchool=@ViewData["selectSchool"]" title="@Model.headBarGlobalGoodsType.ElementAt(i).Name" data-i="cat" data-t="3" atpanel="3,cat,,,,3,rightnav,">@Model.headBarGlobalGoodsType.ElementAt(i).Name</a><i></i>
                                             <div class="crumbDrop-bd j_CrumbDropBd" style="width: 834px;">
                                                 @{
                                             var itemCount = Model.listBarGlobalGoodsType.ElementAt(i).Count;

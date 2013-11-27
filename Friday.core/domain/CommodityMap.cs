@@ -31,7 +31,7 @@ namespace friday.core.domain
             Map(o => o.IsDiscount);
             Map(o => o.IsLimited);
             //2013-05-3 wanghaichuan add Description
-            Map(o => o.Description);
+            Map(o => o.Description).Length(99999999);
             //Map(o => o.MerchantGoodsType).CustomType<MerchantGoodsType>();
 
             Map(o => o.Amount).Default("0").Not.Nullable(); ;

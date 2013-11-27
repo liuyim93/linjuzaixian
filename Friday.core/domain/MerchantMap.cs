@@ -19,7 +19,7 @@ namespace friday.core.domain
             Map(o => o.EntityIndex);
             /*   ************************* */
             Map(o => o.Email);
-            Map(o => o.Description);
+            Map(o => o.Description).Length(99999999);
             Map(o => o.Name);
             Map(o => o.ShortName);
             Map(o => o.Owener);
@@ -41,7 +41,7 @@ namespace friday.core.domain
             Map(o => o.AfternoonEndHour);
 
 
-            Map(o => o.Schools).Length(1000);
+            Map(o => o.Schools).Length(999999);
             Map(o => o.ShopStatus).CustomType<ShopStatusEnum>();
             Map(o => o.MerchantType).CustomType<MerchantTypeEnum>();
 
