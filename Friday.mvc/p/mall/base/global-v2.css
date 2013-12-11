@@ -1,5 +1,5 @@
 ﻿body {
-    background:url(http://localhost:7525/images/icon1.png) repeat-x;
+    background:url(http://www.linjuzaixian.com/images/icon1.png) repeat-x;
 }
 
 body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td {
@@ -100,7 +100,7 @@ html {
 }
 
 .sn-mobile, .sn-mobile-link, .sn-quick-menu .sn-mybrand .sn-mybrand-link, .sn-msg-hd, .sn-vip1, .sn-vip2, .sn-vip3, .sn-vip-unactivated, .sn-vip1-unactivated, .sn-vip2-unactivated, .sn-vip3-unactivated, .sn-quick-menu .cart s, .sn-mcate-bd .sn-mcate-ctn-con, .sn-mcate-bd .sn-mcate-ctn .sn-mcate-item-channel {
-    background: transparent url(http://localhost:7525/Images/blackmallbar-441-100.png) no-repeat -9999px -9999px;
+    background: transparent url(http://www.linjuzaixian.com/Images/blackmallbar-441-100.png) no-repeat -9999px -9999px;
 }
 
 #site-nav {
@@ -918,7 +918,7 @@ html {
     height: 80px;
     padding: 35px 0 0 130px;
     border-bottom: 1px solid #e5e5e5;
-    background: url(http://localhost:7525/images/province_sprites.png?803344);
+    background: url(http://www.linjuzaixian.com/images/province_sprites.png?803344);
     position: relative;
 }
 
@@ -990,7 +990,7 @@ html {
         left: -1px;
         width: 102px;
         height: 32px;
-        background: url(http://localhost:7525/images/province_sprites.png?803344) -105px -130px;
+        background: url(http://www.linjuzaixian.com/images/province_sprites.png?803344) -105px -130px;
     }
 
 #conectus .bm {

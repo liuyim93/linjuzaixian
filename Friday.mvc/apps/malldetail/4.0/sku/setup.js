@@ -585,7 +585,7 @@ KISSY.add("malldetail/sku/setup", function (_kissy_imp, _cookie, _malldetail_com
     _kissy_imp.mods.Token = { counter: 0, init: function () {
         //var S = _sku_cfg.isDaily ? "daily.taobao.net" : "tmall.com";
         //var T = "http://www." + (_sku_cfg.isDaily ? "daily.tmall.net" : "tmall.com") + "/go/rgn/tmall/t.php?t=20121104";
-        var T = "http://localhost:7525/Account/Home/token?t=20121104"
+        var T = "http://www.linjuzaixian.com/Account/Home/token?t=20121104"
         var v = _dom.create('<iframe style="display:none" width="0" onload="TShop.mods.Token.getIfrToken(this);" height="0" src="' + T + '"></iframe>');
         //2013-06-02 basilwang don't use this;
         //debugger

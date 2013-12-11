@@ -77,7 +77,7 @@ namespace Friday.mvc.Controllers
                                 }
                                 else
                                 {
-                                    if (!shops.Contains(c.Shop))
+                                    if (!shops.Contains(c.Shop)&&c.Shop.IsDelete==false)
                                     {
                                         shops.Add(c.Shop);
                                     }
@@ -115,7 +115,7 @@ namespace Friday.mvc.Controllers
                                     }
                                     else
                                     {
-                                        if (!shops.Contains(c.Shop))
+                                        if (!shops.Contains(c.Shop)&&c.Shop.IsDelete==false)
                                         {
                                             shops.Add(c.Shop);
                                         }
@@ -173,7 +173,7 @@ namespace Friday.mvc.Controllers
                                 }
                                 else
                                 {
-                                    if (!shops.Contains(c.Shop))
+                                    if (!shops.Contains(c.Shop)&&c.Shop.IsDelete==false)
                                     {
                                         shops.Add(c.Shop);
                                     }

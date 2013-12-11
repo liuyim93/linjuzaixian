@@ -50,7 +50,7 @@ namespace Friday.mvc.Areas.PersonalCenter.Controllers
             PersonalCenterModel personalCenterModel = new PersonalCenterModel();
             if (systemUser == null)
             {
-                return Redirect("http://localhost:7525/member/login.jhtml?redirect_url=http://localhost:7525/PersonalCenter/Home/MyPersonalCenter");
+                return Redirect("http://www.linjuzaixian.com/member/login.jhtml?redirect_url=http://www.linjuzaixian.com/PersonalCenter/Home/MyPersonalCenter");
             }
 
             personalCenterModel.systemUser = systemUser;

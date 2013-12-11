@@ -17,7 +17,7 @@
             H.init()
         });
         //var F = "http://cart." + (E ? "daily.tmall.net" : "tmall.com") + "/cart/myCart.htm?from=btop";
-        var F = "http://localhost:7525/CartPay/Home/MyCartPay?from=btop";
+        var F = "http://www.linjuzaixian.com/CartPay/Home/MyCartPay?from=btop";
         C.each(D.query("#site-nav a"), function (G) {
             if (/\bmycart|my_cart\b\.htm\b/i.exec(G.href || "")) {
                 C.Event.on(G, "click", function () {

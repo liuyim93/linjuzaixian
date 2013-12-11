@@ -24,7 +24,7 @@
 
 #header {
     margin-top: -30px;
-    background-image: url(http://localhost:7525//images/tmallhead.gif);
+    background-image: url(http://www.linjuzaixian.com//images/tmallhead.gif);
 }
 
     #header .headerCon {
@@ -196,7 +196,7 @@ button::-moz-focus-inner {
     min-width: 990px;
     height: 30px;
     font-size: 14px;
-    background: url(http://localhost:7525/Images/comm_new_rep_imgs.png) repeat-x;
+    background: url(http://www.linjuzaixian.com/Images/comm_new_rep_imgs.png) repeat-x;
 }
 
 .mallNav-main {
@@ -236,14 +236,14 @@ button::-moz-focus-inner {
     #mallNav a.navA:hover {
         margin-left: -2px;
         padding-left: 17px;
-        background: url(http://localhost:7525/Images/comm_new_rep_imgs.png) repeat-x;
+        background: url(http://www.linjuzaixian.com/Images/comm_new_rep_imgs.png) repeat-x;
         position: relative;
         z-index: 10;
         text-decoration: none;
     }
 
 #mallNav .mallNav-con .curChn {
-    background: url(http://localhost:7525/Images/comm_new_rep_imgs.png) repeat-x;
+    background: url(http://www.linjuzaixian.com/Images/comm_new_rep_imgs.png) repeat-x;
     color: #b10000;
     z-index: 12;
 }
@@ -294,7 +294,7 @@ button::-moz-focus-inner {
 }
 
 #mall-desc i, #mall-desc .go-home {
-    background: url(http://localhost:7525/Images/TmallFooterBar-111-109.png) no-repeat;
+    background: url(http://www.linjuzaixian.com/Images/TmallFooterBar-111-109.png) no-repeat;
 }
 
 #mall-desc dt span {

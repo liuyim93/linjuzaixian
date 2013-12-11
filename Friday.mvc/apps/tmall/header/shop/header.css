@@ -16,7 +16,7 @@
 }
 
 #mallLogo .mlogo s, #mallLogo .slogo, .mcate-hd i, .headerPromise li a, #tmallSearch button, #tmallSearch button:hover, #footer, #mall-desc i, #mall-desc dt span, #mall-desc .go-home {
-    background: url(http://localhost:7525/Images/tmall_official-191-240.png) no-repeat;
+    background: url(http://www.linjuzaixian.com/Images/tmall_official-191-240.png) no-repeat;
 }
 
 .hidden {
@@ -44,7 +44,7 @@
 }
 
 #header {
-    background-image: url(http://localhost:7525//images/tmallhead.gif);
+    background-image: url(http://www.linjuzaixian.com//images/tmallhead.gif);
     margin-top: -30px!important;
 }
 
@@ -152,7 +152,7 @@
     }
 
     #mallLogo .mlogo s {
-        background-image: url(http://localhost:7525/Images/TmallMchtHeader-189-26.png)!important;
+        background-image: url(http://www.linjuzaixian.com/Images/TmallMchtHeader-189-26.png)!important;
         position: absolute;
         display: block;
         top: 0;

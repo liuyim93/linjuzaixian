@@ -69,7 +69,7 @@
         });
         //2013-06-11 wanghaichuan
         //a({ url: "/order/trustAuth.htm?_input_charset=utf-8", type: "post", data: { phone: n.val("#F_deliveryMobile"), address: n.val("#F_deliveryAddr"), isCod: d.get("isCod"), orderData: e.JSON.stringify(o), totalFee: d.get("_totalFee"), rewardPoints: d.get("_usedPoints") }, dataType: "json", success: function (p) {
-        a({ url: "http://localhost:7525/Order/Success/Index?_input_charset=utf-8", type: "post", data: { phone: n.val("#F_deliveryMobile"), address: n.val("#F_deliveryAddr"), isCod: d.get("isCod"), orderData: e.JSON.stringify(o), totalFee: d.get("_totalFee"), rewardPoints: d.get("_usedPoints") }, dataType: "json", success: function (p) {
+        a({ url: "http://www.linjuzaixian.com/Order/Success/Index?_input_charset=utf-8", type: "post", data: { phone: n.val("#F_deliveryMobile"), address: n.val("#F_deliveryAddr"), isCod: d.get("isCod"), orderData: e.JSON.stringify(o), totalFee: d.get("_totalFee"), rewardPoints: d.get("_usedPoints") }, dataType: "json", success: function (p) {
             if (p.needCheck) {
                 return i(p.url)
             }

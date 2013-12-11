@@ -216,7 +216,7 @@
 #detail .tb-attention .tb-action div a{display:none;}
 #detail .tb-attention .tb-action .tb-btn-inbox{display:block;height:25px;width:65px;}
 #detail .tb-attention .tb-btn-sku{margin-right:0;}
-#detail .tb-attention .tb-action .tb-btn-inbox b{background:url(http://localhost:7525/Images/buy_cart-439-76.png) no-repeat -288px 0!important;}
+#detail .tb-attention .tb-action .tb-btn-inbox b{background:url(http://www.linjuzaixian.com/Images/buy_cart-439-76.png) no-repeat -288px 0!important;}
 #detail .tb-attention .tb-action .noPost b{background-position:-353px 0!important;}
 #detail .tb-action .tb-btn-sku a.hidden{display:none;}
 #detail .tb-exchange .tb-ex-searchbox{margin-left:5px;}
@@ -224,7 +224,7 @@
 #detail .tb-exchange .tb-ex-searchbox input{width:95px;height:18px;border:1px solid #949494;color:#B9B9B9;}
 #J_ExNoFind{position:absolute;width:300px;height:140px;background:#FFF8F6;border:1px solid #C20008;display:none;z-index:100;}
 #J_ExNoFind h4{font-weight:normal;padding-top:10px;padding-left:34px;background:url(http://img02.taobaocdn.com/tps/i2/T1mKtLXX0cXXXXXXXX-14-18.png) no-repeat 10px 6px;}
-#detail #J_ExNoFind li{background:url(http://localhost:7525/Images/backtop.png) no-repeat 36px 10px;*background-image:url(http://img01.taobaocdn.com/tps/i1/T1l7RHXn8UXXXXXXXX-3-3.png);background-color:transparent;float:none;padding-left:43px;line-height:23px;}
+#detail #J_ExNoFind li{background:url(http://www.linjuzaixian.com/Images/backtop.png) no-repeat 36px 10px;*background-image:url(http://img01.taobaocdn.com/tps/i1/T1l7RHXn8UXXXXXXXX-3-3.png);background-color:transparent;float:none;padding-left:43px;line-height:23px;}
 #detail #J_ExNoFind li a{display:inline;border:none;background:none;color:#2953A7;text-decoration:underline;}
 .tb-lst-express-region{position:absolute;padding:5px;width:256px;border:2px solid #ffbf69;background-color:#fdffee;overflow:hidden;z-index:4999;left:-9999px;top:-9999px;}
 .tb-lst-express-region li{float:left;padding:2px;}
